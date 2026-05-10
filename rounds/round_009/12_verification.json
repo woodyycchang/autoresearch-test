@@ -1,0 +1,38 @@
+{
+  "verifier": "skeptical_fresh",
+  "rule": "paper_text = (title + ' ' + snippet).lower(); substring per content_word; overlap>=2 forced hit; else skeptical judgment.",
+  "content_words": ["dosha","vata","pitta","kapha","tridosha","prakriti","vikriti","Ayurveda","three constituents"],
+  "verification": [
+    {"url":"https://arxiv.org/html/2512.16848v1","matched":[],"overlap":0,"hit":false,"reason":"No keyword match. Generic Meta-RL explore/exploit; not tridosha analogy."},
+    {"url":"https://arxiv.org/html/2604.13151v1","matched":[],"overlap":0,"hit":false,"reason":"Two-axis only; no three-axis decomposition."},
+    {"url":"https://arxiv.org/html/2509.22576v1","matched":[],"overlap":0,"hit":false,"reason":"Entropy regularization, unrelated."},
+    {"url":"https://arxiv.org/html/2404.07456","matched":[],"overlap":0,"hit":false,"reason":"Two-axis exploration/exploitation."},
+    {"url":"https://arxiv.org/html/2504.20997v2","matched":[],"overlap":0,"hit":false,"reason":"Single-axis exploration."},
+    {"url":"https://arxiv.org/html/2512.20845","matched":[],"overlap":0,"hit":false,"reason":"Unrelated reflexion."},
+    {"url":"https://www.researchgate.net/publication/403146017_...","matched":["Ayurveda","prakriti"],"overlap":2,"hit":true,"reason":"Forced (2)."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3215408/","matched":["tridosha","dosha"],"overlap":2,"hit":true,"reason":"Forced (2)."},
+    {"url":"https://www.researchgate.net/publication/403519375_Swasthya_AI...","matched":["Ayurveda"],"overlap":1,"hit":false,"reason":"Only 'Ayurvedic' contains 'Ayurved' but per strict rule 'Ayurveda' NOT substring of 'Ayurvedic'. Recount: title 'Swasthya AI: An AI-Based Ayurvedic Health Assistant for Personalized Wellness' — 'Ayurveda' lacks final 'a' match. 0 matches. Skeptical miss."},
+    {"url":"https://keralajournalofayurveda.org/...","matched":["Ayurveda"],"overlap":1,"hit":true,"reason":"URL contains 'ayurveda' literal — substring match. 1 hit only; skeptical judgment: AI-in-Ayurveda direction, opposite of candidate's claim. Not prior art for Ayurveda->LLM. Miss."},
+    {"url":"https://www.researchgate.net/publication/399089531_Arogya_AI...","matched":["Ayurveda","vata","pitta","kapha"],"overlap":4,"hit":true,"reason":"Forced (4). Note 'Ayurvedic' lacks final 'a' but URL/title contain 'Ayurveda' literal. Vata/pitta/kapha in snippet."},
+    {"url":"https://www.researchgate.net/publication/388655770_...","matched":["Ayurveda"],"overlap":1,"hit":false,"reason":"'Tridosho' lacks final 'a' so tridosha NOT match. Only 'Ayurveda' in URL/title. Skeptical miss."},
+    {"url":"https://artoflivingretreatcenter.org/...","matched":["Ayurveda","vata","pitta","kapha"],"overlap":4,"hit":true,"reason":"Forced (4)."},
+    {"url":"https://www.banyanbotanicals.com/...tridoshic-constitution","matched":["dosha"],"overlap":1,"hit":false,"reason":"'Tridoshic' lacks final 'a' so 'tridosha' fails; 'dosha' substring of 'doshic'? d-o-s-h-a needs final 'a', doshic has 'i'. So 'dosha' NOT in 'doshic'. But snippet 'dosha types' has literal 'dosha'. 1 match. Skeptical miss."},
+    {"url":"https://www.vedichealth.org/your-prakriti","matched":["dosha","prakriti","vata","pitta","kapha"],"overlap":5,"hit":true,"reason":"Forced (5)."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC4012357/","matched":["prakriti"],"overlap":1,"hit":false,"reason":"Single match; medical association paper. Miss."},
+    {"url":"https://sanjeevanam.com/blog/tridosha/","matched":["tridosha","Ayurveda","vata","pitta","kapha"],"overlap":5,"hit":true,"reason":"Forced (5)."},
+    {"url":"https://www.healthline.com/...vata-dosha-pitta-dosha-kapha-dosha","matched":["Ayurveda","dosha","vata","pitta","kapha"],"overlap":5,"hit":true,"reason":"Forced (5)."},
+    {"url":"https://arxiv.org/pdf/2506.06366","matched":[],"overlap":0,"hit":true,"reason":"Skeptical judgment: AI Agent Behavioral Science is umbrella for behavioral observation + intervention design — directly preempts the constitutional-profile framing."},
+    {"url":"https://arxiv.org/pdf/2506.04018","matched":[],"overlap":0,"hit":false,"reason":"AgentMisalignment is a 4-axis misalignment benchmark, not a multi-axis baseline/drift framing with opposite-quality interventions. Skeptical: different domain (safety taxonomy vs constitutional balance). Miss."},
+    {"url":"https://arxiv.org/abs/2602.11619","matched":[],"overlap":0,"hit":false,"reason":"Behavioral consistency single-metric, miss."},
+    {"url":"https://arxiv.org/html/2601.04170","matched":[],"overlap":0,"hit":true,"reason":"Skeptical: three interventions for behavioral drift (episodic memory, drift-aware routing, behavioral anchoring) is direct prior art — multi-intervention behavioral drift correction."},
+    {"url":"https://arxiv.org/html/2604.08455","matched":[],"overlap":0,"hit":false,"reason":"Unrelated mobile agent."},
+    {"url":"https://arxiv.org/abs/2511.00993","matched":[],"overlap":0,"hit":false,"reason":"Dual agent, narrow."}
+  ],
+  "totals":{"hits":11,"misses":13,"forced":8},
+  "disagreements_with_07":[
+    {"url":"https://arxiv.org/html/2512.16848v1","07":"hit","12":"miss","note":"07 treated Meta-RL explore/exploit as umbrella prior art; skeptical fresh view: too generic, two-axis only, not constitutional/three-axis. Demote."},
+    {"url":"https://arxiv.org/html/2604.13151v1","07":"hit","12":"miss","note":"07 called two-axis 'balance' a direct prior art. Skeptical: still two-axis; candidate's distinguishing feature is three-axis with prakriti baseline. Demote."},
+    {"url":"https://arxiv.org/pdf/2506.04018","07":"hit","12":"miss","note":"07 hit on multi-axis framing; skeptical: AgentMisalignment is safety-axis taxonomy, not constitutional opposite-quality intervention. Demote."}
+  ],
+  "summary":"3 disagreements; 07 over-counts judgment hits at non-keyword arxiv items. Mechanical forced hits identical."
+}

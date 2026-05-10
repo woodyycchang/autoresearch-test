@@ -121,3 +121,41 @@ Format per entry:
     - Verification said: miss (all 10)
     - Implication: primary uses 'addresses same phenomenon' to count as prior art; verifier uses 'implements same Bauschinger / kinematic-hardening formalism' as bar. Verifier argues counting these as prior art conflicts with the candidate's own novelty_claim which explicitly says they document phenomenon without formalizing.
 - Action: human reviews at next 25-round checkpoint. This is an interpretive disagreement on novelty-bar height. Verdict-level FAIL robust under either reading.
+
+## Round 006
+- Primary verdict: FAIL (hit_count = 16)
+- Verification verdict: FAIL (hit_count = 12)
+- Forced-hit set: 4 forced hits identical between primary and verification.
+- Disagreement details (6 non-forced results, all primary=hit / verifier=miss):
+  - TraceCoder (2602.06875): primary called adjacent debugging framework; verifier too different.
+  - LLM software repair survey (2506.23749): primary called field-establishing; verifier generic survey.
+  - 4 ML-for-concrete papers (Nature 2025-30158, PMC 8348520, ScienceDirect S0950, Tandfonline fungal): primary called same conceptual space; verifier prunes reverse-direction matches (ML predicts concrete, not concrete inspires LLM).
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust (VIGIL hit confirmed by both).
+
+## Round 007
+- Primary verdict: FAIL (hit_count = 9)
+- Verification verdict: FAIL (hit_count = 7, all forced)
+- Forced-hit set: 4 from primary, 7 from verifier (verifier found additional forced hits in PMC10593717 and intechopen 40015 that primary undercounted; verifier recounted 22732024 with overlap=3).
+- Disagreement details:
+  - Primary marked 3 Bloom-Taxonomy LLM papers as agent-judged hits (substantive prior art); verifier downgrades to miss (no TCM content_word overlap).
+  - Verifier upgrades PMC10593717 to forced hit (TCM pulse + pulse diagnosis literal match) — primary had it as miss.
+  - Multiple matched_words list inconsistencies in primary identified by verifier; verdicts mostly unchanged.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust via mechanical forced hits alone. Primary's Bloom-Taxonomy substantive prior-art argument is the disputed item.
+
+## Round 008
+- Primary verdict: FAIL (hit_count = 18)
+- Verification verdict: FAIL (hit_count = 6, mostly forced + one Polycomb mechanism-level judgment)
+- 14 disagreements all primary=hit / verifier=miss in two clusters: (a) LLM persistent-memory papers don't have population-stochastic-switch mechanism; (b) general epigenetic-analogy papers don't port vernalization to LLM commitment specifically.
+- Verifier confirms strict-substring readings: "PRC2" literal in pubmed 25929799 snippet but NOT in PNAS title (expanded form). "epigenetic switching" full phrase appears nowhere. "stochastic cell", "cold integration", "FLOWERING LOCUS C" zero matches.
+- Action: human reviews at next 25-round checkpoint. Continued pattern: primary lenient on substantive equivalence, verifier strict.
+
+## Round 009
+- Primary verdict: FAIL (hit_count = 14)
+- Verification verdict: FAIL (hit_count = 11)
+- Forced-hit set: 8 forced hits identical between primary and verification.
+- Disagreement details (3 non-forced results, all primary=hit / verifier=miss):
+  - 2512.16848 Meta-RL: primary called umbrella prior art; verifier too generic two-axis.
+  - 2604.13151 Exp/Exploit Errors: primary called four-prompt-variant prior art; verifier still two-axis without prakriti baseline.
+  - 2506.04018 AgentMisalignment: primary called multi-axis benchmark; verifier safety taxonomy not constitutional intervention.
+- Both AGREE on 2506.06366 (AI Agent Behavioral Science) and 2601.04170 (Agent Drift three-intervention) as substantive prior art.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust.
