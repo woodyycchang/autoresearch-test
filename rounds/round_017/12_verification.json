@@ -1,0 +1,27 @@
+{
+  "verifier": "fresh_skeptical_round_017",
+  "rule": "substring case-insensitive; overlap>=2 forces hit; 'waggle dance' NOT in 'waggle drift'; 'honey bee' NOT in 'honeybee'",
+  "content_words": ["waggle dance","honey bee","Apis mellifera","figure-eight dance","structured signaling","biomimetic communication","swarm coordination","pose-and-tempo encoding"],
+  "independent_results": [
+    {"url":"https://arxiv.org/pdf/2502.14321","overlap":0,"matched":[],"hit":true,"forced":false,"reason":"LLM-MAS communication survey = umbrella prior art for structured-comm framing."},
+    {"url":"https://arxiv.org/html/2505.21298v3","overlap":0,"matched":[],"hit":true,"forced":false,"reason":"KQML-style structured formats = direct prior art for compact structured inter-agent signaling."},
+    {"url":"https://arxiv.org/html/2605.02801","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"RL orchestration, off-axis."},
+    {"url":"https://arxiv.org/pdf/2510.17149","overlap":0,"matched":[],"hit":true,"forced":false,"reason":"Multi-agent protocol evaluation = prior art on protocol choice."},
+    {"url":"https://arxiv.org/html/2510.07799","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"Topology generation, not compact-signature comm."},
+    {"url":"https://arxiv.org/html/2501.06322v1","overlap":0,"matched":[],"hit":true,"forced":false,"reason":"MAS collaboration survey = umbrella prior art."},
+    {"url":"https://arxiv.org/html/2511.20639v1","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"Latent collab, narrower."},
+    {"url":"https://arxiv.org/pdf/2502.11098","overlap":0,"matched":[],"hit":true,"forced":false,"reason":"TalkHier structured comm protocol = central prior art."},
+    {"url":"https://academic.oup.com/pnasnexus/article/2/9/pgad275/7251052","overlap":1,"matched":["honey bee"],"hit":true,"forced":false,"reason":"'waggle dance' NOT substring ('waggle drift'); 'honey bee' YES. Source-domain biology of waggle communication system."},
+    {"url":"https://www.researchgate.net/figure/The-honey-bee-waggle-dance-uses-the-Sun-and-the-Earths-gravity-to-communicate_fig1_220999811","overlap":2,"matched":["waggle dance","honey bee"],"hit":true,"forced":true,"reason":"Forced: source-domain biology."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12467162/","overlap":1,"matched":["waggle dance"],"hit":true,"forced":false,"reason":"Snippet contains 'waggle dance'. Bio-Agentic Visual Communication for UAV swarms = THE bee-waggle-as-multi-agent-communication framing; occupies the niche."},
+    {"url":"https://www.pnas.org/doi/10.1073/pnas.2518687123","overlap":2,"matched":["waggle dance","honey bee"],"hit":true,"forced":true,"reason":"Forced: source-domain biology."},
+    {"url":"https://www.researchgate.net/publication/323904710_Dancing_Honey_bee_Robot_Elicits_Dance-Following_and_Recruits_Foragers","overlap":1,"matched":["honey bee"],"hit":true,"forced":false,"reason":"RoboBee dancing robot = biomimetic instantiation of waggle dance signaling."},
+    {"url":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188626","overlap":2,"matched":["waggle dance","honey bee"],"hit":true,"forced":true,"reason":"Forced: 'waggle dance' substring of 'waggle dances'; 'honey bee' present. ML decoding of waggle dances."},
+    {"url":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0021354","overlap":1,"matched":["waggle dance"],"hit":true,"forced":false,"reason":"'honey bee' NOT in 'Honeybees' (no space). Biomimetic honeybee robot design = bio-inspired instantiation."}
+  ],
+  "totals":{"hits":11,"misses":4,"forced_hits":3},
+  "disagreements_with_07":[
+    {"url":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188626","07_says":"MISS overlap=1","verifier_says":"forced HIT overlap=2","reason":"'waggle dance' IS substring of 'waggle dances' (title 'honey bee waggle dances'); both content words present. Rule forces hit."}
+  ],
+  "novelty_assessment":"Claim is well-supported by 06. The bee-waggle-as-LLM-multi-agent-communication niche is occupied by PMC12467162 (Bio-Agentic Visual Communication for UAV swarms explicitly bridging waggle dance to agent communication). Structured-MAS-comm prior art is dense (TalkHier, KQML-mark, surveys). Novelty claim CONFIRMED: not novel."
+}

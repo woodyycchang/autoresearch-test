@@ -64,3 +64,13 @@ DO NOT repropose these:
 - Round 013 | domain: dynamical systems theory (Hamiltonian / KAM theorem) | mechanism: Diophantine separation predictor for which LLM capabilities survive fine-tune perturbation | verdict: FAIL
 - Round 014 | domain: hydrology / fluvial geomorphology (hyporheic zone) | mechanism: bidirectional transit-zone layer with in-transit transformation for working-↔-long-term memory exchange | verdict: FAIL
 - Round 015 | domain: horology / mechanical engineering (clock escapement) | mechanism: bidirectional feedback regulator metering LLM agent decision tempo via oscillator-synced discrete events | verdict: FAIL
+- Round 016 | domain: Inuit ethnoscience (Arctic sea-ice taxonomy / siku terminology) | mechanism: 30-100 categorical-label fine-grained operational-state taxonomies for high-stakes LLM agent diagnostics | verdict: FAIL
+- Round 017 | domain: ethology (honey bee waggle dance communication) | mechanism: compact pose-and-tempo signature encoding for LLM multi-agent one-to-many communication | verdict: FAIL
+- Round 018 | domain: quantum mechanics (Aharonov-Bohm effect, gauge potentials) | mechanism: gauge-theoretic framing of low-attention-token non-local influence on LLM residual stream | verdict: FAIL
+- Round 019 | domain: molecular biology (bacterial riboswitches) | mechanism: storage-and-actuator context entries for LLM agent policy modulation via structural form | verdict: FAIL
+- Round 020 | domain: Aboriginal/First-Nations ecological practice (fire-stick farming / cool burns) | mechanism: proactive small-mosaic failure-injection discipline for LLM agent runtime | verdict: FAIL
+- Round 021 | domain: molecular biology (programmed -1 ribosomal frameshifting) | mechanism: context-cue-triggered frame switching for LLM interpretive re-reading of same content | verdict: FAIL
+- Round 022 | domain: molecular biology / neurodegeneration (prion templating) | mechanism: template-misfolding propagation of misrepresentations in LLM agent memory with cascade containment | verdict: FAIL
+- Round 023 | domain: physical chemistry / materials science (Ostwald ripening) | mechanism: Gibbs-Thomson coarsening dynamic for LLM agent memory consolidation | verdict: FAIL
+- Round 024 | domain: Traditional Chinese Medicine (meridian / acupoint system) | mechanism: cartography of (intervention-site, downstream-capability) pathway pairs for LLM activation steering | verdict: FAIL
+- Round 025 | domain: statistical mechanics (spin glass / replica symmetry breaking, glassy aging) | mechanism: glassy-dynamics framing of long-running LLM agent deployment-aging effects | verdict: FAIL

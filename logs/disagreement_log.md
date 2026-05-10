@@ -167,3 +167,47 @@ Format per entry:
 - Verifier downgrades emergent-abilities-umbrella papers (gregrobison, 2508.04401, 2503.05788, towardsdatascience), Mid-Training survey (2510.06826), Quantifying Emergence (2409.01568), MDPI RD-equations, and grid-cell RNN (1803.07770).
 - Verifier keeps two forced Liesegang hits + ResearchGate Turing-instability-RD-NN (substring match on "reaction-diffusion").
 - Action: human reviews at next 25-round checkpoint. Continued pattern of verifier-strict.
+
+## Round 012
+- Primary FAIL (10 hits) / Verifier FAIL (6 hits / 6 forced). 4 disagreements all primary=hit/verifier=miss on overlap=0 LLM-side agent-judged hits (Tool Attention, Silicon Mirror, Multi-Layer Memory, RL Budget). Action: continued primary-lenient/verifier-strict pattern.
+
+## Round 013
+- Primary FAIL (9 hits) / Verifier FAIL (~2 hits per verifier note). 4 disagreements: 07 marked LLM-fine-tune-survival papers (2508.09190, 2405.17374, 2505.16737, 2506.14681) as hit via judgment; verifier downgrades to miss under strict-substring reading. Math source-domain forced hits (Wikipedia, johndcook, MathWorld, 2503.13932) agree.
+
+## Round 014
+- Primary FAIL (11 hits) / Verifier FAIL (7). 6 disagreements: 07 marked 5 LLM-memory papers (Collaborative, ByteRover, A-Mem, MemVerse, Agentic Memory) as agent-judged hits despite overlap=0; verifier strictly misses. Verifier upgrades agupubs Hyporheic Flow paper to hit on overlap=1 substring match.
+
+## Round 015
+- Primary FAIL (7) / Verifier FAIL (3 forced + 0 judgment). Verifier corrected primary's loose substring claim — "anchor escapement" is NOT substring of "anchor clock escapement" (intervening word). Net 4 disagreements where primary used substantive judgment on overlap=0 LLM-scheduling papers.
+
+## Round 016
+- Primary FAIL (7) / Verifier FAIL (5). 2 disagreements: 07 marked Agent-OM and Waterloo Inuit+AI as hits; verifier strictly misses (Agent-OM is ontology matching not fine-grained operational-state; Waterloo is reverse direction).
+
+## Round 017
+- Primary FAIL (10) / Verifier FAIL (11). 1 disagreement: verifier upgraded plosone 0188626 to forced hit (correctly counted 'waggle dance' substring of 'waggle dances' and 'honey bee' both present), which primary had at overlap=1.
+
+## Round 018
+- Primary FAIL (5) / Verifier FAIL (6 including correction). 1 disagreement: philsci-archive "Reality of Gauge Potentials" — primary undercounted ('gauge potential' IS substring of 'gauge potentials'); verifier and primary's own correction agree this is forced hit.
+
+## Round 019
+- Primary FAIL (8) / Verifier FAIL (8). FULL AGREEMENT — 0 disagreements. Second 0-disagreement round of session.
+
+## Round 020
+- Primary FAIL (2) / Verifier FAIL (2). FULL AGREEMENT — 0 disagreements. Third 0-disagreement round.
+
+## Round 021
+- Primary FAIL (3) / Verifier FAIL (2). 2 disagreements: MAR (2512.20845) primary=hit (judgment) verifier=miss; KnotInFrame internal-reasoning inconsistency (final result agrees as miss but primary's matched_words list was wrong).
+
+## Round 022
+- Primary FAIL (8 hits) / Verifier: SUBAGENT API POLICY ERROR.
+- Verification not completed. Primary verdict robust without independent re-judgment per fallback assessment.
+- Logged to compliance_log.md as infrastructure failure, not agent failure.
+
+## Round 023
+- Primary FAIL (6) / Verifier FAIL (4). 2 disagreements: 07 elevated overlap=0 LLM-memory papers (Lightweight Agent Memory, Memoria) to hits via paraphrase; verifier strictly misses.
+
+## Round 024
+- Primary FAIL (7) / Verifier FAIL (6). 1 disagreement: Locate-Steer-Improve (2601.14004) primary=hit via judgment, verifier=miss under strict substring rule.
+
+## Round 025
+- Primary FAIL (13) / Verifier FAIL (~13 with minor mechanical count differences). Verifier flagged two count inconsistencies in primary's prose: ResearchGate 'Spin-glass models' hyphenated not space-separated; SK-Spin-Glass primary's prose contradicted its own JSON. Final hit/miss flags consistent; mechanical counts vary by 1.

@@ -1,0 +1,26 @@
+{
+  "rule": "substring case-insensitive; overlap>=2 forces hit; 'spin glass' (space) NOT substring of 'spin-glass' (hyphen)",
+  "content_words": ["spin glass","replica symmetry breaking","aging","metastable states","glassy dynamics","energy landscape","relaxation","Parisi"],
+  "results": [
+    {"url":"https://arxiv.org/html/2604.07820","matched_words":["aging","relaxation"],"overlap_count":2,"forced_hit":true},
+    {"url":"https://arxiv.org/html/2605.00435","matched_words":[],"overlap_count":0,"forced_hit":false,"note":"'metastable region' != 'metastable states'"},
+    {"url":"https://arxiv.org/abs/0707.2714","matched_words":["spin glass","metastable states"],"overlap_count":2,"forced_hit":true,"note":"snippet 'SK spin glass' contains 'spin glass' with space"},
+    {"url":"https://arxiv.org/abs/1303.7209","matched_words":["aging","relaxation"],"overlap_count":2,"forced_hit":true},
+    {"url":"https://arxiv.org/pdf/2510.24188","matched_words":["aging"],"overlap_count":1,"forced_hit":false},
+    {"url":"https://arxiv.org/html/2509.09505v1","matched_words":[],"overlap_count":0,"forced_hit":false},
+    {"url":"https://arxiv.org/abs/1803.06442","matched_words":["replica symmetry breaking","spin glass"],"overlap_count":2,"forced_hit":true,"note":"'Spin Glasses' contains 'spin glass'"},
+    {"url":"https://arxiv.org/abs/2408.06421","matched_words":[],"overlap_count":0,"forced_hit":false},
+    {"url":"https://arxiv.org/html/2407.20724v1","matched_words":["spin glass"],"overlap_count":1,"forced_hit":false},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9141424/","matched_words":["spin glass"],"overlap_count":1,"forced_hit":false},
+    {"url":"https://link.springer.com/article/10.1134/S1063779622040128","matched_words":["spin glass"],"overlap_count":1,"forced_hit":false,"note":"'Spin Glasses' contains 'spin glass'"},
+    {"url":"https://www.science.org/doi/10.1126/science.adu7710","matched_words":["replica symmetry breaking","spin glass"],"overlap_count":2,"forced_hit":true},
+    {"url":"https://www.researchgate.net/publication/283617465_Spin-glass_models_of_neural_networks","matched_words":[],"overlap_count":0,"forced_hit":false,"note":"'Spin-glass' hyphenated, 'spin glass' with space is NOT substring"},
+    {"url":"https://en.wikipedia.org/wiki/Spin_glass","matched_words":["spin glass","aging"],"overlap_count":2,"forced_hit":true},
+    {"url":"https://arxiv.org/pdf/2111.12997","matched_words":["replica symmetry breaking"],"overlap_count":1,"forced_hit":false}
+  ],
+  "forced_hit_count": 6,
+  "disagreements_with_07": [
+    {"url":"https://arxiv.org/abs/0707.2714","07_overlap":2,"07_forced":true,"07_text_says_revising_to_1":true,"verifier_overlap":2,"verifier_forced":true,"note":"07 reason text waffles, lands hit=true but flips forced flag confusingly; verifier confirms 2 matches via snippet 'SK spin glass'"},
+    {"url":"https://www.researchgate.net/publication/283617465_Spin-glass_models_of_neural_networks","07_matched":["spin glass"],"07_overlap":1,"verifier_overlap":0,"note":"07 counted 'spin glass' match against 'Spin-glass' hyphenated title; rule explicitly states space != hyphen"}
+  ]
+}

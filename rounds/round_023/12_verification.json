@@ -1,0 +1,30 @@
+{
+  "verifier_round": "023_fresh_skeptical",
+  "rule": "substring case-insensitive; overlap>=2 forces hit",
+  "content_words": ["Ostwald ripening","Gibbs-Thomson","particle coarsening","LSW theory","redeposition","memory consolidation","rich get richer","preferential attachment"],
+  "independent_results": [
+    {"url":"https://arxiv.org/abs/2510.08203","overlap":1,"matched":["memory consolidation"],"hit":true,"forced":false,"reason":"Title contains 'Memory Retrieval and Consolidation in Large Language Models' = direct LLM-memory-consolidation prior art."},
+    {"url":"https://arxiv.org/html/2604.07798","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No content-word substring in title/snippet; mechanical miss."},
+    {"url":"https://arxiv.org/html/2508.15294v1","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No overlap."},
+    {"url":"https://arxiv.org/abs/2504.19413","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No overlap."},
+    {"url":"https://arxiv.org/html/2511.15424","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No overlap."},
+    {"url":"https://arxiv.org/html/2601.02845v1","overlap":1,"matched":["memory consolidation"],"hit":true,"forced":false,"reason":"TiMem 'Temporal-Hierarchical Memory Consolidation' = explicit consolidation prior art."},
+    {"url":"https://arxiv.org/abs/2512.12686","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No content-word substring; mechanical miss despite consolidation theme."},
+    {"url":"https://arxiv.org/abs/2512.13564","overlap":0,"matched":[],"hit":false,"forced":false,"reason":"No overlap."},
+    {"url":"https://www.sciencedirect.com/topics/physics-and-astronomy/ostwald-ripening","overlap":1,"matched":["Ostwald ripening"],"hit":false,"forced":false,"reason":"Source-domain only; not an LLM application."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6213382/","overlap":1,"matched":["Ostwald ripening"],"hit":false,"forced":false,"reason":"Physics CA model."},
+    {"url":"https://arxiv.org/html/2507.23580v1","overlap":1,"matched":["Ostwald ripening"],"hit":false,"forced":false,"reason":"Physics paper."},
+    {"url":"https://en.wikipedia.org/wiki/Ostwald_ripening","overlap":3,"matched":["Ostwald ripening","Gibbs-Thomson","LSW theory"],"hit":true,"forced":true,"reason":"3 substring matches forces hit; source-domain reference."},
+    {"url":"https://pubs.acs.org/doi/10.1021/jacs.5c13701","overlap":1,"matched":["Ostwald ripening"],"hit":false,"forced":false,"reason":"Source-domain."},
+    {"url":"https://my.eng.utah.edu/~lzang/images/lecture-9.pdf","overlap":2,"matched":["Ostwald ripening","particle coarsening"],"hit":true,"forced":true,"reason":"2 substring matches forces hit; source-domain lecture."},
+    {"url":"https://pubs.acs.org/doi/10.1021/acs.cgd.8b00267","overlap":1,"matched":["Ostwald ripening"],"hit":false,"forced":false,"reason":"Source-domain."}
+  ],
+  "total_hits": 4,
+  "total_misses": 11,
+  "forced_hits": 2,
+  "disagreements_with_07_hit_miss": [
+    {"url":"https://arxiv.org/html/2604.07798","my":"miss","theirs":"hit","note":"Their reason is agent-judgment paraphrase; no content-word substring present. Strict rule says miss."},
+    {"url":"https://arxiv.org/abs/2512.12686","my":"miss","theirs":"hit","note":"Same: no substring overlap, only thematic similarity. Strict rule says miss."}
+  ],
+  "agreement_summary": "Agree on all forced-rule cases (Wikipedia, Utah lecture). Disagree on 2 non-forced agent-judgment hits (2604.07798, 2512.12686) where 07_hit_miss promoted overlap=0 results to hits via paraphrase reasoning rather than substring evidence. My total: 4 hits vs theirs 6. Substantive LLM-consolidation prior art still confirmed (2510.08203, 2601.02845); novelty claim that exact Ostwald-ripening framing isn't directly imported remains plausible."
+}

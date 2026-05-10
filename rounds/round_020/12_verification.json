@@ -1,0 +1,26 @@
+{
+  "verifier": "fresh_skeptical_round_020",
+  "rule": "substring case-insensitive; overlap>=2 forces hit",
+  "content_words_frozen": ["cool burn","fire-stick farming","indigenous fire","mosaic burn","controlled burn","prescribed burn","Aboriginal fire","chaos engineering"],
+  "independent_results": [
+    {"url":"https://arxiv.org/html/2505.03096v1","matched_words":["chaos engineering"],"overlap_count":1,"hit":true,"forced_by_rule":false,"reason":"Chaos engineering for LLM-MAS directly substantiates proactive-failure-injection prior art."},
+    {"url":"https://arxiv.org/html/2506.12104v3","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"DRIFT is defensive, not proactive injection."},
+    {"url":"https://www.arxiv.org/pdf/2511.07865","matched_words":["chaos engineering"],"overlap_count":1,"hit":true,"forced_by_rule":false,"reason":"ChaosEater automates chaos engineering with LLMs; direct prior art."},
+    {"url":"https://arxiv.org/html/2605.03378","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"Defense against prompt injection."},
+    {"url":"https://arxiv.org/html/2507.21504v1","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"Benchmarking survey."},
+    {"url":"https://openreview.net/forum?id=oY1Xnt83oJ","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"DRIFT duplicate."},
+    {"url":"https://today.usc.edu/what-can-native-american-knowledge-and-now-ai-teach-us-about-fire/","matched_words":["controlled burn"],"overlap_count":1,"hit":false,"forced_by_rule":false,"reason":"Substring matches via 'controlled burns' but topic is AI assisting real fire mgmt (reverse direction), not LLM-runtime discipline. Judgment: miss."},
+    {"url":"https://www.forestsnews.org/159517/indigenous-knowledge-ai-fire-management","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"Snippet lacks frozen substrings."},
+    {"url":"https://arxiv.org/html/2404.01487v1","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"XAI wildfire prediction."},
+    {"url":"https://link.springer.com/chapter/10.1007/978-3-032-11426-6_20","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"AI/ML for forest fires."},
+    {"url":"https://www.tandfonline.com/doi/full/10.1080/17567505.2024.2425246","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"No frozen-word substring; firestick != fire-stick farming."},
+    {"url":"https://www.sciencedirect.com/science/article/pii/S0016718521000233","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"Indigenous fire policy review."},
+    {"url":"https://www.sciencedirect.com/science/article/pii/S001282522500025X","matched_words":[],"overlap_count":0,"hit":false,"forced_by_rule":false,"reason":"AI wildfire fuels mapping."}
+  ],
+  "total_hits": 2,
+  "total_misses": 11,
+  "forced_hit_count": 0,
+  "disagreements_with_07": [],
+  "agreement_note": "After independent judgment, my hit/miss verdicts match 07_hit_miss.json exactly. USC item has 'controlled burns' substring (overlap=1, not forced) and both verifiers judge it a miss because the direction is AI-helping-fire, not fire-analogy-for-LLM-runtime. No disagreements.",
+  "verdict": "Candidate novelty claim is partially supported: prior art (2505.03096, 2511.07865) confirms proactive-failure-injection-for-LLM-agents is occupied. Indigenous-fire-as-LLM-discipline framing remains unindexed; mechanism is published. Recommend REJECT-novelty / accept-mechanism-claim."
+}

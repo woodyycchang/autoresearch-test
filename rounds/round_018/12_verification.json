@@ -1,0 +1,19 @@
+{
+  "round": "018",
+  "rule": "substring case-insensitive; overlap>=2 forces hit",
+  "content_words": [
+    {"word": "Aharonov-Bohm", "hit": true, "evidence": "query2: 'Aharonov-Bohm effect - Wikipedia', 'Aharonov-Bohm Effect Explained', 'Aharonov-Bohm effect: reality and folklore', etc."},
+    {"word": "gauge potential", "hit": true, "evidence": "substring of 'gauge potentials' in philsci-archive snippet 'Reality of Gauge Potentials' and link.springer 'Gauge-Underdetermination ... Aharonov-Bohm'"},
+    {"word": "vector potential", "hit": false, "evidence": "no snippet contains 'vector potential'"},
+    {"word": "non-local phase", "hit": false, "evidence": "no snippet contains 'non-local phase' as substring"},
+    {"word": "phase shift", "hit": true, "evidence": "query2 Wikipedia snippet: 'electron acquires phase shift in field-free region'"},
+    {"word": "attention sink", "hit": true, "evidence": "substring of 'attention sinks' in DuoAttention snippet 'streaming heads focus on recent tokens and attention sinks'"},
+    {"word": "residual stream", "hit": true, "evidence": "2412.15113 title and snippet: 'attention residual stream architecture', 'Residual stream architecture allows information to flow'"},
+    {"word": "low attention", "hit": false, "evidence": "no snippet contains 'low attention' as substring"}
+  ],
+  "hit_count": 5,
+  "miss_count": 3,
+  "overlap_ge_2": true,
+  "final_verdict": "HIT",
+  "rationale": "5 of 8 content words substring-hit in snippets; overlap>=2 forces hit. Candidate's Aharonov-Bohm gauge-potential framing of non-local low-attention-token influence on LLM residual stream is supported by retrieved citations (DuoAttention, Stream/Sparse Tracing, residual stream arch, AB effect papers) and not directly imported elsewhere."
+}

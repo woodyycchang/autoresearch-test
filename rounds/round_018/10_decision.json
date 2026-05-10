@@ -1,0 +1,8 @@
+{
+  "verdict": "FAIL",
+  "evidence_file": "06_search_raw.json",
+  "hit_count": 5,
+  "forced_hit_count": 2,
+  "candidate_summary": "Aharonov-Bohm gauge potential (non-local phase from vector potential in field-free region) → quantify non-local low-attention-token influence as gauge potential on LLM residual stream",
+  "reasoning": "Mechanical rule: 5 hits, 2 forced (Aharonov-Bohm Wikipedia + philsci-archive — note: I marked philsci-archive miss but on review 'gauge potential' is substring of 'gauge potentials', so it should be forced hit; consistent FAIL either way). Substantive LLM prior art: DuoAttention (2410.10819) explicitly addresses attention sinks and retrieval vs streaming heads — adjacent to my non-local-influence framing. Associative memory residual stream (2412.15113) studies residual flow between attention heads. Sparse Tracing / Stream (2510.19875) analyzes long-context attention patterns. The Aharonov-Bohm-as-LLM-non-local-influence specific framing is not directly imported, but the attention-sink + residual-stream literature occupies the underlying empirical phenomenon. Verdict FAIL: even though the gauge-theoretic framing might add formal structure, the underlying observation (low-attention tokens affect output) is documented and partially mechanized in attention-sink work."
+}

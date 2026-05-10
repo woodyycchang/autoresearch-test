@@ -1,0 +1,32 @@
+{
+  "verifier": "fresh_skeptical_round_024",
+  "content_words_frozen": ["meridian","acupuncture","acupoint","qi","Traditional Chinese Medicine","activation steering","intervention point","pathway intervention"],
+  "rule": "substring case-insensitive on title+snippet; overlap>=2 forces hit",
+  "verification_results": [
+    {"url":"https://arxiv.org/html/2605.03907","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Direct activation steering prior art."},
+    {"url":"https://arxiv.org/html/2509.00328v1","matched":[],"overlap":0,"hit":false,"forced":false,"note":"Mech interp for VLA; no frozen word match."},
+    {"url":"https://arxiv.org/html/2511.21399v3","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Activation steering substring present."},
+    {"url":"https://arxiv.org/pdf/2604.09839","matched":[],"overlap":0,"hit":false,"forced":false,"note":"'Steered' not 'activation steering' as phrase; no match."},
+    {"url":"https://arxiv.org/html/2601.14004v4","matched":[],"overlap":0,"hit":false,"forced":false,"note":"No frozen content-word substring in title/snippet. Locate-Steer-Improve does not contain 'activation steering' as phrase."},
+    {"url":"https://arxiv.org/html/2604.19018","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Activation Steering via control."},
+    {"url":"https://arxiv.org/html/2512.24143v1","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Activation Steering for diffusion."},
+    {"url":"https://arxiv.org/html/2505.20309","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Weighted Activation Steering."},
+    {"url":"https://arxiv.org/html/2603.06745","matched":["activation steering"],"overlap":1,"hit":true,"forced":false,"note":"Activation Steering with Dynamic Rejection."},
+    {"url":"https://media.sciltp.com/articles/2506000807/2506000807.pdf","matched":[],"overlap":0,"hit":false,"forced":false,"note":"No frozen word."},
+    {"url":"https://journals.lww.com/ahm/fulltext/2023/12000/intelligent_acupuncture__data_driven_revolution_of.5.aspx","matched":["acupuncture"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain only; no LLM context."},
+    {"url":"https://onlinelibrary.wiley.com/doi/10.1155/2021/6678958","matched":[],"overlap":0,"hit":false,"forced":false,"note":"Chinese Medicine but not 'Traditional Chinese Medicine' substring."},
+    {"url":"https://link.springer.com/article/10.1186/s13020-025-01173-3","matched":["acupoint"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain acupoint localization."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12848914/","matched":["acupuncture"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain ML in acupuncture."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11245652/","matched":[],"overlap":0,"hit":false,"forced":false,"note":"TCM but no 'Traditional Chinese Medicine' full substring."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12350448/","matched":["acupuncture"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain AI in acupuncture."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9237974/","matched":["acupuncture"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain only."},
+    {"url":"https://www.scienceopen.com/hosted-document?doi=10.15212/AMM-2025-0045","matched":["Traditional Chinese Medicine"],"overlap":1,"hit":false,"forced":false,"note":"Source-domain AI+TCM; not the cross-domain analogy."}
+  ],
+  "total_hits": 6,
+  "total_misses": 12,
+  "forced_hit_count": 0,
+  "disagreements_with_07_hit_miss": [
+    {"url":"https://arxiv.org/html/2601.14004v4","agent_07":"hit=true (judgment, overlap=0)","verifier":"hit=false","reason":"Agent recorded overlap=0 but marked hit=true via 'agent judgment'. Rule is substring/overlap-based, not semantic. Title/snippet contain no frozen content word, so verdict is miss under stated rule."}
+  ],
+  "summary":"6 hits vs agent's 7. Single disagreement: 2601.14004 (Locate-Steer-Improve) - agent override of own overlap=0 to hit=true violates the substring rule; verifier marks miss. Activation-steering arxiv cluster (6 papers) constitutes strong prior art for the proposed mechanism, undermining novelty claim."
+}
