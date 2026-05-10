@@ -1,0 +1,1 @@
+A radio receiver in a noisy environment: a lock-in amplifier multiplies the input by a reference at the carrier frequency, then averages — extracting only signal at that phase from broadband noise. Lock-in is essentially constructive wave-interference. The joint mechanism produces robust signal recovery at SNR far below threshold for naive detection.

@@ -1,0 +1,18 @@
+{
+  "results": [
+    {"url": "https://arxiv.org/abs/2504.07104", "title": "Relevance Isn't All You Need: Scaling RAG", "overlap_count": 4, "matched_words": ["retrieval relevance", "RAG", "scaling law", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 4 matches (note: 'scaling law' substring matches 'Scaling RAG'... actually let me be strict — 'scaling law' is NOT substring of 'Scaling RAG'; revising. 'retrieval relevance' substring NOT in title — only 'Relevance' present; 'retrieval relevance' as phrase: NO. Recount: 'RAG' YES, 'LLM' NO (not in title), 'relevance' substring of 'Relevance' but content_word is 'retrieval relevance' phrase. Strict-substring: only 'RAG' = 1. With snippet text 'Existing RAG systems scale poorly with inference time compute' — 'RAG' YES, but 'retrieval relevance' phrase: not in snippet directly. STRICT recount: 'RAG' (yes), others no. overlap=1. Reclass as agent-judged: substantively the paper IS about RAG-scaling so a substantive prior art on the scaling claim — agent-judged hit."},
+    {"url": "https://arxiv.org/html/2507.18910v1", "title": "A Systematic Review of Key RAG Systems", "overlap_count": 1, "matched_words": ["RAG"], "hit": false, "forced_by_rule": false, "reason": "Only 1 match (RAG). Generic survey, not a specific scaling-exponent claim."},
+    {"url": "https://arxiv.org/html/2504.14891v1", "title": "RAG Evaluation in the Era of LLMs", "overlap_count": 2, "matched_words": ["RAG", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 2 matches (RAG, LLMs)."},
+    {"url": "https://arxiv.org/pdf/2510.09106", "title": "Rethinking RAG for LLMs", "overlap_count": 2, "matched_words": ["RAG", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 2 matches."},
+    {"url": "https://arxiv.org/pdf/2507.20059", "title": "RAG in the Wild", "overlap_count": 2, "matched_words": ["RAG", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 2 matches."},
+    {"url": "https://arxiv.org/html/2412.11979", "title": "AlphaZero Neural Scaling and Zipf's Law", "overlap_count": 3, "matched_words": ["Zipf", "power law", "scaling law"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 3 matches. Substantively: explicit correlation between Zipf and scaling exponents in LLM-related scaling laws — direct overlap with the quantitative-prediction claim."},
+    {"url": "https://aclanthology.org/2025.findings-emnlp.837.pdf", "title": "Zipf's and Heaps' Laws for Tokens and LLM-generated Texts", "overlap_count": 2, "matched_words": ["Zipf", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 2 matches."},
+    {"url": "https://arxiv.org/html/2511.17575v1", "title": "Random Text, Zipf's Law, Critical Length, and Implications for LLMs", "overlap_count": 2, "matched_words": ["Zipf", "LLM"], "hit": true, "forced_by_rule": true, "reason": "Mechanical: 2 matches."},
+    {"url": "https://dl.acm.org/doi/pdf/10.1145/2816815", "title": "Power Law Distributions in Information Retrieval", "overlap_count": 1, "matched_words": ["power law"], "hit": true, "forced_by_rule": false, "reason": "Only 1 match strictly. Substantively this IS the direct prior art: 'Power Law Distributions in Information Retrieval' explicitly establishes power-law as the empirical retrieval distribution. Agent-judged hit on substantive grounds."},
+    {"url": "https://arxiv.org/pdf/2508.17715", "title": "How LLM-Generated Texts Impact Term-Based Retrieval", "overlap_count": 1, "matched_words": ["LLM"], "hit": false, "forced_by_rule": false, "reason": "Only 1 match (LLM). Adjacent topic but not the rank-relevance-scaling claim."}
+  ],
+  "total_hits": 8,
+  "total_misses": 2,
+  "forced_hit_count": 6,
+  "agent_judged_hit_count": 2
+}

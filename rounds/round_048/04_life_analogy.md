@@ -1,0 +1,1 @@
+A library's optimal index granularity scales with the number of books: 10 books → flat list; 10,000 books → Dewey decimal hierarchy. The optimal index dimension scales as a power of the corpus size, with diminishing returns at large scale.

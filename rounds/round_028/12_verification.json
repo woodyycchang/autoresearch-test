@@ -1,0 +1,12 @@
+{
+  "verification_agent_id": "claude-fresh-context-adversarial-frame-028",
+  "verification_method": "same-model clean-context adversarial frame per program.md §9",
+  "results_summary": "Verifier re-applied mechanical rule. Agrees on 6 forced hits. Disagrees on agent-judged: verifier says ACM 2816815 'Power Law Distributions in IR' has only overlap=1 strictly and downgrades primary's agent-judged hit on that one to miss; verifier also disputes primary's agent-judged hit on 2504.07104. Verdict: still FAIL because 6 forced hits suffice.",
+  "agrees_with_primary": false,
+  "disagreement_count": 2,
+  "disagreement_details": [
+    {"url": "https://dl.acm.org/doi/pdf/10.1145/2816815", "primary_says": true, "verification_says": false, "implication": "Primary over-strict in the lenient direction; verifier strict-substring keeps it at overlap=1=miss."},
+    {"url": "https://arxiv.org/abs/2504.07104", "primary_says": true, "verification_says": false, "implication": "Same pattern."}
+  ],
+  "verdict_agreement": "FAIL"
+}

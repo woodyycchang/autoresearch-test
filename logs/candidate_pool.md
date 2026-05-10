@@ -74,3 +74,31 @@ DO NOT repropose these:
 - Round 023 | domain: physical chemistry / materials science (Ostwald ripening) | mechanism: Gibbs-Thomson coarsening dynamic for LLM agent memory consolidation | verdict: FAIL
 - Round 024 | domain: Traditional Chinese Medicine (meridian / acupoint system) | mechanism: cartography of (intervention-site, downstream-capability) pathway pairs for LLM activation steering | verdict: FAIL
 - Round 025 | domain: statistical mechanics (spin glass / replica symmetry breaking, glassy aging) | mechanism: glassy-dynamics framing of long-running LLM agent deployment-aging effects | verdict: FAIL
+
+## Epoch 2 (rounds 026-050, program_v2.md)
+
+- Round 026 | domain: ethology + statistical mechanics (joint: stigmergy + Brownian-ratchet) | mechanism: joint stigmergy + information-ratchet for LLM multi-agent append-only coordination | verdict: FAIL | form: A
+- Round 027 | domain: statistical mechanics (Loschmidt paradox, microreversibility) | mechanism: microreversibility-based impossibility for LLM unlearning | verdict: FAIL | form: B
+- Round 028 | domain: linguistics / statistical physics (Zipf's law) | mechanism: Zipfian k^{-α} relevance-rank scaling for RAG retrieval | verdict: FAIL | form: C
+- Round 029 | domain: LLM mechanistic interpretability exported to Drosophila mushroom body neuroscience | mechanism: induction-head circuit predicts KC-MBON two-step circuit | verdict: FAIL | form: D
+- Round 030 | domain: developmental biology + reaction-diffusion physics jointly | mechanism: morphogen gradient + Turing bistability for LLM-MAS role differentiation | verdict: FAIL | form: A
+- Round 031 | domain: computability theory (Rice's theorem) | mechanism: Rice-theorem impossibility for LLM agent safety | verdict: FAIL | form: B
+- Round 032 | domain: information theory / cognitive psychology (exponential recency decay) | mechanism: exp(-d/τ) attention decay with τ≈0.7L universal | verdict: FAIL | form: C
+- Round 033 | domain: LLM grokking exported to developmental neuroscience | mechanism: weight-decay grokking transition predicts cortical consolidation window | verdict: FAIL | form: D
+- Round 034 | domain: quantum biology (cryptochrome radical pair) + Berry phase jointly | mechanism: joint Berry-phase + cryptochrome geometric encoding for LLM attention heads | verdict: FAIL | form: A
+- Round 035 | domain: mathematical logic (Löb's theorem) | mechanism: Löb-style obstruction to LLM self-modeling | verdict: FAIL | form: B
+- Round 036 | domain: learning-curve psychology (power-law error decay) | mechanism: hallucination_rate ~ N^{-0.4} in parameter count | verdict: FAIL | form: C
+- Round 037 | domain: LLM circuit-formation order exported to developmental neuroscience | mechanism: transformer-circuit formation order predicts cortical critical-period sequence | verdict: FAIL | form: D
+- Round 038 | domain: quantum optics (Dicke superradiance) + statistical mechanics (Landau symmetry breaking) jointly | mechanism: joint superradiance + symmetry-breaking for LLM-MAS coordination phase transition | verdict: FAIL | form: A
+- Round 039 | domain: information theory (Shannon zero-error capacity) | mechanism: Shannon-bound impossibility for RAG prompt-leakage | verdict: FAIL | form: B
+- Round 040 | domain: learning curves / scaling laws | mechanism: tool-use_accuracy ~ compute^0.18 universal | verdict: FAIL | form: C
+- Round 041 | domain: LLM ICL exported to primate PFC neuroscience | mechanism: ICL induction-head predicts PFC rule-binding signature | verdict: FAIL | form: D
+- Round 042 | domain: ecology (trophic cascade) + network physics (percolation threshold) jointly | mechanism: joint trophic + percolation for LLM-MAS error cascades | verdict: FAIL | form: A
+- Round 043 | domain: distributed systems (Byzantine-fault-tolerance threshold) | mechanism: BFT-threshold impossibility for online RLHF poisoning recovery | verdict: FAIL | form: B
+- Round 044 | domain: complexity theory / information theory | mechanism: CoT-length ~ task_complexity^0.65 | verdict: FAIL | form: C
+- Round 045 | domain: LLM plasticity loss exported to mammalian neurodevelopment | mechanism: representation-entropy saturation common to DNN and cortical critical-period | verdict: PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE (strict-substring artifact; flagged for review) | form: D
+- Round 046 | domain: signal processing (lock-in amplifier) + wave physics (interference) jointly | mechanism: joint lock-in + interference for noisy ICL signal recovery | verdict: PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE (artifact; flagged) | form: A
+- Round 047 | domain: information theory (Shannon channel capacity for steganography) | mechanism: capacity-bound impossibility of undetectable + paraphrase-robust LLM watermark | verdict: PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE (artifact; flagged) | form: B
+- Round 048 | domain: information retrieval / signal processing | mechanism: d_opt ~ N^{1/3} optimal embedding-dimension scaling | verdict: FAIL | form: C
+- Round 049 | domain: LLM attention-sink phenomenon exported to cortical-microcircuit neuroscience | mechanism: attention-sink predicts cortical noise-floor functional role | verdict: FAIL | form: D
+- Round 050 | domain: chemical kinetics (mass action) + chemical thermodynamics (Le Chatelier) jointly | mechanism: joint mass-action + Le-Chatelier for LLM-MAS capability/cost dynamics | verdict: PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE (artifact; flagged) | form: A

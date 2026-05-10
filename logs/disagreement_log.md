@@ -211,3 +211,93 @@ Format per entry:
 
 ## Round 025
 - Primary FAIL (13) / Verifier FAIL (~13 with minor mechanical count differences). Verifier flagged two count inconsistencies in primary's prose: ResearchGate 'Spin-glass models' hyphenated not space-separated; SK-Spin-Glass primary's prose contradicted its own JSON. Final hit/miss flags consistent; mechanical counts vary by 1.
+
+## Epoch 2 disagreements (Rounds 026-050)
+
+## Round 026
+- Primary FAIL (6 hits) / Verifier FAIL (6). Full agreement. 0 disagreements.
+
+## Round 027
+- Primary FAIL (10 hits) / Verifier FAIL (10). Full agreement.
+
+## Round 028
+- Primary FAIL (8 hits, 6 forced + 2 agent-judged) / Verifier FAIL (6 hits, 6 forced). 2 disagreements on agent-judged: ACM 2816815 and 2504.07104, both primary=hit / verifier=miss under strict-substring rule.
+
+## Round 029
+- Primary FAIL (7) / Verifier FAIL (7). Full agreement.
+
+## Round 030
+- Primary FAIL (6) / Verifier FAIL (6). Full agreement.
+
+## Round 031
+- Primary FAIL (4) / Verifier FAIL (4). Full agreement.
+
+## Round 032
+- Primary FAIL (5) / Verifier FAIL (5). Full agreement.
+
+## Round 033
+- Primary FAIL (1) / Verifier FAIL (1). Full agreement.
+
+## Round 034
+- Primary FAIL (5 = 4 forced + 1 agent-judged) / Verifier FAIL (4). 1 disagreement: PRISM 2512.01208 primary=agent-judged-hit verifier=strict-miss (overlap=1).
+
+## Round 035
+- Primary FAIL (2) / Verifier FAIL (2). Full agreement.
+
+## Round 036
+- Primary FAIL (6 = 5 forced + 1 agent-judged) / Verifier FAIL (5). 1 disagreement: Law-of-Knowledge-Overshadowing primary=agent-judged-hit verifier=strict-miss.
+
+## Round 037
+- Primary FAIL (1) / Verifier FAIL (1). Full agreement.
+
+## Round 038
+- Primary FAIL (3) / Verifier FAIL (3). Full agreement.
+
+## Round 039
+- Primary FAIL (1) / Verifier FAIL (1). Full agreement.
+
+## Round 040
+- Primary FAIL (1) / Verifier FAIL (1). Full agreement.
+
+## Round 041
+- Primary FAIL (4) / Verifier FAIL (4). Full agreement.
+
+## Round 042
+- Primary FAIL (5) / Verifier FAIL (5). Full agreement.
+
+## Round 043
+- Primary FAIL (3) / Verifier FAIL (3). Full agreement.
+
+## Round 044
+- Primary FAIL (6) / Verifier FAIL (6). Full agreement.
+
+## Round 045 — MECHANICAL PASS / SUBSTANTIVE FAIL FLAG
+- Primary PASS (0 hits strict) / Verifier PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE.
+- Verifier mechanically agrees (0 substring matches) but independently flags Nature paper 'Loss of Plasticity in Deep Continual Learning' as direct substantive prior art that strict-substring rule missed because of word-order ('Loss of Plasticity' vs content_word 'plasticity loss').
+- Disagreement type: NEW — verifier disagrees with primary's verdict SUBSTANTIVELY despite mechanical agreement.
+- Action: human reviews flagged round; verdict is mechanically PASS but substantively FAIL.
+
+## Round 046 — MECHANICAL PASS / SUBSTANTIVE FAIL FLAG
+- Primary PASS (0 hits strict) / Verifier PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE.
+- Verifier mechanically agrees but flags 2507.13540 'Low-Frequency Bias of ICL' as substantive prior art.
+- Same artifact pattern as R045.
+
+## Round 047 — MECHANICAL PASS / SUBSTANTIVE FAIL FLAG
+- Primary PASS (0 hits strict) / Verifier PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE.
+- Verifier flags 2410.02890 'Theoretically Grounded Framework for LLM Watermarking' as substantive prior art.
+
+## Round 048
+- Primary FAIL (3) / Verifier FAIL (3). Full agreement.
+
+## Round 049
+- Primary FAIL (2) / Verifier FAIL (2). Full agreement.
+
+## Round 050 — MECHANICAL PASS / SUBSTANTIVE FAIL FLAG
+- Primary PASS (0 hits strict) / Verifier PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE.
+- Verifier flags 2506.20921 'LLM-guided Chemical Process Optimization Multi-Agent' as substantive prior art.
+
+## Epoch 2 disagreement summary
+- Mechanical disagreements (primary vs verifier on hit/miss flags): R028 (2), R034 (1), R036 (1) = 3 rounds with disagreement out of 25.
+- Substantive PASS-vs-FAIL flags (mechanical PASS but verifier substantively flags as prior art): R045, R046, R047, R050 = 4 rounds.
+- Rounds with EITHER disagreement type: 7 out of 25 = 0.28 rate (vs epoch 1's 0.88).
+- Rounds with mechanical PASS verdict: 4 / 25 (vs epoch 1's 0/25). All 4 flagged as strict-substring artifacts where verifier substantively identifies prior art.
