@@ -1,0 +1,20 @@
+{
+  "verifier": "skeptical",
+  "round": 13,
+  "rule": "substring case-insensitive; overlap>=2 tokens forces hit; else skeptical judgment",
+  "per_word": [
+    {"word": "KAM theorem", "hit": true, "reason": "substring match in wiki title and multiple snippets"},
+    {"word": "Kolmogorov-Arnold-Moser", "hit": true, "reason": "substring match in wiki/mathworld/scholarpedia titles"},
+    {"word": "invariant tori", "hit": true, "reason": "substring match in KAM snippets"},
+    {"word": "Hamiltonian", "hit": true, "reason": "substring match: 'Hamiltonian systems' in KAM snippets"},
+    {"word": "quasi-periodic", "hit": true, "reason": "tokens quasi+periodic both substring-match 'quasiperiodic' in wiki snippet; overlap>=2 forces hit"},
+    {"word": "Diophantine", "hit": true, "reason": "substring match in wiki KAM snippet ('Diophantine condition')"},
+    {"word": "perturbation", "hit": true, "reason": "substring match: 'perturbations' across multiple KAM snippets"},
+    {"word": "stability under perturbation", "hit": true, "reason": "tokens stability/under/perturbation all present across corpus; overlap>=2 forces hit. Skeptical caveat: exact phrase not present, but rule mandates hit"}
+  ],
+  "hit_count": 8,
+  "total": 8,
+  "verdict": "all_hit",
+  "novelty_assessment": "Domain term coverage complete; KAM Diophantine-separation framing of LLM capability fragility under fine-tune not found in retrieved corpus, supporting novelty_claim",
+  "skeptical_notes": "Borderline cases: 'quasi-periodic' is a hyphenation variant of corpus 'quasiperiodic'; 'stability under perturbation' is a constructed phrase not literally in corpus but tokens widely distributed. Both pass under overlap>=2 rule."
+}

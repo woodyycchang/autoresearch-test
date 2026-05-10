@@ -1,0 +1,17 @@
+{
+  "domain": "bacterial CRISPR-Cas adaptive immunity (molecular microbiology)",
+  "specific_mechanism": "PAM (protospacer adjacent motif) discrimination: Cas9 (and other Class 1/2 Cas effectors) cleave target DNA only when a matched protospacer is immediately adjacent to a PAM sequence. The host's own CRISPR array contains the same spacers but lacks PAM adjacency, so it is NOT cleaved. PAM is a small (~2-6 nt) sequence requirement that solves the autoimmunity problem cleanly: same sequence, different context → different action.",
+  "llm_application": "Equip an LLM agent with a PAM-equivalent: a small token-local 'external-source' signature appended by the runtime to all externally-supplied input (user text, tool output). The retrieval-action coupling fires only when input has the signature adjacent. Internally-generated scratchpad lacks the signature and therefore cannot trigger retrieval-actions even if it textually matches stored skills/memories. Solves the agent-monologue-self-injection problem by structural marker, not by semantic classification.",
+  "novelty_claim": "LLM Tagging (prepending '[AGENT NAME]:' to inter-agent messages) is a known defense (Prompt Infection 2410.07283 and follow-ups). Multi-agent defense pipelines (2509.14285), tool-result parsing (2601.04795), and design patterns for prompt-injection defense (2506.08837) all address the same self-other-input problem. CRISPR-PAM as the explicit analogy for the structural-marker discrimination strategy isn't directly imported, but the structural-marker solution itself is published.",
+  "content_words": [
+    "CRISPR",
+    "Cas",
+    "PAM",
+    "protospacer",
+    "spacer",
+    "self versus non-self",
+    "prompt injection",
+    "input marker",
+    "agent tagging"
+  ]
+}

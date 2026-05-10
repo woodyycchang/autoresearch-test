@@ -1,0 +1,25 @@
+{
+  "verifier": "skeptical_fresh_round_012",
+  "rule_applied": "paper_text=(title+' '+snippet).lower(); substring match per content_word; overlap>=2 forces hit; skeptical otherwise",
+  "my_judgments": [
+    {"url":"https://arxiv.org/html/2604.00478","matched":[],"overlap":0,"hit":false,"reason":"No content_word substring; 'behavioral gating' is not 'context gating' or 'multi-signal gating'. Skeptical: LLM-side relevance exists but rule says no content_words = miss."},
+    {"url":"https://arxiv.org/abs/2604.21816","matched":[],"overlap":0,"hit":false,"reason":"No content_word substring. Skeptical miss despite topical relevance."},
+    {"url":"https://arxiv.org/html/2603.29194","matched":[],"overlap":0,"hit":false,"reason":"No content_word substring. Skeptical miss."},
+    {"url":"https://arxiv.org/abs/2511.02755","matched":[],"overlap":0,"hit":false,"reason":"No content_word substring. Skeptical miss."},
+    {"url":"https://arxiv.org/html/2510.07799v1","matched":[],"overlap":0,"hit":false,"reason":"No content_word substring. Miss."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11565210/","matched":["stomata","stomatal"],"overlap":2,"hit":true,"forced":true,"reason":"'stomatal' contains 'stomata' substring."},
+    {"url":"https://www.nature.com/articles/s41598-025-22412-5","matched":["stomata","stomatal","guard cell"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC7438572/","matched":["stomata","stomatal","guard cell","ABA","abscisic acid"],"overlap":5,"hit":true,"forced":true},
+    {"url":"https://academic.oup.com/jxb/article/75/21/6683/7810660","matched":["stomata","stomatal"],"overlap":2,"hit":true,"forced":true},
+    {"url":"https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.780180/full","matched":["stomata","stomatal"],"overlap":2,"hit":true,"forced":true},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3258058/","matched":["stomata","stomatal","aperture"],"overlap":3,"hit":true,"forced":true}
+  ],
+  "my_totals": {"hits":6,"misses":5,"forced_hits":6},
+  "disagreements_with_07": [
+    {"url":"https://arxiv.org/html/2604.00478","07_hit":true,"my_hit":false,"note":"07 used agent judgment to call hit despite zero content_word overlap; skeptical rule rejects."},
+    {"url":"https://arxiv.org/abs/2604.21816","07_hit":true,"my_hit":false,"note":"Same: 07 agent-judgment hit with overlap 0; skeptical rejects."},
+    {"url":"https://arxiv.org/html/2603.29194","07_hit":true,"my_hit":false,"note":"Same: agent-judgment hit, overlap 0."},
+    {"url":"https://arxiv.org/abs/2511.02755","07_hit":true,"my_hit":false,"note":"Same: agent-judgment hit, overlap 0."}
+  ],
+  "summary": "Agree on 7/11 papers. 4 LLM-side arxiv papers: 07 generously hit them on semantic grounds; skeptical verifier requires content_word substring presence and finds none, so misses. All 6 biology papers correctly forced-hit. Net: candidate novelty claim still weakened because biology source-domain papers all hit; the LLM-side prior art whether scored hit/miss by string rule is still topically adjacent per 07's own reasoning."
+}

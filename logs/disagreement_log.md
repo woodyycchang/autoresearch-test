@@ -159,3 +159,11 @@ Format per entry:
   - 2506.04018 AgentMisalignment: primary called multi-axis benchmark; verifier safety taxonomy not constitutional intervention.
 - Both AGREE on 2506.06366 (AI Agent Behavioral Science) and 2601.04170 (Agent Drift three-intervention) as substantive prior art.
 - Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust.
+
+## Round 010
+- Primary verdict: FAIL (hit_count = 10)
+- Verification verdict: FAIL (hit_count = 3: 2 forced + 1 RD-NN agent-judged on substring match)
+- 7 disagreements all primary=hit / verifier=miss on agent-judged hits.
+- Verifier downgrades emergent-abilities-umbrella papers (gregrobison, 2508.04401, 2503.05788, towardsdatascience), Mid-Training survey (2510.06826), Quantifying Emergence (2409.01568), MDPI RD-equations, and grid-cell RNN (1803.07770).
+- Verifier keeps two forced Liesegang hits + ResearchGate Turing-instability-RD-NN (substring match on "reaction-diffusion").
+- Action: human reviews at next 25-round checkpoint. Continued pattern of verifier-strict.
