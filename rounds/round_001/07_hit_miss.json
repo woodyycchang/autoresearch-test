@@ -1,0 +1,243 @@
+{
+  "content_words_frozen": [
+    "ergodic",
+    "ergodic decomposition",
+    "Birkhoff",
+    "invariant measure",
+    "time average",
+    "trajectory",
+    "policy collapse",
+    "mode transition"
+  ],
+  "rule": "for each result, paper_text = (title + ' ' + snippet).lower(); overlap = sum(1 for w in content_words if w.lower() in paper_text); hit forced=true if overlap >= 2",
+  "results": [
+    {
+      "url": "https://arxiv.org/abs/2509.23586",
+      "title": "Reducing Cost of LLM Agents with Trajectory Reduction",
+      "overlap_count": 1,
+      "matched_words": ["trajectory"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Only 'trajectory' matches; paper is about token-cost reduction of agent traces, no ergodic-theory connection."
+    },
+    {
+      "url": "https://github.com/AGI-Edgerunners/LLM-Agents-Papers",
+      "title": "LLM-Agents-Papers: A repo lists papers related to LLM based agent",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Aggregator repo, no overlap."
+    },
+    {
+      "url": "https://arxiv.org/html/2509.23586v1",
+      "title": "Improving the Efficiency of LLM Agent Systems through Trajectory Reduction",
+      "overlap_count": 1,
+      "matched_words": ["trajectory"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Same trajectory-cost-reduction work; not ergodic."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.04851",
+      "title": "LEGOMem: Modular Procedural Memory for Multi-agent LLM",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Memory paper, no ergodic content."
+    },
+    {
+      "url": "https://andreaian.github.io/pub/RAL_21.pdf",
+      "title": "Decentralized Trajectory Optimization for Multi-Agent Ergodic Exploration",
+      "overlap_count": 2,
+      "matched_words": ["ergodic", "trajectory"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 'ergodic' and 'trajectory' both appear in title. Note: this is robotic ergodic exploration (info-theoretic coverage), a distinct application of ergodic theory from my candidate's ergodic-decomposition-for-diagnosis; impulse to override logged in 11_audit, but rule stands."
+    },
+    {
+      "url": "https://aclanthology.org/2025.emnlp-demos.15.pdf",
+      "title": "AgentDiagnose: An Open Toolkit for Diagnosing LLM Agent Trajectories",
+      "overlap_count": 1,
+      "matched_words": ["trajectory"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Agent trajectory diagnosis but via decomposition annotation heuristics, no ergodic theory."
+    },
+    {
+      "url": "https://openreview.net/forum?id=vXrOyzt0Ea",
+      "title": "TrajTune: Trajectory-Based Prompt Optimization for LLM Agents",
+      "overlap_count": 1,
+      "matched_words": ["trajectory"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Prompt-optimization framework; not ergodic-theoretic."
+    },
+    {
+      "url": "https://math.uchicago.edu/~may/REU2017/REUPapers/Yunis.pdf",
+      "title": "The Birkhoff Ergodic Theorem with Applications",
+      "overlap_count": 4,
+      "matched_words": ["ergodic", "Birkhoff", "invariant measure", "time average"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 4 content_words match. Note: pure mathematical exposition, no LLM/agent application; impulse to override logged in 11_audit, but rule stands."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00025-017-0681-9",
+      "title": "A Note on the Birkhoff Ergodic Theorem",
+      "overlap_count": 4,
+      "matched_words": ["ergodic", "Birkhoff", "invariant measure", "time average"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 4 content_words match. Pure-math note, not LLM application; rule still stands."
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ergodic_theory",
+      "title": "Ergodic theory - Wikipedia",
+      "overlap_count": 3,
+      "matched_words": ["ergodic", "invariant measure", "time average"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 3 content_words match. Wikipedia overview, not novel research, but establishes the framework as well-known."
+    },
+    {
+      "url": "https://arxiv.org/abs/1704.03681",
+      "title": "A Note on the Birkhoff Ergodic Theorem",
+      "overlap_count": 3,
+      "matched_words": ["ergodic", "Birkhoff", "invariant measure"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 3 content_words match. Pure-math note."
+    },
+    {
+      "url": "https://www.sciencedirect.com/topics/mathematics/birkhoff-ergodic-theorem",
+      "title": "Birkhoff Ergodic Theorem - an overview",
+      "overlap_count": 2,
+      "matched_words": ["ergodic", "Birkhoff"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 2 content_words match. Topic overview."
+    },
+    {
+      "url": "https://arxiv.org/html/2601.08726v1",
+      "title": "Model-Agnostic Solutions for Deep Reinforcement Learning in Non-Ergodic Contexts",
+      "overlap_count": 1,
+      "matched_words": ["ergodic"],
+      "hit": true,
+      "forced_by_rule": false,
+      "reason": "Agent judgment: only 1 content_word matches mechanically, but paper directly addresses 'in non-ergodic contexts, the optimal policy cannot be accurately inferred from expected values alone' and 'agents transition to optimal policy' — exactly the problem space my candidate occupies. Strong prior art for the direction; mechanism differs (reward-transformation vs trajectory-decomposition) but the framing is published."
+    },
+    {
+      "url": "https://arxiv.org/html/2308.03888",
+      "title": "Deep neural networks from the perspective of ergodic theory",
+      "overlap_count": 2,
+      "matched_words": ["ergodic", "invariant measure"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 'ergodic' + 'invariant measure' both in snippet ('invariant measures' substring). Directly applies ergodic theory to neural networks via Markov-process view of SGD with invariant measure of parameter distribution. Closest substantive prior art."
+    },
+    {
+      "url": "https://openreview.net/forum?id=r7OB810eaP",
+      "title": "Non-ergodicity in reinforcement learning: robustness via ergodic transformations",
+      "overlap_count": 1,
+      "matched_words": ["ergodic"],
+      "hit": true,
+      "forced_by_rule": false,
+      "reason": "Agent judgment: same paper-line as 2601.08726/2310.11335; ergodic theory applied to RL policy robustness."
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.11335",
+      "title": "Reinforcement learning with non-ergodic reward increments: robustness via ergodicity transformations",
+      "overlap_count": 2,
+      "matched_words": ["ergodic", "trajectory"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 'ergodic' + 'trajectory' (in 'trajectories'). Explicitly compares ensemble average vs time average across trajectories for policy learning."
+    },
+    {
+      "url": "https://arxiv.org/html/2507.01003",
+      "title": "Description of the Training Process of Neural Networks via Ergodic Theorem: Ghost nodes",
+      "overlap_count": 1,
+      "matched_words": ["ergodic"],
+      "hit": true,
+      "forced_by_rule": false,
+      "reason": "Agent judgment: applies ergodic theorem to NN training dynamics. Reinforces that ergodic-theorem ↔ NN-learning analogy is published; specializing to LLM agents is incremental."
+    },
+    {
+      "url": "https://ergodicityeconomics.com/2023/10/20/an-ergodicity-perspective-on-reinforcement-learning/",
+      "title": "An ergodicity perspective on reinforcement learning",
+      "overlap_count": 2,
+      "matched_words": ["ergodic", "time average"],
+      "hit": true,
+      "forced_by_rule": true,
+      "reason": "Mechanical: 'ergodic' (in 'ergodicity') + 'time average'. Informal-but-influential exposition distinguishing ensemble vs time average for RL policy decisions."
+    },
+    {
+      "url": "https://medium.com/how-i-use-ai/ergodic-theory-and-agentic-ideation-in-ai-6f2cc2cd254f",
+      "title": "Ergodic Theory and Agentic Ideation in AI",
+      "overlap_count": 1,
+      "matched_words": ["ergodic"],
+      "hit": true,
+      "forced_by_rule": false,
+      "reason": "Agent judgment: Medium post explicitly titled 'Ergodic Theory and Agentic Ideation in AI' — informal discourse has named the connection. Consistent with saturation_evidence §3 finding that informal community discourse covers the same directions."
+    },
+    {
+      "url": "https://arxiv.org/html/2403.01536v3",
+      "title": "Fast Ergodic Search With Kernel Functions",
+      "overlap_count": 1,
+      "matched_words": ["ergodic"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Robotic ergodic search (info-theoretic coverage), a distinct mechanism family from ergodic decomposition for trajectory diagnosis."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.07327",
+      "title": "IterResearch: Rethinking Long-Horizon Agents with Interaction Scaling",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Long-horizon agent benchmark, no ergodic theory."
+    },
+    {
+      "url": "https://arxiv.org/html/2503.09572v3",
+      "title": "Plan-and-Act: Improving Planning of Agents for Long-Horizon Tasks",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Planning framework, no ergodic theory."
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.21766",
+      "title": "UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios",
+      "overlap_count": 1,
+      "matched_words": ["trajectory"],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Long-horizon agent benchmark with 200k-token trajectories; benchmark-snapshot evaluation, not ergodic analysis."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.22769v1",
+      "title": "AMA-Bench: Evaluating Long-Horizon Memory for Agentic Applications",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Memory benchmark; no ergodic content."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.11978v1",
+      "title": "The Long-Horizon Task Mirage? Diagnosing Where and Why Agentic Systems Break",
+      "overlap_count": 0,
+      "matched_words": [],
+      "hit": false,
+      "forced_by_rule": false,
+      "reason": "Diagnostic study of long-horizon failures; no ergodic theory."
+    }
+  ],
+  "total_hits": 13,
+  "total_misses": 12,
+  "forced_hit_count": 9
+}

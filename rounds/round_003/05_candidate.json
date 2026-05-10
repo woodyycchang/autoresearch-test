@@ -1,0 +1,18 @@
+{
+  "domain": "common-law procedural doctrine (estoppel family)",
+  "specific_mechanism": "estoppel-by-reliance: once one party has acted on a representation made by another, the representor is precluded from later contradicting the representation; specific subforms include promissory estoppel (reliance on a promise), issue preclusion / collateral estoppel (a once-decided issue cannot be relitigated between the same parties), and judicial estoppel (a party cannot take inconsistent positions in different proceedings before the same tribunal)",
+  "llm_application": "Estoppel as runtime discipline for long-running agents: when step N emits a claim (factual or procedural) and step N+k consumes it as a load-bearing premise, the runtime records the reliance edge; the claim is then 'estopped' against silent retraction. If a later step would contradict the claim, the runtime requires an explicit retraction-with-cascade-recovery operation that propagates to all downstream uses, rather than allowing the contradiction to be emitted as a fresh assertion. Multi-branch tasks enforce judicial-estoppel equivalents — the agent cannot return position A on one branch and not-A on another to the same user.",
+  "novelty_claim": "AgentArmor (arxiv 2508.01249) introduces Program Dependence Graphs over agent runtime, which is structurally similar but framed as a security defense, not as a consistency/reliance discipline. Consistency-Score evaluation metrics (2507.21504) and claim-verification systems (2602.18693) measure outcomes but do not provide a normative architecture for estoppel-like locking. The legal-doctrine framing — that prior claims are not merely scored but procedurally locked against silent retraction under penalty of cascade-recovery — appears not to have been published as an explicit runtime discipline for LLM agents.",
+  "content_words": [
+    "estoppel",
+    "promissory estoppel",
+    "judicial estoppel",
+    "issue preclusion",
+    "reliance",
+    "retraction",
+    "dependency graph",
+    "load-bearing claim",
+    "consistency",
+    "commitment"
+  ]
+}
