@@ -1,0 +1,27 @@
+{
+  "round": "015",
+  "method": "substring match of content_words against search_raw titles/snippets/URLs; overlap>=2 forces HIT",
+  "per_word": {
+    "escapement": {"hit": true, "evidence": "Britannica/Wikipedia/Springer/IEEE titles+snippets"},
+    "deadbeat escapement": {"hit": false, "evidence": "absent from all snippets"},
+    "Graham escapement": {"hit": false, "evidence": "absent from all snippets"},
+    "anchor escapement": {"hit": false, "evidence": "IEEE has 'anchor clock escapement' not exact substring 'anchor escapement'"},
+    "lever escapement": {"hit": false, "evidence": "absent"},
+    "balance wheel": {"hit": true, "evidence": "Britannica title 'Regulator, Pendulum & Balance Wheel'"},
+    "feedback regulator": {"hit": true, "evidence": "Wikipedia snippet 'feedback regulator controlling speed'"},
+    "horology": {"hit": false, "evidence": "absent"},
+    "tick rate": {"hit": false, "evidence": "absent"}
+  },
+  "hit_count": 3,
+  "overlap_threshold_met": true,
+  "verdict": "HIT",
+  "interpretation": "Prior art substantially overlaps; the escapement-as-bidirectional-feedback-regulator framing is explicitly described on Wikipedia. Novelty claim weakened: the analogy maps to a well-known horological concept, though the LLM-runtime application remains unaddressed by arxiv results returned.",
+  "skeptical_note": "Q1 arxiv results show LLM scheduling literature (throttLL'eM, DTMC scheduling, Agent.xpu) but none use escapement/bidirectional-oscillator framing. The novelty gap is the LLM-application mapping, not the horology side.",
+  "disagreements_with_07": [
+    {"url":"https://arxiv.org/html/2408.05235v2","my_call":"miss","07_call":"hit","note":"07 uses agent judgment for same-problem-space; I keep this miss because zero substring overlap and the mechanism (predictive GPU freq throttle) is one-way, not bidirectional escapement."},
+    {"url":"https://arxiv.org/html/2504.07347v1","my_call":"miss","07_call":"hit","note":"DTMC scheduling is discrete-event but not bidirectional feedback-oscillator; substring overlap=0."},
+    {"url":"https://arxiv.org/html/2604.27233","my_call":"miss","07_call":"hit","note":"'Inference-time feedback' is not the same as bidirectional regulator oscillator; substring overlap=0."},
+    {"url":"https://arxiv.org/html/2506.24045v1/","my_call":"miss","07_call":"hit","note":"Heterogeneous scheduling != escapement; substring overlap=0."},
+    {"url":"https://ieeexplore.ieee.org/document/993314/","my_call":"miss-substring","07_call":"hit-forced","note":"07 counts 'anchor escapement' as substring in 'anchor clock escapement' — strictly false (word 'clock' intervenes). 07's forced-hit rule application is loose here."}
+  ]
+}

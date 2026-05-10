@@ -1,0 +1,28 @@
+{
+  "verifier": "skeptical_fresh",
+  "content_words": ["CRISPR","Cas","PAM","protospacer","spacer","self versus non-self","prompt injection","input marker","agent tagging"],
+  "rule": "substring case-insensitive on title+snippet; overlap>=2 forces hit",
+  "results": [
+    {"url":"https://arxiv.org/html/2410.07283v1","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"LLM Tagging '[AGENT NAME]:' = direct structural-marker analog; substantive prior art."},
+    {"url":"https://arxiv.org/abs/2509.14285","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Multi-agent defense pipeline, same problem space."},
+    {"url":"https://arxiv.org/html/2601.04795","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Tool result parsing — distinguishes external input."},
+    {"url":"https://arxiv.org/pdf/2506.08837","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Design patterns for the same defense space."},
+    {"url":"https://arxiv.org/html/2506.23260v2","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Survey of injection threats, problem space."},
+    {"url":"https://arxiv.org/html/2507.15219v1","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Defense mechanism, same space."},
+    {"url":"https://arxiv.org/pdf/2506.05739","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Agent injection protection."},
+    {"url":"https://arxiv.org/html/2602.20708","matched":["prompt injection"],"overlap":1,"hit":true,"forced":false,"reason":"Indirect injection defense via inference-time correction."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11741284/","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://crisprmedicinenews.com/news/machine-learning-customises-crispr-cas-pam-recognition/","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://pubmed.ncbi.nlm.nih.gov/40262634/","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://www.nature.com/articles/s41586-025-09021-y","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://www.nature.com/articles/s41467-020-20633-y","matched":["CRISPR","PAM","spacer","self versus non-self"],"overlap":4,"hit":true,"forced":true,"reason":"Source-domain biology paper explicitly invoking 'self versus non-self' + PAM mechanism — strongest match."},
+    {"url":"https://pubmed.ncbi.nlm.nih.gov/39829748/","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://bioengineer.org/tailoring-crispr-cas-pam-specificity-via-ai-models/","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true},
+    {"url":"https://www.nature.com/articles/s41587-025-02995-0","matched":["CRISPR","Cas","PAM"],"overlap":3,"hit":true,"forced":true}
+  ],
+  "total_hits": 16,
+  "total_misses": 0,
+  "forced_hit_count": 8,
+  "disagreements_with_07_hit_miss": [],
+  "notes": "Full agreement with 07_hit_miss.json. All 8 prompt-injection papers correctly judged as hits (problem-space prior art); 8 CRISPR-Cas-PAM papers force-hit on overlap>=2. CRISPR ML-engineering papers are reverse-direction (AI used to design PAMs, not PAMs as inspiration for AI) but mechanical rule applies. Nature s41467-020-20633-y is strongest source-domain match. Novelty: structural-marker defense already published; biological PAM analogy is the only fresh framing."
+}

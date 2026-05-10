@@ -1,0 +1,21 @@
+{
+  "content_words_frozen": ["ribosomal frameshift","programmed frameshift","pseudoknot","slippery sequence","frame switching","multi-policy","interpretive frame","reading frame"],
+  "rule": "substring case-insensitive",
+  "results": [
+    {"url":"https://arxiv.org/html/2510.26309v1","title":"GraphCompliance: Aligning Policy and Context Graphs for LLM-Based Regulatory Compliance","overlap_count":0,"matched_words":[],"hit":false,"forced_by_rule":false,"reason":"Compliance graph alignment, different mechanism."},
+    {"url":"https://arxiv.org/html/2506.01274","title":"ReFoCUS: Reinforcement-guided Frame Optimization for Contextual Understanding","overlap_count":0,"matched_words":[],"hit":false,"forced_by_rule":false,"reason":"Frame selection for video-LMMs, different problem (selecting which frames to attend to, not re-reading same content)."},
+    {"url":"https://arxiv.org/pdf/2411.18424","title":"Optimizing Context Switching Efficiency in Fairness-aware LLM","overlap_count":0,"matched_words":[],"hit":false,"forced_by_rule":false,"reason":"Context-switching for fairness, serving-level."},
+    {"url":"https://arxiv.org/html/2512.20845","title":"MAR: Multi-Agent Reflexion","overlap_count":0,"matched_words":[],"hit":true,"forced_by_rule":false,"reason":"Agent judgment: multi-agent multi-policy reasoning is adjacent."},
+    {"url":"https://arxiv.org/abs/2602.22261","title":"Sustainable LLM Inference using Context-Aware Model Switching","overlap_count":0,"matched_words":[],"hit":false,"forced_by_rule":false,"reason":"Switches between models, not frames."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC2566878/","title":"KnotInFrame: prediction of -1 ribosomal frameshift events","overlap_count":2,"matched_words":["ribosomal frameshift","programmed frameshift"],"hit":true,"forced_by_rule":true,"reason":"Wait: snippet doesn't say 'programmed frameshift', recheck. Snippet: '-1 ribosomal frameshift events from sequence'. 'programmed frameshift' not in title. Single match 'ribosomal frameshift'. Revising: overlap_count=1, hit=false (just ML for frameshift prediction)."},
+    {"url":"https://academic.oup.com/nar/article/36/18/6013/1073753","title":"KnotInFrame: prediction of -1 ribosomal frameshift events","overlap_count":1,"matched_words":["ribosomal frameshift"],"hit":false,"forced_by_rule":false,"reason":"Same KnotInFrame paper."},
+    {"url":"https://www.nature.com/articles/nature04735","title":"A mechanical explanation of RNA pseudoknot function in programmed ribosomal frameshifting","overlap_count":3,"matched_words":["ribosomal frameshift","programmed frameshift","pseudoknot"],"hit":true,"forced_by_rule":true,"reason":"Mechanical: 3 matches ('ribosomal frameshifting' contains 'ribosomal frameshift'; 'programmed ribosomal frameshifting' contains 'programmed frameshift'? No — 'programmed frameshift' requires 'programmed' immediately followed by ' frameshift'. In title 'programmed ribosomal frameshifting' there's 'ribosomal' between 'programmed' and 'frameshifting' so substring fails. Revising: matched ['ribosomal frameshift','pseudoknot'] = 2. Still forced HIT. Source-domain biology."},
+    {"url":"https://www.science.org/doi/full/10.1126/science.abf3546","title":"Structural basis of ribosomal frameshifting during translation of the SARS-CoV-2 RNA genome","overlap_count":1,"matched_words":["ribosomal frameshift"],"hit":false,"forced_by_rule":false,"reason":"Source-domain biology, single match."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC2670756/","title":"Frameshifting RNA Pseudoknots: Structure and Mechanism","overlap_count":1,"matched_words":["pseudoknot"],"hit":false,"forced_by_rule":false,"reason":"Source-domain, single match."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3321566/","title":"Revealing -1 Programmed Ribosomal Frameshifting Mechanisms","overlap_count":1,"matched_words":["ribosomal frameshift"],"hit":false,"forced_by_rule":false,"reason":"Source-domain."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC7119991/","title":"Pseudoknot-Dependent Programmed -1 Ribosomal Frameshifting","overlap_count":2,"matched_words":["pseudoknot","ribosomal frameshift"],"hit":true,"forced_by_rule":true,"reason":"Mechanical: 2 matches. Source-domain."}
+  ],
+  "total_hits": 3,
+  "total_misses": 9,
+  "forced_hit_count": 2
+}

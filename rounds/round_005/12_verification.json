@@ -1,0 +1,92 @@
+{
+  "verifier_role": "fresh skeptical re-judgment using mechanical keyword overlap rule",
+  "content_words": [
+    "Bauschinger",
+    "Bauschinger effect",
+    "plastic deformation",
+    "yield strength",
+    "back stress",
+    "kinematic hardening",
+    "reverse loading",
+    "cyclic plasticity",
+    "workhardening"
+  ],
+  "rule": "paper_text = (title + ' ' + snippet).lower(); substring match for each content word; overlap >= 2 forces hit; otherwise skeptical functional judgment",
+  "results": [
+    {
+      "query_idx": 0,
+      "query": "arxiv 2025 RLHF asymmetric over-correction reverse direction safety helpfulness",
+      "results": [
+        {"url": "https://arxiv.org/html/2601.08842", "matches": [], "overlap": 0, "hit": false, "reason": "RLHF dual-objective conflict; no metallurgy terms, no functional equivalence to Bauschinger/kinematic hardening framework"},
+        {"url": "https://arxiv.org/html/2506.08266v1", "matches": [], "overlap": 0, "hit": false, "reason": "Safety constraints in RLHF; no overlap, no functional equivalence"},
+        {"url": "https://arxiv.org/html/2602.21420", "matches": [], "overlap": 0, "hit": false, "reason": "Asymmetric confidence penalties for RL — superficially asymmetric but not Bauschinger / cyclic plasticity / back-stress framework"},
+        {"url": "https://arxiv.org/html/2503.17682v1", "matches": [], "overlap": 0, "hit": false, "reason": "Multimodal Safe RLHF; unrelated"},
+        {"url": "https://arxiv.org/abs/2310.12773", "matches": [], "overlap": 0, "hit": false, "reason": "Safe RLHF; unrelated"},
+        {"url": "https://arxiv.org/pdf/2409.20370", "matches": [], "overlap": 0, "hit": false, "reason": "RLHF mixture of judges; unrelated"},
+        {"url": "https://arxiv.org/abs/2504.12501", "matches": [], "overlap": 0, "hit": false, "reason": "RLHF overview; unrelated"},
+        {"url": "https://arxiv.org/html/2403.02475", "matches": [], "overlap": 0, "hit": false, "reason": "Constrained DPO; unrelated"}
+      ]
+    },
+    {
+      "query_idx": 1,
+      "query": "Bauschinger effect neural network training plasticity reverse loading",
+      "results": [
+        {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0022509620302076", "matches": ["bauschinger", "bauschinger effect"], "overlap": 2, "hit": true, "reason": "Overlap >= 2 forces hit. RNN models path-dependent plasticity including Bauschinger effect — directly addresses neural networks modeling Bauschinger"},
+        {"url": "https://www.pnas.org/doi/10.1073/pnas.1911815116", "matches": ["bauschinger", "bauschinger effect"], "overlap": 2, "hit": true, "reason": "Overlap >= 2 forces hit. Deep learning predicts plasticity with Bauschinger effect"},
+        {"url": "https://link.springer.com/article/10.1007/BF01212634", "matches": ["bauschinger", "bauschinger effect"], "overlap": 2, "hit": true, "reason": "Overlap >= 2 forces hit. NN approach to plasticity including Bauschinger effect — very close prior art on the proposed analogy"},
+        {"url": "https://link.springer.com/article/10.1007/s12289-008-0012-5", "matches": ["reverse loading", "workhardening", "cyclic plasticity"], "overlap": 3, "hit": true, "reason": "Overlap >= 2 forces hit. Models reverse loading with workhardening stagnation under cyclic plasticity"},
+        {"url": "https://modern-physics.org/bauschinger-effect-in-materials/", "matches": ["bauschinger", "bauschinger effect", "plastic deformation", "yield strength"], "overlap": 4, "hit": true, "reason": "Overlap >= 2 forces hit. Standard description of Bauschinger effect with plastic deformation and yield strength asymmetry"},
+        {"url": "https://en.wikipedia.org/wiki/Bauschinger_effect", "matches": ["bauschinger", "bauschinger effect", "plastic deformation", "yield strength", "reverse loading", "kinematic hardening"], "overlap": 6, "hit": true, "reason": "Overlap >= 2 forces hit. Wikipedia entry covering near-identical framing: plastic deformation, reverse loading reducing yield strength, kinematic hardening with back-stress. Note 'back-stress' (hyphen) does NOT substring-match 'back stress' (space), but 6 other overlaps already force hit"},
+        {"url": "https://www.sciencedirect.com/science/article/abs/pii/0921509394908877", "matches": ["bauschinger", "bauschinger effect"], "overlap": 2, "hit": true, "reason": "Overlap >= 2 forces hit. Bauschinger effect in cyclic loading of sheet metals"},
+        {"url": "https://www.nature.com/articles/s41586-024-07711-7", "matches": [], "overlap": 0, "hit": false, "reason": "Loss of plasticity in deep continual learning — note 'plasticity' alone is NOT a content word ('plastic deformation' full phrase only). No functional equivalence: this is about networks losing learnability, not Bauschinger-style asymmetric softening"},
+        {"url": "https://www.researchgate.net/publication/229122748_A_model_of_large-strain_cyclic_plasticity_describing_the_Bauschinger_effect_and_workhardening_stagnation", "matches": ["bauschinger", "bauschinger effect", "cyclic plasticity", "workhardening"], "overlap": 4, "hit": true, "reason": "Overlap >= 2 forces hit. Large-strain cyclic plasticity model with Bauschinger + workhardening stagnation"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6936363/", "matches": ["bauschinger", "bauschinger effect"], "overlap": 2, "hit": true, "reason": "Overlap >= 2 forces hit. Deep learning predicting path-dependent plasticity with Bauschinger effect"}
+      ]
+    },
+    {
+      "query_idx": 2,
+      "query": "RLHF cumulative push pull oscillation safety helpfulness alignment back stress",
+      "results": [
+        {"url": "https://arxiv.org/html/2601.07200", "matches": [], "overlap": 0, "hit": false, "reason": "Push-pull alignment via optimal transport; no metallurgy terms, no functional equivalence to back-stress / kinematic hardening formalism"},
+        {"url": "https://arxiv.org/abs/2502.11555", "matches": [], "overlap": 0, "hit": false, "reason": "Helpfulness-safety trade-off — captures a related qualitative tension but does not formalize via Bauschinger / kinematic hardening / back-stress. Skeptical: not functionally equivalent to the proposed mechanistic mapping"},
+        {"url": "https://github.com/PKU-Alignment/safe-rlhf", "matches": [], "overlap": 0, "hit": false, "reason": "Safe RLHF code repo; unrelated"},
+        {"url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/dd1577afd396928ed64216f3f1fd5556-Paper-Conference.pdf", "matches": [], "overlap": 0, "hit": false, "reason": "Safe RLHF ICLR; unrelated"},
+        {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12137480/", "matches": [], "overlap": 0, "hit": false, "reason": "Sociotechnical limits; unrelated"},
+        {"url": "https://arxiv.org/html/2506.08266v1", "matches": [], "overlap": 0, "hit": false, "reason": "HC-RLHF; unrelated"}
+      ]
+    },
+    {
+      "query_idx": 3,
+      "query": "arxiv LLM alignment seesaw conflict fine tuning forward reverse direction",
+      "results": [
+        {"url": "https://arxiv.org/html/2508.07172v1", "matches": [], "overlap": 0, "hit": false, "reason": "Gradient surgery for safe fine-tuning; addresses conflicting gradients but not Bauschinger / cyclic-plasticity formalism. Author's own novelty claim already cites this — not equivalent prior art"},
+        {"url": "https://arxiv.org/html/2512.09212", "matches": [], "overlap": 0, "hit": false, "reason": "Conflict-aware reward modeling; not equivalent"},
+        {"url": "https://arxiv.org/abs/2502.17424", "matches": [], "overlap": 0, "hit": false, "reason": "Emergent misalignment from narrow fine-tuning; documents asymmetric phenomenon but no kinematic-hardening / back-stress formalism. Author already cites this as documenting empirical phenomenon, not formalizing it"},
+        {"url": "https://arxiv.org/html/2504.09757v1", "matches": [], "overlap": 0, "hit": false, "reason": "Aligned/harmful direction recovery; documents directional asymmetry but no plasticity-theoretic formalism. Author already cites this"},
+        {"url": "https://arxiv.org/abs/2310.03693", "matches": [], "overlap": 0, "hit": false, "reason": "Safety compromised by fine-tuning; empirical, no Bauschinger formalism. Author already cites this"},
+        {"url": "https://arxiv.org/html/2406.00888v1", "matches": [], "overlap": 0, "hit": false, "reason": "Demonstrated feedback alignment; unrelated"}
+      ]
+    }
+  ],
+  "hit_count": 9,
+  "total_count": 30,
+  "verdict": "Substantial prior art HITS in metallurgy/materials-science domain (Query 2): nine results explicitly tie neural networks AND Bauschinger effect / cyclic plasticity / kinematic hardening. The candidate's metallurgy-side mapping (Bauschinger / kinematic hardening of stress-strain in metals) is textbook and already modeled by NNs. The LLM/RLHF-side queries (1, 3, 4) yield zero keyword hits and no functionally equivalent prior art formalizing RLHF as cyclic plasticity. Novelty therefore plausibly survives at the cross-domain mapping level, but the metallurgy half is well-known and several of the matched papers (especially 1007/BF01212634 and the PNAS/Nature deep-learning-predicts-plasticity papers) already use neural networks to model the exact phenomenon being borrowed; the cross-domain transfer to RLHF is the only remaining novel piece.",
+  "comparison_with_07_hit_miss": {
+    "prior_agent_hits": 19,
+    "my_hits": 9,
+    "disagreements": [
+      {"url": "https://arxiv.org/html/2601.08842", "prior": "hit (judgment)", "mine": "miss", "note": "Prior agent calls RLHF dual-objective conflict substantive prior art. I am skeptical: this is generic RLHF conflict, not Bauschinger / kinematic hardening / back-stress formalism. Zero keyword overlap; no functional equivalence to the proposed plasticity-theoretic mapping."},
+      {"url": "https://arxiv.org/html/2602.21420", "prior": "hit (judgment)", "mine": "miss", "note": "Prior agent treats 'Asymmetric Confidence Penalties' as strong prior art on asymmetric over-correction. Skeptical view: ACE is asymmetric penalty over confidence, not asymmetric softening from prior loading direction — the Bauschinger phenomenon is structurally different (history-dependent yield-surface translation). Author's own novelty_claim already lists this paper as a related-but-distinct contribution."},
+      {"url": "https://www.nature.com/articles/s41586-024-07711-7", "prior": "hit (judgment)", "mine": "miss", "note": "Prior agent calls loss-of-plasticity adjacent prior art. Skeptical view: 'loss of plasticity' here means networks losing ability to learn anything — orthogonal to direction-dependent asymmetric softening. 'plasticity' alone does not satisfy 'plastic deformation' substring rule."},
+      {"url": "https://arxiv.org/html/2601.07200", "prior": "hit (judgment)", "mine": "miss", "note": "Push-Pull OT alignment is a mitigation technique, not a Bauschinger-style mechanistic model. Skeptical: terminological similarity ('push-pull') is not functional equivalence to back-stress / kinematic hardening."},
+      {"url": "https://arxiv.org/abs/2502.11555", "prior": "hit (judgment)", "mine": "miss", "note": "Equilibrate RLHF describes overly-safe trade-off qualitatively; no kinematic-hardening / back-stress formalism. Author cites this as documenting empirical phenomenon, distinct from proposed contribution."},
+      {"url": "https://arxiv.org/html/2508.07172v1", "prior": "hit (judgment)", "mine": "miss", "note": "SafeGrad is gradient-surgery mitigation; conflicting gradients are NOT the same as accumulated back-stress in plastic deformation analogy. Author already explicitly lists this as related-but-distinct."},
+      {"url": "https://arxiv.org/html/2512.09212", "prior": "hit (judgment)", "mine": "miss", "note": "Conflict-aware reward modeling; addresses proxy-policy conflict at reward level, not direction-dependent asymmetric softening with state variables."},
+      {"url": "https://arxiv.org/abs/2502.17424", "prior": "hit (judgment)", "mine": "miss", "note": "Emergent misalignment from narrow fine-tuning documents an asymmetric phenomenon but with NO formal cyclic-plasticity / kinematic-hardening apparatus. Author cites this paper as documenting empirical asymmetric softening — novelty claim is the FORMALISM not the phenomenon."},
+      {"url": "https://arxiv.org/html/2504.09757v1", "prior": "hit (judgment)", "mine": "miss", "note": "Aligned/harmful direction analysis is empirical; no Bauschinger / back-stress / yield-surface translation. Author already cites in novelty_claim."},
+      {"url": "https://arxiv.org/abs/2310.03693", "prior": "hit (judgment)", "mine": "miss", "note": "Foundational paper on safety compromise via fine-tuning — empirical, no plasticity-theoretic model. Author already cites in novelty_claim."}
+    ],
+    "agreements_summary": "Both verdicts agree on all 9 metallurgy-domain HITs from Query 2 (forced by rule) and on the no-hit verdict for Safe RLHF repos / overview / multimodal / sociotechnical / Show-Don't-Tell papers. Disagreement is entirely in LLM-side judgment-hits: prior agent generously counts any RLHF directional-conflict / asymmetric-softening paper as substantive prior art; I apply the skeptical 'functionally equivalent prior art' standard and require the specific Bauschinger / kinematic-hardening / back-stress formalism, which none of the LLM-side papers provide.",
+    "net_disagreement_count": 10
+  }
+}

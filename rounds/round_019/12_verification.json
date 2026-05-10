@@ -1,0 +1,28 @@
+{
+  "round": "019",
+  "verifier": "fresh_skeptical",
+  "rule_applied": "substring case-insensitive; overlap>=2 forces hit",
+  "content_words": ["riboswitch","aptamer","5' UTR","RNA switch","sensor actuator","ligand-binding","conformational switch","metabolite sensing"],
+  "independent_results": [
+    {"url":"https://arxiv.org/abs/2603.28972","overlap_count":0,"matched_words":[],"hit":false,"forced":false},
+    {"url":"https://arxiv.org/pdf/2602.21257","overlap_count":0,"matched_words":[],"hit":true,"forced":false,"note":"agent-judgment: declarative context management is substantive LLM prior art"},
+    {"url":"https://arxiv.org/html/2510.04618v1","overlap_count":0,"matched_words":[],"hit":true,"forced":false,"note":"agent-judgment: ACE 'evolving playbooks' = context-as-actuator"},
+    {"url":"https://arxiv.org/pdf/2508.09191","overlap_count":0,"matched_words":[],"hit":false,"forced":false},
+    {"url":"https://arxiv.org/html/2404.01077v1","overlap_count":0,"matched_words":[],"hit":false,"forced":false},
+    {"url":"https://arxiv.org/abs/2510.04618","overlap_count":0,"matched_words":[],"hit":true,"forced":false,"note":"duplicate of ACE"},
+    {"url":"https://arxiv.org/html/2511.23271","overlap_count":0,"matched_words":[],"hit":true,"forced":false,"note":"agent-judgment: behavior-bearing token = compact storage-as-actuator"},
+    {"url":"https://arxiv.org/html/2604.26553","overlap_count":0,"matched_words":[],"hit":false,"forced":false},
+    {"url":"https://qbio.ens.psl.eu/en/newsroom/designing-molecular-switches-using-ai","overlap_count":0,"matched_words":[],"hit":false,"forced":false},
+    {"url":"https://www.nature.com/articles/s41467-023-38098-0","overlap_count":1,"matched_words":["riboswitch"],"hit":false,"forced":false},
+    {"url":"https://pubmed.ncbi.nlm.nih.gov/23275562/","overlap_count":1,"matched_words":["riboswitch"],"hit":false,"forced":false},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3575828/","overlap_count":1,"matched_words":["riboswitch"],"hit":false,"forced":false},
+    {"url":"https://pubs.acs.org/doi/10.1021/acssynbio.9b00371","overlap_count":2,"matched_words":["riboswitch","aptamer"],"hit":true,"forced":true},
+    {"url":"https://phys.org/news/2026-02-machines-molecular.html","overlap_count":2,"matched_words":["riboswitch","aptamer"],"hit":true,"forced":true},
+    {"url":"https://academic.oup.com/nar/article/44/1/1/2499639","overlap_count":2,"matched_words":["riboswitch","aptamer"],"hit":true,"forced":true},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC8002509/","overlap_count":2,"matched_words":["riboswitch","aptamer"],"hit":true,"forced":true}
+  ],
+  "independent_totals": {"total_hits": 8, "total_misses": 8, "forced_hit_count": 4},
+  "comparison_to_07": {"agreement": true, "disagreements": []},
+  "verdict": "FAIL",
+  "reasoning": "Independently confirmed: 4 forced hits (source-domain riboswitch/aptamer overlap>=2) plus 4 agent-judgment hits on substantive LLM prior art (ACE 2510.04618, SPL 2602.21257, BET 2511.23271). Context-as-policy-modifier is published; riboswitch framing is relabeling. Matches 07_hit_miss.json line-by-line. Verdict FAIL stands."
+}

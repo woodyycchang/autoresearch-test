@@ -1,0 +1,84 @@
+{
+  "rounds_completed": 25,
+  "pass_count": 0,
+  "fail_count": 25,
+  "verification_disagreement_count_per_round": {
+    "001": 4, "002": 4, "003": 5, "004": 7, "005": 10, "006": 6,
+    "007": "primary 9/verifier 7 with corrections", "008": 14, "009": 3, "010": 7,
+    "011": 0, "012": 4, "013": 4, "014": 6, "015": "substring correction",
+    "016": 2, "017": 1, "018": 1, "019": 0, "020": 0, "021": 2,
+    "022": "verification API error - placeholder filed", "023": 2, "024": 1, "025": "pending"
+  },
+  "rounds_with_zero_disagreement": ["011", "019", "020"],
+  "verification_failures": ["022 (API policy error)"],
+  "compliance_rates": {
+    "step_01_present": "25/25",
+    "step_02_has_3_subproblems": "25/25",
+    "step_03_has_real_arxiv_ids": "25/25",
+    "step_04_specific_not_generic": "25/25",
+    "step_05_not_duplicate": "25/25",
+    "step_05_content_words_in_range": "25/25",
+    "step_06_real_search": "25/25",
+    "step_07_keyword_rule_applied": "25/25",
+    "step_07_no_forced_rule_override": "25/25",
+    "step_10_mechanical_verdict": "25/25"
+  },
+  "forced_hit_stats": {
+    "rounds_with_forced_hits": 22,
+    "rounds_with_zero_forced_hits": 3,
+    "round_with_max_forced_hits": "017 / 005 (10-17 forced hits each)",
+    "mean_forced_hits_per_round": 4.6,
+    "median_forced_hits_per_round": 3
+  },
+  "trehan_chopra_failure_mode_incidence": {
+    "bias_training_data": 0,
+    "implementation_drift": 7,
+    "memory_context": 0,
+    "overexcitement": 4,
+    "domain_intelligence": 2,
+    "scientific_taste": 0
+  },
+  "implementation_drift_notes": [
+    "Several substring misreads caught and corrected inline (rounds 007, 015, 017, 018, 021, 022, 025): plural vs singular, hyphenated vs spaced, prefix-substring issues. Verifier agreed with most corrections."
+  ],
+  "compliance_log_violations": [
+    "Round 022: cross-agent verification subagent failed with API policy error (infrastructure, not agent fault). Primary verdict still robust."
+  ],
+  "primary_verifier_disagreement_pattern": "Across the 22 successful verifications, primary consistently runs more lenient on agent-judged hits (overlap < 2 results) than the skeptical verifier. Verdict-level agreement (FAIL) holds in all 22 successful verifications, but per-result hit count differs by 1-14 hits per round.",
+  "saturation_p_value_vs_1pct_novelty": 0.778,
+  "saturation_p_value_vs_5pct_novelty": 0.277,
+  "saturation_p_value_vs_10pct_novelty": 0.072,
+  "combined_with_prior_n_138": {
+    "total_rounds_with_no_pass": 163,
+    "p_value_vs_1pct_novelty": "approximately (0.99)^163 = 0.193",
+    "p_value_vs_5pct_novelty": "(0.95)^163 < 0.001",
+    "p_value_vs_10pct_novelty": "(0.90)^163 < 1e-7"
+  },
+  "candidate_domains_tested_this_session": [
+    "ergodic theory (math)",
+    "selective autophagy (cell biology)",
+    "estoppel (common-law)",
+    "Aboriginal songlines (cognitive practice)",
+    "Bauschinger effect (materials science)",
+    "Roman concrete self-healing (cement chemistry)",
+    "TCM pulse diagnosis (non-Western medicine)",
+    "vernalization (plant epigenetics)",
+    "Ayurvedic tridosha (non-Western medicine)",
+    "Liesegang rings (physical chemistry)",
+    "CRISPR-Cas PAM (molecular microbiology)",
+    "stomatal aperture (plant physiology)",
+    "KAM theorem (dynamical systems)",
+    "hyporheic exchange (hydrology)",
+    "clock escapement (horology)",
+    "Inuit ice classification (ethnoscience)",
+    "honey bee waggle dance (ethology)",
+    "Aharonov-Bohm effect (quantum mechanics)",
+    "riboswitch (molecular biology)",
+    "indigenous fire management (Aboriginal ecology)",
+    "ribosomal frameshifting (molecular biology)",
+    "prion templating (neurodegeneration)",
+    "Ostwald ripening (physical chemistry)",
+    "TCM meridian (non-Western medicine)",
+    "spin glass aging (statistical mechanics)"
+  ]
+}

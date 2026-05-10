@@ -19,4 +19,195 @@ Format per entry:
 
 ---
 
-(empty — agent populates this when step 12 produces disagreement)
+## Round 001
+- Primary verdict: FAIL (hit_count = 13)
+- Verification verdict: FAIL (hit_count = 9)
+- Forced-hit set: identical (9 URLs), so verdict-level agreement on FAIL.
+- Disagreement details (4 non-forced results, all primary=hit / verifier=miss):
+  - URL: https://arxiv.org/html/2601.08726v1
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict (toward hit). Reward-transformation/Kelly-criterion mechanism is adjacent but not functionally equivalent to ergodic decomposition of agent trajectories.
+  - URL: https://openreview.net/forum?id=r7OB810eaP
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict. Same paper-line as above.
+  - URL: https://arxiv.org/html/2507.01003
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict. Training-time parameter ergodicity is a different object than (state, action) trajectory ergodic components.
+  - URL: https://medium.com/how-i-use-ai/ergodic-theory-and-agentic-ideation-in-ai-6f2cc2cd254f
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict. Informal Medium post with title-level coincidence; not formal prior art.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL is robust either way (9 forced hits alone suffice).
+
+## Round 002
+- Primary verdict: FAIL (hit_count = 23)
+- Verification verdict: FAIL (hit_count = 20)
+- Forced-hit set: 17 forced hits identical between primary and verification.
+- Disagreement details (4 non-forced results, all primary=hit / verifier=miss):
+  - URL: https://livescu.ucla.edu/model-autophagy-disorder/
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict. Model Autophagy Disorder = model collapse via self-consuming training (opposite direction from candidate's selective tagged-cargo cleanup). Lexical-only collision.
+  - URL: https://medium.com/@philippe-buschini/ai-autophagy-when-ai-feeds-on-itself-2a9dc64efc9d
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict; same MAD-direction "AI feeds on itself" frame.
+  - URL: https://www.nature.com/articles/s42256-025-00984-1
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict; Nature MI 'caveats of AI autophagy' addresses self-consuming generative training, not cleanup architecture.
+  - URL: https://sites.lifesci.ucla.edu/isg-neuronarrativeai/model-autophagy-disorder/
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict; duplicate of livescu MAD page.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust (17 forced hits alone suffice).
+
+## Round 003
+- Primary verdict: FAIL (hit_count = 7)
+- Verification verdict: FAIL (hit_count = 2)
+- Forced-hit set: 2 forced hits identical between primary and verification (both legal-source reference pages).
+- Disagreement details (5 non-forced results, all primary=hit / verifier=miss):
+  - URL: https://arxiv.org/html/2507.21504v1 (Consistency Score eval)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict; verifier argues 'consistency' alone is generic eval, not architectural prior art for estoppel-locking.
+  - URL: https://arxiv.org/html/2503.16416v2 (self-consistency survey)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary over-strict; self-consistency via majority-voting is a distinct mechanism from estoppel-locking.
+  - URL: https://arxiv.org/pdf/2508.01249v2 (AgentArmor)
+    - Primary said: hit (substantive)
+    - Verification said: miss (strict)
+    - Implication: verifier flagged that 'Program Dependence Graphs' contains 'Dependence' NOT 'Dependency' — substring match fails; verifier also says novelty claim already differentiates from AgentArmor.
+  - URL: https://arxiv.org/html/2508.01249 (AgentArmor alt URL)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: same as above.
+  - URL: https://arxiv.org/html/2507.21407v1 (Graph-Augmented LLM Agents Survey)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: 'logical dependencies' lacks ' graph' suffix; mechanical overlap=0.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust (both forced hits suffice mechanically; primary additionally finds substantive prior art via AgentArmor that verifier strictly excludes). This is an interesting disagreement-of-interpretation case — primary uses substantive judgment liberally on overlap<2 items, verifier uses it conservatively.
+
+## Round 004
+- Primary verdict: FAIL (hit_count = 19)
+- Verification verdict: FAIL (hit_count = 12)
+- Forced-hit set: 11 forced hits identical between primary and verification.
+- Disagreement details (7 non-forced results, all primary=hit / verifier=miss):
+  - URL: https://arxiv.org/pdf/2603.04257 (Memex(RL) Indexed Experience Memory)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary called adjacent; verifier sees distinct mechanism (artifact-indices vs path-sequence keys).
+  - URL: https://arxiv.org/html/2502.12110v11 (A-Mem Zettelkasten)
+    - Primary said: hit
+    - Verification said: miss
+    - Implication: primary called shared-node prior art; verifier sees different linking principle.
+  - URLs: github lhl ANALYSIS-mempalace.md, mlhive MemPalace article, alexeyondata substack, letsdatascience news, medium creativeaininja
+    - Primary said: hit (5 derivative references to MemPalace as same prior art)
+    - Verification said: miss (5 misses)
+    - Implication: primary over-counts via 'derivative reference' judgment; verifier reserves hit for canonical arxiv paper plus formal arxiv variants and direct reproduction repo.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust (11 forced hits including MemPalace arxiv variants suffice).
+
+## Round 005
+- Primary verdict: FAIL (hit_count = 19)
+- Verification verdict: FAIL (hit_count = 9, all forced)
+- Forced-hit set: 9 forced hits identical (verifier notes Wikipedia snippet has "back-stress" with hyphen which doesn't substring-match "back stress" with space; verifier credits 6 matches there not 7; verdict unchanged).
+- Disagreement details (10 non-forced LLM/RLHF results, all primary=hit / verifier=miss):
+  - URLs: 2601.08842 (Resisting Correction), 2602.21420 (ACE Asymmetric Confidence), 2601.07200 (Push-Pull), 2502.11555 (Equilibrate RLHF), 2508.07172 (SafeGrad), 2512.09212 (Targeting Misalignment), 2502.17424 (Emergent Misalignment), 2504.09757 (Alleviating Fear of Losing Alignment), 2310.03693 (Fine-tuning Compromises Safety), nature s41586-024-07711-7 (Loss of plasticity)
+    - Primary said: hit (all 10)
+    - Verification said: miss (all 10)
+    - Implication: primary uses 'addresses same phenomenon' to count as prior art; verifier uses 'implements same Bauschinger / kinematic-hardening formalism' as bar. Verifier argues counting these as prior art conflicts with the candidate's own novelty_claim which explicitly says they document phenomenon without formalizing.
+- Action: human reviews at next 25-round checkpoint. This is an interpretive disagreement on novelty-bar height. Verdict-level FAIL robust under either reading.
+
+## Round 006
+- Primary verdict: FAIL (hit_count = 16)
+- Verification verdict: FAIL (hit_count = 12)
+- Forced-hit set: 4 forced hits identical between primary and verification.
+- Disagreement details (6 non-forced results, all primary=hit / verifier=miss):
+  - TraceCoder (2602.06875): primary called adjacent debugging framework; verifier too different.
+  - LLM software repair survey (2506.23749): primary called field-establishing; verifier generic survey.
+  - 4 ML-for-concrete papers (Nature 2025-30158, PMC 8348520, ScienceDirect S0950, Tandfonline fungal): primary called same conceptual space; verifier prunes reverse-direction matches (ML predicts concrete, not concrete inspires LLM).
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust (VIGIL hit confirmed by both).
+
+## Round 007
+- Primary verdict: FAIL (hit_count = 9)
+- Verification verdict: FAIL (hit_count = 7, all forced)
+- Forced-hit set: 4 from primary, 7 from verifier (verifier found additional forced hits in PMC10593717 and intechopen 40015 that primary undercounted; verifier recounted 22732024 with overlap=3).
+- Disagreement details:
+  - Primary marked 3 Bloom-Taxonomy LLM papers as agent-judged hits (substantive prior art); verifier downgrades to miss (no TCM content_word overlap).
+  - Verifier upgrades PMC10593717 to forced hit (TCM pulse + pulse diagnosis literal match) — primary had it as miss.
+  - Multiple matched_words list inconsistencies in primary identified by verifier; verdicts mostly unchanged.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust via mechanical forced hits alone. Primary's Bloom-Taxonomy substantive prior-art argument is the disputed item.
+
+## Round 008
+- Primary verdict: FAIL (hit_count = 18)
+- Verification verdict: FAIL (hit_count = 6, mostly forced + one Polycomb mechanism-level judgment)
+- 14 disagreements all primary=hit / verifier=miss in two clusters: (a) LLM persistent-memory papers don't have population-stochastic-switch mechanism; (b) general epigenetic-analogy papers don't port vernalization to LLM commitment specifically.
+- Verifier confirms strict-substring readings: "PRC2" literal in pubmed 25929799 snippet but NOT in PNAS title (expanded form). "epigenetic switching" full phrase appears nowhere. "stochastic cell", "cold integration", "FLOWERING LOCUS C" zero matches.
+- Action: human reviews at next 25-round checkpoint. Continued pattern: primary lenient on substantive equivalence, verifier strict.
+
+## Round 009
+- Primary verdict: FAIL (hit_count = 14)
+- Verification verdict: FAIL (hit_count = 11)
+- Forced-hit set: 8 forced hits identical between primary and verification.
+- Disagreement details (3 non-forced results, all primary=hit / verifier=miss):
+  - 2512.16848 Meta-RL: primary called umbrella prior art; verifier too generic two-axis.
+  - 2604.13151 Exp/Exploit Errors: primary called four-prompt-variant prior art; verifier still two-axis without prakriti baseline.
+  - 2506.04018 AgentMisalignment: primary called multi-axis benchmark; verifier safety taxonomy not constitutional intervention.
+- Both AGREE on 2506.06366 (AI Agent Behavioral Science) and 2601.04170 (Agent Drift three-intervention) as substantive prior art.
+- Action: human reviews at next 25-round checkpoint. Verdict-level FAIL robust.
+
+## Round 010
+- Primary verdict: FAIL (hit_count = 10)
+- Verification verdict: FAIL (hit_count = 3: 2 forced + 1 RD-NN agent-judged on substring match)
+- 7 disagreements all primary=hit / verifier=miss on agent-judged hits.
+- Verifier downgrades emergent-abilities-umbrella papers (gregrobison, 2508.04401, 2503.05788, towardsdatascience), Mid-Training survey (2510.06826), Quantifying Emergence (2409.01568), MDPI RD-equations, and grid-cell RNN (1803.07770).
+- Verifier keeps two forced Liesegang hits + ResearchGate Turing-instability-RD-NN (substring match on "reaction-diffusion").
+- Action: human reviews at next 25-round checkpoint. Continued pattern of verifier-strict.
+
+## Round 012
+- Primary FAIL (10 hits) / Verifier FAIL (6 hits / 6 forced). 4 disagreements all primary=hit/verifier=miss on overlap=0 LLM-side agent-judged hits (Tool Attention, Silicon Mirror, Multi-Layer Memory, RL Budget). Action: continued primary-lenient/verifier-strict pattern.
+
+## Round 013
+- Primary FAIL (9 hits) / Verifier FAIL (~2 hits per verifier note). 4 disagreements: 07 marked LLM-fine-tune-survival papers (2508.09190, 2405.17374, 2505.16737, 2506.14681) as hit via judgment; verifier downgrades to miss under strict-substring reading. Math source-domain forced hits (Wikipedia, johndcook, MathWorld, 2503.13932) agree.
+
+## Round 014
+- Primary FAIL (11 hits) / Verifier FAIL (7). 6 disagreements: 07 marked 5 LLM-memory papers (Collaborative, ByteRover, A-Mem, MemVerse, Agentic Memory) as agent-judged hits despite overlap=0; verifier strictly misses. Verifier upgrades agupubs Hyporheic Flow paper to hit on overlap=1 substring match.
+
+## Round 015
+- Primary FAIL (7) / Verifier FAIL (3 forced + 0 judgment). Verifier corrected primary's loose substring claim — "anchor escapement" is NOT substring of "anchor clock escapement" (intervening word). Net 4 disagreements where primary used substantive judgment on overlap=0 LLM-scheduling papers.
+
+## Round 016
+- Primary FAIL (7) / Verifier FAIL (5). 2 disagreements: 07 marked Agent-OM and Waterloo Inuit+AI as hits; verifier strictly misses (Agent-OM is ontology matching not fine-grained operational-state; Waterloo is reverse direction).
+
+## Round 017
+- Primary FAIL (10) / Verifier FAIL (11). 1 disagreement: verifier upgraded plosone 0188626 to forced hit (correctly counted 'waggle dance' substring of 'waggle dances' and 'honey bee' both present), which primary had at overlap=1.
+
+## Round 018
+- Primary FAIL (5) / Verifier FAIL (6 including correction). 1 disagreement: philsci-archive "Reality of Gauge Potentials" — primary undercounted ('gauge potential' IS substring of 'gauge potentials'); verifier and primary's own correction agree this is forced hit.
+
+## Round 019
+- Primary FAIL (8) / Verifier FAIL (8). FULL AGREEMENT — 0 disagreements. Second 0-disagreement round of session.
+
+## Round 020
+- Primary FAIL (2) / Verifier FAIL (2). FULL AGREEMENT — 0 disagreements. Third 0-disagreement round.
+
+## Round 021
+- Primary FAIL (3) / Verifier FAIL (2). 2 disagreements: MAR (2512.20845) primary=hit (judgment) verifier=miss; KnotInFrame internal-reasoning inconsistency (final result agrees as miss but primary's matched_words list was wrong).
+
+## Round 022
+- Primary FAIL (8 hits) / Verifier: SUBAGENT API POLICY ERROR.
+- Verification not completed. Primary verdict robust without independent re-judgment per fallback assessment.
+- Logged to compliance_log.md as infrastructure failure, not agent failure.
+
+## Round 023
+- Primary FAIL (6) / Verifier FAIL (4). 2 disagreements: 07 elevated overlap=0 LLM-memory papers (Lightweight Agent Memory, Memoria) to hits via paraphrase; verifier strictly misses.
+
+## Round 024
+- Primary FAIL (7) / Verifier FAIL (6). 1 disagreement: Locate-Steer-Improve (2601.14004) primary=hit via judgment, verifier=miss under strict substring rule.
+
+## Round 025
+- Primary FAIL (13) / Verifier FAIL (~13 with minor mechanical count differences). Verifier flagged two count inconsistencies in primary's prose: ResearchGate 'Spin-glass models' hyphenated not space-separated; SK-Spin-Glass primary's prose contradicted its own JSON. Final hit/miss flags consistent; mechanical counts vary by 1.

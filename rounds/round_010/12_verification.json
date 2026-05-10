@@ -1,0 +1,40 @@
+{
+  "verifier": "skeptical",
+  "content_words": ["Liesegang","Liesegang rings","Jablczynski","reaction-diffusion","supersaturation","periodic banding","precipitation","depletion zone"],
+  "rule": "paper_text=(title+' '+snippet).lower(); substring; overlap>=2 forces hit; else skeptical judgment.",
+  "results": [
+    {"url":"https://arxiv.org/pdf/2506.03320","matched":[],"overlap":0,"hit":false,"reason":"CL survey, no overlap, no substantive Liesegang/RD mechanism."},
+    {"url":"https://arxiv.org/pdf/2603.12658","matched":[],"overlap":0,"hit":false,"reason":"Generic CL survey."},
+    {"url":"https://arxiv.org/html/2510.16089v1","matched":[],"overlap":0,"hit":false,"reason":"Gated CL, unrelated mechanism."},
+    {"url":"https://arxiv.org/pdf/2506.13045","matched":[],"overlap":0,"hit":false,"reason":"CL+emergent mention but no banding/RD mechanism."},
+    {"url":"https://arxiv.org/html/2510.06826v1","matched":[],"overlap":0,"hit":false,"reason":"Scheduled LR drops are not self-organized periodic bands; mechanism differs."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC4150299/","matched":[],"overlap":0,"hit":false,"reason":"Neural pattern formation, no Liesegang/LLM connection."},
+    {"url":"https://www.sciencedirect.com/.../B9780126695502500130","matched":["Liesegang","Liesegang rings"],"overlap":2,"hit":true,"reason":"Forced by rule. Source-domain only."},
+    {"url":"https://arxiv.org/html/2409.01568v1","matched":[],"overlap":0,"hit":false,"reason":"Skeptical: connectivity-based emergence metric, not periodic banding/RD."},
+    {"url":"https://taylorandfrancis.com/.../Liesegang_rings/","matched":["Liesegang","Liesegang rings"],"overlap":2,"hit":true,"reason":"Forced by rule. Source-domain reference."},
+    {"url":"https://www.mdpi.com/1099-4300/25/3/489","matched":[],"overlap":0,"hit":false,"reason":"Title 'Reaction Diffusion' lacks hyphen so no substring match; NN-learns-RD reverse direction, not LLM emergence."},
+    {"url":"https://www.researchgate.net/publication/271621329_...","matched":["reaction-diffusion"],"overlap":1,"hit":true,"reason":"Skeptical hit: explicit reaction-diffusion + neural-network pattern formation; closest RD-NN prior art."},
+    {"url":"https://gregrobison.medium.com/...","matched":[],"overlap":0,"hit":false,"reason":"Phase-transition framing already covered by R76; skeptical: not the candidate mechanism."},
+    {"url":"https://www.sciencedirect.com/.../S092523122503214X","matched":[],"overlap":0,"hit":false,"reason":"Statistical critique, no banding/RD."},
+    {"url":"https://arxiv.org/pdf/2508.04401","matched":[],"overlap":0,"hit":false,"reason":"Generic emergent-abilities paper; no Liesegang/RD/banding mechanism."},
+    {"url":"https://arxiv.org/html/2503.05788v1","matched":[],"overlap":0,"hit":false,"reason":"Umbrella survey only, no mechanism overlap."},
+    {"url":"https://towardsdatascience.com/...d59b67ea0379/","matched":[],"overlap":0,"hit":false,"reason":"Bio analogy is generic reorganization, not Liesegang banding."},
+    {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC10415500/","matched":[],"overlap":0,"hit":false,"reason":"Turing not Liesegang; reverse direction."},
+    {"url":"https://link.aps.org/doi/10.1103/PhysRevX.13.021038","matched":[],"overlap":0,"hit":false,"reason":"Turing patterns in networks, not LLM training capability bands."},
+    {"url":"https://arxiv.org/abs/1803.07770","matched":[],"overlap":0,"hit":false,"reason":"Skeptical: grid/band cells are spatial response patterns in trained RNNs, not periodic capability emergence over training steps. Different phenomenon."},
+    {"url":"https://www.sciencedirect.com/.../S0096300322000960","matched":[],"overlap":0,"hit":false,"reason":"Excitable neuron Turing patterns, narrow biology, no LLM link."}
+  ],
+  "total_hits": 3,
+  "total_misses": 17,
+  "forced_hit_count": 2,
+  "disagreements_with_07_hit_miss": [
+    {"url":"https://arxiv.org/html/2510.06826v1","07":"hit","verifier":"miss","note":"Scheduled LR drops are exogenous, not self-organized periodic bands."},
+    {"url":"https://arxiv.org/html/2409.01568v1","07":"hit","verifier":"miss","note":"Connectivity-based emergence is a different mechanism; novelty claim already distinguishes it."},
+    {"url":"https://www.mdpi.com/1099-4300/25/3/489","07":"hit","verifier":"miss","note":"Reverse direction (NN as tool to learn RD), no LLM emergence link."},
+    {"url":"https://gregrobison.medium.com/...","07":"hit","verifier":"miss","note":"Phase-transition framing already saturation-tested per R76; not novel-relevant overlap."},
+    {"url":"https://arxiv.org/pdf/2508.04401","07":"hit","verifier":"miss","note":"Umbrella emergent-abilities paper without banding/RD mechanism."},
+    {"url":"https://arxiv.org/html/2503.05788v1","07":"hit","verifier":"miss","note":"Generic survey; umbrella overlap is too weak for skeptical hit."},
+    {"url":"https://towardsdatascience.com/...d59b67ea0379/","07":"hit","verifier":"miss","note":"Vague bio analogy, no Liesegang/RD specificity."},
+    {"url":"https://arxiv.org/abs/1803.07770","07":"hit","verifier":"miss","note":"Spatial band cells in RNNs are not periodic-in-time capability emergence."}
+  ]
+}
