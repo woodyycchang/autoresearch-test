@@ -1,0 +1,15 @@
+{
+  "round": "185",
+  "epoch": 8,
+  "candidate_form": "feedback-attenuation",
+  "domain": "forest ecology (mast-year synchronization across beech/oak populations via mycorrhizal network + weather cues)",
+  "specific_mechanism": "Mast years are population-wide synchronized bumper seed crops in beech, oak, and other forest trees, separated by lean years where trees rebuild reserves. Two mechanisms drive synchrony: (a) shared weather cues (the 'Moran effect' — geographically correlated environmental signals); (b) chemical-signal communication through mycorrhizal networks. The lean years are part of a satiation defense: lean years starve seed predators, mast years overwhelm them. Climate change is breaking synchrony, reducing seedling establishment.",
+  "llm_application": "Synchronize population of model replicas in a distributed training cluster via 'mast-year' pulse update protocol: most steps each replica only does local optimization (lean years building reserves locally), then a coordinated global all-reduce 'mast pulse' broadcasts aggregated parameter deltas, satiating downstream consumer replicas with a glut of updates. Predator-satiation analog: high-frequency byzantine-failure adversaries that target individual replicas cannot keep up with the mast-pulse bandwidth, attenuating the failure feedback loop. Feedback attenuation comes from the lean-year accumulation phase masking individual-replica noise from the global signal.",
+  "novelty_claim": "Local-SGD, DiLoCo, EDiT/A-EDiT, DreamDDP layer-wise scheduled partial sync, Partial Parameter Updates (2509.22418) and Distributed-LLM surveys (S2949719125000500, 202512.2207) all study reduced-sync distributed training. None frames the schedule as a Moran-effect-driven mast-pulse with predator-satiation, where the lean-year accumulation is a deliberate attenuator of single-replica adversarial signal. Open question whether this maps cleanly onto existing local-SGD analyses or introduces a substantively new threat-modeled schedule.",
+  "content_words": ["mast year", "synchronized seeding", "mycorrhizal network", "predator satiation", "distributed training", "partial synchronization", "byzantine adversary", "lean-year accumulation"],
+  "content_words_composition": {
+    "llm_side": ["distributed training", "partial synchronization", "byzantine adversary", "lean-year accumulation"],
+    "source_side": ["mast year", "synchronized seeding", "mycorrhizal network", "predator satiation"],
+    "generic": []
+  }
+}

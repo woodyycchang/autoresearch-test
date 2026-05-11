@@ -1,0 +1,15 @@
+{
+  "round": "183",
+  "epoch": 8,
+  "candidate_form": "basin-stability",
+  "domain": "aerodynamics (Coanda effect, slot-blown flap circulation control)",
+  "specific_mechanism": "A tangentially-blown jet adheres to a convex surface because entrained air on the surface-side cannot be replenished, creating a pressure asymmetry that bends the jet toward the surface. Coanda flap maintains attached flow over highly deflected surfaces by blowing a thin jet just upstream of the flap, defeating the adverse pressure gradient that would otherwise separate the boundary layer.",
+  "llm_application": "Treat the residual stream's late-layer 'selective refinement' phase as a flow over a deflected flap and use attention-sink tokens as the slot-blown jet that keeps reasoning attached to a target reasoning surface. Concretely: insert a small Coanda-jet of high-influence anchor tokens (synthetic position-zero sinks) at branching reasoning steps to keep the model's attention from separating into hallucinated trajectories. Basin-stability: the slot-blown anchor enlarges the attractor basin of correct CoT paths under bounded prompt perturbation.",
+  "novelty_claim": "Attention-sink literature (StreamingLLM 2309.17453, Structural Origin 2605.06611, Sinks-Compression-Valleys 2510.06477, Preplan-and-Anchor 2510.13554) catalogs the phenomenon and connects it to compression/anchor-token emission. None proposes anchor injection as a Coanda-jet-style continuous-control device that prevents reasoning-trajectory separation at branch points, framing safety as flap re-attachment.",
+  "content_words": ["Coanda effect", "slot-blown jet", "attached flow", "flap deflection", "attention sink", "anchor token", "residual stream", "reasoning trajectory"],
+  "content_words_composition": {
+    "llm_side": ["attention sink", "anchor token", "residual stream", "reasoning trajectory"],
+    "source_side": ["Coanda effect", "slot-blown jet", "attached flow", "flap deflection"],
+    "generic": []
+  }
+}
