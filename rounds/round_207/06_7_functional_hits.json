@@ -1,0 +1,16 @@
+{
+  "round": "207",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://www.worldcooperage.com/the-anatomy-of-a-wine-barrel/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://www.lodiwine.com/blog/Oak-barrels--part-4---Step-by-step-visual-of-how-barrels-are-coopered", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain step-by-step."},
+    {"url": "https://scienceinsights.org/whats-a-cooper-the-barrel-making-craft-explained/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain craft overview."},
+    {"url": "https://arxiv.org/html/2508.02124v1", "judge_score": 0.68, "matched_effect_cluster": "trainable position-aware mask + per-head scalar", "justification": "Trainable dynamic mask sparse attention with learnable time-scale parameter modulating strength per head is functionally close to candidate's 'hoop scalar' driving taper-shape — same mechanism family but uses zero-order hold and learned time-scale rather than fixed bilge taper."},
+    {"url": "https://arxiv.org/pdf/2602.06471", "judge_score": 0.45, "matched_effect_cluster": "shape-of-attention analysis", "justification": "Theoretical analysis of attention shape, no taper-mask mechanism."},
+    {"url": "https://arxiv.org/abs/2108.12409", "judge_score": 0.62, "matched_effect_cluster": "per-head scalar bias", "justification": "ALiBi's per-head learnable scalar slope is conceptually close to the 'hoop scalar' but bias is linear-by-distance, not taper-shaped."},
+    {"url": "https://arxiv.org/abs/2512.14709", "judge_score": 0.40, "matched_effect_cluster": "VSA binding reframe", "justification": "VSA perspective, different focus."},
+    {"url": "https://arxiv.org/html/2504.00927v1", "judge_score": 0.50, "matched_effect_cluster": "multi-token spans", "justification": "Multi-token spans; different mechanism."}
+  ],
+  "summary": {"functional_hits_count": 0, "max_judge_score": 0.68, "distinct_effect_clusters_above_threshold": 0, "multi_cluster_match": false}
+}

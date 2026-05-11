@@ -1,0 +1,103 @@
+{
+  "round": "208",
+  "verified_at": "2026-05-11T17:35:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": ["navigation lock", "paddle valve", "miter gate", "pressure equalization", "context-window handoff", "summary-state surprise threshold", "sub-task gate", "scratchpad drawdown"],
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Lock_(water_navigation)",
+      "functional_equivalence": 0.85,
+      "semantic_cosine": 0.78,
+      "keyword_overlap": 4,
+      "matched_keywords": ["navigation lock", "paddle valve", "miter gate", "pressure equalization"],
+      "judge_reason": "Direct source-domain description of miter gates, paddle valves, and equalization-precedes-opening protocol — the exact source mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 1,
+      "url": "https://www.britannica.com/technology/canal-waterway/Locks",
+      "functional_equivalence": 0.72,
+      "semantic_cosine": 0.72,
+      "keyword_overlap": 1,
+      "matched_keywords": ["navigation lock (via canal lock)"],
+      "judge_reason": "General canal lock engineering overview — covers source domain but with minimal explicit keyword match in snippet.",
+      "hit": true,
+      "hit_triggers": ["judge", "cos"]
+    },
+    {
+      "index": 2,
+      "url": "https://www.publications.usace.army.mil/Portals/76/Publications/EngineerManuals/EM_1110-2-2602.pdf",
+      "functional_equivalence": 0.82,
+      "semantic_cosine": 0.76,
+      "keyword_overlap": 2,
+      "matched_keywords": ["navigation lock (hydraulic locks)", "pressure equalization (water-surface differential)"],
+      "judge_reason": "USACE manual covers water-surface differential during filling/emptying — directly matches the pressure-equalization protocol concept.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2510.00615v2",
+      "functional_equivalence": 0.74,
+      "semantic_cosine": 0.73,
+      "keyword_overlap": 2,
+      "matched_keywords": ["context-window handoff (long-horizon)", "summary-state surprise threshold (predefined threshold)"],
+      "judge_reason": "Acon compresses history when above predefined threshold — closely parallels the surprise-threshold gating idea in candidate.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2604.11462v1",
+      "functional_equivalence": 0.68,
+      "semantic_cosine": 0.68,
+      "keyword_overlap": 1,
+      "matched_keywords": ["context-window handoff (entropy reduction for executor)"],
+      "judge_reason": "ContextCurator addresses entropy reduction aligned with executor needs but lacks the explicit equalization-before-gate-opens invariant.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2603.21357",
+      "functional_equivalence": 0.62,
+      "semantic_cosine": 0.65,
+      "keyword_overlap": 1,
+      "matched_keywords": ["scratchpad drawdown (scratchpad memory)"],
+      "judge_reason": "Mentions scratchpad memory consolidation but uses hindsight optimization rather than pressure-equalized handoff protocol.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/html/2509.23586v1",
+      "functional_equivalence": 0.66,
+      "semantic_cosine": 0.69,
+      "keyword_overlap": 1,
+      "matched_keywords": ["context-window handoff (prompt compression)"],
+      "judge_reason": "Trajectory reduction via LLMLingua-2 is prompt compression with placeholders, not a threshold-gated sub-task transition.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2505.13820",
+      "functional_equivalence": 0.65,
+      "semantic_cosine": 0.71,
+      "keyword_overlap": 1,
+      "matched_keywords": ["summary-state surprise threshold (KL divergence)"],
+      "judge_reason": "Uses KL divergence between teacher-student in distillation segmented by spans — mathematical similarity to KL gating but different setting.",
+      "hit": true,
+      "hit_triggers": ["cos"]
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 5,
+    "hit_rate": 0.625,
+    "hits_by_trigger": {"kw": 3, "cos": 5, "judge": 4},
+    "verdict": "FAIL"
+  }
+}

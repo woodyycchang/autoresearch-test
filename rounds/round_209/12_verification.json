@@ -1,0 +1,123 @@
+{
+  "round": "209",
+  "verified_at": "2026-05-11T17:40:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": ["shoji screen", "kumiko lattice", "washi paper", "light diffusion", "residual-stream channel split", "null-space privacy decode", "subspace orthogonal complement", "silhouette-level semantic preservation"],
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Shoji",
+      "title": "Shoji — Wikipedia",
+      "snippet": "Source-domain: woven kumiko laths + translucent washi paper; jigumi grid types.",
+      "functional_equivalence": 0.95,
+      "semantic_cosine_estimate": 0.85,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["shoji screen", "kumiko lattice", "washi paper"],
+      "judge_reason": "Wikipedia Shoji article directly covers shoji screens, kumiko laths, washi paper, and jigumi grid - the entire source-domain mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 1,
+      "url": "https://awedeco.com/what-are-shoji/",
+      "title": "Shoji Paper Screens",
+      "snippet": "Source-domain: washi diffuses sunlight; ~50% transmission.",
+      "functional_equivalence": 0.85,
+      "semantic_cosine_estimate": 0.78,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["shoji screen", "washi paper", "light diffusion"],
+      "judge_reason": "Covers shoji screen, washi paper, and light diffusion - directly matches three source-domain content words.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 2,
+      "url": "https://jtwood.works/blogs/news/what-is-shoji-paper",
+      "title": "What Is Shoji Paper — Johnny Tromboukis",
+      "snippet": "Source-domain: washi (kozo/mitsumata/gampi fiber); diffuse transmission property.",
+      "functional_equivalence": 0.82,
+      "semantic_cosine_estimate": 0.75,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["shoji screen", "washi paper", "light diffusion"],
+      "judge_reason": "Addresses washi paper composition (mulberry fibers) and diffuse light transmission - matches mechanism description.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2602.09783",
+      "title": "Why Linear Interpretability Works: Invariant Subspaces (2026/2)",
+      "snippet": "LLM-side: features communicated through linear interfaces must occupy invariant subspaces; structural architectural consequence.",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.73,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["subspace orthogonal complement", "residual-stream channel split"],
+      "judge_reason": "Invariant subspaces in LLM features directly relate to subspace orthogonal complement and residual-stream channel splitting concepts.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 4,
+      "url": "https://www.emergentmind.com/topics/language-reasoning-disentanglement",
+      "title": "Language-Reasoning Disentanglement",
+      "snippet": "LLM-side: residual regression + subspace projection achieves near-orthogonal separation between lexicon, syntax, meaning, reasoning.",
+      "functional_equivalence": 0.88,
+      "semantic_cosine_estimate": 0.82,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["residual-stream channel split", "subspace orthogonal complement", "silhouette-level semantic preservation"],
+      "judge_reason": "Directly describes residual subspace orthogonal separation between syntax/structural and semantic/meaning channels - core mechanism analog.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2507.09709v1",
+      "title": "LLMs Encode Semantics in Low-Dimensional Linear Subspaces (2025/7)",
+      "snippet": "LLM-side: semantic representations compress into compact regions, linearly separable clusters.",
+      "functional_equivalence": 0.75,
+      "semantic_cosine_estimate": 0.74,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["subspace orthogonal complement", "silhouette-level semantic preservation"],
+      "judge_reason": "Semantic encoding in linear subspaces supports the orthogonal subspace split decomposition concept central to candidate.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2406.01394",
+      "title": "PrivacyRestore (2024/6)",
+      "snippet": "LLM-side: privacy-span removal + restoration vectors at inference time.",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.58,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["null-space privacy decode"],
+      "judge_reason": "Cited in novelty_claim as a contrast - related privacy mechanism but does not decompose residual stream into structural/content channels.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2603.01499",
+      "title": "Collaborative Obfuscation Privacy LLM Inference (2026/3)",
+      "snippet": "LLM-side: privacy framework on heterogeneous compute.",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.52,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["null-space privacy decode"],
+      "judge_reason": "General privacy obfuscation framework but does not address the orthogonal channel-split decomposition - cited as contrast in novelty claim.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 6,
+    "hit_rate": 0.75,
+    "hits_by_trigger": {
+      "kw": 6,
+      "cos": 6,
+      "judge": 6
+    },
+    "verdict": "PASS"
+  }
+}

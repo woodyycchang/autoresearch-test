@@ -1,0 +1,15 @@
+{
+  "round": "206",
+  "epoch": 9,
+  "candidate_form": "phase-coherence",
+  "domain": "luthiery (violin-maker tonewood selection via tap test; quartersawn spruce; stiffness-to-weight, grain spacing, defined-lasting-tone tap response)",
+  "specific_mechanism": "A luthier holds a candidate wood plate at the 1/3 × 1/3 nodal point, taps lightly, and listens for: (a) a clear fundamental, (b) low harmonic noise, (c) long ringing decay, (d) absence of buzzy partials. The wood is graded on its 'free-plate' acoustic profile before any carving. Quartersawn spruce with ~10 grains/cm and high stiffness-to-weight ratio reliably produces the best decay-and-clarity profile.",
+  "llm_application": "Pre-fine-tune model selection via reasoning-tap test: probe a candidate base model with a sinusoidally-parameterized reasoning prompt (e.g., 'compute f(x) where x varies as cos(ωt) across N queries'), measure first-harmonic gain/phase of the model's output relative to the input frequency, evaluate (a) low-pass cutoff, (b) phase lag, (c) harmonic distortion. Models with clean low-frequency response and minimal phase lag are 'good tonewood' for downstream fine-tuning; models with high distortion are rejected before paying fine-tuning costs.",
+  "novelty_claim": "Most model-selection benchmarks use static accuracy on held-out tasks (MMLU, GSM8K). Frequency-response evaluation has been demonstrated for control systems and recently for LLM reasoning, but is not yet standard as a pre-fine-tune model-screening tool. Specific novelty: extend frequency-response to a *fine-tune-eligibility* criterion analogous to luthier's pre-carve tonewood grading.",
+  "content_words": ["tap test", "tonewood selection", "ringing decay", "luthier grading", "frequency response evaluation", "pre-fine-tune model selection", "phase lag", "harmonic distortion"],
+  "content_words_composition": {
+    "llm_side": ["frequency response evaluation", "pre-fine-tune model selection", "phase lag", "harmonic distortion"],
+    "source_side": ["tap test", "tonewood selection", "ringing decay", "luthier grading"],
+    "generic": []
+  }
+}

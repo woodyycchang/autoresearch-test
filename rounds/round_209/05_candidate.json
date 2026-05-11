@@ -1,0 +1,15 @@
+{
+  "round": "209",
+  "epoch": 9,
+  "candidate_form": "null-space-traversal",
+  "domain": "Japanese architecture — shōji (sliding screen with kumiko wood-lattice substrate + washi mulberry-fiber paper)",
+  "specific_mechanism": "A shōji has two physically composed layers: (1) a wooden kumiko lattice (kōshi) — laths interwoven in a halved-joint pattern, classified into jigumi (square/diamond/hexagonal foundational grids), forming the structural skeleton; (2) translucent washi paper applied over the lattice, refracting incident light into diffuse glow. The lattice provides MECHANICAL structure but is largely TRANSPARENT to information (you see the silhouettes through it); the paper provides OPTICAL diffusion. The combination is privacy-preserving (silhouettes only) AND comfort-preserving (diffuse light, no glare).",
+  "llm_application": "Two-layer null-space privacy decode: separate the residual stream of an LLM at inference time into (a) a 'kumiko' channel — structural / syntactic content routed through a low-rank lattice subspace that downstream observers can see (carries information like 'a request is being made, request_type=question, request_status=pending') and (b) a 'washi' channel — semantic content routed through the orthogonal complement, blurred with calibrated Gaussian noise just enough to obscure literal token identity while preserving silhouette-level semantics. Verifiers downstream see the kumiko (structure) clearly, but the washi (content) is privacy-diffused. The kumiko-washi decomposition is the explicit null-space orthogonal split.",
+  "novelty_claim": "PrivacyRestore 2406.01394 uses privacy-span removal + restoration vectors; CMIF (2509.09091) uses TEE for embedding layer + GPU for upper layers; collaborative obfuscation (2603.01499) is a general framework. None decomposes the residual stream into a STRUCTURAL kumiko channel + CONTENT washi channel via orthogonal subspace split, with calibrated diffusion only on the content channel.",
+  "content_words": ["shoji screen", "kumiko lattice", "washi paper", "light diffusion", "residual-stream channel split", "null-space privacy decode", "subspace orthogonal complement", "silhouette-level semantic preservation"],
+  "content_words_composition": {
+    "llm_side": ["residual-stream channel split", "null-space privacy decode", "subspace orthogonal complement", "silhouette-level semantic preservation"],
+    "source_side": ["shoji screen", "kumiko lattice", "washi paper", "light diffusion"],
+    "generic": []
+  }
+}

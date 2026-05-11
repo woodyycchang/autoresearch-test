@@ -1,0 +1,132 @@
+{
+  "round": "207",
+  "verified_at": "2026-05-11T18:05:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": [
+    "barrel stave",
+    "cooper hoop",
+    "dropoff taper",
+    "compressive interlock",
+    "tapered attention envelope",
+    "hoop scalar",
+    "radial compression mask",
+    "no-explicit-edge cohesion"
+  ],
+  "results": [
+    {
+      "idx": 0,
+      "url": "https://www.worldcooperage.com/the-anatomy-of-a-wine-barrel/",
+      "title": "Anatomy of a Wine Barrel — World Cooperage",
+      "side": "source",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.45,
+      "keyword_overlap": 1,
+      "matched_keywords": ["compressive interlock (partial via 'joints tighten')"],
+      "judge_reason": "Describes barrel bilge/circumference tightening but covers only the source-domain anatomy without the taper+hoop compression mechanism that is core to the candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 1,
+      "url": "https://www.lodiwine.com/blog/Oak-barrels--part-4---Step-by-step-visual-of-how-barrels-are-coopered",
+      "title": "Step-by-step Barrel Coopering — Lodi Winegrape",
+      "side": "source",
+      "functional_equivalence": 0.85,
+      "semantic_cosine": 0.78,
+      "keyword_overlap": 3,
+      "matched_keywords": ["barrel stave", "cooper hoop (via iron hoop)", "dropoff taper (via tapered staves)"],
+      "judge_reason": "Directly describes tapered staves with bevel and iron-hoop compression — the exact source-domain mechanism the candidate is built upon.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "idx": 2,
+      "url": "https://scienceinsights.org/whats-a-cooper-the-barrel-making-craft-explained/",
+      "title": "What's a Cooper — ScienceInsights",
+      "side": "source",
+      "functional_equivalence": 0.72,
+      "semantic_cosine": 0.7,
+      "keyword_overlap": 2,
+      "matched_keywords": ["cooper hoop (via rivets/hoops)", "compressive interlock (no nails/no glue cohesion)"],
+      "judge_reason": "Captures the no-nails-no-glue cohesion property and cooper hoop fastening which is a defining source-domain feature.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "idx": 3,
+      "url": "https://arxiv.org/html/2508.02124v1",
+      "title": "Trainable Dynamic Mask Sparse Attention (2025/8)",
+      "side": "llm",
+      "functional_equivalence": 0.6,
+      "semantic_cosine": 0.62,
+      "keyword_overlap": 2,
+      "matched_keywords": ["hoop scalar (via learnable per-head time-scale parameter)", "radial compression mask (partial via trainable mask)"],
+      "judge_reason": "Trainable per-head mask with a learnable scalar modulating selection strength resembles the candidate's hoop-scalar mask idea, though without a taper-shaped envelope or radial cohesion concept.",
+      "hit": false,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/pdf/2602.06471",
+      "title": "Revisiting Shape Convention of Transformer LMs (2026/2)",
+      "side": "llm",
+      "functional_equivalence": 0.4,
+      "semantic_cosine": 0.5,
+      "keyword_overlap": 1,
+      "matched_keywords": ["tapered attention envelope (partial via shape-of-attention)"],
+      "judge_reason": "Analyzes the shape of attention distributions but does not propose a tapered envelope mask with a learnable hoop scalar.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/abs/2108.12409",
+      "title": "ALiBi: Attention with Linear Biases",
+      "side": "llm",
+      "functional_equivalence": 0.68,
+      "semantic_cosine": 0.66,
+      "keyword_overlap": 2,
+      "matched_keywords": ["hoop scalar (head-specific scalar slope)", "tapered attention envelope (linear bias monotone shape)"],
+      "judge_reason": "ALiBi introduces a per-head learnable/fixed scalar that shapes attention by distance — closest LLM prior art for a single-scalar attention envelope, but it is monotone (not center-wider taper).",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/abs/2512.14709",
+      "title": "Attention as Binding: VSA Perspective (2025/12)",
+      "side": "llm",
+      "functional_equivalence": 0.3,
+      "semantic_cosine": 0.45,
+      "keyword_overlap": 1,
+      "matched_keywords": ["no-explicit-edge cohesion (partial via binding instead of pairwise weights)"],
+      "judge_reason": "VSA-binding reframing was explicitly cited in the candidate as related but not implementing the taper-shaped envelope, so it is acknowledged prior art only.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2504.00927v1",
+      "title": "Multi-Token Attention (2025/4)",
+      "side": "llm",
+      "functional_equivalence": 0.3,
+      "semantic_cosine": 0.42,
+      "keyword_overlap": 0,
+      "matched_keywords": [],
+      "judge_reason": "Multi-token attention spans are distinct from the taper-shaped single-position envelope; candidate explicitly distinguishes itself from this work.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 3,
+    "hit_rate": 0.375,
+    "hits_by_trigger": {
+      "kw": 3,
+      "cos": 2,
+      "judge": 2
+    },
+    "verdict": "FAIL"
+  }
+}

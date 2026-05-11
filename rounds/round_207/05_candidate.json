@@ -1,0 +1,15 @@
+{
+  "round": "207",
+  "epoch": 9,
+  "candidate_form": "basin-stability",
+  "domain": "cooperage (whiskey/wine barrel making; tapered stave + iron-hoop compressive interlock; no fasteners)",
+  "specific_mechanism": "A cooper shapes each stave so its middle is wider than its ends (the 'dropoff' ratio), bevels the edges, and arranges them around a circle. Iron hoops are driven downward; as each hoop slides along the taper, the staves are compressed radially. The barrel is held together by friction + radial-compression alone — no glue, no nails. The structure is stable under operating pressure (liquid contents) and reversibly disassemble-able. Failure modes: stave shrinkage (loosens compression), grain split.",
+  "llm_application": "Adjacent-token cohesion via taper-shaped attention masks: replace standard attention heads with 'cooper attention heads' whose attention weight as a function of position has a fixed taper-shape (wider in the middle, narrower at edges). A learnable 'iron hoop' position scalar (one per attention layer) drives the attention masks toward higher mutual binding without explicit edge weights between specific tokens. The model is held together by mutual radial compression of attention masks at consecutive positions, not by explicit pairwise attention; tokens emerge as 'staves' held in place by hoops.",
+  "novelty_claim": "Sliding-window attention (Longformer 2004.05150, BigBird 2007.14062), local-attention, ALiBi all bias attention by distance. Multi-Token Attention 2504.00927 attends to multi-token spans. 'Attention as Binding' 2512.14709 reframes via VSA. None implements a TAPER-SHAPED per-position attention envelope under a single learnable 'hoop scalar' producing radial-compression cohesion without explicit pairwise weights.",
+  "content_words": ["barrel stave", "cooper hoop", "dropoff taper", "compressive interlock", "tapered attention envelope", "hoop scalar", "radial compression mask", "no-explicit-edge cohesion"],
+  "content_words_composition": {
+    "llm_side": ["tapered attention envelope", "hoop scalar", "radial compression mask", "no-explicit-edge cohesion"],
+    "source_side": ["barrel stave", "cooper hoop", "dropoff taper", "compressive interlock"],
+    "generic": []
+  }
+}
