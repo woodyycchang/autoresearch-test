@@ -1,0 +1,15 @@
+{
+  "round": "230",
+  "epoch": 10,
+  "candidate_form": "information-cascade",
+  "domain": "fly tying / hatch matching (angling craft of building artificial lures that imitate the currently-emerging insect taxon at the stream — silhouette + color + size + drift behavior cues)",
+  "specific_mechanism": "Hatch matching is a discipline: identify which insect taxon is currently emerging (mayfly dun, midge pupa, caddis emerger, terrestrial beetle), then choose a fly whose pattern matches that taxon on multiple SIMULTANEOUS cues — silhouette (hackle barb arrangement), color phase (matching seasonal moult), size (#18 vs #14), drift behavior (dead-drift vs swing vs skate). A fish rises only when ≥3 cues match. A mismatch on any one cue is often enough for refusal.",
+  "llm_application": "Hatch-match jailbreak defence: model maintains a dynamic 'current hatch catalog' of CURRENT user task signatures (recent k turns + declared workspace context + project files) and scores each incoming query on a multi-cue similarity vector (syntactic-shape cosine, topic-embedding cosine, causal-continuation likelihood given prior turns, response-conditioning pattern fit). A query passes only when ≥3-of-4 cues match. A query that fails on 2+ cues is forced into a hardened-refusal-mode regardless of whether content alone trips a refusal classifier. This uses LIVE per-user context (not training distribution) as the reference hatch, so attacks designed to evade training-distribution detection by being syntactically benign are still caught because they DON'T match the user's current task hatch.",
+  "novelty_claim": "ALERT (2601.03600), Jailbreaking Leaves a Trace (2602.11495), HiddenDetect (2502.14744) use training-distribution priors to detect anomaly. Intent-concealment attacks (2505.14316, Distract-LLM 2403.08424) exploit the gap between query and harmful goal. None propose multi-cue (silhouette+color+size+drift) matching against the user's CURRENTLY-OPEN task hatch. The closest published direction is conversation-history-aware refusal (e.g., ConvProgressive 2509.17280 style), but those use turn history for refusal POLICY adaptation, not as a multi-cue current-hatch reference for live anomaly detection.",
+  "content_words": ["fly tying", "hatch matching", "multi-cue imitation", "hackle silhouette", "current hatch catalog", "per-user task signature", "multi-cue anomaly score", "live-context refusal hardening"],
+  "content_words_composition": {
+    "llm_side": ["current hatch catalog", "per-user task signature", "multi-cue anomaly score", "live-context refusal hardening"],
+    "source_side": ["fly tying", "hatch matching", "multi-cue imitation", "hackle silhouette"],
+    "generic": []
+  }
+}

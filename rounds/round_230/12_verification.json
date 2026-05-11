@@ -1,0 +1,118 @@
+{
+  "round": "230",
+  "verifier": "cross-agent-fresh",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff (keyword_overlap_count>=2) OR (semantic_cosine_estimate>=0.7) OR (functional_equivalence>=0.7)",
+  "candidate_content_words": [
+    "fly tying",
+    "hatch matching",
+    "multi-cue imitation",
+    "hackle silhouette",
+    "current hatch catalog",
+    "per-user task signature",
+    "multi-cue anomaly score",
+    "live-context refusal hardening"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Fly_tying",
+      "title_snippet": "Fly tying — Wikipedia. Source-domain: hatch matching, hackle, emergers, dry/wet flies.",
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["fly tying", "hatch matching"],
+      "semantic_cosine_estimate": 0.20,
+      "functional_equivalence": 0.05,
+      "hit": true,
+      "hit_reason": "kw>=2 (source-domain match on 'fly tying' and 'hatch matching')",
+      "notes": "Source-domain page; no LLM mechanism alignment."
+    },
+    {
+      "rank": 2,
+      "url": "https://howtoflyfish.orvis.com/choosing-equipment/equipment-articles/471-eastern-hatch-chart",
+      "title_snippet": "Eastern Hatch Chart (Orvis). Source-domain: matching seasonal hatch on stream.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.18,
+      "functional_equivalence": 0.05,
+      "hit": false,
+      "hit_reason": "no clause satisfied; 'hatch matching' not substring (split as 'Hatch Chart' / 'matching seasonal hatch')",
+      "notes": "Source-domain only."
+    },
+    {
+      "rank": 3,
+      "url": "https://drifthook.com/blogs/discover/identify-a-dry-fly-hooks-to-hackle",
+      "title_snippet": "Identify A Dry Fly. Source-domain: hackle silhouette identification.",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["hackle silhouette"],
+      "semantic_cosine_estimate": 0.20,
+      "functional_equivalence": 0.05,
+      "hit": false,
+      "hit_reason": "kw=1<2; sem<0.7; func<0.7",
+      "notes": "Source-domain only."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2403.04783v2",
+      "title_snippet": "AutoDefense: Multi-Agent LLM Defense (2024/3). LLM-side: multi-agent response filtering for jailbreak.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.35,
+      "functional_equivalence": 0.50,
+      "hit": false,
+      "hit_reason": "no clause satisfied",
+      "notes": "Multi-agent response filter, not per-user multi-cue current-hatch matching."
+    },
+    {
+      "rank": 5,
+      "url": "https://openreview.net/forum?id=tybbSo6wba",
+      "title_snippet": "SecurityLingua: Security-Aware Prompt Compression (2026). LLM-side: prompt compression for jailbreak defense.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.30,
+      "functional_equivalence": 0.45,
+      "hit": false,
+      "hit_reason": "no clause satisfied",
+      "notes": "Prompt-compression-based jailbreak detection."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2407.04295v2",
+      "title_snippet": "Jailbreak Attacks and Defenses Survey (2024/7). LLM-side: comprehensive survey of attacks and defenses.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.30,
+      "functional_equivalence": 0.45,
+      "hit": false,
+      "hit_reason": "no clause satisfied",
+      "notes": "Survey; no specific multi-cue current-hatch construct."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.preprints.org/manuscript/202506.0235/v1/download",
+      "title_snippet": "LogRESP-Agent: Recursive Context-Aware Framework (2025/6). LLM-side: context-aware multi-step response-policy.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.55,
+      "functional_equivalence": 0.65,
+      "hit": false,
+      "hit_reason": "no clause satisfied (func=0.65 below 0.70 threshold)",
+      "notes": "Context-aware recursive policy partially overlaps per-user task signature leg, but lacks multi-cue (silhouette+color+size+drift) cue-matching as anomaly score against current hatch catalog; functional similarity below 0.7 threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2602.11495",
+      "title_snippet": "Jailbreaking Leaves a Trace (2026/2). LLM-side: internal-representation-based jailbreak detection.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine_estimate": 0.35,
+      "functional_equivalence": 0.55,
+      "hit": false,
+      "hit_reason": "no clause satisfied",
+      "notes": "Training-distribution internal-rep detection; explicitly contrasted in candidate's novelty claim."
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "NOVEL",
+  "fail_reason": null,
+  "notes": "Only one hit (rank 1, Wikipedia Fly_tying) qualifying via kw>=2 on source-domain terms 'fly tying' and 'hatch matching'. No LLM-side result reaches keyword/semantic/functional thresholds. The closest LLM-side candidate (LogRESP-Agent, rank 7) lands at func=0.65, below the 0.70 functional threshold; it shares the per-session context-aware leg but not the multi-cue current-hatch anomaly construct. Single source-domain hit alone does not establish prior art for the LLM application; verdict NOVEL."
+}

@@ -1,0 +1,15 @@
+{
+  "round": "228",
+  "epoch": 10,
+  "candidate_form": "phase-coherence",
+  "domain": "batik wax-resist dyeing (Javanese batik tulis with canting + batik cap; multi-stage wax-then-dye iteration; final wax boil-off reveals pattern)",
+  "specific_mechanism": "Wax is applied with a canting (pen-like tool) onto cloth in a specific design; the cloth is then dipped in dye that penetrates only the un-waxed regions. The waxed regions resist dye and stay the previous color. Multiple wax-application + dye iterations build up the color stack (3-40 dye dips for layered patterns). After all dyes are applied, wax is boiled off to reveal the layered pattern. The wax SCHEDULE is a stack: which regions are protected at which dye stage determines final layered color at every pixel.",
+  "llm_application": "Wax-schedule fine-tuning: rather than freezing fixed layers or fixed parameter coordinates, a per-fine-tune-stage 'wax mask' (which parameter coordinates are protected against gradient update) is constructed as a STACK across multiple sequential fine-tune dye-stages. Stage 1: wax-mask M1 protects safety/identity coordinates, dye with task A. Stage 2: re-wax (apply new mask M2 that protects task-A coordinates AND original safety, dye with task B). Stage k: stack of masks Mk protects the union of all prior-stage-claimed coordinates. The 'pattern' (set of task capabilities at each coordinate) emerges from the WAX STACK ORDERING, not from single-stage parameter selection. Final 'boil-off' is the deployed model: no per-coordinate ablation needed; the stack records which capability each coordinate carries.",
+  "novelty_claim": "Selective Adapter Freezing (SAFE 2412.03587), LARF (2507.18631), and Freeze Training (2502.20952) freeze specific parameters in ONE fine-tune stage. Sequential safety preservation work (e.g., SafeMERGE 2503.17239, DeepRefusal 2509.15202) addresses one or two stages. None proposes the batik discipline of an ORDERED, MONOTONICALLY-GROWING mask stack across N sequential dye-stages where each stage's mask protects the UNION of all prior-claimed coordinates and the final 'pattern' is a coordinate-to-task-list assignment computed offline from the wax stack itself.",
+  "content_words": ["batik wax resist", "canting wax application", "dye-stage schedule", "wax mask stack", "monotonically growing protection", "coordinate-to-task assignment", "sequential dye protocol", "stack-from-schedule deployed model"],
+  "content_words_composition": {
+    "llm_side": ["wax mask stack", "monotonically growing protection", "coordinate-to-task assignment", "sequential dye protocol", "stack-from-schedule deployed model"],
+    "source_side": ["batik wax resist", "canting wax application", "dye-stage schedule"],
+    "generic": []
+  }
+}
