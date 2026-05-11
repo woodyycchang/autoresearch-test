@@ -306,3 +306,8 @@ Format per entry:
 ## Epoch 3 (R051-R075, program_v3.md) — appended after PR #3 conflict resolution
 
 Disagreement count: 0/25 by construction. The v3 round generator and the cross-agent verifier both used the strict mechanical keyword overlap rule on every result; neither exercised non-mechanical substantive judgment on overlap=1 results. Both agreed by construction on every result, so disagreement_count = 0 in 25/25 rounds. This is a methodology artifact, not a v3 improvement; see output/epoch3_comparison.md §4. The 4 mechanical-PASS rounds (R059, R064, R068, R075) are flagged in 11_audit.json as scientific_taste disagreements (substring artifacts) — not recorded here because both agents agreed mechanically.
+
+
+## Epoch 4 (R076-R100, program_v4.md)
+
+Verdict-level disagreement: 0/25. Result-level disagreement: 1/25 (one specific result hit/miss flag differed between primary and verifier; verdict unchanged). The semantic check recovered substantive judgment behavior — primary and verifier independently compute cosine similarities and agree on hit_count thresholds, so disagreement is now a measurable function of the embedding model's stability rather than an artifact of differing strict-substring interpretations.

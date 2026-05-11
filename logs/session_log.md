@@ -65,3 +65,19 @@ Format per entry:
   - Original task spec assumed epoch 2 already ran (R051-R075); it had not. Documented in epoch3_comparison.md.
   - Disagreement rate 0/25 by methodology (mechanical-rule strict for both primary and verifier); see epoch3_comparison.md §4.
   - Comparison report at output/epoch3_comparison.md; stats at output/stats_round_050.json; diff at output/v2_to_v3_diff.md.
+
+
+## Epoch 4 session (R076-R100, program_v4.md)
+
+- Rounds attempted: 76 to 100 (epoch 4 = 25 rounds)
+- Rounds completed: 25
+- Stopping reason: 25-round target reached. 4 substantive PASSes, 21 FAIL.
+- Notes:
+  - Inherited 75 prior rounds (R001-R075) + 138-round prior history
+  - Used program_v4.md adding step 06.5 (semantic-similarity check) and memory-pattern Jaccard check
+  - Semantic-only forced hits caught: 35 across 10 rounds (rounds that would have been mechanical PASS under v3)
+  - Memory-pattern Jaccard check: 0 fires (epoch 4 candidates use new domains; tried_keywords share little with epoch 2/3 false positives)
+  - 4 substantive PASSes: R079 (phyllotaxis Fibonacci leaf arrangement), R085 (extreme-pressure tribology boundary lubrication), R091 (tardigrade desiccation cryptobiosis), R092 (Antarctic icefish antifreeze glycoproteins)
+  - All 4 PASSes have max cosine similarity < 0.55 and clean cross-agent verifier
+  - 7 rounds had memory-skip events at step 04.5 (rule_1_domain_skip + rule_3_form_rotate)
+  - New forms introduced: phase-coherence, basin-stability

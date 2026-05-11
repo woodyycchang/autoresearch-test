@@ -131,3 +131,32 @@ DO NOT repropose these:
 - Round 073 | domain: philology (philology / textual criticism (stemmatic method fo) | mechanism: The stemmatic method reconstructs a manuscript family tree from extant copies vi | verdict: FAIL
 - Round 074 | domain: horticulture (horticulture (scion-rootstock grafting and graft u) | mechanism: Successful plant grafting requires alignment of vascular cambium tissue between  | verdict: FAIL
 - Round 075 | domain: numismatics (numismatics (die-axis variation across coin strike) | mechanism: Coins are struck between two engraved dies (obverse and reverse); the die-axis ( | verdict: PASS
+
+
+## Epoch 4 (R076-R100, program_v4.md semantic-similarity)
+
+- Round 076 | domain: thermoacoustics (thermoacoustic engines (Stirling-cycle phase relat) | mechanism: Thermoacoustic engines convert temperature gradients to acoustic oscillations via standing | verdict: FAIL | form: phase-coherence
+- Round 077 | domain: apiology (myrmecology — Cataglyphis path integration) | mechanism: Cataglyphis desert ants integrate proprioceptive step counts + sky polarization to maintai | verdict: FAIL | form: phase-coherence
+- Round 078 | domain: lichenology (lichen symbiosis (algal-fungal nutrient exchange)) | mechanism: Lichens are obligate symbioses where photobiont algae provide carbohydrates and mycobiont  | verdict: FAIL | form: feedback-attenuation
+- Round 079 | domain: botany (phyllotaxis (Fibonacci leaf arrangement)) | mechanism: Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5°) divergence to minimi | verdict: PASS (substantive) | form: phase-coherence
+- Round 080 | domain: thermoacoustics (termite mound thermoregulation) | mechanism: Macrotermes mounds maintain ±1°C internal temperature via passive ventilation networks dri | verdict: FAIL | form: phase-coherence
+- Round 081 | domain: lichenology (mycorrhizal common-mycorrhizal-network (CMN)) | mechanism: Plants are connected by underground fungal networks that transport carbon between trees; r | verdict: FAIL | form: feedback-attenuation
+- Round 082 | domain: botany (plant defensive priming (jasmonic acid signaling)) | mechanism: When attacked, plants emit volatile jasmonates that prime undamaged neighbors to upregulat | verdict: FAIL | form: phase-coherence
+- Round 083 | domain: tribology (ferromagnetic domain-wall motion (Barkhausen noise) | mechanism: Ferromagnets respond to applied field via discrete domain-wall jumps; the cumulative jumps | verdict: FAIL | form: basin-stability
+- Round 084 | domain: apiology (honeybee swarm decision-making (waggle dance quoru) | mechanism: Honeybee swarms choose nest sites via decentralized quorum: scouts return with waggle danc | verdict: FAIL | form: feedback-attenuation
+- Round 085 | domain: tribology (extreme-pressure tribology (boundary lubrication b) | mechanism: Under extreme contact pressure, boundary lubrication transitions from elastohydrodynamic f | verdict: PASS (substantive) | form: basin-stability
+- Round 086 | domain: herpetology (snake venom co-evolution arms race) | mechanism: Snake venom toxins evolve under selection from prey resistance; population-level resistanc | verdict: FAIL | form: phase-coherence
+- Round 087 | domain: marine-biology (octopus skin-color distributed visual processing) | mechanism: Octopus skin contains opsin photoreceptors that process visual signal locally without brai | verdict: FAIL | form: phase-coherence
+- Round 088 | domain: marine-biology (cuttlefish dynamic camouflage adaptive control) | mechanism: Cuttlefish match background pattern via central nervous control of millions of chromatopho | verdict: FAIL | form: phase-coherence
+- Round 089 | domain: extremophile-biology (deep-sea hydrothermal-vent chemosynthesis) | mechanism: Hydrothermal vent ecosystems run on chemosynthesis: H2S oxidation by chemoautotrophic bact | verdict: FAIL | form: feedback-attenuation
+- Round 090 | domain: developmental-biology (regenerative axolotl limb blastema) | mechanism: Axolotls regenerate amputated limbs via blastema — a mass of dedifferentiated cells that r | verdict: FAIL | form: feedback-attenuation
+- Round 091 | domain: extremophile-biology (tardigrade desiccation cryptobiosis) | mechanism: Tardigrades survive complete dehydration via tun-state cryptobiosis: trehalose vitrificati | verdict: PASS (substantive) | form: basin-stability
+- Round 092 | domain: marine-biology (Antarctic icefish antifreeze glycoproteins) | mechanism: Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-co | verdict: PASS (substantive) | form: phase-coherence
+- Round 093 | domain: apiology (social spider colony web maintenance) | mechanism: Anelosimus eximius colonies maintain group webs through stigmergic role allocation: damage | verdict: FAIL | form: feedback-attenuation
+- Round 094 | domain: analytical-chemistry (mass spectrometry quadrupole ion trap stability) | mechanism: Quadrupole ion traps confine ions in stability regions of the Mathieu equation; specific ( | verdict: FAIL | form: phase-coherence
+- Round 095 | domain: chronobiology (Drosophila circadian molecular clock TIM/PER) | mechanism: Drosophila circadian rhythms emerge from TIMELESS/PERIOD protein negative-feedback loop; l | verdict: FAIL | form: feedback-attenuation
+- Round 096 | domain: lichenology (fungal mycelium nutrient-transport network optimiz) | mechanism: Physarum polycephalum slime-mold networks reorganize for shortest-path nutrient transport  | verdict: FAIL | form: feedback-attenuation
+- Round 097 | domain: marine-biology (elasmobranch electroreception (ampullae of Lorenzi) | mechanism: Sharks detect prey-generated electric fields via ampullae of Lorenzini — gel-filled canals | verdict: FAIL | form: basin-stability
+- Round 098 | domain: lichenology (fungal hyphal anastomosis (network fusion)) | mechanism: Fungal hyphae from genetically distinct mycelia fuse via anastomosis when compatible, shar | verdict: FAIL | form: feedback-attenuation
+- Round 099 | domain: orthopedics (bone remodeling Wolff's law) | mechanism: Bone remodels itself in response to mechanical stress (Wolff's law) — osteoclasts resorb u | verdict: FAIL | form: basin-stability
+- Round 100 | domain: developmental-biology (epigenetic transgenerational inheritance (DNA meth) | mechanism: Some DNA methylation marks survive meiosis and are inherited transgenerationally, encoding | verdict: FAIL | form: feedback-attenuation

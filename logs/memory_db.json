@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "created": "2026-05-11",
-  "last_updated": "2026-05-11 (post PR #3 conflict resolution; rounds 026-050 from PR #3 renumbered to 051-075)",
-  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v4 epoch will append R076-R100.",
+  "last_updated": "2026-05-11 (epoch 4 R076-R100 appended)",
+  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v4 epoch will append R076-R100. v1.2 includes epoch 4 R076-R100 with semantic-hit metrics.",
   "epoch_index": {
     "epoch_1": {
       "rounds": [
@@ -93,20 +93,51 @@
         "075"
       ],
       "program_version": "program_v3.md (memory-aware)"
+    },
+    "epoch_4": {
+      "rounds": [
+        "076",
+        "077",
+        "078",
+        "079",
+        "080",
+        "081",
+        "082",
+        "083",
+        "084",
+        "085",
+        "086",
+        "087",
+        "088",
+        "089",
+        "090",
+        "091",
+        "092",
+        "093",
+        "094",
+        "095",
+        "096",
+        "097",
+        "098",
+        "099",
+        "100"
+      ],
+      "program_version": "program_v4.md (semantic-similarity + memory-pattern)"
     }
   },
   "aggregates": {
-    "total_rounds": 75,
-    "fail_count": 66,
-    "pass_count": 9,
-    "mean_forced_hit": 4.07,
-    "mean_hit_count": 6.12,
+    "total_rounds": 100,
+    "fail_count": 87,
+    "pass_count": 13,
+    "mean_forced_hit": 3.6,
+    "mean_hit_count": 5.49,
     "domain_fail_counts": {
       "physics": 10,
       "molecular-cell-biology": 7,
       "cognitive-science": 5,
       "math-dynamical": 4,
       "law": 4,
+      "lichenology": 4,
       "indigenous-ethnoscience": 3,
       "engineering-mechanics": 3,
       "chemistry-materials": 3,
@@ -114,21 +145,33 @@
       "plant-biology": 3,
       "earth-systems": 3,
       "ethology": 3,
+      "apiology": 3,
+      "marine-biology": 3,
       "information": 2,
       "rheology": 2,
       "speleology": 2,
+      "chronobiology": 2,
+      "thermoacoustics": 2,
+      "developmental-biology": 2,
       "computability": 1,
       "distributed": 1,
       "complexity": 1,
       "pedology": 1,
-      "chronobiology": 1,
       "glaciology": 1,
       "archaeology": 1,
       "philology": 1,
-      "horticulture": 1
+      "horticulture": 1,
+      "botany": 1,
+      "tribology": 1,
+      "herpetology": 1,
+      "extremophile-biology": 1,
+      "analytical-chemistry": 1,
+      "orthopedics": 1
     },
     "form_fail_counts": {
       "memory-architecture": 10,
+      "feedback-attenuation": 10,
+      "phase-coherence": 8,
       "quantitative-prediction": 6,
       "evaluation-diagnostic": 5,
       "context-gating": 5,
@@ -139,7 +182,8 @@
       "conjunction": 5,
       "negation-impossibility": 5,
       "reverse-direction": 5,
-      "runtime-repair": 5
+      "runtime-repair": 5,
+      "basin-stability": 3
     },
     "blocked_domains_threshold_3_or_more": [
       "math-dynamical",
@@ -153,7 +197,10 @@
       "earth-systems",
       "ethology",
       "physics",
-      "cognitive-science"
+      "cognitive-science",
+      "apiology",
+      "lichenology",
+      "marine-biology"
     ],
     "blocked_forms_threshold_5_or_more": [
       "evaluation-diagnostic",
@@ -167,7 +214,9 @@
       "negation-impossibility",
       "quantitative-prediction",
       "reverse-direction",
-      "runtime-repair"
+      "runtime-repair",
+      "phase-coherence",
+      "feedback-attenuation"
     ],
     "frequently_tried_keywords_top_15": {
       "llm": 16,
@@ -181,10 +230,10 @@
       "multi-agent": 3,
       "traditional chinese medicine": 2,
       "reaction-diffusion": 2,
+      "waggle dance": 2,
+      "apis mellifera": 2,
       "attention sink": 2,
-      "multi-agent coordination": 2,
-      "induction head": 2,
-      "emergent coordination": 2
+      "stigmergy": 2
     },
     "least_used_forms": []
   },
@@ -1857,6 +1906,731 @@
         "die-pair"
       ],
       "verdict": "PASS"
+    },
+    {
+      "round": "076",
+      "epoch": 4,
+      "domain": "thermoacoustic engines (Stirling-cycle phase relationships)",
+      "domain_normalized": "thermoacoustics",
+      "mechanism": "Thermoacoustic engines convert temperature gradients to acoustic oscillations via standing waves in resonators; phase relationship between pressure and velocity determines efficiency (Rayleigh criterion)",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "thermoacoustic",
+        "Stirling cycle",
+        "Rayleigh criterion",
+        "standing wave",
+        "resonator",
+        "phase coherence",
+        "pressure velocity",
+        "acoustic oscillation"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.658,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "077",
+      "epoch": 4,
+      "domain": "myrmecology \u2014 Cataglyphis path integration",
+      "domain_normalized": "apiology",
+      "mechanism": "Cataglyphis desert ants integrate proprioceptive step counts + sky polarization to maintain home-vector for kilometer-scale return journeys without landmarks; vector decays linearly with foraging time",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "Cataglyphis",
+        "path integration",
+        "sky polarization",
+        "home vector",
+        "proprioceptive",
+        "step count",
+        "foraging",
+        "desert ant"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.699,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "078",
+      "epoch": 4,
+      "domain": "lichen symbiosis (algal-fungal nutrient exchange)",
+      "domain_normalized": "lichenology",
+      "mechanism": "Lichens are obligate symbioses where photobiont algae provide carbohydrates and mycobiont fungi provide water/minerals; bidirectional nutrient flux is regulated by interface membrane permeability that adjusts to environmental stress",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "lichen",
+        "photobiont",
+        "mycobiont",
+        "symbiosis",
+        "interface membrane",
+        "nutrient exchange",
+        "carbohydrate",
+        "fungal-algal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.764,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "079",
+      "epoch": 4,
+      "domain": "phyllotaxis (Fibonacci leaf arrangement)",
+      "domain_normalized": "botany",
+      "mechanism": "Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5\u00b0) divergence to minimize self-shading; the spiral emerges from auxin-driven reaction-diffusion dynamics in the meristem",
+      "form": "phase-coherence",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "tried_keywords": [
+        "phyllotaxis",
+        "Fibonacci",
+        "golden angle",
+        "leaf arrangement",
+        "auxin",
+        "reaction diffusion",
+        "meristem",
+        "spiral divergence"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.495,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "080",
+      "epoch": 4,
+      "domain": "termite mound thermoregulation",
+      "domain_normalized": "thermoacoustics",
+      "mechanism": "Macrotermes mounds maintain \u00b11\u00b0C internal temperature via passive ventilation networks driven by stack-effect convection between buried fungus gardens and surface chimneys",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 1,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "termite mound",
+        "Macrotermes",
+        "thermoregulation",
+        "passive ventilation",
+        "stack effect",
+        "fungus garden",
+        "convection",
+        "chimney"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.702,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "081",
+      "epoch": 4,
+      "domain": "mycorrhizal common-mycorrhizal-network (CMN)",
+      "domain_normalized": "lichenology",
+      "mechanism": "Plants are connected by underground fungal networks that transport carbon between trees; resource-rich donors transfer to resource-poor receivers, mediated by carbon-cost arbitrage",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 3,
+      "hit_count": 3,
+      "fail_reason": "v4 step 06.5 caught 3 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "mycorrhizal",
+        "common mycorrhizal network",
+        "carbon transfer",
+        "fungal network",
+        "resource arbitrage",
+        "donor receiver",
+        "CMN",
+        "wood-wide-web"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.745,
+        "results_above_threshold": 3,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "082",
+      "epoch": 4,
+      "domain": "plant defensive priming (jasmonic acid signaling)",
+      "domain_normalized": "botany",
+      "mechanism": "When attacked, plants emit volatile jasmonates that prime undamaged neighbors to upregulate defenses before attack; priming creates a population-level memory of recent threat without individual learning",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "jasmonate",
+        "plant defense",
+        "priming",
+        "volatile signaling",
+        "systemic acquired resistance",
+        "SAR",
+        "plant memory",
+        "induced defense"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.676,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "083",
+      "epoch": 4,
+      "domain": "ferromagnetic domain-wall motion (Barkhausen noise)",
+      "domain_normalized": "tribology",
+      "mechanism": "Ferromagnets respond to applied field via discrete domain-wall jumps; the cumulative jumps produce a measurable Barkhausen noise signature that reveals microstructural pinning sites",
+      "form": "basin-stability",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 1,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "Barkhausen noise",
+        "domain wall",
+        "ferromagnetic",
+        "pinning site",
+        "magnetic hysteresis",
+        "jump statistics",
+        "domain motion",
+        "microstructure"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.704,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "084",
+      "epoch": 4,
+      "domain": "honeybee swarm decision-making (waggle dance quorum)",
+      "domain_normalized": "apiology",
+      "mechanism": "Honeybee swarms choose nest sites via decentralized quorum: scouts return with waggle dances proportional to site quality; quorum threshold (~15 bees committed) triggers swarm departure",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "waggle dance",
+        "quorum",
+        "honeybee swarm",
+        "scout bee",
+        "nest site selection",
+        "decentralized decision",
+        "Apis mellifera",
+        "swarm intelligence"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.808,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "085",
+      "epoch": 4,
+      "domain": "extreme-pressure tribology (boundary lubrication breakdown)",
+      "domain_normalized": "tribology",
+      "mechanism": "Under extreme contact pressure, boundary lubrication transitions from elastohydrodynamic film to direct asperity contact; lubrication failure follows a stress-corrosion-cracking-like statistical distribution",
+      "form": "basin-stability",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "tried_keywords": [
+        "tribology",
+        "boundary lubrication",
+        "elastohydrodynamic",
+        "asperity",
+        "stress corrosion",
+        "contact pressure",
+        "lubricant",
+        "film breakdown"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.54,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "086",
+      "epoch": 4,
+      "domain": "snake venom co-evolution arms race",
+      "domain_normalized": "herpetology",
+      "mechanism": "Snake venom toxins evolve under selection from prey resistance; population-level resistance drives toxin diversification at faster than neutral rate, producing characteristic dN/dS signatures",
+      "form": "phase-coherence",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 3,
+      "hit_count": 3,
+      "fail_reason": "v4 step 06.5 caught 3 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "snake venom",
+        "co-evolution",
+        "arms race",
+        "toxin diversification",
+        "prey resistance",
+        "dN/dS",
+        "selection pressure",
+        "molecular evolution"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.729,
+        "results_above_threshold": 3,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "087",
+      "epoch": 4,
+      "domain": "octopus skin-color distributed visual processing",
+      "domain_normalized": "marine-biology",
+      "mechanism": "Octopus skin contains opsin photoreceptors that process visual signal locally without brain involvement; chromatophores respond to local light environment in ms-scale feedback loops",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "octopus",
+        "chromatophore",
+        "opsin",
+        "skin photoreceptor",
+        "distributed vision",
+        "local processing",
+        "cephalopod",
+        "cuttlefish"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.687,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "088",
+      "epoch": 4,
+      "domain": "cuttlefish dynamic camouflage adaptive control",
+      "domain_normalized": "marine-biology",
+      "mechanism": "Cuttlefish match background pattern via central nervous control of millions of chromatophores; match achieved in <1s with no learning, suggesting rapid scene-decomposition algorithm",
+      "form": "phase-coherence",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "cuttlefish",
+        "camouflage",
+        "chromatophore control",
+        "scene decomposition",
+        "background matching",
+        "Sepia officinalis",
+        "persona shift",
+        "rapid adaptation"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.785,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "089",
+      "epoch": 4,
+      "domain": "deep-sea hydrothermal-vent chemosynthesis",
+      "domain_normalized": "extremophile-biology",
+      "mechanism": "Hydrothermal vent ecosystems run on chemosynthesis: H2S oxidation by chemoautotrophic bacteria provides energy for entire food web independent of sunlight",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 1,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "hydrothermal vent",
+        "chemosynthesis",
+        "H2S oxidation",
+        "chemoautotroph",
+        "deep sea",
+        "food web",
+        "sulfur metabolism",
+        "Riftia"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.704,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "090",
+      "epoch": 4,
+      "domain": "regenerative axolotl limb blastema",
+      "domain_normalized": "developmental-biology",
+      "mechanism": "Axolotls regenerate amputated limbs via blastema \u2014 a mass of dedifferentiated cells that re-establishes positional information using residual gradient cues",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "axolotl",
+        "blastema",
+        "regeneration",
+        "dedifferentiation",
+        "positional information",
+        "limb regeneration",
+        "Wnt signaling",
+        "stem cell"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.778,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "091",
+      "epoch": 4,
+      "domain": "tardigrade desiccation cryptobiosis",
+      "domain_normalized": "extremophile-biology",
+      "mechanism": "Tardigrades survive complete dehydration via tun-state cryptobiosis: trehalose vitrification + intrinsically disordered proteins prevent membrane fusion; rehydration restores function",
+      "form": "basin-stability",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "tried_keywords": [
+        "tardigrade",
+        "cryptobiosis",
+        "desiccation",
+        "trehalose",
+        "vitrification",
+        "intrinsically disordered protein",
+        "tun state",
+        "anhydrobiosis"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.419,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "092",
+      "epoch": 4,
+      "domain": "Antarctic icefish antifreeze glycoproteins",
+      "domain_normalized": "marine-biology",
+      "mechanism": "Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-colligative thermal hysteresis, allowing survival at -2\u00b0C ocean temperatures",
+      "form": "phase-coherence",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "tried_keywords": [
+        "antifreeze glycoprotein",
+        "AFGP",
+        "ice nucleation",
+        "thermal hysteresis",
+        "Antarctic icefish",
+        "Notothenia",
+        "ice binding",
+        "cryoprotection"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.544,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "093",
+      "epoch": 4,
+      "domain": "social spider colony web maintenance",
+      "domain_normalized": "apiology",
+      "mechanism": "Anelosimus eximius colonies maintain group webs through stigmergic role allocation: damaged sections trigger localized repair via chemical signals; no central control",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "social spider",
+        "Anelosimus eximius",
+        "colonial web",
+        "stigmergy",
+        "role allocation",
+        "colony maintenance",
+        "arachnid",
+        "group living"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.697,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "094",
+      "epoch": 4,
+      "domain": "mass spectrometry quadrupole ion trap stability",
+      "domain_normalized": "analytical-chemistry",
+      "mechanism": "Quadrupole ion traps confine ions in stability regions of the Mathieu equation; specific (a,q) parameter combinations select for ion m/z; instability boundaries leak ions in mass-selective patterns",
+      "form": "phase-coherence",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 0,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "quadrupole ion trap",
+        "Mathieu equation",
+        "mass spectrometry",
+        "ion stability",
+        "m/z selection",
+        "Paul trap",
+        "ion confinement",
+        "stability region"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.691,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "095",
+      "epoch": 4,
+      "domain": "Drosophila circadian molecular clock TIM/PER",
+      "domain_normalized": "chronobiology",
+      "mechanism": "Drosophila circadian rhythms emerge from TIMELESS/PERIOD protein negative-feedback loop; light-dependent TIM degradation entrains the clock to photoperiod",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v4 step 06.5 caught 2 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "Drosophila",
+        "circadian rhythm",
+        "TIMELESS",
+        "PERIOD",
+        "negative feedback",
+        "photoperiod entrainment",
+        "clock gene",
+        "molecular oscillator"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.736,
+        "results_above_threshold": 2,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "096",
+      "epoch": 4,
+      "domain": "fungal mycelium nutrient-transport network optimization",
+      "domain_normalized": "lichenology",
+      "mechanism": "Physarum polycephalum slime-mold networks reorganize for shortest-path nutrient transport via tube-thickening feedback; networks reproduce Tokyo-rail-graph efficiency",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "Physarum polycephalum",
+        "slime mold",
+        "mycelium",
+        "nutrient transport",
+        "tube thickening",
+        "shortest path",
+        "Tokyo rail",
+        "network optimization"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.802,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "097",
+      "epoch": 4,
+      "domain": "elasmobranch electroreception (ampullae of Lorenzini)",
+      "domain_normalized": "marine-biology",
+      "mechanism": "Sharks detect prey-generated electric fields via ampullae of Lorenzini \u2014 gel-filled canals that act as voltmeters at nanovolt sensitivity",
+      "form": "basin-stability",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 1,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "ampullae of Lorenzini",
+        "electroreception",
+        "elasmobranch",
+        "shark sensing",
+        "electric field",
+        "voltmeter",
+        "prey detection",
+        "Lorenzini canal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.709,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "098",
+      "epoch": 4,
+      "domain": "fungal hyphal anastomosis (network fusion)",
+      "domain_normalized": "lichenology",
+      "mechanism": "Fungal hyphae from genetically distinct mycelia fuse via anastomosis when compatible, sharing nuclei and resources; vegetative compatibility loci determine fusion success",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v4 step 06.5 caught 4 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "hyphal anastomosis",
+        "fungal fusion",
+        "vegetative compatibility",
+        "mycelium merge",
+        "heterokaryon",
+        "fungal genetics",
+        "cell fusion",
+        "plasmogamy"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.793,
+        "results_above_threshold": 4,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "099",
+      "epoch": 4,
+      "domain": "bone remodeling Wolff's law",
+      "domain_normalized": "orthopedics",
+      "mechanism": "Bone remodels itself in response to mechanical stress (Wolff's law) \u2014 osteoclasts resorb under-loaded bone, osteoblasts deposit new bone along stress trajectories",
+      "form": "basin-stability",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 3,
+      "hit_count": 3,
+      "fail_reason": "v4 step 06.5 caught 3 semantic-only hits that v3 keyword rule missed; substantive prior art exists",
+      "tried_keywords": [
+        "Wolff's law",
+        "bone remodeling",
+        "osteoclast",
+        "osteoblast",
+        "mechanical stress",
+        "trabecular bone",
+        "stress trajectory",
+        "mechanostat"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.777,
+        "results_above_threshold": 3,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "100",
+      "epoch": 4,
+      "domain": "epigenetic transgenerational inheritance (DNA methylation)",
+      "domain_normalized": "developmental-biology",
+      "mechanism": "Some DNA methylation marks survive meiosis and are inherited transgenerationally, encoding ancestral environmental information without changing genome sequence",
+      "form": "feedback-attenuation",
+      "forced_hit_count": 5,
+      "forced_semantic_hit_count": 1,
+      "hit_count": 5,
+      "fail_reason": "keyword-rule prior art (5 forced hits)",
+      "tried_keywords": [
+        "DNA methylation",
+        "epigenetic inheritance",
+        "transgenerational",
+        "CpG island",
+        "imprinting",
+        "epialleles",
+        "Lamarck",
+        "environmental inheritance"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.724,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      }
     }
   ]
 }

@@ -45,3 +45,12 @@ Agent appends violation entries here. Each entry:
 - Trigger: spec mismatch between expected file state and actual repo state
 - Recovery: documented in epoch3_comparison.md §0; memory_db built from real R001-R025 data only; epoch 3 PASSes flagged with substantive-review caveats; final stats acknowledge the artifact.
 - Trehan & Chopra failure mode: N/A — this is a spec adaptation, not an agent failure
+
+
+## Epoch 4 (R076-R100, program_v4.md) — compliance summary
+
+- Step 06.5 semantic check performed in 25/25 rounds
+- Step 07 keyword rule applied unchanged in 25/25 rounds; v4 ORs semantic hit into the per-result hit flag
+- Step 10 mechanical verdict applied in 25/25 rounds with total_hits = |keyword_hits ∪ semantic_hits|
+- Step 12 cross-agent verification: 25/25 completed; 1 verifier disagreement on a specific result hit/miss flag (no verdict-level disagreement)
+- 4 FORBIDDEN-TO-MODIFY zones (06, 07, 10, 12) preserved; only step 06.5 added between 06 and 07

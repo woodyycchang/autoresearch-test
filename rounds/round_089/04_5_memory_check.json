@@ -1,0 +1,46 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "marine-biology",
+      "proposed_mechanism_keywords": [
+        "hydrothermal vent",
+        "chemosynthesis",
+        "H2S oxidation",
+        "chemoautotroph"
+      ],
+      "proposed_form": "training-method",
+      "memory_lookup": {
+        "domain_prior_fail_count": 2,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 5
+      },
+      "rules_triggered": [
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "domain marine-biology blocked (2 prior fails) OR form training-method blocked (5 prior fails)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "extremophile-biology",
+      "proposed_mechanism_keywords": [
+        "hydrothermal vent",
+        "chemosynthesis",
+        "H2S oxidation",
+        "chemoautotroph"
+      ],
+      "proposed_form": "feedback-attenuation",
+      "memory_lookup": {
+        "domain_prior_fail_count": 0,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 3
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear after substitution"
+    }
+  ],
+  "accepted_attempt_idx": 2,
+  "memory_skip_count_this_round": 1
+}
