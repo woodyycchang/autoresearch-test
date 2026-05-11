@@ -1,0 +1,16 @@
+{
+  "round": "206",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://www.thestrad.com/lutherie/good-vibrations-how-violin-modes-influence-tone-quality/13405.article", "judge_score": 0.05, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://www.schleske.de/en/research/introduction-violin-acoustics/modal-analysis.html", "judge_score": 0.05, "matched_effect_cluster": "source-domain background", "justification": "Source-domain modal-analysis."},
+    {"url": "https://josephcurtinstudios.com/wp-content/uploads/2017/06/taptones_vsapapers.pdf", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain measurements."},
+    {"url": "https://arxiv.org/html/2509.23143", "judge_score": 0.91, "matched_effect_cluster": "Bode-style frequency-response LLM eval", "justification": "MathBode literally implements Bode-style sinusoidal-driving + first-harmonic gain/phase fingerprint for LLM reasoning; same mechanism as candidate's 'tap test' framing, modulo the pre-fine-tune-screening framing."},
+    {"url": "https://arxiv.org/html/2604.13634v1", "judge_score": 0.45, "matched_effect_cluster": "frequency-guided decoding", "justification": "Frequency-guided speculative decoding; orthogonal mechanism."},
+    {"url": "https://en.wikipedia.org/wiki/Bode_plot", "judge_score": 0.30, "matched_effect_cluster": "classical Bode reference", "justification": "Generic Bode plot reference; conceptual prior but no LLM application."},
+    {"url": "https://arxiv.org/html/2601.09448", "judge_score": 0.20, "matched_effect_cluster": "audio EQ via LLM", "justification": "Different domain."},
+    {"url": "https://arxiv.org/html/2312.00249v2", "judge_score": 0.18, "matched_effect_cluster": "audio prompt tuning", "justification": "Different focus."}
+  ],
+  "summary": {"functional_hits_count": 1, "max_judge_score": 0.91, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

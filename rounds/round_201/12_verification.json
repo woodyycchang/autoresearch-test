@@ -1,0 +1,103 @@
+{
+  "round": "201",
+  "verified_at": "2026-05-11T17:06:19Z",
+  "verifier_agent_note": "fresh-context verifier independent of primary",
+  "content_words": ["Chladni plate", "standing wave", "nodal line", "resonant mode", "attention pattern map", "residual sinusoidal bias", "position-wise quiescence", "frequency-sweep diagnostic"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Cymatics",
+      "title": "Cymatics — Wikipedia",
+      "kw_count": 4,
+      "kw_matches": ["Chladni plate", "standing wave", "nodal line", "resonant mode"],
+      "cos": 0.42,
+      "judge": 0.10,
+      "judge_reason": "Pure source-domain encyclopedia entry on cymatics/Chladni patterns; no LLM, attention, or diagnostic mechanism — not functionally equivalent to the proposed cross-domain candidate.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10969725/",
+      "title": "Resonant Modes for Circular and Polygonal Chladni Plates (PMC 2024)",
+      "kw_count": 3,
+      "kw_matches": ["Chladni plate", "nodal line", "resonant mode"],
+      "cos": 0.38,
+      "judge": 0.10,
+      "judge_reason": "Source-domain modal analysis paper on physical Chladni plates; no LLM application or attention-pattern mapping.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://www.comsol.com/blogs/how-do-chladni-plates-make-it-possible-to-visualize-sound",
+      "title": "How Do Chladni Plates Visualize Sound — COMSOL",
+      "kw_count": 2,
+      "kw_matches": ["Chladni plate", "resonant mode"],
+      "cos": 0.32,
+      "judge": 0.08,
+      "judge_reason": "Engineering blog explaining Chladni-plate physics with Bessel modes; pure source-domain content, no LLM crossover.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.12409",
+      "title": "Train Short, Test Long: Attention with Linear Biases (ALiBi)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.26,
+      "judge": 0.18,
+      "judge_reason": "ALiBi injects a fixed linear (non-sinusoidal, non-sweepable) bias for length extrapolation; no nodal-set readout or frequency-sweep diagnostic — different purpose and mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.19168",
+      "title": "LM Uncertainty Quantification with Attention Chain (2025)",
+      "kw_count": 1,
+      "kw_matches": ["attention pattern map"],
+      "cos": 0.22,
+      "judge": 0.10,
+      "judge_reason": "Aggregates attention patterns for uncertainty estimation; no sinusoidal residual bias, no frequency sweep, no nodal-quiescence concept.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2509.17178",
+      "title": "Attention Consistency for LLMs Explanation (2025)",
+      "kw_count": 1,
+      "kw_matches": ["attention pattern map"],
+      "cos": 0.24,
+      "judge": 0.12,
+      "judge_reason": "Examines attention-pattern stability under perturbation for interpretability but lacks resonance sweep or sinusoidal scalar injection.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.15731v1",
+      "title": "Attention Sinks in Diffusion Language Models (2510.15731)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.30,
+      "judge": 0.22,
+      "judge_reason": "Studies position-specific attention sinks in diffusion LMs; quiescent-position analogy is loose, but no frequency sweep or Chladni-style modal diagnostic.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.19595",
+      "title": "Efficient Attention Mechanisms for LLMs: A Survey (2507.19595)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.18,
+      "judge": 0.06,
+      "judge_reason": "Survey of efficient attention (linear/sparse/spectral) variants; explicitly does not address Chladni-style nodal diagnostics.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 3,
+    "hit_rate": 0.375,
+    "hits_by_trigger": {"kw": 3, "cos": 0, "judge": 0},
+    "verdict": "FAIL"
+  }
+}

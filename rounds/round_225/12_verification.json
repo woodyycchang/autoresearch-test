@@ -1,0 +1,107 @@
+{
+  "round": "225",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "OR (functional_equiv >= 0.7 OR semantic_cosine >= 0.7 OR keyword_overlap >= 2)",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Persian_carpet",
+      "title": "Persian carpet — Wikipedia",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.25,
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["Persian carpet", "Senneh knot"],
+      "judge_reason": "Pure source-domain Wikipedia article on Persian carpets describes Senneh knot weaving but contains no LLM/embedding retrieval application.",
+      "hit": true,
+      "hit_triggers": ["keyword_overlap"]
+    },
+    {
+      "index": 1,
+      "url": "https://www.catalinarug.com/blog/turkish-vs-persian-knot/",
+      "title": "Turkish vs Persian Knot — Catalina Rug",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.2,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["Senneh knot"],
+      "judge_reason": "Commercial rug-trade blog comparing Senneh vs Ghiordes knots, no LLM retrieval content present.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 2,
+      "url": "https://www.little-persia.com/pages/persian-oriental-rug-glossary-an-a-to-z-of-rug-terms",
+      "title": "Persian Rug Glossary",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["Persian carpet"],
+      "judge_reason": "Generic glossary of Persian rug terminology without any LLM embedding or retrieval polarity discussion.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2604.10937",
+      "title": "CMedTEB & CARE Asymmetric Encoders (2026/4)",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.5,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["asymmetric retrieval polarity"],
+      "judge_reason": "Uses asymmetric query/document encoder for medical retrieval but lacks the 2D lattice directional-pixel KPSI-density framing of the candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/pdf/2504.05216",
+      "title": "LLM-QL: Query Likelihood Modeling (2025/4)",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.4,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["query-document direction"],
+      "judge_reason": "Asymmetric attention block for query likelihood is directionally asymmetric but not a 2D grid of directional pixel embeddings with density-controlled resolution.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/pdf/2508.21038",
+      "title": "Theoretical Limits of Embedding-Based Retrieval (ICLR 2026)",
+      "functional_equivalence": 0.2,
+      "semantic_cosine_estimate": 0.3,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "judge_reason": "Establishes capacity bounds for embedding retrieval (acknowledged in novelty_claim) but does not propose directional/asymmetric Senneh-style lattice.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/html/2510.14321v1",
+      "title": "Large Reasoning Embedding Models LREM (2025/10)",
+      "functional_equivalence": 0.15,
+      "semantic_cosine_estimate": 0.25,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "judge_reason": "Reasoning-augmented dense embeddings without directional polarity or 2D-lattice density framing.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2502.14822v2",
+      "title": "Survey of Model Architectures in IR (2025/2)",
+      "functional_equivalence": 0.1,
+      "semantic_cosine_estimate": 0.22,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "judge_reason": "Broad IR architecture survey covering many approaches; not a specific directional 2D-lattice retrieval proposal.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result 0 (Wikipedia Persian carpet) matches >= 2 content_words from source-domain ('Persian carpet', 'Senneh knot'), triggering keyword_overlap hit under strict OR rule."
+}

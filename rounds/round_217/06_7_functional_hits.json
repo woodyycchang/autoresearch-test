@@ -1,0 +1,16 @@
+{
+  "round": "217",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Ondol", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://hankulture.com/ondol-heating-system-traditional-underfloor-heating/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://www.knowingkorea.org/contents/view/115/Ondol-or-Gudeul-in-Korean-the-world-s-first-underfloor-heating-system", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://arxiv.org/html/2603.04428v1", "judge_score": 0.85, "matched_effect_cluster": "persistent quantized KV reload", "justification": "Persistent Q4 KV cache + reload to attention is functionally identical to candidate's 'low-precision summary radiates back' mechanism."},
+    {"url": "https://arxiv.org/html/2410.05004v1", "judge_score": 0.78, "matched_effect_cluster": "intermediate-activation restoration", "justification": "HCache restores from intermediate activations — same restoration-from-stored-summary framing."},
+    {"url": "https://arxiv.org/html/2509.17396v1", "judge_score": 0.80, "matched_effect_cluster": "episodic conversational KV", "justification": "EpiCache explicitly targets long conversational QA with episodic KV management — the candidate's exact use case."},
+    {"url": "https://arxiv.org/html/2512.03324v2", "judge_score": 0.60, "matched_effect_cluster": "token retention scoring", "justification": "Time-decaying retention scores; related but per-token rather than per-session."},
+    {"url": "https://arxiv.org/pdf/2510.09665", "judge_score": 0.62, "matched_effect_cluster": "enterprise KV offload", "justification": "Offload to host memory + share across queries; related infrastructure."}
+  ],
+  "summary": {"functional_hits_count": 3, "max_judge_score": 0.85, "distinct_effect_clusters_above_threshold": 3, "multi_cluster_match": true}
+}

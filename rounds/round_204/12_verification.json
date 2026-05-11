@@ -1,0 +1,103 @@
+{
+  "round": "204",
+  "verified_at": "2026-05-11T17:25:00Z",
+  "verifier_agent_note": "fresh-context verifier independent of primary",
+  "content_words": ["shin soe hikae", "scalene asymmetric triangle", "ma negative space", "ikebana composition", "triadic decoding constraint", "prominence ratio", "attention-mass share", "structured summary"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ikebana",
+      "title": "Ikebana — Wikipedia",
+      "kw_count": 3,
+      "kw_matches": ["shin soe hikae", "scalene asymmetric triangle", "ikebana composition"],
+      "cos": 0.78,
+      "judge": 0.82,
+      "judge_reason": "Wikipedia Ikebana article directly covers shin/soe/hikae ranked elements and scalene-triangle composition described in candidate.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://millenniumgalleryjp.com/en-us/blogs/journal/japanese-ikebana-a-traditional-art-in-harmony-with-nature",
+      "title": "Beginner's Guide to Ikebana",
+      "kw_count": 3,
+      "kw_matches": ["shin soe hikae", "scalene asymmetric triangle", "ikebana composition"],
+      "cos": 0.76,
+      "judge": 0.80,
+      "judge_reason": "Source explicitly states the 1.0:0.75:0.5-0.75 proportion rules and scalene-triangle principle, matching candidate's mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://mai-ko.com/travel/culture-in-japan/floral-art/japanese-ikebana-or-flower-arranging/",
+      "title": "Japanese Ikebana — MAIKOYA",
+      "kw_count": 2,
+      "kw_matches": ["ma negative space", "ikebana composition"],
+      "cos": 0.72,
+      "judge": 0.75,
+      "judge_reason": "Directly covers ma negative-space as compositional element, central to candidate's source-domain.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://arxiv.org/html/2602.22647v1",
+      "title": "Vectorizing the Trie: Constrained Decoding (2026/2)",
+      "kw_count": 1,
+      "kw_matches": ["triadic decoding constraint"],
+      "cos": 0.52,
+      "judge": 0.45,
+      "judge_reason": "Grammar-constrained decoding is related infrastructure but does not address triadic prominence ratios or scalene asymmetric constraints.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2604.06603v1",
+      "title": "Scientific-knowledge-driven Decoding Constraints (2026/4)",
+      "kw_count": 1,
+      "kw_matches": ["triadic decoding constraint"],
+      "cos": 0.48,
+      "judge": 0.40,
+      "judge_reason": "Knowledge-driven decoding constraints are tangentially related but do not implement prominence-ratio or triadic-element constraints.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2501.18265v2",
+      "title": "LLM Evidence Summarization in Fact-Checking (2025/1)",
+      "kw_count": 1,
+      "kw_matches": ["structured summary"],
+      "cos": 0.58,
+      "judge": 0.50,
+      "judge_reason": "Structured evidence summarization addresses claim/evidence but lacks triadic-prominence and scalene asymmetric constraints.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.03503",
+      "title": "Understanding LLM Reasoning for Abstractive Summarization (2025/12)",
+      "kw_count": 1,
+      "kw_matches": ["structured summary"],
+      "cos": 0.50,
+      "judge": 0.42,
+      "judge_reason": "Analyzes reasoning in summarization but does not enforce or describe prominence-ratio triadic constraints.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2410.13116",
+      "title": "Position-bias in LLM context utilization (2024/10)",
+      "kw_count": 1,
+      "kw_matches": ["attention-mass share"],
+      "cos": 0.55,
+      "judge": 0.48,
+      "judge_reason": "Position-bias / attention-mass discussion is mechanistically distinct from triadic prominence-ratio decoding constraints.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 3,
+    "hit_rate": 0.375,
+    "hits_by_trigger": {"kw": 3, "cos": 3, "judge": 3},
+    "verdict": "FAIL"
+  }
+}

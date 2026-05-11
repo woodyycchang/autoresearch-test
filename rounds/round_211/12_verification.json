@@ -1,0 +1,120 @@
+{
+  "round": "211",
+  "verified_at": "2026-05-11T17:55:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": [
+    "dovetail tail",
+    "dovetail pin",
+    "slope angle calibration",
+    "mechanical interlock",
+    "tool I/O schema",
+    "downstream-tool robustness",
+    "schema-slope parameter",
+    "function-call chain"
+  ],
+  "results": [
+    {
+      "idx": 1,
+      "url": "https://en.wikipedia.org/wiki/Dovetail_joint",
+      "title": "Dovetail joint — Wikipedia",
+      "functional_equivalence": 0.25,
+      "semantic_cosine": 0.55,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["dovetail tail", "dovetail pin", "slope angle calibration", "mechanical interlock"],
+      "judge_reason": "Source-domain encyclopedic description of the dovetail joint itself; covers slope, tails/pins, tensile wedging but contains no LLM/tool-chain analogue, so it cannot anticipate the cross-domain mapping.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 2,
+      "url": "https://blog.lostartpress.com/2008/03/19/dogmatic-about-dovetail-angles/",
+      "title": "Dogmatic About Dovetail Angles — Lost Art Press",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["dovetail tail", "dovetail pin", "slope angle calibration"],
+      "judge_reason": "Pure source-domain woodworking commentary on dovetail slope tradeoffs without any LLM or schema-design transfer.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 3,
+      "url": "https://www.popularwoodworking.com/editors-blog/dovetail-layout-what-ratio-or-degree/",
+      "title": "Dovetail Layout: Ratio or Degree — Popular Woodworking",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["dovetail tail", "dovetail pin", "slope angle calibration"],
+      "judge_reason": "Source-domain article on hardwood vs softwood dovetail angle calibration; remains on the woodworking side with no schema-pipeline analogy.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2510.08623v1",
+      "title": "PARSE: Schema Optimization for Entity Extraction (2025/10)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.6,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["tool I/O schema", "schema-slope parameter"],
+      "judge_reason": "Argues static JSON schemas are suboptimal and calls for schema-tolerance adjustment, which conceptually overlaps the schema-slope-calibration claim though not parameterized by downstream-tool hardness.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/html/2501.10868v1",
+      "title": "Generating Structured Outputs: Benchmark + Studies (2025/1)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.6,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["tool I/O schema", "downstream-tool robustness"],
+      "judge_reason": "Explicitly analyses over- vs under-constrained schemas as a strictness tradeoff, paralleling the calibration logic of the candidate without the wood-hardness analogue or per-tool calibration knob.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/pdf/2502.09061",
+      "title": "CRANE: Constrained LLM Generation (2025/2)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.62,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["tool I/O schema", "downstream-tool robustness", "function-call chain"],
+      "judge_reason": "Discusses downstream tool constraint compliance for LLM outputs, overlapping the tool-chain/downstream-robustness framing though without a calibrated slope parameter.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2502.18878v1",
+      "title": "Schema Reinforcement Learning (2025/2)",
+      "functional_equivalence": 0.3,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["tool I/O schema"],
+      "judge_reason": "Focuses on RL-trained validators enforcing strict JSON validity; orthogonal to the candidate's calibrated-slack concept.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 8,
+      "url": "https://arxiv.org/html/2403.06988",
+      "title": "Non-Invasive Constrained Generation (2024/3 / 2026/1)",
+      "functional_equivalence": 0.3,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["downstream-tool robustness"],
+      "judge_reason": "Discusses minimally invasive constrained decoding and token-alignment loss; tangential to a per-tool-calibrated schema slope.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 6,
+    "hit_rate": 0.75,
+    "hits_by_trigger": {"kw": 6, "cos": 0, "judge": 0},
+    "verdict": "FAIL"
+  }
+}

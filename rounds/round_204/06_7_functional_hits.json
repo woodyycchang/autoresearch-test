@@ -1,0 +1,16 @@
+{
+  "round": "204",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Ikebana", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://millenniumgalleryjp.com/en-us/blogs/journal/japanese-ikebana-a-traditional-art-in-harmony-with-nature", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain proportion rules."},
+    {"url": "https://mai-ko.com/travel/culture-in-japan/floral-art/japanese-ikebana-or-flower-arranging/", "judge_score": 0.03, "matched_effect_cluster": "source-domain background", "justification": "Source-domain ma reference."},
+    {"url": "https://arxiv.org/html/2602.22647v1", "judge_score": 0.55, "matched_effect_cluster": "grammar-constrained decoding", "justification": "Trie-based grammar constraint at decoding time — closest LLM analog but doesn't enforce prominence-ratio constraint, only grammar."},
+    {"url": "https://arxiv.org/html/2604.06603v1", "judge_score": 0.50, "matched_effect_cluster": "knowledge-constrained decoding", "justification": "Knowledge-based constraints; not prominence-ratio."},
+    {"url": "https://arxiv.org/html/2501.18265v2", "judge_score": 0.45, "matched_effect_cluster": "evidence-claim summarization", "justification": "Evidence summarization but no asymmetric prominence ratio."},
+    {"url": "https://arxiv.org/pdf/2512.03503", "judge_score": 0.40, "matched_effect_cluster": "abstractive reasoning", "justification": "Reasoning analysis; tangential."},
+    {"url": "https://arxiv.org/pdf/2410.13116", "judge_score": 0.50, "matched_effect_cluster": "position-bias / U-shape", "justification": "U-shape attention is itself a position-prominence pattern — adjacent but not constraint-imposed."}
+  ],
+  "summary": {"functional_hits_count": 0, "max_judge_score": 0.55, "distinct_effect_clusters_above_threshold": 0, "multi_cluster_match": false}
+}

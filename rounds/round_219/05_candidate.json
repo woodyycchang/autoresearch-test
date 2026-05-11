@@ -1,0 +1,15 @@
+{
+  "round": "219",
+  "epoch": 9,
+  "candidate_form": "null-space-traversal",
+  "domain": "Sami / Sámi reindeer husbandry (annual nomadic herding cycle; coastal summer pasture ↔ inland winter pasture; ~400 km autumn migration; siida cooperative work-group)",
+  "specific_mechanism": "Reindeer herds (and herder siida) move annually between two complementary forage zones: summer coast (forbs/graminoids/deciduous shrubs) and winter inland (lichen under snow). The migration is not stochastic — it's a calibrated cycle driven by photoperiod + forage-depletion signals. The siida cooperative work-group spreads management decisions across multiple herders (e.g., one watches calf-bearing females, one scouts ahead). Reindeer also have intrinsic herd-cohesion behavior, so once the leaders set the route, the rest follow.",
+  "llm_application": "Annual-cycle compute-resource migration for fleet inference: maintain TWO complementary inference-resource zones — 'summer' (GPU-rich, low-latency, high-cost) and 'winter' (CPU/disk-cold, high-latency, low-cost). Inference traffic migrates between zones based on (a) per-request token-budget (forage), (b) ambient demand signal (photoperiod analog). A siida-of-controllers cooperatively decides per-request zone-assignment; once a 'lead' request is assigned, related requests in the same conversation follow (herd cohesion). The novelty: explicit annual-cycle scheduling — migration is calibrated to season-equivalent demand patterns, not pure load-balancing.",
+  "novelty_claim": "Inference-routing literature (Generalized Routing 2509.07571, Agent.xpu 2506.24045) treats per-request routing as load-balancing without explicit cyclical migration. Sami-style scheduled migration with leader-follower herd cohesion + cooperative siida controllers is not standard.",
+  "content_words": ["reindeer migration", "siida cooperative", "winter lichen", "summer pasture", "compute-zone migration", "leader-follower request routing", "annual cycle scheduling", "cyclical inference fleet"],
+  "content_words_composition": {
+    "llm_side": ["compute-zone migration", "leader-follower request routing", "annual cycle scheduling", "cyclical inference fleet"],
+    "source_side": ["reindeer migration", "siida cooperative", "winter lichen", "summer pasture"],
+    "generic": []
+  }
+}

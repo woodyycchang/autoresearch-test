@@ -1,0 +1,16 @@
+{
+  "round": "210",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Tinker", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://www.phrases.org.uk/meanings/tinkers-damn.html", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain phrase origin."},
+    {"url": "https://scttx.com/articles/%E2%80%9C-tinkers-dam%E2%80%9D-neal-murphy", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain article."},
+    {"url": "https://arxiv.org/abs/2506.10943", "judge_score": 0.78, "matched_effect_cluster": "auxiliary-free persistent self-edit", "justification": "SEAL is explicitly designed to perform persistent weight edits WITHOUT separate adaptation modules / auxiliary networks — functionally the 'dam-vanishes-leaving-only-weights' mechanism the candidate proposes."},
+    {"url": "https://arxiv.org/html/2511.08484v1", "judge_score": 0.50, "matched_effect_cluster": "learnable-prefix patch", "justification": "Prefix-patch retains the prefix at inference; opposite of dam-vanishing."},
+    {"url": "https://arxiv.org/html/2605.00358v1", "judge_score": 0.55, "matched_effect_cluster": "specificity-preserving edit", "justification": "Specificity (preserve adjacent behavior) is a related property but different mechanism."},
+    {"url": "https://arxiv.org/html/2512.14395", "judge_score": 0.48, "matched_effect_cluster": "dynamic-weight massive edit", "justification": "Different mechanism (hypernetwork-generated weights)."},
+    {"url": "https://arxiv.org/html/2503.05212", "judge_score": 0.40, "matched_effect_cluster": "no-edit contextual reasoning", "justification": "Alternative to editing."}
+  ],
+  "summary": {"functional_hits_count": 1, "max_judge_score": 0.78, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

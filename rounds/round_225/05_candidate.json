@@ -1,0 +1,15 @@
+{
+  "round": "225",
+  "epoch": 9,
+  "candidate_form": "phase-coherence",
+  "domain": "Persian carpet weaving — asymmetric Senneh knot (single-warp wrap + adjacent under-pass; KPSI 25-1000 density; warp/weft grid; ratio knot-ratio = warp/weft determines design fineness)",
+  "specific_mechanism": "Each Senneh knot wraps yarn around ONE warp thread, then passes under the adjacent warp. The asymmetry means each knot is directional — left-leaning or right-leaning depending on weaving direction. Pile density (KPSI) determines image resolution: 80 KPSI = coarse, 330+ KPSI = very fine. The 2D image emerges from the GRID of directional knots; each knot is a colored 'pixel' but with a directional bias.",
+  "llm_application": "Directional-pixel embedding retrieval: replace standard symmetric embeddings (cosine similarity, undirected) with asymmetric directional embeddings where each retrieval 'pixel' has an explicit weave direction encoding query→document polarity. Database documents are laid in a 2D 'warp/weft' lattice with controlled density (analog: KPSI). Retrieval is direction-aware: the same query has different scores against left-leaning vs right-leaning indexed documents, capturing causality/temporality/citation-direction that symmetric embeddings lose.",
+  "novelty_claim": "Asymmetric/directional embedding work exists (cross-encoder retrieval, asymmetric dual encoders for query-document distinction), but typically as separate query-encoder and document-encoder, not as a 2D lattice of directionally-encoded pixels. Theoretical-limits-of-embedding-retrieval 2508.21038 establishes capacity bounds. None proposes the Senneh-knot specific framing where each indexed token has a directional polarity AND the 2D-grid density determines retrieval resolution.",
+  "content_words": ["Persian carpet", "Senneh knot", "warp weft", "knot density KPSI", "directional embedding", "2D index lattice", "asymmetric retrieval polarity", "query-document direction"],
+  "content_words_composition": {
+    "llm_side": ["directional embedding", "2D index lattice", "asymmetric retrieval polarity", "query-document direction"],
+    "source_side": ["Persian carpet", "Senneh knot", "warp weft", "knot density KPSI"],
+    "generic": []
+  }
+}

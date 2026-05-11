@@ -1,0 +1,15 @@
+{
+  "round": "210",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "tinker / itinerant tinsmith (mending holes in pots and pans via tinker's-dam temporary clay + molten pewter/solder pour)",
+  "specific_mechanism": "To repair a hole in a metal vessel, the tinker first builds up a clay or dough 'dam' AROUND THE OUTSIDE of the hole, blocking it. Molten solder/pewter is then poured on the INSIDE; it pools in the hole bounded by the dam. Once solidified, the dam is brushed away, leaving the solder integrated with the vessel wall. The dam's purpose is bounded temporary containment that vanishes after the fix; the vessel is permanently repaired with a hole-shape-conforming patch.",
+  "llm_application": "Dam-bounded local parameter patching with auto-vanishing context: when fine-tuning a model to fix a specific behavior bug (e.g., refuses 'how do I tie a tie?'), build a temporary 'dam' — a small auxiliary context-prompt that activates only on the bug-triggering inputs (a learned classifier over the input). Inside the dam, run targeted fine-tuning that 'pours' new parameter mass that conforms to the bug's exact shape (specific tokens + activation pattern). After convergence, the auxiliary classifier is brushed away (its weights pruned) leaving only the new parameter mass embedded — analogous to the clay vanishing while solder remains. The 'dam-vanishing-step' is the key invariant: the auxiliary infrastructure is not part of the final model.",
+  "novelty_claim": "Knowledge-editing (ROME 2202.05262, MEMIT 2210.07229, GRACE 2211.11031, MELO 2412.21219), MEND 2110.11309 update specific facts but keep the editing infrastructure (additional parameters or hypernetwork) at inference time. 'Patching LLM like Software' 2511.08484 prepends a learnable prefix that remains. None implements explicit DAM-VANISHING patching where auxiliary infrastructure is removed after edit consolidation, leaving the model isomorphic to the original architecture with only modified weights.",
+  "content_words": ["tinker dam", "molten solder", "pewter patch", "pot mending", "knowledge editing", "auxiliary classifier vanishing", "post-edit pruning", "architecture-preserving patch"],
+  "content_words_composition": {
+    "llm_side": ["knowledge editing", "auxiliary classifier vanishing", "post-edit pruning", "architecture-preserving patch"],
+    "source_side": ["tinker dam", "molten solder", "pewter patch", "pot mending"],
+    "generic": []
+  }
+}

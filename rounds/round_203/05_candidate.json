@@ -1,0 +1,15 @@
+{
+  "round": "203",
+  "epoch": 9,
+  "candidate_form": "information-cascade",
+  "domain": "quipu / khipu (Andean knotted-cord record-keeping; Inca administrative bookkeeping)",
+  "specific_mechanism": "A quipu is a primary cord from which pendant cords hang; each pendant carries clusters of knots whose TYPE (E-knot/figure-eight=1, long knot 2-9 wraps, single knot=10/100/...), POSITION on the cord (decimal place value), ORIENTATION (S- vs Z-twist), COLOR, PLY, and inter-cord SPACING jointly encode numeric and categorical information. Subsidiary cords branching from a pendant create a hierarchy; sums of pendants typically equal an attached 'top-cord' sum so that consistency can be verified locally.",
+  "llm_application": "Reasoning-trace compression by quipu-style structured-summary cords: at each step of a long chain-of-thought, attach a 'pendant cord' summary tensor that encodes (step_type one-hot, position-along-CoT positional value, semantic-color cluster ID, twist=branch-decision bit, ply=epistemic-confidence). A 'top-cord' check verifies that the summary tensors are internally consistent (their structured sum matches the running summary of the trace). The full CoT can be discarded; the quipu of summaries is retained as a compressed, locally-verifiable trace.",
+  "novelty_claim": "Chain-of-thought distillation (Magister 2305.01040), Compressed Chain of Thought (CCoT, COCONUT, Latent Memory chains 2412.13171), Skeleton-of-Thought 2307.15337, Tree-of-Thoughts, all compress or restructure CoT. None uses a quipu-style multi-axis (type, position, color, twist, ply) joint encoding with local sum-consistency verification at a 'top-cord' summary token. The 'sum-consistency at hierarchical summary anchor' is the key distinct mechanism.",
+  "content_words": ["quipu cord", "pendant knot", "decimal position", "subsidiary branch", "compressed reasoning trace", "summary anchor token", "epistemic ply", "consistency check"],
+  "content_words_composition": {
+    "llm_side": ["compressed reasoning trace", "summary anchor token", "epistemic ply", "consistency check"],
+    "source_side": ["quipu cord", "pendant knot", "decimal position", "subsidiary branch"],
+    "generic": []
+  }
+}

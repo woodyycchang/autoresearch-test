@@ -1,0 +1,100 @@
+{
+  "round": "217",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "content_words": ["ondol heating", "gudeul stone", "thermal mass", "gorae flue", "KV cache retention", "low-precision summary", "conversational re-warming", "asymmetric retention ratio"],
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Ondol",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.30,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["ondol heating", "gudeul stone", "thermal mass", "gorae flue"],
+      "judge_reason": "Source-domain reference describing the ondol heating system itself; no LLM/KV mapping, so functional equivalence to the proposed analogy is near-zero despite source-side vocabulary overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 1,
+      "url": "https://hankulture.com/ondol-heating-system-traditional-underfloor-heating/",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.28,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["ondol heating", "gudeul stone", "gorae flue"],
+      "judge_reason": "Pure source-domain explanation of gorae channels and gudeul slabs absorbing/radiating heat — no LLM application.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 2,
+      "url": "https://www.knowingkorea.org/contents/view/115/Ondol-or-Gudeul-in-Korean-the-world-s-first-underfloor-heating-system",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.27,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["ondol heating", "gudeul stone", "thermal mass"],
+      "judge_reason": "Source-side overview of ondol as underfloor heating with passive thermal mass; no machine-learning/KV cache content.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2603.04428v1",
+      "functional_equivalence": 0.78,
+      "semantic_cosine": 0.74,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["KV cache retention", "low-precision summary"],
+      "judge_reason": "Persistent Q4 (4-bit) KV cache reloaded into attention to eliminate prefill is functionally the candidate's 'low-precision summary radiates back as approximate KV' mechanism, with both keyword hits and high semantic match.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2410.05004v1",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.58,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["KV cache retention"],
+      "judge_reason": "HCache restores LLM state from intermediate activations — related to state restoration but uses activations rather than low-precision KV summaries with asymmetric retention ratio.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2509.17396v1",
+      "functional_equivalence": 0.72,
+      "semantic_cosine": 0.71,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["KV cache retention", "conversational re-warming"],
+      "judge_reason": "EpiCache's episodic KV management for long conversational gaps directly addresses the 'return after long gap restore context' use case central to the candidate's gudeul-radiates-back proposal.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/html/2512.03324v2",
+      "functional_equivalence": 0.50,
+      "semantic_cosine": 0.55,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["KV cache retention", "asymmetric retention ratio"],
+      "judge_reason": "TRIM-KV's token-retention decay gates importance per-token rather than building a dense low-precision summary that radiates back; conceptually adjacent but a different mechanism (cited in novelty_claim).",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/pdf/2510.09665",
+      "functional_equivalence": 0.48,
+      "semantic_cosine": 0.52,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["KV cache retention"],
+      "judge_reason": "LMCache offloads KV cache from GPU and shares it across queries but doesn't perform asymmetric low-precision radiation back into attention; explicitly cited as prior art in novelty_claim.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 2,
+  "hit_indices": [3, 5],
+  "pipeline_result": "FAIL",
+  "pipeline_reason": "total_hits (2) >= 1 — Persistent Q4 KV Cache (2603.04428) implements the same low-precision KV reload mechanism, and EpiCache (2509.17396) targets the same long-conversation-gap restoration scenario; the candidate's asymmetric ondol-ratio framing is decorative rather than novel."
+}

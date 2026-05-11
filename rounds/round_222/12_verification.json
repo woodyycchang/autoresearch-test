@@ -1,0 +1,108 @@
+{
+  "round": "222",
+  "verifier": "cross-agent-independent",
+  "candidate_form": "basin-stability",
+  "content_words": ["jiaozi dumpling", "pleat fold", "wrapper edge", "directional crease", "asymmetric prompt structure", "directional instruction pleat", "flat-back system prompt", "structured-output compliance"],
+  "rule": "OR(kw>=2, cos>=0.7, judge>=0.7)",
+  "results": [
+    {
+      "idx": 1,
+      "url": "https://thewoksoflife.com/how-to-fold-a-chinese-dumpling/",
+      "title": "How to Fold Chinese Dumpling — Woks of Life",
+      "functional_equivalence": 0.15,
+      "cosine_estimate": 0.35,
+      "keyword_overlap": 2,
+      "keywords_matched": ["jiaozi dumpling (Chinese dumpling)", "pleat fold"],
+      "judge_reason": "Source-domain only culinary how-to about pleating dumplings; no LLM/prompt-engineering content and no asymmetric-prompt analog.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "idx": 2,
+      "url": "https://redhousespice.com/fold-dumplings/",
+      "title": "Ten ways to fold dumplings — Red House Spice",
+      "functional_equivalence": 0.15,
+      "cosine_estimate": 0.32,
+      "keyword_overlap": 2,
+      "keywords_matched": ["pleat fold", "directional crease (directional one-way fold)"],
+      "judge_reason": "Cooking guide cataloguing dumpling fold variants including directional one-way; purely source-side with no LLM mapping.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "idx": 3,
+      "url": "https://dumplingschool.com/2022/08/18/4-ways-to-fold-a-chinese-dumpling/",
+      "title": "4 Ways to Fold a Chinese Dumpling",
+      "functional_equivalence": 0.12,
+      "cosine_estimate": 0.30,
+      "keyword_overlap": 2,
+      "keywords_matched": ["jiaozi dumpling (Chinese dumpling)", "pleat fold"],
+      "judge_reason": "Culinary technique catalogue with no LLM or asymmetric prompt-design connection.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2504.02052v2",
+      "title": "Prompt Templates: Systematic Analysis (2025/4)",
+      "functional_equivalence": 0.35,
+      "cosine_estimate": 0.45,
+      "keyword_overlap": 0,
+      "keywords_matched": [],
+      "judge_reason": "Analyzes prompt template components (Directive, Context, Output Format, Constraints) but does not propose an asymmetric flat-back/pleated-front directional-pleat geometry.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/html/2502.04295v3",
+      "title": "Content-Format Integrated Prompt Optimization (2025/2)",
+      "functional_equivalence": 0.40,
+      "cosine_estimate": 0.48,
+      "keyword_overlap": 0,
+      "keywords_matched": [],
+      "judge_reason": "Hierarchical format pool with renderer/query components; candidate's own novelty claim explicitly distinguishes it as not asymmetric pleated structure.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/html/2601.04055",
+      "title": "Modular Prompt Optimization with Section-Local Textual Gradients (2026/1)",
+      "functional_equivalence": 0.30,
+      "cosine_estimate": 0.40,
+      "keyword_overlap": 0,
+      "keywords_matched": [],
+      "judge_reason": "Section-local prompt optimization is modular but does not embody an asymmetric flat-back+directional-pleated-front geometry.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2505.04016v1",
+      "title": "SLOT: Structuring LLM Output (2025/5)",
+      "functional_equivalence": 0.25,
+      "cosine_estimate": 0.38,
+      "keyword_overlap": 1,
+      "keywords_matched": ["structured-output compliance (structured output)"],
+      "judge_reason": "Generic structured-output framework lacking the asymmetric pleat/flat-back design.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 8,
+      "url": "https://arxiv.org/html/2505.18949v1",
+      "title": "Price of Format: Diversity Collapse (2025/5)",
+      "functional_equivalence": 0.18,
+      "cosine_estimate": 0.30,
+      "keyword_overlap": 0,
+      "keywords_matched": [],
+      "judge_reason": "Studies format-constraint side effects, unrelated to asymmetric directional-pleat prompt geometry.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "notes": "Three source-side culinary URLs trip the keyword-overlap threshold (jiaozi/pleat fold/directional crease appear directly). LLM-side arxiv results are thematically near but neither keyword nor semantic thresholds are met for the asymmetric-pleat framing. Under strict OR rule, total_hits=3 >= 1 yields FAIL."
+}

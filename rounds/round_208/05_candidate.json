@@ -1,0 +1,15 @@
+{
+  "round": "208",
+  "epoch": 9,
+  "candidate_form": "information-cascade",
+  "domain": "civil engineering — navigation lock (canal chamber with paddle valves + miter/pointing gates; staged equalization protocol)",
+  "specific_mechanism": "A navigation lock has two miter gate sets at opposite ends of a chamber. Boats enter through one set; that set closes. Paddle valves (gate-paddles in the gate itself, ground-paddles in underground culverts) are progressively opened to admit water from the higher pound (or discharge to the lower). Crucially, the OTHER gate set cannot be opened until water levels equalize across it (pressure differential = 0). Only then is the bypassing gate opened and the boat proceeds. The protocol is: gate1-closed → equalize-via-paddles → pressure-zero → gate2-opens.",
+  "llm_application": "Pressure-equalized context-window handoff: when an agent transitions between two long-context sub-tasks (e.g., research-mode → write-mode), use an explicit 'equalization chamber' phase. (1) Close the read-source set (no new retrieval allowed). (2) Pump out the high-detail intermediate scratchpad into a compressed summary, monotonically until KL(new_summary || old_state) < ε. (3) Only when the 'pressure differential' (information surprise between summary and state) is below threshold, open the next sub-task gate. The point: prevent the 'rapid drawdown' failure mode (sudden context swap that turbulently destroys partial reasoning).",
+  "novelty_claim": "Compressed context-window management exists (ContextCurator 2604.11462, dual-adapter memory 2511.03728, memory-pointer overflow 2511.22729). None imposes a hard 'pressure-differential = 0 before gate opens' protocol, where information surprise between summary and prior state must be explicitly below threshold before allowing a downstream sub-task to read. The 'no gate opens until equalization' is the distinct invariant.",
+  "content_words": ["navigation lock", "paddle valve", "miter gate", "pressure equalization", "context-window handoff", "summary-state surprise threshold", "sub-task gate", "scratchpad drawdown"],
+  "content_words_composition": {
+    "llm_side": ["context-window handoff", "summary-state surprise threshold", "sub-task gate", "scratchpad drawdown"],
+    "source_side": ["navigation lock", "paddle valve", "miter gate", "pressure equalization"],
+    "generic": []
+  }
+}

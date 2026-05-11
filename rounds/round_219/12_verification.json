@@ -1,0 +1,107 @@
+{
+  "round": "219",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "content_words": ["reindeer migration", "siida cooperative", "winter lichen", "summer pasture", "compute-zone migration", "leader-follower request routing", "annual cycle scheduling", "cyclical inference fleet"],
+  "results": [
+    {
+      "idx": 1,
+      "url": "https://www.tandfonline.com/doi/full/10.1080/08003831.2021.1972265",
+      "title": "The Sami cooperative herding group: siida system",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.30,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["siida cooperative"],
+      "judge_reason": "Pure source-domain anthropology article about Sami siida; no LLM/inference content so it cannot match the cross-domain candidate analogy.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 2,
+      "url": "https://reindeerherding.org/sami-norway",
+      "title": "Sami Norway — ICR",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.32,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["summer pasture", "siida cooperative"],
+      "judge_reason": "Source-side Sami herding description with two source-side keyword overlaps but no LLM-application linkage.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "idx": 3,
+      "url": "https://www.laits.utexas.edu/sami/diehtu/siida/herding/herding-nr.htm",
+      "title": "Sami Reindeer Herding Norway",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.30,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["reindeer migration"],
+      "judge_reason": "Source-side description of 400 km autumn migration; only one content-word overlap and no LLM/inference relevance.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2505.24095v1",
+      "title": "SkyLB: Cross-Region Load Balancer for LLM Inference (2025/5)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.55,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Cross-region load balancing using diurnal patterns is related but does not implement explicit annual-cycle migration with leader-follower herd cohesion or cooperative siida controllers.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/html/2502.14617v1",
+      "title": "SageServe (2025/2)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.55,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "ARIMA-driven diurnal forecasting + spot-instance switching is adjacent to compute-zone migration but lacks cyclical scheduled migration and leader-follower cohesion semantics.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/html/2506.24045v1",
+      "title": "Agent.xpu Scheduling Agentic LLM on Heterogeneous SoC (2025/6)",
+      "functional_equivalence": 0.30,
+      "semantic_cosine": 0.35,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Proactive/reactive daemon scheduling on SoC differs from annual-cycle inter-zone migration; novelty claim already cites this paper as distinct.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/abs/2510.11967",
+      "title": "Context-Folding Long-Horizon LLM Agent (2025/10)",
+      "functional_equivalence": 0.10,
+      "semantic_cosine": 0.20,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Context-folding is orthogonal to compute-zone migration and seasonal scheduling.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 8,
+      "url": "https://arxiv.org/html/2604.11378v1",
+      "title": "Scheduler-Theoretic Framework for LLM Agent Execution (2026/4)",
+      "functional_equivalence": 0.15,
+      "semantic_cosine": 0.25,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "DAG sub-goal scheduling does not implement cyclical fleet-zone migration or herd-cohesion routing.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "notes": "Result 2 (reindeerherding.org/sami-norway) trips the keyword-overlap trigger with two source-side content words (summer pasture, siida cooperative). Although it is a pure source-domain page with no LLM linkage and functional/semantic scores are low, the strict OR rule treats kw>=2 as a hit. LLM-side results (4,5) are adjacent but stay below all three thresholds. Per pipeline rule total_hits>=1 -> FAIL."
+}

@@ -1,0 +1,103 @@
+{
+  "round": "205",
+  "verified_at": "2026-05-11T17:35:00Z",
+  "verifier_agent_note": "fresh-context verifier independent of primary",
+  "content_words": ["dental amalgam", "gamma-1 phase", "gamma-2 phase", "mercury trituration", "adapter fusion", "weak phase replacement", "merge perturbation stability", "auxiliary regularizer"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Amalgam_(dentistry)",
+      "title": "Dental amalgam — Wikipedia",
+      "kw_count": 4,
+      "kw_matches": ["dental amalgam", "gamma-1 phase", "gamma-2 phase", "mercury trituration"],
+      "cos": 0.78,
+      "judge": 0.85,
+      "judge_reason": "Comprehensive source-domain reference covering gamma-1, gamma-2, mercury and Cu6Sn5 elimination - the exact source material the candidate analogizes from.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/284042/",
+      "title": "Eta Cu-Sn (Cu6Sn5) crystals in high-Cu dispersant amalgam (PubMed)",
+      "kw_count": 3,
+      "kw_matches": ["dental amalgam", "gamma-2 phase", "weak phase replacement"],
+      "cos": 0.74,
+      "judge": 0.82,
+      "judge_reason": "Directly addresses the Cu6Sn5 eta-phase that converts Sn and eliminates gamma-2 - the specific source mechanism for the weak-phase-replacement analogy.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://bdsnotes.com/high-copper-amalgam-types-composition-and-properties/",
+      "title": "High-Copper Amalgam — BDS Notes",
+      "kw_count": 2,
+      "kw_matches": ["dental amalgam", "weak phase replacement"],
+      "cos": 0.68,
+      "judge": 0.7,
+      "judge_reason": "Educational source on high-Cu amalgam properties relevant to the source-side mechanism but lacks detailed phase mechanics.",
+      "hit": true,
+      "hit_triggers": ["kw", "judge"]
+    },
+    {
+      "url": "https://arxiv.org/html/2505.23859",
+      "title": "LOT Merging: Minimizing Feature Drift (2025/5)",
+      "kw_count": 1,
+      "kw_matches": ["adapter fusion"],
+      "cos": 0.52,
+      "judge": 0.5,
+      "judge_reason": "Addresses feature drift in merging but does not distinguish strong/weak phases or use auxiliary phase-converter regularizers as proposed.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.14170",
+      "title": "Catalyst: Novel Regularizer for Structured Pruning (2025/7)",
+      "kw_count": 2,
+      "kw_matches": ["auxiliary regularizer", "weak phase replacement"],
+      "cos": 0.6,
+      "judge": 0.62,
+      "judge_reason": "Auxiliary regularizer concept is related but applied to pruning, not phase-typed merge weak-component replacement.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://arxiv.org/html/2503.08998v1",
+      "title": "Model Merging Survey (2025/3)",
+      "kw_count": 1,
+      "kw_matches": ["adapter fusion"],
+      "cos": 0.55,
+      "judge": 0.55,
+      "judge_reason": "General merging survey covering pruning and hybrid strategies but lacks phase-typed strong-vs-weak classification with auxiliary replacement.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2603.09938v2",
+      "title": "Model Merging in Era of LLMs (2026/3)",
+      "kw_count": 1,
+      "kw_matches": ["adapter fusion"],
+      "cos": 0.5,
+      "judge": 0.5,
+      "judge_reason": "Comprehensive merging taxonomy survey but does not cover the specific phase-decomposition with auxiliary phase-converter concept.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.13537v1",
+      "title": "K-Merge: Online Continual Merging (2025/10)",
+      "kw_count": 1,
+      "kw_matches": ["adapter fusion"],
+      "cos": 0.45,
+      "judge": 0.45,
+      "judge_reason": "Continual LoRA merging is tangentially related but does not address weak-phase replacement or perturbation stability classification.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 4,
+    "hit_rate": 0.5,
+    "hits_by_trigger": {"kw": 4, "cos": 2, "judge": 3},
+    "verdict": "FAIL"
+  }
+}

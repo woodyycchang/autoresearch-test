@@ -1,0 +1,15 @@
+{
+  "round": "224",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "Andean food technology — chuño (freeze-dried potato; 6+ alternating night-freeze + day-thaw + trample cycles at 3500m+ altiplano; product preserves for decades)",
+  "specific_mechanism": "Bitter frost-resistant potatoes spread on flat ground. Night: temperatures drop below 0°C, ice crystals form intracellularly, rupturing cell walls. Day: ice melts, free water + intracellular contents leach out. Repeated alternation (6+ cycles) drains water content progressively; foot-trampling between cycles squeezes out water from broken cells. After 4-6 weeks, only dehydrated starch core remains; preserves for years to decades.",
+  "llm_application": "Multi-cycle freeze-thaw-trample distillation training: alternate between (a) cold-phase = continued pre-training with low learning rate and noise injection (freezes representations); (b) thaw-phase = fine-tuning on high-quality task data with high LR (melts ice, releases stale representations); (c) trample-phase = an active pruning step that aggressively zeros low-magnitude weights (squeezes out water). Repeat 6+ cycles. The novelty: explicit 3-phase repeating cycle with each cycle DRAINING low-quality representational mass, vs single-phase pretraining + single fine-tune.",
+  "novelty_claim": "Annealing schedules (WSD, cosine annealing, SGDR cyclic restarts) cycle learning rate. Cascading Annealed Language Learning re-allocates training data domain. Standard pipelines pretrain → SFT → RLHF in sequential phases. None implements a CHUÑO-style explicit triple-phase repeating cycle (freeze low-LR-noise → thaw high-LR-task → trample-prune) with multi-week-equivalent iteration.",
+  "content_words": ["chuño potato", "freeze-thaw cycle", "altiplano dehydration", "foot trampling", "multi-phase training cycle", "noise-injection freeze", "high-LR thaw", "aggressive pruning trample"],
+  "content_words_composition": {
+    "llm_side": ["multi-phase training cycle", "noise-injection freeze", "high-LR thaw", "aggressive pruning trample"],
+    "source_side": ["chuño potato", "freeze-thaw cycle", "altiplano dehydration", "foot trampling"],
+    "generic": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "round": "224",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Chu%C3%B1o", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://www.atlasobscura.com/foods/chunos-potatoes-feet", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://mayorgacoffee.com/blogs/news/the-incas-freeze-drying", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://arxiv.org/html/2507.18212", "judge_score": 0.68, "matched_effect_cluster": "iterative pruning + magnitude compensation", "justification": "Prune&Comp iterative-prune + magnitude-compensation is close to candidate's iterative trample-and-prune mechanism."},
+    {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0950705125012304", "judge_score": 0.72, "matched_effect_cluster": "cyclical training on noisy data", "justification": "Cyclical thresholds + noisy-sample filtering is directly the candidate's cycle framing."},
+    {"url": "https://arxiv.org/html/2502.06663", "judge_score": 0.65, "matched_effect_cluster": "pruning-aware pretraining", "justification": "Continuous pruning during pretraining; related but not cyclical."},
+    {"url": "https://arxiv.org/html/2510.06826v1", "judge_score": 0.60, "matched_effect_cluster": "annealing mid-training survey", "justification": "Annealing schedules survey."},
+    {"url": "https://arxiv.org/html/2508.06467v1", "judge_score": 0.50, "matched_effect_cluster": "noise + unlearning", "justification": "Different goal (unlearning)."}
+  ],
+  "summary": {"functional_hits_count": 1, "max_judge_score": 0.72, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

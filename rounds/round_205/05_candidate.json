@@ -1,0 +1,15 @@
+{
+  "round": "205",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "dental materials (silver-tin / mercury / copper dental amalgam triturate-and-set with gamma-1 strong / gamma-2 weak phase reaction)",
+  "specific_mechanism": "Triturating Hg with Ag-Sn-(Cu) powder dissolves the alloy surface; Ag reacts to form gamma-1 (Ag3Hg), a strong corrosion-resistant body-centered-cubic matrix that holds the bulk together. Sn reacts to form gamma-2 (Sn7-8Hg), a hexagonal-crystal weak corrosion-prone minority phase. The composite mechanical strength is dominated by gamma-1 surrounding un-reacted gamma (Ag3Sn) cores; weakness is at the gamma-2 grain boundaries. Modern Cu-rich amalgams suppress gamma-2 by converting Sn to Cu6Sn5 (eta-prime), eliminating the weak phase.",
+  "llm_application": "Phase-typed adapter fusion: when merging an instruction adapter (the 'mercury') into a base model (the Ag-Sn 'alloy'), distinguish two types of induced parameter changes by their dynamic stability under post-merge perturbation: (a) gamma-1-type changes — strong, low-residual-gradient, corrosion-resistant under further task perturbation (these dominate the merged matrix); (b) gamma-2-type changes — weak, high-residual-gradient, brittle and degrade under task drift. Detect (b) by post-merge perturbation analysis; replace (b) with an auxiliary Cu-analog regularizer (e.g., a learned 'eta-prime' adapter that absorbs the unstable Sn-component before it forms gamma-2). The merged model is then a Cu-rich amalgam analog with the weak phase eliminated.",
+  "novelty_claim": "TIES-Merging (2306.01708), DARE (2311.03099), Model Soup (2203.05482), and Mergekit catalogue dozens of merge strategies. RegMean, Fisher-merging, Magnitude-pruning-before-merge all touch parameter-stability. None classifies merge-induced changes into a STRONG matrix phase vs a WEAK degradation-prone phase and replaces the weak phase with an auxiliary phase-converter (Cu→Cu6Sn5).",
+  "content_words": ["dental amalgam", "gamma-1 phase", "gamma-2 phase", "mercury trituration", "adapter fusion", "weak phase replacement", "merge perturbation stability", "auxiliary regularizer"],
+  "content_words_composition": {
+    "llm_side": ["adapter fusion", "weak phase replacement", "merge perturbation stability", "auxiliary regularizer"],
+    "source_side": ["dental amalgam", "gamma-1 phase", "gamma-2 phase", "mercury trituration"],
+    "generic": []
+  }
+}

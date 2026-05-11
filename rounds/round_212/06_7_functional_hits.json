@@ -1,0 +1,16 @@
+{
+  "round": "212",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Gunpowder", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://www.muzzleloadingforum.com/threads/how-does-powder-granulation-actually-effect-burn-rate.112996/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain forum."},
+    {"url": "https://www.ilovemuzzleloading.com/blog/whats-the-difference-between-fg-and-ffffg-blackpowder-everything-blackpowder-explains", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain explainer."},
+    {"url": "https://arxiv.org/pdf/2501.12162", "judge_score": 0.82, "matched_effect_cluster": "SLO-matched adaptive granularity", "justification": "AdaServe dynamically tunes speculation parameters and chunk size to match each request's SLO — precisely the 'grain-size-matched-to-downstream-consumption-rate' framing the candidate proposes."},
+    {"url": "https://arxiv.org/html/2412.03594", "judge_score": 0.55, "matched_effect_cluster": "multi-granularity token batching", "justification": "BatchLLM batches at varying granularity but for throughput, not consumer-rate matching."},
+    {"url": "https://arxiv.org/html/2505.20438v1", "judge_score": 0.65, "matched_effect_cluster": "virtual-token granularity", "justification": "HAMburger redefines token granularity by KV-cache; close but different criterion."},
+    {"url": "https://arxiv.org/pdf/2511.11733", "judge_score": 0.60, "matched_effect_cluster": "adaptive verification selectivity", "justification": "Adaptive selectivity per token; granularity-tuning related."},
+    {"url": "https://arxiv.org/html/2602.05774v1", "judge_score": 0.45, "matched_effect_cluster": "sequence-acceptance reformulation", "justification": "Theory-side reformulation; different mechanism."}
+  ],
+  "summary": {"functional_hits_count": 1, "max_judge_score": 0.82, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

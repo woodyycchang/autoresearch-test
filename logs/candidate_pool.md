@@ -161,6 +161,35 @@ DO NOT repropose these:
 - Round 099 | domain: orthopedics (bone remodeling Wolff's law) | mechanism: Bone remodels itself in response to mechanical stress (Wolff's law) — osteoclasts resorb u | verdict: FAIL | form: basin-stability
 - Round 100 | domain: developmental-biology (epigenetic transgenerational inheritance (DNA meth) | mechanism: Some DNA methylation marks survive meiosis and are inherited transgenerationally, encoding | verdict: FAIL | form: feedback-attenuation
 
+## Epoch 9 (R201-R225, program_v5.md strict per-round protocol continuation)
+
+- Round 201 | domain: cymatics-acoustics (Chladni-plate nodal patterns) | mechanism: frequency-conditioned residual sinusoidal bias diagnostic | verdict: FAIL | form: phase-coherence
+- Round 202 | domain: scrimshaw-engraving | mechanism: low-gradient parameter incision watermark | verdict: FAIL | form: feedback-attenuation
+- Round 203 | domain: quipu-khipu | mechanism: multi-axis pendant summary CoT compression with top-cord consistency | verdict: FAIL | form: information-cascade
+- Round 204 | domain: ikebana-flower-arrangement | mechanism: scalene-prominence-ratio triadic decoding constraint | verdict: FAIL (Pattern A/C suspect) | form: basin-stability
+- Round 205 | domain: dental-amalgam | mechanism: phase-typed (γ-1/γ-2) adapter fusion + Cu-analog auxiliary regularizer | verdict: FAIL | form: feedback-attenuation
+- Round 206 | domain: luthiery-tonewood | mechanism: Bode-style frequency-response pre-fine-tune model screening | verdict: FAIL | form: phase-coherence
+- Round 207 | domain: cooperage-barrel-making | mechanism: taper-shape attention envelope under learnable hoop scalar | verdict: FAIL (Pattern A/C suspect) | form: basin-stability
+- Round 208 | domain: navigation-lock | mechanism: pressure-equalized context-window handoff with KL<ε gate-open invariant | verdict: FAIL | form: information-cascade
+- Round 209 | domain: shoji-architecture | mechanism: kumiko-structural + washi-semantic orthogonal residual-stream split | verdict: FAIL | form: null-space-traversal
+- Round 210 | domain: tinker-pewter-mending | mechanism: dam-bounded local parameter patching with auxiliary classifier vanishing | verdict: FAIL | form: feedback-attenuation
+- Round 211 | domain: dovetail-joinery | mechanism: hardness-calibrated tool-output schema slope (1:6/1:8) | verdict: FAIL (Pattern A/C suspect) | form: phase-coherence
+- Round 212 | domain: gunpowder-corning | mechanism: surface-area-controlled decode granularity matched to downstream consumer rate | verdict: FAIL | form: feedback-attenuation
+- Round 213 | domain: tuvan-throat-singing | mechanism: biphonic dual-decoder with F2+F3-style head-merging for sharp overtone | verdict: FAIL | form: phase-coherence
+- Round 214 | domain: case-hardening | mechanism: depth-graded alignment fine-tuning restricted to last K layers | verdict: FAIL | form: feedback-attenuation
+- Round 215 | domain: sand-mandala | mechanism: verifiable-erasure reasoning trace with destruction certificate | verdict: FAIL | form: null-space-traversal
+- Round 216 | domain: inuit-kayak | mechanism: lashed-not-fused adapter with shrink-fit tension-under-load | verdict: FAIL (Pattern A/C suspect — closest to substantive PASS) | form: basin-stability
+- Round 217 | domain: ondol-architecture | mechanism: thermal-mass low-precision KV summary radiates back on session resume | verdict: FAIL | form: feedback-attenuation
+- Round 218 | domain: roman-aqueduct | mechanism: constant-rate decoding with calibrated decreasing per-token compute budget | verdict: FAIL | form: information-cascade
+- Round 219 | domain: sami-reindeer-herding | mechanism: annual-cycle compute-zone migration with siida cooperative leader-follower routing | verdict: FAIL | form: null-space-traversal
+- Round 220 | domain: egyptian-faience | mechanism: self-efflorescing output calibration via training-data alkali tokens | verdict: FAIL | form: phase-coherence
+- Round 221 | domain: paper-marbling | mechanism: viscous-size-bath surface accumulates non-mixing activation drops; one-stamp generation | verdict: FAIL | form: information-cascade
+- Round 222 | domain: jiaozi-pleating | mechanism: asymmetric prompt-wrap with flat-back system + directional-pleated-front | verdict: FAIL (Pattern A/C suspect) | form: basin-stability
+- Round 223 | domain: kolam-rangoli | mechanism: self-avoiding walk on concept graph + topological closure + forward-backward symmetry | verdict: FAIL | form: null-space-traversal
+- Round 224 | domain: chuno-preservation | mechanism: triple-phase freeze/thaw/trample training cycle | verdict: FAIL | form: feedback-attenuation
+- Round 225 | domain: persian-carpet-knotting | mechanism: directional-pixel asymmetric retrieval embedding lattice with KPSI-style density | verdict: FAIL | form: phase-coherence
+
+
 ## Epoch 5 (R101-R125, program_v5.md)
 R101 particle-physics-phenomenology (parton distribution / DGLAP) → context-budget allocation across attention heads
 R102 computational-geometry (Voronoi tessellation) → MoE token routing

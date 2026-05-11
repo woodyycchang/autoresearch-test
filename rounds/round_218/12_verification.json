@@ -1,0 +1,104 @@
+{
+  "round": "218",
+  "verifier": "cross-agent",
+  "candidate_summary": "Aqueduct-gradient inspired monotonically decreasing per-token compute budget with calibrated slope and mid-decode gradient correction",
+  "content_words": ["Roman aqueduct", "chorobates surveying", "calibrated gradient", "gravity-flow channel", "compute-budget slope", "monotonic per-token compute", "mid-decode gradient correction", "completion-length calibration"],
+  "evaluations": [
+    {
+      "idx": 1,
+      "url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.30,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["Roman aqueduct", "chorobates surveying", "calibrated gradient"],
+      "judge_reason": "Pure source-domain Wikipedia article on Roman aqueducts; no LLM/compute-budget content, but high source-side keyword overlap.",
+      "hit": false,
+      "hit_triggers": ["keyword_overlap>=2"]
+    },
+    {
+      "idx": 2,
+      "url": "https://en.wikipedia.org/wiki/Pont_du_Gard",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.25,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["Roman aqueduct", "calibrated gradient"],
+      "judge_reason": "Source-domain article about a specific Roman aqueduct; no LLM mechanism overlap, but matches source-side terms.",
+      "hit": false,
+      "hit_triggers": ["keyword_overlap>=2"]
+    },
+    {
+      "idx": 3,
+      "url": "https://www.thearchaeologist.org/blog/roman-aqueducts-the-precision-surveying-behind-the-pont-du-gard",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.30,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["Roman aqueduct", "chorobates surveying", "calibrated gradient"],
+      "judge_reason": "Source-domain blog about chorobates and aqueduct gradient; no LLM analogy attempted.",
+      "hit": false,
+      "hit_triggers": ["keyword_overlap>=2"]
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2508.17196v2",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.60,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["completion-length calibration (partial)"],
+      "judge_reason": "BudgetThinker uses control tokens reminding model of remaining budget — related but uses learned RL controller, not an explicit monotonic calibrated slope with mid-decode chorobates-style correction.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/pdf/2505.11274",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.50,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "SelfBudgeter allocates budget by problem complexity — adaptive, not monotonic-decreasing per-token with calibrated slope.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/html/2510.19669v2",
+      "functional_equivalence": 0.20,
+      "semantic_cosine_estimate": 0.40,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "DiffAdapt picks discrete easy/normal/hard strategies by difficulty — categorical, not a calibrated continuous monotonic gradient.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2507.02076v1",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.50,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Broad survey of adaptive test-time compute; may discuss many approaches but no specific monotonic-decreasing slope mechanism with mid-decode correction.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "idx": 8,
+      "url": "https://arxiv.org/html/2604.14853v1",
+      "functional_equivalence": 0.40,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["mid-decode gradient correction (weak: 'mid-generation budget adaptation')"],
+      "judge_reason": "Classifier-based mid-generation adaptation via constrained policy optimization — related theme but learned policy not calibrated slope; URL date 2026/4 is suspicious.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "totals": {
+    "total_hits": 0,
+    "functional_hits": 0,
+    "semantic_hits": 0,
+    "keyword_hits": 3
+  },
+  "verdict": "PASS",
+  "notes": "Three source-domain results clear keyword threshold but score very low on functional equivalence and semantic cosine — none reaches hit=true on the combined criterion. LLM-side results discuss adaptive/budget-aware decoding but none implements the specific monotonically-decreasing calibrated-slope per-token budget with mid-decode chorobates-style gradient correction. Pipeline rule: 0 hits → PASS."
+}

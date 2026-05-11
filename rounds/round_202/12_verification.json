@@ -1,0 +1,103 @@
+{
+  "round": "202",
+  "verified_at": "2026-05-11T17:09:29Z",
+  "verifier_agent_note": "fresh-context verifier independent of primary",
+  "content_words": ["scrimshaw incision", "lampblack ink", "ink rubbing", "polished bone", "low-gradient parameter", "weight-delta watermark", "fine-tuning erasure", "recessed coordinate"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Scrimshaw",
+      "title": "Scrimshaw — Wikipedia",
+      "kw_count": 4,
+      "kw_matches": ["scrimshaw incision", "lampblack ink", "ink rubbing", "polished bone"],
+      "cos": 0.42,
+      "judge": 0.15,
+      "judge_reason": "Source-domain encyclopedia article describes the physical scrimshaw technique but contains nothing about LLM watermarking or parameter-level mechanisms, so it cannot be functionally equivalent to the candidate proposal.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://decorativeartstrust.org/nantucket-scrimshaw-article/",
+      "title": "Carved from the Sea: Nantucket Pictorial Scrimshaw",
+      "kw_count": 3,
+      "kw_matches": ["scrimshaw incision", "lampblack ink", "ink rubbing"],
+      "cos": 0.38,
+      "judge": 0.12,
+      "judge_reason": "Decorative-arts article describing pin-prick + lampblack-fill scrimshaw technique; pure source-domain reference with no overlap onto LLM watermarking mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://americanhistory.si.edu/collections/object/nmah_309385",
+      "title": "Scrimshaw Sperm Whale's Tooth, Mid-19th c (Smithsonian)",
+      "kw_count": 1,
+      "kw_matches": ["scrimshaw incision"],
+      "cos": 0.22,
+      "judge": 0.08,
+      "judge_reason": "Museum object catalog entry for a single artifact, with minimal technical detail and no connection to LLM watermarking.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.23891v1",
+      "title": "PRO: Precise and Robust Text Watermark (2025/10)",
+      "kw_count": 2,
+      "kw_matches": ["weight-delta watermark", "fine-tuning erasure"],
+      "cos": 0.62,
+      "judge": 0.55,
+      "judge_reason": "Closely related: embeds watermark into 'stable' parameters identified by fine-tuning-induced value changes, conceptually adjacent to the candidate's low-gradient incision framing but uses a stability heuristic rather than explicit recessed-coordinate framing.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2410.02890",
+      "title": "Theoretically Grounded Framework for LLM Watermarking",
+      "kw_count": 1,
+      "kw_matches": ["weight-delta watermark"],
+      "cos": 0.32,
+      "judge": 0.18,
+      "judge_reason": "Generic hypothesis-testing watermark framework that does not address fine-tuning robustness or parameter-coordinate selection, so it has weak alignment with the candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.10525",
+      "title": "Towards Watermarking of Open-Source LLMs (2025/2)",
+      "kw_count": 2,
+      "kw_matches": ["weight-delta watermark", "fine-tuning erasure"],
+      "cos": 0.48,
+      "judge": 0.32,
+      "judge_reason": "Survey-style positioning paper noting fine-tuning durability as an open-source-LLM watermark requirement; relevant motivation but no recessed-coordinate / incision-fill mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://arxiv.org/html/2410.18861v1",
+      "title": "Provably Robust Watermarks for Open-Source LMs (2024/10)",
+      "kw_count": 1,
+      "kw_matches": ["weight-delta watermark"],
+      "cos": 0.38,
+      "judge": 0.22,
+      "judge_reason": "Per-token bias perturbation watermark with detectability scoring; uses generation-time bias rather than parameter-coordinate weight delta, so mechanism differs from the candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.04036",
+      "title": "Robust Data Watermarking by Fictitious Knowledge Injection (2025/3)",
+      "kw_count": 1,
+      "kw_matches": ["fine-tuning erasure"],
+      "cos": 0.34,
+      "judge": 0.18,
+      "judge_reason": "Training-data memorization watermark explicitly called out as the prior art the candidate distinguishes itself from; mechanism is unrelated to low-gradient parameter incision.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 4,
+    "hit_rate": 0.5,
+    "hits_by_trigger": {"kw": 4, "cos": 0, "judge": 0},
+    "verdict": "FAIL"
+  }
+}

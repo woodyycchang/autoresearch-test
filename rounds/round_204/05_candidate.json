@@ -1,0 +1,15 @@
+{
+  "round": "204",
+  "epoch": 9,
+  "candidate_form": "basin-stability",
+  "domain": "ikebana (Japanese flower arrangement; shin-soe-hikae triadic asymmetric composition; ma negative-space)",
+  "specific_mechanism": "An ikebana arrangement uses exactly three ranked elements — shin (tallest, ~1.0 unit, 'heaven'), soe (~0.75 unit, 'human', diagonal support), hikae (~0.5-0.75 unit, 'earth', forward-lowest) — whose tips form a scalene triangle. The composition is intentionally asymmetric: any equilateral or isosceles tip-set is rejected as 'dead' (off-basin). 'Ma' (negative space between elements) is itself a compositional element. The structure is stable against perturbations that maintain the scalene-ranked relation (move a stem slightly, OK) but unstable against any swap of element roles or against any symmetrization.",
+  "llm_application": "Triadic constraint decoding for structured-summary generation: produce exactly three ranked elements per generated chunk (primary claim, supporting evidence, qualifying caveat) with explicit length/prominence ratios (1.0 : 0.75 : 0.6), enforced via a scalene-triangle constraint over their attention-mass shares. Reject decodings whose three elements have prominence ratios within ε of equality (the 'isosceles trap', a known failure mode of LLM summarization). 'Ma'-equivalent: enforce non-zero gaps between elements (no element-blending). The basin-stability framing: this is a stable composition under small perturbations of length but unstable under symmetrization (which kills the asymmetric-ranking guarantee).",
+  "novelty_claim": "Length-constrained decoding (e.g., constrained budgets in Skeleton-of-Thought 2307.15337) and structured decoding (XGrammar, Outlines, vectorized-trie 2602.22647) constrain output schemas. Self-consistency (Wang 2203.11171) ensembles multiple paths. None enforces a SCALENE-RANKED prominence triangle with explicit anti-symmetric prominence-ratio constraint as a decoding-time invariant.",
+  "content_words": ["shin soe hikae", "scalene asymmetric triangle", "ma negative space", "ikebana composition", "triadic decoding constraint", "prominence ratio", "attention-mass share", "structured summary"],
+  "content_words_composition": {
+    "llm_side": ["triadic decoding constraint", "prominence ratio", "attention-mass share", "structured summary"],
+    "source_side": ["shin soe hikae", "scalene asymmetric triangle", "ma negative space", "ikebana composition"],
+    "generic": []
+  }
+}

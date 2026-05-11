@@ -1,0 +1,16 @@
+{
+  "round": "205",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Amalgam_(dentistry)", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/284042/", "judge_score": 0.05, "matched_effect_cluster": "source-domain background", "justification": "Source-domain study only."},
+    {"url": "https://bdsnotes.com/high-copper-amalgam-types-composition-and-properties/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain summary."},
+    {"url": "https://arxiv.org/html/2505.23859", "judge_score": 0.65, "matched_effect_cluster": "merge-induced feature drift minimization", "justification": "LOT-Merging explicitly minimizes layer-wise feature drift between task experts and unified model — adjacent to weak-phase elimination but not phase-typed."},
+    {"url": "https://arxiv.org/abs/2507.14170", "judge_score": 0.72, "matched_effect_cluster": "auxiliary-variable regularizer for pruning", "justification": "Catalyst regularizer introduces auxiliary catalyst variables in an extended parameter space to preserve performance during pruning — functionally the same 'auxiliary-phase-absorber' mechanism (Cu/η-prime absorbing Sn) the candidate proposes."},
+    {"url": "https://arxiv.org/html/2503.08998v1", "judge_score": 0.55, "matched_effect_cluster": "merge-method survey", "justification": "Survey, includes magnitude-pruning of weak components before merge (TIES, PCBMerging)."},
+    {"url": "https://arxiv.org/html/2603.09938v2", "judge_score": 0.50, "matched_effect_cluster": "merge-method survey", "justification": "FUSE-taxonomy survey, covers low-magnitude task-vector pruning."},
+    {"url": "https://arxiv.org/html/2510.13537v1", "judge_score": 0.40, "matched_effect_cluster": "continual on-device merging", "justification": "Online merging; different concern."}
+  ],
+  "summary": {"functional_hits_count": 1, "max_judge_score": 0.72, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

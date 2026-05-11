@@ -1,0 +1,15 @@
+{
+  "round": "220",
+  "epoch": 9,
+  "candidate_form": "phase-coherence",
+  "domain": "Egyptian faience (efflorescence self-glazing; silica core + natron alkali + copper salt; alkali migrates to surface during drying and reacts with silica to form 0.1-0.5 mm glassy glaze in one kiln cycle)",
+  "specific_mechanism": "Wet faience paste contains soluble alkali salts (natron) distributed throughout. As the piece dries, water transports sodium ions to the surface; on firing at 800-950°C, the surface-concentrated alkali fluxes the silica into a vitreous glaze layer 0.1-0.5 mm thick. The glaze is NOT applied externally — it forms self-organizingly from internal substrate composition. The color (turquoise blue) emerges from copper ion migration to the same surface layer.",
+  "llm_application": "Self-efflorescing output calibration: instead of applying an external calibration layer (logit-temperature scaling, conformal wrapping), inject 'alkali-analog' calibration salt INTO the model's training data — auxiliary tokens that carry calibration signal but are interspersed with content tokens. During inference, the calibration salt migrates to the surface (final-layer hidden state) via the attention mechanism (water-equivalent), forming a self-organized calibration boundary on the last layer. The output is calibrated WITHOUT external wrapping or post-hoc adjustment.",
+  "novelty_claim": "Calibration approaches today are external (Platt scaling, temperature scaling, conformal sets) or internal-state-decoding (Gnosis 2512.20578, knowledge-boundary 2502.11677, layer-wise conformal 2604.16217). None implements an INTERNAL-SUBSTRATE-EFFLORESCENCE: calibration signal embedded as training-data 'alkali tokens' that migrate to the output surface autonomously during forward pass.",
+  "content_words": ["Egyptian faience", "efflorescence glaze", "natron alkali", "silica core", "internal calibration token", "output surface migration", "self-organized calibration", "training-data calibration salt"],
+  "content_words_composition": {
+    "llm_side": ["internal calibration token", "output surface migration", "self-organized calibration", "training-data calibration salt"],
+    "source_side": ["Egyptian faience", "efflorescence glaze", "natron alkali", "silica core"],
+    "generic": []
+  }
+}

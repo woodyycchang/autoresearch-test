@@ -1,0 +1,103 @@
+{
+  "round": "203",
+  "verified_at": "2026-05-11T17:20:00Z",
+  "verifier_agent_note": "fresh-context verifier independent of primary",
+  "content_words": ["quipu cord", "pendant knot", "decimal position", "subsidiary branch", "compressed reasoning trace", "summary anchor token", "epistemic ply", "consistency check"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Quipu",
+      "title": "Quipu — Wikipedia",
+      "kw_count": 4,
+      "kw_matches": ["quipu cord", "pendant knot", "decimal position", "subsidiary branch"],
+      "cos": 0.78,
+      "judge": 0.85,
+      "judge_reason": "Wikipedia's Quipu page directly covers the source domain mechanism: knot types, ply, color, decimal position, and pendant/subsidiary hierarchy—all the source-side content words.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://khipufieldguide.com/guidebook/KhipuSigns.html",
+      "title": "Khipu Field Guide — Signs and Schematics",
+      "kw_count": 4,
+      "kw_matches": ["quipu cord", "pendant knot", "decimal position", "subsidiary branch"],
+      "cos": 0.80,
+      "judge": 0.88,
+      "judge_reason": "A khipu sign-system schematic specifically describing positional decimal encoding, pendant clusters, and top-cord sums maps precisely onto the candidate's source mechanism including the verification anchor.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://smarthistory.org/inka-khipu/",
+      "title": "The Inka khipu — Smarthistory",
+      "kw_count": 3,
+      "kw_matches": ["quipu cord", "pendant knot", "consistency check"],
+      "cos": 0.72,
+      "judge": 0.75,
+      "judge_reason": "Cultural-context overview that explicitly mentions top-cord sums verifying pendant sums (the consistency-check mechanism that is the candidate's core distinct feature).",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://arxiv.org/html/2412.13171v1",
+      "title": "Compressed Chain of Thought (CCoT, 2024/12)",
+      "kw_count": 1,
+      "kw_matches": ["compressed reasoning trace"],
+      "cos": 0.62,
+      "judge": 0.55,
+      "judge_reason": "CCoT compresses CoT to dense latent representations but lacks the multi-axis structured-summary-with-sum-consistency anchor that defines the candidate's novel mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2601.21576",
+      "title": "Chain Of Thought Compression: Theoretical Analysis (2026/1)",
+      "kw_count": 1,
+      "kw_matches": ["compressed reasoning trace"],
+      "cos": 0.55,
+      "judge": 0.45,
+      "judge_reason": "Theoretical analysis of CoT compression learning-signal decay; does not propose the structured-summary cord encoding or sum-consistency verification.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.09312v1",
+      "title": "Verifying CoT via Computational Graph (2025/10)",
+      "kw_count": 1,
+      "kw_matches": ["consistency check"],
+      "cos": 0.58,
+      "judge": 0.55,
+      "judge_reason": "Attribution-graph verification of CoT touches on verification but uses causal-information-flow approximation rather than hierarchical sum-consistency at a summary anchor.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2603.25942v1",
+      "title": "Reinforcing Structured CoT for Video (2026/3)",
+      "kw_count": 1,
+      "kw_matches": ["summary anchor token"],
+      "cos": 0.48,
+      "judge": 0.40,
+      "judge_reason": "Video-focused SDRL using key visual cues for anchoring; the 'anchoring' concept is loosely related but neither structured-multi-axis nor sum-consistency-verified.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.04341",
+      "title": "Enhancing CoT with Iterative Summarization (2025/1)",
+      "kw_count": 2,
+      "kw_matches": ["compressed reasoning trace", "summary anchor token"],
+      "cos": 0.65,
+      "judge": 0.60,
+      "judge_reason": "Iterative summarization is the closest LLM-side neighbor to summary-anchor framing, but it lacks the multi-axis encoding and the explicit local sum-consistency verification mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 4,
+    "hit_rate": 0.5,
+    "hits_by_trigger": {"kw": 4, "cos": 3, "judge": 3},
+    "verdict": "FAIL"
+  }
+}

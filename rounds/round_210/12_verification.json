@@ -1,0 +1,103 @@
+{
+  "round": "210",
+  "verified_at": "2026-05-11T17:45:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": ["tinker dam", "molten solder", "pewter patch", "pot mending", "knowledge editing", "auxiliary classifier vanishing", "post-edit pruning", "architecture-preserving patch"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Tinker",
+      "title": "Tinker — Wikipedia",
+      "functional_equivalence": 0.15,
+      "semantic_cosine_estimate": 0.35,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["tinker dam"],
+      "judge_reason": "Source-domain reference about tinkering; describes the dam mechanically but no LLM application, so functionally unrelated to the dam-vanishing patching claim.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.phrases.org.uk/meanings/tinkers-damn.html",
+      "title": "Tinker's Damn phrase",
+      "functional_equivalence": 0.1,
+      "semantic_cosine_estimate": 0.3,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["tinker dam"],
+      "judge_reason": "Etymology/phrase source-domain only; no LLM editing content, not a functional match.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://scttx.com/articles/%E2%80%9C-tinkers-dam%E2%80%9D-neal-murphy",
+      "title": "A Tinker's Dam — Shelby County Today",
+      "functional_equivalence": 0.1,
+      "semantic_cosine_estimate": 0.25,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["tinker dam"],
+      "judge_reason": "Source-domain article only; not LLM-related, so cannot be a functional prior art hit.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.10943",
+      "title": "SEAL: Self-Adapting LLMs (2025/6)",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.68,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["knowledge editing", "architecture-preserving patch"],
+      "judge_reason": "SEAL produces persistent SFT weight-only updates explicitly without retaining auxiliary adaptation modules — this matches the dam-vanishing invariant of the candidate (auxiliary removed, weights changed in place).",
+      "hit": true,
+      "hit_triggers": ["judge", "kw"]
+    },
+    {
+      "url": "https://arxiv.org/html/2511.08484v1",
+      "title": "Patching LLM like Software (2025/11)",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["knowledge editing", "architecture-preserving patch"],
+      "judge_reason": "Uses a learnable prefix that persists at inference — opposite of dam-vanishing; the candidate itself flags this paper as a non-match; keyword overlap exists but functional core differs.",
+      "hit": true,
+      "hit_triggers": ["kw"]
+    },
+    {
+      "url": "https://arxiv.org/html/2605.00358v1",
+      "title": "Forward Replay LLM Parameter Editing (2026/5)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine_estimate": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["knowledge editing"],
+      "judge_reason": "Concerns specificity/preservation under edits, but does not implement an auxiliary infrastructure that vanishes post-edit; insufficient overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2512.14395",
+      "title": "Massive Editing via Dynamic Weight Generation (2025/12)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["knowledge editing"],
+      "judge_reason": "Dynamic weight generation produces edits but typically retains hypernetwork-style infrastructure; differs from the auxiliary-classifier-then-prune invariant.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2503.05212",
+      "title": "Selective Contextual Reasoning vs Model Editing (2025/3)",
+      "functional_equivalence": 0.25,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["knowledge editing"],
+      "judge_reason": "Proposes contextual reasoning as an alternative to weight editing — opposite direction from dam-vanishing weight patching; not a match.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 2,
+    "hit_rate": 0.25,
+    "hits_by_trigger": {"kw": 2, "cos": 0, "judge": 1},
+    "verdict": "FAIL"
+  }
+}

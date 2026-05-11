@@ -1,0 +1,15 @@
+{
+  "round": "211",
+  "epoch": 9,
+  "candidate_form": "phase-coherence",
+  "domain": "woodworking joinery (through-dovetail; tails + pins with calibrated slope angle; cabinetmaking)",
+  "specific_mechanism": "A through-dovetail joins two boards at right angle by cutting trapezoidal 'tails' on one and matching 'pins' on the other. The slope ratio is calibrated to wood hardness (1:6 softwood, 1:8 hardwood) — too steep produces brittle short-grain tails, too shallow produces insufficient mechanical interlock. The joint resists tensile force in one direction by geometric wedging; assembly requires precise sequencing (tails-from-side, pins-from-end, slide together).",
+  "llm_application": "Hardness-calibrated tool-output type-interlock: when chaining LLM tools (e.g., search → summarize → verify), parameterize each tool's output schema as a 'tail/pin pair' with a slope-parameter alpha calibrated to the *downstream tool's robustness to schema variation* (analogous to wood hardness). Tools downstream of brittle/strict parsers get gentler slope (~1:8): more permissive output schemas. Tools downstream of robust parsers get steeper slope (~1:6): more compact, more constrained outputs. The calibration prevents 'tails breaking off' (over-strict schemas with insufficient flexibility) and 'pins slipping' (over-loose schemas that lose mechanical interlock).",
+  "novelty_claim": "Function-calling schema research (FUSE 2602, NL Tools 2510.14453, modular pipeline taxonomies 2406.10300) defines tool I/O contracts statically. None explicitly parameterizes tool-output schema 'slope' as a function of downstream-tool robustness, with the hardness-calibrated angle invariant.",
+  "content_words": ["dovetail tail", "dovetail pin", "slope angle calibration", "mechanical interlock", "tool I/O schema", "downstream-tool robustness", "schema-slope parameter", "function-call chain"],
+  "content_words_composition": {
+    "llm_side": ["tool I/O schema", "downstream-tool robustness", "schema-slope parameter", "function-call chain"],
+    "source_side": ["dovetail tail", "dovetail pin", "slope angle calibration", "mechanical interlock"],
+    "generic": []
+  }
+}

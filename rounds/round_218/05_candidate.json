@@ -1,0 +1,15 @@
+{
+  "round": "218",
+  "epoch": 9,
+  "candidate_form": "information-cascade",
+  "domain": "Roman civil engineering — aqueduct gradient (calibrated ~1:4800 downward slope from source to terminus, surveyed via chorobates 20-foot water-level frame + dioptra/groma over 50-90 km)",
+  "specific_mechanism": "Romans surveyed and built aqueducts with a precisely calibrated near-constant downward gradient (~1.7m/km, 1:4800). The flow is purely gravity-driven; too shallow → stagnant + sediment buildup; too steep → erosion + cavitation. Surveyors used the chorobates (a long water-level table) to ensure the channel floor maintained constant slope over kilometer-scale distances. The Aqua Marcia had a 1:3000 average gradient over ~91 km.",
+  "llm_application": "Constant-rate-of-progress decoding under explicit slope constraint: enforce a calibrated decreasing budget per-token throughout a long-form generation: token i's allowed compute = max_compute × (1 - i × γ), where γ is the 'aqueduct slope'. Too-flat γ → stagnation (model exhausts compute early, falls off). Too-steep γ → cavitation (model is starved of compute and degrades). The optimal slope γ* is the 1:4800 of language generation, calibrated per-task. Surveyor analog: a chorobates-meter monitors generation-progress / budget-spent ratio; deviations trigger gradient-correction adjustments mid-decode.",
+  "novelty_claim": "Adaptive compute (PonderNet 2107.05407, Anytime LMs), early-exit (Schwartz 2004.12993, DeeBERT 2004.12993), speculative decoding all vary compute-per-token. None enforces a explicit MONOTONICALLY DECREASING per-token compute budget calibrated to a target completion length, with mid-decode gradient-correction. The 'aqueduct slope' parameterization with explicit chorobates-style monitoring is the distinct claim.",
+  "content_words": ["Roman aqueduct", "chorobates surveying", "calibrated gradient", "gravity-flow channel", "compute-budget slope", "monotonic per-token compute", "mid-decode gradient correction", "completion-length calibration"],
+  "content_words_composition": {
+    "llm_side": ["compute-budget slope", "monotonic per-token compute", "mid-decode gradient correction", "completion-length calibration"],
+    "source_side": ["Roman aqueduct", "chorobates surveying", "calibrated gradient", "gravity-flow channel"],
+    "generic": []
+  }
+}

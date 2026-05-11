@@ -1,0 +1,112 @@
+{
+  "round": "223",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "content_words": ["kolam rangoli", "pulli dot grid", "self-avoiding curve", "closed-loop pattern", "concept-graph CoT", "self-avoiding reasoning walk", "topological closure constraint", "forward-backward symmetry"],
+  "results": [
+    {
+      "index": 0,
+      "url": "https://arxiv.org/abs/2304.14134",
+      "title": "Symmetry Classification of Square-Tile Sikku Kolams",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.60,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["kolam rangoli", "pulli dot grid"],
+      "judge_reason": "Source-side kolam symmetry classification paper directly overlaps with kolam/pulli concepts but does not implement the LLM-side concept-graph CoT mechanism.",
+      "hit": true,
+      "hit_triggers": ["keyword_overlap>=2"]
+    },
+    {
+      "index": 1,
+      "url": "https://en.wikipedia.org/wiki/Kolam",
+      "title": "Kolam — Wikipedia",
+      "functional_equivalence": 0.50,
+      "semantic_cosine": 0.65,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["kolam rangoli", "pulli dot grid", "self-avoiding curve", "closed-loop pattern"],
+      "judge_reason": "Wikipedia source-side reference covers all four source-side content words for kolam/pulli/self-avoiding/closed-loop directly.",
+      "hit": true,
+      "hit_triggers": ["keyword_overlap>=2"]
+    },
+    {
+      "index": 2,
+      "url": "https://scisimple.com/en/articles/2025-11-20-the-art-of-sikku-kolam-a-cultural-exploration--akynn2z",
+      "title": "Art of Sikku Kolam — Simple Science (2025/11)",
+      "functional_equivalence": 0.35,
+      "semantic_cosine": 0.45,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["kolam rangoli"],
+      "judge_reason": "General sikku kolam cultural exploration with shallow overlap; lacks LLM-side or mechanistic match.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/abs/2604.06805",
+      "title": "Cognitive Loop of Thought: Reversible Hierarchical Markov Chain (2026/4)",
+      "functional_equivalence": 0.80,
+      "semantic_cosine": 0.78,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["closed-loop pattern", "forward-backward symmetry"],
+      "judge_reason": "CLoT explicitly implements closed-loop forward-refine + backward-verify CoT, matching the candidate's topological closure + forward-backward symmetry framing.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2308.07758v6",
+      "title": "FOBAR Forward-Backward Reasoning for Math Verification (2023+)",
+      "functional_equivalence": 0.65,
+      "semantic_cosine": 0.68,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["forward-backward symmetry"],
+      "judge_reason": "FOBAR uses forward+backward reasoning for verification but lacks the topological closure/self-avoidance walk framing on a concept graph.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2510.09312",
+      "title": "Verifying CoT via Computational Graph (2025/10)",
+      "functional_equivalence": 0.25,
+      "semantic_cosine": 0.35,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Computational/attribution-graph CoT verification is unrelated to closure/self-avoiding walks on concept graphs.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2203.11171",
+      "title": "Self-Consistency Improves CoT (2022/3)",
+      "functional_equivalence": 0.20,
+      "semantic_cosine": 0.30,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Self-consistency averages independent CoT paths; explicitly disclaimed by candidate as not implementing closure/self-avoidance.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2510.24811v1",
+      "title": "ProofSketch: Verified Reasoning (2025/10)",
+      "functional_equivalence": 0.20,
+      "semantic_cosine": 0.28,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "Proof-sketch verification is unrelated to closed-loop self-avoiding walks or forward-backward symmetry on a concept graph.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "rule": "strict OR; total_hits >= 1 -> FAIL",
+  "fail_reasons": [
+    "Result 0 hits via keyword_overlap (kolam rangoli + pulli dot grid)",
+    "Result 1 hits via keyword_overlap (4 source-side terms)",
+    "Result 3 hits via functional_equivalence + semantic_cosine + keyword_overlap (CLoT closed-loop forward/backward CoT)"
+  ]
+}
