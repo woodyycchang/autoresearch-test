@@ -1,0 +1,16 @@
+{
+  "round": "218",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Roman_aqueduct", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://en.wikipedia.org/wiki/Pont_du_Gard", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://www.thearchaeologist.org/blog/roman-aqueducts-the-precision-surveying-behind-the-pont-du-gard", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://arxiv.org/html/2508.17196v2", "judge_score": 0.88, "matched_effect_cluster": "budget-aware reasoning with control tokens", "justification": "BudgetThinker continuously reminds model of remaining budget via control tokens — directly the candidate's chorobates-style mid-decode budget monitor + calibrated decreasing budget."},
+    {"url": "https://arxiv.org/pdf/2505.11274", "judge_score": 0.80, "matched_effect_cluster": "adaptive token-allocation budgeting", "justification": "SelfBudgeter dynamically allocates token budget by problem complexity — same calibrated-budget framing."},
+    {"url": "https://arxiv.org/html/2510.19669v2", "judge_score": 0.72, "matched_effect_cluster": "difficulty-adaptive reasoning", "justification": "DiffAdapt selects strategies that constrain reasoning compute by difficulty."},
+    {"url": "https://arxiv.org/html/2507.02076v1", "judge_score": 0.65, "matched_effect_cluster": "adaptive test-time compute survey", "justification": "Survey of the space, not a specific mechanism."},
+    {"url": "https://arxiv.org/html/2604.14853v1", "judge_score": 0.75, "matched_effect_cluster": "mid-generation compute allocation", "justification": "Mid-generation budget adaptation is an explicit named extension; functionally directly the candidate."}
+  ],
+  "summary": {"functional_hits_count": 4, "max_judge_score": 0.88, "distinct_effect_clusters_above_threshold": 4, "multi_cluster_match": true}
+}

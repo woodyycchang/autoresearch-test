@@ -1,0 +1,108 @@
+{
+  "round": "220",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "content_words": ["Egyptian faience", "efflorescence glaze", "natron alkali", "silica core", "internal calibration token", "output surface migration", "self-organized calibration", "training-data calibration salt"],
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Egyptian_faience",
+      "title": "Egyptian faience — Wikipedia",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.35,
+      "keyword_overlap": 3,
+      "keyword_matches": ["Egyptian faience", "efflorescence glaze", "natron alkali"],
+      "judge_reason": "Pure source-domain page about Egyptian faience efflorescence; describes the physical process but has zero LLM/calibration content.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "index": 1,
+      "url": "https://www.metmuseum.org/toah/hd/egfc/hd_egfc.htm",
+      "title": "Egyptian Faience Technology — Met Museum",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.32,
+      "keyword_overlap": 2,
+      "keyword_matches": ["Egyptian faience", "output surface migration (partial: salt migration to surface)"],
+      "judge_reason": "Source-domain Met essay covering soluble salt migration in faience; no LLM analog discussed.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "index": 2,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440311004274",
+      "title": "Faience Cementation Method (ScienceDirect)",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.25,
+      "keyword_overlap": 1,
+      "keyword_matches": ["Egyptian faience (implied via 'Faience')"],
+      "judge_reason": "Discusses an alternative cementation glazing method (not efflorescence) for faience; tangential source-domain reference only.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2511.04869v1",
+      "title": "Trained on Tokens, Calibrated on Concepts (2025/11)",
+      "functional_equivalence": 0.35,
+      "semantic_cosine": 0.45,
+      "keyword_overlap": 1,
+      "keyword_matches": ["self-organized calibration (partial: emergent calibration as byproduct)"],
+      "judge_reason": "Discusses calibration emerging from next-token prediction (somewhat similar emergent flavor), but does not propose internal-substrate alkali-token migration mechanism; mechanism is distinct.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/abs/2512.20578",
+      "title": "Gnosis Self-Awareness via Internal Circuits (2025/12)",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.4,
+      "keyword_overlap": 0,
+      "keyword_matches": [],
+      "judge_reason": "Decodes hidden-state signals for self-verification; explicitly cited by candidate as different from its efflorescence-token approach.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2502.11677",
+      "title": "Exploiting Internal States for Knowledge Boundary (2025/2)",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.4,
+      "keyword_overlap": 0,
+      "keyword_matches": [],
+      "judge_reason": "Internal-state-based knowledge-boundary perception; reads internal states rather than embedding migrating calibration tokens in training data.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/html/2604.16217",
+      "title": "Conformal Prediction via Internal Representations (2026/4)",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.4,
+      "keyword_overlap": 0,
+      "keyword_matches": [],
+      "judge_reason": "Layer-wise conformal scoring from internal representations; post-hoc nonconformity, not training-data salt migration.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2502.17601v1",
+      "title": "Representation Engineering Survey (2025/2)",
+      "functional_equivalence": 0.1,
+      "semantic_cosine": 0.3,
+      "keyword_overlap": 0,
+      "keyword_matches": [],
+      "judge_reason": "General representation-engineering survey; not specifically about efflorescence-style calibration salt tokens.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "verdict_reason": "Two source-domain hits (Wikipedia and Met Museum) each match >=2 content_words (Egyptian faience, efflorescence glaze, natron alkali / salt migration). Strict OR rule triggers FAIL since total_hits >= 1. The source-side keywords are too specific and well-documented to evade overlap.",
+  "notes": "Verifier scored independently without consulting other-agent outputs. Source-side terms ('Egyptian faience', 'efflorescence glaze', 'natron alkali') are nearly tautological hits against any Egyptian-faience reference; this is a content_words composition risk."
+}

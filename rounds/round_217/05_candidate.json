@@ -1,0 +1,15 @@
+{
+  "round": "217",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "Korean traditional architecture — ondol / gudeul (underfloor heating; agungi firebox + gorae flue channels + gudeul stone slabs; 8-12 hour passive thermal retention after fire goes out)",
+  "specific_mechanism": "Wood combustion in the agungi pushes hot gas through gorae flue channels carved beneath the floor. The channels are routed to maximize residence time of hot gas under the gudeul (thick stone slabs). The slabs absorb heat during firing, then radiate it slowly upward for 8-12 hours after combustion stops. The system has a thermal-mass storage capacity that exceeds the heat-generation phase by 5-10×: heat the room for 2 hours of fire, get 8-12 hours of warmth.",
+  "llm_application": "Thermal-mass KV cache: rather than discard KV cache after a session, allocate a separate 'gudeul layer' — a dense, low-precision (e.g., int4) summary of the entire conversation's attention patterns, held in CPU memory beyond the immediate KV cache. When the user returns to the conversation after a long gap (hours-to-days), the gudeul layer is 'radiated' back into the KV cache, partially restoring the warm conversational context. The 'firebox-to-storage ratio' (active KV bytes : gudeul bytes) is calibrated like the ondol's 2hr-fire-to-12hr-warmth ratio.",
+  "novelty_claim": "KV cache offloading (LMCache 2510.09665), TRIM-KV retention 2512.03324, RelayCaching 2603.13289 all manage long-lived KV state. None implements the ASYMMETRIC ondol ratio (small fire creates long warmth = small heat-up cost creates long-lived dense low-precision summary that radiates back as approximate KV), explicitly calibrated to a 5-10× retention-to-firing-time ratio.",
+  "content_words": ["ondol heating", "gudeul stone", "thermal mass", "gorae flue", "KV cache retention", "low-precision summary", "conversational re-warming", "asymmetric retention ratio"],
+  "content_words_composition": {
+    "llm_side": ["KV cache retention", "low-precision summary", "conversational re-warming", "asymmetric retention ratio"],
+    "source_side": ["ondol heating", "gudeul stone", "thermal mass", "gorae flue"],
+    "generic": []
+  }
+}
