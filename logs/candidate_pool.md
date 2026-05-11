@@ -160,3 +160,30 @@ DO NOT repropose these:
 - Round 098 | domain: lichenology (fungal hyphal anastomosis (network fusion)) | mechanism: Fungal hyphae from genetically distinct mycelia fuse via anastomosis when compatible, shar | verdict: FAIL | form: feedback-attenuation
 - Round 099 | domain: orthopedics (bone remodeling Wolff's law) | mechanism: Bone remodels itself in response to mechanical stress (Wolff's law) — osteoclasts resorb u | verdict: FAIL | form: basin-stability
 - Round 100 | domain: developmental-biology (epigenetic transgenerational inheritance (DNA meth) | mechanism: Some DNA methylation marks survive meiosis and are inherited transgenerationally, encoding | verdict: FAIL | form: feedback-attenuation
+
+## Epoch 5 (R101-R125, program_v5.md)
+R101 particle-physics-phenomenology (parton distribution / DGLAP) → context-budget allocation across attention heads
+R102 computational-geometry (Voronoi tessellation) → MoE token routing
+R103 astrobiology (biosignature disequilibrium) → synthetic-content detection
+R104 philology (Lachmannian stemmatic) → chain-of-thought reconstruction
+R105 anthropological-linguistics (Brown-Levinson politeness) → multi-axis RLHF preference modeling
+R106 horology (escapement isochronism) → token-emission cadence
+R107 mineralogy (zeolite cation exchange) → KV-cache eviction
+R108 enzymology (allosteric Hill cooperativity) → LoRA adapter composition
+R109 forensic-odontology (dental-record feature matching) → speculative-decoding verification
+R110 toxicology (hormesis biphasic dose-response) → adversarial-training schedule
+R111 gemology (Mohs scratch ordinal) → pairwise capability ranking
+R112 iconography (Byzantine canon hierarchy) → output-format constrained decoding
+R113 musicology (Gregorian neume notation) → positional-encoding scheme
+R114 jurisprudence-specific (Talmudic dialectic) → constitutional-AI dissent training
+R115 aerodynamics (boundary-layer separation) → attention-sink long-context
+R116 specific-mycology (white-rot ligninolytic peroxidase) → test-time compute scaling
+R117 conservation-biology (population bottleneck) → fine-tuning diversity recovery
+R118 bookbinding (Coptic stitch) → modular model merging
+R119 crystallography (twin-domain boundary) → representation-space twin domains [PASS — flagged for review]
+R120 speleology (cave dark-trophic webs) → synthetic-only training
+R121 pyrotechnics (metal-salt emission spectra) → sampling-temperature spectra
+R122 viticulture (Guyot pruning) → structured weight-pruning topology
+R123 behavioral-ecology (cuckoo brood parasitism) → reward-hacking arms race
+R124 rheology-specific (Bingham yield-stress) → activation-threshold gating [PASS — flagged for review]
+R125 biogeography (island species-area) → RAG retrieval chunk composition

@@ -81,3 +81,25 @@ Format per entry:
   - All 4 PASSes have max cosine similarity < 0.55 and clean cross-agent verifier
   - 7 rounds had memory-skip events at step 04.5 (rule_1_domain_skip + rule_3_form_rotate)
   - New forms introduced: phase-coherence, basin-stability
+
+
+## Epoch 5 session (R101-R125, program_v5.md)
+
+- Rounds attempted: 101 to 125 (epoch 5 = 25 rounds)
+- Rounds completed: 25
+- Stopping reason: 25-round target reached. 23 FAIL, 2 mechanical PASS (R119, R124) flagged for human review (uncertain substantive).
+- Notes:
+  - Inherited 100 prior in-repo rounds + 138-round prior manual history
+  - Used program_v5.md adding step 06.7 (LLM-judge functional-equivalence check)
+  - Phase 1 of this session retroactively audited the 4 epoch-4 borderline PASSes (R079, R085, R091, R092) via web_search on the FUNCTIONAL content (not the source-domain vocabulary). All 4 confirmed as Pattern D functional false positives. See output/epoch4_functional_audit.md.
+  - v5 functional-only forced hits caught: 35 across 13 rounds (Pattern D caught in real time)
+  - Multi-cluster matches (≥2 distinct effect clusters above threshold 0.7): 15 of 25 rounds
+  - Mean keyword forced-hit per round: 0.48 (lowest across all 5 epochs — fresh domains have minimal substring overlap with mainstream LLM literature)
+  - Mean total forced-hit per round (keyword ∪ semantic ∪ functional): 2.20
+  - 0 cross-agent disagreements
+  - 0 memory-skip events (epoch-5 candidates all from never-tested domains)
+  - 19 new domain buckets introduced: particle-physics, computational-geometry, astrobiology, philology-specific, anthropological-linguistics, horology, mineralogy, enzymology, forensic-science, toxicology, gemology, iconography, musicology, jurisprudence-specific, aerodynamics, specific-mycology, conservation-biology, bookbinding, crystallography, pyrotechnics, viticulture, behavioral-ecology-specific, rheology-specific, biogeography
+  - 3 new forms introduced: spectral-allocation, adversarial-coevolution, topological-defect
+  - 2 borderline PASS rounds (R119 crystallography twin domains, R124 rheology Bingham plastic) flagged for human review under L4 (functional-equivalence) detection layer; pending Phase-1-style functional audit, both will likely be reclassified as Pattern D / Pattern E false positives.
+  - Cumulative confirmed-substantive PASS count across 263 rounds: 0. Saturation hypothesis remains supported.
+  - Comparison report at output/epoch5_comparison.md; stats at output/stats_round_125.json; diff at output/v4_to_v5_diff.md; evasion hierarchy at output/detector_evasion_hierarchy.md.
