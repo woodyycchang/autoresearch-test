@@ -1,0 +1,15 @@
+{
+  "round": "237",
+  "epoch": 10,
+  "candidate_form": "feedback-attenuation",
+  "domain": "espalier fruit tree training (horticultural technique of training apple/pear/plum/peach into 2D planar form via wire-and-post trellis + annual pruning of out-of-plane shoots; 5-10 year commitment locks tree's branch schema)",
+  "specific_mechanism": "A young tree is planted next to a horizontal-wire trellis; central leader is allowed but lateral branches are tied to the wires forming horizontal cordons. EVERY GROWING SEASON, all out-of-plane shoots are pruned, and in-plane shoots are tip-shortened. After 5-10 years the tree's growth has been disciplined into a fully 2D planar branch schema; the tree thereafter requires reduced maintenance but produces fruit only along the trellis form.",
+  "llm_application": "Espalier-trellis adapter training: define a sparse TRELLIS pattern S in parameter coordinate space (authored offline as a structured selector — e.g., 'layers 8-12, heads 4-8 only, channel-band 256-512'). LoRA-style adapter is trainable ONLY at coordinates in S; gradients out-of-S are hard-zeroed before optimizer step. Property A: out-of-trellis weights cannot drift, so unlearned/safety-critical regions are protected from any fine-tune. Property B: multiple sequential fine-tunes accumulate adapter capacity ALONG the same trellis (no cross-region interference). Property C: trellis is a HUMAN-AUTHORED prior — interpretability + reproducibility. Property D: composable — distinct trellises for distinct skills can be stacked at deployment via mask union without coordinate collision.",
+  "novelty_claim": "Structured pruning (LLM-Pruner 2305.11627, SlimLLM 2505.22689, BIP 2412.06419) prunes after training. Alignment-Constrained Dynamic Pruning (2511.07482) and RAP (2505.17138) constrain pruning dynamically. None proposes the espalier discipline: (i) human-authored offline trellis prior; (ii) hard zero of out-of-trellis gradients during training; (iii) sequential-fine-tune accumulation along same trellis; (iv) deployment-time compositional union of multiple trellis adapters. The trellis-as-authored-prior + training-time gradient discipline distinguishes from learned-mask sparsity (e.g., movement pruning, lottery tickets).",
+  "content_words": ["espalier tree training", "wire trellis", "out-of-plane pruning", "cordon geometry-locking", "trellis-prior adapter", "out-of-trellis gradient zero", "cumulative-along-trellis accumulation", "compositional trellis union"],
+  "content_words_composition": {
+    "llm_side": ["trellis-prior adapter", "out-of-trellis gradient zero", "cumulative-along-trellis accumulation", "compositional trellis union"],
+    "source_side": ["espalier tree training", "wire trellis", "out-of-plane pruning", "cordon geometry-locking"],
+    "generic": []
+  }
+}

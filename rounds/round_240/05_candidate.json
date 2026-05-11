@@ -1,0 +1,15 @@
+{
+  "round": "240",
+  "epoch": 10,
+  "candidate_form": "feedback-attenuation",
+  "domain": "elephant infrasound + seismic dual-channel communication (low-frequency rumble <20Hz propagates 10km airborne and 32km seismic; specialised cartilaginous foot-pad receivers + ear-constriction switch for focused seismic listening; long-range family-group coordination)",
+  "specific_mechanism": "Elephants produce <20 Hz rumbles via massive larynx + trunk resonator. The infrasound propagates by AIR (up to ~10 km) and by SEISMIC ground waves (up to ~32 km) simultaneously. Receivers (other elephants) detect airborne via the ear canal AND seismic via foot-pad cartilaginous nodes. A muscle around the ear canal can constrict to dampen airborne and focus on seismic when needed.",
+  "llm_application": "Dual-channel low-frequency 'infrasound' state broadcast for LLM fleet coordination: each LLM replica in an N-replica cloud deployment periodically (every τ seconds, τ ≫ request latency) emits a compact 'rumble vector' summarising its drift/refusal/hallucination state. The rumble is broadcast on (a) fast in-cluster message bus + (b) slow persistent log. Other replicas listen on both, prioritising the slow log when fast bus is congested (ear-constriction analog). Drift in one replica → soft adaptation in others without centralised coordinator. Bandwidth: τ is large enough that infrasound traffic ≪ request traffic.",
+  "novelty_claim": "LLM-fleet coordination work (UAV-MAS 2602.19534, SAGS 2509.02540, spectrum LLM 2604.13132) focuses on task-level fast coordination. Distributed monitoring (Prometheus/Grafana-style) uses metrics-broadcast but is not state-vector LLM coordination. None proposes a low-frequency, periodic, dual-channel, side-channel rumble for soft replica-fleet alignment-drift adaptation.",
+  "content_words": ["elephant infrasound", "seismic ground wave", "dual-channel broadcast", "foot-pad reception", "fleet rumble vector", "alignment-drift broadcast", "side-channel low-frequency", "soft replica adaptation"],
+  "content_words_composition": {
+    "llm_side": ["fleet rumble vector", "alignment-drift broadcast", "side-channel low-frequency", "soft replica adaptation"],
+    "source_side": ["elephant infrasound", "seismic ground wave", "dual-channel broadcast", "foot-pad reception"],
+    "generic": []
+  }
+}

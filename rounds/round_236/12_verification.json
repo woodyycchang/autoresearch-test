@@ -1,0 +1,98 @@
+{
+  "round": "236",
+  "verifier": "cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "frozen_or_rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_llm_application_summary": "Single-model dalang scaffold: 3-slot persistent latent code (scene-frame, character-list, current-active-character); sub-token role switch by updating ONE slot; learned voice embeddings; single-model invocation throughout.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Wayang_kulit",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Encyclopedia article on the source domain (wayang kulit shadow puppetry). Describes dalang, gamelan, puppets. No LLM-side mechanism. No overlap with LLM-side content words (dalang latent scaffold, scene-frame slot persistence, sub-token role switch, single-instance multi-persona).",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://asiasociety.org/new-york/wayang-kulit-indonesias-extraordinary-shadow-puppetry-tradition",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Cultural article on wayang kulit and dalang's role; source domain only. No LLM-side mechanism, no overlap with scaffold/slot/sub-token/single-instance multi-persona content words.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://online.internationalfolkart.org/dancingshadows/performance/dhalang.html",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Folk art museum page on the dhalang; source domain only. No LLM-side mechanism, no content-word overlap on LLM side.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2511.10277",
+      "functional_equivalence": 0.78,
+      "semantic_cosine_estimate": 0.68,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["single-instance multi-persona (fixed-persona + multi-NPC from one model class)", "scene-frame slot persistence (swappable memory module persisting per NPC)"],
+      "justification": "Fixed-Persona SLMs with Modular Memory: each persona has a fixed identity plus a swappable memory module; multi-NPC dialogue is deployed from one model class. This matches the candidate's swap-not-spawn single-instance multi-persona effect cluster and the persistent slot semantics. Functional equivalence is high (>=0.7); keyword overlap is also >=2 (multi-persona single instance; per-persona persistent memory slot). HIT under all three criteria.",
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2506.06254",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["scene-frame slot persistence (personalized memory module + episodic+semantic memory persists across turns)", "dalang latent scaffold (modular persona-conditioning module)"],
+      "justification": "PersonaAgent maintains a personalized memory module with episodic+semantic memory persisting across interactions; module conditions the model's behavior per persona. This is operationally near-identical to the candidate's scene-frame + character-list slot persistence with character voice embedding conditioning. Func>=0.7 and kw>=2 -> HIT.",
+      "hit": true
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.02029v1",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["dalang latent scaffold (latent-space / latent memory family)"],
+      "justification": "Latent space survey covers many latent-memory methods (including MemGen) but is a broad survey, not a specific scaffold mechanism with 3-slot persistent code, sub-token role switching, or single-instance multi-persona. Only one weak content-word overlap (latent). Below all three thresholds.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2501.15427v1",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.50,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["single-instance multi-persona (character generalization across personas in one model)"],
+      "justification": "OpenCharacter pursues character generalization via finetuning, producing one model that can simulate many characters. However it is text-prompt persona switching (cited by candidate as prior art) and does not implement a structured latent scaffold with sub-token slot updates. Func and sem below 0.7; only one matched content word. No hit.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2511.00222v1",
+      "functional_equivalence": 0.50,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["single-instance multi-persona (persona simulation in one model)"],
+      "justification": "Consistent persona simulation via multi-turn RL; aims for consistency rather than rapid sub-token switching among multiple personas with a structured scaffold. Below all three thresholds.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 2,
+    "kw_hits": 2,
+    "sem_hits": 0,
+    "func_hits": 2,
+    "hit_ranks": [4, 5],
+    "verdict": "FAIL",
+    "verdict_rationale": "Rank 4 (Fixed-Persona SLMs with Modular Memory, 2511.10277) and Rank 5 (PersonaAgent, 2506.06254) both exceed the functional threshold (>=0.7) and meet keyword overlap (>=2); total_hits=2 >= 1 -> FAIL."
+  }
+}

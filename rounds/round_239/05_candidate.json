@@ -1,0 +1,15 @@
+{
+  "round": "239",
+  "epoch": 10,
+  "candidate_form": "phase-coherence",
+  "domain": "submarine passive sonar triangulation (multiple spatially-separated hydrophone arrays each providing a bearing on acoustic source; cross-array triangulation gives range without active emission; Wide-Aperture Array uses time-difference-of-arrival; LOFAR narrowband classifies source spectral signature)",
+  "specific_mechanism": "Each hydrophone array (bow, hull, towed, flank) gives a relative-amplitude pattern across its elements → a BEARING (direction-of-arrival) to any sound source. Two or more arrays' bearings intersect to TRIANGULATE position. Wide-Aperture Array uses time-difference-of-arrival across hull-spread elements for additional ranging. LOFAR (Low-Frequency Analysis Recording) provides narrowband classification of source by spectral fingerprint (engine/propeller harmonics).",
+  "llm_application": "Cross-layer attention-head triangulation for output-provenance attribution: each layer's set of attention heads = a hydrophone array; for any output token, the relative-amplitude profile of attention across heads gives a 'bearing' = which context position dominantly drove this output at this layer. K layers = K spatially-separated arrays. Triangulate by intersecting K layer-bearings in context-position space to localize the SOURCE TOKEN(S). Narrowband role-classification: spectral fingerprint of attention-matrix eigenvalues classifies source-token role (entity / refusal-cue / quoted-fact / connective). Whole pipeline is PASSIVE (no retraining or active probing). Use case: token-level provenance for content moderation + factuality auditing.",
+  "novelty_claim": "Multi-head attention literature (TransMLA 2502.07864, MEA 2601.19611, TensorLLM 2501.15674) focuses on architecture; does not propose cross-LAYER triangulation. Attention attribution work (integrated gradients, attention rollout) computes per-head importance but not multi-layer bearing intersection. Language Attention Heads (2511.07498) identifies specialized heads but does not triangulate. The submarine sonar framing (passive, multi-array, narrowband-classified, bearing-intersected) is not in surveyed prior art as a single provenance mechanism.",
+  "content_words": ["passive sonar", "hydrophone array bearing", "time-difference-of-arrival", "LOFAR narrowband classification", "cross-layer attention triangulation", "head-amplitude bearing profile", "passive provenance attribution", "attention-eigenvalue role classify"],
+  "content_words_composition": {
+    "llm_side": ["cross-layer attention triangulation", "head-amplitude bearing profile", "passive provenance attribution", "attention-eigenvalue role classify"],
+    "source_side": ["passive sonar", "hydrophone array bearing", "time-difference-of-arrival", "LOFAR narrowband classification"],
+    "generic": []
+  }
+}

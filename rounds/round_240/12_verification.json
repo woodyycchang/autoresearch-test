@@ -1,0 +1,95 @@
+{
+  "round": "240",
+  "verifier": "fresh-cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_llm_application": "Dual-channel low-frequency rumble broadcast for fleet drift coordination + ear-constriction channel prioritization",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Elephant_communication",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["elephant infrasound"],
+      "justification": "Pure source-domain biology page on elephant communication. No LLM/fleet/drift content. Only matches the biological side-channel.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://www.birds.cornell.edu/ccb/elephant-sound/",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.09,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["elephant infrasound"],
+      "justification": "Cornell bioacoustic source-domain only. No connection to LLM fleet coordination.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://royalsocietypublishing.org/rsif/article/18/180/20210264",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["seismic ground wave"],
+      "justification": "Seismic localization of elephant rumbles - pure biology, source-domain only.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2601.04170",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Agent Drift in MAS quantifies drift modes but does not propose dual-channel broadcast, periodic rumble vectors, nor channel prioritization. No content-word matches.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2602.16935v1",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.32,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Turn-level adversarial intent drift detection within a session - not a fleet-replica broadcast mechanism. Different scope and mechanism.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2509.14294v1",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "ML monitoring literature review covers periodic sampling and probe sets but is a survey, not the specific dual-channel low-frequency rumble proposal with channel prioritization (ear-constriction analog). Functional similarity below 0.7 threshold; lacks the dual-channel switching mechanism and the long-period state-vector broadcast for soft adaptation.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2605.03310v1",
+      "functional_equivalence": 0.50,
+      "semantic_cosine_estimate": 0.46,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "Coordination architectural layer for LLM-MAS via info-controlled mechanisms / prediction markets - task-level fast coordination, not low-frequency periodic side-channel broadcast.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2509.02540",
+      "functional_equivalence": 0.40,
+      "semantic_cosine_estimate": 0.38,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "SAGS networks use a single LLM backbone to adapt across multi-channel networks; mentions channels but does not propose periodic state-vector rumble emission across replica fleet for drift coordination.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 0,
+    "verdict": "PASS",
+    "delta_from_06_7": "Disagrees with 06_7 on rank 6: 06_7 marked func=0.72 (hit); fresh verifier judges func=0.58 (no hit) because the review paper enumerates periodic-sampling/probe-set tools generally and lacks the specific dual-channel low-frequency state-broadcast + channel-prioritization design.",
+    "notes": "All eight results fail all three legs of the OR rule under fresh re-judgment."
+  }
+}

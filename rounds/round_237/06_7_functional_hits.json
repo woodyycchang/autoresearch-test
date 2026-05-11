@@ -1,0 +1,23 @@
+{
+  "round": "237",
+  "candidate_llm_application": "Espalier-trellis adapter: human-authored offline sparse trellis prior with out-of-trellis gradient zero + sequential cumulative fine-tune + compositional trellis union",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r237-espalier-trellis-adapter",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://www.rhs.org.uk/fruit/apples/training-espalier", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://garden.org/learn/articles/view/4067/How-to-Espalier-an-Apple-Tree/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://orchardpeople.com/espalier-pruning/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2405.18897v2", "judge_score": 0.82, "judge_justification": "MLAE explicitly uses FIXED MASK strategy for LoRA experts — gradients constrained to mask = out-of-mask gradient zero. This is operationally the espalier discipline. Composition across experts also covered.", "matched_effect_cluster": "fixed-mask LoRA experts", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2502.00258", "judge_score": 0.74, "judge_justification": "ProxSparse: once mask is fixed after K steps, weight-space remains constant (out-of-mask zero) — functionally equivalent to espalier trellis once authored.", "matched_effect_cluster": "fixed-mask post-K-step training", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/html/2507.07140", "judge_score": 0.72, "judge_justification": "Sparse adapter merging across PEFT experts captures the compositional-trellis-union leg of the candidate.", "matched_effect_cluster": "sparse adapter expert merging", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2501.16372v1", "judge_score": 0.55, "judge_justification": "NAS designs adapter structure but is a search-based prior, not human-authored offline.", "matched_effect_cluster": "NAS adapter compression", "functional_hit": false},
+    {"rank": 8, "url": "https://www.arxiv.org/pdf/2511.07482", "judge_score": 0.55, "judge_justification": "Alignment-Constrained Dynamic Pruning; safety constraints but not a structural authored-prior trellis.", "matched_effect_cluster": "alignment-constrained pruning", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["fixed-mask LoRA experts", "fixed-mask post-K-step training", "sparse adapter expert merging"]
+  }
+}
