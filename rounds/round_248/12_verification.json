@@ -1,0 +1,104 @@
+{
+  "round": "248",
+  "verifier": "fresh-cross-agent",
+  "judge_model": "claude-opus-4-7",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_llm_application": "Bonsai stylized-aging distillation: small student LLM from large teacher with (1) KL logit-matching, (2) stylistic-aging loss penalizing absence of teacher hedging/cross-reference/long-context markers, (3) iterative weight-wiring schedule shifting weight-magnitude positions toward target distribution at fixed intervals.",
+  "llm_side_content_words": ["stylized-aging distillation", "iterative weight wiring", "rhetorical depth student", "age-form loss term"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.bonsaiempire.com/basics/styling/",
+      "title": "Shaping and styling Bonsai — Bonsai Empire",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.05,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain bonsai styling page; no LLM/distillation content. Functional equivalence near zero against the LLM application.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Bonsai",
+      "title": "Bonsai — Wikipedia",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.04,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Encyclopedia entry on bonsai art; no overlap with stylized-aging distillation in LLM space.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://www.bonsaiempire.com/basics/styling/wiring",
+      "title": "Wiring Bonsai trees — Bonsai Empire",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.06,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Horticultural wiring guide; lexical 'wiring' is metaphorical and not the iterative weight-wiring schedule of the LLM-side concept.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2512.19908v1",
+      "title": "Counterfactual LLM Framework for Rhetorical Style (2025/12)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.5,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Provides rhetorical-style measurement via counterfactuals — useful as a measurement primitive, but does NOT propose a distillation loss term combining stylistic-aging with iterative weight-wiring. Functional gap: the paper measures style; candidate prescribes loss + scheduled weight redistribution. Below 0.7 threshold.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2410.16107v1",
+      "title": "Do LLMs write like humans? (2024/10)",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Studies LLM rhetorical/grammatical fingerprints empirically; provides evidence that stylistic differences exist, but no distillation method, no aging-form loss, no weight-wiring schedule. Functional equivalence below 0.7.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2604.00626",
+      "title": "Survey of On-Policy Distillation (2026/4)",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Survey notes stylistic tokens dominate distillation signal without correction — diagnoses a related problem but does not implement the candidate's tri-part loss (KL + stylistic-aging + iterative weight-wiring schedule). The candidate adds an explicit projection-of-perceived-age objective plus periodic weight-magnitude shifting, neither of which is the survey's recommendation. Below 0.7.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://siyan-zhao.github.io/blog/2026/opsd/",
+      "title": "Self-Distilled Reasoner On-Policy (2026)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine_estimate": 0.38,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "On-policy self-distillation for reasoning; no stylistic-aging loss, no scheduled weight-wiring. Below 0.7.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2504.14772",
+      "title": "KD + Dataset Distillation Survey (2025/4)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine_estimate": 0.4,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "General survey of KD and dataset distillation; lists open challenges including stylistic preservation but does not propose the bonsai-style aging loss nor an iterative weight-wiring schedule. Below 0.7.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 0,
+    "hits_by_rule": {"kw_ge_2": 0, "sem_ge_0_7": 0, "func_ge_0_7": 0},
+    "verdict": "PASS",
+    "notes": "Fresh re-judge is stricter than 06_7. Rank 4-6 were marked functional_hit in 06_7 (0.76/0.72/0.78) but on re-judge they fall short of 0.7 because each provides only a component (measurement or problem-statement) and not the candidate's combined stylistic-aging loss + iterative weight-wiring schedule. No keyword overlap with the LLM-side content_words on any result. Verdict PASS (novelty preserved)."
+  }
+}

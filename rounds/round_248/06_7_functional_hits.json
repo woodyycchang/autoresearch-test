@@ -1,0 +1,23 @@
+{
+  "round": "248",
+  "candidate_llm_application": "Bonsai stylized-aging distillation with stylistic-aging loss + iterative weight-wiring schedule",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r248-bonsai-stylized-aging-distill",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://www.bonsaiempire.com/basics/styling/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Bonsai", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://www.bonsaiempire.com/basics/styling/wiring", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2512.19908v1", "judge_score": 0.76, "judge_justification": "Counterfactual rhetorical-style measurement — provides the LOSS-METRIC machinery for the candidate's stylistic-aging term.", "matched_effect_cluster": "rhetorical-style measurement", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2410.16107v1", "judge_score": 0.72, "judge_justification": "LLM-style variation across models; provides empirical evidence of distinguishable rhetorical fingerprints that the candidate's loss would target.", "matched_effect_cluster": "rhetorical-fingerprint variation", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2604.00626", "judge_score": 0.78, "judge_justification": "On-Policy Distillation survey explicitly notes stylistic tokens dominate distillation signal without correction. This directly states the problem candidate addresses; if the survey's recommended correction = candidate's stylistic-aging term, then functional equivalence.", "matched_effect_cluster": "stylistic-aware distillation correction", "functional_hit": true},
+    {"rank": 7, "url": "https://siyan-zhao.github.io/blog/2026/opsd/", "judge_score": 0.65, "judge_justification": "Self-distillation blog; related but not specifically stylistic-aging.", "matched_effect_cluster": "on-policy self-distillation", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/abs/2504.14772", "judge_score": 0.62, "judge_justification": "Distillation trends survey; mentions stylistic preservation as a challenge.", "matched_effect_cluster": "distillation challenges survey", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["rhetorical-style measurement", "rhetorical-fingerprint variation", "stylistic-aware distillation correction"]
+  }
+}

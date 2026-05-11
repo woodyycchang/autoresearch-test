@@ -1,0 +1,140 @@
+{
+  "round": "249",
+  "verifier": "fresh-cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "candidate_llm_application": "Eddy-hopping agent execution discipline: periodic agent-initiated pauses + hypothetical-execution scout + formal back-out + ferry-angle decision-policy",
+  "frozen_or_rule": "hit iff (keyword_overlap_count >= 2) OR (semantic_cosine_estimate >= 0.7) OR (functional_equivalence >= 0.7)",
+  "content_words_for_keyword_check": [
+    "whitewater eddy-hopping",
+    "ferry-angle navigation",
+    "safe-checkpoint refuge",
+    "hydraulic-feature scout",
+    "agent eddy-pause discipline",
+    "hypothetical-scout K-step",
+    "formal back-out zero-cost",
+    "ferry-angle decision policy"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://paddling.com/learn/the-basics-on-how-to-read-whitewater",
+      "title": "Basics of Reading Whitewater — Paddling.com",
+      "functional_equivalence": 0.04,
+      "functional_justification": "Pure source-domain whitewater reading article. No LLM/agent execution mechanism. Not functionally equivalent to LLM agent eddy-hopping discipline.",
+      "semantic_cosine_estimate": 0.20,
+      "semantic_justification": "Vocabulary overlap on eddy/ferry/scout but target application is human paddler skill, not agent execution. Low cosine.",
+      "keyword_overlap_count": 2,
+      "keyword_overlap_words": ["whitewater eddy-hopping", "ferry-angle navigation"],
+      "hit": true,
+      "hit_reason": "keyword_overlap_count >= 2 (source-domain match)"
+    },
+    {
+      "rank": 2,
+      "url": "https://paddlingmag.com/skills/whitewater-kayak-skills/",
+      "title": "9 Most Important Whitewater Kayak Skills",
+      "functional_equivalence": 0.05,
+      "functional_justification": "Source-domain whitewater kayak skills list. No agent mechanism.",
+      "semantic_cosine_estimate": 0.18,
+      "semantic_justification": "Source-domain vocabulary; not aligned to agent execution semantics.",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["whitewater eddy-hopping"],
+      "hit": false,
+      "hit_reason": "all three signals below threshold"
+    },
+    {
+      "rank": 3,
+      "url": "https://kayak-soca.com/white-water-kayak-basics/",
+      "title": "How to Whitewater Kayaking — Kayak Soča",
+      "functional_equivalence": 0.04,
+      "functional_justification": "Beginner kayaking basics. No agent mechanism.",
+      "semantic_cosine_estimate": 0.16,
+      "semantic_justification": "Source-domain only; minimal alignment with LLM agent execution discipline.",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["whitewater eddy-hopping"],
+      "hit": false,
+      "hit_reason": "all three signals below threshold"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2601.08955v2",
+      "title": "Imagine-then-Plan: Adaptive Lookahead World Models (2026/1 v2)",
+      "functional_equivalence": 0.82,
+      "functional_justification": "World-model mental sandbox + adaptive lookahead horizon is operationally near-identical to eddy-hop hypothetical-execution scouting with adaptive K-step lookahead. Periodic 'imagine' phase = eddy pause; lookahead = scout; adaptive horizon = variable K. Strong functional match.",
+      "semantic_cosine_estimate": 0.78,
+      "semantic_justification": "Semantic core (imagine/sandbox/lookahead horizon/adaptive) maps tightly to (hypothetical-scout/K-step/eddy-pause). High cosine.",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["hypothetical-scout K-step"],
+      "hit": true,
+      "hit_reason": "functional_equivalence >= 0.7 AND semantic_cosine_estimate >= 0.7"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2509.08646",
+      "title": "Architecting Resilient LLM Agents: Plan-then-Execute (2025/9)",
+      "functional_equivalence": 0.78,
+      "functional_justification": "Plan-then-Execute pattern with Docker sandbox + re-plan + HITL maps to eddy-pause discipline: pause-plan-commit. State snapshots for re-planning = eddy snapshots; sandbox = scout environment; re-plan = back-out. Strong functional overlap.",
+      "semantic_cosine_estimate": 0.74,
+      "semantic_justification": "Plan-then-execute + sandbox + re-plan semantically mirror eddy-pause + hypothetical-scout + back-out. High cosine.",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "hit": true,
+      "hit_reason": "functional_equivalence >= 0.7 AND semantic_cosine_estimate >= 0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.11378v1",
+      "title": "Agent Loops to Structured Graphs: Scheduler Framework (2026/4)",
+      "functional_equivalence": 0.74,
+      "functional_justification": "Separates plan/exec/recover layers; recovery layer = eddy back-out option. Structured scheduler with explicit recovery is functionally close to ferry-angle decision-policy + back-out discipline.",
+      "semantic_cosine_estimate": 0.72,
+      "semantic_justification": "Plan/exec/recover layers semantically align with pause/scout/back-out mechanism. Above threshold.",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "hit": true,
+      "hit_reason": "functional_equivalence >= 0.7 AND semantic_cosine_estimate >= 0.7"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2505.17735",
+      "title": "SafeAgent: Automated Risk Simulator (2025/5)",
+      "functional_equivalence": 0.70,
+      "functional_justification": "Automated risk simulator before action commit = hypothetical-execution scouting at action level. Direct mechanism match to eddy-pause hypothetical-scout step. At threshold.",
+      "semantic_cosine_estimate": 0.70,
+      "semantic_justification": "Risk-simulation + automated pre-action evaluation maps to hypothetical-scout + ferry-angle decision-policy. At threshold.",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "hit": true,
+      "hit_reason": "functional_equivalence >= 0.7 AND semantic_cosine_estimate >= 0.7"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2507.06134v2",
+      "title": "OpenAgentSafety Framework (2026/2 v2)",
+      "functional_equivalence": 0.65,
+      "functional_justification": "Containerized sandbox eval framework, but lacks periodic agent-initiated pauses + formal back-out + ferry-angle decision-policy as a combined discipline. Below threshold.",
+      "semantic_cosine_estimate": 0.66,
+      "semantic_justification": "Sandbox/safety eval vocabulary overlaps partially but missing periodicity/back-out specifics. Below threshold.",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "hit": false,
+      "hit_reason": "all three signals below threshold"
+    }
+  ],
+  "totals": {
+    "total_hits": 5,
+    "hits_by_keyword_rule": 1,
+    "hits_by_semantic_rule": 4,
+    "hits_by_functional_rule": 4,
+    "distinct_hit_urls": [
+      "https://paddling.com/learn/the-basics-on-how-to-read-whitewater",
+      "https://arxiv.org/html/2601.08955v2",
+      "https://arxiv.org/abs/2509.08646",
+      "https://arxiv.org/html/2604.11378v1",
+      "https://arxiv.org/abs/2505.17735"
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "total_hits = 5 >= 1. Four LLM-side papers (Imagine-then-Plan world-model lookahead, Plan-then-Execute sandbox + re-plan, plan/exec/recover layered scheduler, SafeAgent automated risk simulator) each independently satisfy semantic and functional thresholds, jointly covering all four legs of the eddy-hopping discipline (periodic pause, hypothetical scout, back-out, ferry-angle decision-policy). One source-domain article also keyword-forced. Candidate is not novel.",
+  "agreement_with_prior_07_hit_miss": true,
+  "notes": "Independent re-judging produced the same per-result hit determinations and the same FAIL verdict as 07_hit_miss.json."
+}

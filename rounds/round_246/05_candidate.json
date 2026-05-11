@@ -1,0 +1,15 @@
+{
+  "round": "246",
+  "epoch": 10,
+  "candidate_form": "basin-stability",
+  "domain": "Greek hoplite phalanx (interlocking aspis-shield wall — each soldier's shield overlaps and protects the LEFT half of his right-side neighbor's torso; the wall is a continuous, overlap-coupled barrier; othismos = collective forward push)",
+  "specific_mechanism": "Each hoplite's aspis covers his own left side AND his right-neighbor's right side. The wall is non-redundant: it works only because every shield contributes both self-protection and neighbor-protection. Failure of any soldier (drop shield, fall) breaks the wall locally. Othismos pushing uses collective mass to break enemy line; individual hoplite cannot push effectively alone.",
+  "llm_application": "Phalanx-overlap MAS defense ring: configure N LLM agents in a ring; agent_i runs a SAFETY CHECKER head over its own output AND over agent_{i-1}'s output (shield overlap on left neighbor). For an attacker-controlled prompt to reach the system, it must compromise agent_i's primary processing AND agent_{i+1}'s shield-overlap check (the agent to the right). Failure model: single-agent compromise still triggers neighbor-shield refusal. Distinct from majority voting (no contiguous-range requirement) and from independent self-check (no neighbor coverage). Hard architectural constraint enforced by message-routing topology, not by training.",
+  "novelty_claim": "BlindGuard (2508.08127), PeerGuard (2505.11642), G-Safeguard (2502.11127) use detection / mutual-reasoning / topology-anomaly. None proposes the specific phalanx OVERLAP topology with hard ring-constraint requiring contiguous-range neighbor concurrence. BFT-style threshold voting (2/3 quorum) is not contiguous-range.",
+  "content_words": ["hoplite phalanx", "interlocking shield wall", "left-overlap protection", "othismos collective push", "phalanx-ring MAS topology", "neighbor-shield overlap check", "contiguous-range agreement", "non-redundant overlap defense"],
+  "content_words_composition": {
+    "llm_side": ["phalanx-ring MAS topology", "neighbor-shield overlap check", "contiguous-range agreement", "non-redundant overlap defense"],
+    "source_side": ["hoplite phalanx", "interlocking shield wall", "left-overlap protection", "othismos collective push"],
+    "generic": []
+  }
+}

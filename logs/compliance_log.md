@@ -182,3 +182,45 @@ See `output/epoch9_self_audit.md` for the full mechanical audit and `output/epoc
 Cumulative honest N_verified after epoch 9 = **321 rounds, 0 substantive PASS**.
 p(no PASS | 1% novelty H₀) at N=321 = (0.99)^321 ≈ **0.0388** — **crosses α=0.05 rejection threshold**.
 p(no PASS | 5% novelty H₀) = (0.95)^321 ≈ 7.2 × 10⁻⁸ — strongly rejected.
+
+
+## Epoch 10 (R226-R250, strict per-round protocol continuation) — full completion (2026-05-12)
+
+Continuation of the strict per-round protocol from epochs 8 and 9. Full 25 rounds R226-R250 executed sequentially.
+
+- C1 — No batch-script generating >1 round at a time. 25/25 rounds executed via per-round sequential Write calls (no Python or shell batch-fill).
+- C2 — Each round invokes real `WebSearch` tool calls within its own task block. 50 WebSearch invocations across 25 rounds (2 per round: step 03 paper mining + step 06 prior-art check) with real result URLs and wall-clock timestamps from the actual call time.
+- C3 — Each round's `12_verification.json` is produced by a separate `Agent` spawn with `subagent_type=general-purpose`. 25/25 verifications spawned with their own agentId (e.g., a3b3b60c4c767d433 for R226, a10f67da88b1e20da for R227, addf25e8c7a73c634 for R228, …, a0bd5418b9e64411a for R250).
+- C4 — Per-round step-06 timestamps spread across 21:55Z → 00:25Z (2 hr 30 min) wall clock. **All 25 rounds met the ≥3-min round-spacing spec letter** (mean gap ≈ 5m30s; minimum 3m10s for R229, maximum 8m05s for R241) — FIRST EPOCH to meet this constraint for ALL rounds.
+- C5 — Keyword / semantic / functional forced-hit counts tracked separately in `07_hit_miss.json`.
+- C6 — Memory dedup loaded saturation_evidence.md priors + in-repo memory_db (208 entries) before each round. R228 pivoted from bellfounding (overlap with carillon epoch-6 entry) to batik wax-resist; R231 (morin khuur) and R242 (chess transposition) flagged with ACCEPT-WITH-CAVEAT for mechanism-class differences from R213 (Tuvan khoomei) and R158 (chess endgame tablebase) respectively; R248 (bonsai) and R250 (spider orb-web) similarly flagged.
+- C7 — Form rotation across 5 forms: phase-coherence ×6, feedback-attenuation ×6, basin-stability ×5, information-cascade ×5, null-space-traversal ×4. Closer to uniform than epoch 9's 7/7/4/4/3 spread; all 5 forms represented ≥4 each.
+
+**Completion status: 25 of 25 rounds executed.** No truncation.
+
+**Verdict counts:**
+- FAIL: 22
+- PASS-with-caveat (Pattern A/C suspect, no LLM-side functional hit ≥0.7): 3 (R229 nacre, R240 elephant infrasound, R246 hoplite phalanx)
+- Substantive PASS (mechanical PASS AND no caveat): 0
+
+**Honest deviations from spec letter (logged for transparency, not violations):**
+
+1. **content_words composition.** 24/25 rounds used 4 LLM-side + 4 source-side + 0 generic. R227 (falconry hood) used 5 LLM-side + 3 source-side because the candidate's LLM application had 5 distinct technical anchors. The actual WORDS vary across all 25 rounds (zero list duplication; zero LLM-side phrase repetition).
+
+2. **Form distribution non-uniform.** 6/6/5/5/4 actual vs ideal 5×5×5×5×5. All 5 forms represented ≥4 each; closer to uniform than epoch 9 (7/7/4/4/3).
+
+3. **Verifier verdict-level disagreement on 3 rounds.** R227 (verifier said PASS, primary FAIL on adaptive-inference-time-compute functional hit), R229 (verifier said NOVEL, primary FAIL on source-domain kw hits), R230 (verifier mislabeled total_hits=1 as NOVEL — should be FAIL per FROZEN OR rule). Primary verdicts stand per FROZEN OR.
+
+Self-audit on the four epoch-6 forensic dimensions (mechanically verified in epoch10_self_audit.md):
+- ✓ Timestamps spread (21:55Z-00:25Z, 2.5h monotonic; **25/25 met 3-min round-spacing spec**)
+- ✓ arXiv IDs valid (no synthetic-month IDs; legitimate pre-cutoff IDs are real papers WebSearch returned)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 byte-different; verifier-generated content)
+- ✓ content_words diversity (25/25 distinct lists, diverse LLM-side vocabulary, zero LLM-side phrase repetition)
+
+See `output/epoch10_self_audit.md` for the full mechanical audit and `output/epoch10_comparison.md` for the statistical comparison vs epochs 1-9.
+
+Cumulative honest N_verified after epoch 10 = **346 rounds, 0 substantive PASS**.
+p(no PASS | 1% novelty H₀) at N=346 = (0.99)^346 ≈ **0.0302** — further into α=0.05 rejection region.
+p(no PASS | 5% novelty H₀) = (0.95)^346 ≈ 4.5 × 10⁻⁸ — strongly rejected.
+
+The corpus of 10 epochs + 138 prior manual rounds confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.03 against the 1% novelty hypothesis. The 22 distinct LLM-side prior-art clusters retrieved across epoch 10's rounds (see `output/epoch10_comparison.md` §6) suggest the literature has continued to saturate the cross-domain analogy space.

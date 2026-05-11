@@ -1,0 +1,114 @@
+{
+  "round": "247",
+  "verifier": "fresh-cross-agent",
+  "candidate_llm_application": "4-stage forest-succession training with explicit gap-dynamics weight removal and self-shade-tolerance climax selection",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "thresholds": {"kw_min": 2, "sem_min": 0.7, "func_min": 0.7},
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Ecological_succession",
+      "title": "Ecological succession — Wikipedia",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.20,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain ecology reference only. Discusses pioneer-climax succession but contains no LLM training, no weight pruning, no 4-stage neural-net schedule. Source-side terms appear but candidate's LLM-side training-mechanism words are absent; kw counts cross-domain content-word overlap with the LLM application, none here.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4319751/",
+      "title": "Forest Succession Paradigm with Shade Tolerance Index — PMC",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.22,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Pure forest-ecology paper, source domain only. No LLM training/pruning/scheduling. No functional equivalence to LLM training pipeline.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/forest-succession",
+      "title": "Forest Succession — ScienceDirect Topics",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Generic ecological-succession overview. Source-domain reference only; no LLM application or training mechanism.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2507.18212",
+      "title": "Prune&Comp: Layer-Pruned LLMs with Magnitude Compensation (2025/7)",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["weight-gap re-training (partial: prune+compensate iterative loop)"],
+      "rationale": "Prune&Comp does iterative magnitude-based prune-then-compensate at the layer level. This partially resembles the gap-dynamics removal-and-regrow leg of stage 3 but lacks (a) the four explicit succession stages, (b) the shade-tolerance / low-magnitude RECRUITMENT (it removes high-magnitude but does NOT slow-LR retrain low-magnitude into the gap as recruited capabilities), and (c) climax self-shade-tolerance selection. Below the 0.7 functional threshold under a strict reading of the full mechanism. Only one cross-domain LLM-side content-word arguably overlaps (re-training with magnitude-gap concept). No source-side ecology words present. kw<2, sem<0.7, func<0.7.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2505.18232",
+      "title": "Two-Stage Regularization Structured Pruning (2025/5)",
+      "functional_equivalence": 0.42,
+      "semantic_cosine_estimate": 0.40,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Two stages, not four; uses L1 regularization then prune. Does not implement gap-dynamics retraining inside a removed weight region, no shade-tolerance recruitment, no climax self-consistency selection. Two-stage != 4-stage succession schedule. Functional below 0.7. No keyword overlap with candidate's specific content words.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://www.arxiv.org/pdf/2602.07375",
+      "title": "Efficient Post-Training Pruning with Statistical Correction (2026/2)",
+      "functional_equivalence": 0.32,
+      "semantic_cosine_estimate": 0.32,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Single post-training statistical pruning + energy compensation; not a multi-stage succession schedule, no gap-recruitment of shade-tolerant weights, no climax selection. Far below threshold.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2505.14970",
+      "title": "Self-Evolving Curriculum for LLM Reasoning (2025/5)",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.34,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Self-evolving curriculum schedules training difficulty over data, not weight-magnitude succession stages, no pruning/gap dynamics, no climax self-shade-tolerance. Candidate explicitly distinguishes itself from this paper. Sub-threshold on all axes.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2502.11196v1",
+      "title": "Knowledge Circuits Continual Pre-Training (2025/2)",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.34,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Descriptive analysis of knowledge-circuit phase-shifts during continual PT; not a prescriptive 4-stage succession training discipline with weight-gap removal and climax selection. Sub-threshold.",
+      "hit": false
+    }
+  ],
+  "per_axis_hit_flags": [
+    {"rank": 1, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 2, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 3, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 4, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 5, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 6, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 7, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false},
+    {"rank": 8, "kw_hit": false, "sem_hit": false, "func_hit": false, "any_hit": false}
+  ],
+  "total_hits": 0,
+  "disagreement_with_prior_judge": {
+    "prior_functional_hits_count": 2,
+    "verifier_functional_hits_count": 0,
+    "notes": "Prior judge scored rank 4 (Prune&Comp) at 0.74 and rank 5 (Two-Stage Regularization) at 0.72. Fresh re-judgement finds Prune&Comp covers only the prune+compensate leg, missing the 4-stage succession discipline, shade-tolerant low-magnitude recruitment, and climax self-shade-tolerance selection — full-mechanism functional equivalence is below 0.7. Two-Stage Regularization uses two stages (not four), no gap-dynamics weight removal with slow-LR recruitment, no climax self-consistency selection — well below 0.7. Strict reading of FROZEN OR rule against the candidate's distinguishing mechanisms (gap-dynamics + climax self-shade-tolerance) yields zero hits."
+  },
+  "verdict": "PASS"
+}

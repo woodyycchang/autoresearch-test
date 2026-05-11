@@ -1,0 +1,15 @@
+{
+  "round": "249",
+  "epoch": 10,
+  "candidate_form": "basin-stability",
+  "domain": "whitewater rafting eddy-hopping navigation (paddler advances downriver by hopping eddy-to-eddy; each eddy is a calm slack-water refuge where the paddler pauses to scout the next reach; ferry-angle controls lateral crossing; never run an unfamiliar reach without an eddy plan)",
+  "specific_mechanism": "Eddy = slack water behind obstacle where paddler can pause without being swept downstream. Paddler discipline: arrive at eddy → pause → boat-scout the next reach → ferry-angle out to next planned eddy. Ferry angle (boat heading vs current) controls lateral motion. Eddy-hop sequence is a plan that admits formal back-out (paddle back upstream to last eddy if next reach is too risky).",
+  "llm_application": "Eddy-hopping agent execution discipline: agent in multi-step tool-using task pauses at every K-th action in an EDDY — a sandboxed scratchpad where agent (a) snapshots current state (resource handles, conversation context, accumulated reasoning), (b) hypothetically-executes the next K actions, (c) evaluates predicted side-effects against safety constraints, (d) if safe, commits and ferries to next eddy; if not, returns to prior eddy state. Critical features: K is an explicit pause interval; eddy snapshot enables ZERO-COST back-out; ferry-angle = decision-policy for stepping forward with awareness of downstream commits.",
+  "novelty_claim": "Four-Checkpoint Framework (2602.09629) defines fixed safety checkpoints at pipeline stages, not periodic agent-initiated pauses. MAGE Shadow Memory (2605.03228) addresses attention dilution but not eddy-style pauses. AgentSpec (2503.18666) is runtime enforcement spec. The eddy-hopping discipline (agent-initiated periodic pauses with hypothetical-scout + formal back-out + ferry-angle decision-policy) is not retrieved as a single mechanism.",
+  "content_words": ["whitewater eddy-hopping", "ferry-angle navigation", "safe-checkpoint refuge", "hydraulic-feature scout", "agent eddy-pause discipline", "hypothetical-scout K-step", "formal back-out zero-cost", "ferry-angle decision policy"],
+  "content_words_composition": {
+    "llm_side": ["agent eddy-pause discipline", "hypothetical-scout K-step", "formal back-out zero-cost", "ferry-angle decision policy"],
+    "source_side": ["whitewater eddy-hopping", "ferry-angle navigation", "safe-checkpoint refuge", "hydraulic-feature scout"],
+    "generic": []
+  }
+}
