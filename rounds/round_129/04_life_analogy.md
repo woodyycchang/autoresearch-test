@@ -1,0 +1,1 @@
+Chinese-five-element-thermodynamics mechanism → LLM spectral-allocation via the bridge described in 05_candidate.
