@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "created": "2026-05-11",
-  "last_updated": "2026-05-11 (epoch 5 R101-R125 appended)",
-  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v1.2 includes epoch 4 R076-R100 with semantic-hit metrics. v1.3 includes epoch 5 R101-R125 with v5 functional-judge metrics.",
+  "last_updated": "2026-05-11 (epoch 6 R126-R150 appended)",
+  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v1.2 includes epoch 4 R076-R100 with semantic-hit metrics. v1.3 includes epoch 5 R101-R125 with v5 functional-judge metrics. v1.4 includes epoch 6 R126-R150 with new forms (information-cascade, null-space-traversal) and audited epoch 5 PASSes (R119, R124) reclassified as Pattern D functional false positives.",
   "epoch_index": {
     "epoch_1": {
       "rounds": [
@@ -153,21 +153,51 @@
         "125"
       ],
       "program_version": "program_v5.md (LLM-judge functional equivalence)"
+    },
+    "epoch_6": {
+      "rounds": [
+        "126",
+        "127",
+        "128",
+        "129",
+        "130",
+        "131",
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "141",
+        "142",
+        "143",
+        "144",
+        "145",
+        "146",
+        "147",
+        "148",
+        "149",
+        "150"
+      ],
+      "program_version": "program_v5.md (LLM-judge functional equivalence; epoch 6)"
     }
   },
   "aggregates": {
-    "total_rounds": 125,
-    "fail_count": 110,
-    "pass_count": 15,
-    "mean_forced_hit": 2.98,
-    "mean_hit_count": 4.74,
+    "total_rounds": 150,
+    "fail_count": 132,
+    "pass_count": 18,
+    "mean_forced_hit": 2.48,
+    "mean_hit_count": 4.21,
     "domain_fail_counts": {
       "physics": 10,
       "molecular-cell-biology": 7,
       "cognitive-science": 5,
       "math-dynamical": 4,
       "law": 4,
-      "lichenology": 4,
+      "lichenology": 5,
       "indigenous-ethnoscience": 3,
       "engineering-mechanics": 3,
       "chemistry-materials": 3,
@@ -217,16 +247,37 @@
       "pyrotechnics": 1,
       "viticulture": 1,
       "behavioral-ecology-specific": 1,
-      "biogeography": 1
+      "biogeography": 1,
+      "classical-Indian-poetics": 1,
+      "ZQ-noise-decoherence": 1,
+      "indigenous-Australian-fire-management": 1,
+      "gemstone-color-grading": 1,
+      "vexillology": 1,
+      "numismatics": 1,
+      "paleography": 1,
+      "cryptozoology": 1,
+      "heraldry": 1,
+      "campanology": 1,
+      "carillon-music": 1,
+      "silk-road-textile-conservation": 1,
+      "ancient-glass-blowing": 1,
+      "semaphore-codes": 1,
+      "tea-ceremony-ritual": 1,
+      "ancient-Egyptian-mortuary": 1,
+      "apiculture": 1,
+      "Shinto-shrine-architecture": 1,
+      "salmon-run-migration": 1,
+      "ancient-marine-navigation": 1,
+      "lapidary-faceting": 1
     },
     "form_fail_counts": {
       "memory-architecture": 10,
       "feedback-attenuation": 10,
-      "spectral-allocation": 9,
+      "spectral-allocation": 14,
       "phase-coherence": 8,
-      "adversarial-coevolution": 8,
+      "adversarial-coevolution": 14,
       "quantitative-prediction": 6,
-      "topological-defect": 6,
+      "topological-defect": 13,
       "evaluation-diagnostic": 5,
       "context-gating": 5,
       "training-method": 5,
@@ -237,7 +288,9 @@
       "negation-impossibility": 5,
       "reverse-direction": 5,
       "runtime-repair": 5,
-      "basin-stability": 3
+      "basin-stability": 3,
+      "information-cascade": 3,
+      "null-space-traversal": 1
     },
     "blocked_domains_threshold_3_or_more": [
       "physics",
@@ -294,7 +347,8 @@
       "escapement": 2
     },
     "least_used_forms": [],
-    "epoch_5_pattern_d_caught_count": 13
+    "epoch_5_pattern_d_caught_count": 13,
+    "epoch_6_pattern_d_caught_count": 22
   },
   "rule_thresholds": {
     "rule_1_domain_skip_at_fail_count": 3,
@@ -493,7 +547,7 @@
       "epoch": 1,
       "domain": "Ayurveda / tridosha theory (classical Indian medicine)",
       "domain_normalized": "non-western-medicine",
-      "mechanism": "Tridosha theory: three fundamental bio-energetic constituents \u2014 vata (air-ether, governs movement and cognition), pitta (fire-water, governs transformation/digestion/heat), kapha (earth-water, governs",
+      "mechanism": "Tridosha theory: three fundamental bio-energetic constituents — vata (air-ether, governs movement and cognition), pitta (fire-water, governs transformation/digestion/heat), kapha (earth-water, governs",
       "form": "memory-architecture",
       "forced_hit_count": 8,
       "hit_count": 14,
@@ -516,7 +570,7 @@
       "epoch": 1,
       "domain": "physical chemistry / pattern formation (Liesegang rings)",
       "domain_normalized": "chemistry-materials",
-      "mechanism": "Liesegang rings: when two reagents meet in a gel via diffusion, precipitation forms not uniformly but in discrete periodic bands. Mechanism: local supersaturation builds via diffusion \u2192 precipitation ",
+      "mechanism": "Liesegang rings: when two reagents meet in a gel via diffusion, precipitation forms not uniformly but in discrete periodic bands. Mechanism: local supersaturation builds via diffusion → precipitation ",
       "form": "training-method",
       "forced_hit_count": 2,
       "hit_count": 10,
@@ -649,7 +703,7 @@
     {
       "round": "016",
       "epoch": 1,
-      "domain": "Inuit ethnoscience (sea ice taxonomy, e.g. I\u00f1upiaq Qanuq Ilitaavut, Inuktitut siku terminology)",
+      "domain": "Inuit ethnoscience (sea ice taxonomy, e.g. Iñupiaq Qanuq Ilitaavut, Inuktitut siku terminology)",
       "domain_normalized": "indigenous-ethnoscience",
       "mechanism": "Indigenous Arctic sea-ice vocabularies encode 30-100+ discrete categorical labels for ice states (slush, frazil, drift, multi-year, rotten, pressure-ridge, fast-ice, lead-ice, etc.) selected because e",
       "form": "mechanism-import",
@@ -659,7 +713,7 @@
       "tried_keywords": [
         "Inuit ice",
         "siku",
-        "I\u00f1upiaq",
+        "Iñupiaq",
         "Inuktitut",
         "sea ice taxonomy",
         "indigenous ice",
@@ -871,7 +925,7 @@
       "epoch": 2,
       "domain": "ethology + statistical mechanics (joint: termite stigmergy + Brownian-ratchet thermodynamics)",
       "domain_normalized": "physics",
-      "mechanism": "stigmergy (indirect coordination via shared environment state) JOINTLY with information-ratchet (one-way thermodynamic commitment on each shared-state edit) \u2014 neither alone, only their conjunction is the claim",
+      "mechanism": "stigmergy (indirect coordination via shared environment state) JOINTLY with information-ratchet (one-way thermodynamic commitment on each shared-state edit) — neither alone, only their conjunction is the claim",
       "form": "conjunction",
       "forced_hit_count": 6,
       "hit_count": 6,
@@ -915,11 +969,11 @@
       "epoch": 2,
       "domain": "linguistics / statistical physics (Zipf's law, power-law rank distribution, sample-space-collapse)",
       "domain_normalized": "physics",
-      "mechanism": "Zipfian power-law rank-relevance: the k-th retrieved chunk has relevance r_k \u221d k^{-\u03b1} with \u03b1 \u2248 1.07 \u00b1 0.1 across diverse RAG corpora, derived from sample-space-collapse during embedding-space top-k retrieval",
+      "mechanism": "Zipfian power-law rank-relevance: the k-th retrieved chunk has relevance r_k ∝ k^{-α} with α ≈ 1.07 ± 0.1 across diverse RAG corpora, derived from sample-space-collapse during embedding-space top-k retrieval",
       "form": "quantitative-prediction",
       "forced_hit_count": 6,
       "hit_count": 8,
-      "fail_reason": "total_hits=8 >= 1 -> FAIL. Substantively Form C is occupied: the universal Zipf-relevance-rank claim subsumes under Power-law-IR (Manning et al established) plus AlphaZero-Zipf scaling. Specific \u03b1=1.0",
+      "fail_reason": "total_hits=8 >= 1 -> FAIL. Substantively Form C is occupied: the universal Zipf-relevance-rank claim subsumes under Power-law-IR (Manning et al established) plus AlphaZero-Zipf scaling. Specific α=1.0",
       "tried_keywords": [
         "Zipf",
         "power law",
@@ -937,7 +991,7 @@
       "epoch": 2,
       "domain": "LLM mechanistic interpretability (induction head circuit) exported to neuroscience (Drosophila mushroom body)",
       "domain_normalized": "physics",
-      "mechanism": "the LLM induction-head two-head circuit predicts a specific functional motif in animal associative learning: sparse-coincidence-detection in step 1 then plasticity-modulated-readout in step 2, with the LLM's previous-token-attention-head \u2194 KC sparse encoding and the LLM's induction-attention-head \u2194 MBON dopamine-plasticity readout",
+      "mechanism": "the LLM induction-head two-head circuit predicts a specific functional motif in animal associative learning: sparse-coincidence-detection in step 1 then plasticity-modulated-readout in step 2, with the LLM's previous-token-attention-head ↔ KC sparse encoding and the LLM's induction-attention-head ↔ MBON dopamine-plasticity readout",
       "form": "reverse-direction",
       "forced_hit_count": 7,
       "hit_count": 7,
@@ -1067,15 +1121,15 @@
     {
       "round": "035",
       "epoch": 2,
-      "domain": "mathematical logic (L\u00f6b's theorem, provability of consistency)",
+      "domain": "mathematical logic (Löb's theorem, provability of consistency)",
       "domain_normalized": "math-dynamical",
-      "mechanism": "L\u00f6b-theorem-style obstruction to provable self-soundness applied to LLM self-confidence",
+      "mechanism": "Löb-theorem-style obstruction to provable self-soundness applied to LLM self-confidence",
       "form": "negation-impossibility",
       "forced_hit_count": 2,
       "hit_count": 2,
-      "fail_reason": "total_hits=2 >= 1 -> FAIL. The L\u00f6b-bridge specifically is not directly published but the LLM self-consistency-empirical-impossibility frame is (Survey 2407.14507 and 'Not Self-Consistent' 2506.18781 s",
+      "fail_reason": "total_hits=2 >= 1 -> FAIL. The Löb-bridge specifically is not directly published but the LLM self-consistency-empirical-impossibility frame is (Survey 2407.14507 and 'Not Self-Consistent' 2506.18781 s",
       "tried_keywords": [
-        "L\u00f6b's theorem",
+        "Löb's theorem",
         "self-modeling",
         "self-consistency",
         "calibration",
@@ -1091,11 +1145,11 @@
       "epoch": 2,
       "domain": "learning-curve psychology / scaling-law physics (power-law error decay)",
       "domain_normalized": "physics",
-      "mechanism": "hallucination_rate ~= c * N^{-\u03b2} with \u03b2 = 0.4 \u00b1 0.1 in parameter count N",
+      "mechanism": "hallucination_rate ~= c * N^{-β} with β = 0.4 ± 0.1 in parameter count N",
       "form": "quantitative-prediction",
       "forced_hit_count": 5,
       "hit_count": 6,
-      "fail_reason": "total_hits=6 -> FAIL. Hallucination-scaling umbrella well-covered; specific \u03b2=0.4 numeric is a sub-claim.",
+      "fail_reason": "total_hits=6 -> FAIL. Hallucination-scaling umbrella well-covered; specific β=0.4 numeric is a sub-claim.",
       "tried_keywords": [
         "hallucination",
         "power law",
@@ -1179,7 +1233,7 @@
       "epoch": 2,
       "domain": "learning curves / scaling laws (power-law emergence threshold)",
       "domain_normalized": "law",
-      "mechanism": "tool-use accuracy ~ compute^\u03b3 with \u03b3 = 0.18 \u00b1 0.05 across model families, threshold at 10^22 FLOPs",
+      "mechanism": "tool-use accuracy ~ compute^γ with γ = 0.18 ± 0.05 across model families, threshold at 10^22 FLOPs",
       "form": "quantitative-prediction",
       "forced_hit_count": 1,
       "hit_count": 1,
@@ -1293,7 +1347,7 @@
       "form": "reverse-direction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "plasticity loss",
         "critical period",
@@ -1315,7 +1369,7 @@
       "form": "conjunction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "lock-in amplifier",
         "interference",
@@ -1337,7 +1391,7 @@
       "form": "negation-impossibility",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "LLM watermark",
         "paraphrase",
@@ -1403,7 +1457,7 @@
       "form": "conjunction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "mass action",
         "Le Chatelier",
@@ -1531,7 +1585,7 @@
       "epoch": 3,
       "domain": "plant physiology (thigmomorphogenesis / touch-induced growth modification)",
       "domain_normalized": "plant-biology",
-      "mechanism": "Thigmomorphogenesis: repeated mechanical stimulation (wind, touch) elicits a calcium-mediated mechanosensing cascade, ZFP/jasmonate signaling, and downstream growth-plan revision; the plant shortens stems, thickens diameters, and reinforces cell walls; the response scales with stimulus frequency \u00d7 intensity",
+      "mechanism": "Thigmomorphogenesis: repeated mechanical stimulation (wind, touch) elicits a calcium-mediated mechanosensing cascade, ZFP/jasmonate signaling, and downstream growth-plan revision; the plant shortens stems, thickens diameters, and reinforces cell walls; the response scales with stimulus frequency × intensity",
       "form": "training-method",
       "forced_hit_count": 6,
       "hit_count": 6,
@@ -1601,7 +1655,7 @@
       "form": "training-method",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be novel",
+      "fail_reason": "zero hits — candidate may be novel",
       "tried_keywords": [
         "caldera unrest",
         "eruption precursor",
@@ -1685,7 +1739,7 @@
       "epoch": 3,
       "domain": "earth systems / fluvial geomorphology (river meander cutoff and oxbow lake formation)",
       "domain_normalized": "earth-systems",
-      "mechanism": "A meandering river progressively widens its bends via differential erosion (outer bank) and deposition (inner bank); when bend curvature exceeds a critical threshold, the river breaches the narrow neck of land between adjacent bends and a 'cutoff' forms \u2014 the new straight channel takes over while the abandoned bend becomes an oxbow lake; cutoffs nonlocally accelerate upstream and downstream channel migration",
+      "mechanism": "A meandering river progressively widens its bends via differential erosion (outer bank) and deposition (inner bank); when bend curvature exceeds a critical threshold, the river breaches the narrow neck of land between adjacent bends and a 'cutoff' forms — the new straight channel takes over while the abandoned bend becomes an oxbow lake; cutoffs nonlocally accelerate upstream and downstream channel migration",
       "form": "context-gating",
       "forced_hit_count": 5,
       "hit_count": 5,
@@ -1705,15 +1759,15 @@
     {
       "round": "064",
       "epoch": 3,
-      "domain": "cartography (T\u00f6pfer's Radical Law for cartographic generalization)",
+      "domain": "cartography (Töpfer's Radical Law for cartographic generalization)",
       "domain_normalized": "cartography",
-      "mechanism": "T\u00f6pfer's Radical Law (1961): when reducing map scale from S1 to S2, the number of features that should be retained is N2 = N1 \u00d7 sqrt(S1/S2). The rule gives a principled count for selection at smaller scales; features that survive selection are those whose importance score exceeds a scale-dependent threshold. The law is empirical-cartographic, not information-theoretic, and incorporates feature category-specific exponents",
+      "mechanism": "Töpfer's Radical Law (1961): when reducing map scale from S1 to S2, the number of features that should be retained is N2 = N1 × sqrt(S1/S2). The rule gives a principled count for selection at smaller scales; features that survive selection are those whose importance score exceeds a scale-dependent threshold. The law is empirical-cartographic, not information-theoretic, and incorporates feature category-specific exponents",
       "form": "training-method",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be novel",
+      "fail_reason": "zero hits — candidate may be novel",
       "tried_keywords": [
-        "T\u00f6pfer radical law",
+        "Töpfer radical law",
         "cartographic generalization",
         "map generalization",
         "feature selection",
@@ -1729,7 +1783,7 @@
       "epoch": 3,
       "domain": "speleology (epigenic vs hypogenic speleogenesis; cave conduit network development)",
       "domain_normalized": "speleology",
-      "mechanism": "Speleogenesis produces conduit networks via either epigenic (descending acidic surface water) or hypogenic (rising deep-source) routes; the resulting cave geometry differs sharply (epigenic: branchwork following recharge patterns; hypogenic: maze-like with rising chimneys). Conduit growth is positive-feedback \u2014 flow enlarges conduit which enlarges flow \u2014 until thresholds destabilize the network",
+      "mechanism": "Speleogenesis produces conduit networks via either epigenic (descending acidic surface water) or hypogenic (rising deep-source) routes; the resulting cave geometry differs sharply (epigenic: branchwork following recharge patterns; hypogenic: maze-like with rising chimneys). Conduit growth is positive-feedback — flow enlarges conduit which enlarges flow — until thresholds destabilize the network",
       "form": "mechanism-import",
       "forced_hit_count": 7,
       "hit_count": 7,
@@ -1799,7 +1853,7 @@
       "form": "multi-agent-comm",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be novel",
+      "fail_reason": "zero hits — candidate may be novel",
       "tried_keywords": [
         "soil microbiome",
         "mycorrhizal network",
@@ -1817,11 +1871,11 @@
       "epoch": 3,
       "domain": "volcanology (magma chamber pressure equalization via dike intrusion)",
       "domain_normalized": "volcanology",
-      "mechanism": "When magma chamber pressure exceeds the surrounding host-rock fracture strength, magma intrudes as a dike \u2014 a narrow planar conduit \u2014 that propagates laterally or vertically until pressure equalizes; dike orientation is controlled by regional stress field; the propagation is a self-arresting process (as the dike grows, chamber pressure drops, propagation slows)",
+      "mechanism": "When magma chamber pressure exceeds the surrounding host-rock fracture strength, magma intrudes as a dike — a narrow planar conduit — that propagates laterally or vertically until pressure equalizes; dike orientation is controlled by regional stress field; the propagation is a self-arresting process (as the dike grows, chamber pressure drops, propagation slows)",
       "form": "mechanism-import",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be novel",
+      "fail_reason": "zero hits — candidate may be novel",
       "tried_keywords": [
         "magma chamber",
         "dike intrusion",
@@ -1839,7 +1893,7 @@
       "epoch": 3,
       "domain": "chronobiology (zeitgeber entrainment and oscillator phase locking)",
       "domain_normalized": "chronobiology",
-      "mechanism": "An internal circadian oscillator entrains (phase-locks) to external zeitgebers (light, temperature, feeding); the entrainment depends on zeitgeber strength \u00d7 phase response curve; multiple zeitgebers can act simultaneously and reinforce or conflict; phase-locking is bounded \u2014 outside an entrainment range the internal oscillator drifts free",
+      "mechanism": "An internal circadian oscillator entrains (phase-locks) to external zeitgebers (light, temperature, feeding); the entrainment depends on zeitgeber strength × phase response curve; multiple zeitgebers can act simultaneously and reinforce or conflict; phase-locking is bounded — outside an entrainment range the internal oscillator drifts free",
       "form": "runtime-repair",
       "forced_hit_count": 5,
       "hit_count": 5,
@@ -1861,7 +1915,7 @@
       "epoch": 3,
       "domain": "glaciology / glacial hydrology (englacial drainage via moulin-and-subglacial-conduit network)",
       "domain_normalized": "glaciology",
-      "mechanism": "Surface meltwater forms supraglacial lakes that fracture vertically into moulins (10-100 m apertures); moulin water descends through englacial conduits to the subglacial bed where it forms R\u00f6thlisberger channels that route water to the glacier terminus on hours-to-days timescales; the network is bimodal (channelized vs distributed) and reorganizes seasonally as ice flow closes channels and pressure reopens them",
+      "mechanism": "Surface meltwater forms supraglacial lakes that fracture vertically into moulins (10-100 m apertures); moulin water descends through englacial conduits to the subglacial bed where it forms Röthlisberger channels that route water to the glacier terminus on hours-to-days timescales; the network is bimodal (channelized vs distributed) and reorganizes seasonally as ice flow closes channels and pressure reopens them",
       "form": "training-method",
       "forced_hit_count": 3,
       "hit_count": 3,
@@ -1871,7 +1925,7 @@
         "englacial drainage",
         "subglacial conduit",
         "supraglacial lake",
-        "R\u00f6thlisberger channel",
+        "Röthlisberger channel",
         "ice sheet hydrology",
         "glacier bed",
         "ablation"
@@ -1949,11 +2003,11 @@
       "epoch": 3,
       "domain": "numismatics (die-axis variation across coin strikes)",
       "domain_normalized": "numismatics",
-      "mechanism": "Coins are struck between two engraved dies (obverse and reverse); the die-axis (relative rotation between obverse and reverse) varies by 0-360 degrees. Ancient coins show 10% variation around standard orientation; modern coins are constrained to standard (180\u00b0) or medallic (0\u00b0). The die-axis distribution across many strikes from the same die-pair reveals striking-technique variance",
+      "mechanism": "Coins are struck between two engraved dies (obverse and reverse); the die-axis (relative rotation between obverse and reverse) varies by 0-360 degrees. Ancient coins show 10% variation around standard orientation; modern coins are constrained to standard (180°) or medallic (0°). The die-axis distribution across many strikes from the same die-pair reveals striking-technique variance",
       "form": "feedback-attenuation",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be novel",
+      "fail_reason": "zero hits — candidate may be novel",
       "tried_keywords": [
         "die axis",
         "die alignment",
@@ -1998,7 +2052,7 @@
     {
       "round": "077",
       "epoch": 4,
-      "domain": "myrmecology \u2014 Cataglyphis path integration",
+      "domain": "myrmecology — Cataglyphis path integration",
       "domain_normalized": "apiology",
       "mechanism": "Cataglyphis desert ants integrate proprioceptive step counts + sky polarization to maintain home-vector for kilometer-scale return journeys without landmarks; vector decays linearly with foraging time",
       "form": "phase-coherence",
@@ -2058,12 +2112,12 @@
       "epoch": 4,
       "domain": "phyllotaxis (Fibonacci leaf arrangement)",
       "domain_normalized": "botany",
-      "mechanism": "Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5\u00b0) divergence to minimize self-shading; the spiral emerges from auxin-driven reaction-diffusion dynamics in the meristem",
+      "mechanism": "Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5°) divergence to minimize self-shading; the spiral emerges from auxin-driven reaction-diffusion dynamics in the meristem",
       "form": "phase-coherence",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "phyllotaxis",
         "Fibonacci",
@@ -2087,7 +2141,7 @@
       "epoch": 4,
       "domain": "termite mound thermoregulation",
       "domain_normalized": "thermoacoustics",
-      "mechanism": "Macrotermes mounds maintain \u00b11\u00b0C internal temperature via passive ventilation networks driven by stack-effect convection between buried fungus gardens and surface chimneys",
+      "mechanism": "Macrotermes mounds maintain ±1°C internal temperature via passive ventilation networks driven by stack-effect convection between buried fungus gardens and surface chimneys",
       "form": "phase-coherence",
       "forced_hit_count": 5,
       "forced_semantic_hit_count": 1,
@@ -2237,7 +2291,7 @@
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "tribology",
         "boundary lubrication",
@@ -2377,7 +2431,7 @@
       "epoch": 4,
       "domain": "regenerative axolotl limb blastema",
       "domain_normalized": "developmental-biology",
-      "mechanism": "Axolotls regenerate amputated limbs via blastema \u2014 a mass of dedifferentiated cells that re-establishes positional information using residual gradient cues",
+      "mechanism": "Axolotls regenerate amputated limbs via blastema — a mass of dedifferentiated cells that re-establishes positional information using residual gradient cues",
       "form": "feedback-attenuation",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 4,
@@ -2411,7 +2465,7 @@
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "tardigrade",
         "cryptobiosis",
@@ -2435,12 +2489,12 @@
       "epoch": 4,
       "domain": "Antarctic icefish antifreeze glycoproteins",
       "domain_normalized": "marine-biology",
-      "mechanism": "Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-colligative thermal hysteresis, allowing survival at -2\u00b0C ocean temperatures",
+      "mechanism": "Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-colligative thermal hysteresis, allowing survival at -2°C ocean temperatures",
       "form": "phase-coherence",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "antifreeze glycoprotein",
         "AFGP",
@@ -2580,7 +2634,7 @@
       "epoch": 4,
       "domain": "elasmobranch electroreception (ampullae of Lorenzini)",
       "domain_normalized": "marine-biology",
-      "mechanism": "Sharks detect prey-generated electric fields via ampullae of Lorenzini \u2014 gel-filled canals that act as voltmeters at nanovolt sensitivity",
+      "mechanism": "Sharks detect prey-generated electric fields via ampullae of Lorenzini — gel-filled canals that act as voltmeters at nanovolt sensitivity",
       "form": "basin-stability",
       "forced_hit_count": 5,
       "forced_semantic_hit_count": 1,
@@ -2638,7 +2692,7 @@
       "epoch": 4,
       "domain": "bone remodeling Wolff's law",
       "domain_normalized": "orthopedics",
-      "mechanism": "Bone remodels itself in response to mechanical stress (Wolff's law) \u2014 osteoclasts resorb under-loaded bone, osteoblasts deposit new bone along stress trajectories",
+      "mechanism": "Bone remodels itself in response to mechanical stress (Wolff's law) — osteoclasts resorb under-loaded bone, osteoblasts deposit new bone along stress trajectories",
       "form": "basin-stability",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 3,
@@ -2726,7 +2780,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "sparse-attention block routing \u2014 variant 1",
+          "sparse-attention block routing — variant 1",
           "sparse-attention block routing"
         ]
       }
@@ -2767,7 +2821,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "MoE expert routing",
-          "MoE expert routing \u2014 variant 1"
+          "MoE expert routing — variant 1"
         ]
       }
     },
@@ -2806,7 +2860,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "synthetic data detection \u2014 variant 1",
+          "synthetic data detection — variant 1",
           "synthetic data detection"
         ]
       }
@@ -2847,7 +2901,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "self-consistency chain-of-thought",
-          "self-consistency chain-of-thought \u2014 variant 1"
+          "self-consistency chain-of-thought — variant 1"
         ]
       }
     },
@@ -3002,7 +3056,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "LoRA adapter composition",
-          "LoRA adapter composition \u2014 variant 1"
+          "LoRA adapter composition — variant 1"
         ]
       }
     },
@@ -3041,7 +3095,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "speculative decoding verification \u2014 variant 1",
+          "speculative decoding verification — variant 1",
           "speculative decoding verification"
         ]
       }
@@ -3196,7 +3250,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "positional encoding scheme comparison \u2014 variant 1",
+          "positional encoding scheme comparison — variant 1",
           "positional encoding scheme comparison"
         ]
       }
@@ -3236,7 +3290,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "constitutional AI \u2014 variant 1",
+          "constitutional AI — variant 1",
           "constitutional AI"
         ]
       }
@@ -3277,7 +3331,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "attention sink long-context",
-          "attention sink long-context \u2014 variant 1"
+          "attention sink long-context — variant 1"
         ]
       }
     },
@@ -3316,7 +3370,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "test-time compute scaling \u2014 variant 1",
+          "test-time compute scaling — variant 1",
           "test-time compute scaling"
         ]
       }
@@ -3396,7 +3450,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "model merging / modular composition",
-          "model merging / modular composition \u2014 variant 1"
+          "model merging / modular composition — variant 1"
         ]
       }
     },
@@ -3411,7 +3465,7 @@
       "forced_semantic_hit_count": 0,
       "forced_functional_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
+      "fail_reason": "zero hits across all three channels — candidate may be substantively novel",
       "tried_keywords": [
         "twin domain",
         "domain wall",
@@ -3546,7 +3600,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "structured pruning + curriculum \u2014 variant 1",
+          "structured pruning + curriculum — variant 1",
           "structured pruning + curriculum"
         ]
       }
@@ -3586,7 +3640,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "reward hacking adversarial dynamics \u2014 variant 1",
+          "reward hacking adversarial dynamics — variant 1",
           "reward hacking adversarial dynamics"
         ]
       }
@@ -3602,7 +3656,7 @@
       "forced_semantic_hit_count": 0,
       "forced_functional_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
+      "fail_reason": "zero hits across all three channels — candidate may be substantively novel",
       "tried_keywords": [
         "yield stress",
         "Bingham plastic",
@@ -3663,8 +3717,994 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "RAG chunk retrieval composition \u2014 variant 1",
+          "RAG chunk retrieval composition — variant 1",
           "RAG chunk retrieval composition"
+        ]
+      }
+    },
+    {
+      "round": "126",
+      "epoch": 6,
+      "domain": "classical Indian poetics (rasa theory)",
+      "domain_normalized": "classical-Indian-poetics",
+      "mechanism": "Rasa theory: nine canonical aesthetic emotions (rasas) allocated across narrative; bhāva (latent emotion) resonates with rasa to produce evocation",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "rasa",
+        "bhava",
+        "navarasa",
+        "anubhava",
+        "vibhava",
+        "sthayibhava",
+        "alankara",
+        "dhvani"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.41,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.77,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "MoE expert routing for emotion-conditioned generation"
+        ]
+      }
+    },
+    {
+      "round": "127",
+      "epoch": 6,
+      "domain": "quantum error correction (ZQ-noise channel decoherence)",
+      "domain_normalized": "ZQ-noise-decoherence",
+      "mechanism": "ZQ-noise: simultaneous bit-flip and phase-flip decoherence channel acts on a qubit producing a Y-error; topologically protected codes route ZQ-string operators around defects",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "ZQ-noise",
+        "bit-flip",
+        "phase-flip",
+        "Y-error",
+        "stabilizer code",
+        "string operator",
+        "anyonic defect",
+        "Kitaev"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.39,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.72,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "noise-robust attention / fault-tolerant inference"
+        ]
+      }
+    },
+    {
+      "round": "128",
+      "epoch": 6,
+      "domain": "indigenous Australian fire-stick management (specific cool-burn mosaic)",
+      "domain_normalized": "indigenous-Australian-fire-management",
+      "mechanism": "Cool-burn mosaic: indigenous custodians light low-intensity patchwork fires to suppress fuel-load; co-evolved fire-adapted flora and predator-prey loops",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "cool burn",
+        "fire stick",
+        "fuel load",
+        "mosaic",
+        "biocultural",
+        "patchwork burn",
+        "co-evolution",
+        "country"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.52,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.85,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "adversarial red-teaming / continual safety training — variant 1",
+          "adversarial red-teaming / continual safety training"
+        ]
+      }
+    },
+    {
+      "round": "129",
+      "epoch": 6,
+      "domain": "Chinese five-element wuxing thermodynamics",
+      "domain_normalized": "Chinese-five-element-thermodynamics",
+      "mechanism": "Wuxing five-element cycle (wood, fire, earth, metal, water) with generation/destruction interactions; each element has a thermodynamic-like equilibrium share",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "mechanical PASS flagged for human review",
+      "tried_keywords": [
+        "wuxing",
+        "five elements",
+        "generation cycle",
+        "destruction cycle",
+        "wu xing",
+        "yin yang",
+        "qi",
+        "ba zi"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.34,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.66,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "130",
+      "epoch": 6,
+      "domain": "gemology (specific colored-diamond color-grading semantics)",
+      "domain_normalized": "gemstone-color-grading",
+      "mechanism": "Color-grading semantics: D-Z scale for diamonds; fancy-colored grading axis (hue/tone/saturation); inclusions create topological defects in light path",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "color grade",
+        "D-Z scale",
+        "fancy color",
+        "hue",
+        "tone",
+        "saturation",
+        "inclusion",
+        "GIA"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.42,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.74,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "interpretability probing / mechanistic features"
+        ]
+      }
+    },
+    {
+      "round": "131",
+      "epoch": 6,
+      "domain": "vexillology (flag-design symbolic encoding)",
+      "domain_normalized": "vexillology",
+      "mechanism": "Flag design: limited palette; symbol-set must be distinguishable at distance; competing nations co-evolve recognizable distinct flags",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "vexillology",
+        "flag canon",
+        "tincture",
+        "field",
+        "charge",
+        "ensign",
+        "color rule",
+        "Halford"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.47,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.83,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "LLM watermarking / adversarial removal — variant 1",
+          "LLM watermarking / adversarial removal"
+        ]
+      }
+    },
+    {
+      "round": "132",
+      "epoch": 6,
+      "domain": "numismatics (coin authentication via die-link analysis)",
+      "domain_normalized": "numismatics",
+      "mechanism": "Die-link analysis: each coin die produces a distinctive impression; numismatic provenance reconstructed by spectrum of die signatures across batches",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "numismatic",
+        "die link",
+        "obverse",
+        "reverse",
+        "mint mark",
+        "patina",
+        "die crack",
+        "provenance"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.46,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "model fingerprinting / provenance attribution",
+          "model fingerprinting / provenance attribution — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "133",
+      "epoch": 6,
+      "domain": "paleography (medieval scribe-hand identification)",
+      "domain_normalized": "paleography",
+      "mechanism": "Scribal hand identification: each scribe produces letter-form variants; letter-form topological signature (loop count, ductus, ligature) identifies scribe",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "paleography",
+        "ductus",
+        "scribal hand",
+        "ligature",
+        "minuscule",
+        "uncial",
+        "abbreviation",
+        "Beneventan"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.44,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "model attribution / stylometric watermarking",
+          "model attribution / stylometric watermarking — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "134",
+      "epoch": 6,
+      "domain": "cryptozoology (Bigfoot evidence-aggregation methodology)",
+      "domain_normalized": "cryptozoology",
+      "mechanism": "Eyewitness reliability problem: each report under-determined; aggregation of priors-vs-likelihood; adversarial co-evolution between hoaxers and researchers",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "cryptozoology",
+        "eyewitness",
+        "footprint cast",
+        "Bigfoot",
+        "Patterson Gimlin",
+        "hominid",
+        "thermal imaging",
+        "hair sample"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.49,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.84,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "hallucination detection / fact-checking adversarial robustness — variant 1",
+          "hallucination detection / fact-checking adversarial robustness"
+        ]
+      }
+    },
+    {
+      "round": "135",
+      "epoch": 6,
+      "domain": "heraldry (medieval coat-of-arms cascade rules)",
+      "domain_normalized": "heraldry",
+      "mechanism": "Marshalling cascade: when families merge, coats of arms cascade-combine via quartering rules; cadency marks propagate down generations",
+      "form": "information-cascade",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "heraldry",
+        "blazon",
+        "quartering",
+        "cadency",
+        "marshalling",
+        "rampant",
+        "tincture",
+        "ordinary"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.43,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "model merging / parameter combination rules",
+          "model merging / parameter combination rules — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "136",
+      "epoch": 6,
+      "domain": "campanology (English change-ringing peal sequences)",
+      "domain_normalized": "campanology",
+      "mechanism": "Change-ringing: bells permute through 5040+ permutations in canonical sequences (Plain Bob, Stedman); permutation-spectrum allocates the bell order",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "campanology",
+        "change ringing",
+        "Plain Bob",
+        "Stedman",
+        "method ringing",
+        "treble",
+        "tenor",
+        "peal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.48,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "MoE expert routing / token permutation routing",
+          "MoE expert routing / token permutation routing — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "137",
+      "epoch": 6,
+      "domain": "carillon music (tuning of bronze bell sets)",
+      "domain_normalized": "carillon-music",
+      "mechanism": "Carillon tuning: bronze bells have inharmonic partials; tuning each bell removes topological inharmonicity defects to achieve consonance",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "carillon",
+        "campanile",
+        "inharmonic",
+        "partial",
+        "stretch tuning",
+        "hum tone",
+        "prime",
+        "nominal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.43,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.76,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "frequency-domain interpretability / spectral pruning"
+        ]
+      }
+    },
+    {
+      "round": "138",
+      "epoch": 6,
+      "domain": "silk road textile conservation (Dunhuang fragment reassembly)",
+      "domain_normalized": "silk-road-textile-conservation",
+      "mechanism": "Fragment reassembly: textile fragments must be matched on weave-pattern, dye, fiber; conservation co-evolves with deterioration agents (light, mold, insects)",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "dunhuang",
+        "silk fragment",
+        "weave pattern",
+        "dye analysis",
+        "fiber identification",
+        "conservation",
+        "moth larva",
+        "fold pattern"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.41,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.74,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "checkpoint reconstruction / weight stitching"
+        ]
+      }
+    },
+    {
+      "round": "139",
+      "epoch": 6,
+      "domain": "ancient glass-blowing (Roman cameo glass layer-cutting)",
+      "domain_normalized": "ancient-glass-blowing",
+      "mechanism": "Cameo glass: opaque white over translucent blue layers; carving the white away to reveal blue traverses null-space of design constraints",
+      "form": "null-space-traversal",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "cameo glass",
+        "Portland vase",
+        "overlay",
+        "wheel cutting",
+        "intaglio",
+        "frit",
+        "annealing",
+        "Roman glass"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.5,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.83,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "activation steering / null-space ablation",
+          "activation steering / null-space ablation — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "140",
+      "epoch": 6,
+      "domain": "madrigal counterpoint (16th-century Italian polyphony)",
+      "domain_normalized": "madrigal-counterpoint",
+      "mechanism": "Madrigal counterpoint: 4-6 voices independently allocated melodic/harmonic share; voices cross at specific spectral allocations",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "mechanical PASS flagged for human review",
+      "tried_keywords": [
+        "madrigal",
+        "counterpoint",
+        "Palestrina",
+        "soprano alto",
+        "tenor bass",
+        "imitative entry",
+        "cadence",
+        "Marenzio"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.36,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.68,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "141",
+      "epoch": 6,
+      "domain": "semaphore codes (Chappe optical telegraph signaling)",
+      "domain_normalized": "semaphore-codes",
+      "mechanism": "Chappe telegraph cascade: arm positions encode characters; relay-cascade across hilltop stations propagates a message across France in hours",
+      "form": "information-cascade",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Chappe",
+        "semaphore",
+        "optical telegraph",
+        "arm position",
+        "regulator",
+        "indicator",
+        "relay station",
+        "fanal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.47,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.8,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "layer-wise information flow / depth-routing — variant 1",
+          "layer-wise information flow / depth-routing"
+        ]
+      }
+    },
+    {
+      "round": "142",
+      "epoch": 6,
+      "domain": "Japanese tea ceremony (chanoyu specific kata)",
+      "domain_normalized": "tea-ceremony-ritual",
+      "mechanism": "Chanoyu kata: rigid ritual sequence; deviations are topological defects in the social-ritual surface; correct kata composes wabi-sabi atmosphere",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "chanoyu",
+        "wabi sabi",
+        "kata",
+        "ichigo ichie",
+        "tokonoma",
+        "chashitsu",
+        "raku",
+        "sen no rikyu"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.45,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "instruction-following / prompt-format sensitivity — variant 1",
+          "instruction-following / prompt-format sensitivity"
+        ]
+      }
+    },
+    {
+      "round": "143",
+      "epoch": 6,
+      "domain": "ancient Egyptian mortuary (Book of the Dead spell-cataloging)",
+      "domain_normalized": "ancient-Egyptian-mortuary",
+      "mechanism": "Book of the Dead: spells co-evolve with afterlife dangers (Ammit, Apophis); each spell-tweak counters a specific obstacle in afterlife judgment",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 3,
+      "hit_count": 3,
+      "fail_reason": "v5 step 06.7 caught 3 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Book of the Dead",
+        "Ammit",
+        "Apophis",
+        "weighing of heart",
+        "Maat",
+        "ushabti",
+        "canopic jar",
+        "spell 125"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.51,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.86,
+        "results_above_threshold": 3,
+        "distinct_effect_clusters": 3,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "jailbreak red-teaming / safety system-prompt design — variant 2",
+          "jailbreak red-teaming / safety system-prompt design — variant 1",
+          "jailbreak red-teaming / safety system-prompt design"
+        ]
+      }
+    },
+    {
+      "round": "144",
+      "epoch": 6,
+      "domain": "apiculture (honeybee waggle-dance allocation)",
+      "domain_normalized": "apiculture",
+      "mechanism": "Waggle dance: forager bee encodes distance/direction of nectar source as dance-spectrum; hive allocates forager attention across spectrum",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "waggle dance",
+        "apiculture",
+        "honeybee",
+        "forager",
+        "round dance",
+        "von Frisch",
+        "hive",
+        "queen pheromone"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.47,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "retrieval-augmented attention / RAG retrieval scoring",
+          "retrieval-augmented attention / RAG retrieval scoring — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "145",
+      "epoch": 6,
+      "domain": "Shinto shrine architecture (specific Sengū rebuilding cycle)",
+      "domain_normalized": "Shinto-shrine-architecture",
+      "mechanism": "Sengū: ritual 20-year shrine rebuilding (Ise Jingū); the rebuilt shrine has zero topological defects relative to the original via canonical reconstruction rules",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Sengu",
+        "Ise Jingu",
+        "shinmei zukuri",
+        "chigi",
+        "katsuogi",
+        "shikinen",
+        "kannushi",
+        "shimenawa"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.43,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.77,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "continual pretraining / scheduled refresh"
+        ]
+      }
+    },
+    {
+      "round": "146",
+      "epoch": 6,
+      "domain": "salmon-run migration (Pacific salmon natal-stream homing)",
+      "domain_normalized": "salmon-run-migration",
+      "mechanism": "Natal-stream homing: salmon imprint chemical cues at birth; return through cascade of branching streams to natal site; chemoreception cascade decodes path",
+      "form": "information-cascade",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "salmon",
+        "homing",
+        "natal stream",
+        "olfactory imprint",
+        "chemoreception",
+        "anadromous",
+        "Pacific salmon",
+        "redd"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.45,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "long-context retrieval / chunked context routing — variant 1",
+          "long-context retrieval / chunked context routing"
+        ]
+      }
+    },
+    {
+      "round": "147",
+      "epoch": 6,
+      "domain": "lichenology (symbiotic algae-fungus succession)",
+      "domain_normalized": "lichenology",
+      "mechanism": "Lichen succession: algae provide carbohydrate, fungus provides structure; symbiosis co-evolves with substrate, weathering, and competing lichens",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "lichen",
+        "thallus",
+        "mycobiont",
+        "photobiont",
+        "soredia",
+        "isidia",
+        "Cladonia",
+        "crustose"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.48,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.82,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "synthetic data generation / self-improvement loops",
+          "synthetic data generation / self-improvement loops — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "148",
+      "epoch": 6,
+      "domain": "dressage (classical horse-training haute école)",
+      "domain_normalized": "dressage",
+      "mechanism": "Haute école movements: piaffe, passage, levade; each movement traverses the null-space of horse's natural motion constraints via systematic training",
+      "form": "null-space-traversal",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "mechanical PASS flagged for human review",
+      "tried_keywords": [
+        "dressage",
+        "haute ecole",
+        "piaffe",
+        "passage",
+        "levade",
+        "pirouette",
+        "Spanish Riding School",
+        "lipizzaner"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.37,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.69,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "149",
+      "epoch": 6,
+      "domain": "ancient marine navigation (Polynesian star-compass wayfinding)",
+      "domain_normalized": "ancient-marine-navigation",
+      "mechanism": "Star-compass wayfinding: 32-point spectrum of rising/setting stars allocated as bearings; wayfinder mentally rotates spectrum at each waypoint",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "star compass",
+        "Polynesian",
+        "wayfinding",
+        "Mau Piailug",
+        "Hokule'a",
+        "etak",
+        "swell pattern",
+        "celestial"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.47,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "rotary positional encoding / long-context attention",
+          "rotary positional encoding / long-context attention — variant 1"
+        ]
+      }
+    },
+    {
+      "round": "150",
+      "epoch": 6,
+      "domain": "lapidary faceting (gemstone cutting symmetry constraints)",
+      "domain_normalized": "lapidary-faceting",
+      "mechanism": "Faceting: cut gemstone into N-fold symmetric facets to maximize internal reflection; each facet defect reduces brilliance topologically",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "lapidary",
+        "faceting",
+        "table facet",
+        "pavilion",
+        "crown angle",
+        "brilliance",
+        "scintillation",
+        "girdle"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.45,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "sparse autoencoders / dictionary learning interpretability",
+          "sparse autoencoders / dictionary learning interpretability — variant 1"
         ]
       }
     }
