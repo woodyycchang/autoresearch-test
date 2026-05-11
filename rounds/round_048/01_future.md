@@ -1,0 +1,1 @@
+By 2031, RAG architects will need a closed-form rule for optimal embedding dimension as a function of corpus size. The Form-C candidate proposes: d_optimal = c × N^(1/3), where N is corpus size and c ≈ 5-10. This is a quantitative prediction with specific exponent and prefactor.

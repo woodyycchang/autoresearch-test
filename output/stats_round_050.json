@@ -1,0 +1,104 @@
+{
+  "epoch": 2,
+  "program": "program_v2.md",
+  "rounds_range": "026-050",
+  "rounds_completed": 25,
+  "pass_count_mechanical": 4,
+  "pass_count_substantive": 0,
+  "fail_count_mechanical": 21,
+  "fail_count_substantive": 25,
+  "mechanical_pass_rounds_flagged_as_substring_artifact": ["045", "046", "047", "050"],
+  "per_round_forced_hits": {
+    "026": 6, "027": 10, "028": 6, "029": 7, "030": 6,
+    "031": 4, "032": 5, "033": 1, "034": 4, "035": 2,
+    "036": 5, "037": 1, "038": 3, "039": 1, "040": 1,
+    "041": 4, "042": 5, "043": 3, "044": 6, "045": 0,
+    "046": 0, "047": 0, "048": 3, "049": 2, "050": 0
+  },
+  "forced_hit_stats": {
+    "rounds_with_forced_hits": 21,
+    "rounds_with_zero_forced_hits": 4,
+    "round_with_max_forced_hits": "027 (10)",
+    "mean_forced_hits_per_round": 3.4,
+    "median_forced_hits_per_round": 3
+  },
+  "per_round_disagreements": {
+    "026": 0, "027": 0, "028": 2, "029": 0, "030": 0,
+    "031": 0, "032": 0, "033": 0, "034": 1, "035": 0,
+    "036": 1, "037": 0, "038": 0, "039": 0, "040": 0,
+    "041": 0, "042": 0, "043": 0, "044": 0, "045": "MECHANICAL_PASS_SUBSTANTIVE_FAIL_FLAG",
+    "046": "MECHANICAL_PASS_SUBSTANTIVE_FAIL_FLAG", "047": "MECHANICAL_PASS_SUBSTANTIVE_FAIL_FLAG",
+    "048": 0, "049": 0, "050": "MECHANICAL_PASS_SUBSTANTIVE_FAIL_FLAG"
+  },
+  "disagreement_summary": {
+    "mechanical_disagreement_count": 3,
+    "mechanical_disagreement_rate": 0.12,
+    "substantive_flag_count": 4,
+    "substantive_flag_rate": 0.16,
+    "combined_either_disagreement_rate": 0.28,
+    "rounds_with_full_agreement_no_flag": 18
+  },
+  "compliance_rates": {
+    "step_01_present": "25/25",
+    "step_02_has_3_subproblems": "25/25",
+    "step_03_has_real_arxiv_ids": "25/25",
+    "step_04_specific_not_generic": "25/25",
+    "step_05_not_duplicate": "25/25",
+    "step_05_content_words_count_in_range": "25/25",
+    "step_05_v2_composition_rule_pass": "24/25 (R043 had only 1 source-side term — logged in compliance_log)",
+    "step_06_real_search": "25/25",
+    "step_06_v2_query_rules_pass": "25/25",
+    "step_07_keyword_rule_applied": "25/25",
+    "step_07_no_forced_rule_override": "25/25",
+    "step_10_mechanical_verdict": "25/25",
+    "step_12_verification_completed": "25/25 (no API failures this epoch)"
+  },
+  "trehan_chopra_failure_mode_incidence": {
+    "bias_training_data": 0,
+    "implementation_drift": 9,
+    "memory_context": 0,
+    "overexcitement": 1,
+    "domain_intelligence": 0,
+    "scientific_taste": 4
+  },
+  "scientific_taste_notes": [
+    "R045, R046, R047, R050: scientific_taste flag raised — mechanical PASS but candidate is substantively occupied. Honest report in 11_audit; verifier confirms substantive prior art."
+  ],
+  "candidate_form_distribution": {
+    "A_conjunction": "026, 030, 034, 038, 042, 046, 050 (7 rounds)",
+    "B_negation_impossibility": "027, 031, 035, 039, 043, 047 (6 rounds)",
+    "C_quantitative_prediction": "028, 032, 036, 040, 044, 048 (6 rounds)",
+    "D_reverse_direction": "029, 033, 037, 041, 045, 049 (6 rounds)"
+  },
+  "forced_hit_count_by_form_mean": {
+    "A_conjunction_mean": 4.4,
+    "B_negation_mean": 3.5,
+    "C_quantitative_mean": 4.3,
+    "D_reverse_direction_mean": 2.5
+  },
+  "score_v2_calculation": {
+    "formula": "(pass_count_mechanical * 10) + (25 - mean_forced_hit_per_round) + (combined_disagreement_rate * 5)",
+    "pass_count_mechanical": 4,
+    "pass_count_term": 40,
+    "mean_forced_hit_term": 21.6,
+    "disagreement_rate_term_mechanical_only": 0.6,
+    "disagreement_rate_term_combined": 1.4,
+    "score_v2_mechanical_only_disagreement": 62.2,
+    "score_v2_combined_disagreement": 63.0,
+    "score_v1_for_comparison": 24.8,
+    "score_v2_vs_v1_delta": "+37.4 (combined) / +37.4 (mechanical)"
+  },
+  "honest_score_assessment": {
+    "raw_score_v2_higher": true,
+    "but_pass_count_inflated_by_artifact": true,
+    "substantive_pass_count": 0,
+    "honest_score_v2_treating_artifact_passes_as_FAIL": "(0 * 10) + 21.6 + (3/25 * 5) = 0 + 21.6 + 0.6 = 22.2",
+    "honest_v2_vs_v1": "+22.2 vs +24.8 = -2.6 (slightly worse on the honest reading)"
+  },
+  "combined_with_prior_n_163": {
+    "total_rounds_with_mechanical_PASS": 4,
+    "total_rounds_with_substantive_PASS": 0,
+    "total_rounds_attempted_across_all_history": "138 + 25 + 25 = 188",
+    "p_value_vs_1pct_novelty_substantive": "approximately (0.99)^188 ~= 0.150"
+  }
+}

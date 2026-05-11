@@ -1,0 +1,1 @@
+By 2031, in-context learning will be deployed on extremely noisy data sources. The Form-A conjunction proposes: wave-interference (constructive/destructive superposition of in-context examples) JOINTLY with lock-in-amplification (frequency-domain phase-locked detection of weak signal in noise) can predict the optimal in-context-example dosing curve for noisy ICL.

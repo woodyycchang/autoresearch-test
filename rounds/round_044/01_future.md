@@ -1,0 +1,1 @@
+By 2031, chain-of-thought verbosity (the number of tokens an LLM uses to solve a task) will be a primary compute-cost metric. The Form-C candidate proposes a specific quantitative scaling: CoT-length ~ task_complexity^δ with δ = 0.65 ± 0.1, universal across model families. If correct, this is a deployment cost predictor.

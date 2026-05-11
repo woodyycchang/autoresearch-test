@@ -31,3 +31,19 @@ Format per entry:
   - 7 implementation_drift instances logged (substring misreads caught and corrected inline)
   - 4 overexcitement instances logged honestly in audits
   - Final report at output/final_report.md; stats at output/stats_round_025.json
+
+## Session 002 — 2026-05-10 23:20 to 2026-05-11 01:45 (epoch 2)
+- Action: STARTED FRESH on program_v2.md (epoch 2 rounds 26-50)
+- Rounds attempted this session: 26 to 50
+- Rounds completed this session: 25
+- Stopping reason: 25-round target reached per phase-3 instruction (consistent with epoch-1 budget)
+- Notes:
+  - Inherited 138 prior + 25 epoch-1 = 163-round history
+  - 25 distinct candidates tested across Forms A (conjunction), B (negation/impossibility), C (quantitative), D (reverse direction)
+  - Form rotation: A=R026/30/34/38/42/46/50 (7), B=R027/31/35/39/43/47 (6), C=R028/32/36/40/44/48 (6), D=R029/33/37/41/45/49 (6)
+  - Mean forced_hits_per_round = 3.4 (vs epoch-1 4.6, -26%)
+  - Mechanical PASS count = 4 (R045, R046, R047, R050) — all flagged for human review as strict-substring artifacts
+  - Substantive PASS count = 0 (same as epoch-1)
+  - Mechanical disagreement rate (primary vs verifier hit/miss on specific URLs) = 3/25 = 0.12 (vs epoch-1 0.88, -86%)
+  - Substantive-flag disagreement rate (cross-agent verifier flags substantive FAIL despite mechanical agreement) = 4/25 = 0.16 (new metric)
+  - Combined either-disagreement rate = 7/25 = 0.28

@@ -1,0 +1,1 @@
+The fraction of mistakes a student makes on a math test as a function of hours studied is well-fit by a power law in study time. The same form — error_rate ∝ effort^{-β} — appears across many learning curves in psychology. The candidate predicts hallucination follows the same scaling form with respect to parameter count N rather than effort, with universal exponent β ≈ 0.4.

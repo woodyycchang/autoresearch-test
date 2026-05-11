@@ -1,0 +1,1 @@
+Solving a math problem on paper: harder problems take more writing. The relationship is power-law-ish — doubling problem complexity (in arithmetic operations needed) less-than-doubles the number of lines you write, because you re-use lemmas and shortcuts. Same form applies to CoT length in LLMs.
