@@ -1,0 +1,15 @@
+{
+  "round": "192",
+  "epoch": 8,
+  "candidate_form": "information-cascade",
+  "domain": "hippology / exercise physiology (Arabian endurance-horse gait–respiration locomotor-respiratory coupling)",
+  "specific_mechanism": "Arabian endurance horses are exceptional because their respiratory pattern locks to gait via 'locomotor-respiratory coupling' (LRC): stride and breath rates synchronize during cantering, reducing oxygen cost of breathing. LRC is a phase-coupling between two oscillators (gait + respiration) that produces a compounding efficiency gain over hours of sustained running. The DMRT3 gene alters motor coordination and stride length; horses homozygous for the variant outperform heterozygous.",
+  "llm_application": "Decode-phase locomotor-respiratory coupling: in long-output inference, couple the decoder's autoregressive 'gait' (token-by-token emission rate) to a slower 'respiratory' KV-cache-eviction/prefetch oscillator running on a different clock. When the two phase-lock at a small integer ratio (1:1, 2:1, 3:2), the decoder achieves a sustained-throughput regime where eviction never blocks emission — the LLM analog of LRC efficiency for long-output reasoning. Information-cascade: emission events publish phase to the cache scheduler, which prefetches the upcoming KV tile, which informs the next emission's pacing.",
+  "novelty_claim": "STAR decode-phase rescheduling (2510.13668), speculative-decoding pipelines, output-length-prediction (2602.11812 ICLR 2026), TurboSpec closed-loop control all schedule decode-time work. None specifically frames the decoder vs cache as two coupled oscillators that exploit phase-locking ratios for compounding efficiency over long horizons.",
+  "content_words": ["locomotor respiratory coupling", "gait stride synchronization", "phase locking ratio", "DMRT3 motor coordination", "decode phase", "KV cache eviction", "two-oscillator coupling", "long-horizon inference"],
+  "content_words_composition": {
+    "llm_side": ["decode phase", "KV cache eviction", "two-oscillator coupling", "long-horizon inference"],
+    "source_side": ["locomotor respiratory coupling", "gait stride synchronization", "phase locking ratio", "DMRT3 motor coordination"],
+    "generic": []
+  }
+}

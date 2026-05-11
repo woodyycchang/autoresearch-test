@@ -1,0 +1,91 @@
+{
+  "round": "193",
+  "verifier": "cross-agent",
+  "content_words_used": ["rule of tincture", "metal on colour", "heraldic constraint", "visual contrast", "channel norm class", "layer adjacency", "alternation regularizer", "representation contrast"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Rule_of_tincture",
+      "kw_count": 1,
+      "kw_matches": ["rule of tincture"],
+      "cos": 0.17,
+      "judge": 0.05,
+      "judge_reason": "Pure source-domain heraldry article; no LLM/representation content whatsoever.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.americanheraldry.org/education-resources/guidelines-for-heraldic-practice/",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.13,
+      "judge": 0.04,
+      "judge_reason": "Generic source-domain guidelines snippet, no overlap with LLM application.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.heraldica.org/topics/tinctrul.htm",
+      "kw_count": 1,
+      "kw_matches": ["rule of tincture"],
+      "cos": 0.14,
+      "judge": 0.05,
+      "judge_reason": "Source-domain historical analysis only; lacks LLM-side mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.ijcai.org/proceedings/2025/1115.pdf",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.40,
+      "judge": 0.42,
+      "judge_reason": "Constraint propagation for LLM CSP solving, not depth-adjacency channel alternation.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2502.01341v1",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.43,
+      "judge": 0.38,
+      "judge_reason": "Vision-language latent connector preserving semantics; unrelated to layer-adjacency alternation regularizer.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.1126.pdf",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.35,
+      "judge": 0.30,
+      "judge_reason": "Adversarial preference alignment, no representation-contrast across layers.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://openreview.net/pdf/e94a30dd71e7b6a0a1a27082eb13b96f3442bf87.pdf",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.30,
+      "judge": 0.28,
+      "judge_reason": "Generic ICLR alignment context; snippet too sparse to evidence mechanism overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/download/39949/43910",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.40,
+      "judge": 0.40,
+      "judge_reason": "Visual-token reduction under cross-modal misalignment, unrelated to channel-class alternation across depth.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 0,
+  "mechanical_verdict": "PASS",
+  "verdict": "PASS (mechanical) but UNSAFE: queries failed to retrieve the primary suspect literature. The depth-adjacency channel-class alternation idea has substantive overlap with (a) batch-norm/layer-norm alternation and Pre-LN vs Post-LN ordering studies, (b) attention-pattern cycle/period literature (e.g., alternating attention heads, periodic depth structure), and (c) channel-wise normalization alternation studies. Confirm-bias risk: source-side queries hit only heraldry; LLM-side query found only superficial constraint/alignment papers. Recommend secondary search for 'layer-norm alternation transformer depth', 'attention cycle periodicity layers', 'channel norm class alternation regularizer' before treating as novel.",
+  "comment": "Primary suspects PASS hides substantive coverage in batch-norm/layer-norm alternation and attention-cycle literature that was not retrieved by the two queries; mechanical PASS should not be read as substantive novelty."
+}

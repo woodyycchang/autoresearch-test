@@ -1,0 +1,15 @@
+{
+  "round": "194",
+  "epoch": 8,
+  "candidate_form": "phase-coherence",
+  "domain": "cryosphere physics (sea-ice brine-channel network percolation, golden-rule 5% threshold for columnar / ~10% for granular)",
+  "specific_mechanism": "Sea ice contains a network of liquid-brine channels whose connectivity undergoes a sharp percolation phase transition at a brine-volume fraction φ_c ≈ 5% (columnar ice) / ≈10% (granular). Below threshold the ice is effectively impermeable; above it, fluid flow connects through the ice, enabling melt-pond drainage and nutrient/gas exchange. The 'golden rule' (φ_c ≈ 5%) is a classic example of bond percolation on a Bernoulli network in a real geophysical material.",
+  "llm_application": "Treat MoE expert activation as a brine-channel network in 'parameter ice': each expert is a bond in a sparse-activation graph, and the model's effective permeability is determined by the fraction of experts active per token. Below the 'percolation threshold' (an MoE-specific φ_c, e.g. <5% of experts) the model has fragmented sub-networks (no global information flow); above it, the active set forms a connected component spanning the model. Predict that token-quality metrics undergo a phase transition at φ_c — and that scaling laws have a kink at the percolation crossover, distinct from compute-optimal scaling.",
+  "novelty_claim": "MoE percolation has been hinted at in physics-informed ML (2101.08928 Machine Learning Percolation, 2507.14159 Siamese NN for 3D percolation, 2510.15294 directed percolation patterns), and CMoE 2025 carves experts from dense — none specifically models expert activation as a bond-percolation network with a φ_c critical threshold and predicts a kink in scaling laws there. Open question whether this is substantively new or implicit in MoE-routing analyses.",
+  "content_words": ["brine channel network", "percolation threshold", "permeability transition", "golden rule volume", "MoE expert activation", "sparse routing graph", "phase transition scaling", "critical fraction"],
+  "content_words_composition": {
+    "llm_side": ["MoE expert activation", "sparse routing graph", "phase transition scaling", "critical fraction"],
+    "source_side": ["brine channel network", "percolation threshold", "permeability transition", "golden rule volume"],
+    "generic": []
+  }
+}

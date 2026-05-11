@@ -1,0 +1,15 @@
+{
+  "round": "193",
+  "epoch": 8,
+  "candidate_form": "basin-stability",
+  "domain": "heraldry (medieval rule of tincture: metal-on-metal/colour-on-colour forbidden)",
+  "specific_mechanism": "The rule of tincture forbids placing metal (or, argent) on metal or colour (azure, gules, sable, vert, purpure) on colour — the visual contrast requirement that made a coat of arms recognizable at battlefield distance. The rule is a local-adjacency constraint: each charge's tincture is constrained by its neighbour's tincture class. The Argentaye tract (1410) first proposed it; by late 17th c it was 'practically unbreakable' across European heraldic traditions.",
+  "llm_application": "Layer-adjacency contrast constraint in token representations: classify each transformer layer's hidden-state channel into 'metal' (high-norm, low-entropy 'argent/or' channels) vs 'colour' (low-norm, high-entropy 'azure/gules' channels). During fine-tuning enforce a 'rule of tincture' regularizer: no layer L_{i+1} should have its dominant channel-class match L_i's — i.e., metal-channels must alternate with colour-channels across depth. Basin-stability: the alternation constraint forces representations to occupy a wider basin (more recognizable / probe-able feature contrast) under prompt perturbation, analogous to battlefield-recognizability.",
+  "novelty_claim": "Constraint-propagation LLM (IJCAI 2025), AlignVLM (2502.01341), Adversarial Preference Learning, ICLR 2026 reliability papers all address LLM constraints/alignment. None proposes a depth-adjacency alternation constraint for representation channels modeled on heraldic tincture rule.",
+  "content_words": ["rule of tincture", "metal on colour", "heraldic constraint", "visual contrast", "channel norm class", "layer adjacency", "alternation regularizer", "representation contrast"],
+  "content_words_composition": {
+    "llm_side": ["channel norm class", "layer adjacency", "alternation regularizer", "representation contrast"],
+    "source_side": ["rule of tincture", "metal on colour", "heraldic constraint", "visual contrast"],
+    "generic": []
+  }
+}
