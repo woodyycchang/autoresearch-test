@@ -1,0 +1,1 @@
+By 2031 multi-agent LLM composition will need a structured protocol for joining heterogeneous models. The horticultural graft-union literature has worked out exactly this — physical splice + bridge + new vascular tissue + compatibility monitoring — at the species level for centuries.

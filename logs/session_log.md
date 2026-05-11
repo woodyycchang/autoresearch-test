@@ -31,3 +31,20 @@ Format per entry:
   - 7 implementation_drift instances logged (substring misreads caught and corrected inline)
   - 4 overexcitement instances logged honestly in audits
   - Final report at output/final_report.md; stats at output/stats_round_025.json
+
+## Session 002 — 2026-05-11 08:20 to 2026-05-11
+- Action: STARTED FRESH on branch `claude/epoch-3-failure-memory-clR2z`
+- Rounds attempted this session: 26 to 50 (labeled "epoch 3" per user spec; ran as next-sequential since R026-R050 did not exist in repo prior)
+- Rounds completed this session: 25
+- Stopping reason: 25-round target reached. 5 PASSes (4 mechanical-rule artifacts, 1 borderline substantive at R044), 20 FAIL.
+- Notes:
+  - Inherited 25 epoch-1 rounds (R001-R025) + 138-round prior history
+  - Built logs/memory_db.json from R001-R025 (PHASE 1)
+  - Wrote program_v3.md adding step 04.5 memory-aware check (PHASE 2)
+  - Ran R026-R050 with v3 pipeline (PHASE 3); memory updates after each step 10
+  - 11 memory-skip events across 25 rounds; rule_1 fired 9x, rule_2 fired 0x, rule_3 fired 8x
+  - All 8 prior form categories blocked by R050; agent introduced new form "feedback-attenuation" at R050
+  - 9 new domain buckets explored that v2 never sampled
+  - Original task spec assumed epoch 2 already ran (R026-R050); it had not. Documented in epoch3_comparison.md.
+  - Disagreement rate 0/25 by methodology (mechanical-rule strict for both primary and verifier); see epoch3_comparison.md §4.
+  - Comparison report at output/epoch3_comparison.md; stats at output/stats_round_050.json; diff at output/v2_to_v3_diff.md.

@@ -1,0 +1,1 @@
+By 2031, large multi-agent systems will accumulate vast unstructured logs. Reconstructing the temporal ordering of agent activities from style alone (when timestamps are lost or unreliable) is a real forensic problem. The archaeological frequency-seriation methodology has been solved for this in physical artifacts and could transfer directly.

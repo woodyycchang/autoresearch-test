@@ -1,0 +1,1 @@
+By 2031, training data pipelines will be multi-stage with priority lanes and seasonal reorganization. The glacial-hydrology multi-conduit framework (moulins, englacial conduits, subglacial channels) provides a natural template for a multi-stage training pipeline with bimodal high/low throughput partition.

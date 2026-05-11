@@ -1,0 +1,1 @@
+A speleothem in a limestone cave grows ~0.1mm per year. Cut a polished slice and you can see alternating thin bands: dark organic-rich, light-clean, color-different couplets, trace-element enriched. Each band tells you about a year of cave conditions. A model trained in cyclic alternating modes would have analogous bands in its capability history.

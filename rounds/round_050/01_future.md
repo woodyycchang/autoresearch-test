@@ -1,0 +1,1 @@
+By 2031 production LLMs will need fine-grained variance diagnostics that go beyond scalar perplexity. A die-axis-style distributional measure of relative rotation between dual generation modes is a structurally novel diagnostic with century-old precedent in numismatic die-pair analysis.

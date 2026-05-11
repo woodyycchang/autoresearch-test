@@ -1,0 +1,67 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "numismatics",
+      "proposed_mechanism_keywords": [
+        "die axis",
+        "obverse"
+      ],
+      "proposed_form": "evaluation-diagnostic",
+      "memory_lookup": {
+        "domain_prior_fail_count": 0,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 5
+      },
+      "rules_triggered": [
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "rule_3_form_rotate (evaluation-diagnostic blocked at 5)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "numismatics",
+      "proposed_mechanism_keywords": [
+        "die axis",
+        "obverse"
+      ],
+      "proposed_form": "memory-architecture",
+      "memory_lookup": {
+        "domain_prior_fail_count": 0,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 10
+      },
+      "rules_triggered": [
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "rule_3_form_rotate (memory-architecture blocked at 10)"
+    },
+    {
+      "attempt_idx": 3,
+      "proposed_domain_normalized": "numismatics",
+      "proposed_mechanism_keywords": [
+        "die axis",
+        "die alignment",
+        "coin striking",
+        "obverse reverse",
+        "numismatic variance",
+        "medallic rotation",
+        "standard rotation",
+        "die-pair"
+      ],
+      "proposed_form": "feedback-attenuation",
+      "memory_lookup": {
+        "domain_prior_fail_count": 0,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 0
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear"
+    }
+  ],
+  "accepted_attempt_idx": 3,
+  "memory_skip_count_this_round": 2
+}

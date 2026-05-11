@@ -1,0 +1,1 @@
+By 2031, activation update rules will need state-dependent dynamics: a small perturbation shouldn't move stable features, but a sustained push should. Rheology's yield-stress + recovery-time formalism gives a two-parameter dynamics that handles this far better than a scalar gradient norm clipping.

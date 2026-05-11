@@ -74,3 +74,28 @@ DO NOT repropose these:
 - Round 023 | domain: physical chemistry / materials science (Ostwald ripening) | mechanism: Gibbs-Thomson coarsening dynamic for LLM agent memory consolidation | verdict: FAIL
 - Round 024 | domain: Traditional Chinese Medicine (meridian / acupoint system) | mechanism: cartography of (intervention-site, downstream-capability) pathway pairs for LLM activation steering | verdict: FAIL
 - Round 025 | domain: statistical mechanics (spin glass / replica symmetry breaking, glassy aging) | mechanism: glassy-dynamics framing of long-running LLM agent deployment-aging effects | verdict: FAIL
+- Round 026 | domain: physics (physics / condensed matter (Anderson localization ) | mechanism: Anderson localization: in a disordered quantum lattice, interference of multiply | verdict: FAIL
+- Round 027 | domain: engineering-mechanics (engineering / structural dynamics (tuned mass damp) | mechanism: Tuned mass damper (TMD): a secondary mass-spring-damper attached to a primary st | verdict: FAIL
+- Round 028 | domain: earth-systems (earth systems / hydrogeology (karst aquifer condui) | mechanism: Karst aquifers route groundwater along preferential conduits dissolved in carbon | verdict: FAIL
+- Round 029 | domain: ethology (ethology / behavioral biology (octopus chromatopho) | mechanism: Octopus skin patterning operates via millions of chromatophore organs, each a si | verdict: FAIL
+- Round 030 | domain: law (law / common-law writs (habeas corpus / compulsory) | mechanism: Habeas corpus is a writ compelling a custodian to produce a detained person befo | verdict: FAIL
+- Round 031 | domain: plant-biology (plant physiology (thigmomorphogenesis / touch-indu) | mechanism: Thigmomorphogenesis: repeated mechanical stimulation (wind, touch) elicits a cal | verdict: FAIL
+- Round 032 | domain: math-dynamical (mathematics / dynamical systems (Lyapunov exponent) | mechanism: The Lyapunov exponent spectrum quantifies, for a dynamical system, the exponenti | verdict: FAIL
+- Round 033 | domain: ethology (ethology / chemical communication (ant pheromone t) | mechanism: Ant species deposit volatile alkanes/alcohols as pheromone trails that linearly  | verdict: FAIL
+- Round 034 | domain: volcanology (volcanology (caldera unrest / eruption precursor m) | mechanism: Caldera eruption precursors include: (a) seismic swarms (changes in microquake r | verdict: PASS
+- Round 035 | domain: rheology (rheology / continuum mechanics (shear-thinning non) | mechanism: Shear-thinning fluids have apparent viscosity that decreases with shear rate (e. | verdict: FAIL
+- Round 036 | domain: pedology (pedology / soil science (soil horizon emergence vi) | mechanism: Soil horizons (O, A, E, B, C, R) emerge by translocation, accumulation, leaching | verdict: FAIL
+- Round 037 | domain: law (law / equity (bona fide purchaser for value withou) | mechanism: The bona fide purchaser (BFP) doctrine: an innocent purchaser for value who take | verdict: FAIL
+- Round 038 | domain: earth-systems (earth systems / fluvial geomorphology (river meand) | mechanism: A meandering river progressively widens its bends via differential erosion (oute | verdict: FAIL
+- Round 039 | domain: cartography (cartography (Töpfer's Radical Law for cartographic) | mechanism: Töpfer's Radical Law (1961): when reducing map scale from S1 to S2, the number o | verdict: PASS
+- Round 040 | domain: speleology (speleology (epigenic vs hypogenic speleogenesis; c) | mechanism: Speleogenesis produces conduit networks via either epigenic (descending acidic s | verdict: FAIL
+- Round 041 | domain: rheology (rheology (yield-stress / thixotropy of complex flu) | mechanism: Thixotropic / yield-stress fluids exhibit time-dependent viscosity: apparent vis | verdict: FAIL
+- Round 042 | domain: speleology (speleology / paleoclimatology (annually laminated ) | mechanism: Speleothems can record annual lamination via four mechanisms: fluorescent lamina | verdict: FAIL
+- Round 043 | domain: pedology (pedology / soil microbiome ecology (mycorrhizal-fr) | mechanism: Soil microbiomes coordinate via dissolved organic compound diffusion through soi | verdict: PASS
+- Round 044 | domain: volcanology (volcanology (magma chamber pressure equalization v) | mechanism: When magma chamber pressure exceeds the surrounding host-rock fracture strength, | verdict: PASS
+- Round 045 | domain: chronobiology (chronobiology (zeitgeber entrainment and oscillato) | mechanism: An internal circadian oscillator entrains (phase-locks) to external zeitgebers ( | verdict: FAIL
+- Round 046 | domain: glaciology (glaciology / glacial hydrology (englacial drainage) | mechanism: Surface meltwater forms supraglacial lakes that fracture vertically into moulins | verdict: FAIL
+- Round 047 | domain: archaeology (archaeology (frequency seriation / Brainerd-Robins) | mechanism: Frequency seriation orders archaeological assemblages by stylistic similarity: e | verdict: FAIL
+- Round 048 | domain: philology (philology / textual criticism (stemmatic method fo) | mechanism: The stemmatic method reconstructs a manuscript family tree from extant copies vi | verdict: FAIL
+- Round 049 | domain: horticulture (horticulture (scion-rootstock grafting and graft u) | mechanism: Successful plant grafting requires alignment of vascular cambium tissue between  | verdict: FAIL
+- Round 050 | domain: numismatics (numismatics (die-axis variation across coin strike) | mechanism: Coins are struck between two engraved dies (obverse and reverse); the die-axis ( | verdict: PASS
