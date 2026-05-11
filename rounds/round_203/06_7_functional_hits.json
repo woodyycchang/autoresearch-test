@@ -1,0 +1,16 @@
+{
+  "round": "203",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Quipu", "judge_score": 0.05, "matched_effect_cluster": "source-domain background", "justification": "Source-domain only."},
+    {"url": "https://khipufieldguide.com/guidebook/KhipuSigns.html", "judge_score": 0.05, "matched_effect_cluster": "source-domain background", "justification": "Source-domain sign system."},
+    {"url": "https://smarthistory.org/inka-khipu/", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain cultural framing."},
+    {"url": "https://arxiv.org/html/2412.13171v1", "judge_score": 0.72, "matched_effect_cluster": "dense-latent CoT compression", "justification": "CCoT compresses CoT to dense latent representations — functionally the same as 'pendant summary tensor per step' minus the multi-axis structured encoding and top-cord consistency check, but the core compress-CoT-to-latent-summary is shared."},
+    {"url": "https://arxiv.org/pdf/2601.21576", "judge_score": 0.58, "matched_effect_cluster": "CoT compression theory", "justification": "Information-theoretic limits on CoT compression — theoretical companion but not a mechanism."},
+    {"url": "https://arxiv.org/html/2510.09312v1", "judge_score": 0.55, "matched_effect_cluster": "CoT verification via attribution graph", "justification": "Verifies CoT via causal attribution graph; different mechanism but similar verify-the-compressed-trace goal."},
+    {"url": "https://arxiv.org/html/2603.25942v1", "judge_score": 0.48, "matched_effect_cluster": "anchored-reasoning grounding", "justification": "Anchors reasoning to visual cues; differs from summary-anchor token but adjacent."},
+    {"url": "https://arxiv.org/pdf/2501.04341", "judge_score": 0.75, "matched_effect_cluster": "iterative-summarization CoT", "justification": "Iterative summarization explicitly maintains a 'summary anchor' through CoT and checks consistency at each step — functionally close to quipu top-cord/pendant summary verification."}
+  ],
+  "summary": {"functional_hits_count": 2, "max_judge_score": 0.75, "distinct_effect_clusters_above_threshold": 2, "multi_cluster_match": true}
+}

@@ -1,0 +1,15 @@
+{
+  "round": "202",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "scrimshaw (19th-century whaler-art incised-engraving-on-bone with ink-rubbing fill)",
+  "specific_mechanism": "Sailors incise fine lines into a polished bone/ivory surface (sperm-whale tooth), rub lampblack/ink across the whole surface; ink fills both the incisions AND the polished surface uniformly. They then polish the flat surface again; the ink wipes away from the polished surface but is mechanically trapped in the incisions because the incision walls protect it from the polishing motion. Net result: the design becomes visible ONLY in the incised regions, and is robust to subsequent polishing because the polish cannot reach into incision walls.",
+  "llm_application": "Incision-fill watermarking for LLM weight delta: instead of broadcasting a watermark across all parameters, identify a small set of 'incised' parameter coordinates (those with low gradient magnitude under normal task data — i.e., parameters that are 'recessed' from the active surface). Imprint the watermark only into those coordinates via small additive perturbation. A polishing attack (LoRA fine-tuning, distillation, quantization that smooths out the active parameter surface) preferentially affects high-gradient parameters; the recessed (low-gradient) coordinates retain the watermark because they are not exercised by the polishing pressure.",
+  "novelty_claim": "Existing watermarking is broadcast (token-level, gradient-fingerprint, or whole-distribution shift) or relies on training-data memorization (Robust Data Watermarking 2503.04036). None explicitly uses a 'low-gradient-coordinate as incision' framing where the watermark hides BELOW the active parameter surface and is robust precisely because the recessed coordinates are not exercised by downstream fine-tuning pressure.",
+  "content_words": ["scrimshaw incision", "lampblack ink", "ink rubbing", "polished bone", "low-gradient parameter", "weight-delta watermark", "fine-tuning erasure", "recessed coordinate"],
+  "content_words_composition": {
+    "llm_side": ["low-gradient parameter", "weight-delta watermark", "fine-tuning erasure", "recessed coordinate"],
+    "source_side": ["scrimshaw incision", "lampblack ink", "ink rubbing", "polished bone"],
+    "generic": []
+  }
+}
