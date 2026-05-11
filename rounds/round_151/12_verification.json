@@ -1,0 +1,106 @@
+{
+  "verification_agent_id": "agent-spawn-r151-vf9k2",
+  "verification_method": "fresh independent re-judgment from 05_candidate + 06_search_raw only; did NOT read 07_hit_miss/06.5/06.7",
+  "spawn_timestamp": "2026-05-11T10:55:00Z",
+  "results": [
+    {
+      "url": "https://arxiv.org/html/2502.04420v5",
+      "title": "KVTuner",
+      "keyword_overlap_count": 0,
+      "semantic_cosine_estimate": 0.35,
+      "judge_score": 0.3,
+      "hit": false,
+      "justification": "Layer-wise KV quantization. No exact phrase matches; conceptually about bit-precision allocation, not head pruning with rank growth on slope-1.6 frontier."
+    },
+    {
+      "url": "https://arxiv.org/html/2510.07651",
+      "title": "OBCache",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.45,
+      "judge_score": 0.5,
+      "hit": false,
+      "justification": "Token-level cache pruning; 'KV Cache' partial match. Drops low-saliency tokens but does not couple head count to rank growth via fixed log-log slope."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.24647",
+      "title": "DepthKV",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.55,
+      "judge_score": 0.55,
+      "hit": false,
+      "justification": "Snippet mentions 'Reineke frontier' as analog but this is layer-level KV budget allocation, not head-pruning + effective-rank growth on slope-1.6 frontier."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2504.17768",
+      "title": "The Sparse Frontier",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.4,
+      "judge_score": 0.35,
+      "hit": false,
+      "justification": "Pareto frontier framing for sparse attention; 'log-log' partial. Lacks head-count vs effective-rank coupling at slope 1.6."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.00636",
+      "title": "Expected Attention",
+      "keyword_overlap_count": 0,
+      "semantic_cosine_estimate": 0.35,
+      "judge_score": 0.3,
+      "hit": false,
+      "justification": "KV compression via expected attention; no head pruning + rank-growth slope coupling."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.09596",
+      "title": "Making Every Head Count",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.5,
+      "judge_score": 0.55,
+      "hit": false,
+      "justification": "Head pruning + surviving heads concentrated load; one exact phrase match ('head pruning' implicit). No fixed slope-1.6 log-log frontier coupling head count to effective rank."
+    },
+    {
+      "url": "https://aclanthology.org/P19-1580/",
+      "title": "Analyzing Multi-Head Self-Attention (Voita et al.)",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.5,
+      "judge_score": 0.55,
+      "hit": false,
+      "justification": "Foundational head-pruning result with surviving-head specialization (canopy/understory analog). One keyword match. Lacks the specific slope-coupled rank-growth constraint."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41598-025-92586-5",
+      "title": "Efficient self-attention with smart pruning",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.45,
+      "judge_score": 0.5,
+      "hit": false,
+      "justification": "Attention pruning preserving surviving heads on efficiency-accuracy frontier. 'head pruning' close match. Frontier mentioned but not slope-1.6 log-log coupling."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00442-005-0126-0",
+      "title": "Species-specific allometric scaling under self-thinning",
+      "keyword_overlap_count": 1,
+      "semantic_cosine_estimate": 0.3,
+      "judge_score": 0.1,
+      "hit": false,
+      "justification": "Pure ecology source-domain paper; 'self-thinning' partial match but no LLM application."
+    }
+  ],
+  "total_hits": 0,
+  "forced_hit_count_keyword": 0,
+  "forced_hit_count_semantic": 0,
+  "forced_hit_count_functional": 0,
+  "verdict_independent": "PASS",
+  "agrees_with_primary_fail": false,
+  "disagreement_count": 6,
+  "disagreement_details": [
+    {"url": "https://arxiv.org/html/2510.07651", "primary": "hit", "mine": "miss", "reason": "Primary judge=0.74 (functional). I scored 0.5: token-level saliency pruning is not head-pruning with slope-coupled rank growth."},
+    {"url": "https://arxiv.org/html/2604.24647", "primary": "hit", "mine": "miss", "reason": "Primary judge=0.81 calling it 'strongest functional match' on layer-budget allocation. I scored 0.55: layer-level KV budget != head-count vs effective-rank coupling at slope 1.6."},
+    {"url": "https://arxiv.org/pdf/2504.17768", "primary": "hit", "mine": "miss", "reason": "Primary cosine=0.72/judge=0.78 on 'frontier' framing. I scored 0.4/0.35: generic Pareto frontier is not the specific slope-1.6 log-log coupling."},
+    {"url": "https://arxiv.org/html/2511.09596", "primary": "hit (kw=2 incl 'log-log slope')", "mine": "miss (kw=1)", "reason": "Primary credits 'log-log slope' overlap; I do not see that exact phrase in snippet — only 'trade-off' is mentioned, no log-log."},
+    {"url": "https://aclanthology.org/P19-1580/", "primary": "hit (kw=2)", "mine": "miss (kw=1)", "reason": "Primary credits 'effective rank' overlap; snippet says 'specialize' not 'effective rank'. Disagree on keyword count."},
+    {"url": "https://www.nature.com/articles/s41598-025-92586-5", "primary": "hit (judge=0.71)", "mine": "miss (judge=0.5)", "reason": "Smart pruning along generic frontier lacks the slope-1.6 rank-growth specification."}
+  ],
+  "honest_note": "I read the snippets very strictly: candidate's distinguishing feature is the SLOPE-1.6 log-log coupling between H (head count) and r (effective rank). None of the snippets actually contain that coupling. Primary's judge scores appear inflated by treating 'budget reallocation' and 'Pareto frontier' as functional equivalents, but the candidate's novelty_claim explicitly says generic head-pruning is NOT a hit — only slope-coupled rank growth is. By that strict reading the candidate PASSES. However, primary's softer functional-equivalence reading is also defensible: a slope is a small parametric specialization of an existing trade-off curve. Verdict turns on judge calibration."
+}
+</content>
+</invoke>

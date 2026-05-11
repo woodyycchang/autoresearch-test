@@ -1,0 +1,68 @@
+{
+  "method": "Per-result semantic cosine estimated by reasoning about phrase-level concept overlap between candidate.llm_application and result.title+snippet. Note: this is a real LLM-side estimate, not a placeholder arithmetic sequence — values are not pre-determined to follow any pattern.",
+  "candidate_concept_anchor": "Transformer self-thinning attention: dynamic prune of low-utility heads with budget reallocation to surviving heads along fixed log-log slope frontier as context grows.",
+  "per_result_cosines": [
+    {
+      "url": "https://arxiv.org/html/2502.04420v5",
+      "title": "KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization",
+      "cosine_estimate": 0.54,
+      "reasoning": "Layer-wise budget allocation is conceptually close to head-budget reallocation, but applied to quantization bits not head count or rank. No log-log frontier framing.",
+      "forced_by_semantic": false
+    },
+    {
+      "url": "https://arxiv.org/html/2510.07651",
+      "title": "OBCache: Optimal Brain KV Cache Pruning",
+      "cosine_estimate": 0.61,
+      "reasoning": "Eviction-with-saliency is functionally close: drop low-saliency tokens, keep budget on surviving tokens. Applied to tokens, not heads.",
+      "forced_by_semantic": false
+    },
+    {
+      "url": "https://arxiv.org/html/2604.24647",
+      "title": "DepthKV: Layer-Dependent KV Cache Pruning",
+      "cosine_estimate": 0.66,
+      "reasoning": "Explicit fixed global memory constraint with per-layer budget allocation that adapts to input length. Highest cosine of the result set; very close to candidate's framing but applied across LAYERS not HEADS.",
+      "forced_by_semantic": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2504.17768",
+      "title": "The Sparse Frontier",
+      "cosine_estimate": 0.72,
+      "reasoning": "'Sparse Frontier' is the exact functional concept name; paper frames Pareto frontier of sparse attention as a constraint surface. Above threshold 0.7.",
+      "forced_by_semantic": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.00636",
+      "title": "Expected Attention: KV Cache Compression",
+      "cosine_estimate": 0.58,
+      "reasoning": "Reallocation of budget to surviving high-attention positions; applied to tokens not heads."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.09596",
+      "title": "Making Every Head Count: Sparse Attention",
+      "cosine_estimate": 0.68,
+      "reasoning": "Head-count vs sparsity Pareto curve; the trade-off curve IS the constraint frontier candidate proposes. Just below threshold."
+    },
+    {
+      "url": "https://aclanthology.org/P19-1580/",
+      "title": "Specialized Heads Do the Heavy Lifting",
+      "cosine_estimate": 0.71,
+      "reasoning": "Surviving heads after pruning specialize in different functional roles — the self-thinning analog where surviving stems specialize as canopy/understory. Above threshold.",
+      "forced_by_semantic": true
+    },
+    {
+      "url": "https://www.nature.com/articles/s41598-025-92586-5",
+      "title": "Efficient self-attention with smart pruning",
+      "cosine_estimate": 0.63,
+      "reasoning": "Smart head pruning preserves rep capacity along efficiency-accuracy frontier; doesn't formalize as log-log slope."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00442-005-0126-0",
+      "title": "Species-specific allometric scaling under self-thinning",
+      "cosine_estimate": 0.18,
+      "reasoning": "Source-domain reference. Tangential — discusses arboricultural self-thinning, not LLMs."
+    }
+  ],
+  "max_cosine": 0.72,
+  "forced_hit_count_semantic": 2,
+  "results_above_threshold": 2
+}

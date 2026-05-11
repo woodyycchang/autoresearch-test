@@ -1,0 +1,22 @@
+{
+  "candidate_form": "null-space-traversal",
+  "domain": "arboriculture (Reineke self-thinning rule for forest stands)",
+  "specific_mechanism": "Reineke's rule: maximum stand density N_max and mean diameter D obey log(N_max) = -1.605 * log(D) + k. As a stand ages, competition forces the (N, D) trajectory to track the frontier in log-log space — the stand traverses the null-space of (compute = light × water × N × D) by trading density for size.",
+  "llm_application": "Transformer self-thinning attention: at runtime, prune low-utility attention heads and re-allocate the freed KV-cache to surviving heads' effective rank, such that the (active_head_count H, per-head effective rank r) state traverses a fixed log(H) + 1.6 * log(r) ≈ const frontier as context length grows. Replaces fixed (H, r) with a dynamic null-space-traversal constraint.",
+  "novelty_claim": "Published 2024-2026 LLM head-pruning work uses head importance scores to drop heads; this candidate proposes the additional constraint that surviving heads' rank GROWS along a fixed slope-1.6 log-log frontier matching Reineke's frontier slope, not just that head count decreases. Whether this exact slope-coupled constraint is in the literature is the open question.",
+  "content_words": [
+    "Reineke rule",
+    "self-thinning frontier",
+    "stand density index",
+    "size-density relationship",
+    "head pruning",
+    "effective rank",
+    "KV-cache reallocation",
+    "log-log slope"
+  ],
+  "content_words_composition": {
+    "llm_side": ["head pruning", "effective rank", "KV-cache reallocation"],
+    "source_side": ["Reineke rule", "self-thinning frontier", "stand density index", "size-density relationship"],
+    "generic": ["log-log slope"]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "round": 158,
+  "candidate_summary": "Retrograde reasoning compile-cache: backward-compute optimal CoT from answer, store, replay at inference.",
+  "candidate_keywords_llm_side": ["chain-of-thought cache", "lyapunov decay", "trajectory control", "dots"],
+  "hit_rule": "hit = kw>=2 OR cos>=0.7 OR judge>=0.7",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/5e5d6f9ac33ba9349ba7b2be9f21bad9-Paper-Conference.pdf",
+      "title": "DOTS: Learning Optimal Reasoning Trajectories (ICLR 2025)",
+      "kw_count": 2,
+      "kw_matches": ["dots", "trajectory control (optimal reasoning trajectory)"],
+      "cos": 0.68,
+      "judge": 0.75,
+      "judge_reason": "Directly selects optimal reasoning trajectories; aligns with 'optimal CoT' precomputation idea, though learned not retrograde-DP.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "judge>=0.7"]
+    },
+    {
+      "index": 1,
+      "url": "https://arxiv.org/html/2508.17627",
+      "title": "The Evolution of Thought: LLM Overthinking via Reasoning Dynamics",
+      "kw_count": 1,
+      "kw_matches": ["trajectory (latent semantic trajectories)"],
+      "cos": 0.55,
+      "judge": 0.48,
+      "judge_reason": "Describes convergence/basin dynamics of reasoning, but does not precompute or cache optimal CoT backward from answer.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2602.04925",
+      "title": "Internalizing LLM Reasoning via Discovery and Replay of Latent Actions",
+      "kw_count": 1,
+      "kw_matches": ["chain-of-thought cache (replay of latent actions)"],
+      "cos": 0.66,
+      "judge": 0.82,
+      "judge_reason": "Discover latent reasoning actions and replay them at inference; direct functional analog of tablebase-style compile-cache-then-replay of CoT, even if not strictly retrograde-computed.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2601.20868",
+      "title": "Dynamics-Aware Solver Generation",
+      "kw_count": 2,
+      "kw_matches": ["lyapunov decay", "trajectory control (trajectory-aware ... runtime schedule)"],
+      "cos": 0.6,
+      "judge": 0.55,
+      "judge_reason": "Uses Lyapunov decay rate and trajectory-aware control for solver scheduling; overlaps stability vocabulary but not retrograde compile-cache of CoT.",
+      "hit": true,
+      "hit_triggers": ["kw>=2"]
+    },
+    {
+      "index": 4,
+      "url": "https://llm-reasoning-ai.github.io/survey_arxiv.pdf",
+      "title": "Survey of Frontiers in LLM Reasoning",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.32,
+      "judge": 0.2,
+      "judge_reason": "Broad survey of inference-scaling and reasoning; no specific match to retrograde/compile-cache CoT.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2510.04072v1",
+      "title": "Slow-Fast Policy Optimization for LLM Reasoning",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.28,
+      "judge": 0.22,
+      "judge_reason": "Reposition-before-update policy optimization; unrelated to precomputed retrograde CoT cache.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://en.wikipedia.org/wiki/Endgame_tablebase",
+      "title": "Endgame tablebase",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.18,
+      "judge": 0.1,
+      "judge_reason": "Pure source-domain description (chess tablebase) with no LLM/reasoning application; counts as source-side only, not an LLM-side hit.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 7,
+  "total_hits": 3,
+  "total_misses": 4,
+  "verdict": "candidate is partially covered by prior work (DOTS optimal-trajectory selection, latent-action discovery+replay, dynamics-aware Lyapunov trajectory control); not novel as stated"
+}

@@ -1,0 +1,13 @@
+{
+  "round": "151",
+  "mechanical_rule": "total_hits >= 1 -> FAIL",
+  "total_hits": 6,
+  "verdict": "FAIL",
+  "verdict_drivers": {
+    "forced_by_keyword": ["Making Every Head Count (2 overlaps)", "Specialized Heads (2 overlaps)"],
+    "forced_by_semantic": ["Sparse Frontier (cos 0.72)", "Specialized Heads (cos 0.71)"],
+    "forced_by_functional": ["OBCache (0.74)", "DepthKV (0.81)", "Sparse Frontier (0.78)", "Making Every Head Count (0.83)", "Specialized Heads (0.79)", "Smart Pruning (0.71)"]
+  },
+  "pattern_classification": "B/D mix — keyword overlap was non-zero because candidate genuinely included LLM-side words ('head pruning', 'effective rank', 'KV-cache reallocation') in content_words, so keyword detection fired. This contrasts with epoch 6 batched template which set all content_words to source-side only and forced keyword overlap = 0 by construction. Honest result.",
+  "honest_note": "The candidate WAS plausible-sounding ex ante (Reineke slope coupling is genuinely not formalized in print) but the surrounding functional space — fixed-budget head pruning with survivor concentration — is densely covered."
+}

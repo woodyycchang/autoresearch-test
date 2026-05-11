@@ -1,0 +1,103 @@
+{
+  "round": 156,
+  "candidate_summary": "Stratigraphic LLM retrieval: corpus organized in deposition-style layers; each stratum's relevance cascades to next.",
+  "scoring_rule": "hit = (kw_matches >= 2) OR (cosine_similarity >= 0.7) OR (judge_score >= 0.7)",
+  "content_words": ["stratigraphy", "pollen succession", "depositional layer", "stratum cascade", "hierarchical retrieval", "path relevance", "LATTICE", "RAG"],
+  "results": [
+    {
+      "url": "https://arxiv.org/html/2510.13217v1",
+      "title": "LLM-guided Hierarchical Retrieval (LATTICE)",
+      "kw_matches": 4,
+      "matched_terms": ["hierarchical retrieval", "LATTICE", "path relevance", "RAG"],
+      "cosine_similarity": 0.82,
+      "judge_score": 0.85,
+      "hit": true,
+      "rationale": "Directly describes hierarchical retrieval with path-aggregated relevance; named LATTICE paper which is candidate's prior-art anchor."
+    },
+    {
+      "url": "https://openreview.net/forum?id=p0gxvlUoZM",
+      "title": "LATTICE openreview",
+      "kw_matches": 2,
+      "matched_terms": ["LATTICE", "hierarchical retrieval"],
+      "cosine_similarity": 0.78,
+      "judge_score": 0.80,
+      "hit": true,
+      "rationale": "Same LATTICE paper, alternate venue; matches multiple core terms."
+    },
+    {
+      "url": "https://aclanthology.org/2025.acl-long.1317.pdf",
+      "title": "Knowledge Graph RAG for LLM-based Recommendation",
+      "kw_matches": 2,
+      "matched_terms": ["RAG", "hierarchical retrieval"],
+      "cosine_similarity": 0.55,
+      "judge_score": 0.55,
+      "hit": true,
+      "rationale": "KG-RAG with hierarchical knowledge structure; meets kw>=2 threshold via RAG and hierarchical retrieval phrasing."
+    },
+    {
+      "url": "https://www.rivista.ai/wp-content/uploads/2025/09/2312.10997v5.pdf",
+      "title": "RAG for LLMs: A Survey",
+      "kw_matches": 1,
+      "matched_terms": ["RAG"],
+      "cosine_similarity": 0.45,
+      "judge_score": 0.40,
+      "hit": false,
+      "rationale": "Generic RAG survey; no hierarchical/stratigraphic specifics. Only one kw match."
+    },
+    {
+      "url": "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2025.1590632/full",
+      "title": "Knowledge graphs + LLMs fusion",
+      "kw_matches": 0,
+      "matched_terms": [],
+      "cosine_similarity": 0.35,
+      "judge_score": 0.30,
+      "hit": false,
+      "rationale": "KG-LLM fusion; no explicit hierarchical retrieval or stratigraphic cascade content."
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/iterative-llm-based-approach",
+      "title": "Iterative LLM-Based Approach",
+      "kw_matches": 0,
+      "matched_terms": [],
+      "cosine_similarity": 0.42,
+      "judge_score": 0.45,
+      "hit": false,
+      "rationale": "Iterative refinement is adjacent but not hierarchical/stratigraphic; no kw match."
+    },
+    {
+      "url": "https://arxiv.org/html/2504.15909v2",
+      "title": "Synergizing RAG and Reasoning: Systematic Review",
+      "kw_matches": 1,
+      "matched_terms": ["RAG"],
+      "cosine_similarity": 0.40,
+      "judge_score": 0.40,
+      "hit": false,
+      "rationale": "Multi-step retrieval review; only RAG term matches; not hierarchical/stratigraphic."
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/p/llm-research-papers-2025-part2",
+      "title": "LLM Research Papers 2025",
+      "kw_matches": 1,
+      "matched_terms": ["hierarchical retrieval"],
+      "cosine_similarity": 0.38,
+      "judge_score": 0.35,
+      "hit": false,
+      "rationale": "Review listing mentions hierarchical retrieval among many topics; single kw match insufficient."
+    },
+    {
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0302424",
+      "title": "Pollen identification through CNN",
+      "kw_matches": 0,
+      "matched_terms": [],
+      "cosine_similarity": 0.20,
+      "judge_score": 0.20,
+      "hit": false,
+      "rationale": "Source-domain pollen identification; no stratigraphic succession or LLM retrieval content; 'pollen' alone is not in the content-word list (only 'pollen succession')."
+    }
+  ],
+  "totals": {
+    "total_results": 9,
+    "total_hits": 3,
+    "total_misses": 6
+  }
+}

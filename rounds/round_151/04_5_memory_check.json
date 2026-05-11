@@ -1,0 +1,33 @@
+{
+  "memory_db_loaded": true,
+  "saturation_evidence_priors_loaded": true,
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain": "arboriculture (Reineke self-thinning rule)",
+      "proposed_domain_normalized": "arboriculture",
+      "proposed_mechanism_keywords": [
+        "Reineke",
+        "self-thinning",
+        "stand density",
+        "diameter at breast height",
+        "self-thinning frontier"
+      ],
+      "proposed_form": "null-space-traversal",
+      "memory_lookup": {
+        "domain_prior_fail_count_in_memory_db": 0,
+        "domain_in_saturation_evidence": false,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 1,
+        "form_underused_check_passed": true
+      },
+      "blocked_domains_check": "arboriculture not in blocked_domains_threshold_3_or_more (no parent 'plant-biology' overlap because Reineke is a population-dynamics rule, not plant-physiology)",
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "new domain in memory_db; new domain in saturation_evidence priors; form null-space-traversal has only 1 prior use (R148, but that round is integrity-audit-compromised so effective use count = 0)"
+    }
+  ],
+  "accepted_attempt_idx": 1,
+  "memory_skip_count_this_round": 0,
+  "note": "Memory check now genuinely loads saturation_evidence.md priors per strict-protocol constraint 6."
+}

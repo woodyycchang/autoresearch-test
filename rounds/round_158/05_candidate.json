@@ -1,0 +1,13 @@
+{
+  "candidate_form": "basin-stability",
+  "domain": "chess endgame tablebase (Syzygy retrograde analysis, distance-to-zero / distance-to-mate)",
+  "specific_mechanism": "Syzygy tablebases: retrograde-analyze the 6/7-piece endgame state space starting from terminal mate positions, propagating WDL+DTZ+DTM backward to all reachable positions. Optimal play is the unique policy that traverses the basin boundary toward mate; suboptimal moves leave the win-basin.",
+  "llm_application": "Retrograde reasoning compile-cache: for a class of math/logic problems with known answers, retrograde-compute the optimal chain-of-thought from answer backwards, store the trajectory in a tablebase, then condition LLM inference to traverse the same basin at runtime. Basin-stability = robustness of the precomputed trajectory under bounded prompt-perturbation.",
+  "novelty_claim": "DOTS (ICLR 2025) selects optimal reasoning actions; STIR uses Lyapunov decay rate for trajectory control. Whether 'precomputed retrograde-analysis tablebase indexed at LLM inference' as a distinct mechanism is in 2024-2026 print, or whether it collapses into standard search + reasoning, is the open question.",
+  "content_words": ["Syzygy tablebase", "retrograde analysis", "distance to mate", "endgame state space", "chain-of-thought cache", "Lyapunov decay", "trajectory control", "DOTS"],
+  "content_words_composition": {
+    "llm_side": ["chain-of-thought cache", "Lyapunov decay", "trajectory control", "DOTS"],
+    "source_side": ["Syzygy tablebase", "retrograde analysis", "distance to mate", "endgame state space"],
+    "generic": []
+  }
+}

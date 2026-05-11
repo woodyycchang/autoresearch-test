@@ -1,0 +1,70 @@
+{
+  "method": "LLM-judge functional-equivalence per result. For each of the top results, judge whether the paper achieves the SAME functional effect as candidate.llm_application even with different terminology.",
+  "candidate_functional_anchor": "Dynamic redistribution of fixed transformer compute/cache budget such that the (active-unit-count, per-unit-capacity) state traverses a fixed constraint frontier as input length grows. The freed budget from pruned units accrues to survivors, like self-thinning in forest stands.",
+  "per_result_judge_scores": [
+    {
+      "url": "https://arxiv.org/html/2502.04420v5",
+      "title": "KVTuner",
+      "judge_score": 0.62,
+      "justification": "KVTuner allocates precision-bits across layers under fixed memory budget; functionally similar — survivors (high-importance layers) get more bits. But the budget unit is bits, not head/cache slots, and there is no slope-coupled frontier."
+    },
+    {
+      "url": "https://arxiv.org/html/2510.07651",
+      "title": "OBCache",
+      "judge_score": 0.74,
+      "justification": "OBCache drops low-saliency tokens and reallocates effective representational budget to surviving tokens — direct functional analog of self-thinning where survivors absorb the freed budget. Above threshold 0.7."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.24647",
+      "title": "DepthKV",
+      "judge_score": 0.81,
+      "justification": "Explicitly: fixed global memory constraint, per-layer dynamic budget allocation, adapts to input length. The constraint frontier is mathematically explicit. Strongest functional match — same functional effect with different terminology (layer-budget vs head-rank, but identical 'traverse constraint frontier' framing)."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2504.17768",
+      "title": "The Sparse Frontier",
+      "judge_score": 0.78,
+      "justification": "Frames sparse attention as Pareto frontier with explicit trade-off. The 'frontier' is the candidate's 'frontier'. Same functional effect; different but compatible terminology."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.00636",
+      "title": "Expected Attention",
+      "judge_score": 0.65,
+      "justification": "Reallocates attention budget toward expected high-attention slots; functional partial match (token-level not head-level), no slope frontier."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.09596",
+      "title": "Making Every Head Count",
+      "judge_score": 0.83,
+      "justification": "EXACT functional match: surviving heads after pruning carry concentrated attention load along the head-count-vs-quality trade-off curve. The title 'Making Every Head Count' is semantically the same as 'surviving stems grow along Reineke frontier'. Highest judge score."
+    },
+    {
+      "url": "https://aclanthology.org/P19-1580/",
+      "title": "Specialized Heads Do the Heavy Lifting",
+      "judge_score": 0.79,
+      "justification": "Heads survive pruning and specialize functionally — this is THE classic head-pruning result with surviving-head specialization. Functionally equivalent to self-thinning."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41598-025-92586-5",
+      "title": "Efficient self-attention with smart pruning",
+      "judge_score": 0.71,
+      "justification": "Smart pruning preserves capacity of surviving heads; above threshold."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00442-005-0126-0",
+      "title": "Species-specific allometric scaling",
+      "judge_score": 0.05,
+      "justification": "Source-domain only; no LLM functional content."
+    }
+  ],
+  "max_judge_score": 0.83,
+  "forced_hit_count_functional": 5,
+  "results_above_threshold": 5,
+  "distinct_effect_clusters": [
+    "layer-wise KV budget allocation under fixed memory (DepthKV, KVTuner)",
+    "token saliency pruning + survivor budget concentration (OBCache, Expected Attention)",
+    "head-count-vs-quality Pareto frontier (Sparse Frontier, Making Every Head Count, Smart Pruning)",
+    "surviving-head functional specialization (Specialized Heads / Voita 2019)"
+  ],
+  "multi_cluster_match": true
+}

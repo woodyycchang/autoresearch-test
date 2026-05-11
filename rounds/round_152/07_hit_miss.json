@@ -1,0 +1,18 @@
+{
+  "round": "152",
+  "results": [
+    {"url": "https://arxiv.org/html/2603.22862v2", "keyword_overlap_count": 1, "keyword_overlap_words": ["multi-tool agent"], "semantic_cosine": 0.52, "judge_score": 0.66, "hit": false, "reason": "kw<2, sem<0.7, fn<0.7"},
+    {"url": "https://www.getmaxim.ai/blog/chain-of-tools-llm-framework/", "keyword_overlap_count": 1, "semantic_cosine": 0.58, "judge_score": 0.69, "hit": false, "reason": "All signals below threshold"},
+    {"url": "https://arxiv.org/html/2602.18968", "keyword_overlap_count": 0, "semantic_cosine": 0.61, "judge_score": 0.72, "forced_by_functional": true, "hit": true, "reason": "Layered execution + reflective correction crosses functional threshold"},
+    {"url": "https://arxiv.org/html/2603.01620", "keyword_overlap_count": 0, "semantic_cosine": 0.41, "judge_score": 0.51, "hit": false},
+    {"url": "https://openreview.net/forum?id=Vusd1Hw2D9", "keyword_overlap_count": 2, "keyword_overlap_words": ["multi-tool agent", "embedding agreement"], "semantic_cosine": 0.74, "judge_score": 0.86, "forced_by_rule": true, "forced_by_semantic": true, "forced_by_functional": true, "hit": true, "reason": "All 3 signals fire — strongest match"},
+    {"url": "https://composable-models.github.io/llm_debate/", "keyword_overlap_count": 1, "keyword_overlap_words": ["self-consistency"], "semantic_cosine": 0.69, "judge_score": 0.81, "forced_by_functional": true, "hit": true, "reason": "Functional fires"},
+    {"url": "https://link.springer.com/article/10.1007/s44443-025-00353-3", "keyword_overlap_count": 1, "keyword_overlap_words": ["multi-tool agent"], "semantic_cosine": 0.71, "judge_score": 0.83, "forced_by_semantic": true, "forced_by_functional": true, "hit": true, "reason": "Sem + fn fire"},
+    {"url": "https://arxiv.org/html/2510.12697v1", "keyword_overlap_count": 2, "keyword_overlap_words": ["multi-tool agent", "self-consistency"], "semantic_cosine": 0.74, "judge_score": 0.86, "forced_by_rule": true, "forced_by_semantic": true, "forced_by_functional": true, "hit": true, "reason": "All 3 fire"}
+  ],
+  "total_hits": 5,
+  "forced_by_rule_keyword_count": 2,
+  "forced_by_semantic_count": 3,
+  "forced_by_functional_count": 5,
+  "verdict": "FAIL — multi-agent debate with adaptive stability detection (Springer Nature 2025, arxiv 2510.12697) is functionally identical to the candidate's 'Behistun 3-of-3 agreement' termination criterion. Strong prior art."
+}

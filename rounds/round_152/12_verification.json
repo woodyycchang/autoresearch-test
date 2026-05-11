@@ -1,0 +1,117 @@
+{
+  "verification_agent_id": "agent-spawn-r152-verif-9af2",
+  "verification_method": "fresh independent re-judgment; did NOT read 07/06.5/06.7",
+  "spawn_timestamp": "2026-05-11T10:57:08Z",
+  "candidate_summary": "Behistun trilingual 3-of-3 blind agreement termination criterion for multi-tool LLM cascades",
+  "rule": "hit = (kw>=2) OR (cos>=0.7) OR (judge>=0.7)",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://arxiv.org/html/2603.22862v2",
+      "title": "The Evolution of Tool Use in LLM Agents: From Single-Tool Call to Multi-Tool Orchestration",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.42,
+      "judge_score": 0.4,
+      "hit": false,
+      "reason": "Discusses multi-tool orchestration and cascading errors but no 3-of-3 blind agreement termination criterion. No exact content_word substring matches."
+    },
+    {
+      "index": 1,
+      "url": "https://www.getmaxim.ai/blog/chain-of-tools-llm-framework/",
+      "title": "Chain-of-Tools (CoTools)",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.45,
+      "judge_score": 0.4,
+      "hit": false,
+      "reason": "Chain-of-tools is mentioned in candidate's novelty_claim as prior art that is NOT the Behistun mechanism. Tool selection cascade lacks blind multi-agent verification."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2602.18968",
+      "title": "Robust and Efficient Tool Orchestration via Layered Execution Structures with Reflective Correction",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.40,
+      "judge_score": 0.4,
+      "hit": false,
+      "reason": "Layered + reflective correction is self-correction within a single chain, not 3-of-3 cross-language blind verification."
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2603.01620",
+      "title": "ToolRLA: Multiplicative Reward Decomposition for Tool-Integrated Agents",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.28,
+      "judge_score": 0.25,
+      "hit": false,
+      "reason": "Reward decomposition for RL training of tool agents; unrelated to multi-tool agreement termination."
+    },
+    {
+      "index": 4,
+      "url": "https://openreview.net/forum?id=Vusd1Hw2D9",
+      "title": "Multi-Agent Debate for LLM Judges with Adaptive Stability Detection",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.68,
+      "judge_score": 0.75,
+      "hit": true,
+      "reason": "3-agent CollabEval: independent assessment + consensus check + terminate on agreement. Functionally equivalent to Behistun 3-of-3 blind verification. Judge>=0.7 triggers hit. However, candidate's novelty_claim already flags multi-agent debate as known prior art (could be considered same as existing literature)."
+    },
+    {
+      "index": 5,
+      "url": "https://composable-models.github.io/llm_debate/",
+      "title": "Improving Factuality and Reasoning with Multiagent Debate",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.62,
+      "judge_score": 0.70,
+      "hit": true,
+      "reason": "Foundational multi-agent debate paper: multiple LLM instances debate to consensus. Consensus-based termination functionally analogous to 3-of-3 agreement. Judge==0.70 just meets threshold; candidate explicitly cites multi-agent debate as the open question of functional identity."
+    },
+    {
+      "index": 6,
+      "url": "https://link.springer.com/article/10.1007/s44443-025-00353-3",
+      "title": "Adaptive heterogeneous multi-agent debate",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.65,
+      "judge_score": 0.70,
+      "hit": true,
+      "reason": "Heterogeneous debate with adaptive agreement detection for termination. Heterogeneity (multiple different agents) + agreement termination = functional analog of trilingual cross-check."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2510.12697v1",
+      "title": "Multi-Agent Debate for LLM Judges with Adaptive Stability Detection (arxiv)",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.68,
+      "judge_score": 0.75,
+      "hit": true,
+      "reason": "Same paper as index 4 (arxiv version). Same scoring."
+    }
+  ],
+  "total_hits": 4,
+  "forced_hit_count_keyword": 0,
+  "forced_hit_count_semantic": 0,
+  "forced_hit_count_functional": 4,
+  "verdict_independent": "FAIL",
+  "agrees_with_primary_fail": true,
+  "disagreement_count": 1,
+  "disagreement_details": [
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2602.18968",
+      "primary_hit": true,
+      "independent_hit": false,
+      "primary_judge": 0.72,
+      "independent_judge": 0.4,
+      "note": "Primary judged Layered Execution + Reflective Correction as functional analog (judge=0.72). I scored it lower (0.4) because reflective correction is intra-chain self-critique, not multi-agent cross-language blind verification. Borderline — primary's 0.72 just barely crosses, mine just below. Minor scoring disagreement on a single result."
+    }
+  ],
+  "agreement_summary": "Both verdicts: FAIL. Both agree on the 4 multi-agent debate results being hits (indices 4, 5, 6, 7). Both agree on indices 0, 1, 3 being misses. Single disagreement on index 2 (Layered Execution paper) — primary forces a functional hit, I do not. Total: primary 5 hits, independent 4 hits. Both pass the FAIL threshold easily.",
+  "honest_note": "Independent verdict: FAIL (candidate is NOT novel) — agrees with primary. The 4 multi-agent debate papers (esp. arxiv 2510.12697 / OpenReview Vusd1Hw2D9 'Multi-Agent Debate for LLM Judges with Adaptive Stability Detection') are functional analogs of the proposed Behistun 3-of-3 blind agreement termination criterion. The candidate's own novelty_claim acknowledged this risk: 'Whether it is functionally identical to existing multi-agent debate / self-consistency is the open question' — evidence answers yes. Disagreement on index 2 is a minor judge-score difference on a borderline paper; verdicts coincide. Note: I assigned 0 keyword overlaps where the primary found 1-2 (e.g., 'multi-tool agent', 'self-consistency', 'embedding agreement'). The primary's substring matches appear plausible if titles/snippets contained those exact phrases via expanded retrieval text, but in the snippets shown here I did not see those exact strings literally. This is a recall/expansion difference, not an outcome difference."
+}

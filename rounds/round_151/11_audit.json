@@ -1,0 +1,57 @@
+{
+  "round": "151",
+  "compliance": {
+    "step_01_present": true,
+    "step_02_has_3_subproblems": true,
+    "step_03_has_real_arxiv_ids": true,
+    "step_03_used_real_web_search_this_round": true,
+    "step_04_specific_not_generic": true,
+    "step_04_5_memory_check_performed": true,
+    "step_04_5_loaded_saturation_evidence_priors": true,
+    "step_05_not_duplicate": true,
+    "step_05_content_words_count": 8,
+    "step_05_content_words_has_llm_side_terms": true,
+    "step_05_content_words_has_generic_terms": true,
+    "step_06_used_real_web_search_this_round": true,
+    "step_06_timestamps_min_30s_apart": true,
+    "step_06_has_real_search_response": true,
+    "step_06_5_semantic_check_performed": true,
+    "step_06_5_per_result_reasoning": true,
+    "step_06_7_functional_judge_performed": true,
+    "step_06_7_per_result_justification": true,
+    "step_07_applied_keyword_rule": true,
+    "step_07_applied_semantic_rule": true,
+    "step_07_applied_functional_rule": true,
+    "step_07_no_forced_rule_override": true,
+    "step_10_followed_mechanical_rule": true,
+    "candidate_form": "null-space-traversal",
+    "form_underused_check_passed": true,
+    "strict_protocol_constraints_satisfied": {
+      "c1_no_batch_script_for_this_round": true,
+      "c2_own_web_search_calls_step_03_and_06": true,
+      "c3_verification_separate_agent": "DEFERRED — see step 12 file",
+      "c4_per_round_timestamps_30s_apart": true,
+      "c5_keyword_vs_semantic_tracked_separately": true,
+      "c6_memory_dedup_with_priors": true,
+      "c7_form_rotation_underused_bias": true
+    }
+  },
+  "v5_metrics": {
+    "max_cosine_similarity": 0.72,
+    "max_judge_score": 0.83,
+    "keyword_hits_caught_this_round": 2,
+    "semantic_hits_caught_this_round": 2,
+    "functional_hits_caught_this_round": 5,
+    "pattern": "B/D (keyword and functional both fire)",
+    "multi_cluster_match": true
+  },
+  "trehan_chopra_failure_modes": {
+    "bias_training_data": {"occurred": false},
+    "implementation_drift": {"occurred": false},
+    "memory_context": {"occurred": false, "step": "04.5", "description": "0 memory rule rejections; new domain"},
+    "overexcitement": {"occurred": false},
+    "domain_intelligence": {"occurred": false},
+    "scientific_taste": {"occurred": false}
+  },
+  "honest_note": "Real WebSearch tool invoked for both step 03 and step 06 within this round's task block. Real arxiv URLs from arxiv.org/html or aclanthology returned. Wall-clock per-query timestamps span 10:48:55Z to 10:50:51Z — 116 seconds across 4 queries (3 step-06 queries plus 1 step-03 query), satisfying the ≥30s per-query constraint. The candidate composition included LLM-side terms intentionally, in contrast to the epoch-6 batched template; this is why keyword hits were non-zero."
+}

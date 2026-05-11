@@ -1,0 +1,105 @@
+{
+  "round": "153",
+  "verifier": "independent",
+  "candidate_summary": "Activation-thermography for LLMs: per-neuron basin-stability map predicting prompt-injection vulnerability via counterfactual probing.",
+  "content_words_used": ["thermography", "hotspot", "infrared map", "basin-stability", "activation patching", "counterfactual probing", "decision boundary", "prompt injection"],
+  "results": [
+    {
+      "url": "https://aclanthology.org/2025.findings-naacl.333.pdf",
+      "title": "Large Language Models for Anomaly and Out-of-Distribution Detection",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.55,
+      "judge_score": 0.42,
+      "hit": false,
+      "rationale": "Survey of LLM anomaly/OOD detection; attention heatmaps and token-importance are mentioned but the candidate's per-neuron basin-stability framing for prompt-injection prediction is not present. Mildly thematic overlap (anomaly = hotspot analogy) but neither counterfactual probing of decision-basin boundaries nor prompt-injection vulnerability mapping is covered."
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.79.pdf",
+      "title": "AD-LLM: Benchmarking Large Language Models for Anomaly Detection",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.38,
+      "judge_score": 0.28,
+      "hit": false,
+      "rationale": "Benchmark for LLM text anomaly detection (using LLMs as detectors on NLP tasks), not internal neuron interpretability or jailbreak vulnerability prediction. No overlap with the basin-stability / activation-patching axis."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0950705125011098",
+      "title": "LLM-LADE: log anomaly detection with explanation",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.30,
+      "judge_score": 0.20,
+      "hit": false,
+      "rationale": "Log anomaly detection via PEFT and post-hoc explanation generation. No mechanistic interpretability, no prompt-injection focus, no decision-basin reasoning."
+    },
+    {
+      "url": "https://arxiv.org/html/2509.23113v1",
+      "title": "Exploring LLM-based Frameworks for Fault Diagnosis",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.32,
+      "judge_score": 0.22,
+      "hit": false,
+      "rationale": "Uses LLMs as agents for industrial fault diagnosis. Reverses the candidate's direction (LLM diagnosing faults rather than LLM internals being diagnosed). No counterfactual probing of LLM neurons."
+    },
+    {
+      "url": "https://www.mdpi.com/2073-431X/14/12/551",
+      "title": "Hybrid LLM-Assisted Fault Diagnosis for 5G/6G Networks",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.22,
+      "judge_score": 0.15,
+      "hit": false,
+      "rationale": "Network fault diagnosis with hybrid pipeline. Domain-mismatched: no LLM mechanistic interpretability and no security/jailbreak vulnerability prediction."
+    },
+    {
+      "url": "https://towardsdatascience.com/boosting-your-anomaly-detection-with-llms/",
+      "title": "Boosting Anomaly Detection With LLMs",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.38,
+      "judge_score": 0.30,
+      "hit": false,
+      "rationale": "Blog-level survey of LLM anomaly augmentation. Mentions activation-based interpretability in passing but no per-neuron basin-stability for prompt-injection. Not a substantive match."
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3711896.3737239",
+      "title": "LLMAD: Time Series Anomaly Detection with LLMs (KDD 2025)",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine_estimate": 0.28,
+      "judge_score": 0.18,
+      "hit": false,
+      "rationale": "In-context time-series anomaly detection; LLM used as detector on external series, not interpreted internally. No prompt-injection or counterfactual-probing content."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41598-024-56142-x",
+      "title": "Thermal fault diagnosis of complex electrical equipment based on infrared image recognition",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["thermography"],
+      "semantic_cosine_estimate": 0.10,
+      "judge_score": 0.03,
+      "hit": false,
+      "rationale": "Pure source-domain paper (industrial infrared imaging of electrical equipment). No LLM content at all; one keyword overlap is incidental."
+    }
+  ],
+  "total_hits": 0,
+  "forced_by_rule_keyword_count": 0,
+  "forced_by_semantic_count": 0,
+  "forced_by_functional_count": 0,
+  "verdict_independent": "PASS — no surfaced result clears the hit threshold. The proposed combination of (a) per-neuron basin-stability scoring from dynamical-systems theory, (b) counterfactual prompt perturbation, and (c) prompt-injection vulnerability prediction is not directly present in these 8 results.",
+  "agrees_with_primary_fail": false,
+  "agrees_with_primary_pass": true,
+  "disagreement_count": 1,
+  "disagreement_details": [
+    {
+      "url": "https://aclanthology.org/2025.findings-naacl.333.pdf",
+      "primary": {"semantic_cosine": 0.66, "judge_score": 0.69, "hit": false},
+      "independent": {"semantic_cosine_estimate": 0.55, "judge_score": 0.42, "hit": false},
+      "note": "Primary's judge=0.69 sits just below threshold; I score lower because the survey covers attention heatmaps for OOD/anomaly detection rather than the specific per-neuron basin-stability or prompt-injection vulnerability mapping. Hit verdict still agrees (both = miss)."
+    }
+  ],
+  "honest_note": "Reflecting on prior knowledge: activation patching and counterfactual probing for LLM safety are well-established (e.g., circuit analysis of refusal, mechanistic anatomy of jailbreaks, refusal-direction ablation in Arditi et al.-style work, and probing for harmful-instruction features). The DYNAMICAL-SYSTEMS basin-stability formalism (Menck et al. 2013) applied per-neuron to predict prompt-injection vulnerability is, to my knowledge, not yet a published framing as of late 2026 — though closely related notions (steering vectors, robustness manifolds, jailbreak directions, loss-landscape sharpness for adversarial vulnerability) exist. Given that, I would set a low-to-moderate judge score for the 8 surfaced results: none of them touch the mechanistic-interpretability-of-jailbreaks axis at all (they are anomaly/fault detection papers plus the source thermography paper). The primary's judge=0.69 on the NAACL anomaly-detection survey looks slightly inflated to me — the survey is about LLMs DETECTING anomalies, not about probing LLMs' own neurons for vulnerability. I therefore agree with the primary's PASS verdict but on a stricter basis. A genuinely confounding result would be a 2024-2026 paper combining activation patching + counterfactual probes + prompt-injection prediction (e.g., from Anthropic interpretability, Apollo Research, or a mechanistic-jailbreak paper). The current search queries did not surface that literature, so the PASS reflects search-coverage limits as much as genuine novelty."
+}
