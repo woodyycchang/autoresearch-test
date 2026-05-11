@@ -1,0 +1,108 @@
+{
+  "round": "221",
+  "verifier": "cross-agent-independent",
+  "verification_timestamp": "2026-05-11T18:18:00Z",
+  "candidate_content_words": ["paper marbling", "carrageenan size", "ox-gall surfactant", "pigment floating", "viscous latent surface", "non-mixing activation accumulation", "single-stamp generation", "surface-state transfer"],
+  "rule": "hit if (kw_overlap >= 2) OR (cos_sim >= 0.7) OR (judge_score >= 0.7)",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://en.wikipedia.org/wiki/Paper_marbling",
+      "title": "Paper marbling — Wikipedia",
+      "judge_score": 0.95,
+      "cos_sim": 0.88,
+      "kw_overlap": 4,
+      "matched_keywords": ["paper marbling", "carrageenan size", "ox-gall surfactant", "pigment floating"],
+      "judge_reason": "Directly describes the source-domain mechanism with carrageenan size, ox-gall surfactant, and rake/comb manipulation — exact match to source side.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "index": 1,
+      "url": "https://ich.unesco.org/en/RL/ebru-turkish-art-of-marbling-00644",
+      "title": "Ebru — UNESCO Intangible Cultural Heritage",
+      "judge_score": 0.85,
+      "cos_sim": 0.78,
+      "kw_overlap": 2,
+      "matched_keywords": ["paper marbling", "pigment floating"],
+      "judge_reason": "UNESCO entry on ebru describes sprinkling/brushing pigments on oily water and transferring to paper — same source-domain mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "index": 2,
+      "url": "https://www.momentslog.com/culture/the-craft-of-turkish-marbling-ebru-techniques-patterns-and-artistic-importance",
+      "title": "Craft of Turkish Marbling",
+      "judge_score": 0.82,
+      "cos_sim": 0.75,
+      "kw_overlap": 1,
+      "matched_keywords": ["paper marbling"],
+      "judge_reason": "Describes Turkish marbling techniques and named patterns (stones, peacock, getgel) — covers the source-domain craft directly.",
+      "hit": true,
+      "hit_triggers": ["cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2505.21189v1",
+      "title": "One-Step Text Generation: Latent Capacity (2025/5)",
+      "judge_score": 0.78,
+      "cos_sim": 0.74,
+      "kw_overlap": 2,
+      "matched_keywords": ["single-stamp generation", "viscous latent surface"],
+      "judge_reason": "One-step generation from compressed latent embeddings reconstructing hundreds of tokens in one forward pass closely mirrors the single-stamp single-shot extraction from accumulated latent surface.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2405.18628",
+      "title": "Hardware-Aware Parallel Prompt Decoding (2024/5)",
+      "judge_score": 0.6,
+      "cos_sim": 0.62,
+      "kw_overlap": 1,
+      "matched_keywords": ["single-stamp generation"],
+      "judge_reason": "Parallel multi-token prediction in single forward pass overlaps partially with one-shot stamping but lacks the viscous-surface accumulation framing.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2508.08712v1",
+      "title": "Parallel Text Generation Survey (2025/8)",
+      "judge_score": 0.65,
+      "cos_sim": 0.66,
+      "kw_overlap": 1,
+      "matched_keywords": ["single-stamp generation"],
+      "judge_reason": "Survey of parallel decoding and diffusion LMs covers the broader non-autoregressive space the candidate sits within but does not propose the specific viscous-surface-stamp mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2502.09992",
+      "title": "Large Language Diffusion Models LLaDA (2025/2)",
+      "judge_score": 0.55,
+      "cos_sim": 0.6,
+      "kw_overlap": 0,
+      "matched_keywords": [],
+      "judge_reason": "Diffusion LM is explicitly named in the novelty claim as different; non-autoregressive but lacks viscous accumulation + stamping framing.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2408.11863v1",
+      "title": "Text Generation as SDE (2024/8)",
+      "judge_score": 0.5,
+      "cos_sim": 0.55,
+      "kw_overlap": 0,
+      "matched_keywords": [],
+      "judge_reason": "SDE drift+diffusion model of autoregressive generation is acknowledged in the novelty claim as different from the proposed surface-stamp mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "verdict_reason": "Four results trigger hits (indices 0, 1, 2, 3). The source-domain (marbling/ebru) is well-documented in references 0-2, and reference 3 (One-Step Text Generation, arXiv:2505.21189) closely matches the LLM-side single-stamp/latent-capacity framing on multiple axes."
+}

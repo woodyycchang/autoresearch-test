@@ -1,0 +1,109 @@
+{
+  "rounds_completed": 225,
+  "epoch": 9,
+  "epoch_9_rounds": "201..225",
+  "program": "program_v5.md (strict per-round protocol continuation)",
+  "pass_count_substantive_confirmed": 0,
+  "pass_count_mechanical_v5_definition": 0,
+  "pass_with_caveat_count": 5,
+  "fail_count": 20,
+  "pass_with_caveat_rounds": ["204", "207", "211", "216", "222"],
+  "pass_with_caveat_notes": {
+    "R204": "ikebana — Pattern A only; closest LLM-side neighbor under threshold (constrained decoding 0.55)",
+    "R207": "cooperage — Pattern A; Trainable Dynamic Mask Sparse Attention 2508.02124 near-miss 0.68",
+    "R211": "dovetail — Pattern A; Structured Outputs Benchmark 2501.10868 near-miss 0.68 (strictness-flexibility tradeoff named but not slope-parameterized)",
+    "R216": "Inuit kayak — single source-domain kw hit only; LLM-side closest Robustness Feature Adapter 2508.17680 at 0.62; arguably closest to substantive PASS in epoch",
+    "R222": "jiaozi pleating — Pattern A; Modular Prompt Optimization 2601.04055 near-miss 0.65"
+  },
+  "substantive_pass_count_v5": 0,
+  "v5_functional_metrics_epoch_9": {
+    "functional_hits_caught_total": 35,
+    "rounds_with_at_least_one_functional_hit": 19,
+    "mean_max_judge_score_per_round": 0.72,
+    "multi_cluster_match_rounds": 8
+  },
+  "forced_hit_stats_epoch_9": {
+    "mean_forced_hit_per_round_keyword_only": 3.04,
+    "mean_forced_hit_per_round_semantic_only": 1.32,
+    "mean_forced_hit_per_round_functional_only": 1.40,
+    "mean_total_forced_hit_per_round_all_channels": 3.84,
+    "rounds_with_zero_keyword_forced_hits": 0,
+    "rounds_with_zero_semantic_forced_hits": 13,
+    "rounds_with_zero_functional_forced_hits": 6
+  },
+  "forced_hit_distribution_keyword_epoch_9": {
+    "0": 0,
+    "1-2": 6,
+    "3-4": 14,
+    "5+": 5
+  },
+  "max_cosine_per_round_mean": 0.71,
+  "disagreement_count_result_level": "non-zero in 22/25 rounds (88%)",
+  "disagreement_count_verdict_level": 5,
+  "verdict_disagreement_rate": 0.20,
+  "verdict_disagreement_rounds": ["204", "216", "218", "220", "224"],
+  "compliance_rates_epoch_9": {
+    "step_03_web_search_performed_per_round": "25/25",
+    "step_04_5_memory_check_performed": "25/25",
+    "step_05_candidate_with_4llm_4src_composition": "25/25",
+    "step_06_web_search_performed_per_round": "25/25",
+    "step_06_5_semantic_check_performed": "25/25",
+    "step_06_7_functional_judge_performed": "25/25",
+    "step_07_keyword_AND_semantic_AND_functional_rules_applied": "25/25",
+    "step_10_mechanical_verdict": "25/25",
+    "step_11_audit_performed": "25/25",
+    "step_12_verification_completed_via_agent_spawn": "25/25"
+  },
+  "forms_used_epoch_9": {
+    "phase-coherence": 7,
+    "feedback-attenuation": 7,
+    "basin-stability": 4,
+    "information-cascade": 4,
+    "null-space-traversal": 3
+  },
+  "v5_score_calculation_epoch_9": {
+    "formula": "(substantive_pass_count × 10) + (25 − mean_forced_hit) + (disagreement_rate × 5) − (false_positive_count × 5)",
+    "substantive_pass_count_x_10_confirmed": 0,
+    "twenty_five_minus_mean_forced_hit": 21.96,
+    "disagreement_rate_verdict_level_x_5": 1.0,
+    "false_positive_count_x_5_negative": 0,
+    "score_v5_confirmed": 22.96
+  },
+  "integrity_audit_summary_epoch_9": {
+    "timestamps_spread_minutes": 84,
+    "first_ts_identical_across_rounds": false,
+    "arxiv_ids_valid_yymm": true,
+    "synthetic_arxiv_ids_count": 0,
+    "verification_byte_differ_from_07": "25/25",
+    "content_words_lists_distinct": "25/25",
+    "llm_side_phrase_repeats_across_rounds": 0,
+    "form_distribution_uniform": false,
+    "form_distribution_explanation": "7/7/4/4/3 — all 5 forms ≥3 each; less strict than epoch 8's 5×5×5×5×5"
+  },
+  "combined_with_prior_epochs": {
+    "total_rounds_claimed": 313,
+    "N_compromised_epoch_6": 25,
+    "N_verified_honest": 321,
+    "calculation_note": "138 prior + 25 e1 + 25 e2 + 25 e3 + 25 e4 + 25 e5 + 0 e6 (compromised) + 8 e7 + 25 e8 + 25 e9 = 321",
+    "substantive_pass_count_confirmed": 0,
+    "p_value_vs_1pct_novelty_rate_no_pass": "0.0388 — crosses α=0.05 rejection threshold",
+    "p_value_vs_2pct_novelty_rate_no_pass": "1.6e-03 — rejected",
+    "p_value_vs_5pct_novelty_rate_no_pass": "7.2e-08 — strongly rejected",
+    "p_value_vs_10pct_novelty_rate_no_pass": "5.3e-15 — overwhelmingly rejected"
+  },
+  "stats_progression": {
+    "N_verified_round_100": 100,
+    "N_verified_round_125": 125,
+    "N_verified_round_150_pre_audit": 150,
+    "N_verified_round_150_post_audit": 125,
+    "N_verified_round_175": 125,
+    "N_verified_round_200": 296,
+    "N_verified_round_225": 321,
+    "p_1pct_at_N_verified_progression": {
+      "N=263": 0.0711,
+      "N=271": 0.0656,
+      "N=296": 0.0518,
+      "N=321": 0.0388
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "round": "223",
+  "epoch": 9,
+  "candidate_form": "null-space-traversal",
+  "domain": "Tamil folk craft — kolam / rangoli (rice-flour dot-grid floor design; pulli dot lattice + sikku interlinked curves; constraint: curves must form CLOSED self-avoiding loops + 4-fold or 6-fold symmetry; drawn at threshold of home every morning)",
+  "specific_mechanism": "Starting from an n×n pulli (dot grid), the artist traces continuous curves that must (a) avoid crossing themselves, (b) eventually return to start (closed curve), (c) maintain the design's underlying symmetry group, (d) leave no dot unsurrounded. The number of valid kolam designs on a fixed dot grid is enumerable (combinatorial); the algorithm is a constrained self-avoiding walk on a 2D lattice with symmetry constraint. The drawing is ephemeral (swept away daily) but the underlying combinatorial constraint produces a finite, classifiable design space.",
+  "llm_application": "Kolam-constrained generation for self-consistent multi-step CoT: at each generation step the LLM produces a 'curve segment' over a fixed graph of concept-nodes (pulli analog). The chain must (a) avoid re-visiting concept-nodes (self-avoiding), (b) eventually CLOSE back to the original question (closed-loop CoT), (c) maintain a symmetry constraint between forward-reasoning and backward-justification segments. This is stronger than self-consistency (Wang 2203.11171 averages independent paths); kolam-constraint requires the path itself to be a topologically closed self-avoiding walk on the concept graph.",
+  "novelty_claim": "Self-consistency (Wang 2203.11171), Tree-of-Thoughts (Yao 2305.10601), self-refine (Madaan 2303.17651) constrain CoT in various ways. None implements topological CLOSURE (the path must return to start) + SELF-AVOIDANCE on the concept graph + EXPLICIT SYMMETRY constraint between forward/backward segments. The kolam-walk framing is the candidate's distinct invariant.",
+  "content_words": ["kolam rangoli", "pulli dot grid", "self-avoiding curve", "closed-loop pattern", "concept-graph CoT", "self-avoiding reasoning walk", "topological closure constraint", "forward-backward symmetry"],
+  "content_words_composition": {
+    "llm_side": ["concept-graph CoT", "self-avoiding reasoning walk", "topological closure constraint", "forward-backward symmetry"],
+    "source_side": ["kolam rangoli", "pulli dot grid", "self-avoiding curve", "closed-loop pattern"],
+    "generic": []
+  }
+}

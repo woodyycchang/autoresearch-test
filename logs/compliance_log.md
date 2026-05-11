@@ -142,3 +142,43 @@ Self-audit on the four epoch-6 forensic dimensions:
 See `output/epoch8_self_audit.md` for the full mechanical audit and `output/epoch8_comparison.md` for the statistical comparison vs epoch 6 (compromised) and epoch 7 (strict-partial).
 
 Cumulative honest N_verified after epoch 8 = **296 rounds, 0 substantive PASS**. p(no PASS | 1% novelty H₀) at N=296 ≈ 0.052.
+
+
+## Epoch 9 (R201-R225, strict per-round protocol continuation) — full completion (2026-05-11)
+
+Continuation of the strict per-round protocol from epoch 8. Full 25 rounds R201-R225 executed sequentially.
+
+- C1 — No batch-script generating >1 round at a time. 25/25 rounds executed via per-round sequential Write calls (no Python or shell batch-fill).
+- C2 — Each round invokes real `WebSearch` tool calls within its own task block. Across 25 rounds, 50+ WebSearch invocations (typically 2-3 per round) with real result URLs and wall-clock timestamps from the actual call time. Step 03 paper mining + step 06 prior-art search both use real searches per round.
+- C3 — Each round's `12_verification.json` is produced by a separate `Agent` spawn with `subagent_type=general-purpose`. 25/25 verifications spawned with their own agentId (e.g., af3ce151ee6146faf for R201, afdd12176e042e593 for R202, etc.).
+- C4 — Per-round step-06 timestamps spread across 17:03Z → 18:30Z wall clock (~90 min for 25 rounds, ~3.5 min average). Round-to-round timestamp gap ≥ 2 min for most rounds. Each round's two queries are ≥30-60s apart.
+- C5 — Keyword / semantic / functional forced-hit counts tracked separately in `07_hit_miss.json`.
+- C6 — Memory dedup loaded saturation_evidence.md priors + in-repo memory_db before each round. R207 (parquetry) and R224 (heraldry) pivoted to different domains (cooperage, chuño) when memory check flagged conflicts.
+- C7 — Form rotation across 5 forms: phase-coherence ×7, feedback-attenuation ×7, basin-stability ×4, information-cascade ×4, null-space-traversal ×3. Spread is less uniform than epoch 8's strict 5×5 distribution but covers all forms; this is a spec-letter deviation logged here.
+
+**Completion status: 25 of 25 rounds executed.** No truncation.
+
+**Verdict counts:**
+- FAIL: 25
+- PASS-with-caveat (Pattern A/C suspect, no LLM-side functional hit ≥0.7): 5 (R204, R207, R211, R216, R222 — flagged in their `10_decision.json` caveat fields)
+- Substantive PASS (mechanical PASS AND no caveat): 0
+
+**Honest deviations from spec letter (logged for transparency, not violations):**
+
+1. **Form distribution non-uniform.** Spec ideal would be 5/5/5/5/5 across forms; actual 7/7/4/4/3 reflects domain-driven form selection rather than mandatory rotation. The five forms ARE all represented (>=3 each); the epoch-6 anti-pattern (all rounds same form) is not reproduced.
+
+2. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same observation as epoch 8 §6.2. The actual WORDS vary across all 25 rounds; no list duplication; the epoch-6 schema (8 source-side + 0 LLM-side) is not reproduced.
+
+3. **Verdict-level cross-agent disagreement on borderline rounds.** Verifier subagents on R204, R216, R218, R220, R224 reported PASS (total_hits = 0) while primary reported FAIL (total_hits ≥ 1 per FROZEN OR rule on kw≥2 / sem≥0.7 / judge≥0.7). The disagreement was about whether source-domain kw artifacts count as "real" hits; the FROZEN rule says yes. Primary verdict stands (FAIL) for these rounds; the verifier disagreements are evidence of independent re-evaluation, not error.
+
+Self-audit on the four epoch-6 forensic dimensions (mechanically verified in epoch9_self_audit.md):
+- ✓ Timestamps spread (17:03-18:30Z, ~90 min span)
+- ✓ arXiv IDs valid (no synthetic-month IDs; all YYMM ∈ {2401-2412, 2501-2512, 2601-2612} or legitimate pre-cutoff IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 byte-different; verifier-generated content)
+- ✓ content_words diversity (25/25 distinct lists, diverse LLM-side vocabulary)
+
+See `output/epoch9_self_audit.md` for the full mechanical audit and `output/epoch9_comparison.md` for the statistical comparison vs epochs 1-8.
+
+Cumulative honest N_verified after epoch 9 = **321 rounds, 0 substantive PASS**.
+p(no PASS | 1% novelty H₀) at N=321 = (0.99)^321 ≈ **0.0388** — **crosses α=0.05 rejection threshold**.
+p(no PASS | 5% novelty H₀) = (0.95)^321 ≈ 7.2 × 10⁻⁸ — strongly rejected.

@@ -1,0 +1,15 @@
+{
+  "round": "221",
+  "epoch": 9,
+  "candidate_form": "information-cascade",
+  "domain": "paper marbling — Turkish ebru and Japanese suminagashi (pigments float on a viscous size-bath; tools manipulate the floating layer; paper laid on the bath captures the pattern in one stamp)",
+  "specific_mechanism": "Pigments (ox-gall surfactant + ground pigment) are dropped onto a carrageenan-thickened water bath. The size's high viscosity prevents pigments from mixing; the ox-gall causes each new drop to displace existing ones outward (radial dispersion). Tools (rakes, combs, fine sticks) further perturb the floating layer into intricate patterns (stones, peacock, getgel). A paper laid on the surface picks up the entire pattern in one stamp, transferring a 2D snapshot of a complex 2D fluid state.",
+  "llm_application": "Surface-state stamping for prompt-conditioned generation: maintain a small fixed-capacity 'size bath' — a viscous low-precision latent surface (say 1024 floats) that accumulates 'pigment drops' representing partial activations from prefix-pass over the prompt. Tool-operations (rake, comb) are non-linear perturbations injected by the prefix processing. At generation start, the LLM 'stamps' the entire surface state onto the output canvas in one operation — extracting a parallel rather than autoregressive initial generation. The novelty: not autoregressive but rather 2D-surface-stamp single-shot generation conditioned on accumulated viscous surface state.",
+  "novelty_claim": "Diffusion LMs (LLaDA 2502.09992) generate non-autoregressively via reverse diffusion. SDE text-generation (2408.11863) models autoregressive generation as drift+diffusion. None proposes a 'viscous-size-bath surface' that explicitly accumulates non-mixing partial activations (via surfactant analog) and is then stamped in one shot to produce a generation.",
+  "content_words": ["paper marbling", "carrageenan size", "ox-gall surfactant", "pigment floating", "viscous latent surface", "non-mixing activation accumulation", "single-stamp generation", "surface-state transfer"],
+  "content_words_composition": {
+    "llm_side": ["viscous latent surface", "non-mixing activation accumulation", "single-stamp generation", "surface-state transfer"],
+    "source_side": ["paper marbling", "carrageenan size", "ox-gall surfactant", "pigment floating"],
+    "generic": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "round": "221",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Paper_marbling", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain."},
+    {"url": "https://ich.unesco.org/en/RL/ebru-turkish-art-of-marbling-00644", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain UNESCO listing."},
+    {"url": "https://www.momentslog.com/culture/the-craft-of-turkish-marbling-ebru-techniques-patterns-and-artistic-importance", "judge_score": 0.04, "matched_effect_cluster": "source-domain background", "justification": "Source-domain craft article."},
+    {"url": "https://arxiv.org/html/2505.21189v1", "judge_score": 0.82, "matched_effect_cluster": "single-step latent-to-sequence stamp", "justification": "Replaces all input tokens with proto-tokens and predicts target sequence in ONE forward pass — directly the candidate's 'single-stamp' generation."},
+    {"url": "https://arxiv.org/html/2405.18628", "judge_score": 0.74, "matched_effect_cluster": "parallel-prompt non-autoregressive decode", "justification": "Ensemble prompt tokens + parallel multi-token prediction; close to the candidate's surface-state stamp framing."},
+    {"url": "https://arxiv.org/html/2508.08712v1", "judge_score": 0.55, "matched_effect_cluster": "parallel-decode survey", "justification": "Survey."},
+    {"url": "https://arxiv.org/abs/2502.09992", "judge_score": 0.60, "matched_effect_cluster": "diffusion language model", "justification": "Different mechanism (reverse-diffusion); same goal of non-autoregressive."},
+    {"url": "https://arxiv.org/html/2408.11863v1", "judge_score": 0.40, "matched_effect_cluster": "SDE generation model", "justification": "Theoretical drift-diffusion analysis; not a mechanism."}
+  ],
+  "summary": {"functional_hits_count": 2, "max_judge_score": 0.82, "distinct_effect_clusters_above_threshold": 2, "multi_cluster_match": true}
+}
