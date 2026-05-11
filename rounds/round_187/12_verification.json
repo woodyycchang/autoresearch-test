@@ -1,0 +1,105 @@
+{
+  "round": "187",
+  "verifier": "cross-agent",
+  "content_words": ["coral spawning", "lunar synchronization", "cryptochrome cue", "post-sunset darkness", "inference batching", "decode pulse", "shared scheduler clock", "KV cache reuse"],
+  "hit_rule": "kw>=2 OR cos>=0.7 OR judge>=0.7",
+  "results": [
+    {
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2101985118",
+      "title": "Moonrise timing key for synchronized spawning in Dipsastraea (PNAS)",
+      "kw_count": 1,
+      "kw_matches": ["coral spawning"],
+      "cos": 0.62,
+      "judge": 0.78,
+      "judge_reason": "Directly addresses lunar-cued coral mass spawning synchronization mechanism (moonrise timing), strongly matching the source-domain claim.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11950126/",
+      "title": "Moonlight-darkness dynamics as proximate spawning cues in Acropora (2025)",
+      "kw_count": 2,
+      "kw_matches": ["coral spawning", "post-sunset darkness"],
+      "cos": 0.74,
+      "judge": 0.85,
+      "judge_reason": "Direct match: explicitly tests post-sunset darkness as a proximate spawning cue in Acropora, the same mechanism claimed in candidate.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4721961/",
+      "title": "Signaling cascades and importance of moonlight in coral mass spawning (eLife)",
+      "kw_count": 1,
+      "kw_matches": ["coral spawning"],
+      "cos": 0.68,
+      "judge": 0.8,
+      "judge_reason": "Covers cryptochrome and signaling cascade mechanism for coral mass spawning, matching the candidate's source-side mechanism precisely.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://arxiv.org/html/2604.11001v1",
+      "title": "Flow-Controlled Scheduling for LLM Inference with Stability Guarantees",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.42,
+      "judge": 0.45,
+      "judge_reason": "Addresses LLM inference scheduling but focuses on flow control / stability, not broadcast-synchronized decode emission against a shared clock.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://huggingface.co/blog/continuous_batching",
+      "title": "Continuous batching from first principles (HuggingFace blog)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.55,
+      "judge": 0.55,
+      "judge_reason": "Continuous batching with KV caching and dynamic scheduling overlaps with the LLM target domain but lacks the shared external-clock broadcast framing.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.mdpi.com/1424-8220/26/4/1101",
+      "title": "Dynamic Micro-Batch and Token-Budget Scheduling for IoT Pipeline-Parallel LLM Inference (MDPI)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.5,
+      "judge": 0.5,
+      "judge_reason": "Pipeline-parallel inference micro-batch scheduling is adjacent but does not invoke a global broadcast pulse or synchrony cue analogy.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.14392v1",
+      "title": "FairBatching: Fairness-Aware Batch Formation for LLM Inference",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.4,
+      "judge": 0.4,
+      "judge_reason": "Fairness-aware batch formation is an LLM inference scheduling work but unrelated to broadcast-clock synchronization or KV cache reuse cascade.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://users.ece.utexas.edu/~gustavo/papers/BHD25j.pdf",
+      "title": "Optimal Scheduling Algorithms for LLM Inference (UT Austin, Dec 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.45,
+      "judge": 0.48,
+      "judge_reason": "Throughput-optimal scheduling theory addresses LLM inference scheduling but not via a shared lunar-style broadcast pulse for decode synchronization.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 3,
+    "misses": 5,
+    "source_side_hits": 3,
+    "llm_side_hits": 0,
+    "novelty_supported": true,
+    "notes": "Source-side (coral spawning mechanism) is well-supported; LLM-side scheduling results are relevant context but none match the specific 'broadcast lunar-pulse decode synchronization with cascade KV-reuse' framing, supporting novelty claim."
+  }
+}

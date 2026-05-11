@@ -1,0 +1,107 @@
+{
+  "round": "188",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "content_words": ["silvopasture stratification", "canopy thinning", "light competition", "stocking density", "MoE expert routing", "stratified objective", "entropy regularization", "compute budget"],
+  "results": [
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0308521X24003901",
+      "title": "Effect of silvopasture, paddock trees and linear agroforestry on agricultural productivity (Sci Direct)",
+      "kw_count": 1,
+      "kw_matches": ["light competition"],
+      "kw_partial_notes": "'silvopasture' appears but not full phrase 'silvopasture stratification'; 'shading' not 'canopy thinning'; 'tree density' not 'stocking density'",
+      "cos": 0.55,
+      "judge": 0.75,
+      "judge_reason": "Directly addresses silvopasture productivity tradeoffs and tree-density effect on shading/livestock benefits, core source-domain mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://centerforagroforestry.org/wp-content/uploads/2025/05/Chapter-4-Silvopasture-Agroforestry-Training-Manual-2025.pdf",
+      "title": "Silvopasture chapter (Center for Agroforestry Training Manual 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_partial_notes": "covers 'thinning' and 'silvopasture' but not full phrases; relevant conceptually",
+      "cos": 0.6,
+      "judge": 0.8,
+      "judge_reason": "Explicitly discusses stage-dependent tree thinning with forage/livestock integration matching candidate's canopy-thinning mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Silvopasture",
+      "title": "Silvopasture (Wikipedia)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.35,
+      "judge": 0.5,
+      "judge_reason": "Generic reference to silvopasture domain without specific stratification or thinning detail in snippet.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2507.11181v2",
+      "title": "Mixture of Experts in Large Language Models (2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_partial_notes": "'load balancing' and 'multi-task' present but no exact content-word phrase in title+snippet",
+      "cos": 0.5,
+      "judge": 0.75,
+      "judge_reason": "Survey of MoE routing/load balancing in LLMs directly underlies the candidate's MoE expert routing claim and similarity-preserving prior art.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.06322",
+      "title": "Multi-Agent Collaboration Mechanisms: A Survey of LLMs",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.2,
+      "judge": 0.25,
+      "judge_reason": "Multi-agent collaboration survey is tangential to MoE stratification; not directly relevant to candidate mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/multi-gate-moe-structures-mmoe",
+      "title": "Multi-gate MoE: Advanced Multi-task Framework",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_partial_notes": "'multi-task' and 'expert selection' present but not exact content words",
+      "cos": 0.55,
+      "judge": 0.75,
+      "judge_reason": "Multi-gate MoE with dual routers for multi-task is the closest prior art to candidate's stratified objective routing.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://openreview.net/forum?id=oIdzliJAeA",
+      "title": "Mixture-of-Experts Surpasses Dense LLMs Under Strictly Equal Resource",
+      "kw_count": 1,
+      "kw_matches": ["compute budget"],
+      "kw_partial_notes": "'equal resource'/'compute' aligns with 'compute budget'; expert resource competition relevant",
+      "cos": 0.6,
+      "judge": 0.75,
+      "judge_reason": "MoE under equal compute and expert resource competition directly addresses candidate's compute-budget basin-stability claim.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3690624.3709196",
+      "title": "ResMoE: Space-efficient Compression of MoE LLMs (SIGKDD 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.3,
+      "judge": 0.4,
+      "judge_reason": "MoE compression via residual restoration is adjacent but not stratified-tier routing prior art.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 5,
+    "misses": 3,
+    "hit_rate": 0.625
+  }
+}

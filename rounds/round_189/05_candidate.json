@@ -1,0 +1,15 @@
+{
+  "round": "189",
+  "epoch": 8,
+  "candidate_form": "phase-coherence",
+  "domain": "typography (Aldine italic punch-cutting, Manutius-Griffo 1501 humanist cursive)",
+  "specific_mechanism": "Griffo cut at least 65 ligatures in Aldine italic to replicate continuous handwriting flow. The italic 'stress angle' (typically 8°-10°) is constant across glyphs and is the unifying parameter that makes italic typesetting coherent. Burnhill showed an implicit 'in-house norm' typographic measurement system 200 years before such systems were made explicit. The constancy of stress angle is a phase-coherence constraint: each glyph carries the same slant phase, and dropping that phase coherence makes the typeface look broken.",
+  "llm_application": "Train a handwriting-generation transformer with a 'stress-angle phase' constraint: a single shared global parameter sets the slant phase, and every glyph generation is conditioned on it. At sampling, the model emits glyphs that are constrained to share phase even when style varies — this is the typographic analog of phase-locking. Phase coherence: cross-glyph similarity in slant direction is preserved more strongly than cross-glyph similarity in any other style dimension, replicating Griffo's italic principle.",
+  "novelty_claim": "ScriptViT (2511.18307), Handwriting Transformers (HWT), Vision-Transformer handwriting (2505.13235), and handwriting-generation surveys all model style/content but rely on style-encoder cross-attention from references — none explicitly enforces a single global stress-angle phase as a top-level constraint propagated across glyphs in the sampling decoder. Open question whether 'shared global phase constraint at sampling' is substantively new vs implicit in style cross-attention.",
+  "content_words": ["italic punch-cutting", "Aldine ligatures", "stress angle", "typographic norm", "handwriting transformer", "style cross-attention", "global phase constraint", "glyph coherence"],
+  "content_words_composition": {
+    "llm_side": ["handwriting transformer", "style cross-attention", "global phase constraint", "glyph coherence"],
+    "source_side": ["italic punch-cutting", "Aldine ligatures", "stress angle", "typographic norm"],
+    "generic": []
+  }
+}

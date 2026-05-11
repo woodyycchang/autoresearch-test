@@ -1,0 +1,15 @@
+{
+  "round": "187",
+  "epoch": 8,
+  "candidate_form": "information-cascade",
+  "domain": "coral reef ecology (mass-spawning lunar synchronization via cryptochrome + post-sunset-darkness cues)",
+  "specific_mechanism": "Broadcast coral spawning is synchronized to a small window after the full moon. The mechanistic cue is NOT moon-tide but moonlight intensity changes detected via cryptochrome photoreceptors and (more recently shown) the post-sunset darkness gap between sunset and moonrise. A single colony's gametes are useless without the colony cloud — synchrony is a fertility-cascade phenomenon: each individual times its release against a shared external clock to maximize gamete encounter probability.",
+  "llm_application": "Inference-batch broadcast cue: in pipeline-parallel LLM serving, individual requests are processed asynchronously and KV-cache pressure forces eviction at unpredictable times. Instead, gate all decode-emit operations on a shared 'lunar' clock — a per-pool global broadcast pulse driven by an external scheduler — so token emissions across requests align into 'spawn windows', exploiting GPU SIMT-batching efficiency. Cascade effect: alignment of decoder emissions enables population-level memory reuse and reduces per-request KV churn analogously to coral-fertilization efficiency.",
+  "novelty_claim": "Continuous batching (HF blog), Flow-controlled scheduling (2604.11001), FairBatching (2510.14392), Dynamic Micro-Batch IoT (MDPI), and the December 2025 Optimal Scheduling theory paper all address inference batching. None specifically frames inference scheduling as a lunar-cue mass-spawning event with a coral-cascade-like fertilization-efficiency optimum at a population scale.",
+  "content_words": ["coral spawning", "lunar synchronization", "cryptochrome cue", "post-sunset darkness", "inference batching", "decode pulse", "shared scheduler clock", "KV cache reuse"],
+  "content_words_composition": {
+    "llm_side": ["inference batching", "decode pulse", "shared scheduler clock", "KV cache reuse"],
+    "source_side": ["coral spawning", "lunar synchronization", "cryptochrome cue", "post-sunset darkness"],
+    "generic": []
+  }
+}

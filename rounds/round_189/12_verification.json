@@ -1,0 +1,100 @@
+{
+  "round": "189",
+  "content_words": ["italic punch-cutting", "Aldine ligatures", "stress angle", "typographic norm", "handwriting transformer", "style cross-attention", "global phase constraint", "glyph coherence"],
+  "results": [
+    {
+      "url": "https://www.historyofinformation.com/detail.php?id=4312",
+      "title": "The Aldine Virgil: First Book Printed in Italic Type",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.42,
+      "judge": 0.75,
+      "judge_reason": "Directly documents the 1501 Aldine Virgil and Griffo's italic with ligatures, central to source-side mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://ilab.org/article/the-aldine-italic",
+      "title": "The Aldine Italic (ILAB)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.35,
+      "judge": 0.55,
+      "judge_reason": "General Aldine italic history overview but lacks specifics on stress angle or ligatures.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://typographica.org/on-typography/type-spaces-how-aldus-measured-text/",
+      "title": "Type Spaces: How Aldus Measured Text",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.48,
+      "judge": 0.78,
+      "judge_reason": "Burnhill's implicit typographic measurement analysis directly supports the 'typographic norm' source claim.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.ijsat.org/papers/2025/4/9815.pdf",
+      "title": "Survey of Modern Handwriting Generation Models (2025)",
+      "kw_count": 1,
+      "kw_matches": ["handwriting transformer"],
+      "cos": 0.52,
+      "judge": 0.7,
+      "judge_reason": "Surveys handwriting generation models including transformers, relevant for novelty-claim baseline comparison.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.arxiv.org/abs/2511.18307",
+      "title": "ScriptViT: Vision Transformer-Based Personalized Handwriting Generation",
+      "kw_count": 2,
+      "kw_matches": ["handwriting transformer", "style cross-attention"],
+      "cos": 0.68,
+      "judge": 0.82,
+      "judge_reason": "ScriptViT uses style-encoder cross-attention from references, the exact baseline novelty claim contrasts against.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2505.13235",
+      "title": "Handwritten Text Generation with Vision Transformer",
+      "kw_count": 1,
+      "kw_matches": ["handwriting transformer"],
+      "cos": 0.55,
+      "judge": 0.72,
+      "judge_reason": "VT-based handwriting generation cited in novelty claim as a baseline lacking global phase constraint.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/html/2506.20255v1",
+      "title": "Transformer-Based Handwriting Recognition Online+Offline Features (June 2025)",
+      "kw_count": 1,
+      "kw_matches": ["handwriting transformer"],
+      "cos": 0.4,
+      "judge": 0.45,
+      "judge_reason": "Handwriting recognition rather than generation; tangential to phase-coherence sampling mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/iel7/9709627/9709628/09711036.pdf",
+      "title": "Handwriting Transformers (HWT)",
+      "kw_count": 1,
+      "kw_matches": ["handwriting transformer"],
+      "cos": 0.62,
+      "judge": 0.78,
+      "judge_reason": "HWT directly cited in novelty claim as style-encoder cross-attention baseline without global phase constraint.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 6,
+    "misses": 2,
+    "hit_rate": 0.75
+  }
+}
