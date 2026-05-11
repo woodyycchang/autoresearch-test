@@ -1,0 +1,17 @@
+{
+  "round": "180",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "candidate_functional_effect": "model catastrophic-forgetting as episodic discharge events with detectable precursors, self-limiting feedback, quasi-periodic recurrence; schedule replay-checkpoints pre-event",
+  "results": [
+    {"rank": 1, "url": "https://arxiv.org/html/2601.18699v1", "judge_score": 0.74, "matched_effect_cluster": "mechanistic forgetting analysis", "judge_justification": "Identifies three forgetting mechanisms (gradient interference, representational drift, loss-landscape flattening) — these are direct functional analogs of 'sub-symbol embedding instability preceding the event' that the candidate proposes.", "functional_hit": true},
+    {"rank": 2, "url": "https://openreview.net/forum?id=Mg6pVmTWlo", "judge_score": 0.66, "matched_effect_cluster": "context-aware continual pretraining", "judge_justification": "Mitigates abrupt forgetting via context-aware pretraining; partially overlapping with checkpoint-scheduling but no periodic-event modeling.", "functional_hit": false},
+    {"rank": 3, "url": "https://openreview.net/forum?id=ScI7IlKGdI", "judge_score": 0.52, "matched_effect_cluster": "spurious-forgetting reframing", "judge_justification": "Reframes performance drops as alignment-decline; orthogonal mechanism.", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2601.21682v1", "judge_score": 0.48, "matched_effect_cluster": "continual unlearning utility", "judge_justification": "Sequential unlearning utility degradation; different setting.", "functional_hit": false},
+    {"rank": 5, "url": "https://openreview.net/forum?id=hESsatbRee", "judge_score": 0.45, "matched_effect_cluster": "source-shielded LM updates", "judge_justification": "Source-shielded updates for language adaptation; orthogonal mechanism.", "functional_hit": false},
+    {"rank": 6, "url": "https://en.wikipedia.org/wiki/Heinrich_event", "judge_score": 0.05, "matched_effect_cluster": "source-domain wiki", "judge_justification": "Source-domain reference.", "functional_hit": false},
+    {"rank": 7, "url": "https://www.nature.com/articles/nature21069", "judge_score": 0.04, "matched_effect_cluster": "source-domain Nature", "judge_justification": "Source-domain Nature paper.", "functional_hit": false},
+    {"rank": 8, "url": "https://www.nature.com/articles/s41467-022-31754-x", "judge_score": 0.04, "matched_effect_cluster": "source-domain Nature Comm", "judge_justification": "Source-domain paleoceanography.", "functional_hit": false}
+  ],
+  "summary": {"max_judge_score": 0.74, "functional_hits_count": 1, "distinct_effect_clusters_above_threshold": 1, "multi_cluster_match": false}
+}

@@ -1,0 +1,101 @@
+{
+  "round": 180,
+  "verifier_agent_id": "verifier-cross-A",
+  "candidate_summary": "Model continual fine-tuning catastrophic forgetting as Heinrich-event-like quasi-periodic discharges: long quiet phases punctuated by abrupt basin-wide forgetting events triggered when a representational 'grounding line' is breached, with embedding-instability precursors and self-limiting feedback (forgotten subspace stops contributing gradient), enabling pre-event replay-checkpoint scheduling.",
+  "candidate_keywords_llm_side": ["catastrophic forgetting", "continual fine-tuning", "weight-space delta", "replay checkpoint"],
+  "hit_rule": "hit if kw_count>=2 OR cos>=0.7 OR judge>=0.7; kw_count counts case-insensitive substring matches of content_words in title+snippet",
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Heinrich_event",
+      "title": "Heinrich event (Wikipedia)",
+      "kw_count": 3,
+      "kw_matches": ["Heinrich event", "ice-rafted debris", "iceberg armada"],
+      "cos": 0.62,
+      "judge": 0.55,
+      "judge_reason": "Strong source-side coverage (Heinrich events, IRD, cycle) but no engagement with catastrophic forgetting or LLM mapping.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "url": "https://www.nature.com/articles/nature21069",
+      "title": "Heinrich events triggered by ocean forcing modulated by isostatic adjustment (Nature)",
+      "kw_count": 1,
+      "kw_matches": ["Heinrich event"],
+      "cos": 0.48,
+      "judge": 0.5,
+      "judge_reason": "Supports the precursor/feedback half of the mechanism (ocean forcing, isostatic modulation) but only one keyword hit and no LLM relevance.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.nature.com/articles/s41467-022-31754-x",
+      "title": "Subsurface ocean warming preceded Heinrich Events (Nature Comm)",
+      "kw_count": 1,
+      "kw_matches": ["Heinrich event"],
+      "cos": 0.5,
+      "judge": 0.55,
+      "judge_reason": "Directly evidences the precursor claim (subsurface warming before each event) but only one keyword match and no LLM-side coverage.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://openreview.net/forum?id=Mg6pVmTWlo",
+      "title": "Context-aware Continual Pretraining for LLMs (ICLR/NeurIPS submission)",
+      "kw_count": 1,
+      "kw_matches": ["catastrophic forgetting"],
+      "cos": 0.55,
+      "judge": 0.5,
+      "judge_reason": "Mentions abrupt loss of prior-domain proficiency under continual pretraining but does not frame as periodic/precursor-detectable events.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2601.18699v1",
+      "title": "Mechanistic Analysis of Catastrophic Forgetting During Continual Fine-tuning",
+      "kw_count": 2,
+      "kw_matches": ["catastrophic forgetting", "continual fine-tuning"],
+      "cos": 0.68,
+      "judge": 0.6,
+      "judge_reason": "Cited as prior art in the novelty claim; covers mechanisms but not quasi-periodicity, precursors, or self-limiting feedback framing.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "url": "https://openreview.net/forum?id=ScI7IlKGdI",
+      "title": "Spurious Forgetting in Continual Learning of LMs",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.42,
+      "judge": 0.4,
+      "judge_reason": "Discusses task-alignment drops vs true knowledge loss, tangential to the Heinrich-discharge framing and yields no keyword hits.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2601.21682v1",
+      "title": "FIT: Defying Catastrophic Forgetting in Continual LLM Unlearning",
+      "kw_count": 1,
+      "kw_matches": ["catastrophic forgetting"],
+      "cos": 0.5,
+      "judge": 0.45,
+      "judge_reason": "Continual unlearning utility degradation is related but does not match the periodic-discharge or precursor angle of the candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://openreview.net/forum?id=hESsatbRee",
+      "title": "Mitigating Catastrophic Forgetting in Target Language Adaptation via Source-Shielded Updates",
+      "kw_count": 1,
+      "kw_matches": ["catastrophic forgetting"],
+      "cos": 0.45,
+      "judge": 0.4,
+      "judge_reason": "Standard catastrophic-forgetting mitigation paper; no quasi-periodic, precursor-based, or replay-scheduling framing.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 2,
+  "total_misses": 6,
+  "verdict": "Mostly miss: source-side hit (Wikipedia) and one LLM-side hit (Mechanistic Analysis 2601.18699, explicitly cited as prior art in the novelty claim). No retrieved result articulates quasi-periodic Heinrich-like forgetting discharges with precursors and self-limiting feedback, so the specific cross-domain mapping appears genuinely novel relative to this evidence set."
+}

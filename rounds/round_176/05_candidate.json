@@ -1,0 +1,15 @@
+{
+  "round": "176",
+  "epoch": 8,
+  "candidate_form": "null-space-traversal",
+  "domain": "cartography (Mercator projection cosine-of-latitude inflation)",
+  "specific_mechanism": "Mercator's cylindrical projection preserves angle locally (conformal) but inflates area by sec(φ) where φ is latitude; at φ→90° the metric blows up. Cartographers correct visual area by overlaying Tissot indicatrices or by switching to equal-area substitutes (Mollweide, Gall-Peters). The 'lost information' in Mercator is the cosine-weighting needed to recover spherical area.",
+  "llm_application": "Treat dot-product attention's softmax score as a planar (Mercator-like) projection of the underlying spherical-manifold similarity between query and key vectors. At high-norm regions (the 'poles' of the embedding sphere) the planar score over-amplifies, analogous to Mercator inflation. Apply a learned cos(angular-latitude) weighting to attention logits at high-norm tokens so the effective similarity respects spherical area, then ablate the contribution of polar-region tokens via null-space projection during inference.",
+  "novelty_claim": "While spherical attention (Attention on the Sphere 2505.11157, SphereUFormer CVPR 2025) integrates quadrature weights for spherical data domains, none specifically frames the high-norm-token inflation in standard transformer attention as a cartographic distortion and prescribes a Mercator-correction cosine weight applied at inference. The framing as a null-space-traversal that removes 'polar' contributions is the open novelty question.",
+  "content_words": ["Mercator projection", "cosine of latitude", "Tissot indicatrix", "spherical attention", "null-space projection", "high-norm token", "inference correction", "logit reweighting"],
+  "content_words_composition": {
+    "llm_side": ["spherical attention", "null-space projection", "high-norm token", "inference correction", "logit reweighting"],
+    "source_side": ["Mercator projection", "cosine of latitude", "Tissot indicatrix"],
+    "generic": []
+  }
+}

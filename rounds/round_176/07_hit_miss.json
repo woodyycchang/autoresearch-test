@@ -1,0 +1,18 @@
+{
+  "round": "176",
+  "results": [
+    {"url": "https://arxiv.org/html/2502.12370v1", "keyword_overlap_count": 0, "semantic_cosine": 0.42, "judge_score": 0.25, "hit": false},
+    {"url": "https://arxiv.org/html/2604.05217v1", "keyword_overlap_count": 1, "keyword_overlap_words": ["spherical attention"], "semantic_cosine": 0.74, "judge_score": 0.78, "forced_by_semantic": true, "forced_by_functional": true, "hit": true},
+    {"url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Benny_SphereUFormer_A_U-Shaped_Transformer_for_Spherical_360_Perception_CVPR_2025_paper.pdf", "keyword_overlap_count": 1, "keyword_overlap_words": ["spherical attention"], "semantic_cosine": 0.65, "judge_score": 0.66, "hit": false},
+    {"url": "https://arxiv.org/html/2505.11157", "keyword_overlap_count": 1, "keyword_overlap_words": ["spherical attention"], "semantic_cosine": 0.78, "judge_score": 0.85, "forced_by_semantic": true, "forced_by_functional": true, "hit": true},
+    {"url": "https://arxiv.org/html/2505.13027v1", "keyword_overlap_count": 0, "semantic_cosine": 0.36, "judge_score": 0.30, "hit": false},
+    {"url": "https://www.emergentmind.com/papers/2512.22471", "keyword_overlap_count": 0, "semantic_cosine": 0.48, "judge_score": 0.52, "hit": false},
+    {"url": "https://en.wikipedia.org/wiki/Mercator_projection", "keyword_overlap_count": 2, "keyword_overlap_words": ["Mercator projection", "cosine of latitude"], "semantic_cosine": 0.21, "judge_score": 0.08, "forced_by_rule": true, "hit": true, "reason": "source-domain wiki reference, keyword overlap fires"},
+    {"url": "https://iclr-blogposts.github.io/2025/blog/positional-embedding/", "keyword_overlap_count": 0, "semantic_cosine": 0.39, "judge_score": 0.27, "hit": false}
+  ],
+  "total_hits": 3,
+  "forced_by_rule_keyword_count": 1,
+  "forced_by_semantic_count": 2,
+  "forced_by_functional_count": 2,
+  "verdict": "FAIL — Attention-on-the-Sphere (2505.11157) is a direct functional match (quadrature weighting = cos(φ) area correction inside attention). Geometry-of-PE (2604.05217) covers spherical-manifold framing. Plus keyword hit on Wikipedia source-domain reference."
+}

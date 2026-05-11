@@ -1,0 +1,16 @@
+{
+  "round": "176",
+  "candidate_llm_application_excerpt": "treat dot-product attention as Mercator-like projection of spherical similarity; apply cos(angular-latitude) reweighting at high-norm tokens; null-space-project polar contributions at inference",
+  "semantic_threshold": 0.7,
+  "results": [
+    {"url": "https://arxiv.org/html/2502.12370v1", "cosine_estimate": 0.42, "semantic_hit": false, "note": "Generic PE survey; no spherical-area-correction framing"},
+    {"url": "https://arxiv.org/html/2604.05217v1", "cosine_estimate": 0.74, "semantic_hit": true, "note": "Geometry-of-PE paper explicitly notes spherical-manifold emergence and that spherical PEs outperform planar — strong overlap with 'planar projection of spherical similarity' framing"},
+    {"url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Benny_SphereUFormer_A_U-Shaped_Transformer_for_Spherical_360_Perception_CVPR_2025_paper.pdf", "cosine_estimate": 0.65, "semantic_hit": false, "note": "Spherical 360 perception, applies positional encoding for ϕ angle but not at inference logit reweighting for high-norm tokens"},
+    {"url": "https://arxiv.org/html/2505.11157", "cosine_estimate": 0.78, "semantic_hit": true, "note": "Native spherical attention with quadrature weights integrated into attention — quadrature weight is functionally a cos-φ-like area-correction term"},
+    {"url": "https://arxiv.org/html/2505.13027v1", "cosine_estimate": 0.36, "semantic_hit": false, "note": "Spectral analysis of PE; orthogonal axis"},
+    {"url": "https://www.emergentmind.com/papers/2512.22471", "cosine_estimate": 0.48, "semantic_hit": false, "note": "Bayesian geometric prior; related but not Mercator-correction specifically"},
+    {"url": "https://en.wikipedia.org/wiki/Mercator_projection", "cosine_estimate": 0.21, "semantic_hit": false, "note": "Source-domain reference only"},
+    {"url": "https://iclr-blogposts.github.io/2025/blog/positional-embedding/", "cosine_estimate": 0.39, "semantic_hit": false, "note": "Broad evolution survey; no specific Mercator/cos-correction framing"}
+  ],
+  "summary": {"max_cosine": 0.78, "semantic_hits_count": 2}
+}

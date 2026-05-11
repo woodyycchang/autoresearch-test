@@ -1,0 +1,15 @@
+{
+  "round": "178",
+  "epoch": 8,
+  "candidate_form": "basin-stability",
+  "domain": "horology (verge-and-foliot escapement, pre-pendulum mechanical oscillator)",
+  "specific_mechanism": "The verge-and-foliot is a 'frictional-rest' escapement: pallets stay in contact with the crown wheel so the foliot is never detached from the drive train. Its period scales with the foliot's moment of inertia (P ∝ I^{1/2} for weak drive, P ∝ μ^{-1/3} for strong drive). Because the oscillator never detaches, its period is highly susceptible to drive-force variation — the regulating element is not autonomous. The pendulum's invention solved this by introducing a 'detached' regulator.",
+  "llm_application": "Apply the detached-vs-frictional-rest distinction to training-loop control: a 'frictional' learning-rate controller (where the LR is updated each step using the current loss surface — direct coupling) drifts under non-stationary gradient noise. A 'detached' controller maintains an internal regulator state that is updated on a separate, slower clock and is decoupled from instantaneous loss fluctuations — only periodic 'escapement releases' transfer the regulator's setpoint to the actual training LR. Basin-stability: training under the detached controller stays in a wider basin around the loss minimum than under the frictional controller because the regulator is insulated from gradient-noise excursions.",
+  "novelty_claim": "Augmented-GDA (FLLM 2025, hal-05388565) and Provably Tuned LR Schedules (2512.05084) and Optimal LR Schedule (2601.07830) all address LR scheduling. None frames the schedule as a detached-vs-frictional-rest oscillator and prescribes a regulator-state insulated from instantaneous gradient noise via periodic escapement releases. Open question: is a frictional-vs-detached distinction substantively new, or does it map onto EMA / Polyak averaging?",
+  "content_words": ["verge escapement", "foliot oscillator", "frictional rest", "detached regulator", "learning rate schedule", "gradient noise", "training step", "controller decoupling"],
+  "content_words_composition": {
+    "llm_side": ["learning rate schedule", "gradient noise", "training step", "controller decoupling"],
+    "source_side": ["verge escapement", "foliot oscillator", "frictional rest", "detached regulator"],
+    "generic": []
+  }
+}

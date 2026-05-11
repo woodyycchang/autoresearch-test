@@ -1,0 +1,17 @@
+{
+  "round": "179",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "candidate_functional_effect": "per-decoder-position activation mask over vocabulary sub-channels, driven by small instruction-tokenizer, phase-locked to prefix",
+  "results": [
+    {"rank": 1, "url": "https://arxiv.org/html/2511.03825v1", "judge_score": 0.62, "matched_effect_cluster": "instruction-as-token tokenization", "judge_justification": "Full-Instruction tokenization makes a whole instruction one token — adjacent direction, but does NOT modulate per-decoder-position activation masks; functionally not the same effect.", "functional_hit": false},
+    {"rank": 2, "url": "https://arxiv.org/html/2601.14658v1", "judge_score": 0.48, "matched_effect_cluster": "tokenizer-reasoning coupling", "judge_justification": "Tokenization affecting reasoning is a related but distinct phenomenon.", "functional_hit": false},
+    {"rank": 3, "url": "https://www.ndss-symposium.org/wp-content/uploads/bar2025-final13.pdf", "judge_score": 0.41, "matched_effect_cluster": "tokenization-effect study", "judge_justification": "Empirical comparison; no proposed mechanism matching candidate.", "functional_hit": false},
+    {"rank": 4, "url": "https://aclanthology.org/2025.ranlp-1.111/", "judge_score": 0.32, "matched_effect_cluster": "MT vocabulary tuning", "judge_justification": "MT-specific tuning; orthogonal.", "functional_hit": false},
+    {"rank": 5, "url": "https://huggingface.co/docs/transformers/en/tokenizer_summary", "judge_score": 0.22, "matched_effect_cluster": "tokenization survey", "judge_justification": "Generic survey; no mechanism.", "functional_hit": false},
+    {"rank": 6, "url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning)", "judge_score": 0.25, "matched_effect_cluster": "transformer overview", "judge_justification": "General reference.", "functional_hit": false},
+    {"rank": 7, "url": "https://www.columbia.edu/cu/computinghistory/jacquard.html", "judge_score": 0.05, "matched_effect_cluster": "source-domain history", "judge_justification": "Source-domain only.", "functional_hit": false},
+    {"rank": 8, "url": "https://www.britannica.com/technology/punched-card", "judge_score": 0.04, "matched_effect_cluster": "source-domain history", "judge_justification": "Source-domain only.", "functional_hit": false}
+  ],
+  "summary": {"max_judge_score": 0.62, "functional_hits_count": 0, "distinct_effect_clusters_above_threshold": 0, "multi_cluster_match": false}
+}

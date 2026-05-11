@@ -1,0 +1,22 @@
+{
+  "round": "178",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "candidate_functional_effect": "LR/training controller whose regulator state is on a slower clock and insulated from instantaneous gradient noise; periodic 'escapement releases' update training LR",
+  "results": [
+    {"rank": 1, "url": "https://hal.science/hal-05388565/document", "judge_score": 0.71, "matched_effect_cluster": "decoupled controller for training-step LR", "judge_justification": "Augmented-GDA explicitly decouples static-channel and dynamic-channel decisions and applies guardrails — functionally close to 'detached regulator with periodic releases', though framed as LLM-in-loop not as a clock escapement.", "functional_hit": true},
+    {"rank": 2, "url": "https://openreview.net/pdf?id=hrOlBgHsMI", "judge_score": 0.65, "matched_effect_cluster": "gradient-noise-aware LR decay", "judge_justification": "Linear decay justification = gradient-noise dominance late in training; partially overlaps the gradient-noise-insulation motivation but not the periodic escapement-release mechanism.", "functional_hit": false},
+    {"rank": 3, "url": "https://arxiv.org/abs/2512.05084", "judge_score": 0.42, "matched_effect_cluster": "provably tuned LR theory", "judge_justification": "Theory of LR tuning; orthogonal mechanism.", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2601.07830v1", "judge_score": 0.38, "matched_effect_cluster": "optimal LR schedule", "judge_justification": "Optimal schedule trade-off paper; not a controller architecture.", "functional_hit": false},
+    {"rank": 5, "url": "https://en.wikipedia.org/wiki/Learning_rate", "judge_score": 0.18, "matched_effect_cluster": "general LR wiki", "judge_justification": "General reference.", "functional_hit": false},
+    {"rank": 6, "url": "https://www.mdpi.com/2673-3161/1/2/8", "judge_score": 0.05, "matched_effect_cluster": "source-domain physics", "judge_justification": "Source-domain friction dynamics paper.", "functional_hit": false},
+    {"rank": 7, "url": "https://en.wikipedia.org/wiki/Verge_escapement", "judge_score": 0.04, "matched_effect_cluster": "source-domain reference", "judge_justification": "Source-domain wiki.", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/abs/1604.06681", "judge_score": 0.06, "matched_effect_cluster": "source-domain (2016)", "judge_justification": "Pre-cutoff source-domain physics.", "functional_hit": false}
+  ],
+  "summary": {
+    "max_judge_score": 0.71,
+    "functional_hits_count": 1,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}

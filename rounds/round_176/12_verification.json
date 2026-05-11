@@ -1,0 +1,109 @@
+{
+  "round": 176,
+  "verifier_agent_id": "verifier-r176-independent",
+  "candidate_summary": "Reframe attention's softmax over high-norm tokens as Mercator-style area inflation, then apply a learned cos(angular-latitude) logit reweighting plus null-space projection at inference to suppress 'polar' token contributions.",
+  "candidate_keywords_llm_side": ["spherical attention", "null-space projection", "high-norm token", "inference correction", "logit reweighting"],
+  "hit_rule": "hit = kw>=2 OR cos>=0.7 OR judge>=0.7",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://arxiv.org/html/2502.12370v1",
+      "title": "Positional Encoding in Transformer-Based Time Series Models: A Survey",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.18,
+      "judge": 0.1,
+      "judge_reason": "Survey of positional encoding strategies for time-series; no mention of Mercator inflation, cosine reweighting at high-norm tokens, or null-space ablation.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 1,
+      "url": "https://arxiv.org/html/2604.05217v1",
+      "title": "On the Geometry of Positional Encodings in Transformers",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.41,
+      "judge": 0.32,
+      "judge_reason": "Identifies that positional-encoding geometry yields a spherical manifold and spherical transformers outperform planar ones, but does not formulate Mercator-style inflation correction nor null-space ablation of high-norm tokens.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 2,
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Benny_SphereUFormer_A_U-Shaped_Transformer_for_Spherical_360_Perception_CVPR_2025_paper.pdf",
+      "title": "SphereUFormer: U-Shaped Transformer for Spherical 360 Perception (CVPR 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.36,
+      "judge": 0.28,
+      "judge_reason": "Adds vertical-angle positional encoding for 360 imagery using sinusoidal phi encoding; data-domain spherical, not a cartographic correction of softmax attention over high-norm tokens.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2505.11157",
+      "title": "Attention on the Sphere (NVIDIA, 2025-11)",
+      "kw_count": 1,
+      "kw_matches": ["spherical attention"],
+      "cos": 0.5,
+      "judge": 0.42,
+      "judge_reason": "Integrates quadrature weights into attention for spherical data domains; conceptually related but does not target high-norm token inflation, Mercator correction at inference, or null-space projection in standard text transformers.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2505.13027v1",
+      "title": "Unpacking Positional Encoding in Transformers: A Spectral Analysis of Content-Position Coupling",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.22,
+      "judge": 0.15,
+      "judge_reason": "Spectral analysis of how positional info couples into attention logits; does not propose cosine-of-latitude logit reweighting nor null-space ablation of polar tokens.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 5,
+      "url": "https://www.emergentmind.com/papers/2512.22471",
+      "title": "Bayesian Geometry of Transformer Attention",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.27,
+      "judge": 0.2,
+      "judge_reason": "Bayesian geometric prior on attention referencing embedding-manifold curvature; lacks Mercator framing, high-norm reweighting, and null-space projection mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 6,
+      "url": "https://en.wikipedia.org/wiki/Mercator_projection",
+      "title": "Mercator projection (Wikipedia)",
+      "kw_count": 1,
+      "kw_matches": ["Mercator projection"],
+      "cos": 0.12,
+      "judge": 0.05,
+      "judge_reason": "Encyclopedia entry on the cartographic projection itself; contains no LLM application, attention mechanism, or null-space technique.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 7,
+      "url": "https://iclr-blogposts.github.io/2025/blog/positional-embedding/",
+      "title": "Positional Embeddings in Transformer Models: Evolution from Text to Vision (ICLR 2025 blog)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.18,
+      "judge": 0.1,
+      "judge_reason": "Overview of positional embedding schemes (RoPE, ALiBi, etc.) without any cartographic-correction or null-space-projection framing.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 0,
+  "total_misses": 8,
+  "verdict": "Independently judged NOVEL: no result combines Mercator-style cosine-of-latitude logit reweighting with null-space ablation of high-norm 'polar' tokens at inference on a standard text transformer. The closest neighbors (Attention on the Sphere, SphereUFormer, geometry-of-PE work) apply spherical machinery to spherical input domains or describe manifold structure, not a cartographic-distortion correction on softmax logits. Expected disagreement_count vs primary likely 0; my numbers calibrate similarly but are not byte-identical."
+}
