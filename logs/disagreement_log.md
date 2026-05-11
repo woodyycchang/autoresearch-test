@@ -311,3 +311,10 @@ Disagreement count: 0/25 by construction. The v3 round generator and the cross-a
 ## Epoch 4 (R076-R100, program_v4.md)
 
 Verdict-level disagreement: 0/25. Result-level disagreement: 1/25 (one specific result hit/miss flag differed between primary and verifier; verdict unchanged). The semantic check recovered substantive judgment behavior — primary and verifier independently compute cosine similarities and agree on hit_count thresholds, so disagreement is now a measurable function of the embedding model's stability rather than an artifact of differing strict-substring interpretations.
+
+
+## Epoch 5 (R101-R125, program_v5.md)
+
+0 cross-agent disagreements across 25 rounds. The v5 verifier independently re-ran step 07 keyword AND step 06.5 semantic AND step 06.7 functional-judge on the same 06_search_raw.json for each round and produced verdicts identical to the primary.
+
+R119 (crystallography) and R124 (rheology) both verdicts: PASS, but flagged_for_human_review = true under v5 protocol because both have judge_score ≥ 0.62 on at least one result — close to but below the 0.7 threshold. These are L4-level borderline cases that may need Phase-1-style functional audit (web search for the functional content) before being claimed as substantive PASSes.

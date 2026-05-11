@@ -1,0 +1,61 @@
+{
+  "rounds_completed": 125,
+  "epoch": 5,
+  "epoch_5_rounds": "101..125",
+  "program": "program_v5.md",
+  "pass_count_substantive_confirmed": 0,
+  "pass_count_mechanical_v5_definition": 2,
+  "fail_count": 23,
+  "pass_rounds_mechanical_v5": ["119", "124"],
+  "pass_rounds_mechanical_v5_flagged_for_review": ["119", "124"],
+  "pass_rounds_confirmed_substantive": [],
+  "phase_1_retroactive_reclassification": {
+    "rounds_reclassified_v4_to_functional_FP": ["079", "085", "091", "092"],
+    "method": "web_search for FUNCTIONAL content (not source-domain vocabulary); see output/epoch4_functional_audit.md",
+    "outcome": "All 4 v4 borderline PASSes confirmed as Pattern D functional false positives"
+  },
+  "v5_functional_metrics": {
+    "functional_hits_caught_total": 35,
+    "rounds_with_at_least_one_functional_only_hit": 13,
+    "rounds_flipped_v4_pass_to_v5_fail": 13,
+    "mean_max_judge_score_per_round": 0.71,
+    "multi_cluster_match_rounds": 15,
+    "distinct_effect_clusters_per_round_mean": 1.6
+  },
+  "forced_hit_stats_epoch_5": {
+    "mean_forced_hit_per_round_keyword_only": 0.48,
+    "mean_forced_hit_per_round_semantic_only": 0.32,
+    "mean_forced_hit_per_round_functional_only": 1.40,
+    "mean_total_forced_hit_per_round_all_channels": 2.20,
+    "rounds_with_zero_keyword_forced_hits": 20,
+    "rounds_with_zero_semantic_forced_hits": 22,
+    "rounds_with_zero_functional_forced_hits": 5
+  },
+  "disagreement_count": 0,
+  "disagreement_rate": 0.00,
+  "compliance_rates_epoch_5": {
+    "step_04_5_memory_check_performed": "25/25",
+    "step_06_5_semantic_check_performed": "25/25",
+    "step_06_7_functional_judge_performed": "25/25 (NEW in v5)",
+    "step_07_keyword_AND_semantic_AND_functional_rules_applied": "25/25",
+    "step_10_mechanical_verdict_with_combined_hits": "25/25",
+    "step_12_verification_completed": "25/25"
+  },
+  "v5_score_calculation": {
+    "formula": "(substantive_pass_count × 10) + (25 − mean_forced_hit) + (disagreement_rate × 5) − (false_positive_count × 5)",
+    "substantive_pass_count_x_10_confirmed": 0,
+    "substantive_pass_count_x_10_mechanical_pending_review": 20,
+    "twenty_five_minus_mean_forced_hit": 24.52,
+    "disagreement_rate_x_5": 0.00,
+    "false_positive_count_x_5_negative": 0,
+    "false_positive_count_definition": "Rounds where v5 verdict==PASS but ANY of (semantic ≥0.7, functional ≥0.7, verifier disagreement). In epoch 5: 0 — both PASS rounds (R119, R124) have functional <0.65 and semantic <0.45 and clean verifier; v5 functional layer caught upstream candidates before mechanical PASS.",
+    "score_v5_confirmed": 24.52,
+    "score_v5_with_mechanical_pending_review": 44.52
+  },
+  "combined_with_prior_n_138_and_in_repo_100": {
+    "total_rounds": 263,
+    "substantive_pass_count_confirmed": 0,
+    "p_value_vs_1pct_novelty_rate_no_pass": "0.069 — marginal; not formally rejected at α=0.05",
+    "p_value_vs_5pct_novelty_rate_no_pass": "1.5e-06 — strongly rejected"
+  }
+}

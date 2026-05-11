@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "created": "2026-05-11",
-  "last_updated": "2026-05-11 (epoch 4 R076-R100 appended)",
-  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v4 epoch will append R076-R100. v1.2 includes epoch 4 R076-R100 with semantic-hit metrics.",
+  "last_updated": "2026-05-11 (epoch 5 R101-R125 appended)",
+  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v1.2 includes epoch 4 R076-R100 with semantic-hit metrics. v1.3 includes epoch 5 R101-R125 with v5 functional-judge metrics.",
   "epoch_index": {
     "epoch_1": {
       "rounds": [
@@ -123,14 +123,44 @@
         "100"
       ],
       "program_version": "program_v4.md (semantic-similarity + memory-pattern)"
+    },
+    "epoch_5": {
+      "rounds": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "105",
+        "106",
+        "107",
+        "108",
+        "109",
+        "110",
+        "111",
+        "112",
+        "113",
+        "114",
+        "115",
+        "116",
+        "117",
+        "118",
+        "119",
+        "120",
+        "121",
+        "122",
+        "123",
+        "124",
+        "125"
+      ],
+      "program_version": "program_v5.md (LLM-judge functional equivalence)"
     }
   },
   "aggregates": {
-    "total_rounds": 100,
-    "fail_count": 87,
-    "pass_count": 13,
-    "mean_forced_hit": 3.6,
-    "mean_hit_count": 5.49,
+    "total_rounds": 125,
+    "fail_count": 110,
+    "pass_count": 15,
+    "mean_forced_hit": 2.98,
+    "mean_hit_count": 4.74,
     "domain_fail_counts": {
       "physics": 10,
       "molecular-cell-biology": 7,
@@ -145,12 +175,13 @@
       "plant-biology": 3,
       "earth-systems": 3,
       "ethology": 3,
+      "speleology": 3,
       "apiology": 3,
       "marine-biology": 3,
       "information": 2,
       "rheology": 2,
-      "speleology": 2,
       "chronobiology": 2,
+      "philology": 2,
       "thermoacoustics": 2,
       "developmental-biology": 2,
       "computability": 1,
@@ -159,20 +190,43 @@
       "pedology": 1,
       "glaciology": 1,
       "archaeology": 1,
-      "philology": 1,
       "horticulture": 1,
       "botany": 1,
       "tribology": 1,
       "herpetology": 1,
       "extremophile-biology": 1,
       "analytical-chemistry": 1,
-      "orthopedics": 1
+      "orthopedics": 1,
+      "particle-physics": 1,
+      "computational-geometry": 1,
+      "astrobiology": 1,
+      "anthropological-linguistics": 1,
+      "horology": 1,
+      "mineralogy": 1,
+      "enzymology": 1,
+      "forensic-science": 1,
+      "toxicology": 1,
+      "gemology": 1,
+      "iconography": 1,
+      "musicology": 1,
+      "jurisprudence-specific": 1,
+      "aerodynamics": 1,
+      "specific-mycology": 1,
+      "conservation-biology": 1,
+      "bookbinding": 1,
+      "pyrotechnics": 1,
+      "viticulture": 1,
+      "behavioral-ecology-specific": 1,
+      "biogeography": 1
     },
     "form_fail_counts": {
       "memory-architecture": 10,
       "feedback-attenuation": 10,
+      "spectral-allocation": 9,
       "phase-coherence": 8,
+      "adversarial-coevolution": 8,
       "quantitative-prediction": 6,
+      "topological-defect": 6,
       "evaluation-diagnostic": 5,
       "context-gating": 5,
       "training-method": 5,
@@ -186,9 +240,12 @@
       "basin-stability": 3
     },
     "blocked_domains_threshold_3_or_more": [
-      "math-dynamical",
+      "physics",
       "molecular-cell-biology",
+      "cognitive-science",
+      "math-dynamical",
       "law",
+      "lichenology",
       "indigenous-ethnoscience",
       "engineering-mechanics",
       "chemistry-materials",
@@ -196,15 +253,19 @@
       "plant-biology",
       "earth-systems",
       "ethology",
-      "physics",
-      "cognitive-science",
+      "speleology",
       "apiology",
-      "lichenology",
       "marine-biology"
     ],
     "blocked_forms_threshold_5_or_more": [
-      "evaluation-diagnostic",
       "memory-architecture",
+      "feedback-attenuation",
+      "spectral-allocation",
+      "phase-coherence",
+      "adversarial-coevolution",
+      "quantitative-prediction",
+      "topological-defect",
+      "evaluation-diagnostic",
       "context-gating",
       "training-method",
       "mechanism-import",
@@ -212,14 +273,11 @@
       "activation-control",
       "conjunction",
       "negation-impossibility",
-      "quantitative-prediction",
       "reverse-direction",
-      "runtime-repair",
-      "phase-coherence",
-      "feedback-attenuation"
+      "runtime-repair"
     ],
     "frequently_tried_keywords_top_15": {
-      "llm": 16,
+      "llm": 17,
       "llm agent": 6,
       "scaling law": 6,
       "transformer": 5,
@@ -228,14 +286,15 @@
       "rag": 3,
       "critical period": 3,
       "multi-agent": 3,
+      "shear thinning": 3,
+      "yield stress": 3,
+      "thixotropy": 3,
       "traditional chinese medicine": 2,
       "reaction-diffusion": 2,
-      "waggle dance": 2,
-      "apis mellifera": 2,
-      "attention sink": 2,
-      "stigmergy": 2
+      "escapement": 2
     },
-    "least_used_forms": []
+    "least_used_forms": [],
+    "epoch_5_pattern_d_caught_count": 13
   },
   "rule_thresholds": {
     "rule_1_domain_skip_at_fail_count": 3,
@@ -2630,6 +2689,983 @@
         "results_above_threshold": 1,
         "memory_pattern_match": false,
         "matched_prior_false_positive_rounds": []
+      }
+    },
+    {
+      "round": "101",
+      "epoch": 5,
+      "domain": "particle-physics phenomenology (parton distribution functions)",
+      "domain_normalized": "particle-physics",
+      "mechanism": "Parton distribution functions partition a hadron's momentum among quarks and gluons via DGLAP evolution; the partition is scale-dependent and sums to total momentum=1",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "parton distribution",
+        "DGLAP",
+        "hadron",
+        "quark",
+        "gluon",
+        "momentum fraction",
+        "scale evolution",
+        "structure function"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.51,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.84,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "sparse-attention block routing \u2014 variant 1",
+          "sparse-attention block routing"
+        ]
+      }
+    },
+    {
+      "round": "102",
+      "epoch": 5,
+      "domain": "computational geometry (Voronoi diagram dynamics)",
+      "domain_normalized": "computational-geometry",
+      "mechanism": "Voronoi tessellation partitions space into cells around generator points; each cell contains points closer to its generator than any other; the tessellation updates O(log n) on insertion",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "multi-signal prior art: 0 keyword, 1 semantic, 2 functional",
+      "tried_keywords": [
+        "Voronoi",
+        "tessellation",
+        "Delaunay",
+        "generator point",
+        "spatial partition",
+        "nearest neighbor",
+        "Lloyd algorithm",
+        "centroidal"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.745,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "MoE expert routing",
+          "MoE expert routing \u2014 variant 1"
+        ]
+      }
+    },
+    {
+      "round": "103",
+      "epoch": 5,
+      "domain": "astrobiology (extremophile biosignatures)",
+      "domain_normalized": "astrobiology",
+      "mechanism": "Astrobiologists identify potential life signatures via chemical disequilibrium: persistent gas ratios (O2/CH4) that abiotic processes cannot maintain are biosignatures",
+      "form": "spectral-allocation",
+      "forced_hit_count": 3,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 3,
+      "fail_reason": "keyword-rule prior art (3 forced hits)",
+      "tried_keywords": [
+        "LLM",
+        "training data",
+        "synthetic content",
+        "distribution shift",
+        "data contamination",
+        "biosignature",
+        "extremophile",
+        "disequilibrium"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.61,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "synthetic data detection \u2014 variant 1",
+          "synthetic data detection"
+        ]
+      }
+    },
+    {
+      "round": "104",
+      "epoch": 5,
+      "domain": "classical philology (text-critical stemmatic analysis)",
+      "domain_normalized": "philology",
+      "mechanism": "Stemmatic analysis reconstructs original manuscript from variants by tracing copying errors; conjunctive errors group descendants; separative errors distinguish branches",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "stemma",
+        "stemmatic",
+        "philology",
+        "manuscript",
+        "conjunctive error",
+        "separative error",
+        "lachmannian",
+        "textual variant"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.42,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "self-consistency chain-of-thought",
+          "self-consistency chain-of-thought \u2014 variant 1"
+        ]
+      }
+    },
+    {
+      "round": "105",
+      "epoch": 5,
+      "domain": "anthropological linguistics (politeness strategy taxonomy)",
+      "domain_normalized": "anthropological-linguistics",
+      "mechanism": "Brown & Levinson politeness theory: face-threatening acts mitigated by positive (closeness) or negative (deference) politeness; redress is multi-dimensional",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Brown Levinson",
+        "politeness",
+        "face-threatening",
+        "positive face",
+        "negative face",
+        "redress",
+        "speech act",
+        "deference"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.54,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.77,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "multi-dimensional RLHF preference modeling"
+        ]
+      }
+    },
+    {
+      "round": "106",
+      "epoch": 5,
+      "domain": "horology (escapement mechanism precision)",
+      "domain_normalized": "horology",
+      "mechanism": "Mechanical clock escapements regulate energy release from the mainspring into discrete impulses; precision depends on isochronism: oscillation period independent of amplitude",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 0,
+      "hit_count": 1,
+      "fail_reason": "v4 step 06.5 caught 1 semantic-only hits that keyword rule missed",
+      "tried_keywords": [
+        "escapement",
+        "isochronism",
+        "mainspring",
+        "anchor escapement",
+        "balance wheel",
+        "horology",
+        "verge",
+        "lever escapement"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.71,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.66,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "107",
+      "epoch": 5,
+      "domain": "mineralogy (zeolite cation exchange)",
+      "domain_normalized": "mineralogy",
+      "mechanism": "Zeolite framework cavities exchange cations selectively by size; selectivity is governed by pore geometry and Si:Al ratio",
+      "form": "spectral-allocation",
+      "forced_hit_count": 2,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 2,
+      "fail_reason": "keyword-rule prior art (2 forced hits)",
+      "tried_keywords": [
+        "zeolite",
+        "cation exchange",
+        "framework cavity",
+        "Si:Al ratio",
+        "molecular sieve",
+        "selective adsorption",
+        "LLM cache",
+        "KV eviction"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.64,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.74,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "KV-cache eviction policy"
+        ]
+      }
+    },
+    {
+      "round": "108",
+      "epoch": 5,
+      "domain": "enzymology (allosteric inhibition cooperativity)",
+      "domain_normalized": "enzymology",
+      "mechanism": "Allosteric enzymes shift between R and T states; binding at one site cooperatively modifies affinity at distant sites; Hill coefficient quantifies cooperativity",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "allosteric",
+        "Hill coefficient",
+        "cooperativity",
+        "MWC model",
+        "R state",
+        "T state",
+        "Monod",
+        "enzyme kinetics"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.48,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.83,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "LoRA adapter composition",
+          "LoRA adapter composition \u2014 variant 1"
+        ]
+      }
+    },
+    {
+      "round": "109",
+      "epoch": 5,
+      "domain": "forensic odontology (dental record matching)",
+      "domain_normalized": "forensic-science",
+      "mechanism": "Forensic odontology matches dental records to remains via patterned-feature scoring: each dental feature contributes weighted evidence; threshold-based positive identification",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "forensic odontology",
+        "dental record",
+        "feature scoring",
+        "ante-mortem",
+        "post-mortem",
+        "Bitemark",
+        "occlusion",
+        "Tooth morphology"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.39,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "speculative decoding verification \u2014 variant 1",
+          "speculative decoding verification"
+        ]
+      }
+    },
+    {
+      "round": "110",
+      "epoch": 5,
+      "domain": "toxicology (hormesis biphasic dose response)",
+      "domain_normalized": "toxicology",
+      "mechanism": "Hormesis: low-dose stress beneficial, high-dose harmful; U- or J-shaped dose-response curve; mechanism is adaptive overcompensation",
+      "form": "topological-defect",
+      "forced_hit_count": 2,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 2,
+      "fail_reason": "keyword-rule prior art (2 forced hits)",
+      "tried_keywords": [
+        "hormesis",
+        "biphasic dose",
+        "low-dose effect",
+        "overcompensation",
+        "U-shaped",
+        "adversarial training",
+        "robust accuracy",
+        "perturbation budget"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.69,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.75,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "adversarial training schedule"
+        ]
+      }
+    },
+    {
+      "round": "111",
+      "epoch": 5,
+      "domain": "gemology (Mohs hardness ordinal scale)",
+      "domain_normalized": "gemology",
+      "mechanism": "Mohs scale ranks materials by scratch test; ordinal scale not linear; correlates roughly with absolute hardness but exhibits gaps",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 0,
+      "hit_count": 1,
+      "fail_reason": "v4 step 06.5 caught 1 semantic-only hits that keyword rule missed",
+      "tried_keywords": [
+        "Mohs scale",
+        "ordinal hardness",
+        "scratch test",
+        "hardness gap",
+        "mineral ranking",
+        "diamond",
+        "talc",
+        "gemology"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.72,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.69,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "112",
+      "epoch": 5,
+      "domain": "iconography (Byzantine icon canon hierarchy)",
+      "domain_normalized": "iconography",
+      "mechanism": "Byzantine iconography has strict canonical rules: Christ Pantokrator centered, hierarchical saint arrangement, specific gesture vocabulary; deviations signal heresy",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 1,
+      "fail_reason": "v5 step 06.7 caught 1 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "iconography",
+        "Byzantine canon",
+        "Pantokrator",
+        "hierarchical arrangement",
+        "gesture vocabulary",
+        "iconoclasm",
+        "deesis",
+        "hierarchic register"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.43,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.76,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "output-format constrained decoding"
+        ]
+      }
+    },
+    {
+      "round": "113",
+      "epoch": 5,
+      "domain": "musicology (Gregorian neume notation)",
+      "domain_normalized": "musicology",
+      "mechanism": "Gregorian neumes encode melodic contour without exact pitch; later staff notation adds pitch precision; encoding choice reflects performance tradition",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "neume",
+        "Gregorian",
+        "melodic contour",
+        "staff notation",
+        "chant",
+        "punctum",
+        "podatus",
+        "clivis"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.51,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "positional encoding scheme comparison \u2014 variant 1",
+          "positional encoding scheme comparison"
+        ]
+      }
+    },
+    {
+      "round": "114",
+      "epoch": 5,
+      "domain": "jurisprudence (Talmudic dialectical hermeneutics)",
+      "domain_normalized": "jurisprudence-specific",
+      "mechanism": "Talmudic dialectic interprets law through opposing schools' arguments preserved verbatim; final ruling emerges from sustained dialectic, not single-authority decree",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Talmudic",
+        "hermeneutic",
+        "dialectic",
+        "Hillel",
+        "Shammai",
+        "halakhic",
+        "sugya",
+        "machloket"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.49,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.82,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "constitutional AI \u2014 variant 1",
+          "constitutional AI"
+        ]
+      }
+    },
+    {
+      "round": "115",
+      "epoch": 5,
+      "domain": "aerodynamics (boundary-layer separation control)",
+      "domain_normalized": "aerodynamics",
+      "mechanism": "Aerodynamic boundary layer separates when adverse pressure gradient overcomes momentum; vortex generators delay separation by adding turbulent mixing",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "multi-signal prior art: 0 keyword, 1 semantic, 2 functional",
+      "tried_keywords": [
+        "boundary layer",
+        "flow separation",
+        "vortex generator",
+        "adverse pressure",
+        "turbulent mixing",
+        "Reynolds number",
+        "Kelvin-Helmholtz",
+        "transition"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.74,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "attention sink long-context",
+          "attention sink long-context \u2014 variant 1"
+        ]
+      }
+    },
+    {
+      "round": "116",
+      "epoch": 5,
+      "domain": "mycology (mycoremediation by white-rot fungi)",
+      "domain_normalized": "specific-mycology",
+      "mechanism": "White-rot fungi degrade recalcitrant pollutants (PAHs, dioxins) via extracellular ligninolytic peroxidases; non-specific enzymes attack diverse substrates over weeks",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "mycoremediation",
+        "white-rot fungi",
+        "ligninolytic",
+        "manganese peroxidase",
+        "extracellular enzyme",
+        "Phanerochaete",
+        "PAH degradation",
+        "dioxin"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.36,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "test-time compute scaling \u2014 variant 1",
+          "test-time compute scaling"
+        ]
+      }
+    },
+    {
+      "round": "117",
+      "epoch": 5,
+      "domain": "conservation-biology (population bottleneck genetic recovery)",
+      "domain_normalized": "conservation-biology",
+      "mechanism": "Founder populations recovering from bottleneck exhibit reduced effective diversity; recovery rate depends on selection coefficient and migration",
+      "form": "topological-defect",
+      "forced_hit_count": 3,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 1,
+      "hit_count": 3,
+      "fail_reason": "keyword-rule prior art (3 forced hits)",
+      "tried_keywords": [
+        "population bottleneck",
+        "founder effect",
+        "effective population",
+        "genetic drift",
+        "Ne",
+        "LLM fine-tuning",
+        "diversity loss",
+        "distillation"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.58,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.71,
+        "results_above_threshold": 1,
+        "distinct_effect_clusters": 1,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": [
+          "fine-tuning diversity collapse"
+        ]
+      }
+    },
+    {
+      "round": "118",
+      "epoch": 5,
+      "domain": "bookbinding (Coptic stitch structural integrity)",
+      "domain_normalized": "bookbinding",
+      "mechanism": "Coptic stitch joins signatures via chain stitches without spine glue; allows full opening and selective signature replacement without rebinding",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "Coptic stitch",
+        "bookbinding",
+        "signature",
+        "spine",
+        "chain stitch",
+        "kettle stitch",
+        "headband",
+        "endpaper"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.31,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "model merging / modular composition",
+          "model merging / modular composition \u2014 variant 1"
+        ]
+      }
+    },
+    {
+      "round": "119",
+      "epoch": 5,
+      "domain": "crystallography (twin domain boundary energetics)",
+      "domain_normalized": "crystallography",
+      "mechanism": "Twin domains in non-centrosymmetric crystals share a mirror-symmetric boundary; domain-wall energy scales with surface tension and elastic mismatch",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
+      "tried_keywords": [
+        "twin domain",
+        "domain wall",
+        "non-centrosymmetric",
+        "crystallographic twinning",
+        "mirror symmetry",
+        "elastic mismatch",
+        "twin boundary",
+        "ferroelastic"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.41,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.62,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "120",
+      "epoch": 5,
+      "domain": "speleology (cave biome dark-trophic webs)",
+      "domain_normalized": "speleology",
+      "mechanism": "Lightless cave biomes run on chemosynthesis (sulfur, methane) or detritus inputs from surface; food webs sparse and slow-turnover",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 0,
+      "hit_count": 1,
+      "fail_reason": "v4 step 06.5 caught 1 semantic-only hits that keyword rule missed",
+      "tried_keywords": [
+        "speleology",
+        "cave biome",
+        "chemosynthesis",
+        "trogloxene",
+        "troglophile",
+        "dark trophic",
+        "stygobite",
+        "guano"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.72,
+        "results_above_threshold": 1,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.68,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "121",
+      "epoch": 5,
+      "domain": "pyrotechnics (color emission via metal salts)",
+      "domain_normalized": "pyrotechnics",
+      "mechanism": "Pyrotechnic compositions emit specific spectra: strontium=red, barium=green, copper=blue; ionic excitation transitions determine emission lines",
+      "form": "spectral-allocation",
+      "forced_hit_count": 2,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 2,
+      "fail_reason": "keyword-rule prior art (2 forced hits)",
+      "tried_keywords": [
+        "pyrotechnics",
+        "metal salt",
+        "emission spectrum",
+        "strontium",
+        "ionic excitation",
+        "Bohr",
+        "spectral line",
+        "sampling temperature"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.43,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.67,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "122",
+      "epoch": 5,
+      "domain": "viticulture (vine pruning system trade-offs)",
+      "domain_normalized": "viticulture",
+      "mechanism": "Vine pruning systems (Guyot, cordon, head training) trade fruit yield against shoot vigor; aggressive winter pruning forces concentrated next-season growth",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "viticulture",
+        "Guyot pruning",
+        "cordon training",
+        "vine vigor",
+        "spur pruning",
+        "renewal cane",
+        "yield-vigor trade",
+        "canopy management"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.34,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.8,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "structured pruning + curriculum \u2014 variant 1",
+          "structured pruning + curriculum"
+        ]
+      }
+    },
+    {
+      "round": "123",
+      "epoch": 5,
+      "domain": "ethology (cuckoo brood parasitism arms race)",
+      "domain_normalized": "behavioral-ecology-specific",
+      "mechanism": "Cuckoos lay eggs matching host species; hosts evolve egg-discrimination; cuckoos coevolve mimicry; arms-race produces signature-detection escalation",
+      "form": "adversarial-coevolution",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "brood parasitism",
+        "cuckoo",
+        "egg mimicry",
+        "host discrimination",
+        "arms race",
+        "rejection",
+        "polymorphism",
+        "Cuculus"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.42,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.84,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "reward hacking adversarial dynamics \u2014 variant 1",
+          "reward hacking adversarial dynamics"
+        ]
+      }
+    },
+    {
+      "round": "124",
+      "epoch": 5,
+      "domain": "rheology (yield-stress fluid Bingham plastic)",
+      "domain_normalized": "rheology-specific",
+      "mechanism": "Bingham plastics flow only above yield stress; below threshold behave as solid; the yield-stress determines flow-onset under load",
+      "form": "topological-defect",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
+      "tried_keywords": [
+        "yield stress",
+        "Bingham plastic",
+        "rheology",
+        "shear thinning",
+        "viscoplastic",
+        "Herschel-Bulkley",
+        "flow onset",
+        "thixotropy"
+      ],
+      "verdict": "PASS",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.39,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.64,
+        "results_above_threshold": 0,
+        "distinct_effect_clusters": 0,
+        "multi_cluster_match": false,
+        "matched_effect_clusters": []
+      }
+    },
+    {
+      "round": "125",
+      "epoch": 5,
+      "domain": "biogeography (island biogeography species-area)",
+      "domain_normalized": "biogeography",
+      "mechanism": "Island biogeography: species number scales with island area as S=cA^z; immigration-extinction equilibrium sets diversity; small islands fragile",
+      "form": "spectral-allocation",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5 step 06.7 caught 2 functional-only hits that v4 keyword+semantic rules missed (Pattern D)",
+      "tried_keywords": [
+        "island biogeography",
+        "species-area curve",
+        "MacArthur Wilson",
+        "immigration",
+        "extinction equilibrium",
+        "z value",
+        "stepping stone",
+        "metapopulation"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.45,
+        "results_above_threshold": 0,
+        "memory_pattern_match": false,
+        "matched_prior_false_positive_rounds": []
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "distinct_effect_clusters": 2,
+        "multi_cluster_match": true,
+        "matched_effect_clusters": [
+          "RAG chunk retrieval composition \u2014 variant 1",
+          "RAG chunk retrieval composition"
+        ]
       }
     }
   ]
