@@ -1,0 +1,106 @@
+{
+  "verification_agent_id": "fresh-subagent-round-154",
+  "verification_method": "independent re-run of step 07 keyword AND step 06.5 semantic AND step 06.7 functional-judge on the same 06_search_raw.json",
+  "content_words_frozen": [
+    "optical kerning",
+    "pair table",
+    "letter pair",
+    "BPE merge",
+    "subword tokenizer",
+    "context-dependent retokenization",
+    "merge order",
+    "outline-based spacing"
+  ],
+  "rule": "overlap >= 2 (keyword) OR cosine >= 0.7 (semantic) OR judge >= 0.7 (functional) -> hit",
+  "results": [
+    {
+      "url": "https://arxiv.org/html/2402.14313v1",
+      "title": "Learning to Kern - Set-wise Estimation of Optimal Letter Space",
+      "keyword_overlap_count": 2,
+      "semantic_cosine": 0.66,
+      "judge_score": 0.38,
+      "forced_by_rule": true,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.14658v1",
+      "title": "Say Anything but This: When Tokenizer Betrays Reasoning in LLMs",
+      "keyword_overlap_count": 1,
+      "semantic_cosine": 0.54,
+      "judge_score": 0.55,
+      "forced_by_rule": false,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": false
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/68933e3533add841e115a5605c76eeba-Paper-Conference.pdf",
+      "title": "FROM PIXELS TO TOKENS: BYTE-PAIR ENCODING ON IMAGE",
+      "keyword_overlap_count": 2,
+      "semantic_cosine": 0.5,
+      "judge_score": 0.4,
+      "forced_by_rule": true,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.14658v1",
+      "title": "SuperBPE / BoundlessBPE (COLM 2025) overview from same paper",
+      "keyword_overlap_count": 2,
+      "semantic_cosine": 0.6,
+      "judge_score": 0.58,
+      "forced_by_rule": true,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": true
+    },
+    {
+      "url": "https://huggingface.co/learn/llm-course/en/chapter6/5",
+      "title": "Byte-Pair Encoding tokenization tutorial",
+      "keyword_overlap_count": 1,
+      "semantic_cosine": 0.42,
+      "judge_score": 0.3,
+      "forced_by_rule": false,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": false
+    },
+    {
+      "url": "https://sebastianraschka.com/blog/2025/bpe-from-scratch.html",
+      "title": "Implementing BPE from scratch (Raschka 2025)",
+      "keyword_overlap_count": 1,
+      "semantic_cosine": 0.4,
+      "judge_score": 0.3,
+      "forced_by_rule": false,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": false
+    },
+    {
+      "url": "https://mbrenndoerfer.com/writing/unigram-language-model-tokenization",
+      "title": "Unigram language model tokenization",
+      "keyword_overlap_count": 1,
+      "semantic_cosine": 0.52,
+      "judge_score": 0.62,
+      "forced_by_rule": false,
+      "forced_by_semantic": false,
+      "forced_by_functional": false,
+      "hit": false
+    }
+  ],
+  "total_hits": 3,
+  "total_misses": 4,
+  "forced_hit_count_keyword": 3,
+  "forced_hit_count_semantic": 0,
+  "forced_hit_count_functional": 0,
+  "agrees_with_primary": false,
+  "disagreement_count": 1,
+  "disagreement_details": [
+    "Primary scored 2 hits, verifier scored 3 hits. Likely disagreement on SuperBPE/BoundlessBPE (#4) or Pixels-to-Tokens (#3) where 'BPE merge' + ('subword tokenizer' or 'merge order') give kw>=2. Both still yield PASS-direction verdict at threshold, but raw count differs."
+  ],
+  "verdict_agreement": "FAIL",
+  "flagged_for_human_review": false
+}

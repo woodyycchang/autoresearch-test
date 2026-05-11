@@ -1,0 +1,113 @@
+{
+  "verification_agent_id": "verifier_round_155",
+  "verification_method": "independent_scoring_kw_cos_judge",
+  "spawn_timestamp": "2026-05-11T11:05:30Z",
+  "candidate": "Premunition-style LLM safety: continuous benign adversarial probes maintain tolerance basin.",
+  "rule": "hit = kw>=2 OR cos>=0.7 OR judge>=0.7",
+  "results": [
+    {
+      "url": "https://arxiv.org/html/2503.09066v2",
+      "title": "Probing Latent Subspaces of LLMs for AI Security",
+      "kw": 1,
+      "cos": 0.55,
+      "judge": 0.5,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Attractor/basin framing but for jailbreak states, not continuous benign probe maintenance."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.01539",
+      "title": "MAGIC: Co-Evolving Attacker-Defender",
+      "kw": 0,
+      "cos": 0.55,
+      "judge": 0.65,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Co-evolution toward equilibrium, but adversarial not benign; below 0.7 judge threshold."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.05485",
+      "title": "TeleAI-Safety jailbreaking benchmark",
+      "kw": 0,
+      "cos": 0.3,
+      "judge": 0.2,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Benchmark only; no mechanism overlap."
+    },
+    {
+      "url": "https://github.com/tml-epfl/llm-adaptive-attacks",
+      "title": "Jailbreaking Leading Safety-Aligned LLMs",
+      "kw": 1,
+      "cos": 0.5,
+      "judge": 0.4,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Mentions safety basin fragility; opposes rather than supports continuous-probe maintenance."
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.346.pdf",
+      "title": "CAVGAN: Unifying Jailbreak and Defense",
+      "kw": 0,
+      "cos": 0.45,
+      "judge": 0.5,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "GAN co-evolution; not premunition framing."
+    },
+    {
+      "url": "https://arxiv.org/html/2507.08207",
+      "title": "Dynamic Stackelberg Game for Agentic AI Defense",
+      "kw": 0,
+      "cos": 0.5,
+      "judge": 0.5,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Game-theoretic equilibrium, not continuous benign exposure."
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.1126.pdf",
+      "title": "Adversarial Preference Learning for Robust LLM Alignment",
+      "kw": 1,
+      "cos": 0.6,
+      "judge": 0.72,
+      "hit": true,
+      "hit_type": "functional",
+      "rationale": "Adversarial preference learning embedded in RLHF approximates continuous adversarial exposure that maintains alignment basin; closest functional analogue."
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-emnlp.956.pdf",
+      "title": "Rebuilding LLMs Safety Mechanism",
+      "kw": 0,
+      "cos": 0.35,
+      "judge": 0.3,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Probabilistic rebuilding; different mechanism."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2817558/",
+      "title": "Immunity against Helminths",
+      "kw": 0,
+      "cos": 0.4,
+      "judge": 0.3,
+      "hit": false,
+      "hit_type": null,
+      "rationale": "Source-domain reference only; no LLM crossover. Bigram 'host helminth' not present in title/snippet as exact phrase."
+    }
+  ],
+  "total_hits": 1,
+  "forced_hit_count_keyword": 0,
+  "forced_hit_count_semantic": 0,
+  "forced_hit_count_functional": 1,
+  "verdict_independent": "FAIL",
+  "agrees_with_primary_fail": true,
+  "disagreement_count": 4,
+  "disagreement_details": [
+    {"url": "https://arxiv.org/html/2503.09066v2", "primary": "hit", "independent": "miss", "delta": "primary cos=0.74 judge=0.82; independent cos=0.55 judge=0.5 — I read attractor for jailbreak states, not for continuous benign probe tolerance maintenance"},
+    {"url": "https://arxiv.org/html/2602.01539", "primary": "hit", "independent": "miss", "delta": "primary judge=0.78; independent judge=0.65 — co-evolution game equilibrium differs from continuous benign probing"},
+    {"url": "https://aclanthology.org/2025.findings-acl.346.pdf", "primary": "hit", "independent": "miss", "delta": "primary judge=0.74; independent judge=0.5 — GAN co-evolution not tolerance basin maintenance"},
+    {"url": "https://arxiv.org/html/2507.08207", "primary": "hit", "independent": "miss", "delta": "primary cos=0.71 judge=0.79; independent cos=0.5 judge=0.5 — Stackelberg game equilibrium not premunition"}
+  ],
+  "honest_note": "Both reach FAIL verdict but via different evidence. Primary scored 5 hits (incl. 2503.09066, MAGIC, CAVGAN, Stackelberg as functional matches). Independent scoring is stricter on what counts as 'continuous benign probes maintain tolerance basin' — these papers describe adversarial co-evolution or jailbreak attractors, not premunition-style continuous benign exposure. Primary's narrative verdict text aligns: 2503.09066 covers attractor framing. Both agree on novelty fail."
+}

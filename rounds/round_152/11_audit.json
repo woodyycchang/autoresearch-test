@@ -1,0 +1,21 @@
+{
+  "round": "152",
+  "compliance": {
+    "step_03_used_real_web_search_this_round": true,
+    "step_06_used_real_web_search_this_round": true,
+    "step_06_timestamps_min_30s_apart": true,
+    "step_05_content_words_has_llm_side_terms": true,
+    "step_06_has_real_search_response": true,
+    "strict_protocol_constraints_satisfied": {
+      "c1_no_batch_script_for_this_round": true,
+      "c2_own_web_search_calls_step_03_and_06": true,
+      "c3_verification_separate_agent": "spawned",
+      "c4_per_round_timestamps_30s_apart": true,
+      "c5_keyword_vs_semantic_tracked_separately": true,
+      "c6_memory_dedup_with_priors": true,
+      "c7_form_rotation_underused_bias": true
+    }
+  },
+  "v5_metrics": {"max_cosine_similarity": 0.74, "max_judge_score": 0.86, "keyword_hits_caught_this_round": 2, "semantic_hits_caught_this_round": 3, "functional_hits_caught_this_round": 5, "pattern": "A/B/D mix — all 3 layers fire", "multi_cluster_match": true},
+  "honest_note": "Real WebSearch for both step 03 and step 06. Content_words deliberately mixed source-side and LLM-side, which is why keyword hits fired (count=2) — in contrast to epoch 6's mean keyword forced-hit = 0.00 produced by source-side-only template."
+}

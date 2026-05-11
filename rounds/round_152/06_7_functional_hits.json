@@ -1,0 +1,18 @@
+{
+  "method": "LLM-judge functional-equivalence per result vs candidate.llm_application.",
+  "per_result_judge_scores": [
+    {"url": "https://arxiv.org/html/2603.22862v2", "judge_score": 0.66, "justification": "Multi-tool orchestration with cascade-error framing; close but does not specify 3-tool agreement criterion."},
+    {"url": "https://www.getmaxim.ai/blog/chain-of-tools-llm-framework/", "judge_score": 0.69, "justification": "Chain-of-tools = candidate's cascade. Tool selection based on previous output's narrowing of distribution."},
+    {"url": "https://arxiv.org/html/2602.18968", "judge_score": 0.72, "justification": "Layered execution + reflective correction = cascade + cross-check. Functional match."},
+    {"url": "https://arxiv.org/html/2603.01620", "judge_score": 0.51, "justification": "Multiplicative reward decomp is a different framing — about reward, not termination consensus."},
+    {"url": "https://openreview.net/forum?id=Vusd1Hw2D9", "judge_score": 0.86, "justification": "EXACT functional match: 3-evaluator independent assessment → consensus check → return if reached, else continue. This IS the Behistun 1857 blind-comparison test mapped to LLMs."},
+    {"url": "https://composable-models.github.io/llm_debate/", "judge_score": 0.81, "justification": "Multi-agent debate with consensus termination. Standard self-consistency mechanism."},
+    {"url": "https://link.springer.com/article/10.1007/s44443-025-00353-3", "judge_score": 0.83, "justification": "Adaptive heterogeneous debate with stability detection = adaptive termination on agreement. Direct match."},
+    {"url": "https://arxiv.org/html/2510.12697v1", "judge_score": 0.86, "justification": "Same paper as OpenReview entry; same EXACT match."}
+  ],
+  "max_judge_score": 0.86,
+  "forced_hit_count_functional": 5,
+  "results_above_threshold": 5,
+  "distinct_effect_clusters": ["multi-agent debate with adaptive stability detection", "tool-chain cascade with reflective correction", "consensus-based termination"],
+  "multi_cluster_match": true
+}

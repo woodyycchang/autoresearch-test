@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.6",
   "created": "2026-05-11",
-  "last_updated": "2026-05-11 (epoch 6 R126-R150 appended)",
-  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v1.2 includes epoch 4 R076-R100 with semantic-hit metrics. v1.3 includes epoch 5 R101-R125 with v5 functional-judge metrics. v1.4 includes epoch 6 R126-R150 with new forms (information-cascade, null-space-traversal) and audited epoch 5 PASSes (R119, R124) reclassified as Pattern D functional false positives.",
+  "last_updated": "2026-05-11 (epoch 7 R151-R158 added under strict per-round protocol; epoch 6 remains marked compromised)",
+  "note": "Persistent failure memory for niche-mining-autoresearch. Entries appended per round at step 10. Queried at step 04.5 (memory-aware step in program_v3.md+) before candidate finalization. v1.1 includes all three epochs: R001-R025 (program.md, v1), R026-R050 (program_v2.md, v2), R051-R075 (program_v3.md, v3 memory-aware). v1.2 includes epoch 4 R076-R100 with semantic-hit metrics. v1.3 includes epoch 5 R101-R125 with v5 functional-judge metrics. v1.4 includes epoch 6 R126-R150 with new forms (information-cascade, null-space-traversal) and audited epoch 5 PASSes (R119, R124) reclassified as Pattern D functional false positives. v1.5: Phase 0 integrity audit on 2026-05-11 found all 25 epoch-6 rounds to be batch-generated template artifacts (synthetic arxiv IDs, identical placeholder timestamps, templated snippets, copy-paste verification files). Each epoch-6 entry now carries integrity_audit=compromised. N_verified=263 (288 claimed - 25 compromised). See output/epoch6_integrity_audit.md for forensic details. v1.6: Phase 1 of integrity-investigation branch ran 8 strict-protocol epoch-7 rounds (R151-R158). All 8 use real WebSearch in step 06, real Agent-spawn verification in step 12, real per-round wall-clock timestamps. Mean keyword forced-hit = 0.875 (epoch-6 compromised was 0.00); mean cross-agent disagreement_count = 2.0/round (epoch-6 was 0.00). The strict protocol produced different statistical fingerprints, corroborating the integrity audit finding that epoch 6 was template-generated. Remaining 17 rounds (R159-R175) NOT executed \u2014 context-budget tradeoff documented in compliance_log.md and epoch7_comparison.md \u00a76.",
   "epoch_index": {
     "epoch_1": {
       "rounds": [
@@ -183,6 +183,49 @@
         "150"
       ],
       "program_version": "program_v5.md (LLM-judge functional equivalence; epoch 6)"
+    },
+    "epoch_7": {
+      "rounds": [
+        "151",
+        "152",
+        "153",
+        "154",
+        "155",
+        "156",
+        "157",
+        "158"
+      ],
+      "program_version": "program_v5.md + strict-per-round protocol (compliance_log entry: epoch 7)",
+      "completion_status": "PARTIAL \u2014 8 of 25 planned rounds completed; remaining 17 rounds NOT executed due to context-budget tradeoff. See compliance_log.md and output/epoch7_comparison.md \u00a76 for transparency.",
+      "completed_rounds": [
+        "151",
+        "152",
+        "153",
+        "154",
+        "155",
+        "156",
+        "157",
+        "158"
+      ],
+      "planned_but_not_executed": [
+        "159",
+        "160",
+        "161",
+        "162",
+        "163",
+        "164",
+        "165",
+        "166",
+        "167",
+        "168",
+        "169",
+        "170",
+        "171",
+        "172",
+        "173",
+        "174",
+        "175"
+      ]
     }
   },
   "aggregates": {
@@ -348,7 +391,72 @@
     },
     "least_used_forms": [],
     "epoch_5_pattern_d_caught_count": 13,
-    "epoch_6_pattern_d_caught_count": 22
+    "epoch_6_pattern_d_caught_count": 22,
+    "integrity_audit_summary": {
+      "N_claimed": 288,
+      "N_compromised_epoch_6": 25,
+      "N_verified_excluding_epoch_6": 263,
+      "p_no_pass_1pct_novelty_at_N_verified": 0.0711,
+      "p_no_pass_5pct_novelty_at_N_verified": 1.38e-06,
+      "compromised_rounds": [
+        "126",
+        "127",
+        "128",
+        "129",
+        "130",
+        "131",
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "141",
+        "142",
+        "143",
+        "144",
+        "145",
+        "146",
+        "147",
+        "148",
+        "149",
+        "150"
+      ],
+      "audit_doc": "output/epoch6_integrity_audit.md",
+      "note": "Epoch 5 (R101-R125) shows the same identical-timestamp signature and is plausibly also compromised; left unchanged in this audit per task scope but flagged for follow-up."
+    },
+    "N_verified": 263,
+    "N_claimed": 288,
+    "epoch_7_strict_protocol_summary": {
+      "n_rounds_completed": 8,
+      "n_rounds_planned": 25,
+      "n_rounds_truncated": 17,
+      "truncation_reason": "Context-budget pragmatic tradeoff; chose fewer-but-real rounds over more-but-fake. See output/epoch7_comparison.md \u00a76.",
+      "mean_keyword_forced_hit": 0.875,
+      "mean_semantic_forced_hit": 1.625,
+      "mean_functional_forced_hit": 3.375,
+      "mean_cross_agent_disagreement_count": 2.0,
+      "cross_agent_disagreement_rate_rounds_with_any_disagreement": 0.875,
+      "mechanical_pass_count": 1,
+      "mechanical_pass_rate": 0.125,
+      "confirmed_substantive_pass_count": 0,
+      "comparison_vs_epoch_6_compromised": {
+        "kw_forced_hit_epoch_6": 0.0,
+        "kw_forced_hit_epoch_7_strict": 0.875,
+        "kw_forced_hit_lift": "infinity (0.00 -> 0.875)",
+        "semantic_forced_hit_epoch_6": 0.0,
+        "semantic_forced_hit_epoch_7_strict": 1.625,
+        "functional_forced_hit_epoch_6": 1.56,
+        "functional_forced_hit_epoch_7_strict": 3.375,
+        "disagreement_rate_epoch_6": 0.0,
+        "disagreement_rate_epoch_7_strict": 0.875
+      }
+    },
+    "N_verified_after_epoch_7": 271,
+    "N_claimed_after_epoch_7": 313
   },
   "rule_thresholds": {
     "rule_1_domain_skip_at_fail_count": 3,
@@ -547,7 +655,7 @@
       "epoch": 1,
       "domain": "Ayurveda / tridosha theory (classical Indian medicine)",
       "domain_normalized": "non-western-medicine",
-      "mechanism": "Tridosha theory: three fundamental bio-energetic constituents — vata (air-ether, governs movement and cognition), pitta (fire-water, governs transformation/digestion/heat), kapha (earth-water, governs",
+      "mechanism": "Tridosha theory: three fundamental bio-energetic constituents \u2014 vata (air-ether, governs movement and cognition), pitta (fire-water, governs transformation/digestion/heat), kapha (earth-water, governs",
       "form": "memory-architecture",
       "forced_hit_count": 8,
       "hit_count": 14,
@@ -570,7 +678,7 @@
       "epoch": 1,
       "domain": "physical chemistry / pattern formation (Liesegang rings)",
       "domain_normalized": "chemistry-materials",
-      "mechanism": "Liesegang rings: when two reagents meet in a gel via diffusion, precipitation forms not uniformly but in discrete periodic bands. Mechanism: local supersaturation builds via diffusion → precipitation ",
+      "mechanism": "Liesegang rings: when two reagents meet in a gel via diffusion, precipitation forms not uniformly but in discrete periodic bands. Mechanism: local supersaturation builds via diffusion \u2192 precipitation ",
       "form": "training-method",
       "forced_hit_count": 2,
       "hit_count": 10,
@@ -703,7 +811,7 @@
     {
       "round": "016",
       "epoch": 1,
-      "domain": "Inuit ethnoscience (sea ice taxonomy, e.g. Iñupiaq Qanuq Ilitaavut, Inuktitut siku terminology)",
+      "domain": "Inuit ethnoscience (sea ice taxonomy, e.g. I\u00f1upiaq Qanuq Ilitaavut, Inuktitut siku terminology)",
       "domain_normalized": "indigenous-ethnoscience",
       "mechanism": "Indigenous Arctic sea-ice vocabularies encode 30-100+ discrete categorical labels for ice states (slush, frazil, drift, multi-year, rotten, pressure-ridge, fast-ice, lead-ice, etc.) selected because e",
       "form": "mechanism-import",
@@ -713,7 +821,7 @@
       "tried_keywords": [
         "Inuit ice",
         "siku",
-        "Iñupiaq",
+        "I\u00f1upiaq",
         "Inuktitut",
         "sea ice taxonomy",
         "indigenous ice",
@@ -925,7 +1033,7 @@
       "epoch": 2,
       "domain": "ethology + statistical mechanics (joint: termite stigmergy + Brownian-ratchet thermodynamics)",
       "domain_normalized": "physics",
-      "mechanism": "stigmergy (indirect coordination via shared environment state) JOINTLY with information-ratchet (one-way thermodynamic commitment on each shared-state edit) — neither alone, only their conjunction is the claim",
+      "mechanism": "stigmergy (indirect coordination via shared environment state) JOINTLY with information-ratchet (one-way thermodynamic commitment on each shared-state edit) \u2014 neither alone, only their conjunction is the claim",
       "form": "conjunction",
       "forced_hit_count": 6,
       "hit_count": 6,
@@ -969,11 +1077,11 @@
       "epoch": 2,
       "domain": "linguistics / statistical physics (Zipf's law, power-law rank distribution, sample-space-collapse)",
       "domain_normalized": "physics",
-      "mechanism": "Zipfian power-law rank-relevance: the k-th retrieved chunk has relevance r_k ∝ k^{-α} with α ≈ 1.07 ± 0.1 across diverse RAG corpora, derived from sample-space-collapse during embedding-space top-k retrieval",
+      "mechanism": "Zipfian power-law rank-relevance: the k-th retrieved chunk has relevance r_k \u221d k^{-\u03b1} with \u03b1 \u2248 1.07 \u00b1 0.1 across diverse RAG corpora, derived from sample-space-collapse during embedding-space top-k retrieval",
       "form": "quantitative-prediction",
       "forced_hit_count": 6,
       "hit_count": 8,
-      "fail_reason": "total_hits=8 >= 1 -> FAIL. Substantively Form C is occupied: the universal Zipf-relevance-rank claim subsumes under Power-law-IR (Manning et al established) plus AlphaZero-Zipf scaling. Specific α=1.0",
+      "fail_reason": "total_hits=8 >= 1 -> FAIL. Substantively Form C is occupied: the universal Zipf-relevance-rank claim subsumes under Power-law-IR (Manning et al established) plus AlphaZero-Zipf scaling. Specific \u03b1=1.0",
       "tried_keywords": [
         "Zipf",
         "power law",
@@ -991,7 +1099,7 @@
       "epoch": 2,
       "domain": "LLM mechanistic interpretability (induction head circuit) exported to neuroscience (Drosophila mushroom body)",
       "domain_normalized": "physics",
-      "mechanism": "the LLM induction-head two-head circuit predicts a specific functional motif in animal associative learning: sparse-coincidence-detection in step 1 then plasticity-modulated-readout in step 2, with the LLM's previous-token-attention-head ↔ KC sparse encoding and the LLM's induction-attention-head ↔ MBON dopamine-plasticity readout",
+      "mechanism": "the LLM induction-head two-head circuit predicts a specific functional motif in animal associative learning: sparse-coincidence-detection in step 1 then plasticity-modulated-readout in step 2, with the LLM's previous-token-attention-head \u2194 KC sparse encoding and the LLM's induction-attention-head \u2194 MBON dopamine-plasticity readout",
       "form": "reverse-direction",
       "forced_hit_count": 7,
       "hit_count": 7,
@@ -1121,15 +1229,15 @@
     {
       "round": "035",
       "epoch": 2,
-      "domain": "mathematical logic (Löb's theorem, provability of consistency)",
+      "domain": "mathematical logic (L\u00f6b's theorem, provability of consistency)",
       "domain_normalized": "math-dynamical",
-      "mechanism": "Löb-theorem-style obstruction to provable self-soundness applied to LLM self-confidence",
+      "mechanism": "L\u00f6b-theorem-style obstruction to provable self-soundness applied to LLM self-confidence",
       "form": "negation-impossibility",
       "forced_hit_count": 2,
       "hit_count": 2,
-      "fail_reason": "total_hits=2 >= 1 -> FAIL. The Löb-bridge specifically is not directly published but the LLM self-consistency-empirical-impossibility frame is (Survey 2407.14507 and 'Not Self-Consistent' 2506.18781 s",
+      "fail_reason": "total_hits=2 >= 1 -> FAIL. The L\u00f6b-bridge specifically is not directly published but the LLM self-consistency-empirical-impossibility frame is (Survey 2407.14507 and 'Not Self-Consistent' 2506.18781 s",
       "tried_keywords": [
-        "Löb's theorem",
+        "L\u00f6b's theorem",
         "self-modeling",
         "self-consistency",
         "calibration",
@@ -1145,11 +1253,11 @@
       "epoch": 2,
       "domain": "learning-curve psychology / scaling-law physics (power-law error decay)",
       "domain_normalized": "physics",
-      "mechanism": "hallucination_rate ~= c * N^{-β} with β = 0.4 ± 0.1 in parameter count N",
+      "mechanism": "hallucination_rate ~= c * N^{-\u03b2} with \u03b2 = 0.4 \u00b1 0.1 in parameter count N",
       "form": "quantitative-prediction",
       "forced_hit_count": 5,
       "hit_count": 6,
-      "fail_reason": "total_hits=6 -> FAIL. Hallucination-scaling umbrella well-covered; specific β=0.4 numeric is a sub-claim.",
+      "fail_reason": "total_hits=6 -> FAIL. Hallucination-scaling umbrella well-covered; specific \u03b2=0.4 numeric is a sub-claim.",
       "tried_keywords": [
         "hallucination",
         "power law",
@@ -1233,7 +1341,7 @@
       "epoch": 2,
       "domain": "learning curves / scaling laws (power-law emergence threshold)",
       "domain_normalized": "law",
-      "mechanism": "tool-use accuracy ~ compute^γ with γ = 0.18 ± 0.05 across model families, threshold at 10^22 FLOPs",
+      "mechanism": "tool-use accuracy ~ compute^\u03b3 with \u03b3 = 0.18 \u00b1 0.05 across model families, threshold at 10^22 FLOPs",
       "form": "quantitative-prediction",
       "forced_hit_count": 1,
       "hit_count": 1,
@@ -1347,7 +1455,7 @@
       "form": "reverse-direction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "plasticity loss",
         "critical period",
@@ -1369,7 +1477,7 @@
       "form": "conjunction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "lock-in amplifier",
         "interference",
@@ -1391,7 +1499,7 @@
       "form": "negation-impossibility",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "LLM watermark",
         "paraphrase",
@@ -1457,7 +1565,7 @@
       "form": "conjunction",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "mechanical PASS — flagged as substring artifact (see scientific_taste audit)",
+      "fail_reason": "mechanical PASS \u2014 flagged as substring artifact (see scientific_taste audit)",
       "tried_keywords": [
         "mass action",
         "Le Chatelier",
@@ -1585,7 +1693,7 @@
       "epoch": 3,
       "domain": "plant physiology (thigmomorphogenesis / touch-induced growth modification)",
       "domain_normalized": "plant-biology",
-      "mechanism": "Thigmomorphogenesis: repeated mechanical stimulation (wind, touch) elicits a calcium-mediated mechanosensing cascade, ZFP/jasmonate signaling, and downstream growth-plan revision; the plant shortens stems, thickens diameters, and reinforces cell walls; the response scales with stimulus frequency × intensity",
+      "mechanism": "Thigmomorphogenesis: repeated mechanical stimulation (wind, touch) elicits a calcium-mediated mechanosensing cascade, ZFP/jasmonate signaling, and downstream growth-plan revision; the plant shortens stems, thickens diameters, and reinforces cell walls; the response scales with stimulus frequency \u00d7 intensity",
       "form": "training-method",
       "forced_hit_count": 6,
       "hit_count": 6,
@@ -1655,7 +1763,7 @@
       "form": "training-method",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be novel",
+      "fail_reason": "zero hits \u2014 candidate may be novel",
       "tried_keywords": [
         "caldera unrest",
         "eruption precursor",
@@ -1739,7 +1847,7 @@
       "epoch": 3,
       "domain": "earth systems / fluvial geomorphology (river meander cutoff and oxbow lake formation)",
       "domain_normalized": "earth-systems",
-      "mechanism": "A meandering river progressively widens its bends via differential erosion (outer bank) and deposition (inner bank); when bend curvature exceeds a critical threshold, the river breaches the narrow neck of land between adjacent bends and a 'cutoff' forms — the new straight channel takes over while the abandoned bend becomes an oxbow lake; cutoffs nonlocally accelerate upstream and downstream channel migration",
+      "mechanism": "A meandering river progressively widens its bends via differential erosion (outer bank) and deposition (inner bank); when bend curvature exceeds a critical threshold, the river breaches the narrow neck of land between adjacent bends and a 'cutoff' forms \u2014 the new straight channel takes over while the abandoned bend becomes an oxbow lake; cutoffs nonlocally accelerate upstream and downstream channel migration",
       "form": "context-gating",
       "forced_hit_count": 5,
       "hit_count": 5,
@@ -1759,15 +1867,15 @@
     {
       "round": "064",
       "epoch": 3,
-      "domain": "cartography (Töpfer's Radical Law for cartographic generalization)",
+      "domain": "cartography (T\u00f6pfer's Radical Law for cartographic generalization)",
       "domain_normalized": "cartography",
-      "mechanism": "Töpfer's Radical Law (1961): when reducing map scale from S1 to S2, the number of features that should be retained is N2 = N1 × sqrt(S1/S2). The rule gives a principled count for selection at smaller scales; features that survive selection are those whose importance score exceeds a scale-dependent threshold. The law is empirical-cartographic, not information-theoretic, and incorporates feature category-specific exponents",
+      "mechanism": "T\u00f6pfer's Radical Law (1961): when reducing map scale from S1 to S2, the number of features that should be retained is N2 = N1 \u00d7 sqrt(S1/S2). The rule gives a principled count for selection at smaller scales; features that survive selection are those whose importance score exceeds a scale-dependent threshold. The law is empirical-cartographic, not information-theoretic, and incorporates feature category-specific exponents",
       "form": "training-method",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be novel",
+      "fail_reason": "zero hits \u2014 candidate may be novel",
       "tried_keywords": [
-        "Töpfer radical law",
+        "T\u00f6pfer radical law",
         "cartographic generalization",
         "map generalization",
         "feature selection",
@@ -1783,7 +1891,7 @@
       "epoch": 3,
       "domain": "speleology (epigenic vs hypogenic speleogenesis; cave conduit network development)",
       "domain_normalized": "speleology",
-      "mechanism": "Speleogenesis produces conduit networks via either epigenic (descending acidic surface water) or hypogenic (rising deep-source) routes; the resulting cave geometry differs sharply (epigenic: branchwork following recharge patterns; hypogenic: maze-like with rising chimneys). Conduit growth is positive-feedback — flow enlarges conduit which enlarges flow — until thresholds destabilize the network",
+      "mechanism": "Speleogenesis produces conduit networks via either epigenic (descending acidic surface water) or hypogenic (rising deep-source) routes; the resulting cave geometry differs sharply (epigenic: branchwork following recharge patterns; hypogenic: maze-like with rising chimneys). Conduit growth is positive-feedback \u2014 flow enlarges conduit which enlarges flow \u2014 until thresholds destabilize the network",
       "form": "mechanism-import",
       "forced_hit_count": 7,
       "hit_count": 7,
@@ -1853,7 +1961,7 @@
       "form": "multi-agent-comm",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be novel",
+      "fail_reason": "zero hits \u2014 candidate may be novel",
       "tried_keywords": [
         "soil microbiome",
         "mycorrhizal network",
@@ -1871,11 +1979,11 @@
       "epoch": 3,
       "domain": "volcanology (magma chamber pressure equalization via dike intrusion)",
       "domain_normalized": "volcanology",
-      "mechanism": "When magma chamber pressure exceeds the surrounding host-rock fracture strength, magma intrudes as a dike — a narrow planar conduit — that propagates laterally or vertically until pressure equalizes; dike orientation is controlled by regional stress field; the propagation is a self-arresting process (as the dike grows, chamber pressure drops, propagation slows)",
+      "mechanism": "When magma chamber pressure exceeds the surrounding host-rock fracture strength, magma intrudes as a dike \u2014 a narrow planar conduit \u2014 that propagates laterally or vertically until pressure equalizes; dike orientation is controlled by regional stress field; the propagation is a self-arresting process (as the dike grows, chamber pressure drops, propagation slows)",
       "form": "mechanism-import",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be novel",
+      "fail_reason": "zero hits \u2014 candidate may be novel",
       "tried_keywords": [
         "magma chamber",
         "dike intrusion",
@@ -1893,7 +2001,7 @@
       "epoch": 3,
       "domain": "chronobiology (zeitgeber entrainment and oscillator phase locking)",
       "domain_normalized": "chronobiology",
-      "mechanism": "An internal circadian oscillator entrains (phase-locks) to external zeitgebers (light, temperature, feeding); the entrainment depends on zeitgeber strength × phase response curve; multiple zeitgebers can act simultaneously and reinforce or conflict; phase-locking is bounded — outside an entrainment range the internal oscillator drifts free",
+      "mechanism": "An internal circadian oscillator entrains (phase-locks) to external zeitgebers (light, temperature, feeding); the entrainment depends on zeitgeber strength \u00d7 phase response curve; multiple zeitgebers can act simultaneously and reinforce or conflict; phase-locking is bounded \u2014 outside an entrainment range the internal oscillator drifts free",
       "form": "runtime-repair",
       "forced_hit_count": 5,
       "hit_count": 5,
@@ -1915,7 +2023,7 @@
       "epoch": 3,
       "domain": "glaciology / glacial hydrology (englacial drainage via moulin-and-subglacial-conduit network)",
       "domain_normalized": "glaciology",
-      "mechanism": "Surface meltwater forms supraglacial lakes that fracture vertically into moulins (10-100 m apertures); moulin water descends through englacial conduits to the subglacial bed where it forms Röthlisberger channels that route water to the glacier terminus on hours-to-days timescales; the network is bimodal (channelized vs distributed) and reorganizes seasonally as ice flow closes channels and pressure reopens them",
+      "mechanism": "Surface meltwater forms supraglacial lakes that fracture vertically into moulins (10-100 m apertures); moulin water descends through englacial conduits to the subglacial bed where it forms R\u00f6thlisberger channels that route water to the glacier terminus on hours-to-days timescales; the network is bimodal (channelized vs distributed) and reorganizes seasonally as ice flow closes channels and pressure reopens them",
       "form": "training-method",
       "forced_hit_count": 3,
       "hit_count": 3,
@@ -1925,7 +2033,7 @@
         "englacial drainage",
         "subglacial conduit",
         "supraglacial lake",
-        "Röthlisberger channel",
+        "R\u00f6thlisberger channel",
         "ice sheet hydrology",
         "glacier bed",
         "ablation"
@@ -2003,11 +2111,11 @@
       "epoch": 3,
       "domain": "numismatics (die-axis variation across coin strikes)",
       "domain_normalized": "numismatics",
-      "mechanism": "Coins are struck between two engraved dies (obverse and reverse); the die-axis (relative rotation between obverse and reverse) varies by 0-360 degrees. Ancient coins show 10% variation around standard orientation; modern coins are constrained to standard (180°) or medallic (0°). The die-axis distribution across many strikes from the same die-pair reveals striking-technique variance",
+      "mechanism": "Coins are struck between two engraved dies (obverse and reverse); the die-axis (relative rotation between obverse and reverse) varies by 0-360 degrees. Ancient coins show 10% variation around standard orientation; modern coins are constrained to standard (180\u00b0) or medallic (0\u00b0). The die-axis distribution across many strikes from the same die-pair reveals striking-technique variance",
       "form": "feedback-attenuation",
       "forced_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be novel",
+      "fail_reason": "zero hits \u2014 candidate may be novel",
       "tried_keywords": [
         "die axis",
         "die alignment",
@@ -2052,7 +2160,7 @@
     {
       "round": "077",
       "epoch": 4,
-      "domain": "myrmecology — Cataglyphis path integration",
+      "domain": "myrmecology \u2014 Cataglyphis path integration",
       "domain_normalized": "apiology",
       "mechanism": "Cataglyphis desert ants integrate proprioceptive step counts + sky polarization to maintain home-vector for kilometer-scale return journeys without landmarks; vector decays linearly with foraging time",
       "form": "phase-coherence",
@@ -2112,12 +2220,12 @@
       "epoch": 4,
       "domain": "phyllotaxis (Fibonacci leaf arrangement)",
       "domain_normalized": "botany",
-      "mechanism": "Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5°) divergence to minimize self-shading; the spiral emerges from auxin-driven reaction-diffusion dynamics in the meristem",
+      "mechanism": "Plant leaves arrange in spiral phyllotaxis with golden-angle (137.5\u00b0) divergence to minimize self-shading; the spiral emerges from auxin-driven reaction-diffusion dynamics in the meristem",
       "form": "phase-coherence",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "phyllotaxis",
         "Fibonacci",
@@ -2141,7 +2249,7 @@
       "epoch": 4,
       "domain": "termite mound thermoregulation",
       "domain_normalized": "thermoacoustics",
-      "mechanism": "Macrotermes mounds maintain ±1°C internal temperature via passive ventilation networks driven by stack-effect convection between buried fungus gardens and surface chimneys",
+      "mechanism": "Macrotermes mounds maintain \u00b11\u00b0C internal temperature via passive ventilation networks driven by stack-effect convection between buried fungus gardens and surface chimneys",
       "form": "phase-coherence",
       "forced_hit_count": 5,
       "forced_semantic_hit_count": 1,
@@ -2291,7 +2399,7 @@
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "tribology",
         "boundary lubrication",
@@ -2431,7 +2539,7 @@
       "epoch": 4,
       "domain": "regenerative axolotl limb blastema",
       "domain_normalized": "developmental-biology",
-      "mechanism": "Axolotls regenerate amputated limbs via blastema — a mass of dedifferentiated cells that re-establishes positional information using residual gradient cues",
+      "mechanism": "Axolotls regenerate amputated limbs via blastema \u2014 a mass of dedifferentiated cells that re-establishes positional information using residual gradient cues",
       "form": "feedback-attenuation",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 4,
@@ -2465,7 +2573,7 @@
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "tardigrade",
         "cryptobiosis",
@@ -2489,12 +2597,12 @@
       "epoch": 4,
       "domain": "Antarctic icefish antifreeze glycoproteins",
       "domain_normalized": "marine-biology",
-      "mechanism": "Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-colligative thermal hysteresis, allowing survival at -2°C ocean temperatures",
+      "mechanism": "Antarctic icefish produce AFGPs that bind ice-crystal nuclei and prevent growth via non-colligative thermal hysteresis, allowing survival at -2\u00b0C ocean temperatures",
       "form": "phase-coherence",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits — candidate may be substantively novel (no keyword AND no semantic prior art)",
+      "fail_reason": "zero hits \u2014 candidate may be substantively novel (no keyword AND no semantic prior art)",
       "tried_keywords": [
         "antifreeze glycoprotein",
         "AFGP",
@@ -2634,7 +2742,7 @@
       "epoch": 4,
       "domain": "elasmobranch electroreception (ampullae of Lorenzini)",
       "domain_normalized": "marine-biology",
-      "mechanism": "Sharks detect prey-generated electric fields via ampullae of Lorenzini — gel-filled canals that act as voltmeters at nanovolt sensitivity",
+      "mechanism": "Sharks detect prey-generated electric fields via ampullae of Lorenzini \u2014 gel-filled canals that act as voltmeters at nanovolt sensitivity",
       "form": "basin-stability",
       "forced_hit_count": 5,
       "forced_semantic_hit_count": 1,
@@ -2692,7 +2800,7 @@
       "epoch": 4,
       "domain": "bone remodeling Wolff's law",
       "domain_normalized": "orthopedics",
-      "mechanism": "Bone remodels itself in response to mechanical stress (Wolff's law) — osteoclasts resorb under-loaded bone, osteoblasts deposit new bone along stress trajectories",
+      "mechanism": "Bone remodels itself in response to mechanical stress (Wolff's law) \u2014 osteoclasts resorb under-loaded bone, osteoblasts deposit new bone along stress trajectories",
       "form": "basin-stability",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 3,
@@ -2780,7 +2888,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "sparse-attention block routing — variant 1",
+          "sparse-attention block routing \u2014 variant 1",
           "sparse-attention block routing"
         ]
       }
@@ -2821,7 +2929,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "MoE expert routing",
-          "MoE expert routing — variant 1"
+          "MoE expert routing \u2014 variant 1"
         ]
       }
     },
@@ -2860,7 +2968,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "synthetic data detection — variant 1",
+          "synthetic data detection \u2014 variant 1",
           "synthetic data detection"
         ]
       }
@@ -2901,7 +3009,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "self-consistency chain-of-thought",
-          "self-consistency chain-of-thought — variant 1"
+          "self-consistency chain-of-thought \u2014 variant 1"
         ]
       }
     },
@@ -3056,7 +3164,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "LoRA adapter composition",
-          "LoRA adapter composition — variant 1"
+          "LoRA adapter composition \u2014 variant 1"
         ]
       }
     },
@@ -3095,7 +3203,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "speculative decoding verification — variant 1",
+          "speculative decoding verification \u2014 variant 1",
           "speculative decoding verification"
         ]
       }
@@ -3250,7 +3358,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "positional encoding scheme comparison — variant 1",
+          "positional encoding scheme comparison \u2014 variant 1",
           "positional encoding scheme comparison"
         ]
       }
@@ -3290,7 +3398,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "constitutional AI — variant 1",
+          "constitutional AI \u2014 variant 1",
           "constitutional AI"
         ]
       }
@@ -3331,7 +3439,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "attention sink long-context",
-          "attention sink long-context — variant 1"
+          "attention sink long-context \u2014 variant 1"
         ]
       }
     },
@@ -3370,7 +3478,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "test-time compute scaling — variant 1",
+          "test-time compute scaling \u2014 variant 1",
           "test-time compute scaling"
         ]
       }
@@ -3450,7 +3558,7 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "model merging / modular composition",
-          "model merging / modular composition — variant 1"
+          "model merging / modular composition \u2014 variant 1"
         ]
       }
     },
@@ -3465,7 +3573,7 @@
       "forced_semantic_hit_count": 0,
       "forced_functional_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits across all three channels — candidate may be substantively novel",
+      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
       "tried_keywords": [
         "twin domain",
         "domain wall",
@@ -3600,7 +3708,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "structured pruning + curriculum — variant 1",
+          "structured pruning + curriculum \u2014 variant 1",
           "structured pruning + curriculum"
         ]
       }
@@ -3640,7 +3748,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "reward hacking adversarial dynamics — variant 1",
+          "reward hacking adversarial dynamics \u2014 variant 1",
           "reward hacking adversarial dynamics"
         ]
       }
@@ -3656,7 +3764,7 @@
       "forced_semantic_hit_count": 0,
       "forced_functional_hit_count": 0,
       "hit_count": 0,
-      "fail_reason": "zero hits across all three channels — candidate may be substantively novel",
+      "fail_reason": "zero hits across all three channels \u2014 candidate may be substantively novel",
       "tried_keywords": [
         "yield stress",
         "Bingham plastic",
@@ -3717,7 +3825,7 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "RAG chunk retrieval composition — variant 1",
+          "RAG chunk retrieval composition \u2014 variant 1",
           "RAG chunk retrieval composition"
         ]
       }
@@ -3727,7 +3835,7 @@
       "epoch": 6,
       "domain": "classical Indian poetics (rasa theory)",
       "domain_normalized": "classical-Indian-poetics",
-      "mechanism": "Rasa theory: nine canonical aesthetic emotions (rasas) allocated across narrative; bhāva (latent emotion) resonates with rasa to produce evocation",
+      "mechanism": "Rasa theory: nine canonical aesthetic emotions (rasas) allocated across narrative; bh\u0101va (latent emotion) resonates with rasa to produce evocation",
       "form": "spectral-allocation",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
@@ -3759,7 +3867,9 @@
         "matched_effect_clusters": [
           "MoE expert routing for emotion-conditioned generation"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "127",
@@ -3798,7 +3908,9 @@
         "matched_effect_clusters": [
           "noise-robust attention / fault-tolerant inference"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "128",
@@ -3835,10 +3947,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "adversarial red-teaming / continual safety training — variant 1",
+          "adversarial red-teaming / continual safety training \u2014 variant 1",
           "adversarial red-teaming / continual safety training"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "129",
@@ -3875,7 +3989,9 @@
         "distinct_effect_clusters": 0,
         "multi_cluster_match": false,
         "matched_effect_clusters": []
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "130",
@@ -3914,7 +4030,9 @@
         "matched_effect_clusters": [
           "interpretability probing / mechanistic features"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "131",
@@ -3951,10 +4069,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "LLM watermarking / adversarial removal — variant 1",
+          "LLM watermarking / adversarial removal \u2014 variant 1",
           "LLM watermarking / adversarial removal"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "132",
@@ -3992,9 +4112,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "model fingerprinting / provenance attribution",
-          "model fingerprinting / provenance attribution — variant 1"
+          "model fingerprinting / provenance attribution \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "133",
@@ -4032,9 +4154,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "model attribution / stylometric watermarking",
-          "model attribution / stylometric watermarking — variant 1"
+          "model attribution / stylometric watermarking \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "134",
@@ -4071,10 +4195,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "hallucination detection / fact-checking adversarial robustness — variant 1",
+          "hallucination detection / fact-checking adversarial robustness \u2014 variant 1",
           "hallucination detection / fact-checking adversarial robustness"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "135",
@@ -4112,9 +4238,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "model merging / parameter combination rules",
-          "model merging / parameter combination rules — variant 1"
+          "model merging / parameter combination rules \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "136",
@@ -4152,9 +4280,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "MoE expert routing / token permutation routing",
-          "MoE expert routing / token permutation routing — variant 1"
+          "MoE expert routing / token permutation routing \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "137",
@@ -4193,7 +4323,9 @@
         "matched_effect_clusters": [
           "frequency-domain interpretability / spectral pruning"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "138",
@@ -4232,7 +4364,9 @@
         "matched_effect_clusters": [
           "checkpoint reconstruction / weight stitching"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "139",
@@ -4270,9 +4404,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "activation steering / null-space ablation",
-          "activation steering / null-space ablation — variant 1"
+          "activation steering / null-space ablation \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "140",
@@ -4309,7 +4445,9 @@
         "distinct_effect_clusters": 0,
         "multi_cluster_match": false,
         "matched_effect_clusters": []
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "141",
@@ -4346,10 +4484,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "layer-wise information flow / depth-routing — variant 1",
+          "layer-wise information flow / depth-routing \u2014 variant 1",
           "layer-wise information flow / depth-routing"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "142",
@@ -4386,10 +4526,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "instruction-following / prompt-format sensitivity — variant 1",
+          "instruction-following / prompt-format sensitivity \u2014 variant 1",
           "instruction-following / prompt-format sensitivity"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "143",
@@ -4426,11 +4568,13 @@
         "distinct_effect_clusters": 3,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "jailbreak red-teaming / safety system-prompt design — variant 2",
-          "jailbreak red-teaming / safety system-prompt design — variant 1",
+          "jailbreak red-teaming / safety system-prompt design \u2014 variant 2",
+          "jailbreak red-teaming / safety system-prompt design \u2014 variant 1",
           "jailbreak red-teaming / safety system-prompt design"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "144",
@@ -4468,16 +4612,18 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "retrieval-augmented attention / RAG retrieval scoring",
-          "retrieval-augmented attention / RAG retrieval scoring — variant 1"
+          "retrieval-augmented attention / RAG retrieval scoring \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "145",
       "epoch": 6,
-      "domain": "Shinto shrine architecture (specific Sengū rebuilding cycle)",
+      "domain": "Shinto shrine architecture (specific Seng\u016b rebuilding cycle)",
       "domain_normalized": "Shinto-shrine-architecture",
-      "mechanism": "Sengū: ritual 20-year shrine rebuilding (Ise Jingū); the rebuilt shrine has zero topological defects relative to the original via canonical reconstruction rules",
+      "mechanism": "Seng\u016b: ritual 20-year shrine rebuilding (Ise Jing\u016b); the rebuilt shrine has zero topological defects relative to the original via canonical reconstruction rules",
       "form": "topological-defect",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
@@ -4509,7 +4655,9 @@
         "matched_effect_clusters": [
           "continual pretraining / scheduled refresh"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "146",
@@ -4546,10 +4694,12 @@
         "distinct_effect_clusters": 2,
         "multi_cluster_match": true,
         "matched_effect_clusters": [
-          "long-context retrieval / chunked context routing — variant 1",
+          "long-context retrieval / chunked context routing \u2014 variant 1",
           "long-context retrieval / chunked context routing"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "147",
@@ -4587,16 +4737,18 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "synthetic data generation / self-improvement loops",
-          "synthetic data generation / self-improvement loops — variant 1"
+          "synthetic data generation / self-improvement loops \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "148",
       "epoch": 6,
-      "domain": "dressage (classical horse-training haute école)",
+      "domain": "dressage (classical horse-training haute \u00e9cole)",
       "domain_normalized": "dressage",
-      "mechanism": "Haute école movements: piaffe, passage, levade; each movement traverses the null-space of horse's natural motion constraints via systematic training",
+      "mechanism": "Haute \u00e9cole movements: piaffe, passage, levade; each movement traverses the null-space of horse's natural motion constraints via systematic training",
       "form": "null-space-traversal",
       "forced_hit_count": 0,
       "forced_semantic_hit_count": 0,
@@ -4626,7 +4778,9 @@
         "distinct_effect_clusters": 0,
         "multi_cluster_match": false,
         "matched_effect_clusters": []
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "149",
@@ -4664,9 +4818,11 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "rotary positional encoding / long-context attention",
-          "rotary positional encoding / long-context attention — variant 1"
+          "rotary positional encoding / long-context attention \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
     },
     {
       "round": "150",
@@ -4704,9 +4860,291 @@
         "multi_cluster_match": true,
         "matched_effect_clusters": [
           "sparse autoencoders / dictionary learning interpretability",
-          "sparse autoencoders / dictionary learning interpretability — variant 1"
+          "sparse autoencoders / dictionary learning interpretability \u2014 variant 1"
         ]
-      }
+      },
+      "integrity_audit": "compromised",
+      "compromise_reason": "Phase 0 integrity audit (2026-05-11): all 25 epoch-6 rounds share batch-generation artifacts \u2014 synthetic arxiv IDs with impossible YYMM months, all rounds stamped 10:30:00Z, identical templated snippets across results, arithmetic decreasing judge_score sequences (top 0.82-0.86, -0.05 decrements), verification files byte-identical to 07_hit_miss.json with placeholder verification_agent_id strings, frozen 8-source-side-content_words schema, R149 Polynesian-navigation dedup bypass. See output/epoch6_integrity_audit.md."
+    },
+    {
+      "round": "151",
+      "epoch": 7,
+      "domain": "arboriculture (Reineke self-thinning rule)",
+      "domain_normalized": "arboriculture",
+      "mechanism": "Reineke's rule: log(N_max) = -1.605 * log(D) + k; stand evolves along log-log frontier",
+      "form": "null-space-traversal",
+      "forced_hit_count": 2,
+      "forced_semantic_hit_count": 2,
+      "forced_functional_hit_count": 5,
+      "hit_count": 6,
+      "fail_reason": "v5: keyword+semantic+functional all fire; LATTICE-style head-budget literature is dense",
+      "tried_keywords": [
+        "Reineke rule",
+        "self-thinning frontier",
+        "stand density index",
+        "size-density relationship",
+        "head pruning",
+        "effective rank",
+        "KV-cache reallocation",
+        "log-log slope"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.72,
+        "results_above_threshold": 2
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.83,
+        "results_above_threshold": 5,
+        "multi_cluster_match": true
+      },
+      "cross_agent_disagreement_count": 6,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "152",
+      "epoch": 7,
+      "domain": "cuneiform decipherment (Behistun trilingual cross-check)",
+      "domain_normalized": "cuneiform-decipherment",
+      "mechanism": "Behistun trilingual cascade: each language's deciphered substring constrains others; 1857 Royal Asiatic blind comparison ratified convergence",
+      "form": "information-cascade",
+      "forced_hit_count": 2,
+      "forced_semantic_hit_count": 3,
+      "forced_functional_hit_count": 5,
+      "hit_count": 5,
+      "fail_reason": "v5: multi-agent debate adaptive stability detection (Springer 2025, arxiv 2510.12697) is direct match",
+      "tried_keywords": [
+        "Behistun trilingual",
+        "Grotefend",
+        "Rawlinson",
+        "blind comparison",
+        "multi-tool agent",
+        "self-consistency",
+        "ReAct cascade",
+        "embedding agreement"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.74,
+        "results_above_threshold": 3
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.86,
+        "results_above_threshold": 5,
+        "multi_cluster_match": true
+      },
+      "cross_agent_disagreement_count": 1,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "153",
+      "epoch": 7,
+      "domain": "industrial thermography (infrared fault detection)",
+      "domain_normalized": "industrial-thermography",
+      "mechanism": "Thermography: IR map of temperature distribution; hotspots = latent faults; basin distance to fault threshold",
+      "form": "basin-stability",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 0,
+      "forced_functional_hit_count": 0,
+      "hit_count": 0,
+      "fail_reason": "n/a \u2014 mechanical PASS, but max judge 0.69 (just below threshold) and search-coverage limited per verifier note",
+      "tried_keywords": [
+        "thermography",
+        "hotspot",
+        "infrared map",
+        "basin-stability",
+        "activation patching",
+        "counterfactual probing",
+        "decision boundary",
+        "prompt injection"
+      ],
+      "verdict": "PASS (mechanical) \u2014 flagged for human review",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.66,
+        "results_above_threshold": 0
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.69,
+        "results_above_threshold": 0,
+        "multi_cluster_match": false
+      },
+      "cross_agent_disagreement_count": 1,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "154",
+      "epoch": 7,
+      "domain": "typography (optical kerning)",
+      "domain_normalized": "typography-kerning",
+      "mechanism": "Optical kerning: glyph-outline-based per-pair adjustment; legal placements form null-space of {monospace, ugly}",
+      "form": "null-space-traversal",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5: unigram subword regularization is closest analog; Say-Anything-but-This is tokenizer-aware decoding",
+      "tried_keywords": [
+        "optical kerning",
+        "pair table",
+        "letter pair",
+        "BPE merge",
+        "subword tokenizer",
+        "context-dependent retokenization",
+        "merge order",
+        "outline-based spacing"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.71,
+        "results_above_threshold": 1
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.78,
+        "results_above_threshold": 2,
+        "multi_cluster_match": false
+      },
+      "cross_agent_disagreement_count": 1,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "155",
+      "epoch": 7,
+      "domain": "helminthology (host-parasite premunition tolerance)",
+      "domain_normalized": "helminthology",
+      "mechanism": "Premunition: ongoing infection maintains immune tolerance basin; new infections blocked",
+      "form": "basin-stability",
+      "forced_hit_count": 0,
+      "forced_semantic_hit_count": 2,
+      "forced_functional_hit_count": 5,
+      "hit_count": 5,
+      "fail_reason": "v5: Probing Latent Subspaces (2503.09066) uses attractor/basin for safe/jailbroken states; MAGIC, CAVGAN, Stackelberg are co-evolution variants",
+      "tried_keywords": [
+        "premunition",
+        "concomitant immunity",
+        "host helminth",
+        "worm burden",
+        "tolerance basin",
+        "RLHF",
+        "jailbreak attractor",
+        "safety basin"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.74,
+        "results_above_threshold": 2
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.82,
+        "results_above_threshold": 5,
+        "multi_cluster_match": true
+      },
+      "cross_agent_disagreement_count": 4,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "156",
+      "epoch": 7,
+      "domain": "paleobotany (stratigraphic pollen succession)",
+      "domain_normalized": "paleobotany",
+      "mechanism": "Stratigraphic pollen: each layer constrains paleoenvironment; deeper layers cascade constraints up",
+      "form": "information-cascade",
+      "forced_hit_count": 1,
+      "forced_semantic_hit_count": 2,
+      "forced_functional_hit_count": 4,
+      "hit_count": 4,
+      "fail_reason": "v5: LATTICE (2510.13217) is exact match \u2014 hierarchical retrieval with path-relevance aggregation",
+      "tried_keywords": [
+        "stratigraphy",
+        "pollen succession",
+        "depositional layer",
+        "stratum cascade",
+        "hierarchical retrieval",
+        "path relevance",
+        "LATTICE",
+        "RAG"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.78,
+        "results_above_threshold": 2
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.85,
+        "results_above_threshold": 4,
+        "multi_cluster_match": true
+      },
+      "cross_agent_disagreement_count": 1,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "157",
+      "epoch": 7,
+      "domain": "bryology (moss desiccation anabiosis)",
+      "domain_normalized": "bryology",
+      "mechanism": "Moss desiccation tolerance: lose 90% water, reversible chloroplast change, rehydrate without de novo synthesis",
+      "form": "null-space-traversal",
+      "forced_hit_count": 1,
+      "forced_semantic_hit_count": 1,
+      "forced_functional_hit_count": 2,
+      "hit_count": 2,
+      "fail_reason": "v5: Simple Compression Recovery via Dynamic Prompting (openreview 4nV383120k) is functional analog",
+      "tried_keywords": [
+        "bryophyte desiccation",
+        "anabiosis",
+        "rehydration recovery",
+        "Polytrichum",
+        "LoRA adapter",
+        "null-space",
+        "PEFT",
+        "compression recovery"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.71,
+        "results_above_threshold": 1
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.79,
+        "results_above_threshold": 2,
+        "multi_cluster_match": false
+      },
+      "cross_agent_disagreement_count": 0,
+      "strict_protocol_audit": "honest"
+    },
+    {
+      "round": "158",
+      "epoch": 7,
+      "domain": "chess endgame tablebase (Syzygy retrograde DTM)",
+      "domain_normalized": "chess-endgame-tablebase",
+      "mechanism": "Syzygy retrograde analysis: backward-induct WDL/DTZ/DTM from mate; optimal play traverses win basin",
+      "form": "basin-stability",
+      "forced_hit_count": 1,
+      "forced_semantic_hit_count": 2,
+      "forced_functional_hit_count": 4,
+      "hit_count": 5,
+      "fail_reason": "v5: Internalizing LLM Reasoning via Discovery+Replay (2602.04925) is direct match. DOTS, Evolution of Thought basin convergence",
+      "tried_keywords": [
+        "Syzygy tablebase",
+        "retrograde analysis",
+        "distance to mate",
+        "endgame state space",
+        "chain-of-thought cache",
+        "Lyapunov decay",
+        "trajectory control",
+        "DOTS"
+      ],
+      "verdict": "FAIL",
+      "v4_semantic_metrics": {
+        "max_cosine_similarity": 0.74,
+        "results_above_threshold": 2
+      },
+      "v5_functional_metrics": {
+        "max_judge_score": 0.81,
+        "results_above_threshold": 4,
+        "multi_cluster_match": true
+      },
+      "cross_agent_disagreement_count": 2,
+      "strict_protocol_audit": "honest"
     }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "candidate_form": "null-space-traversal",
+  "domain": "typography (kerning / optical letter-pair spacing)",
+  "specific_mechanism": "Optical kerning: algorithm computes per-pair letter spacing from glyph outlines rather than from a fixed kern-pair table. Pair-by-pair adjustment travels the null-space of {monospace, ugly, illegible} to land on optimal aesthetic readability.",
+  "llm_application": "Optical-kerning tokenizer: rather than a fixed BPE merge table, dynamically adjust the merge boundary between two adjacent subword tokens based on the local context's outline (embedding similarity, attention attention-pattern). Null-space traversal: the set of legal tokenizations forms a null-space; pick the one that maximizes downstream task utility per pass.",
+  "novelty_claim": "SuperBPE and BoundlessBPE (COLM 2025) relax pre-tokenization boundaries, but they still freeze the merge order. Whether 'context-dependent re-tokenization per inference step' is in 2024-2026 print is the open question.",
+  "content_words": ["optical kerning", "pair table", "letter pair", "BPE merge", "subword tokenizer", "context-dependent retokenization", "merge order", "outline-based spacing"],
+  "content_words_composition": {
+    "llm_side": ["BPE merge", "subword tokenizer", "context-dependent retokenization", "merge order"],
+    "source_side": ["optical kerning", "pair table", "letter pair", "outline-based spacing"],
+    "generic": []
+  }
+}

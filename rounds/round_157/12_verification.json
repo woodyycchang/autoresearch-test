@@ -1,0 +1,110 @@
+{
+  "round": "157",
+  "candidate_summary": "Anabiotic LoRA: store adapter in null-space of base-model gradients; rehydrate without retraining; zero functional cost when not invoked.",
+  "keywords_used": ["bryophyte desiccation", "anabiosis", "rehydration recovery", "Polytrichum", "LoRA adapter", "null-space", "PEFT", "compression recovery"],
+  "rule": "hit = (keyword_overlap_count >= 2) OR (semantic_cosine >= 0.7) OR (judge_score >= 0.7)",
+  "results": [
+    {
+      "url": "https://aclanthology.org/2025.naacl-long.71.pdf",
+      "title": "Compressed Activations for Memory-Efficient LLM Training (CompAct)",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["compression recovery"],
+      "semantic_cosine": 0.64,
+      "judge_score": 0.68,
+      "hit": false,
+      "rationale": "Activation-side compression for training memory; recovery framing only partial. KW=1, cos<0.7, judge<0.7."
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.15352",
+      "title": "CompAct arxiv",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["compression recovery"],
+      "semantic_cosine": 0.64,
+      "judge_score": 0.68,
+      "hit": false,
+      "rationale": "Duplicate of CompAct NAACL. Same scoring profile; no threshold crossed."
+    },
+    {
+      "url": "https://openreview.net/forum?id=4nV383120k",
+      "title": "Simple LLM Compression Recovery Using Dynamic Prompting with Theoretical Analysis",
+      "keyword_overlap_count": 2,
+      "keyword_overlap_words": ["compression recovery", "LoRA adapter"],
+      "semantic_cosine": 0.71,
+      "judge_score": 0.79,
+      "hit": true,
+      "rationale": "Direct functional analog: post-compression recovery without retraining. KW>=2, cos>=0.7, judge>=0.7 — all three thresholds satisfied."
+    },
+    {
+      "url": "https://arxiv.org/html/2503.18869v1",
+      "title": "Compression-Aware Memory Controller Design for LLM Inference",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine": 0.42,
+      "judge_score": 0.38,
+      "hit": false,
+      "rationale": "Hardware-side memory controller; orthogonal to adapter null-space framing."
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/1f6591cc41be737e9ba4cc487ac8082d-Paper-Conference.pdf",
+      "title": "ESPACE: Dimensionality Reduction of Activations for Model Compression",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine": 0.59,
+      "judge_score": 0.71,
+      "hit": true,
+      "rationale": "Activation subspace projection preserving structure — functionally adjacent to null-space orthogonalization claim. Judge>=0.7 forces hit."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s40747-025-02019-z",
+      "title": "Review of LLM compression 2025",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["PEFT"],
+      "semantic_cosine": 0.51,
+      "judge_score": 0.53,
+      "hit": false,
+      "rationale": "Generic survey; mentions PEFT but no null-space/rehydration mechanism."
+    },
+    {
+      "url": "https://github.com/HuangOwen/Awesome-LLM-Compression",
+      "title": "Awesome LLM Compression",
+      "keyword_overlap_count": 0,
+      "keyword_overlap_words": [],
+      "semantic_cosine": 0.42,
+      "judge_score": 0.31,
+      "hit": false,
+      "rationale": "Curated list; no direct mechanism match."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12787291/",
+      "title": "Desiccation Tolerance in Moss and Liverwort",
+      "keyword_overlap_count": 1,
+      "keyword_overlap_words": ["bryophyte desiccation"],
+      "semantic_cosine": 0.10,
+      "judge_score": 0.04,
+      "hit": false,
+      "rationale": "Source-domain biology only; no LLM/adapter relevance. Single keyword insufficient."
+    }
+  ],
+  "total_hits": 2,
+  "hit_urls": [
+    "https://openreview.net/forum?id=4nV383120k",
+    "https://proceedings.neurips.cc/paper_files/paper/2024/file/1f6591cc41be737e9ba4cc487ac8082d-Paper-Conference.pdf"
+  ],
+  "verdict": "FAIL — prior art covers the functional mechanism. 'Simple LLM Compression Recovery via Dynamic Prompting' (4nV383120k) achieves post-compression recovery without retraining; ESPACE provides activation-subspace preservation analogous to null-space framing. The 'Anabiotic LoRA' proposal is a metaphor-relabel of established compression-recovery PEFT work, not a novel mechanism.",
+  "comparison_to_07": {
+    "agreement_count": 8,
+    "disagreement_count": 0,
+    "per_result_agreement": [
+      {"url": "https://aclanthology.org/2025.naacl-long.71.pdf", "my_hit": false, "07_hit": false, "agree": true},
+      {"url": "https://arxiv.org/abs/2410.15352", "my_hit": false, "07_hit": false, "agree": true},
+      {"url": "https://openreview.net/forum?id=4nV383120k", "my_hit": true, "07_hit": true, "agree": true},
+      {"url": "https://arxiv.org/html/2503.18869v1", "my_hit": false, "07_hit": false, "agree": true},
+      {"url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/1f6591cc41be737e9ba4cc487ac8082d-Paper-Conference.pdf", "my_hit": true, "07_hit": true, "agree": true},
+      {"url": "https://link.springer.com/article/10.1007/s40747-025-02019-z", "my_hit": false, "07_hit": false, "agree": true},
+      {"url": "https://github.com/HuangOwen/Awesome-LLM-Compression", "my_hit": false, "07_hit": false, "agree": true},
+      {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12787291/", "my_hit": false, "07_hit": false, "agree": true}
+    ],
+    "total_hits_match": true,
+    "verdict_match": true
+  }
+}

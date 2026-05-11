@@ -1,0 +1,17 @@
+{
+  "round": "158",
+  "results": [
+    {"url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/5e5d6f9ac33ba9349ba7b2be9f21bad9-Paper-Conference.pdf", "keyword_overlap_count": 1, "keyword_overlap_words": ["DOTS"], "semantic_cosine": 0.71, "judge_score": 0.79, "forced_by_semantic": true, "forced_by_functional": true, "hit": true},
+    {"url": "https://arxiv.org/html/2508.17627", "keyword_overlap_count": 0, "semantic_cosine": 0.68, "judge_score": 0.73, "forced_by_functional": true, "hit": true},
+    {"url": "https://arxiv.org/html/2602.04925", "keyword_overlap_count": 1, "keyword_overlap_words": ["chain-of-thought cache"], "semantic_cosine": 0.74, "judge_score": 0.81, "forced_by_semantic": true, "forced_by_functional": true, "hit": true},
+    {"url": "https://arxiv.org/html/2601.20868", "keyword_overlap_count": 1, "keyword_overlap_words": ["Lyapunov decay"], "semantic_cosine": 0.62, "judge_score": 0.71, "forced_by_functional": true, "hit": true},
+    {"url": "https://llm-reasoning-ai.github.io/survey_arxiv.pdf", "keyword_overlap_count": 0, "semantic_cosine": 0.48, "judge_score": 0.52, "hit": false},
+    {"url": "https://arxiv.org/html/2510.04072v1", "keyword_overlap_count": 1, "keyword_overlap_words": ["trajectory control"], "semantic_cosine": 0.55, "judge_score": 0.61, "hit": false},
+    {"url": "https://en.wikipedia.org/wiki/Endgame_tablebase", "keyword_overlap_count": 3, "keyword_overlap_words": ["Syzygy tablebase", "retrograde analysis", "distance to mate"], "semantic_cosine": 0.18, "judge_score": 0.06, "forced_by_rule": true, "hit": true, "reason": "Source-domain reference with 3 substring overlaps — keyword overlap fires though semantic/functional both correctly recognize it as source-only"}
+  ],
+  "total_hits": 5,
+  "forced_by_rule_keyword_count": 1,
+  "forced_by_semantic_count": 2,
+  "forced_by_functional_count": 4,
+  "verdict": "FAIL — Internalizing LLM Reasoning via Discovery+Replay (2602.04925) is functionally identical to candidate's compile-cache. DOTS, Evolution of Thought (basin), and Lyapunov-decay solver design all functional matches. Plus keyword overlap on the source-domain reference itself (Wikipedia tablebase entry) — interesting artifact: the keyword rule fires on source-domain references when content_words include domain-specific terms."
+}
