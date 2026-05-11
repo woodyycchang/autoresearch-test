@@ -1,0 +1,111 @@
+{
+  "round": "244",
+  "verifier_role": "fresh_cross_agent",
+  "verifier_model": "claude-opus-4-7",
+  "judged_at": "2026-05-11T23:48:30Z",
+  "frozen_or_rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_llm_application_summary": "Layer-wise monotone-decreasing input perturbation (token swap + embedding noise) schedule with depth during pretraining, forcing early layers to learn exposure-tolerant robust representations (stress-gradient stratification).",
+  "candidate_keyword_set_llm_side": ["monotone layer-noise schedule", "exposure-tolerant early layer", "stress-gradient training", "tolerance-stratified specialization"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Intertidal_zone",
+      "title": "Intertidal zone — Wikipedia",
+      "snippet": "Source-domain: vertical zonation by tidal-exposure tolerance.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.08,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain biological description only; no LLM training mechanism present.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://www.coastalwiki.org/wiki/Rocky_shore_habitat",
+      "title": "Rocky shore habitat — Coastal Wiki",
+      "snippet": "Source-domain: rocky shore community structure.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.07,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain ecology only; not LLM relevant.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8292928/",
+      "title": "Effects of Intertidal Position on Barnacle Metabolism — PMC",
+      "snippet": "Source-domain: zonal stress impact on barnacle physiology.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.06,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Biological physiology paper; no ML/LLM training analogue.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2509.04232",
+      "title": "Layer-wise Gaussian Noise Injection (2025/9)",
+      "snippet": "LLM-side: layer-wise Gaussian noise allocation for privacy + objective.",
+      "functional_equivalence": 0.76,
+      "semantic_cosine_estimate": 0.72,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["layer-wise", "noise injection schedule"],
+      "rationale": "Explicitly allocates Gaussian noise across layers with a per-layer schedule. Functional core (depth-conditioned noise allocation across layers during training) matches the candidate's monotone layer-noise schedule despite different motivation (privacy vs robustness/specialization). Crosses func>=0.7 and sem>=0.7 and kw>=2.",
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2505.18761v2",
+      "title": "LLM Reasoning Distracted by Irrelevant Context (2025/5 v2)",
+      "snippet": "LLM-side: continued pretraining with irrelevant-context injections improves robustness.",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["perturbation/noise (loosely)"],
+      "rationale": "Layer-uniform input augmentation for robustness; lacks the depth-conditioned monotone schedule that is the candidate's defining feature.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2412.06858",
+      "title": "Noise Perturbation Fine-tuning (NPFT) (2024/12)",
+      "snippet": "LLM-side: outlier-weight noise perturbation during PEFT.",
+      "functional_equivalence": 0.4,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["noise perturbation"],
+      "rationale": "Weight noise during PEFT for quantization; not input-perturbation schedule across depth during pretraining.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2509.06518v1",
+      "title": "Crown Frame Reverse: Layer-Wise Scaling (2025/9)",
+      "snippet": "LLM-side: layer-wise scaling variants for pretraining.",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.6,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["layer-wise schedule (capacity, not noise)"],
+      "rationale": "Acknowledged in candidate's novelty claim as adjacent prior art; modulates capacity/scaling across layers with monotone schedules but does NOT inject input-perturbation noise as the depth-conditioned variable. Functional axis (capacity vs input-noise) is different — does not cross 0.7.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2502.14770",
+      "title": "Layer-wise Sparsity for LLMs (2025/2)",
+      "snippet": "LLM-side: monotonically-increasing layer-wise sparsity for reconstruction stability.",
+      "functional_equivalence": 0.5,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["monotone layer schedule (sparsity, not noise)"],
+      "rationale": "Monotone schedule discipline but on sparsity, not input perturbation. Candidate's novelty claim already names this as prior art being differentiated; structurally adjacent but different functional channel.",
+      "hit": false
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "verdict_reasoning": "Rank 4 (Layer-wise Gaussian Noise Injection, 2509.04232) crosses all three OR-rule arms (func 0.76, sem 0.72, kw 2). One hit suffices for FAIL under the FROZEN OR rule. The candidate's depth-conditioned layer-wise noise schedule is operationally anticipated by this paper despite differing motivation.",
+  "agreement_with_judge_pass1": "Partial. Pass-1 marked rank 4 and rank 7 both as functional hits. Verifier confirms rank 4 hit but disagrees with rank 7: Crown-Frame-Reverse modulates capacity/scaling per layer, not input-noise per layer — different functional channel, so does not reach 0.7. Final verdict (FAIL) is consistent regardless because rank 4 alone triggers FAIL."
+}

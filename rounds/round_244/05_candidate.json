@@ -1,0 +1,15 @@
+{
+  "round": "244",
+  "epoch": 10,
+  "candidate_form": "feedback-attenuation",
+  "domain": "intertidal zonation (rocky shore vertical stratification of organisms by tidal-exposure tolerance: spray-zone lichens, upper periwinkles, mid barnacles, lower mussels, subtidal kelp; each zone has specific desiccation/thermal/wave-energy stress profile; species evolve zone-specific tolerance via heat-shock proteins, gill-air storage)",
+  "specific_mechanism": "Vertical stress gradient on rocky shore: tidal exposure ranges from 100% air (supralittoral) to 100% water (subtidal). Species occupy zones where tolerance × competition allow. Upper-zone species evolve high-tolerance traits (HSPs, desiccation resistance); lower-zone species evolve competitor-resistance. The stress gradient PRODUCES the community zonation as emergent specialization.",
+  "llm_application": "Stress-stratified layer-wise specialization training: during pretraining, inject layer-dependent INPUT PERTURBATION (token swap probability, embedding noise σ) following a MONOTONICALLY DECREASING schedule with depth. Layer 1 sees 30% token swap + σ=0.2 noise; deeper layers see less; layer L sees zero perturbation. Forces early layers to learn EXPOSURE-TOLERANT robust representations (analogous to upper-zone HSP-bearing limpets) and deep layers to operate on stabilized signal (analogous to subtidal). Predicted: model robust to adversarial input perturbation by upper-layer absorption while maintaining clean deep reasoning. Distinguished from standard regularization which is depth-uniform.",
+  "novelty_claim": "Layer-wise scaling work (Crown-Frame-Reverse 2509.06518), sparsity (2502.14770) modulate CAPACITY/SPARSITY per layer. Standard regularization (dropout, augmentation) is depth-uniform. The intertidal stress-gradient training (monotone decreasing layer-noise schedule for emergent tolerance-stratification) is not retrieved in surveyed prior art as a single discipline.",
+  "content_words": ["intertidal zonation", "tidal exposure tolerance", "stress gradient stratification", "zone-specific specialization", "monotone layer-noise schedule", "exposure-tolerant early layer", "stress-gradient training", "tolerance-stratified specialization"],
+  "content_words_composition": {
+    "llm_side": ["monotone layer-noise schedule", "exposure-tolerant early layer", "stress-gradient training", "tolerance-stratified specialization"],
+    "source_side": ["intertidal zonation", "tidal exposure tolerance", "stress gradient stratification", "zone-specific specialization"],
+    "generic": []
+  }
+}

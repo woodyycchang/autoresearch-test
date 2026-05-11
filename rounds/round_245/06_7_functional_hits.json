@@ -1,0 +1,23 @@
+{
+  "round": "245",
+  "candidate_llm_application": "Wabi-sabi calibrated response style: visible imperfection as goal via per-claim confidence + provenance annotation + kintsugi knowledge-gap seams + RLHF reward",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r245-wabisabi-calibration-response",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Wabi-sabi", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Sen_no_Riky%C5%AB", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://japanesegarden.org/2024/12/04/wabi-tea/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2410.09724", "judge_score": 0.80, "judge_justification": "PPO-M integrates verbalized confidence scores into RLHF reward model — operationally the kintsugi-seam (visible uncertainty) reward function of the candidate.", "matched_effect_cluster": "RLHF confidence-reward calibration", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2502.11028", "judge_score": 0.74, "judge_justification": "Mind the Confidence Gap: verbalized confidence calibration via prompting. Same per-claim hedging mechanism.", "matched_effect_cluster": "verbalized confidence calibration", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2503.02623", "judge_score": 0.78, "judge_justification": "Rewarding Doubt explicitly trains via RL to verbalize doubt — operationally near-identical to wabi-sabi visible-imperfection RLHF target.", "matched_effect_cluster": "RL-rewarded doubt verbalization", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2508.15842v1", "judge_score": 0.72, "judge_justification": "Hedging-words correlate with internal confidence — provides lexical-hint signal aligned with wabi-sabi visible-uncertainty hedging.", "matched_effect_cluster": "lexical hedging-as-confidence-signal", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2603.25052v1", "judge_score": 0.78, "judge_justification": "Closing Confidence-Faithfulness Gap analyzes RLHF overconfidence compression and proposes mitigations — same problem domain.", "matched_effect_cluster": "RLHF overconfidence mitigation", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 5,
+    "distinct_effect_clusters_above_threshold": 5,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["RLHF confidence-reward calibration", "verbalized confidence calibration", "RL-rewarded doubt verbalization", "lexical hedging-as-confidence-signal", "RLHF overconfidence mitigation"]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "round": "243",
+  "candidate_llm_application": "Ginga-baseline idle reasoning loop: continuous background anticipation + launch-from-baseline + tempo-aware rate",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r243-capoeira-ginga-idle-loop",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Capoeira", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Ginga_(capoeira)", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://capoeirawiki.org/wiki/Ginga", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2603.03251", "judge_score": 0.72, "judge_justification": "SSD precomputes speculations for multiple verification outcomes and returns immediately — operationally a 'background draft buffer' that launches on event. Close to the ginga idle-and-launch pattern.", "matched_effect_cluster": "pre-computed branch buffer", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2509.24328v2", "judge_score": 0.55, "judge_justification": "Speculative verification predicts speculation accuracy; not the idle-baseline reasoning concept.", "matched_effect_cluster": "speculative verification", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2512.20573", "judge_score": 0.62, "judge_justification": "Adaptive drafter effort; not background-idle continuous reasoning.", "matched_effect_cluster": "adaptive drafter", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/pdf/2510.13161", "judge_score": 0.66, "judge_justification": "Mirror-SD branch-complete speculative rollout; pre-rolls candidates but request-tied not idle-loop.", "matched_effect_cluster": "branch rollout speculative", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2604.09722v1", "judge_score": 0.50, "judge_justification": "Config selection for speculative serving; not idle-loop reasoning.", "matched_effect_cluster": "config selection", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false,
+    "matched_effect_clusters": ["pre-computed branch buffer"]
+  }
+}

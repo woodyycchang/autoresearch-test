@@ -1,0 +1,15 @@
+{
+  "round": "242",
+  "epoch": 10,
+  "candidate_form": "information-cascade",
+  "domain": "chess transposition table + Zobrist hashing (board-position identity detection in chess search; two different move-sequences arriving at same position get same hash; collision handling via verification key)",
+  "specific_mechanism": "Zobrist hash = XOR of N piece-square random keys + side-to-move + castling rights + en-passant. Computed incrementally on each move. Two different move-sequence paths that produce IDENTICAL position get IDENTICAL hash. Search reuses prior evaluation if hash hit + sufficient depth. Verification key (16-64 additional bits) stored to detect hash collisions.",
+  "llm_application": "Reasoning-trace transposition cache: define a canonical state hash for LLM reasoning = (sorted-set-of-retrieved-facts, sorted-set-of-tool-calls-made, current-sub-goal-embedding-clusterId, set-of-open-hypotheses). Two reasoning traces that arrive at the same canonical state get the same hash regardless of token-level differences. Cache final answer or partial result at each hash. When the LLM during a NEW reasoning path hits a cached hash, return the cached result (with verification-key check to detect collision). Saves repeated CoT work on agentic loops where the same sub-problem is reached via different paths.",
+  "novelty_claim": "KV cache hashing (DASH-KV 2604.19351) and KV reuse (Graph-CoT 2511.01633) operate at TOKEN/ATTENTION level — prefix-equivalence not semantic-equivalence. Reasoning-trace canonicalization at the set-of-invariants level (chess-transposition discipline) is not in surveyed prior art.",
+  "content_words": ["chess transposition table", "Zobrist hashing", "canonical state hash", "verification-key collision check", "reasoning-trace canonicalization", "set-of-invariants hash", "semantic-equivalence reuse", "agentic loop dedup"],
+  "content_words_composition": {
+    "llm_side": ["reasoning-trace canonicalization", "set-of-invariants hash", "semantic-equivalence reuse", "agentic loop dedup"],
+    "source_side": ["chess transposition table", "Zobrist hashing", "canonical state hash", "verification-key collision check"],
+    "generic": []
+  }
+}
