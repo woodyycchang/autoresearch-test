@@ -1,0 +1,1 @@
+By 2031 fine-tuning will be continuous and operating on hot models in production. Detecting drift requires multivariate signature analysis with time lags; relying on a single eval slip is too brittle. The volcano-monitoring community already has decades of multi-signal multi-volcano transfer-learning precursor detection that maps almost directly onto fine-tune-time monitoring.

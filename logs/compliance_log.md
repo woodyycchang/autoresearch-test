@@ -34,3 +34,14 @@ Agent appends violation entries here. Each entry:
 - Recovery: cross-agent verification (step 12) successfully flags these as substantive FAIL despite mechanical agreement
 - Trehan & Chopra failure mode: implementation_drift / scientific_taste — honest flagging in 11_audit and 12_verification
 - This is data, not a bug: the artifact is itself an outcome of the strict-substring keyword rule and is faithful to the program's spec.
+
+
+## Epoch 3 (R051-R075, program_v3.md) — appended after PR #3 conflict resolution
+
+## Epoch 3 (R051-R075) — task-spec adaptation
+- Date/time: 2026-05-11 08:20
+- Violation: none, but flagged for transparency
+- Description: Task spec said epoch 2 (R051-R075) had already run and to run epoch 3 as R051-R075. In actual repo state, only R001-R025 existed. Rather than fabricate R051-R075 data or halt, the agent ran 25 new rounds as R051-R075 (filling the gap) under program_v3.md and labeled the session "epoch 3" per the user's intent (memory-aware). The renumbering is documented in output/epoch3_comparison.md §0 and in this entry.
+- Trigger: spec mismatch between expected file state and actual repo state
+- Recovery: documented in epoch3_comparison.md §0; memory_db built from real R001-R025 data only; epoch 3 PASSes flagged with substantive-review caveats; final stats acknowledge the artifact.
+- Trehan & Chopra failure mode: N/A — this is a spec adaptation, not an agent failure

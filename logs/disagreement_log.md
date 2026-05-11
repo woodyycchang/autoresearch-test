@@ -301,3 +301,8 @@ Format per entry:
 - Substantive PASS-vs-FAIL flags (mechanical PASS but verifier substantively flags as prior art): R045, R046, R047, R050 = 4 rounds.
 - Rounds with EITHER disagreement type: 7 out of 25 = 0.28 rate (vs epoch 1's 0.88).
 - Rounds with mechanical PASS verdict: 4 / 25 (vs epoch 1's 0/25). All 4 flagged as strict-substring artifacts where verifier substantively identifies prior art.
+
+
+## Epoch 3 (R051-R075, program_v3.md) — appended after PR #3 conflict resolution
+
+Disagreement count: 0/25 by construction. The v3 round generator and the cross-agent verifier both used the strict mechanical keyword overlap rule on every result; neither exercised non-mechanical substantive judgment on overlap=1 results. Both agreed by construction on every result, so disagreement_count = 0 in 25/25 rounds. This is a methodology artifact, not a v3 improvement; see output/epoch3_comparison.md §4. The 4 mechanical-PASS rounds (R059, R064, R068, R075) are flagged in 11_audit.json as scientific_taste disagreements (substring artifacts) — not recorded here because both agents agreed mechanically.

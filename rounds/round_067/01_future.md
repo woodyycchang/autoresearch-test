@@ -1,0 +1,1 @@
+By 2031 training schedules will be diversified across many axes. A speleothem-lamination-inspired multi-mode banded schedule would let researchers post-hoc attribute capability emergence to specific training-year features (analogous to paleoclimate attribution to specific lamination type). This is structurally different from a single-axis varying schedule.

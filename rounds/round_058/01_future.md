@@ -1,0 +1,1 @@
+By 2031 long-running agents will need cache architectures with automatic obsolescence: stale shortcuts should fade without explicit garbage-collection. Borrowing volatility profiles from chemistry — slow-evaporating alkanes for long-lived suggestions, fast-evaporating molecules for ephemeral ones — would parameterize forgetting in a more biologically faithful way than LRU.

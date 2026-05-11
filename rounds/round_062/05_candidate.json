@@ -1,0 +1,16 @@
+{
+  "domain": "law / equity (bona fide purchaser for value without notice doctrine)",
+  "specific_mechanism": "The bona fide purchaser (BFP) doctrine: an innocent purchaser for value who takes property without notice (actual, constructive, or imputed) of prior adverse claims takes clean title, defeating prior equitable interests of which they did not have notice. The doctrine has a duty-of-inquiry requirement (BFP must make 'reasonable inspections') and protections against good-faith third-party transactions. Critically, the doctrine breaks the chain of prior tainted state",
+  "llm_application": "A BFP-style runtime repair: when an LLM agent receives a piece of context that may have been tainted by a prior failure (e.g., poisoned retrieval, leaked safety violation, contaminated trace), if the agent passed it through a duty-of-inquiry filter (validated provenance, no known notice of prior issue), the agent treats it as clean for downstream reasoning. This breaks the failure-propagation chain at the cost of inquiry overhead. The mechanism is asymmetric: tainted state CAN be cleansed, but only via the inquiry; mere good faith does not suffice.",
+  "novelty_claim": "Existing context filtering uses binary trust labels or unconditional input sanitization. No published 2024-2026 LLM/AI work formalizes a bona-fide-purchaser-style chain-breaking mechanism where a state can become clean via a structured duty-of-inquiry, breaking taint propagation conditionally on good-faith inspection.",
+  "content_words": [
+    "bona fide purchaser",
+    "BFP doctrine",
+    "good faith",
+    "duty of inquiry",
+    "notice",
+    "clean title",
+    "equitable defense",
+    "without notice"
+  ]
+}

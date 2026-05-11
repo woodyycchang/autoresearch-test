@@ -1,0 +1,1 @@
+By 2031, agents will run weeks-long sessions with periodic background tasks. Phase-locking these to external zeitgebers (user-activity cycles, batch boundaries) — and detecting free-drift when the agent has fallen out of entrainment range — would give an automatic diagnostic of agent-environment misalignment.

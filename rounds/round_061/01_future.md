@@ -1,0 +1,1 @@
+By 2031, multi-agent LLM systems will need indirect coordination that avoids the bottleneck of message passing. The soil-formation analogy gives a clean ontology: each agent operates with one of a few specific roles over a shared substrate, and structured strata emerge without coordination overhead. The substrate's history of modifications is the communication channel.

@@ -1,0 +1,1 @@
+By 2031, fine-grained activation steering will need a state-dependent model: not all activations are equally updatable. Some are rigid (yield stress) until pushed past a threshold; others flow easily. Rheology has 80 years of literature on state-dependent viscosity that could give a more accurate model than the current linear-feature assumption.

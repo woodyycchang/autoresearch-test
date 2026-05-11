@@ -1,0 +1,1 @@
+Ants run trails between nest and food. Each ant lays a small amount of pheromone; the trail strengthens with traffic. The pheromone evaporates linearly. If the food source vanishes, foragers stop reinforcing the trail; within an hour it's gone, and the colony's collective memory of that path automatically expires. An agent's cache of stale heuristics could behave the same way.
