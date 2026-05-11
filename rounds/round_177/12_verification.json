@@ -1,0 +1,101 @@
+{
+  "round": 177,
+  "verifier_agent_id": "verifier-opus47-r177-indep",
+  "candidate_summary": "Forensic-entomology-inspired hallucination detection: deploy a panel of stage-specific detectors (entity-fabrication, attribute-binding, citation/date, snowball-cascade) whose firing pattern mirrors arthropod guild succession on a corpse, used to localize the post-error interval (PEI) along the LLM generation trajectory.",
+  "candidate_keywords_llm_side": ["hallucination detection", "cascade verification", "stage-bound detector", "post-error interval"],
+  "hit_rule": "hit = kw>=2 OR cos>=0.7 OR judge>=0.7",
+  "results": [
+    {
+      "url": "https://arxiv.org/abs/2502.13416",
+      "title": "Detecting LLM Fact-conflicting Hallucinations Enhanced by Temporal-logic-based Reasoning (Drowzee)",
+      "kw_count": 1,
+      "kw_matches": ["hallucination detection"],
+      "cos": 0.42,
+      "judge": 0.25,
+      "judge_reason": "Drowzee detects fact-conflicting hallucinations via temporal logic on facts but does not deploy a stage-bound ensemble keyed to generation-pipeline failure modes nor localize a post-error interval; it is single-method, not forensic-stratigraphic.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.06265v3",
+      "title": "Large Language Models Hallucination: A Comprehensive Survey",
+      "kw_count": 1,
+      "kw_matches": ["hallucination"],
+      "cos": 0.40,
+      "judge": 0.22,
+      "judge_reason": "Survey enumerates and taxonomizes detection/mitigation methods as parallel categories but does not propose using their joint firing pattern as a temporal stratigraphy to localize when in generation the error arose.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202510.0540/v2/download",
+      "title": "A Survey on Hallucination in LLMs: Definitions, Detection, and Mitigation",
+      "kw_count": 2,
+      "kw_matches": ["hallucination", "detection"],
+      "cos": 0.38,
+      "judge": 0.20,
+      "judge_reason": "Survey explicitly treats detection methods as parallel alternatives — the opposite of the candidate's stage-bound ensemble proposal — and contains no PEI-localization concept.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2 (loose tokenization of 'hallucination detection')"]
+    },
+    {
+      "url": "https://github.com/EdinburghNLP/awesome-hallucination-detection",
+      "title": "Edinburgh NLP awesome-hallucination-detection (repo of papers)",
+      "kw_count": 2,
+      "kw_matches": ["hallucination-detection", "hallucination detection"],
+      "cos": 0.32,
+      "judge": 0.15,
+      "judge_reason": "A bare paper list of hallucination-detection works; no methodology proposed, no stage-bound ensemble or PEI-localization scheme.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2 (repeated 'hallucination-detection' token)"]
+    },
+    {
+      "url": "https://www.mdpi.com/2673-2688/6/10/260",
+      "title": "From Illusion to Insight: Taxonomic Survey of Hallucination Mitigation Techniques in LLMs",
+      "kw_count": 1,
+      "kw_matches": ["hallucination"],
+      "cos": 0.45,
+      "judge": 0.35,
+      "judge_reason": "Mentions multi-stage mitigation frameworks, which is adjacent, but the candidate's novelty is using detector firing pattern as forensic temporal stratigraphy for PEI estimation — that specific reading is absent.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2601.18753",
+      "title": "Hallucination paper ICLR 2026 (multi-stage detection)",
+      "kw_count": 2,
+      "kw_matches": ["hallucination", "cascade verification"],
+      "cos": 0.55,
+      "judge": 0.45,
+      "judge_reason": "Closest neighbor — discusses multi-stage cascade verification, which is conceptually adjacent, but does not propose reading the pattern of which detectors fire as a forensic-stratigraphic signal for localizing the generation step where the hallucination crystallized.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Forensic_entomology",
+      "title": "Forensic entomology (Wikipedia)",
+      "kw_count": 1,
+      "kw_matches": ["post-mortem interval / PMI estimation (succession)"],
+      "cos": 0.30,
+      "judge": 0.05,
+      "judge_reason": "Pure source-domain description with no connection to LLM hallucination detection; serves only as the biological analogy reference.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://pubs.acs.org/doi/10.1021/acsomega.5c06096",
+      "title": "FlyTracks and SmellPrints: Necrophagous Insect Behavior + VOCs (ACS Omega 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.22,
+      "judge": 0.03,
+      "judge_reason": "Source-domain forensic-entomology paper on insect behavior and VOC chemistry — no LLM/AI/hallucination-detection content at all.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 3,
+  "total_misses": 5,
+  "verdict": "The three hits trigger only on loose keyword overlap (the generic phrase 'hallucination detection'); judge scores are uniformly low (<=0.45) and no result proposes a stage-bound detector ensemble whose firing pattern functions as forensic temporal stratigraphy to localize a post-error interval. The candidate's specific PEI-localization framing appears genuinely novel within this result set."
+}

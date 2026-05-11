@@ -1,0 +1,15 @@
+{
+  "round": "188",
+  "epoch": 8,
+  "candidate_form": "basin-stability",
+  "domain": "agroforestry (silvopasture: tree-forage-livestock vertical integration with stratified light competition)",
+  "specific_mechanism": "Silvopasture is a three-tier production stack: canopy trees, mid-story forage, ground livestock. Productivity tradeoffs are stratified by tree density and microclimate: trees reduce evaporative demand (good for forage in heat), reduce windspeed (good for livestock), but compete for light at high density. Optimal stocking is age-stage dependent (young trees: full light; mature: thin to maintain forage light). Total system biomass is maximized when light-niche partitioning is matched to physiological stratification.",
+  "llm_application": "Train a multi-task LLM with stratified objective: each expert in a MoE router serves a 'tier' analogous to silvopasture strata — tier 1 'canopy' experts handle high-level semantic structure, tier 2 'mid-story' experts produce forage-content (factual paragraphs), tier 3 'ground-livestock' experts emit token-by-token output. Resource competition: tier-1 expert activations cast 'shade' on tier-2/3 by absorbing routing probability; manage with stage-dependent thinning analogous to silvopasture canopy thinning — schedule routing entropy regularization to favor lower tiers as model matures. Basin-stability: the multi-tier stack stays in productive equilibrium under light-budget changes (compute constraints) by phase-shifting routing toward whichever tier has the surplus.",
+  "novelty_claim": "MoE-in-LLMs survey (2507.11181), Multi-gate MoE / MMoE, similarity-preserving load balancing (2025+ trend), dual-router instance/task systems, ResMoE compression — none specifically frames experts as a vertical silvopasture stratification with stage-dependent routing entropy thinning to mimic canopy thinning. Open question whether 'silvopasture-style stratified expert stack' is substantively new.",
+  "content_words": ["silvopasture stratification", "canopy thinning", "light competition", "stocking density", "MoE expert routing", "stratified objective", "entropy regularization", "compute budget"],
+  "content_words_composition": {
+    "llm_side": ["MoE expert routing", "stratified objective", "entropy regularization", "compute budget"],
+    "source_side": ["silvopasture stratification", "canopy thinning", "light competition", "stocking density"],
+    "generic": []
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "round": "179",
+  "results": [
+    {"url": "https://www.ndss-symposium.org/wp-content/uploads/bar2025-final13.pdf", "keyword_overlap_count": 0, "semantic_cosine": 0.45, "judge_score": 0.41, "hit": false},
+    {"url": "https://arxiv.org/html/2511.03825v1", "keyword_overlap_count": 1, "keyword_overlap_words": ["instruction tokenizer (instruction-level tokenization)"], "semantic_cosine": 0.51, "judge_score": 0.62, "hit": false},
+    {"url": "https://arxiv.org/html/2601.14658v1", "keyword_overlap_count": 0, "semantic_cosine": 0.42, "judge_score": 0.48, "hit": false},
+    {"url": "https://aclanthology.org/2025.ranlp-1.111/", "keyword_overlap_count": 0, "semantic_cosine": 0.38, "judge_score": 0.32, "hit": false},
+    {"url": "https://www.columbia.edu/cu/computinghistory/jacquard.html", "keyword_overlap_count": 2, "keyword_overlap_words": ["Jacquard loom", "punched card"], "semantic_cosine": 0.18, "judge_score": 0.05, "forced_by_rule": true, "hit": true, "reason": "source-domain kw artifact"},
+    {"url": "https://huggingface.co/docs/transformers/en/tokenizer_summary", "keyword_overlap_count": 0, "semantic_cosine": 0.28, "judge_score": 0.22, "hit": false},
+    {"url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning)", "keyword_overlap_count": 0, "semantic_cosine": 0.34, "judge_score": 0.25, "hit": false},
+    {"url": "https://www.britannica.com/technology/punched-card", "keyword_overlap_count": 1, "keyword_overlap_words": ["punched card"], "semantic_cosine": 0.15, "judge_score": 0.04, "hit": false}
+  ],
+  "total_hits": 1,
+  "forced_by_rule_keyword_count": 1,
+  "forced_by_semantic_count": 0,
+  "forced_by_functional_count": 0,
+  "verdict": "FAIL — only mechanical kw fire on source-domain Columbia page; substantively NO LLM-side mechanism matches the per-position card-mask phase-locked-to-prefix idea. The single kw hit is sufficient to force FAIL under the FROZEN rule."
+}

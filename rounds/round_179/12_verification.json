@@ -1,0 +1,101 @@
+{
+  "round": 179,
+  "verifier_agent_id": "verifier-cross-A",
+  "candidate_summary": "Phase-coherence analogy from Jacquard loom punched-card weaving to LLM decoding: per-decoder-position 'card' = sparse mask over vocabulary sub-channels, produced by a small instruction-tokenizer from the prefix; generation requires the card chain to stay phase-locked to the prefix, analogous to mechanical lockstep between card and shuttle in a Jacquard loom.",
+  "candidate_keywords_llm_side": ["instruction tokenizer", "per-position mask", "phase coherence", "vocabulary subchannel"],
+  "hit_rule": "hit = (kw_count >= 2) OR (cos >= 0.7) OR (judge >= 0.7); kw matches use case-insensitive substring of any content_word in title+snippet",
+  "results": [
+    {
+      "url": "https://www.ndss-symposium.org/wp-content/uploads/bar2025-final13.pdf",
+      "title": "How Different Tokenization Algorithms Impact LLMs (NDSS BAR 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.18,
+      "judge": 0.1,
+      "judge_reason": "Generic tokenization-impact study; no per-position mask, no instruction-tokenizer phase-locking, no Jacquard analogy.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2511.03825v1",
+      "title": "How Different Tokenization Algorithms Impact LLMs and Transformer Models for Binary Code",
+      "kw_count": 1,
+      "kw_matches": ["instruction tokenizer (via 'instruction-level tokenization')"],
+      "cos": 0.28,
+      "judge": 0.2,
+      "judge_reason": "UniASM uses instruction-level tokenization for binary code, but no per-position vocabulary-subchannel mask nor phase-coherence requirement; only nominally overlaps on 'instruction tokenizer' phrase.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2601.14658v1",
+      "title": "Say Anything but This: When Tokenizer Betrays Reasoning in LLMs",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.2,
+      "judge": 0.15,
+      "judge_reason": "Discusses tokenizer effects on reasoning via token-ID ambiguity; orthogonal to per-position card-pattern masking with prefix-phase-locking.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://aclanthology.org/2025.ranlp-1.111/",
+      "title": "Analysis of Vocabulary and Subword Tokenization (RANLP 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.14,
+      "judge": 0.1,
+      "judge_reason": "Standard subword vocabulary tuning for MT; no instruction-conditioned per-position mask or phase-coherence concept.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.columbia.edu/cu/computinghistory/jacquard.html",
+      "title": "The Jacquard Loom (Columbia history)",
+      "kw_count": 2,
+      "kw_matches": ["Jacquard loom", "card chain (via 'chain of multiple cards')"],
+      "cos": 0.32,
+      "judge": 0.1,
+      "judge_reason": "Pure source-domain reference describing Jacquard loom mechanics; contains no LLM application or analogical bridge to decoder masking.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2 (source-side only)"]
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/en/tokenizer_summary",
+      "title": "Tokenization algorithms (HuggingFace docs)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.12,
+      "judge": 0.05,
+      "judge_reason": "Overview of BPE/Unigram/WordPiece; no per-position card mask, no instruction tokenizer producing activation masks, no phase coherence.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning)",
+      "title": "Transformer (deep learning) Wikipedia",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.1,
+      "judge": 0.05,
+      "judge_reason": "Generic transformer overview; no overlap with instruction-conditioned per-position vocabulary-subchannel mask analogy.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.britannica.com/technology/punched-card",
+      "title": "Punched card (Britannica)",
+      "kw_count": 2,
+      "kw_matches": ["punched card", "Jacquard (via 'Jacquard origin')"],
+      "cos": 0.22,
+      "judge": 0.08,
+      "judge_reason": "Source-domain encyclopedia entry on punched cards; no LLM/decoder application or per-position mask mechanism.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2 (source-side only)"]
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 2,
+  "total_misses": 6,
+  "verdict": "Candidate analogy (per-position vocabulary-subchannel mask from instruction-tokenizer phase-locked to prefix) does not appear in retrieved results. The two keyword-triggered 'hits' (Columbia Jacquard page, Britannica punched-card) are pure source-domain references with no LLM-side equivalent of the proposed mechanism; functional-equivalence judge scores remain very low. Novelty claim is upheld: no result proposes lockstep prefix-coherent per-decoder-position activation masking."
+}

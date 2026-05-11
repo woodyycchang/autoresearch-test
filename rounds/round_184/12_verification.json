@@ -1,0 +1,104 @@
+{
+  "round": 184,
+  "verifier_agent_id": "verifier-round-184",
+  "candidate_summary": "Phase-coherence analogy mapping lacustrine varves (annually-laminated lake sediments, paired light/dark seasonal couplets as multi-proxy paleoclimate archives) to per-step LLM training checkpoints; proposes reading the parameter-delta stack as a paleo-archive to reverse-engineer training data distribution / curriculum order from gradient/state laminae.",
+  "candidate_keywords_llm_side": ["parameter delta", "training checkpoint", "curriculum reconstruction", "gradient proxy"],
+  "hit_rule": "hit = (kw_count >= 2) OR (cos >= 0.7) OR (judge >= 0.7); content_words searched as case-insensitive substrings against title+snippet",
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Varve",
+      "kw_count": 1,
+      "kw_matches": ["lacustrine varve (partial: varve)"],
+      "_kw_note": "Strict substring of 'lacustrine varve' fails; 'annual lamina' fails (has 'annually'); 'multi-proxy archive' fails (has 'multi-proxy paleoclimate archive'); 'seasonal couplet' fails (has 'seasonal' and 'couplet' separately). Strict count = 0.",
+      "kw_count_strict": 0,
+      "cos": 0.62,
+      "judge": 0.85,
+      "judge_reason": "Canonical source-domain definition of varves with annual resolution and multi-proxy paleoclimate framing; directly grounds the analogy.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0277379115001262",
+      "kw_count": 0,
+      "kw_matches": [],
+      "_kw_note": "'multi-proxy' present but not full phrase 'multi-proxy archive'; 'varve' present but not 'lacustrine varve'.",
+      "cos": 0.66,
+      "judge": 0.82,
+      "judge_reason": "Authoritative QSR review of varve formation and chronostratigraphic biogenic/clastic record, central to source-domain.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://link.springer.com/chapter/10.1007/978-3-662-10313-5_7",
+      "kw_count": 0,
+      "kw_matches": [],
+      "_kw_note": "Has 'annually laminated' (not 'annual lamina' exact substring).",
+      "cos": 0.58,
+      "judge": 0.75,
+      "judge_reason": "Springer chapter on palaeoclimatic relevance of annually laminated sediments supports source side.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/html/2512.24511v1",
+      "kw_count": 1,
+      "kw_matches": ["training checkpoint (via 'checkpoint' + 'training')"],
+      "_kw_note": "Title has 'Checkpoint' and snippet has 'training'; strict full-phrase 'training checkpoint' not adjacent in snippet but appears semantically.",
+      "kw_count_strict": 0,
+      "cos": 0.55,
+      "judge": 0.45,
+      "judge_reason": "Engineering paper on checkpoint I/O strategies; relevant as cited prior art but does not propose paleo-archive reading.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.07035",
+      "kw_count": 2,
+      "kw_matches": ["training checkpoint (title: 'Checkpointing for LLM Training')", "gradient proxy (partial: 'Gradient-Assisted')"],
+      "_kw_note": "'gradient proxy' as exact phrase not present; 'Gradient-Assisted' is partial. 'training checkpoint' arguably present via 'Checkpointing for LLM Training'.",
+      "kw_count_strict": 0,
+      "cos": 0.5,
+      "judge": 0.4,
+      "judge_reason": "Gradient-assisted checkpointing optimizes write strategy; uses gradients for efficiency, not as a proxy archive for training-data reconstruction.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.medrxiv.org/content/10.64898/2026.02.10.26345124v1.full",
+      "kw_count": 0,
+      "kw_matches": [],
+      "_kw_note": "Title says 'Reconstruction of Longitudinal' - 'curriculum reconstruction' phrase absent.",
+      "cos": 0.32,
+      "judge": 0.2,
+      "judge_reason": "Clinical trajectory reconstruction is reconstruction-from-text not training-data archeology; only loose analogical link via 'longitudinal'.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3735358.3735372",
+      "kw_count": 0,
+      "kw_matches": [],
+      "_kw_note": "No content_words match.",
+      "cos": 0.25,
+      "judge": 0.15,
+      "judge_reason": "Error-recovery systems paper on device proxies for fault tolerance; unrelated to curriculum or gradient-proxy archeology.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/p/llm-research-papers-2025-part2",
+      "kw_count": 0,
+      "kw_matches": [],
+      "_kw_note": "Generic survey blog; no specific keyword match.",
+      "cos": 0.2,
+      "judge": 0.15,
+      "judge_reason": "Generic 2025 LLM-paper roundup, no specific coverage of curriculum/gradient archeology from checkpoints.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 3,
+  "total_misses": 5,
+  "verdict": "MIXED-PASS-WITH-CAVEAT. Source-domain (varves) is solidly covered by 3 authoritative references. LLM-side coverage is shallow: the search returned checkpointing-systems and unrelated clinical work, none of which proposes parameter-delta archeology. The primary agent's suspicion is well-founded: this query set omits the directly adjacent literature on influence functions (Koh & Liang; TRAK; datamodels), membership inference (Shokri et al.; Carlini et al.), and training-data extraction (Carlini extracting training data from LLMs; Nasr et al. 'Scalable Extraction'). Those fields explicitly attempt backward inference of training data from model state and would significantly weaken the novelty claim. The mechanical PASS on varve refs masks an under-searched LLM side; novelty assessment cannot be concluded without a second-pass query targeting influence-function / MIA / extraction literature."
+}

@@ -1,0 +1,17 @@
+{
+  "round": "199",
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "candidate_functional_effect": "deliberate inscription of correction trajectories as a structured annotation in output stream, preserving model history",
+  "results": [
+    {"rank": 1, "url": "https://arxiv.org/html/2506.14003v3", "judge_score": 0.55, "matched_effect_cluster": "post-hoc unlearning traces detection", "judge_justification": "Detects existing post-hoc unlearning fingerprints; candidate's mechanism is opposite valence (deliberately inscribe + label, not detect-after-the-fact).", "functional_hit": false},
+    {"rank": 2, "url": "https://arxiv.org/html/2605.00358v1", "judge_score": 0.48, "matched_effect_cluster": "LLM parameter editing", "judge_justification": "Post-hoc parameter editing without trace inscription.", "functional_hit": false},
+    {"rank": 3, "url": "https://arxiv.org/html/2512.00215v1", "judge_score": 0.42, "matched_effect_cluster": "reasoning-trace error taxonomy", "judge_justification": "Taxonomy of errors; not deliberate inscription.", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2503.13657v3", "judge_score": 0.40, "matched_effect_cluster": "MAST failure taxonomy", "judge_justification": "Failure taxonomy.", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/abs/2602.06176", "judge_score": 0.35, "matched_effect_cluster": "reasoning-failure classification", "judge_justification": "Failure-type classification.", "functional_hit": false},
+    {"rank": 6, "url": "https://en.wikipedia.org/wiki/Kintsugi", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "judge_justification": "Source-domain.", "functional_hit": false},
+    {"rank": 7, "url": "https://www.britannica.com/art/kintsugi-ceramics", "judge_score": 0.04, "matched_effect_cluster": "source-domain", "judge_justification": "Source-domain.", "functional_hit": false},
+    {"rank": 8, "url": "https://www.japan.travel/en/blog/the-art-of-imperfection-kintsugi-pottery-and-wabi-sabi/", "judge_score": 0.04, "matched_effect_cluster": "source-domain", "judge_justification": "Source-domain.", "functional_hit": false}
+  ],
+  "summary": {"max_judge_score": 0.55, "functional_hits_count": 0, "distinct_effect_clusters_above_threshold": 0, "multi_cluster_match": false}
+}

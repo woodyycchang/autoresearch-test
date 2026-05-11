@@ -1,0 +1,109 @@
+{
+  "round": 178,
+  "verifier_agent_id": "verifier-claude-opus-4-7-round178",
+  "candidate_summary": "Maps verge-and-foliot 'frictional-rest' vs pendulum 'detached' escapement to LR controller design: a detached regulator with internal state on slower clock, releasing setpoints periodically, yields wider basin-stability under gradient noise than a frictional/directly-coupled LR controller.",
+  "candidate_keywords_llm_side": ["learning rate schedule", "gradient noise", "training step", "controller decoupling"],
+  "hit_rule": "hit = (kw_count>=2) OR (cos>=0.7) OR (judge>=0.7); kw_count counts case-insensitive substring presence of content_words in title+snippet.",
+  "results": [
+    {
+      "index": 0,
+      "url": "https://hal.science/hal-05388565/document",
+      "title": "Augmented-GDA: LLM In-Loop Gradient Descent Algorithm (FLLM 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.32,
+      "judge": 0.25,
+      "judge_reason": "Augmented-GDA separates static/dynamic channels for LR-like decisions and reduces tuning dispersion — superficially related to dual-channel control but does not invoke escapement-style detached oscillator dynamics or basin-stability under gradient noise.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 1,
+      "url": "https://arxiv.org/abs/2512.05084",
+      "title": "Gradient Descent with Provably Tuned Learning-rate Schedules",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.3,
+      "judge": 0.15,
+      "judge_reason": "Provides analytical tuning tools for LR schedules but does not separate the regulator from instantaneous gradient feedback or claim basin-stability advantages from decoupling.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2601.07830v1",
+      "title": "Optimal Learning Rate Schedule for Balancing Effort and Performance",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.28,
+      "judge": 0.15,
+      "judge_reason": "An optimal LR schedule analysis trading effort vs performance; no detached-regulator framing, no escapement analogy, no basin-stability claim under gradient noise.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 3,
+      "url": "https://openreview.net/pdf?id=hrOlBgHsMI",
+      "title": "Why Linearly Decaying the LR to Zero (OpenReview)",
+      "kw_count": 1,
+      "kw_matches": ["gradient noise"],
+      "cos": 0.38,
+      "judge": 0.25,
+      "judge_reason": "Argues vanishing LR works when gradient noise is the bottleneck — touches the gradient-noise concern but does not propose a detached regulator-state on a slower clock.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "index": 4,
+      "url": "https://www.mdpi.com/2673-3161/1/2/8",
+      "title": "Friction and Dynamics of Verge and Foliot (MDPI)",
+      "kw_count": 2,
+      "kw_matches": ["verge escapement", "foliot oscillator"],
+      "cos": 0.22,
+      "judge": 0.1,
+      "judge_reason": "Source-domain physics of verge-foliot friction dynamics; confirms the mechanism but is not an LR/training application, so functional equivalence to the LLM claim is low.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "index": 5,
+      "url": "https://en.wikipedia.org/wiki/Verge_escapement",
+      "title": "Verge escapement (Wikipedia)",
+      "kw_count": 2,
+      "kw_matches": ["verge escapement", "foliot oscillator"],
+      "cos": 0.25,
+      "judge": 0.1,
+      "judge_reason": "Encyclopedic source-side reference describing foliot inertia and lack of detachment from drive train; no LR/training-loop content.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/1604.06681",
+      "title": "Dynamics of the verge and foliot clock escapement (arXiv 2016, pre-2024)",
+      "kw_count": 2,
+      "kw_matches": ["verge escapement", "foliot oscillator"],
+      "cos": 0.2,
+      "judge": 0.1,
+      "judge_reason": "Pre-2024 mechanical-dynamics paper on verge-foliot; source-side only, no training/LR transfer.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "index": 7,
+      "url": "https://en.wikipedia.org/wiki/Learning_rate",
+      "title": "Learning rate (Wikipedia)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.32,
+      "judge": 0.15,
+      "judge_reason": "General LR encyclopedia entry covering step size, schedules, decay, adaptive methods — no detached-regulator or escapement-style decoupling framing.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 3,
+  "total_misses": 5,
+  "verdict": "Candidate is NOT covered as a unified analogy. Source-side (verge/foliot mechanics) is well-covered by hits 4,5,6, and LLM-side LR-schedule prior art is present (results 0,1,2,3,7), but no single result frames LR control as a detached-vs-frictional-rest oscillator with periodic escapement releases and basin-stability claim. The specific cross-domain mapping appears novel within this corpus."
+}

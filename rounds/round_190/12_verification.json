@@ -1,0 +1,99 @@
+{
+  "round": "190",
+  "content_words": ["lead crystal", "refractive index", "PbO substitution", "dispersion tuning", "activation scaling", "channel density", "hidden state recovery", "feature attenuation"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Flint_glass",
+      "title": "Flint glass (Wikipedia)",
+      "kw_count": 1,
+      "kw_matches": ["refractive index"],
+      "cos": 0.35,
+      "judge": 0.55,
+      "judge_reason": "Directly relevant to Ravenscroft 1675 lead substitution and refractive index context but lacks full content-word coverage.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Lead_glass",
+      "title": "Lead glass (Wikipedia)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.4,
+      "judge": 0.6,
+      "judge_reason": "Mentions PbO content and dispersion concepts directly tied to candidate source-domain claims.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.britannica.com/technology/flint-glass",
+      "title": "Flint glass (Britannica)",
+      "kw_count": 1,
+      "kw_matches": ["refractive index"],
+      "cos": 0.3,
+      "judge": 0.4,
+      "judge_reason": "General optical glass overview mentioning refractive properties but not specific to Ravenscroft mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.20997",
+      "title": "BAE: Batch Autoencoder Hidden-State Recovery (ICLR 2026 under review)",
+      "kw_count": 3,
+      "kw_matches": ["activation scaling", "hidden state recovery", "channel density"],
+      "cos": 0.72,
+      "judge": 0.8,
+      "judge_reason": "Directly matches LLM-side novelty claim with channel-wise activation scaling and hidden-state recovery.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/p/llm-research-papers-2025-part2",
+      "title": "LLM Research Papers 2025 (Raschka)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.15,
+      "judge": 0.1,
+      "judge_reason": "Generic survey list without specific mechanism overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://iclr.cc/virtual/2025/papers.html",
+      "title": "ICLR 2025 Papers",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.1,
+      "judge": 0.05,
+      "judge_reason": "Conference listing page with no content overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://dbgroup.cs.tsinghua.edu.cn/ligl/papers/DataAI-2025.pdf",
+      "title": "Survey of LLM x DATA (Tsinghua)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.12,
+      "judge": 0.1,
+      "judge_reason": "Generic data-survey for LLMs unrelated to activation scaling or refractive-index analogy.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/p/state-of-llms-2025",
+      "title": "State of LLMs 2025 (Raschka)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.12,
+      "judge": 0.1,
+      "judge_reason": "Generic state-of-LLMs survey with no mechanism alignment.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 1,
+    "hit_urls": ["https://arxiv.org/pdf/2509.20997"]
+  }
+}

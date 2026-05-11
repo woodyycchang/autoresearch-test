@@ -1,0 +1,107 @@
+{
+  "round": "198",
+  "content_words": ["pattern welding", "Damascus steel layers", "forge weld", "carbon diffusion", "LoRA adapter stacking", "fold-and-hammer cycle", "adapter homogenization", "shear interface"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Pattern_welding",
+      "title": "Pattern welding (Wikipedia)",
+      "snippet": "Source-domain: fold-and-weld smithing practice; alternating compositions.",
+      "kw_count": 1,
+      "kw_matches": ["pattern welding"],
+      "cos": 0.55,
+      "judge": 0.85,
+      "judge_reason": "Canonical reference for the pattern-welding source domain — directly relevant to forge-weld fold-and-layer mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1044580398000357",
+      "title": "Carbon Diffusion Between Layers in Modern Pattern-Welded Damascus Blades",
+      "snippet": "Source-domain: carbon diffusion homogenizes layers; visual pattern but no hardness difference.",
+      "kw_count": 2,
+      "kw_matches": ["pattern welding", "carbon diffusion"],
+      "cos": 0.72,
+      "judge": 0.9,
+      "judge_reason": "Directly supports the carbon-diffusion homogenization claim central to the analogy.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "url": "https://www.damaworks.com/post/mastering-the-art-of-traditional-damascus-steel-forging-folding-techniques-unveiled",
+      "title": "Damascus Steel Folding Techniques: Wild/Twist/Ladder/Raindrop",
+      "snippet": "Source-domain: traditional folding techniques.",
+      "kw_count": 1,
+      "kw_matches": ["Damascus steel layers"],
+      "cos": 0.5,
+      "judge": 0.65,
+      "judge_reason": "Practical folding-technique reference; relevant but tutorial-grade rather than research.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2510.00206v1",
+      "title": "LoRAFusion: Efficient LoRA Fine-Tuning for LLMs",
+      "snippet": "Efficient LoRA fine-tuning with fusion strategy.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.5,
+      "judge": 0.7,
+      "judge_reason": "Directly named in novelty claim — relevant LoRA-fusion baseline for adapter composition.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/llm-adapters",
+      "title": "LLM-Adapters: Modular & Efficient Fine-Tuning",
+      "snippet": "Modular adapter paradigm; composable specialization.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.4,
+      "judge": 0.55,
+      "judge_reason": "Generic adapter overview; only loosely supports stacking framing.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://dl.acm.org/doi/abs/10.1145/3774904.3792147",
+      "title": "Personalized Federated Fine-Tuning via Heterogeneous Model Architectures (WWW 2026)",
+      "snippet": "FedAMoLE: data-driven heterogeneous architectures.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.4,
+      "judge": 0.65,
+      "judge_reason": "Named FedAMoLE baseline for heterogeneous adapter composition — peripheral but cited.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.usenix.org/system/files/atc25-zhan.pdf",
+      "title": "Efficient Federated Fine-tuning via Assembling Pre-trained Blocks (USENIX ATC 2025)",
+      "snippet": "Modular transformer-block pool with dynamic client selection + assembly.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.4,
+      "judge": 0.6,
+      "judge_reason": "Block-assembly baseline cited in novelty claim; relevant but not on fold-cycle stacking.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.spheron.network/blog/how-to-fine-tune-llm-2026/",
+      "title": "How to Fine-Tune LLMs in 2026 (Spheron blog)",
+      "snippet": "Fine-tuning costs/GPUs/code guide.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.2,
+      "judge": 0.2,
+      "judge_reason": "Generic fine-tuning cost blog; not relevant to adapter stacking or pattern-welding analogy.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "hits": 3,
+    "hit_rate": 0.375
+  }
+}

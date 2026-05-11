@@ -1,0 +1,101 @@
+{
+  "round": 185,
+  "verifier_agent_id": "verifier-185",
+  "candidate_summary": "Feedback-attenuation mapping from forest mast-year synchronization (Moran effect + mycorrhizal signaling + predator satiation) onto distributed LLM training: replicas accumulate in lean years and pulse-broadcast aggregated deltas in mast years, attenuating single-replica byzantine adversarial signals via lean-year accumulation.",
+  "candidate_keywords_llm_side": ["distributed training", "partial synchronization", "byzantine adversary", "lean-year accumulation"],
+  "hit_rule": "hit = (kw_count >= 2) OR (cos >= 0.7) OR (judge >= 0.7)",
+  "results": [
+    {
+      "url": "https://www.pnas.org/doi/abs/10.1073/pnas.2518918122?af=R",
+      "title": "Geography of masting creates greater synchrony in seed scarcity than abundance (PNAS)",
+      "kw_count": 1,
+      "kw_matches": ["mast year"],
+      "cos": 0.62,
+      "judge": 0.85,
+      "judge_reason": "Directly supports the source-domain mechanism: spatial synchrony of masting, Moran effect, and predator-satiation hypothesis underpinning the analogy.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://www.frontiersin.org/journals/forests-and-global-change/articles/10.3389/ffgc.2021.689836/full",
+      "title": "Contrasting Resource Dynamics in Mast Years for Beech and Oak (Frontiers)",
+      "kw_count": 1,
+      "kw_matches": ["mast year"],
+      "cos": 0.58,
+      "judge": 0.78,
+      "judge_reason": "Continental beech/oak mast-year resource dynamics analysis substantiates the lean-year/mast-year reserve dynamics central to the candidate's source mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0960982220309088",
+      "title": "Climate Change Strengthens Selection for Mast Seeding in European Beech (Curr Biol)",
+      "kw_count": 1,
+      "kw_matches": ["mast"],
+      "cos": 0.55,
+      "judge": 0.72,
+      "judge_reason": "Confirms satiation-defense logic and climate-driven shifts in mast synchrony, directly relevant to the candidate's source-side mechanism.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://arxiv.org/html/2502.11058v1",
+      "title": "DreamDDP: Layer-wise Scheduled Partial Synchronization for DDP LLM Training",
+      "kw_count": 2,
+      "kw_matches": ["distributed training", "partial synchronization"],
+      "cos": 0.78,
+      "judge": 0.82,
+      "judge_reason": "Layer-wise scheduled partial synchronization for distributed LLM training is the closest prior art to the proposed mast-pulse schedule and is cited in the novelty claim.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.22418",
+      "title": "Partial Parameter Updates for Efficient Distributed Training",
+      "kw_count": 2,
+      "kw_matches": ["distributed training", "partial"],
+      "cos": 0.74,
+      "judge": 0.8,
+      "judge_reason": "Partial-parameter-update scheme for distributed LLM training directly overlaps the proposed reduced-sync regime that the candidate must differentiate against.",
+      "hit": true,
+      "hit_triggers": ["kw", "cos", "judge"]
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S2949719125000500",
+      "title": "Distributed training of LLMs: A survey",
+      "kw_count": 1,
+      "kw_matches": ["distributed training"],
+      "cos": 0.68,
+      "judge": 0.7,
+      "judge_reason": "Survey of distributed LLM training (aggregation, async updates) provides general landscape against which the mast-pulse schedule would be evaluated.",
+      "hit": true,
+      "hit_triggers": ["judge"]
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202512.2207",
+      "title": "Comprehensive Survey on Distributed Deep Learning Training (preprints 2025-12)",
+      "kw_count": 1,
+      "kw_matches": ["distributed"],
+      "cos": 0.6,
+      "judge": 0.62,
+      "judge_reason": "Broad survey of distributed deep-learning parallelism strategies is relevant context but does not address byzantine adversaries or pulse schedules specifically.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2511.10480v1",
+      "title": "Scalable Synthesis of Distributed LLM Workloads via Symbolic Tensor Graphs",
+      "kw_count": 1,
+      "kw_matches": ["distributed"],
+      "cos": 0.45,
+      "judge": 0.35,
+      "judge_reason": "Symbolic-tensor-graph workload synthesis is tangential to scheduling/synchronization choice and does not address the candidate's proposed mast-pulse mechanism or threat model.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 6,
+  "total_misses": 2,
+  "verdict": "Search results substantively support both the source-domain (mast-year synchrony, Moran effect, predator satiation) and LLM-side prior art (DreamDDP, partial parameter updates, distributed training surveys). Six of eight results hit; novelty claim is plausibly bounded by the cited reduced-sync work, but the byzantine-adversary / predator-satiation framing remains under-supported by the retrieved corpus, leaving the analogy's distinctive contribution intact but unverified against an exact prior."
+}

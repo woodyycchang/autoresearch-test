@@ -1,0 +1,101 @@
+{
+  "round": 183,
+  "verifier_agent_id": "verifier-round-183",
+  "candidate_summary": "Map Coanda effect (slot-blown jet keeps flow attached to a deflected flap via pressure asymmetry) to LLM reasoning: inject anchor/attention-sink tokens at branching CoT steps to keep attention 'attached' to correct reasoning trajectories, enlarging the basin of stability for correct CoT paths.",
+  "candidate_keywords_llm_side": ["attention sink", "anchor token", "residual stream", "reasoning trajectory"],
+  "hit_rule": "hit = (kw_count >= 2) OR (cos >= 0.7) OR (judge >= 0.7)",
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Coand%C4%83_effect",
+      "title": "Coanda effect (Wikipedia)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.12,
+      "judge": 0.05,
+      "judge_reason": "Pure source-domain reference about Coanda effect; no LLM-side keyword overlap and not directly used in the candidate's LLM mapping.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://link.springer.com/chapter/10.1007/978-3-319-11967-0_7",
+      "title": "Fundamentals in Coanda Flap Design",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.10,
+      "judge": 0.05,
+      "judge_reason": "Source-domain engineering reference on Coanda flap design; contains no LLM-side keywords or mapping content.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.mdpi.com/2226-4310/7/3/29",
+      "title": "Design and Experimental Characterization of an Actuation System for Internally Blown Coanda Flap",
+      "kw_count": 0,
+      "kw_matches": [],
+      "cos": 0.08,
+      "judge": 0.05,
+      "judge_reason": "Experimental aerodynamics paper for blown Coanda flap; no LLM-side content present.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/f1b04face60081b689ba740d39ea8f37-Paper-Conference.pdf",
+      "title": "When Attention Sink Emerges (ICLR 2025)",
+      "kw_count": 1,
+      "kw_matches": ["attention sink"],
+      "cos": 0.55,
+      "judge": 0.6,
+      "judge_reason": "Directly explains attention sink as strong attention to initial tokens emerging in pretraining, supporting the anchor-token mechanism but not the Coanda mapping itself.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2605.06611",
+      "title": "Structural Origin of Attention Sink: Variance Discrepancy, Super Neurons, Dimension Disparity",
+      "kw_count": 2,
+      "kw_matches": ["attention sink", "anchor"],
+      "cos": 0.6,
+      "judge": 0.65,
+      "judge_reason": "Discusses sinks anchoring at position zero and structural origin via causal masking, closely tied to the anchor-token framing.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2"]
+    },
+    {
+      "url": "https://arxiv.org/html/2510.06477v1",
+      "title": "Attention Sinks and Compression Valleys in LLMs are Two Sides of the Same Coin",
+      "kw_count": 2,
+      "kw_matches": ["attention sink", "residual stream"],
+      "cos": 0.7,
+      "judge": 0.7,
+      "judge_reason": "Names the 'selective refinement' phase and ties sinks to massive activations in the residual stream, matching multiple LLM-side keywords of the candidate.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2", "cos>=0.7", "judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.13554",
+      "title": "ROLL Attention Illuminates LLM Reasoning: Preplan-and-Anchor",
+      "kw_count": 2,
+      "kw_matches": ["anchor token", "reasoning"],
+      "cos": 0.68,
+      "judge": 0.75,
+      "judge_reason": "Preplan-and-Anchor frames anchor tokens as organizing downstream reasoning, directly aligned with the candidate's anchor-injection-at-branch-points proposal.",
+      "hit": true,
+      "hit_triggers": ["kw_count>=2", "judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.17453",
+      "title": "Efficient Streaming Language Models with Attention Sinks",
+      "kw_count": 1,
+      "kw_matches": ["attention sink"],
+      "cos": 0.5,
+      "judge": 0.55,
+      "judge_reason": "Foundational StreamingLLM attention-sink paper supporting the sink-token literature cited but not the Coanda mapping itself.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "total_results": 8,
+  "total_hits": 3,
+  "total_misses": 5,
+  "verdict": "Candidate is partially supported: LLM-side anchor/attention-sink/residual-stream/reasoning literature (3 hits) corroborates the mechanism being invoked, while source-domain Coanda references are not LLM-relevant by the keyword/cos/judge rule. The cross-domain mapping itself (Coanda jet -> anchor-token injection at CoT branch points as basin-stability device) remains novel and unhit, consistent with the candidate's novelty claim."
+}

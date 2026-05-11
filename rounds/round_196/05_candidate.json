@@ -1,0 +1,15 @@
+{
+  "round": "196",
+  "epoch": 8,
+  "candidate_form": "null-space-traversal",
+  "domain": "marine engineering (catenary mooring scope: chain laying on seabed provides restoring force only when displacement exceeds anchor footprint)",
+  "specific_mechanism": "Catenary moorings derive restoring force from the WEIGHT of chain lying on the seabed; small displacements only lift slack chain (low restoring force, position-free traversal), but once the chain is pulled taut the restoring force grows sharply with further displacement. The 'scope' (length-to-depth ratio) sets the threshold; increasing scope softens the restoring curve. Coupled wave-load + chain weight dynamics determine offset.",
+  "llm_application": "Agentic dialogue with 'catenary grounding': maintain a long chain of context tokens that are LARGELY DORMANT — most lie on the conversational seabed and exert no restoring force on the model's response. Only when the model drifts beyond a threshold (e.g., contradicts an earlier-established fact) does the chain go taut and emit a strong restoring signal correcting the drift. Null-space-traversal: small idea-exploration moves within the soft-chain region traverse the null-space of the constraint (no penalty); once exceeded, hard restoring force applies. The 'scope' parameter tunes the size of the exploration freedom.",
+  "novelty_claim": "GSAR typed grounding for hallucination detection (2604.23366), prompt-drift mitigation tools, dialogue-grounding work all address LLM drift correction. None specifically uses a catenary-mooring-scope mechanism where the restoring force is zero in a region and sharply increasing outside it — a tunable soft-then-hard constraint analog. Open question whether this maps to existing trust-region methods.",
+  "content_words": ["catenary mooring", "chain scope", "restoring force", "seabed slack", "agent grounding", "prompt drift correction", "soft-hard threshold", "null-space exploration"],
+  "content_words_composition": {
+    "llm_side": ["agent grounding", "prompt drift correction", "soft-hard threshold", "null-space exploration"],
+    "source_side": ["catenary mooring", "chain scope", "restoring force", "seabed slack"],
+    "generic": []
+  }
+}

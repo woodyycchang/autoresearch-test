@@ -1,0 +1,15 @@
+{
+  "round": "180",
+  "epoch": 8,
+  "candidate_form": "feedback-attenuation",
+  "domain": "glaciology / paleoceanography (Heinrich events: episodic iceberg armadas, ice-rafted debris layers, ~8000y cycle)",
+  "specific_mechanism": "Heinrich events are episodic, abrupt iceberg-armada discharges from the Laurentide ice sheet into the North Atlantic, deposting six discrete IRD layers in marine sediment cores at ~16.8/24/31/38/45/60 kyr BP. Each event is preceded by sub-surface ocean warming that destabilizes the ice grounding line; once the discharge fires, freshwater flux shuts down AMOC, cooling surface waters, attenuating the feedback that triggered the event. Self-limiting through negative feedback after the catastrophic release.",
+  "llm_application": "Model continual-fine-tuning catastrophic forgetting as Heinrich events: long quiet periods (mostly-correct gradient updates) punctuated by abrupt, basin-wide forgetting events when a layer-of-representation grounding line is breached. Each forgetting 'discharge' leaves an identifiable signature in the parameter delta (an 'IRD layer' analogue in weight space). The mechanism predicts: (a) sub-symbol embedding instability precedes the event, (b) the event self-attenuates because the forgotten subspace stops contributing gradient signal, (c) events recur on a quasi-periodic cycle. Use this to schedule replay-checkpoint snapshots at the predicted pre-event intervals.",
+  "novelty_claim": "Catastrophic-forgetting mechanism analyses (2601.18699 'Mechanistic Analysis' — gradient interference, representational drift, loss-landscape flattening), spurious-forgetting work, FIT continual unlearning (2601.21682) all study the phenomenon. None proposes that forgetting events are quasi-periodic Heinrich-like discharges with detectable precursors and self-limiting feedback, and prescribes pre-event checkpoint scheduling on that prediction.",
+  "content_words": ["Heinrich event", "ice-rafted debris", "iceberg armada", "AMOC shutdown", "catastrophic forgetting", "continual fine-tuning", "weight-space delta", "replay checkpoint"],
+  "content_words_composition": {
+    "llm_side": ["catastrophic forgetting", "continual fine-tuning", "weight-space delta", "replay checkpoint"],
+    "source_side": ["Heinrich event", "ice-rafted debris", "iceberg armada", "AMOC shutdown"],
+    "generic": []
+  }
+}

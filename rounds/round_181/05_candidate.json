@@ -1,0 +1,15 @@
+{
+  "round": "181",
+  "epoch": 8,
+  "candidate_form": "null-space-traversal",
+  "domain": "oology (common murre Uria aalge pyriform-egg cliff-ledge stability)",
+  "specific_mechanism": "Murre eggs are pyriform: a long axis with one blunt and one pointed end. Birkhead (2017) showed the egg's roll-arc is wider than typical cliff ledges, so the original 'narrow-roll-arc' hypothesis fails. Stability instead comes from the long straight contact-edge increasing friction with the substrate. On a slope, pyriform eggs are demonstrably more stable than ellipsoidal eggs (more pyriform ⇒ more stable on slope). The shape is selected for slope-stability, not for blocking rolls.",
+  "llm_application": "Reframe alignment 'narrow safety basin' (AsFT, 2506.08473) as an analog of the contact-edge stability principle: the parameter region where safety holds is not a thin manifold the model can roll off of; rather it has a long 'contact ridge' along which gradient descent stays on the friction-dominated side. Null-space-traversal: orthogonalize parameter updates to the contact-ridge tangent and apply only the null-space component (perpendicular to the ridge) when the model is far from the safety boundary; switch to projecting onto the ridge tangent (the friction direction) when close. Predicts post-finetuning safety is dominated by 'contact length' (ridge tangent magnitude) rather than basin depth.",
+  "novelty_claim": "AsFT (2506.08473) anchors safety by penalizing updates orthogonal to alignment direction (the opposite of candidate proposal); Geometry-Aligned LLM Fine-Tuning (2603.16028) constrains trajectories inside workspace boundaries. None proposes the pyriform-egg-style 'contact-ridge length governs stability' framing with a state-dependent switch between null-space and tangent projections. Open question whether 'contact-ridge length' is substantively new or a re-description of basin curvature.",
+  "content_words": ["pyriform egg", "cliff ledge", "rolling stability", "contact friction", "safety basin", "null-space projection", "tangent projection", "fine-tuning alignment"],
+  "content_words_composition": {
+    "llm_side": ["safety basin", "null-space projection", "tangent projection", "fine-tuning alignment"],
+    "source_side": ["pyriform egg", "cliff ledge", "rolling stability", "contact friction"],
+    "generic": []
+  }
+}

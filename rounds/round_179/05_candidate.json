@@ -1,0 +1,15 @@
+{
+  "round": "179",
+  "epoch": 8,
+  "candidate_form": "phase-coherence",
+  "domain": "textile manufacturing (Jacquard loom punched-card pattern encoding, 1801)",
+  "specific_mechanism": "Jacquard's loom stores a weaving pattern as a chain of cards; each card position controls a single warp thread for one weft pass (hole = raise, no hole = leave). The chain is fed in strict sequence — the card order IS the program; reorder the cards and the pattern collapses. Phase coherence between card position and shuttle pass is mechanical (the cards advance in lockstep with the beat-up).",
+  "llm_application": "Treat decoder-token positions analogously to Jacquard card positions: at each generation step, a per-position 'card' is a sparse pattern over a vocabulary subset that selects which embedding sub-channels are active. The card's hole-pattern is determined by a small instruction-tokenizer that converts an instruction-prefix into a per-position activation mask. Generation 'coherence' is the requirement that the card chain stay phase-locked to the prefix — out-of-phase masks degrade pattern fidelity exactly as Jacquard miscards collapse the weave.",
+  "novelty_claim": "Subword tokenization (BPE/WordPiece/Unigram), instruction-level tokenization (UniASM-style), and tokenization-effect-on-reasoning analyses (2601.14658 'Tokenizer Betrays Reasoning') are well-studied. None proposes a per-decoder-position card-pattern mask drawn from a small instruction-tokenizer that is phase-locked to the prefix — the lockstep coherence requirement is what is open.",
+  "content_words": ["Jacquard loom", "punched card", "card chain sequence", "warp pattern", "instruction tokenizer", "per-position mask", "phase coherence", "vocabulary subchannel"],
+  "content_words_composition": {
+    "llm_side": ["instruction tokenizer", "per-position mask", "phase coherence", "vocabulary subchannel"],
+    "source_side": ["Jacquard loom", "punched card", "card chain sequence", "warp pattern"],
+    "generic": []
+  }
+}
