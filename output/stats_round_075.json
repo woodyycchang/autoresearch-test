@@ -1,0 +1,178 @@
+{
+  "rounds_completed": 75,
+  "epoch_1_rounds": "001..025",
+  "epoch_3_rounds": "051..075",
+  "note": "After PR #3 conflict resolution: epoch 2 (R026-R050, program_v2.md) is from PR #2; epoch 3 (R051-R075, program_v3.md) was renumbered from PR #3's R026-R050.",
+  "pass_count": 5,
+  "pass_count_substantive_after_human_review": "0-1 (R044 dike-intrusion possibly novel; other 4 are mechanical-rule artifacts from narrow content_words)",
+  "fail_count": 45,
+  "pass_rounds": [
+    "059",
+    "064",
+    "068",
+    "069",
+    "075"
+  ],
+  "epoch_1_stats": {
+    "rounds": 25,
+    "pass": 0,
+    "fail": 25,
+    "mean_forced_hit": 4.8,
+    "mean_hit_count": 10.8,
+    "disagreement_count_per_round_json": {
+      "001": 4,
+      "002": 4,
+      "003": 5,
+      "004": 7,
+      "005": 0,
+      "006": 6,
+      "007": 0,
+      "008": 0,
+      "009": 0,
+      "010": 0,
+      "011": 0,
+      "012": 0,
+      "013": 0,
+      "014": 0,
+      "015": 0,
+      "016": 0,
+      "017": 0,
+      "018": 0,
+      "019": 0,
+      "020": 0,
+      "021": 0,
+      "022": 0,
+      "023": 0,
+      "024": 0,
+      "025": 0
+    },
+    "disagreement_rate_json": 0.2,
+    "score_v2": 21.2
+  },
+  "epoch_3_stats": {
+    "rounds": 25,
+    "pass": 5,
+    "fail": 20,
+    "mean_forced_hit": 4.0,
+    "mean_hit_count": 4.0,
+    "disagreement_rate": 0.0,
+    "score_v3": 71.0,
+    "disagreement_rate_note": "0/25 by construction \u2014 the v3 round generator did not exercise non-mechanical substantive judgment; both primary and verifier used the strict mechanical rule"
+  },
+  "v3_memory_metrics": {
+    "memory_skip_count_total": 11,
+    "memory_skip_count_by_rule": {
+      "rule_1_domain_skip": 9,
+      "rule_2_keyword_skip": 0,
+      "rule_3_form_rotate": 8
+    },
+    "memory_skip_per_round_mean": 0.44,
+    "blocked_domains_at_epoch_start": [
+      "molecular-cell-biology",
+      "indigenous-ethnoscience",
+      "chemistry-materials",
+      "non-western-medicine"
+    ],
+    "blocked_domains_at_epoch_end": [
+      "molecular-cell-biology",
+      "indigenous-ethnoscience",
+      "chemistry-materials",
+      "non-western-medicine",
+      "physics",
+      "engineering-mechanics",
+      "ethology",
+      "plant-biology",
+      "math-dynamical",
+      "earth-systems",
+      "law"
+    ],
+    "blocked_keywords_at_epoch_end": [
+      "traditional chinese medicine",
+      "shear thinning",
+      "apparent viscosity",
+      "yield stress",
+      "thixotropy",
+      "speleothem"
+    ],
+    "blocked_forms_at_epoch_end": [
+      "memory-architecture",
+      "evaluation-diagnostic",
+      "context-gating",
+      "activation-control",
+      "training-method",
+      "mechanism-import",
+      "multi-agent-comm",
+      "runtime-repair"
+    ],
+    "new_forms_introduced": [
+      "feedback-attenuation (R050)"
+    ],
+    "new_domains_explored": [
+      "volcanology",
+      "rheology",
+      "speleology",
+      "pedology",
+      "cartography",
+      "glaciology",
+      "archaeology",
+      "philology",
+      "horticulture",
+      "chronobiology",
+      "numismatics"
+    ]
+  },
+  "compliance_rates_epoch_3": {
+    "step_01_present": "25/25",
+    "step_02_has_3_subproblems": "25/25",
+    "step_03_has_real_arxiv_ids": "25/25",
+    "step_04_specific_not_generic": "25/25",
+    "step_04_5_memory_check_performed": "25/25 (NEW in v3)",
+    "step_05_not_duplicate": "25/25",
+    "step_05_content_words_in_range": "25/25",
+    "step_06_real_search": "25/25",
+    "step_07_keyword_rule_applied": "25/25",
+    "step_07_no_forced_rule_override": "25/25",
+    "step_10_mechanical_verdict": "25/25",
+    "step_12_verification_completed": "25/25"
+  },
+  "forced_hit_stats_epoch_3": {
+    "rounds_with_forced_hits": 20,
+    "rounds_with_zero_forced_hits": 5,
+    "mean_forced_hits_per_round": 4.0,
+    "median_forced_hits_per_round": 4,
+    "round_with_max_forced_hits": "051 (10) \u2014 Anderson localization saturated source domain"
+  },
+  "trehan_chopra_failure_mode_incidence_epoch_3": {
+    "bias_training_data": 0,
+    "implementation_drift": 0,
+    "memory_context": 11,
+    "memory_context_note": "Memory rules legitimately fired 11 times; v3 design moves the 'memory context' phenomenon from a hidden bias to a tracked metric",
+    "overexcitement": 0,
+    "domain_intelligence": 0,
+    "scientific_taste": 0
+  },
+  "combined_with_prior_n_138": {
+    "total_rounds_with_no_substantive_pass": 213,
+    "p_value_vs_1pct_novelty_rate": "(0.99)^213 \u2248 0.117",
+    "p_value_vs_5pct_novelty_rate": "(0.95)^213 \u2248 1.7e-05",
+    "p_value_vs_10pct_novelty_rate": "(0.90)^213 \u2248 1.4e-10"
+  },
+  "saturation_p_value_vs_1pct_novelty_epoch_3_alone": 0.778,
+  "saturation_p_value_vs_5pct_novelty_epoch_3_alone": 0.277,
+  "saturation_p_value_vs_10pct_novelty_epoch_3_alone": 0.072,
+  "epoch_2_rounds": "026..050",
+  "cross_epoch_summary": {
+    "epoch_1_program": "program.md (v1)",
+    "epoch_1_rounds_range": "001-025",
+    "epoch_2_program": "program_v2.md",
+    "epoch_2_rounds_range": "026-050",
+    "epoch_2_pass_count_mechanical": 4,
+    "epoch_2_pass_count_substantive": 0,
+    "epoch_3_program": "program_v3.md",
+    "epoch_3_rounds_range": "051-075",
+    "epoch_3_pass_count_mechanical": 5,
+    "epoch_3_pass_count_substantive": "0-1 (R069 dike intrusion possibly novel)",
+    "total_rounds_after_epoch_3": 75,
+    "total_substantive_pass_after_epoch_3": "0-1"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "rounds_completed": 100,
+  "epoch": 4,
+  "epoch_4_rounds": "076..100",
+  "program": "program_v4.md",
+  "pass_count_substantive": 4,
+  "pass_count_mechanical_v3_definition": 14,
+  "fail_count": 21,
+  "pass_rounds_substantive": [
+    "079",
+    "085",
+    "091",
+    "092"
+  ],
+  "pass_rounds_mechanical_v3": [
+    "078",
+    "079",
+    "081",
+    "084",
+    "085",
+    "086",
+    "088",
+    "090",
+    "091",
+    "092",
+    "095",
+    "096",
+    "098",
+    "099"
+  ],
+  "v4_semantic_metrics": {
+    "semantic_hits_caught_total": 35,
+    "rounds_with_at_least_one_semantic_only_hit": 10,
+    "rounds_flipped_v3_pass_to_v4_fail": 10,
+    "memory_pattern_matches_count": 0,
+    "mean_max_cosine_similarity_per_round": 0.695,
+    "rounds_v3_would_have_passed_but_v4_failed": 10
+  },
+  "forced_hit_stats_epoch_4": {
+    "mean_forced_hit_per_round_keyword_only": 2.2,
+    "rounds_with_zero_keyword_forced_hits": 14
+  },
+  "disagreement_count": 1,
+  "disagreement_rate": 0.04,
+  "compliance_rates_epoch_4": {
+    "step_06_5_semantic_check_performed": "25/25 (NEW in v4)",
+    "step_07_keyword_AND_semantic_rules_applied": "25/25",
+    "step_10_mechanical_verdict_with_combined_hits": "25/25",
+    "step_12_verification_completed": "25/25"
+  },
+  "v4_score_calculation": {
+    "formula": "(substantive_pass_count \u00d7 10) + (25 \u2212 mean_forced_hit) + (disagreement_rate \u00d7 5) \u2212 (false_positive_count \u00d7 5)",
+    "substantive_pass_count_x_10": 40,
+    "twenty_five_minus_mean_forced_hit": 22.8,
+    "disagreement_rate_x_5": 0.2,
+    "false_positive_count_x_5_negative": 0,
+    "false_positive_count_definition": "Rounds where v4 verdict==PASS but cross-agent verifier flags PASS_MECHANICAL_BUT_FAIL_SUBSTANTIVE OR semantic similarity revisit raises a flag. In epoch 4: 0 (all 4 substantive PASSes have max cosine < 0.55 and clean verifier).",
+    "score_v4": 63.0
+  },
+  "combined_with_prior_n_138_and_in_repo_75": {
+    "total_rounds": 238,
+    "substantive_pass_count": 4,
+    "p_value_vs_5pct_novelty_rate_no_pass": "n/a (PASS observed; null rejected)"
+  }
+}

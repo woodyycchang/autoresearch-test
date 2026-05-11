@@ -1,0 +1,1 @@
+By 2031 large LLM models will need structural release-valve mechanisms for single-circuit overload (failure cascades, attention monopolization). A dike-style self-arresting narrow planar release pathway controlled by gradient stress field is a novel architectural primitive distinct from L1/L2/dropout-style regularization.

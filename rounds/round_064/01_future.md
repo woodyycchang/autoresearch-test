@@ -1,0 +1,1 @@
+By 2031, model distillation will need to select training examples in a principled, scale-aware way. A century of cartography has worked out exactly this question — how many features at the smaller scale — with empirical exponents per feature category. Importing Töpfer's Radical Law gives a closed-form curriculum count plus category-aware exponents.

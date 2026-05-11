@@ -1,0 +1,49 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "chemistry-materials",
+      "proposed_mechanism_keywords": [
+        "dissolution kinetics",
+        "limestone"
+      ],
+      "proposed_form": "memory-architecture",
+      "memory_lookup": {
+        "domain_prior_fail_count": 3,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 10
+      },
+      "rules_triggered": [
+        "rule_1_domain_skip",
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "rule_1_domain_skip (chemistry-materials has 3 prior FAIL) AND rule_3_form_rotate (memory-architecture has 10 prior FAIL)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "earth-systems",
+      "proposed_mechanism_keywords": [
+        "karst",
+        "karst aquifer",
+        "epikarst",
+        "conduit network",
+        "preferential flow",
+        "carbonate dissolution",
+        "matrix flow",
+        "sinkhole"
+      ],
+      "proposed_form": "context-gating",
+      "memory_lookup": {
+        "domain_prior_fail_count": 1,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 3
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear"
+    }
+  ],
+  "accepted_attempt_idx": 2,
+  "memory_skip_count_this_round": 1
+}

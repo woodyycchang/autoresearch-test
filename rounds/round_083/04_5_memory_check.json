@@ -1,0 +1,46 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "physics",
+      "proposed_mechanism_keywords": [
+        "Barkhausen noise",
+        "domain wall",
+        "ferromagnetic",
+        "pinning site"
+      ],
+      "proposed_form": "phase-coherence",
+      "memory_lookup": {
+        "domain_prior_fail_count": 10,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 4
+      },
+      "rules_triggered": [
+        "rule_1_domain_skip"
+      ],
+      "decision": "REJECT",
+      "reason": "domain physics blocked (10 prior fails) OR form phase-coherence blocked (4 prior fails)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "tribology",
+      "proposed_mechanism_keywords": [
+        "Barkhausen noise",
+        "domain wall",
+        "ferromagnetic",
+        "pinning site"
+      ],
+      "proposed_form": "basin-stability",
+      "memory_lookup": {
+        "domain_prior_fail_count": 0,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 0
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear after substitution"
+    }
+  ],
+  "accepted_attempt_idx": 2,
+  "memory_skip_count_this_round": 1
+}

@@ -1,0 +1,50 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "molecular-cell-biology",
+      "proposed_mechanism_keywords": [
+        "prion",
+        "amyloid",
+        "protein aggregation"
+      ],
+      "proposed_form": "memory-architecture",
+      "memory_lookup": {
+        "domain_prior_fail_count": 5,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 10
+      },
+      "rules_triggered": [
+        "rule_1_domain_skip",
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "rule_1_domain_skip (molecular-cell-biology has 5 prior FAIL) AND rule_3_form_rotate (memory-architecture has 10 prior FAIL)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "physics",
+      "proposed_mechanism_keywords": [
+        "Anderson localization",
+        "disordered lattice",
+        "localization length",
+        "mobility edge",
+        "interference scattering",
+        "eigenstate",
+        "wave amplitude",
+        "disorder strength"
+      ],
+      "proposed_form": "activation-control",
+      "memory_lookup": {
+        "domain_prior_fail_count": 2,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 3
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear"
+    }
+  ],
+  "accepted_attempt_idx": 2,
+  "memory_skip_count_this_round": 1
+}

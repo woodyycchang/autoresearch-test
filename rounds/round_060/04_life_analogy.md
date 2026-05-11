@@ -1,0 +1,1 @@
+Ketchup in a bottle is rigid until you shake or squeeze hard enough, then suddenly pours; the bottle's contents look like a solid below a yield stress and a fluid above it. An LLM activation pathway can behave the same way: small inputs leave the pathway nearly unmoved, but past a threshold the pathway yields and the activation flows sensitively.

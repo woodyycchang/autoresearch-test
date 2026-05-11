@@ -1,0 +1,1 @@
+By 2031 multi-agent LLM systems will exceed 1000+ agents; message-passing scales poorly. A soil-microbiome-style decentralized substrate-mediated coordination with fixed-role partition gives O(local-density) rather than O(N) communication cost.

@@ -1,0 +1,49 @@
+{
+  "attempts": [
+    {
+      "attempt_idx": 1,
+      "proposed_domain_normalized": "molecular-cell-biology",
+      "proposed_mechanism_keywords": [
+        "microbiome",
+        "bacterial communication"
+      ],
+      "proposed_form": "memory-architecture",
+      "memory_lookup": {
+        "domain_prior_fail_count": 5,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 10
+      },
+      "rules_triggered": [
+        "rule_1_domain_skip",
+        "rule_3_form_rotate"
+      ],
+      "decision": "REJECT",
+      "reason": "rule_1_domain_skip (mol-cell-bio blocked) AND rule_3_form_rotate (memory-architecture blocked)"
+    },
+    {
+      "attempt_idx": 2,
+      "proposed_domain_normalized": "pedology",
+      "proposed_mechanism_keywords": [
+        "soil microbiome",
+        "mycorrhizal network",
+        "rhizosphere",
+        "soil pore",
+        "organic compound diffusion",
+        "decomposer",
+        "nitrogen fixer",
+        "mineralizer"
+      ],
+      "proposed_form": "multi-agent-comm",
+      "memory_lookup": {
+        "domain_prior_fail_count": 1,
+        "mechanism_keyword_prior_hits": [],
+        "form_prior_fail_count": 3
+      },
+      "rules_triggered": [],
+      "decision": "ACCEPT",
+      "reason": "all thresholds clear"
+    }
+  ],
+  "accepted_attempt_idx": 2,
+  "memory_skip_count_this_round": 1
+}

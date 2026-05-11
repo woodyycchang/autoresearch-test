@@ -1,0 +1,1 @@
+By 2031, the proliferation of fine-tuned LLM derivatives will be so vast that lineage tracking from manifest alone is impossible. Recovering lineage from output samples — a forensic problem — would benefit from a thousand-year-old textual-criticism methodology designed for exactly this problem (manuscripts) in a different medium.

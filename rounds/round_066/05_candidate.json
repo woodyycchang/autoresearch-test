@@ -1,0 +1,16 @@
+{
+  "domain": "rheology (yield-stress / thixotropy of complex fluids)",
+  "specific_mechanism": "Thixotropic / yield-stress fluids exhibit time-dependent viscosity: apparent viscosity drops with sustained shear and recovers when shear stops; the recovery time and the yield-stress threshold are distinct parameters. Below yield stress the fluid is rigid; above, the time-dependent shear-thinning kicks in",
+  "llm_application": "Implement an LLM 'yield-stress gate' on activation updates: an activation does not respond to small input perturbations (below yield), but past a threshold the response time-thins (the activation becomes increasingly malleable with sustained pushing); when push stops, the activation slowly recovers its baseline rigidity. The mechanism is dual-parameter (yield-stress threshold + recovery time) and gives a structural defense against gradient-noise drift while allowing intentional updates.",
+  "novelty_claim": "Existing activation update / gradient clipping uses scalar magnitude thresholds. No published 2024-2026 LLM/AI work formalizes a thixotropic yield-stress gate with separate yield-stress and recovery-time parameters on activation updates.",
+  "content_words": [
+    "thixotropy",
+    "yield stress",
+    "rheology",
+    "apparent viscosity",
+    "shear thinning",
+    "recovery time",
+    "structural breakdown",
+    "complex fluid"
+  ]
+}
