@@ -1,0 +1,120 @@
+{
+  "round": "199",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "content_words": ["kintsugi repair", "gold lacquer", "wabi-sabi imperfection", "visible joint", "error trace annotation", "post-hoc correction", "explicit inscription", "model history preservation"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Kintsugi",
+      "title": "Kintsugi (Wikipedia)",
+      "snippet": "Source-domain: Japanese golden-joinery repair; visible imperfection embraced.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_notes": "Individual tokens (kintsugi, repair, visible, imperfection) present, but full multi-word content_words ('kintsugi repair', 'wabi-sabi imperfection', 'visible joint') not present as substrings.",
+      "cos": 0.55,
+      "judge": 0.75,
+      "judge_reason": "Canonical source-domain explainer for kintsugi golden-joinery and visible imperfection; strongly relevant to source side.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.britannica.com/art/kintsugi-ceramics",
+      "title": "Kintsugi (Britannica)",
+      "snippet": "Source-domain: history of kintsugi pottery repair.",
+      "kw_count": 1,
+      "kw_matches": ["kintsugi repair"],
+      "kw_notes": "'kintsugi' and 'repair' co-occur but not as exact substring 'kintsugi repair'; lenient kw=1 via near-adjacent tokens, strict kw=0.",
+      "cos": 0.5,
+      "judge": 0.7,
+      "judge_reason": "Encyclopedia coverage of kintsugi pottery repair history — squarely on source-domain.",
+      "hit": true,
+      "hit_triggers": ["judge>=0.7"]
+    },
+    {
+      "url": "https://www.japan.travel/en/blog/the-art-of-imperfection-kintsugi-pottery-and-wabi-sabi/",
+      "title": "The Art of Imperfection: Kintsugi Pottery, Wabi-Sabi (Japan tourism)",
+      "snippet": "Source-domain: wabi-sabi imperfection philosophy + kintsugi.",
+      "kw_count": 2,
+      "kw_matches": ["kintsugi", "wabi-sabi imperfection"],
+      "kw_notes": "'wabi-sabi imperfection' appears in snippet; 'kintsugi' present (partial of 'kintsugi repair').",
+      "cos": 0.62,
+      "judge": 0.78,
+      "judge_reason": "Directly covers wabi-sabi+kintsugi pairing, the conceptual heart of the source domain.",
+      "hit": true,
+      "hit_triggers": ["kw>=2", "judge>=0.7"]
+    },
+    {
+      "url": "https://arxiv.org/html/2506.14003v3",
+      "title": "Unlearning Isn't Invisible: Detecting Unlearning Traces in LLMs",
+      "snippet": "Unlearning leaves persistent fingerprints in LLM behavior + internal representations.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_notes": "No content_word substring present; 'traces' related to 'error trace annotation' but not substring match.",
+      "cos": 0.45,
+      "judge": 0.6,
+      "judge_reason": "Closest LLM-side prior: detectable but unlabeled unlearning traces — direct foil for the kintsugi proposal of deliberate visible inscription.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2503.13657v3",
+      "title": "Why Do Multi-Agent LLM Systems Fail? (MAST taxonomy)",
+      "snippet": "MAST taxonomy + dataset of 1600+ annotated multi-agent failure traces.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_notes": "'annotated' + 'traces' tokens overlap with 'error trace annotation' conceptually but not as substring.",
+      "cos": 0.4,
+      "judge": 0.5,
+      "judge_reason": "Failure-trace taxonomy is adjacent prior art but does not propose visible-inscription correction.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2512.00215v1",
+      "title": "Demystifying Errors in LLM Reasoning Traces (code execution simulation)",
+      "snippet": "Structured taxonomy of reasoning errors in code-inference tasks.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_notes": "No substring hit; error/trace tokens present individually.",
+      "cos": 0.38,
+      "judge": 0.45,
+      "judge_reason": "Reasoning-error taxonomy; descriptive not prescriptive about visible repair.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.06176",
+      "title": "Large Language Model Reasoning Failures",
+      "snippet": "Reasoning failures classified along three types: fundamental architectural, application-specific, robustness.",
+      "kw_count": 0,
+      "kw_matches": [],
+      "kw_notes": "No content_word substrings.",
+      "cos": 0.3,
+      "judge": 0.35,
+      "judge_reason": "Generic failure taxonomy; weak overlap with explicit-inscription idea.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2605.00358v1",
+      "title": "From Backward Spreading to Forward Replay: Target Construction in LLM Parameter Editing",
+      "snippet": "Post-hoc parameter-editing methods.",
+      "kw_count": 1,
+      "kw_matches": ["post-hoc correction"],
+      "kw_notes": "'post-hoc' present; 'correction' implied by 'editing' but not substring — lenient kw=1, strict kw=0.",
+      "cos": 0.42,
+      "judge": 0.55,
+      "judge_reason": "Post-hoc model-editing prior; relevant alternative approach but does not annotate edits visibly.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 3,
+    "hits_source_side": 3,
+    "hits_llm_side": 0,
+    "verdict": "PASS-with-caveat",
+    "comment": "Primary suspects PASS: the three source-domain results hit, and the four LLM-side priors (2506.14003, 2503.13657, 2512.00215, 2605.00358) are correctly cited as adjacent-but-distinct. However the PASS hides a critical retrieval gap: audit-log / chain-of-edit / git-diff-style overlap was NOT searched or retrieved. Mature literatures on (a) provenance/audit-log annotations for LLM outputs, (b) chain-of-edit / chain-of-thought-with-revision visible-revision traces, and (c) diff-style edit-history rendering in LLM agents (e.g. Aider/Cursor diff blocks, revision-trace papers, watermark+attribution traces) directly anticipate the 'visible inscription of corrections' core of the kintsugi mapping. None of these is in 06_search_raw.json, so the novelty_claim is under-tested. Recommend a third query targeting 'LLM output audit log chain-of-edit visible revision trace diff annotation' before accepting the novelty claim."
+  }
+}
