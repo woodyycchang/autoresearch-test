@@ -1,0 +1,23 @@
+{
+  "round": "234",
+  "candidate_llm_application": "Role-shape redundant tokenizer with K=4-7 co-learned role categories and scale-degree invariance",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r234-shape-note-role-tokenizer",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Sacred_Harp", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://fasola.org/introduction/note_shapes.html", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://fasolamichigan.org/?page_id=162", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2509.05291", "judge_score": 0.50, "judge_justification": "Tracks emergence of syntactic features; does not propose a fixed-K redundant role-shape tokenizer.", "matched_effect_cluster": "pretrain feature emergence diagnostic", "functional_hit": false},
+    {"rank": 5, "url": "https://www.arxiv.org/pdf/2506.07833", "judge_score": 0.65, "judge_justification": "CAFT introduces concept-aware auxiliary heads with auxiliary loss; close to co-learned redundant signal but at concept-level not fixed-K role-shape level.", "matched_effect_cluster": "concept-aware auxiliary head", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2402.05140v3", "judge_score": 0.74, "judge_justification": "Tag-LLM injects domain tags as redundant control signals concatenated to input — operationally similar to role-shape but tags are domain-level (coarse) not token-level small-K role-categorical. Closely related; not identical.", "matched_effect_cluster": "tag-augmented input embedding", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2510.14751v1", "judge_score": 0.45, "judge_justification": "Future-summary auxiliary head; not redundant role-shape.", "matched_effect_cluster": "future-summary auxiliary", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2505.20133v2", "judge_score": 0.40, "judge_justification": "Token distillation for new tokens; not redundant fixed-K role-shape.", "matched_effect_cluster": "embedding distillation new tokens", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false,
+    "matched_effect_clusters": ["tag-augmented input embedding"]
+  }
+}

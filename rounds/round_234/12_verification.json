@@ -1,0 +1,109 @@
+{
+  "round": "234",
+  "verifier": "fresh-cross-agent",
+  "candidate_summary": "Role-shape redundant tokenizer: standard subword token id augmented with small K=4-7 role-shape code (SUBJ-noun, PRED-verb, MOD-modifier, etc.), co-learned via auxiliary token-classification head during pretraining, concatenated into embedding. Scale-degree-style invariance: same syntactic role pattern reuses same shapes regardless of vocabulary substitution.",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_keywords_for_overlap": ["role-shape", "tokenizer", "redundant", "co-learned", "auxiliary head", "K=4-7", "role categories", "scale-degree invariant", "token embedding", "POS-like", "syntactic role", "fixed-K"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Sacred_Harp",
+      "title": "Sacred Harp — Wikipedia",
+      "snippet": "Source-domain: fasola four-shape; pedagogical shape solfège tradition.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Pure source domain (Sacred Harp music). No LLM mechanism. No keyword overlap with the LLM-side application terms.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://fasola.org/introduction/note_shapes.html",
+      "title": "fasola.org — Note Shapes",
+      "snippet": "Source-domain: shape glyph dictionary.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.08,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Source-domain glyph dictionary. No LLM mechanism. No keyword overlap.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://fasolamichigan.org/?page_id=162",
+      "title": "Four-shape system — Sacred Harp Michigan",
+      "snippet": "Source-domain: shape pedagogy explanation.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.08,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Source-domain pedagogy. No LLM mechanism. No keyword overlap.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2509.05291",
+      "title": "Crosscoding Through Time: LLM Pretrain Linguistic Reps (2025/9)",
+      "snippet": "LLM-side: linguistic-pattern feature emergence over pretraining.",
+      "functional_equivalence": 0.32,
+      "semantic_cosine_estimate": 0.40,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["syntactic role (indirectly via linguistic features)"],
+      "rationale": "Diagnostic of emergent linguistic features over pretraining; passive observation rather than active redundant role-shape tokenizer with fixed K co-learned categories. Not a mechanism match.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://www.arxiv.org/pdf/2506.07833",
+      "title": "Concept-aware Fine-tuning (CAFT) auxiliary heads (2025/6)",
+      "snippet": "LLM-side: pretraining auxiliary heads + dynamic auxiliary loss scaling.",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.50,
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["auxiliary head", "co-learned"],
+      "rationale": "CAFT uses auxiliary heads with concept-level signals during fine-tuning; mechanism is auxiliary-head co-training (overlap with candidate's auxiliary token-classification head idea), but concept-level not fixed small-K role-categorical token tag concatenated into embedding. Two keywords match (auxiliary head, co-learned) -> kw>=2 triggers a HIT under the FROZEN OR rule.",
+      "hit": true
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2402.05140v3",
+      "title": "Tag-LLM: Repurposing General LLMs for Specialized Domains (2024/2)",
+      "snippet": "LLM-side: domain tags as injected control signals.",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["token embedding", "tag (role-shape analog)"],
+      "rationale": "Tag-LLM injects discrete tag tokens concatenated as control signals into the input embedding stream; operationally analogous to the candidate's role-shape redundant codes attached at tokenizer level. Tags are coarser (domain-level) than per-token fixed-K role-shapes, but the mechanism of small-K discrete-tag-into-embedding is the same functional pattern. func>=0.7 triggers HIT.",
+      "hit": true
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2510.14751v1",
+      "title": "Beyond Multi-Token Prediction: Future Summaries (2025/10)",
+      "snippet": "LLM-side: auxiliary head predicts summary representation of future seq.",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.38,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["auxiliary head"],
+      "rationale": "Auxiliary head for future-summary prediction; shares the auxiliary-head idea but the predicted target is a future representation, not a per-token role-shape category. Only one keyword overlap; no functional or semantic match above thresholds.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2505.20133v2",
+      "title": "Token Distillation: Attention-Aware Input Embeddings (2025/5)",
+      "snippet": "LLM-side: high-quality embeddings for new tokens via distillation.",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.35,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["token embedding"],
+      "rationale": "Distillation-based input-embedding initialization for new tokens; mechanism is teacher-student distillation, not redundant role-shape co-training. Only one keyword overlap; no functional match.",
+      "hit": false
+    }
+  ],
+  "total_hits": 2,
+  "hit_ranks": [5, 6],
+  "verdict": "FAIL",
+  "notes": "Two hits under the FROZEN OR rule: (1) rank 5 CAFT triggers via kw>=2 (auxiliary head + co-learned); (2) rank 6 Tag-LLM triggers via func>=0.7 (small-K discrete-tag-into-embedding is operationally analogous to role-shape redundant tokenizer). The 06_7 functional_hits file scored Tag-LLM at 0.74 (hit) but did not separately count keyword overlap on CAFT. Under the cross-agent re-judge with the FROZEN OR rule, total_hits=2 -> FAIL."
+}

@@ -1,0 +1,15 @@
+{
+  "round": "235",
+  "epoch": 10,
+  "candidate_form": "phase-coherence",
+  "domain": "West African yam-pounding fufu (cooperative two-person preparation; one pounder rhythmically strikes mortar with pestle while moderator hand-turns yam between strikes; tight sub-beat phase coordination prevents hand-crush; scales to 3-6 pounders with counterpoint phase offsets)",
+  "specific_mechanism": "Pounder commits to a fixed rhythm of pestle strikes at interval Δt. Moderator's hand enters mortar in the open window (strike + Δt/2 to next strike), turns/moistens yam, exits before next strike. Failure mode: hand crushed if moderator overruns. Pounder does NOT slow down; moderator MUST fit in fixed window. 3+ pounders rotate at offset Δt/N to keep continuous strike rate.",
+  "llm_application": "Phase-locked two-agent rhythmic edit-correction: agent A (pounder) emits short generation blocks (5-10 tokens) at fixed cadence Δt. Agent B (moderator) reads A's last block and emits position-anchored single correction edit in the strike-to-strike interval. Correction window is FIXED at Δt/2; edits that miss the window are silently dropped (A does not pause for B). The output stream is paced at A's strike rate regardless of B's hits or misses. Properties: (1) bounded latency = Δt per token block; (2) graceful degradation under slow corrector; (3) no negotiation overhead. N>2 extension: N-1 moderator agents rotated at offsets Δt/(N-1) providing continuous correction throughput. Use case: streaming LLM with real-time hallucination correction, where the user-facing output must not stutter even if the corrector lags.",
+  "novelty_claim": "LLM-MAS literature (Orchestration Traces 2605.02801, MAGRPO 2508.04652, Latent Collaboration 2511.20639) uses turn-taking or simultaneous decoding but rarely with strict fixed-rhythm phase-locked windows + silent overrun drop. The yam-pounding 'commit to rhythm; silent drop misalignment' discipline distinguishes this from negotiated turn-taking. Streaming-LLM real-time correction work (e.g., concurrent edit decoding) does not use phase-locked fixed-width windows with N-pounder counterpoint extension.",
+  "content_words": ["yam pounding fufu", "pounder moderator pair", "rhythmic mortar pestle", "counterpoint offset", "phase-locked edit window", "rhythm-commit decoding", "silent overrun drop", "fixed-cadence streaming correction"],
+  "content_words_composition": {
+    "llm_side": ["phase-locked edit window", "rhythm-commit decoding", "silent overrun drop", "fixed-cadence streaming correction"],
+    "source_side": ["yam pounding fufu", "pounder moderator pair", "rhythmic mortar pestle", "counterpoint offset"],
+    "generic": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "round": "231",
+  "epoch": 10,
+  "candidate_form": "phase-coherence",
+  "domain": "Mongolian morin khuur horsehead fiddle (two-string F/Bb instrument; player produces fundamental on F string while sounding selectable overtone on Bb string via bow placement at harmonic node positions; biphonic instrumental output)",
+  "specific_mechanism": "Single bow + two strings (F and Bb) tuned at a fifth. Player produces fundamental melodic line on F string. Simultaneously, on the Bb string, the bow is placed at specific HARMONIC NODE positions (1/2, 1/3, 1/4 of string length) producing the corresponding overtone (Bb', F'', B'', F''') without changing the fingered pitch. Bow pressure coupling between strings sets the relative amplitude. Result: biphonic output (fundamental + chosen overtone) with the two channels coupled through bow-pressure dynamics.",
+  "llm_application": "Sympathetic-overtone alternate-branch decoding: the model decodes a fundamental sequence using greedy/argmax. A TIED secondary 'overtone decoder' (sharing weights but using a frequency-shifted logit pre-scaling) simultaneously samples ALTERNATIVE-BRANCH tokens at fundamental-prefix HARMONIC POSITIONS — those token positions where the fundamental's running probability mass has a local maximum (the 'natural nodes'). The overtone tokens are tested against the fundamental's distribution; accepted overtones SEED an alternate beam branch. Coupling between channels: a bow-pressure-analog scalar α modulates how much the overtone shifts the fundamental's next-token probability. Output: a tree of alternate continuations seeded at harmonic positions, not flat next-token speculation.",
+  "novelty_claim": "Standard speculative decoding (Parallel Prompt Decoding 2405.18628, DiP-SD 2604.20919, Promise-Based 2502.11517) proposes the NEXT token from a draft. Branching beam search proposes alternate continuations but at uniform positions. The morin-khuur framing proposes alternate-branch seeds AT HARMONIC POSITIONS of the fundamental's logit field (loci of local prob-mass maxima), with sympathetic coupling between fundamental and overtone channels. No surveyed prior art combines harmonic-node-anchored alternate-branch seeding with bow-pressure-style cross-channel coupling.",
+  "content_words": ["morin khuur", "sympathetic overtone", "harmonic node bow", "biphonic instrumental", "tied secondary decoder", "fundamental-prefix harmonic anchor", "alternate-branch seed", "cross-channel coupling scalar"],
+  "content_words_composition": {
+    "llm_side": ["tied secondary decoder", "fundamental-prefix harmonic anchor", "alternate-branch seed", "cross-channel coupling scalar"],
+    "source_side": ["morin khuur", "sympathetic overtone", "harmonic node bow", "biphonic instrumental"],
+    "generic": []
+  }
+}

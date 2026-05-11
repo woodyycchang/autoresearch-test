@@ -1,0 +1,23 @@
+{
+  "round": "235",
+  "candidate_llm_application": "Phase-locked two-agent rhythmic edit correction with fixed-cadence pounder + Δt/2 moderator window + silent overrun drop",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r235-fufu-pounder-moderator-stream-edit",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Pounded_yam", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://www.culturesofwestafrica.com/fufu-african-cuisine/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://www.myguidenigeria.com/travel-articles/iyan---pounded-yam", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2503.03106v2", "judge_score": 0.78, "judge_justification": "Monitoring Decoding: in-process intervention revising crucial tokens during generation — operationally a moderator inserting edits at runtime. The fixed-cadence property is not explicit but the moderator-edit-during-stream property is captured.", "matched_effect_cluster": "in-process token-revising monitor", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2509.03531v1", "judge_score": 0.74, "judge_justification": "Real-time hallucination detection during long-form generation; scaffolds the moderator role of the candidate.", "matched_effect_cluster": "real-time hallucination detector", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2601.19106", "judge_score": 0.72, "judge_justification": "Real-time correcting analyzer for code generation explicitly runs concurrent with generator and applies high-confidence corrections — the two-role rhythmic pair.", "matched_effect_cluster": "concurrent analyzer-corrector", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.11779", "judge_score": 0.65, "judge_justification": "DeCo uses preceding-layer signals to correct at decoding time — within single model not two-agent rhythmic.", "matched_effect_cluster": "intra-model layer-signal correction", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2511.20639v1", "judge_score": 0.55, "judge_justification": "Latent Collaboration MAS; structured communication but not fixed-rhythm phase-locked edit correction.", "matched_effect_cluster": "structured MAS communication", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["in-process token-revising monitor", "real-time hallucination detector", "concurrent analyzer-corrector"]
+  }
+}

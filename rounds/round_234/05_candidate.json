@@ -1,0 +1,15 @@
+{
+  "round": "234",
+  "epoch": 10,
+  "candidate_form": "null-space-traversal",
+  "domain": "Sacred Harp shape-note singing (four-shape fa-sol-la-mi solfège with distinct geometric noteheads per scale degree; Aikin seven-shape extension; pedagogically-self-explanatory redundant notation; scale-degree invariance under transposition)",
+  "specific_mechanism": "Each scale-degree gets a distinct geometric notehead shape (triangle/oval/rectangle/diamond in four-shape; +cup/four-leaf/ice-cream-cone in seven-shape). The shape is REDUNDANT with respect to staff position (both encode the same pitch). The redundancy is the pedagogy: an untrained reader can sight-sing from shape alone, while a trained reader can attend to staff position. Critically, the shape encodes SCALE-DEGREE, not absolute pitch — the same melody transposed uses the same shapes.",
+  "llm_application": "Role-shape redundant tokenizer: standard subword token id is augmented with a small (K=4-7) role-shape code per token, drawn from {SUBJ-noun, PRED-verb, MOD-modifier, CONN-connective, QUAL-qualifier, QUOTE-marker, CODE-marker}. The role-shape is co-learned (auxiliary token-classification head during pretraining) and concatenated into the embedding. This provides: (1) a scale-degree-style invariant — the same syntactic role pattern reuses the same shapes regardless of vocabulary substitution; (2) explicit interpretability — circuit analysis can attend to shape sequences; (3) robustness — adversarial paraphrase that preserves structural role is detected by shape consistency; (4) compositional generalization — novel vocabulary inherits shape-sequence behavior from frequent shape patterns.",
+  "novelty_claim": "Symbolic Compression (2501.18657) compresses token sequences via SKI combinator; Discrete Tokenizer surveys (2502.12448) classify discretization methods but treat tokens as single-id. POS-tagging exists as a classical NLP signal but is not used as a CO-LEARNED redundant tokenizer feature inside modern LLM embeddings with small fixed K shape categories. The Sacred-Harp-style scale-degree-invariant pedagogical encoding (REDUNDANT BY DESIGN, small K, role-categorical, embedded at tokenizer level) is not in surveyed prior art.",
+  "content_words": ["Sacred Harp shape note", "fa-sol-la-mi solfège", "scale-degree geometric shape", "pedagogical redundancy", "role-shape tokenizer", "scale-degree invariant", "K=4-7 role categories", "co-learned redundant embedding"],
+  "content_words_composition": {
+    "llm_side": ["role-shape tokenizer", "scale-degree invariant", "K=4-7 role categories", "co-learned redundant embedding"],
+    "source_side": ["Sacred Harp shape note", "fa-sol-la-mi solfège", "scale-degree geometric shape", "pedagogical redundancy"],
+    "generic": []
+  }
+}

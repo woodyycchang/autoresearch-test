@@ -1,0 +1,15 @@
+{
+  "round": "233",
+  "epoch": 10,
+  "candidate_form": "basin-stability",
+  "domain": "shape memory alloy nitinol (NiTi austenite ↔ martensite reversible phase transformation; thermal hysteresis 20-50°C wide; two-way thermal training to remember both hot and cold shapes; macroscopic shape-snap on temperature crossing)",
+  "specific_mechanism": "Nitinol exists in two phases: austenite (cubic, parent, high-T) and martensite (monoclinic, daughter, low-T). On cooling from T > Af, martensite begins at Ms < Af. On heating from T < Mf, austenite begins at As > Mf. The Ms ≠ As gap is the THERMAL HYSTERESIS LOOP. Repeated heat/deform/cool cycles imprint a SECOND shape memory: alloy snaps to a specific deformed (martensite) shape on cooling AND a specific original (austenite) shape on heating. The hysteresis prevents thermal-noise-induced flicker.",
+  "llm_application": "Deployment-time T-controlled weight phase snap with hysteresis: a model adapter maintains TWO logical weight states — W_A (austenite = pre-fine-tune defaults, preserving original alignment) and W_M (martensite = task-fine-tuned). A scalar T is computed from runtime risk signal (prompt-risk classifier). Phase snap rule mimics nitinol hysteresis: T > T_af AND in M → snap to A; T < T_ms AND in A → snap to M; hysteresis loop (T_ms < T < T_af) keeps current phase. On routine low-risk inputs T < T_ms → martensite (fine-tune active). On high-risk inputs T > T_af → austenite (defaults active, restoring original safety alignment). Two-way training: repeatedly cycle (high-risk → low-risk) inputs to imprint BOTH safety-shape and task-shape so the model has clean snap behavior in both directions.",
+  "novelty_claim": "Recovering Pre-Fine-Tuning Weights (2402.10208) shows defaults RECOVERY is feasible (attack-side). Watch-the-Weights (2508.00161) monitors deformation (diagnostic). Constitutional AI / RLHF do not propose a deployment-time T-controlled snap rule with hysteresis. The two-way training discipline (alternating-input training to imprint dual shapes) and the T_ms < T < T_af deadband against flicker are distinctive. Closest published direction: model-routing (low-risk LoRA on, high-risk LoRA off) but without hysteresis loop and without two-way training.",
+  "content_words": ["nitinol", "austenite martensite", "thermal hysteresis loop", "two-way training", "deployment-time phase snap", "T-controlled weight phase", "hysteresis deadband", "dual-shape adapter"],
+  "content_words_composition": {
+    "llm_side": ["deployment-time phase snap", "T-controlled weight phase", "hysteresis deadband", "dual-shape adapter"],
+    "source_side": ["nitinol", "austenite martensite", "thermal hysteresis loop", "two-way training"],
+    "generic": []
+  }
+}

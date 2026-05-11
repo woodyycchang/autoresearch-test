@@ -1,0 +1,23 @@
+{
+  "round": "233",
+  "candidate_llm_application": "Nitinol-phase weight memory with deployment-time T-controlled snap + hysteresis deadband + two-way training",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r233-nitinol-phase-snap-LoRA",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Nickel_titanium", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Shape-memory_alloy", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://blog.accupathmed.com/niti-shape-memory-effect-how-it-works/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2405.17741", "judge_score": 0.74, "judge_justification": "LoRA-Switch dynamically switches adapters at runtime — operationally implements the phase-snap mechanism, albeit per-token and without hysteresis loop.", "matched_effect_cluster": "dynamic adapter switching", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2508.14904", "judge_score": 0.80, "judge_justification": "Magic-Token Switchable Safety Control: dynamic switching between divergent safety behaviors with explicit control signals = T-controlled phase snap; co-training imprints both behaviors = two-way training. Operationally matches candidate.", "matched_effect_cluster": "switchable safety control with co-training", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.16861v1", "judge_score": 0.72, "judge_justification": "AdaptiveGuard: OOD detector triggers runtime safety LoRA application — the runtime-risk-triggered phase application leg of the candidate.", "matched_effect_cluster": "OOD-triggered runtime safety LoRA", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2501.06208", "judge_score": 0.60, "judge_justification": "Fusion of LoRA for safety; not a snap-back snap-forward dual-shape mechanism.", "matched_effect_cluster": "LoRA fusion safety", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2507.17075v2", "judge_score": 0.55, "judge_justification": "Single-direction safety in weight space; relevant but not a phase-snap with hysteresis.", "matched_effect_cluster": "single-direction safety", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["dynamic adapter switching", "switchable safety control with co-training", "OOD-triggered runtime safety LoRA"]
+  }
+}

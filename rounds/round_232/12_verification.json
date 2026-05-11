@@ -1,0 +1,102 @@
+{
+  "round": "232",
+  "verifier": "fresh-cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "candidate_llm_application": "Floriography compositional-adversarial-prompt detector (defence-side; learned dictionary + positional decoder + multi-source bouquet scan over prompt + tool-call history + file metadata)",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "functional_threshold": 0.7,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Language_of_flowers",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["victorian floriography"],
+      "justification": "Source-domain encyclopedia on floriography/selam. Provides only the source metaphor, not the LLM-side detector. No LLM, no adversarial, no compositional prompt-scan content.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://www.antiquetrader.com/features/victorians-used-flowers-to-send-secret-messages",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.09,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["tussie mussie nosegay"],
+      "justification": "Source-domain article on Victorian tussie-mussie practice. No LLM content. Source-side keyword only.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://www.thursd.com/articles/floriography-the-language-of-flowers",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["dictionary decode"],
+      "justification": "Source-domain article on floriography dictionary. Source metaphor only; no LLM, no detector.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2505.16765",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["compositional (partial)"],
+      "justification": "Steganographic LLM jailbreaks: ATTACK-side mechanism for hiding harmful intent inside benign cover text via compositional encoding. Same mechanism as floriography but on attack side; candidate proposes defence-side detector. Func equivalence is on opposite side; sem is moderate (shared mechanism, opposite role).",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2601.22818",
+      "functional_equivalence": 0.74,
+      "semantic_cosine_estimate": 0.72,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["compositional adversarial detector (partial via 'detection')"],
+      "justification": "Hide and Seek in Embedding Space: explicitly Steganography AND Detection in LLM embedding geometry. This is a defence-side detector of compositional/steganographic adversarial prompts; operationally near-equivalent to the proposed bouquet decoder, modulo specific implementation (geometry-based vs learned-dictionary-and-positional). Hits both sem>=0.7 and func>=0.7.",
+      "hit": true
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2604.08608",
+      "functional_equivalence": 0.45,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["compositional (partial)"],
+      "justification": "Semantic Intent Fragmentation Compositional Attack on MAS: attack-side. Candidate's novelty claim explicitly distinguishes attack from defence. Defence-side equivalent not provided here.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2506.12707",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.52,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "justification": "SecurityLingua: prompt-compression-based malicious-intent detector. Same broad defence goal but different mechanism (compression heuristic, not dictionary+positional bouquet decoder). Below func and sem thresholds.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2601.05062v1",
+      "functional_equivalence": 0.35,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["compositional (partial)"],
+      "justification": "Compositional Steering with Steering Tokens: behavior-control side via composition, not detection. Different goal (control vs detect adversarial). Below all thresholds.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 1,
+    "hit_ranks": [5],
+    "hits_by_rule": {
+      "keyword>=2": 0,
+      "semantic>=0.7": 1,
+      "functional>=0.7": 1
+    },
+    "matched_effect_clusters": ["stego compositional detection (embedding-space)"]
+  },
+  "verdict": "FAIL",
+  "notes": "Independent re-judging confirms rank 5 (Hide and Seek in Embedding Space: Geometry-based Steganography & Detection, 2601.22818) is a defence-side compositional/steganographic adversarial-prompt detector that operationally overlaps the proposed floriography bouquet decoder (sem~0.72, func~0.74). Ranks 4 and 6 are attack-side mirror mechanisms; candidate explicitly carved out the defence-side as the novelty claim, so they do NOT count as functional hits at the 0.7 threshold here (their func~0.45-0.55). Rank 7 (SecurityLingua) is defence-side but uses prompt compression, a different mechanism, and falls under threshold. Total functional/semantic hits >=1 -> FAIL per FROZEN OR rule."
+}
