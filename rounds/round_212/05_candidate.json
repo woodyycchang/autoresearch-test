@@ -1,0 +1,15 @@
+{
+  "round": "212",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "pyrotechnic chemistry — black-powder corning (compression of meal to cake at 1.7 g/cc, breaking, sieving to grain size F/FFFF/C/CCCC; surface-to-volume controls burn rate)",
+  "specific_mechanism": "Black powder's burn rate is set by total exposed surface area: fine meal burns explosively (high surface), coarse grain burns slowly (low surface). Corning compresses meal into a dense cake, then breaks it into specific grain sizes. Each grain ignites at its surface and burns inward; finer grains release energy faster (artillery vs musket vs fuse). The relationship is grain-surface-area ↔ energy-release-rate, controlled by manufacturing sieve choice rather than chemistry.",
+  "llm_application": "Surface-area-controlled decode granularity for energy-aware generation: pre-compress the LLM's next-step proposal pool into a 'cake' (a fixed-size set of compressed latent representations), then break it into grains of variable granularity (full-token, multi-token, character-level) sieved per inference query. Match the grain size to the downstream consumption rate: a high-throughput streaming consumer gets fine grains (fast burn); a slow-deliberative consumer gets coarse grains (slow burn). The compute spent per output FLOP is calibrated by the chosen grain size.",
+  "novelty_claim": "Speculative decoding (Leviathan 2211.17192, Chen 2302.01318), Medusa, EAGLE, multi-token attention 2504.00927 all alter generation granularity but for parallelism, not for burn-rate matching to downstream consumer. HAMburger virtual-token granularity is the closest; defines tokens by single-KV-cache but not by downstream consumption rate.",
+  "content_words": ["black powder corning", "grain size sieving", "burn rate", "surface to volume", "decode granularity", "downstream consumption rate", "multi-granularity token", "energy-aware generation"],
+  "content_words_composition": {
+    "llm_side": ["decode granularity", "downstream consumption rate", "multi-granularity token", "energy-aware generation"],
+    "source_side": ["black powder corning", "grain size sieving", "burn rate", "surface to volume"],
+    "generic": []
+  }
+}

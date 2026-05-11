@@ -1,0 +1,103 @@
+{
+  "round": "213",
+  "verified_at": "2026-05-11T17:52:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": ["khoomei", "biphonic singing", "formant merging", "vocal tract filter", "dual decoder head", "selective overtone amplification", "head merging", "salient datum extraction"],
+  "results": [
+    {
+      "url": "https://elifesciences.org/articles/50476",
+      "title": "Overtone focusing in biphonic Tuvan throat singing (eLife)",
+      "functional_equivalence": 0.95,
+      "semantic_cosine": 0.92,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["khoomei (implicit via Tuvan throat singing)", "biphonic singing", "formant merging", "vocal tract filter"],
+      "judge_reason": "Direct source-domain match: this paper explicitly describes biphonic Tuvan khoomei with F2/F3 merging in vocal tract producing the focused filter peak — the exact source mechanism in the candidate.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tuvan_throat_singing",
+      "title": "Tuvan throat singing — Wikipedia",
+      "functional_equivalence": 0.85,
+      "semantic_cosine": 0.85,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["khoomei (Tuvan throat singing)", "biphonic singing", "selective overtone amplification (selected overtone)"],
+      "judge_reason": "General Wikipedia overview of Tuvan throat singing covers the biphonic fundamental+overtone mechanism that is the candidate's source domain.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "url": "https://www.biorxiv.org/content/10.1101/725267v1.full",
+      "title": "Overtone focusing in biphonic Tuvan throat singing (bioRxiv)",
+      "functional_equivalence": 0.95,
+      "semantic_cosine": 0.92,
+      "keyword_overlap_count": 4,
+      "keyword_overlap_terms": ["khoomei (Tuvan throat singing)", "biphonic singing", "formant merging", "vocal tract filter"],
+      "judge_reason": "Preprint companion to the eLife paper — same source-domain mechanism (F2/F3 merging, focused filter peak in biphonic khoomei) as candidate.",
+      "hit": true,
+      "hit_triggers": ["functional_equivalence>=0.7", "semantic_cosine>=0.7", "keyword_overlap>=2"]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.07436",
+      "title": "Squeezing-Heads Distillation (2025/2)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.55,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["head merging (via merging multiple teacher heads into fewer student heads)"],
+      "judge_reason": "Conceptually related — squeezes multiple heads into fewer, similar in spirit to head-merging, but the candidate's distinctive 'biphonic dual-head decoder with one fundamental + one selected overtone' is not implemented; SHD targets distillation compression rather than parallel biphonic output.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2410.11842v3",
+      "title": "MoH: Mixture-of-Head Attention (2025/12)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["head merging (sparsity/specialization framing)"],
+      "judge_reason": "MoH addresses head specialization/sparsity but does not implement the candidate's specific dual-output biphonic decoding with formant-style merging of two heads to produce a sharp single overtone.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2602.16284",
+      "title": "Fast KV Compaction via Attention Matching (2026/2)",
+      "functional_equivalence": 0.2,
+      "semantic_cosine": 0.35,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "judge_reason": "KV-cache compaction with per-head ratios is orthogonal to biphonic dual-decoder-head selective-overtone amplification; no meaningful overlap.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.08553",
+      "title": "Dynamically Composable Multi-Head Attention (2024/5)",
+      "functional_equivalence": 0.4,
+      "semantic_cosine": 0.5,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["head merging (dynamic head composition)"],
+      "judge_reason": "Composes heads dynamically but does not target a biphonic dual-decoder output architecture or salient-datum extraction at a sharp filter peak as in candidate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2502.07864",
+      "title": "TransMLA: Multi-Head Latent Attention (2025/2)",
+      "functional_equivalence": 0.3,
+      "semantic_cosine": 0.4,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["head merging (latent reduction)"],
+      "judge_reason": "PCA-based latent head reduction is unrelated to the candidate's parallel dual-decoder biphonic concept with selective overtone amplification.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "total_hits": 3,
+    "source_side_hits": 3,
+    "llm_side_hits": 0,
+    "verdict": "FAIL",
+    "fail_reason": "Three direct source-domain matches (eLife, Wikipedia, bioRxiv) on Tuvan khoomei biphonic singing with F2/F3 formant merging — the candidate's source mechanism is already explicitly documented in prior work, so the source half is not novel."
+  }
+}

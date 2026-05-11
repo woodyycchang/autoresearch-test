@@ -1,0 +1,15 @@
+{
+  "round": "214",
+  "epoch": 9,
+  "candidate_form": "feedback-attenuation",
+  "domain": "metallurgy — case-hardening (carburization of low-carbon iron/steel surface via interstitial carbon diffusion; ~0.5 mm hard skin over tough ductile core)",
+  "specific_mechanism": "A low-carbon iron part is packed in carbon source (bone char, charcoal) and heated. Carbon atoms diffuse interstitially into the surface a controlled depth (typically 0.5 mm), raising local carbon content. Quenching converts the surface austenite to hard martensite while the carbon-poor core remains ferritic and tough. The result: hard wear-resistant skin + tough impact-absorbing core, with a smooth carbon-gradient transition.",
+  "llm_application": "Surface-only safety hardening with depth-gradient transition: alignment fine-tuning typically modifies all layers. Case-hardening analog: deliberately restrict safety fine-tuning to ONLY the last K layers of the model (the 'surface'), with a graded loss-weight that decays from layer N-1 (heaviest) to layer N-K (lightest), then drops to 0 in deeper layers. The result: a model that refuses unsafe surface requests reliably but retains all capability in deeper layers. The 0.5-mm-equivalent 'case depth' is the K parameter; the carbon-gradient is the layer-weight schedule.",
+  "novelty_claim": "Layer-selective fine-tuning exists (LoRA per-layer 2106.09685, BitFit, surface-deep safety analyses 2509.15202). DeepRefusal probabilistically ablates refusal direction across layers but does NOT enforce a depth-gradient. SafeConstellations is inference-time, not training-time. None explicitly schedules the loss-weight as an interstitial-diffusion-style gradient with a defined 'case depth' K.",
+  "content_words": ["case hardening", "carburization", "carbon diffusion", "hardness gradient", "depth-graded alignment", "surface-only fine-tuning", "case-depth K parameter", "layer-weight schedule"],
+  "content_words_composition": {
+    "llm_side": ["depth-graded alignment", "surface-only fine-tuning", "case-depth K parameter", "layer-weight schedule"],
+    "source_side": ["case hardening", "carburization", "carbon diffusion", "hardness gradient"],
+    "generic": []
+  }
+}

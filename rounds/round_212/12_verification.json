@@ -1,0 +1,95 @@
+{
+  "round": "212",
+  "verified_at": "2026-05-11T17:50:00Z",
+  "verifier_agent_note": "fresh-context",
+  "content_words": ["black powder corning", "grain size sieving", "burn rate", "surface to volume", "decode granularity", "downstream consumption rate", "multi-granularity token", "energy-aware generation"],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Gunpowder",
+      "functional_equivalence": 0.05,
+      "semantic_cosine": 0.17,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["black powder corning", "grain size sieving", "burn rate", "surface to volume"],
+      "judge_reason": "Source-domain Wikipedia article on gunpowder describes corning and burn rate but contains no LLM/decode mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.muzzleloadingforum.com/threads/how-does-powder-granulation-actually-effect-burn-rate.112996/",
+      "functional_equivalence": 0.04,
+      "semantic_cosine": 0.16,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["burn rate", "surface to volume"],
+      "judge_reason": "Source-domain forum about powder granulation and burn rate; not about LLM decoding.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://www.ilovemuzzleloading.com/blog/whats-the-difference-between-fg-and-ffffg-blackpowder-everything-blackpowder-explains",
+      "functional_equivalence": 0.04,
+      "semantic_cosine": 0.15,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["burn rate", "grain size sieving"],
+      "judge_reason": "Source-domain explainer on FG vs FFFFG black powder grades; purely source side.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.12162",
+      "functional_equivalence": 0.80,
+      "semantic_cosine": 0.74,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["decode granularity", "downstream consumption rate"],
+      "judge_reason": "AdaServe explicitly matches fine-grained speculative decoding granularity to each request's SLO, which is the same consumer-rate-matched-granularity mechanism as the candidate's surface-area-controlled decode.",
+      "hit": true,
+      "hit_triggers": ["judge", "cos", "kw"]
+    },
+    {
+      "url": "https://arxiv.org/html/2412.03594",
+      "functional_equivalence": 0.55,
+      "semantic_cosine": 0.56,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["multi-granularity token"],
+      "judge_reason": "BatchLLM batches tokens at multiple granularities but for throughput, not for matching to downstream consumer rate.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2505.20438v1",
+      "functional_equivalence": 0.65,
+      "semantic_cosine": 0.65,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["multi-granularity token", "decode granularity"],
+      "judge_reason": "HAMburger virtual-token granularity defined by KV-cache representation; close but different selection criterion than consumer-rate matching.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.11733",
+      "functional_equivalence": 0.58,
+      "semantic_cosine": 0.61,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["decode granularity"],
+      "judge_reason": "Adaptive verification selectivity per impact token in decentralized speculative decoding; mechanism differs from consumer-rate burn-matching.",
+      "hit": false,
+      "hit_triggers": []
+    },
+    {
+      "url": "https://arxiv.org/html/2602.05774v1",
+      "functional_equivalence": 0.42,
+      "semantic_cosine": 0.48,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["decode granularity"],
+      "judge_reason": "Variational speculative decoding reformulates draft training as sequence-acceptance; theory-side, different mechanism.",
+      "hit": false,
+      "hit_triggers": []
+    }
+  ],
+  "summary": {
+    "n_results": 8,
+    "n_hits": 1,
+    "hit_rate": 0.125,
+    "hits_by_trigger": {"kw": 1, "cos": 1, "judge": 1},
+    "verdict": "FAIL"
+  }
+}
