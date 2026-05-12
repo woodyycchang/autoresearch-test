@@ -1,0 +1,101 @@
+{
+  "round": "313",
+  "candidate": "OSMO-NULL-PRUNE",
+  "candidate_mechanism": "osmotic gradient pulling weight magnitude out of null-space components, preserving task subspace",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "per_result_scores": [
+    {
+      "rank": 1,
+      "title": "Ham — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Ham",
+      "kw": 0,
+      "kw_matched_terms": [],
+      "sem": 0.05,
+      "func": 0.0,
+      "hit": false,
+      "rationale": "Source-domain reference (salt cure / osmotic dehydration). No LLM/null-space/weight content."
+    },
+    {
+      "rank": 2,
+      "title": "GaLore: Gradient Low-Rank Projection",
+      "url": "https://arxiv.org/pdf/2403.03507",
+      "kw": 1,
+      "kw_matched_terms": ["gradient"],
+      "sem": 0.5,
+      "func": 0.65,
+      "hit": false,
+      "rationale": "Projects gradient onto low-rank subspace for memory-efficient training; related concept of subspace projection but no null-space weight-magnitude pull. Calibration band 0.6-0.7."
+    },
+    {
+      "rank": 3,
+      "title": "Common Null Space of Gradients for CL",
+      "url": "https://openreview.net/forum?id=N3yngE4fTy",
+      "kw": 2,
+      "kw_matched_terms": ["null space", "gradient"],
+      "sem": 0.72,
+      "func": 0.8,
+      "hit": true,
+      "rationale": "Null-space projection of gradients for continual learning; preserves prior-task subspace. Strong functional overlap with preserving task subspace, though gradient-projection rather than weight-magnitude osmotic pull. Calibration band 0.75-0.85."
+    },
+    {
+      "rank": 4,
+      "title": "GradMAP Layer Pruning + Projection Compensation",
+      "url": "https://arxiv.org/html/2602.14649",
+      "kw": 2,
+      "kw_matched_terms": ["gradient magnitude", "pruning"],
+      "sem": 0.5,
+      "func": 0.55,
+      "hit": true,
+      "rationale": "Global gradient-magnitude metric for layer pruning with projection compensation; shares magnitude-driven pruning concept but no null-space subspace target. kw>=2 triggers hit. Calibration band 0.5-0.6."
+    },
+    {
+      "rank": 5,
+      "title": "LoRA-Null: Null-Space-Aware LoRA Initialization",
+      "url": "https://arxiv.org/abs/2406.11252",
+      "kw": 1,
+      "kw_matched_terms": ["null space"],
+      "sem": 0.7,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Initializes LoRA adapters in null-space of representative activations; preserves task subspace by construction. Different operation (init vs pull) but same null-space + task-subspace structure. Calibration band 0.7-0.8."
+    },
+    {
+      "rank": 6,
+      "title": "Directional Weight Decay in Null-Space",
+      "url": "https://arxiv.org/abs/2603.02740",
+      "kw": 3,
+      "kw_matched_terms": ["null-space", "weight decay", "task subspace"],
+      "sem": 0.88,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Decays weights directionally toward null-space-orthogonal direction while preserving task subspace — operationally identical to osmotic pull of weight magnitude out of null-space. Calibration band 0.85-0.95."
+    },
+    {
+      "rank": 7,
+      "title": "Concentration-Style Magnitude Pruning of LoRA",
+      "url": "https://arxiv.org/abs/2509.11020",
+      "kw": 3,
+      "kw_matched_terms": ["magnitude pruning", "task subspace", "null-space"],
+      "sem": 0.85,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Explicitly concentrates weight magnitude in task subspace by penalizing null-space norm; identical 'concentration / dehydration of null-space' framing minus the osmotic metaphor. Calibration band ~0.85."
+    },
+    {
+      "rank": 8,
+      "title": "Osmosis-Inspired Adaptive Pruning of LLMs",
+      "url": "https://arxiv.org/abs/2604.16320",
+      "kw": 4,
+      "kw_matched_terms": ["osmosis", "weight magnitude", "null-space", "pruning"],
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Osmosis-inspired gradient-driven weight-magnitude removal from null-space — near-verbatim match to OSMO-NULL-PRUNE in both metaphor and mechanism. Direct prior art. Calibration band 0.9-0.95."
+    }
+  ],
+  "hit_count": 6,
+  "hits": [3, 4, 5, 6, 7, 8],
+  "non_hits": [1, 2],
+  "verdict": "NOT_NOVEL",
+  "verdict_rationale": "Six of eight results hit the threshold, including rank 8 (Osmosis-Inspired Adaptive Pruning) which matches the candidate near-verbatim — osmosis metaphor + weight-magnitude removal from null-space. Ranks 6 and 7 independently cover the directional null-space weight decay and concentration-style magnitude pruning sub-claims. The candidate's own novelty_claim concedes that null-space-aware regularization is already published; the search confirms even the specific osmotic framing is taken. Re-judgement: prior art is direct and dense, not adjacent."
+}

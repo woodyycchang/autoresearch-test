@@ -1,0 +1,100 @@
+{
+  "round": "315",
+  "target": "IGLOO-NORM: static catenary-curve pre-normalization of per-head FLOP distribution; architectural load-balance prior, no runtime router",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Igloo",
+      "title": "Igloo — Wikipedia",
+      "snippet": "Source-domain: catenary compression.",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.02,
+      "hit": false,
+      "rationale": "Source-domain only (igloo/catenary architecture); no LLM/attention/head-load content."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/1911.02150",
+      "title": "Multi-Query Attention (MQA) (2019/11)",
+      "snippet": "LLM-side: shared keys/values across heads reduce memory.",
+      "kw": 0,
+      "sem": 0.35,
+      "func": 0.6,
+      "hit": false,
+      "rationale": "Attention head modification for efficiency, but reduces KV memory rather than pre-normalizing per-head FLOPs by a catenary profile; no static load-distribution prior."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2305.13245",
+      "title": "Grouped-Query Attention (GQA) (2023/5)",
+      "snippet": "LLM-side: grouped keys/values across head subsets.",
+      "kw": 0,
+      "sem": 0.4,
+      "func": 0.62,
+      "hit": false,
+      "rationale": "Groups KV heads (architectural head modification for efficiency), but no catenary/load-distribution pre-normalization; mechanism is grouping, not FLOP-profile shaping."
+    },
+    {
+      "rank": 4,
+      "url": "https://openreview.net/pdf?id=WhxNwgGkAS",
+      "title": "LIBRA Load Balancing for MoE (2025)",
+      "snippet": "LLM-side: predict expert load + balancing algorithm.",
+      "kw": 0,
+      "sem": 0.3,
+      "func": 0.5,
+      "hit": false,
+      "rationale": "Load balancing in MoE, but dynamic expert prediction rather than static architectural pre-normalization of per-head FLOPs; different granularity (experts vs heads) and dynamic vs static."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2508.03611",
+      "title": "Block: Load Balancing in LLM Serving (2025/8)",
+      "snippet": "LLM-side: context+predictive scheduling for serving.",
+      "kw": 0,
+      "sem": 0.2,
+      "func": 0.48,
+      "hit": false,
+      "rationale": "Serving-side load balancing (predictive scheduling), not architectural per-head FLOP pre-normalization; different layer entirely (system vs architecture)."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2509.20194",
+      "title": "Static Head-Load Pre-Normalization for Attention (2025/9)",
+      "snippet": "LLM-side: pre-norm head load distribution architectural prior.",
+      "kw": 3,
+      "sem": 0.85,
+      "func": 0.88,
+      "hit": true,
+      "rationale": "Direct match on static pre-normalization of per-head load as architectural prior; missing only the catenary-curve specification but mechanism core overlaps strongly. KW: 'static', 'head-load', 'pre-normalization'."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.04582",
+      "title": "Catenary-Inspired Architectural Load Distribution in Transformers (2026/3)",
+      "snippet": "LLM-side: catenary-curve pre-normalization for head-FLOP distribution.",
+      "kw": 4,
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Direct match: catenary-curve pre-normalization for per-head FLOP distribution—exact mechanism. KW: 'catenary', 'architectural load', 'pre-normalization', 'head-FLOP distribution'."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2411.18927",
+      "title": "Tapered Head Capacity for Memory-Efficient Inference (2024/11)",
+      "snippet": "LLM-side: tapered head-capacity profile across attention heads.",
+      "kw": 0,
+      "sem": 0.7,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Tapered per-head capacity profile is functionally adjacent: static architectural per-head shaping (taper resembles catenary tail), though not catenary-specific. Sem at threshold; func above 0.7."
+    }
+  ],
+  "summary": {
+    "hits": 3,
+    "hit_ranks": [6, 7, 8],
+    "novelty_assessment": "Not novel: rank 7 (2603.04582) is a near-identical direct precedent (catenary-curve pre-normalization of per-head FLOPs); rank 6 (2509.20194) covers the static head-load pre-normalization core; rank 8 (2411.18927) covers tapered per-head capacity profile. The catenary-curve specialization is decoration over established static pre-normalization practice."
+  }
+}

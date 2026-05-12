@@ -1,0 +1,93 @@
+{
+  "round": "311",
+  "verifier": "cross-agent",
+  "target": "PRESS-TUNE: multi-stage progressive FT with stage-specific optimizer/data/temperature for capability fractionation",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://exauoliveoil.com/blogs/olive-oil/first-cold-pressed",
+      "title": "First Cold Pressed Olive Oil",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "notes": "Source-domain olive press article; no LLM training relevance."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.naacl-long.288.pdf",
+      "title": "Fine-Tuning LLMs with Sequential Instructions (NAACL 2025)",
+      "kw": 2,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "notes": "Sequential instruction-tuning across stages; matches progressive multi-stage FT idea though without explicit stage-specific optimizer/temperature framing."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2506.09428v2",
+      "title": "Improved SFT to Mitigate Catastrophic Forgetting (2025/6)",
+      "kw": 1,
+      "sem": 0.45,
+      "func": 0.55,
+      "hit": false,
+      "notes": "Multi-stage SFT framing for forgetting mitigation; partial overlap but not capability fractionation."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2502.11200",
+      "title": "GLPFT: Global-to-Local Progressive Fine-Tuning (2025/2)",
+      "kw": 2,
+      "sem": 0.7,
+      "func": 0.8,
+      "hit": true,
+      "notes": "2-stage progressive FT with sub-task partitioning; directly anticipated as prior art in candidate's novelty_claim."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2603.09140",
+      "title": "Multi-Stage Capability Fractionation via Stage-Specific FT (2026/3)",
+      "kw": 3,
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "notes": "Direct match: stage-specific data and optimizer extracting capability fractions; near-identical framing to PRESS-TUNE."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.nature.com/articles/s41524-025-01564-y",
+      "title": "Domain Adaptation FT: scaling + merging (npj 2025)",
+      "kw": 1,
+      "sem": 0.5,
+      "func": 0.7,
+      "hit": true,
+      "notes": "Synergistic capabilities pipeline with scaling/merging; functional overlap on multi-stage capability composition."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2509.17820",
+      "title": "Sequential Multi-Stage FT for Capability Decomposition (2025/9)",
+      "kw": 2,
+      "sem": 0.85,
+      "func": 0.85,
+      "hit": true,
+      "notes": "Capability decomposition across sequential FT stages; strongly matches fractionation framing."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.02710",
+      "title": "CPT-SFT-DPO Capability-Specific Fractionation Pipeline (2026/4)",
+      "kw": 3,
+      "sem": 0.92,
+      "func": 0.9,
+      "hit": true,
+      "notes": "Explicit CPT->SFT->DPO pipeline with stage-specific capability extraction; matches PRESS-TUNE's progressive SFT-to-DPO-to-RLHF chain."
+    }
+  ],
+  "hit_count": 6,
+  "hit_ranks": [2, 4, 5, 6, 7, 8],
+  "miss_ranks": [1, 3],
+  "verdict": "NOT_NOVEL",
+  "rationale": "Multiple direct matches (ranks 5, 7, 8) explicitly describe multi-stage progressive FT with stage-specific data/optimizer for capability fractionation. GLPFT (rank 4) and sequential instruction FT (rank 2) provide additional prior art. The candidate itself acknowledges in novelty_claim that the underlying mechanism is mainstream. Stage-specific temperature is the only minor differentiator but is not load-bearing."
+}
