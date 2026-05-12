@@ -1,0 +1,89 @@
+{
+  "round": "283",
+  "verifier": "cross-agent",
+  "candidate_form": "training-method",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "chuno freeze-trample-thaw",
+    "phase-cycle preservation",
+    "ice-crystal magnitude outlier",
+    "mechanical-pressure distillation",
+    "grid-relax thaw phase",
+    "3-phase compression schedule",
+    "value-redistribution press",
+    "cyclic compression preservation"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Chu%C3%B1o",
+      "kw_count": 0,
+      "sem_cosine": 0.15,
+      "func_score": 0.05,
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/pdf/2401.06118",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2601.09865v1",
+      "kw_count": 0,
+      "sem_cosine": 0.81,
+      "func_score": 0.85,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2506.19697v1",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.75,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2404.03605v1",
+      "kw_count": 0,
+      "sem_cosine": 0.71,
+      "func_score": 0.72,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2510.16805v1",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.60,
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://research.nvidia.com/labs/nemotron/files/NVFP4-QAD-Report.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 8,
+      "url": "https://github.com/Zhen-Dong/Awesome-Quantization-Papers",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false
+    }
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "4 results exceed sem>=0.7 and/or func>=0.7 thresholds: rank 3 (Muon-Optimized Distillation+Quantization, sem=0.81, func=0.85) matches the FTTC outlier-press+quant-grid alternation; rank 4 (Outlier-Safe Pre-Training, sem=0.74, func=0.75) matches the outlier-redistribution mechanism; rank 5 (Outlier-Channel Activation Regularization, sem=0.71, func=0.72) matches the outlier-mitigation primitive; rank 7 (NVFP4 QAD, sem=0.78, func=0.78) is QAT+distillation alternation equivalent to FTTC. Prior-art coverage across 4 distinct functional clusters indicates the 3-phase {snapshot/press/grid-relax} cycle is operationally equivalent to existing distillation-augmented iterative quantization methods."
+}

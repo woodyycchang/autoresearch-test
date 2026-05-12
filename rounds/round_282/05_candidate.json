@@ -1,0 +1,15 @@
+{
+  "round": "282",
+  "epoch": 12,
+  "candidate_form": "feedback-attenuation",
+  "domain": "Coral fluorescent protein photoprotection (GFP-like chromoproteins absorb harmful blue/UV and re-emit at safe longer wavelengths; energy partially conserved as photosynthesis-usable, partially dissipated as heat)",
+  "specific_mechanism": "Inference-time spectral remapping: harmful frequency band absorbed and re-emitted at a calibrated safe band, with partial energy conservation.",
+  "llm_application": "FRECONV: inference-time spectral adapter that decomposes the pre-attention activation in eigenspace, classifies eigenbands as harmful (historically correlated with jailbreak/adversarial signatures) or benign, REMAPS harmful-band energy into a calibrated safe eigenband (partially preserving information), and forwards the spectrum-rebalanced activation. Trained with energy-conservation + safety-rebalancing dual objective.",
+  "novelty_claim": "Hallucination Detection via Spectral Attention (2502.17598) detects, doesn't shift. Spectral Filters/Dark Signals (2402.09221) drops bands rather than re-emit. Spectral Sphere Optimizer (2601.08393) is training-time. None do inference-time spectral SHIFT of harmful eigenbands into safe ones, with energy partly conserved (analogous to coral fluorescence).",
+  "content_words": ["coral fluorescent protein", "spectral shift photoprotection", "harmful frequency re-emission", "safe eigenband redirect", "spectral re-conversion adapter", "inference-time frequency rebalancing", "harmful-band classifier", "energy-conserving photoshift"],
+  "content_words_composition": {
+    "llm_side": ["safe eigenband redirect", "spectral re-conversion adapter", "inference-time frequency rebalancing", "harmful-band classifier"],
+    "source_side": ["coral fluorescent protein", "spectral shift photoprotection", "harmful frequency re-emission", "energy-conserving photoshift"],
+    "generic": []
+  }
+}

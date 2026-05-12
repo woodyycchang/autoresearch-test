@@ -1,0 +1,15 @@
+{
+  "round": "285",
+  "epoch": 12,
+  "candidate_form": "context-gating",
+  "domain": "Mudskipper dual-mode respiration (gill in water; cutaneous + buccal air-pocket on land; valve in gill chamber reconfigures the SAME organ; mode switch triggered by aerial hypoxia)",
+  "specific_mechanism": "Single shared organ runs in two distinct modes via a binary valve; trigger comes from a specific hypoxia signal in the air channel.",
+  "llm_application": "MUDLLM: single shared KV cache + attention region runs in two modes (small cheap + large expensive) via a binary valve gate; valve is triggered ONLY by an explicit hypoxia signal (output-uncertainty + latency budget) — not by a default routing policy. The same parameters/cache are read with different access patterns per mode.",
+  "novelty_claim": "Edge-Cloud collab (2507.16731), HybridGen (2604.18529), Adaptive Edge-Cloud (2512.12769) all use SEPARATE resources orchestrated with load balancer. MUDLLM uses one shared resource with a binary valve triggered by uncertainty hypoxia — not yet a published primitive.",
+  "content_words": ["mudskipper dual-mode respiration", "shared-organ valve switch", "single-resource mode switch", "hypoxia-triggered routing", "kv-cache valve reuse", "binary inference-mode gate", "uncertainty-trigger mode switch", "shared substrate two-modes"],
+  "content_words_composition": {
+    "llm_side": ["kv-cache valve reuse", "binary inference-mode gate", "uncertainty-trigger mode switch", "shared substrate two-modes"],
+    "source_side": ["mudskipper dual-mode respiration", "shared-organ valve switch", "single-resource mode switch", "hypoxia-triggered routing"],
+    "generic": []
+  }
+}

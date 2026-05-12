@@ -1,0 +1,108 @@
+{
+  "round": "284",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "inuit kayak skin-on-frame",
+    "persistent identity frame",
+    "session-replaced skin layer",
+    "two-persistence architecture",
+    "frame-projection safety invariant",
+    "skin override impossibility",
+    "stitch-on-frame deployment",
+    "structural skin/frame split"
+  ],
+  "functional_target": "SOF-LLM — orthogonal-projection-segregated persistent FRAME identity/safety + replaceable SKIN adapter for an LLM",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://guillemot-kayaks.com/skin-frame/skin-frame-construction",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.15,
+      "func": 0.05,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7 — source-domain kayak craft page"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2510.09004",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.88,
+      "func": 0.92,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 — LoRA decouples safety into orthogonal subspace, identical SOF-LLM frame/skin orthogonality claim"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2510.13003v2",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.85,
+      "func": 0.86,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 — OPLoRA double-sided orthogonal projection preserves top-k singular subspace; same architectural skin/frame split"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2505.23724v1",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.79,
+      "func": 0.80,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 — SC-LoRA constrains LoRA to orthogonal-to-preserved-knowledge directions; same primitive"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2512.23260",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.83,
+      "func": 0.85,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 — SAILS explicit safety subspace via SAE with capability preservation; same mechanism"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.07965",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.76,
+      "func": 0.78,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 — DSCA partition into orthogonal semantic subspaces with by-construction isolation; same SOF-LLM split"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2512.17910v1",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.65,
+      "func": 0.60,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7 — aLoRA efficient inference-time adapter swap, not safety/identity orthogonality"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2511.18039",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.68,
+      "func": 0.62,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7 — curvature-based post-FT safety restoration, not orthogonality-by-construction prevention"
+    }
+  ],
+  "total_hits": 5,
+  "hits_by_channel": {
+    "kw_only": 0,
+    "sem_only": 0,
+    "func_only": 0,
+    "sem_and_func": 5
+  },
+  "verdict": "FAIL",
+  "fail_reason": "5 of 8 results exceed both semantic (>=0.7) and functional (>=0.7) thresholds. Multiple 2025-2026 arXiv preprints (2510.09004, 2510.13003v2, 2505.23724v1, 2512.23260, 2604.07965) implement the same core SOF-LLM mechanism: LoRA/adapter updates constrained to an orthogonal complement of a preserved safety/identity subspace by architectural construction. SOF-LLM's projection-enforced two-persistence-layer is not novel; orthogonal-subspace LoRA for safety/knowledge preservation is established prior art across at least 5 distinct effect clusters."
+}

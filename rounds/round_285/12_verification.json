@@ -1,0 +1,29 @@
+{
+  "round": "285",
+  "verifier": "cross-agent",
+  "candidate_form": "context-gating",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "mudskipper dual-mode respiration",
+    "shared-organ valve switch",
+    "single-resource mode switch",
+    "hypoxia-triggered routing",
+    "kv-cache valve reuse",
+    "binary inference-mode gate",
+    "uncertainty-trigger mode switch",
+    "shared substrate two-modes"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Mudskipper", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.05, "hit": false},
+    {"rank": 2, "url": "https://arxiv.org/html/2603.04445v2", "kw_count": 0, "sem_cosine": 0.81, "func_score": 0.85, "hit": true},
+    {"rank": 3, "url": "https://arxiv.org/html/2506.06579v1", "kw_count": 0, "sem_cosine": 0.83, "func_score": 0.86, "hit": true},
+    {"rank": 4, "url": "https://arxiv.org/html/2502.08773v1", "kw_count": 0, "sem_cosine": 0.74, "func_score": 0.75, "hit": true},
+    {"rank": 5, "url": "https://arxiv.org/abs/2410.10347", "kw_count": 0, "sem_cosine": 0.76, "func_score": 0.78, "hit": true},
+    {"rank": 6, "url": "https://arxiv.org/abs/2603.03251", "kw_count": 0, "sem_cosine": 0.84, "func_score": 0.85, "hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2507.16731v1", "kw_count": 0, "sem_cosine": 0.71, "func_score": 0.72, "hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2604.18529", "kw_count": 0, "sem_cosine": 0.68, "func_score": 0.62, "hit": false}
+  ],
+  "total_hits": 6,
+  "verdict": "FAIL",
+  "fail_reason": "6 prior-art hits exceed threshold (>=1). Functional clusters routing+cascade survey (2603.04445v2 func=0.85), UQ-triggered escalation (2506.06579v1 func=0.86), universal routing (2502.08773v1 func=0.75), unified routing+cascade (2410.10347 func=0.78), speculative cascade w/ cheap verifier (2603.03251 func=0.85), and edge-cloud collaboration (2507.16731v1 func=0.72) all publish the MUDLLM mode-switch primitive (small-cheap to large-expensive escalation triggered by uncertainty). Semantic cosine also >=0.7 for the same 6 sources. Novelty claim refuted."
+}

@@ -1,0 +1,15 @@
+{
+  "round": "284",
+  "epoch": 12,
+  "candidate_form": "null-space-traversal",
+  "domain": "Inuit kayak skin-on-frame (driftwood frame persistent year-on-year; seal-skin replaced each season; properties live in skin; safety lives in frame)",
+  "specific_mechanism": "Two-persistence architecture: a slow-changing core (FRAME) carries identity/safety invariants; a fast-replaced outer layer (SKIN) carries session-specific properties; SKIN cannot override FRAME by architectural construction.",
+  "llm_application": "SOF-LLM: split deployment architecture. FRAME = small persistent identity tensor + alignment-invariant subspace, enforced via PROJECTION constraints. SKIN = LoRA + exemplar buffer + KV header, REPLACED per session/user. SKIN updates are restricted to the orthogonal complement of FRAME's projection — architecturally cannot influence safety/persona.",
+  "novelty_claim": "Activated LoRA (2512.17910) swaps adapters efficiently but no projection-based persistence-segregation; RECAST (2411.16870) blueprint+module is symmetric; layer-swap (2506.02006) is runtime not architectural. SOF-LLM's projection-enforced two-persistence-layer with SKIN constrained to FRAME's orthogonal complement is a stricter architectural property than published.",
+  "content_words": ["inuit kayak skin-on-frame", "persistent identity frame", "session-replaced skin layer", "two-persistence architecture", "frame-projection safety invariant", "skin override impossibility", "stitch-on-frame deployment", "structural skin/frame split"],
+  "content_words_composition": {
+    "llm_side": ["persistent identity frame", "session-replaced skin layer", "two-persistence architecture", "frame-projection safety invariant"],
+    "source_side": ["inuit kayak skin-on-frame", "skin override impossibility", "stitch-on-frame deployment", "structural skin/frame split"],
+    "generic": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "round": "282",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://link.springer.com/article/10.1007/s00338-012-0994-9", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Coral biology paper."},
+    {"rank": 2, "url": "https://arxiv.org/abs/2503.09066", "judge_score": 0.72, "matched_effect_cluster": "latent-subspace state transition", "functional_hit": true, "justification": "Manipulates latent subspaces to induce state transitions — closely related to FRECONV's harmful→safe eigenband redirect."},
+    {"rank": 3, "url": "https://arxiv.org/html/2412.09565v2", "judge_score": 0.73, "matched_effect_cluster": "harmful direction in latent", "functional_hit": true, "justification": "Identifies a harmful direction in latent space (FRECONV's harmful eigenband)."},
+    {"rank": 4, "url": "https://arxiv.org/html/2507.09406v1", "judge_score": 0.80, "matched_effect_cluster": "activation patching steer", "functional_hit": true, "justification": "Patches/steers activations along learned directions — same operational mechanism."},
+    {"rank": 5, "url": "https://arxiv.org/html/2510.17633v1", "judge_score": 0.84, "matched_effect_cluster": "safe-ablated refusal steering", "functional_hit": true, "justification": "Safe-ablated refusal direction steering — directly the safe-direction redirect that FRECONV proposes."},
+    {"rank": 6, "url": "https://arxiv.org/html/2511.00029v1", "judge_score": 0.82, "matched_effect_cluster": "SAE feature steering", "functional_hit": true, "justification": "Ranks SAE features by harmful/harmless contrast and steers along them — direct functional equivalent."},
+    {"rank": 7, "url": "https://arxiv.org/html/2506.04250v1", "judge_score": 0.78, "matched_effect_cluster": "safety-direction steering", "functional_hit": true, "justification": "Interpretable safety steering at inference — same mechanism."},
+    {"rank": 8, "url": "https://arxiv.org/html/2509.22067v2", "judge_score": 0.70, "matched_effect_cluster": "steering side-effects", "functional_hit": true, "justification": "Studies activation steering vulnerabilities; same primitive."}
+  ],
+  "summary": {"functional_hits_count": 7, "max_judge_score": 0.84, "distinct_effect_clusters_above_threshold": 7, "multi_cluster_match": true}
+}
