@@ -260,3 +260,8 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
 - Round 288 | domain: drosera-sundew-two-tentacle | mechanism: parallel-bicameral concurrent linear-attention snap + quadratic-attention glue with streaming-first refinement-after | verdict: FAIL | form: phase-coherence
 - Round 289 | domain: korean-ondol-heating | mechanism: amortized prefix-cache KV reuse across queries (ondol metaphor for prefix-cache) | verdict: FAIL | form: memory-architecture
 - Round 290 | domain: quipu-inca-knot-cord | mechanism: composite 5-channel side-tag categorical token embedding with hierarchical attachment | verdict: FAIL | form: multi-agent-comm
+- Round 291 | domain: russian-matryoshka-nesting | mechanism: nested prefix-valid coarse-to-fine token embedding (direct collision with MRL 2205.13147) | verdict: FAIL | form: memory-architecture
+- Round 292 | domain: bombardier-beetle-two-chamber | mechanism: two precomputed inert-buffer counter-prompts mixed by classifier-catalyst on attack-class detection | verdict: FAIL | form: feedback-attenuation
+- Round 293 | domain: giant-clam-iridocyte | mechanism: frequency-band spectral routing + depth direction in pre-attention boundary (direct collision with FreqFormer 2604.22808) | verdict: FAIL | form: spectral-allocation
+- Round 294 | domain: antikythera-multi-period-gear | mechanism: K prime-period rotor heads + differential-gear fusion as CRT composite position encoding (direct match to RoPE-CRT 2602.10959) | verdict: FAIL | form: phase-coherence
+- Round 295 | domain: manuka-honey-antimicrobial | mechanism: per-layer 4-axis normalization (magnitude/sign/kurtosis/phase) for spurious-activation suppression | verdict: FAIL | form: feedback-attenuation

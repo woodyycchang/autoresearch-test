@@ -1,0 +1,85 @@
+{
+  "round": "292",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "bombardier beetle defense",
+    "two-chamber inert buffer",
+    "catalytic mix trigger",
+    "attack-class precomputed counter",
+    "low-latency catalytic gate",
+    "stored canned counter-prompt",
+    "valve-triggered mix",
+    "exothermic response template"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Bombardier_beetle",
+      "kw": 0,
+      "sem": 0.18,
+      "func": 0.05,
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2604.20932",
+      "kw": 0,
+      "sem": 0.81,
+      "func": 0.82,
+      "hit": true
+    },
+    {
+      "rank": 3,
+      "url": "https://www.nature.com/articles/s41598-025-31086-y",
+      "kw": 0,
+      "sem": 0.79,
+      "func": 0.80,
+      "hit": true
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2509.14285v4",
+      "kw": 0,
+      "sem": 0.74,
+      "func": 0.74,
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2506.10597",
+      "kw": 0,
+      "sem": 0.68,
+      "func": 0.60,
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2512.15782",
+      "kw": 0,
+      "sem": 0.76,
+      "func": 0.78,
+      "hit": true
+    },
+    {
+      "rank": 7,
+      "url": "https://openreview.net/pdf?id=A6NDhcjXvC",
+      "kw": 0,
+      "sem": 0.55,
+      "func": 0.55,
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2503.00061v2",
+      "kw": 0,
+      "sem": 0.62,
+      "func": 0.62,
+      "hit": false
+    }
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "4 results trigger hit via sem>=0.7 AND func>=0.7: ADO (2604.20932) sem=0.81/func=0.82, PromptGuard (s41598-025-31086-y) sem=0.79/func=0.80, Multi-Agent (2509.14285) sem=0.74/func=0.74, Auto-Tuning (2512.15782) sem=0.76/func=0.78. Candidate BOMBARDIER-LLM (two precomputed inert-buffer counter-prompts mixed by classifier-catalyst on attack-class detection) overlaps with existing classifier-gated/modular defense orchestration prior art; not sufficiently novel."
+}
