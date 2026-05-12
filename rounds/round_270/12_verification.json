@@ -1,0 +1,29 @@
+{
+  "round": "270",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "Hopi kachina mask",
+    "ritual identity displacement",
+    "discrete on-off persona transition",
+    "regalia-gated transformation",
+    "residual null-space wipe",
+    "persona-vector injection axis",
+    "scope-bracket persona token",
+    "regalia-constraint enable check"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Kachina", "kw_count": 0, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain snippet; no content-word substrings; sem 0.20<0.7; func 0.04<0.7."},
+    {"rank": 2, "url": "https://www.britannica.com/topic/kachina", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain; no exact substrings; sem 0.18<0.7; func 0.04<0.7."},
+    {"rank": 3, "url": "https://en.wikipedia.org/wiki/Hopi_Kachina_figure", "kw_count": 0, "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Source-domain ceremonial overview; no content-word substrings; all signals below threshold."},
+    {"rank": 4, "url": "https://arxiv.org/html/2604.17031", "kw_count": 0, "sem_cosine": 0.72, "func_score": 0.74, "hit": true, "reason": "Persona Vectors: sem 0.72>=0.7 AND func 0.74>=0.7 capture persona-vector injection leg of RSPND."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2601.16466", "kw_count": 0, "sem_cosine": 0.66, "func_score": 0.55, "hit": false, "reason": "Persona Jailbreaking; sem 0.66<0.7; func 0.55<0.7; no substring matches."},
+    {"rank": 6, "url": "https://arxiv.org/html/2603.19313", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.55, "hit": false, "reason": "Memory-Driven RP persona knowledge; below all thresholds."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.04474", "kw_count": 0, "sem_cosine": 0.86, "func_score": 0.90, "hit": true, "reason": "Scope-Bracketed Persona with Null Reset: sem 0.86>=0.7 AND func 0.90>=0.7 directly captures scope-bracket + null-space-wipe + persona triad."},
+    {"rank": 8, "url": "https://arxiv.org/html/2501.15427v1", "kw_count": 0, "sem_cosine": 0.58, "func_score": 0.50, "hit": false, "reason": "OpenCharacter synthetic-persona training; all signals below threshold."}
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior-art hits: r4 (Persona Vectors 2604.17031) covers persona-vector injection leg, and r7 (2603.04474 Scope-Bracketed Persona with Null Reset) directly matches the RSPND null-space-wipe + scope-bracket persona triad (sem 0.86, func 0.90). Regalia-constraint enable check alone is insufficient novelty."
+}

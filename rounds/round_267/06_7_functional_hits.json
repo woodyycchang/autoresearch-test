@@ -1,0 +1,23 @@
+{
+  "round": "267",
+  "candidate_llm_application": "BZFRS: layer-zone split into glide (aggressive LR) + grip (conservative LR); input-temperature gated.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r267-bzfrs-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Ski_wax", "title": "Ski wax Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://skiwax.ca/pages/snow-types", "title": "Snow types", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://reliableracing.com/downloads/1c41c5be75.pdf", "title": "Waxing Guide", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2604.05375", "title": "DAT (2026/4)", "judge_score": 0.55, "judge_justification": "Dual-aware transmission, not layer-split LR.", "matched_effect_cluster": "dual-aware-transmission", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2601.14053", "title": "LLMOrbit (2026/1)", "judge_score": 0.20, "judge_justification": "Taxonomy.", "matched_effect_cluster": "taxonomy", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2605.00358v1", "title": "Forward Replay (2026/5)", "judge_score": 0.40, "judge_justification": "Parameter editing target construction.", "matched_effect_cluster": "parameter-editing", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2509.05291", "title": "Layer-Selective Conservative-Aggressive FT (2025/9)", "judge_score": 0.86, "judge_justification": "Layer-selective split with conservative (middle) + aggressive (boundary) LR — directly captures BZFRS bipolar layer regime.", "matched_effect_cluster": "layer-selective-conservative-aggressive", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2510.18924", "title": "Noise-Corrected GRPO Layer Split (2025/10)", "judge_score": 0.68, "judge_justification": "Layer-split policy update; not bipolar regime selection.", "matched_effect_cluster": "layer-split-policy", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.86,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}

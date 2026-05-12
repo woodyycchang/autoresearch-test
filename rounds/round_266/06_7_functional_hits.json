@@ -1,0 +1,23 @@
+{
+  "round": "266",
+  "candidate_llm_application": "TGCCLCW: time-bounded commit window + carbonation pass absorbing consistent-gradient parameters; reject inconsistent.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r266-tgcclcw-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Fresco", "title": "Fresco Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://www.vaia.com/en-us/explanations/art-and-design/art-and-design-theory/fresco-technique/", "title": "Vaia Fresco", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://spokenpast.com/articles/9-painted-etruscan-tombs/", "title": "Etruscan Tombs", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2510.17281v4", "title": "MemoryBench (2025/10)", "judge_score": 0.55, "judge_justification": "Benchmark, not protocol.", "matched_effect_cluster": "CL-benchmark", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2506.13045", "title": "CL Survey (2025/6)", "judge_score": 0.50, "judge_justification": "Survey.", "matched_effect_cluster": "CL-survey", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.18133v3", "title": "MoE-CL (2025/9)", "judge_score": 0.62, "judge_justification": "Task-LoRA experts, not time-window absorb-or-reject.", "matched_effect_cluster": "task-LoRA-experts", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2602.05927", "title": "Hard-Window CL Absorption (2026/2)", "judge_score": 0.88, "judge_justification": "Time-bounded commit window with consistent-gradient absorption directly captures TGCCLCW core.", "matched_effect_cluster": "time-bounded-commit-window-absorption", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2604.04853", "title": "MemMachine state-locked (2026/4)", "judge_score": 0.74, "judge_justification": "State-locked memory with commit/release matches commit-window discipline.", "matched_effect_cluster": "state-locked-commit-release", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "max_judge_score": 0.88,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true
+  }
+}
