@@ -1,0 +1,27 @@
+{
+  "round": "336",
+  "candidate": "REPOSE-LANDSCAPE: passive funnel loss-landscape regularizer maintaining critical-angle slope toward designated minimum via low-amplitude sand-throw probe (antlion conical pit analog).",
+  "calibration_anchors": {
+    "kw_rule": ">=2 distinct content-word matches",
+    "sem_rule": "sem_cosine >= 0.7",
+    "func_rule": "judge_score >= 0.7",
+    "hit_if": "any one rule satisfied",
+    "content_words": ["antlion conical pit", "angle-of-repose sand trap", "passive funnel avalanche", "sand-throwing maintenance", "passive funnel loss landscape", "repose-angle regularizer", "passively unstable null-space", "sand-throw probe gradient"]
+  },
+  "per_result_judgments": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Antlion", "kw_matches": 1, "kw_terms": ["antlion"], "sem_cosine": 0.10, "func_score": 0.05, "hit": false, "reason": "Source-domain biology only; no LLM/ML overlap."},
+    {"rank": 2, "url": "https://arxiv.org/html/2505.17646v2", "kw_matches": 0, "kw_terms": [], "sem_cosine": 0.75, "func_score": 0.75, "hit": true, "reason": "sem>=0.7 AND func>=0.7; basin-like LLM loss landscape resilient to perturbations overlaps with passive-funnel self-restoration."},
+    {"rank": 3, "url": "https://arxiv.org/html/2601.16979v1", "kw_matches": 0, "kw_terms": [], "sem_cosine": 0.70, "func_score": 0.66, "hit": true, "reason": "sem>=0.7; landscape curvature/sharpness measure adjacent to critical-angle slope concept."},
+    {"rank": 4, "url": "https://arxiv.org/abs/2010.01412", "kw_matches": 0, "kw_terms": [], "sem_cosine": 0.68, "func_score": 0.70, "hit": true, "reason": "func>=0.7; SAM flat-minima search and perturbation robustness overlap with passive-funnel goal."},
+    {"rank": 5, "url": "https://arxiv.org/html/2603.10048", "kw_matches": 0, "kw_terms": [], "sem_cosine": 0.66, "func_score": 0.65, "hit": false, "reason": "Both scores below threshold; refined SAM implementation only."},
+    {"rank": 6, "url": "https://arxiv.org/html/2601.10251", "kw_matches": 0, "kw_terms": [], "sem_cosine": 0.65, "func_score": 0.62, "hit": false, "reason": "Below thresholds; active dominant-eigenvector correction, not passive landscape sculpting."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.18045", "kw_matches": 3, "kw_terms": ["repose-angle regularizer", "passive funnel loss landscape", "passive funnel avalanche"], "sem_cosine": 0.95, "func_score": 0.95, "hit": true, "reason": "Direct twin on all three axes; repose-angle regularizer sustains passive funnel toward minimum."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2511.14502", "kw_matches": 2, "kw_terms": ["repose-angle regularizer (critical-angle)", "sand-throwing maintenance (basin maintenance)"], "sem_cosine": 0.92, "func_score": 0.90, "hit": true, "reason": "Critical-angle basin self-restoration under perturbation — same mechanism as REPOSE-LANDSCAPE."}
+  ],
+  "hits": 5,
+  "non_hits": 3,
+  "hit_ranks": [2, 3, 4, 7, 8],
+  "non_hit_ranks": [1, 5, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two near-twin papers (ranks 7 and 8) explicitly describe repose-angle / critical-angle landscape regularizers sustaining passive basin self-restoration in LLM training, scoring >=0.90 on both semantic and functional axes with multiple keyword matches. Three additional prior-art hits (SAM, basin-like LLM loss landscape, curvature measure) cover adjacent flat-minima and perturbation-resilience mechanisms. Five of eight results are hits, indicating the candidate's specific mechanism is substantially anticipated by existing work."
+}

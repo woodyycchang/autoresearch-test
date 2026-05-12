@@ -1,0 +1,90 @@
+{
+  "round": "340",
+  "candidate": "ASYM-DUAL-PATH: parallel encoder with deliberate asymmetric pathway biases (early-vs-late token emphasis); ILD-style difference channel injects positional information neither pathway encodes alone.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_terms": ["asymmetric dual-path encoder", "ILD-channel feature injection", "deliberate asymmetric bias", "information-creating asymmetry", "difference channel", "parallel pathway", "early-late token bias", "positional encoding"],
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Sound_localization_in_owls",
+      "kw_count": 0,
+      "sem": 0.10,
+      "func": 0.05,
+      "hit": false,
+      "note": "Source-domain biology only; no LLM/encoder mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://github.com/Lightricks/LTX-2/blob/main/packages/ltx-core/README.md",
+      "kw_count": 1,
+      "sem": 0.72,
+      "func": 0.74,
+      "hit": true,
+      "note": "Asymmetric dual-stream transformer (14B video + 5B audio); functionally adjacent though not difference-channel positional."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.emergentmind.com/topics/dual-transformer-based-encoders",
+      "kw_count": 1,
+      "sem": 0.66,
+      "func": 0.60,
+      "hit": false,
+      "note": "Dual-encoder survey; lacks asymmetry and difference-channel specifics."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.nature.com/articles/s41467-017-01109-y",
+      "kw_count": 0,
+      "sem": 0.55,
+      "func": 0.50,
+      "hit": false,
+      "note": "Sparse decorrelation pattern separation; symmetric mechanism."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2602.09509",
+      "kw_count": 1,
+      "sem": 0.60,
+      "func": 0.55,
+      "hit": false,
+      "note": "Asymmetric NN inheritance (parent-child), not parallel asymmetric dual-path."
+    },
+    {
+      "rank": 6,
+      "url": "https://neurips2023-enlsp.github.io/papers/paper_33.pdf",
+      "kw_count": 0,
+      "sem": 0.45,
+      "func": 0.45,
+      "hit": false,
+      "note": "Skeleton-of-Thought parallel decoding; orthogonal mechanism."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.27410",
+      "kw_count": 4,
+      "sem": 0.95,
+      "func": 0.95,
+      "hit": true,
+      "note": "Direct twin: asymmetric dual-path encoder with difference-channel positional encoding; early-vs-late token bias."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.07140",
+      "kw_count": 4,
+      "sem": 0.92,
+      "func": 0.90,
+      "hit": true,
+      "note": "Owl-inspired ILD-style difference channel between two asymmetric pathways; near-identical mechanism."
+    }
+  ],
+  "hits": 3,
+  "non_hits": 5,
+  "hit_ranks": [2, 7, 8],
+  "non_hit_ranks": [1, 3, 4, 5, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Ranks 7 and 8 are direct twins of ASYM-DUAL-PATH: an asymmetric dual-path encoder with difference-channel positional encoding (2603.27410) and an explicitly owl-inspired ILD-style difference-channel between two asymmetric pathways (2511.07140). Rank 2 (LTX-2) adds an adjacent asymmetric dual-stream transformer. With sem and func both >=0.9 on near-identical prior art, the candidate's distinctive contribution is already published."
+}

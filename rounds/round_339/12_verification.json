@@ -1,0 +1,99 @@
+{
+  "round": "339",
+  "candidate": "SEASONAL-LORA: twin LoRA adapter sets with external-context-sensor-driven gradual multi-step bias-blend swap (snowshoe hare seasonal coat-color analog).",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_threshold": 2,
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7,
+    "llm_side_keywords": ["twin LoRA adapter sets", "context-sensor gradual bias-blend", "phenotype-style adapter alternation", "external-cue adapter swap", "LoRA", "adapter", "gradual", "blend", "swap", "routing"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7029059/",
+      "title": "Transcriptomic seasonal coat color hares (PMC)",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology paper; no LLM-side overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.emergentmind.com/topics/dynamic-lora-adapters",
+      "title": "Dynamic LoRA Adapters for Efficient Adaptation (2025)",
+      "kw_count": 3,
+      "sem_cosine": 0.85,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "Dynamic weighted combination of LoRA adapters via MoE/routing — sem & func above threshold; LoRA+adapter+routing keywords match."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/forum?id=CRkoMdDlFh",
+      "title": "I-LoRA: Iterative Merging of Routing-Tuned Adapters",
+      "kw_count": 3,
+      "sem_cosine": 0.74,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Iterative merging of routing-tuned LoRAs — gradual blend; sem & func above threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2405.13053v1",
+      "title": "MeteoRA Multiple-tasks Embedded LoRA (2024)",
+      "kw_count": 3,
+      "sem_cosine": 0.78,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Multiple LoRA adapters with routing — overlaps adapter+routing core; sem & func above threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2511.22880v1",
+      "title": "Heterogeneous LoRA Adapters Distributed Serving (2025/11)",
+      "kw_count": 2,
+      "sem_cosine": 0.72,
+      "func_score": 0.68,
+      "hit": true,
+      "reason": "kw>=2 (LoRA, adapter) and sem>=0.7; serving infra but topically overlapping."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2603.01097v1",
+      "title": "Understanding LoRA as Knowledge Memory (2026/03)",
+      "kw_count": 1,
+      "sem_cosine": 0.66,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Empirical LoRA-as-memory analysis; no swap/blend mechanism; all metrics below thresholds."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.04522",
+      "title": "Twin-LoRA Adapter Gradual Bias-Blend Swap with External Sensor (2026/04)",
+      "kw_count": 5,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin of candidate: twin LoRA + external-sensor + gradual bias-blend swap — saturates all thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.10215",
+      "title": "Phenotype-Style Gradual Adapter Alternation via External-Cue Routing (2025/11)",
+      "kw_count": 5,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Phenotype-style adapter alternation with external-cue gradual swap — content-word twin; saturates all thresholds."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 3, 4, 5, 7, 8],
+  "non_hit_ranks": [1, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "6 of 8 results clear the hit threshold, including two near-direct twins (ranks 7 and 8) covering twin-LoRA external-sensor gradual bias-blend and phenotype-style adapter alternation, plus 4 mid-strong overlaps (dynamic LoRA combinations, iterative LoRA merging, embedded multi-task LoRA routing, heterogeneous LoRA serving). The candidate's distinctive contribution (twin adapters + external-cue gradual multi-step bias-blend) is already covered by prior/contemporaneous work, so the proposal is not novel."
+}

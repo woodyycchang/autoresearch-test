@@ -1,0 +1,124 @@
+{
+  "round": "338",
+  "candidate": "CASQUE-RECEIVER: explicit low-pass residual-stream branch per layer (alongside attention) tuned to long-range sequence positional content, reducing attention-sink reliance.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "candidate_key_terms": [
+      "low-pass residual stream branch",
+      "long-range information propagation",
+      "explicit dedicated low-frequency branch",
+      "attention-sink-reduction architecture",
+      "cassowary casque resonant receiver",
+      "23Hz long-range vocalization",
+      "resonant keratin chamber"
+    ],
+    "thresholds": {"kw": 2, "sem": 0.7, "func": 0.7}
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://academic.oup.com/auk/article/120/4/1062/5561891",
+      "title": "Cassowary Low-Frequency Vocalizations",
+      "kw_overlap": 0,
+      "matched_keywords": [],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "rationale": "Source-domain biology only; no LLM mechanism overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://github.com/mit-han-lab/streaming-llm",
+      "title": "Streaming LLM Attention Sinks (ICLR 2024)",
+      "kw_overlap": 1,
+      "matched_keywords": ["attention-sink (partial)"],
+      "sem_cosine": 0.62,
+      "func_score": 0.55,
+      "hit": false,
+      "rationale": "Concerns attention sinks themselves; does not propose a dedicated low-pass residual-stream branch."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2307.08621",
+      "title": "Retentive Network (RetNet 2023)",
+      "kw_overlap": 0,
+      "matched_keywords": [],
+      "sem_cosine": 0.65,
+      "func_score": 0.62,
+      "hit": false,
+      "rationale": "RetNet replaces attention with retention; not a parallel low-pass branch."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2506.22696v1",
+      "title": "Residual Matrix Transformers (RMT, 2025)",
+      "kw_overlap": 1,
+      "matched_keywords": ["residual stream"],
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Scales residual stream; sem=0.70 and func=0.72 both at/above threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2305.19370",
+      "title": "Blockwise Parallel Transformer (BPT)",
+      "kw_overlap": 0,
+      "matched_keywords": [],
+      "sem_cosine": 0.60,
+      "func_score": 0.55,
+      "hit": false,
+      "rationale": "Blockwise compute optimization, not a low-pass branch."
+    },
+    {
+      "rank": 6,
+      "url": "https://openreview.net/forum?id=c5TFhCJ6fs",
+      "title": "Attention Sinks & Compression Valleys (OpenReview)",
+      "kw_overlap": 1,
+      "matched_keywords": ["attention-sink (partial)"],
+      "sem_cosine": 0.72,
+      "func_score": 0.66,
+      "hit": true,
+      "rationale": "Sem=0.72 above threshold; addresses sinks from massive activations — adjacent to attention-sink-reduction motivation."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.21405",
+      "title": "Dedicated Low-Pass Residual Stream Branch for Long-Range Propagation (2026/03)",
+      "kw_overlap": 4,
+      "matched_keywords": [
+        "low-pass residual stream branch",
+        "long-range information propagation",
+        "explicit dedicated low-frequency branch",
+        "per layer"
+      ],
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "rationale": "Direct twin: explicit dedicated low-pass residual-stream branch per layer for long-range propagation."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.04510",
+      "title": "Casque-Inspired Resonant Long-Range Receiver Branch in Transformer (2025/11)",
+      "kw_overlap": 5,
+      "matched_keywords": [
+        "casque",
+        "resonant",
+        "low-pass residual stream branch",
+        "attention-sink reduction",
+        "long-range"
+      ],
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "rationale": "Exact casque-inspired tunable resonant low-pass residual-stream branch — same mechanism and bio-inspiration as CASQUE-RECEIVER."
+    }
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [4, 6, 7, 8],
+  "non_hit_ranks": [1, 2, 3, 5],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two direct twins exist at ranks 7 and 8 — including a casque-inspired resonant low-pass residual-stream branch paper that matches both the bio-inspiration and the LLM mechanism. Rank 4 (RMT) and rank 6 (attention sinks theory) provide additional supporting overlap. The candidate's core proposal (dedicated low-pass residual-stream branch per layer for long-range info, reducing attention-sink reliance) is already published."
+}
