@@ -1,0 +1,23 @@
+{
+  "round": "256",
+  "candidate_llm_application": "SMMEC: catalog of mold-experts + per-output assembly with hand-finished face + workshop-stamp provenance watermark.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r256-smmec-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://www.cambridge.org/core/journals/antiquity/article/building-the-terracotta-army-ceramic-craft-technology-and-organisation-of-production-at-qin-shihuangs-mausoleum-complex/5A47E970740549E6EA31D957EB014AD1", "title": "Building Terracotta Army", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://visitterracottawarriors.com/index.php/2025/02/04/terracotta-materials/", "title": "Terracotta Materials", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://www.chinahighlights.com/xian/terracotta-army/", "title": "Terracotta Guide", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/abs/2506.14794", "title": "AoE Chimera (2025/6)", "judge_score": 0.74, "judge_justification": "Assembles experts by interpolating parent tensors — captures the modular-assembly idea though offline rather than per-output.", "matched_effect_cluster": "assembly-of-experts", "functional_hit": true},
+    {"rank": 5, "url": "https://www.emergentmind.com/topics/modular-llm-architectures", "title": "Modular LLM overview", "judge_score": 0.62, "judge_justification": "Overview of modular agent decomposition.", "matched_effect_cluster": "modular-agent", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/abs/2603.07442", "title": "Composable Expert Catalogs + Audit Watermark (2026/3)", "judge_score": 0.86, "judge_justification": "Finite expert catalog + per-output composition + audit watermark — directly captures all three legs of SMMEC.", "matched_effect_cluster": "composable expert + watermark", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.16107", "title": "Stylistic Module Composition (2024/10)", "judge_score": 0.70, "judge_justification": "Modular style-modules composed per-output for controllable generation matches the per-output composition leg.", "matched_effect_cluster": "stylistic module composition", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2512.19908", "title": "Provenance-Stamped Output Tracing (2025/12)", "judge_score": 0.80, "judge_justification": "Provenance watermark in output captures the workshop-stamp leg exactly.", "matched_effect_cluster": "provenance watermark", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 4,
+    "max_judge_score": 0.86,
+    "distinct_effect_clusters_above_threshold": 4,
+    "multi_cluster_match": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "round": "259",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": ["leafcutter Atta", "size-graded caste assembly", "Leucoagaricus mutualist", "ant antibiotic patrol", "size-graded model cascade", "external mutualist substrate-model", "contaminant detection patrol", "progressive context shrink"],
+  "results": [
+    {"url": "https://en.wikipedia.org/wiki/Leafcutter_ant", "kw_count": 0, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain page; no exact content-word substrings, sem<0.7, func<0.7."},
+    {"url": "https://link.springer.com/article/10.1007/BF00299520", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain caste pipeline; no exact n-gram matches, sem<0.7, func<0.7."},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2602677/", "kw_count": 0, "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Source-domain geometry of labor; no exact substrings, sem<0.7, func<0.7."},
+    {"url": "https://arxiv.org/html/2511.03023v1", "kw_count": 0, "sem_cosine": 0.66, "func_score": 0.65, "hit": false, "reason": "Multi-agent framework but no size-graded cascade triad; all three signals below threshold."},
+    {"url": "https://arxiv.org/pdf/2410.02958", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.60, "hit": false, "reason": "Role-specialization AutoML pipeline; misses size-graded scale + mutualist + patrol; all signals sub-threshold."},
+    {"url": "https://arxiv.org/html/2601.13671v1", "kw_count": 0, "sem_cosine": 0.58, "func_score": 0.55, "hit": false, "reason": "MAS orchestration survey; generic, no triad capture; all signals sub-threshold."},
+    {"url": "https://arxiv.org/abs/2604.11378", "kw_count": 0, "sem_cosine": 0.86, "func_score": 0.86, "hit": true, "reason": "Captures all three legs: size-graded cascade + external KB + injection-patrol; sem and func both >=0.7."},
+    {"url": "https://arxiv.org/abs/2603.03251", "kw_count": 0, "sem_cosine": 0.72, "func_score": 0.74, "hit": true, "reason": "Large-then-small speculative cascade with rollback captures size-graded cascade leg; sem and func both >=0.7."}
+  ],
+  "total_hits": 2,
+  "verdict": "NOVELTY_FAIL",
+  "fail_reason": "Two prior-art hits exceed thresholds (#7 sem=0.86/func=0.86 captures all three SGSCP legs; #8 sem=0.72/func=0.74 captures cascade leg), so the SGSCP triad is not novel."
+}

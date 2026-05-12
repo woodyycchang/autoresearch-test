@@ -1,0 +1,23 @@
+{
+  "round": "259",
+  "candidate_llm_application": "SGSCP: size-graded model cascade + external mutualist substrate-model + antibiotic-patrol contaminant detector.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r259-sgscp-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Leafcutter_ant", "title": "Leafcutter Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://link.springer.com/article/10.1007/BF00299520", "title": "Caste division", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2602677/", "title": "Geometry of labor", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2511.03023v1", "title": "PublicAgent (2025/11)", "judge_score": 0.65, "judge_justification": "Multi-agent pipeline but not size-graded scale cascade.", "matched_effect_cluster": "multi-agent-pipeline", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2410.02958", "title": "Multi-Agent AutoML (2024/10)", "judge_score": 0.60, "judge_justification": "Role specialization pipeline.", "matched_effect_cluster": "role-specialization", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2601.13671v1", "title": "MAS Orchestration (2026/1)", "judge_score": 0.55, "judge_justification": "Survey.", "matched_effect_cluster": "MAS-survey", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.11378", "title": "Cascade + External KB + Injection Patrol (2026/4)", "judge_score": 0.86, "judge_justification": "Size-graded cascade + external KB + injection-patrol gatekeeper — directly captures all three legs of SGSCP.", "matched_effect_cluster": "size-graded-cascade-with-external-KB-patrol", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/abs/2603.03251", "title": "Speculative Cascade Decoding (2026/3)", "judge_score": 0.74, "judge_justification": "Large-then-small cascade with rollback verification — captures size-graded cascade leg.", "matched_effect_cluster": "size-graded-cascade", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "max_judge_score": 0.86,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true
+  }
+}

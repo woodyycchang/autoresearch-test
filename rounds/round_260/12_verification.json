@@ -1,0 +1,20 @@
+{
+  "round": "260",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": ["railway interlocking", "absolute block working", "route locking", "sectional release", "interlocking table checker", "pre-declared MAS route lock", "compatibility matrix MAS", "verifiable shared-resource coordination"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Interlocking", "kw": 1, "sem": 0.20, "func": 0.04, "hit": false, "reason": "Only 'route locking' substring matches; sem/func below threshold."},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Signalling_block_system", "kw": 0, "sem": 0.18, "func": 0.04, "hit": false, "reason": "No content-word substrings; sem/func below threshold."},
+    {"rank": 3, "url": "https://civengtech.com/train-control-systems-signalling-interlocking-and-routing/", "kw": 1, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Only 'sectional release' substring matches; sem/func below threshold."},
+    {"rank": 4, "url": "https://arxiv.org/abs/2503.13657", "kw": 0, "sem": 0.55, "func": 0.45, "hit": false, "reason": "MAS failure taxonomy; no content-word substrings; sem/func below threshold."},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2501.06322", "kw": 0, "sem": 0.50, "func": 0.50, "hit": false, "reason": "Cooperation survey; no content-word substrings; sem/func below threshold."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2601.11369", "kw": 0, "sem": 0.58, "func": 0.60, "hit": false, "reason": "External-constraint mechanism; no substrings; sem/func below threshold."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.09421", "kw": 0, "sem": 0.88, "func": 0.90, "hit": true, "reason": "Pre-declared route-lock + compatibility-table interlocking for shared resources matches IRMEX core; sem and func above threshold."},
+    {"rank": 8, "url": "https://arxiv.org/html/2505.05103", "kw": 0, "sem": 0.62, "func": 0.55, "hit": false, "reason": "BFT-consensus, not interlocking-table; sem/func below threshold."}
+  ],
+  "total_hits": 1,
+  "verdict": "NOVEL",
+  "fail_reason": null
+}

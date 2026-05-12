@@ -1,0 +1,29 @@
+{
+  "round": "257",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": [
+    "barchan crescent",
+    "centerline-horn differential migration",
+    "saltation threshold gate",
+    "mass-dependent reconstitution time",
+    "per-coordinate effective height",
+    "mass-gated learning-rate scale",
+    "self-organized parameter crescent",
+    "threshold-floor parameter update"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Barchan", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain; tokens 'barchan'/'crescent' appear separately but no 2-word phrases from content_words match; sem 0.20<0.7; func 0.04<0.7."},
+    {"rank": 2, "url": "https://www.nature.com/articles/s43247-024-01444-1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain saltation threshold without 'gate'; no content_word substring matches; sem/func below 0.7."},
+    {"rank": 3, "url": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/barchan", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Source-domain morphology; no content_word substring matches; sem/func below 0.7."},
+    {"rank": 4, "url": "https://arxiv.org/html/2505.22491v1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.55, "func_score": 0.50, "hit": false, "reason": "Global LR width-scaling, not per-coordinate; no content_word substrings; sem 0.55<0.7; func 0.50<0.7."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2510.19093", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.52, "func_score": 0.48, "hit": false, "reason": "Weight-decay LR transfer; no content_word substrings; sem/func below 0.7."},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.25087v1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.48, "func_score": 0.40, "hit": false, "reason": "Scaling-collapse phenomenon, not per-coord gating; no content_word substrings; sem/func below 0.7."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2602.11829", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.78, "func_score": 0.84, "hit": true, "reason": "Per-coordinate magnitude-aware adaptive LR with threshold-gated updates directly matches DMCS mechanism (mass-gated LR + saltation gate); sem 0.78>=0.7 AND func 0.84>=0.7."},
+    {"rank": 8, "url": "https://arxiv.org/html/2410.16107", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.30, "func_score": 0.10, "hit": false, "reason": "Stylistic module composition; unrelated; no content_word substrings; sem/func below 0.7."}
+  ],
+  "total_hits": 1,
+  "verdict": "fail",
+  "fail_reason": "Functional collision: rank-7 (arXiv 2602.11829, 'Magnitude-Aware Per-Coordinate Adaptive Optimization') is a hit on both semantic (0.78) and functional (0.84) axes. Its per-coordinate adaptive LR scaled by magnitude×gradient with threshold-gated updates is mechanistically identical to DMCS's per-coordinate mass-gated LR + saltation-threshold update gate, falsifying the novelty_claim that no prior work covers per-coordinate mass-and-threshold-gated mobility."
+}

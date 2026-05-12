@@ -1,0 +1,23 @@
+{
+  "round": "260",
+  "candidate_llm_application": "IRMEX: pre-declared MAS route lock + interlocking-table checker + sectional release.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r260-irmex-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Interlocking", "title": "Interlocking Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Signalling_block_system", "title": "Signalling block system", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://civengtech.com/train-control-systems-signalling-interlocking-and-routing/", "title": "Train control", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/abs/2503.13657", "title": "Why MAS Fail (2025/3)", "judge_score": 0.45, "judge_justification": "Failure taxonomy, not lock mechanism.", "matched_effect_cluster": "MAS-failure-taxonomy", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2501.06322", "title": "MAS Survey (2025/1)", "judge_score": 0.50, "judge_justification": "Survey.", "matched_effect_cluster": "MAS-survey", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/abs/2601.11369", "title": "Institutional AI (2026/1)", "judge_score": 0.60, "judge_justification": "External enforceable constraint covers some IRMEX legs but not pre-declared route-lock + compatibility-table.", "matched_effect_cluster": "external-constraint", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.09421", "title": "Lock-Based MAS Resource Coord (2026/3)", "judge_score": 0.90, "judge_justification": "Pre-declared route-lock + compatibility-table interlocking for shared-resource access — directly captures IRMEX core mechanism.", "matched_effect_cluster": "MAS-lock-based-coordination", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2505.05103", "title": "WBFT MAS (2025/5)", "judge_score": 0.55, "judge_justification": "BFT-style consensus, not interlocking-table.", "matched_effect_cluster": "BFT-consensus", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.90,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}
