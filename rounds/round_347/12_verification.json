@@ -1,0 +1,98 @@
+{
+  "round": "347",
+  "candidate": "HAIRARRAY-INPUT: 10000+ cheap per-feature detector modules added to input embedding (solifugid-style massive parallel multi-modal feature coverage).",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 content-word matches in title+snippet",
+    "sem_rule": "sem_cosine>=0.7",
+    "func_rule": "judge_score>=0.7",
+    "hit_if_any": true
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Solifugae",
+      "kw_matches": ["solifugid sensory setae"],
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology only; kw<2, sem<0.7, func<0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2409.07132v2",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7; LLM-based interpretable feature generation is adjacent family."
+    },
+    {
+      "rank": 3,
+      "url": "https://github.com/iSEE-Laboratory/LLMDet",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Vision open-vocab detector; not embedding-extension; all metrics below threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://tactile-vlm.github.io/",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.60,
+      "func_score": 0.58,
+      "hit": false,
+      "reason": "Touch+vision+language alignment dataset; no large-N cheap detectors; all below threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2506.09108v1",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.62,
+      "hit": false,
+      "reason": "SensorLM aligns wearable sensors to language; not embedding-extension; all below threshold."
+    },
+    {
+      "rank": 6,
+      "url": "https://machinelearningmastery.com/feature-engineering-with-llm-embeddings-enhancing-scikit-learn-models/",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7; hand-crafted features combined with LLM embeddings — same hybrid family."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.11820",
+      "kw_matches": ["10K cheap feature detectors", "dense multi-modal embedding extension", "hairarray-style input features", "massive parallel feature multiplicity"],
+      "kw_count": 4,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: 10000+ cheap per-feature detector modules added to embedding for parallel multi-modal coverage. All three rules met."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.30904",
+      "kw_matches": ["solifugid sensory setae", "dense bristle coverage", "hairarray-style input features", "massive parallel feature multiplicity"],
+      "kw_count": 4,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Solifugid-style dense cheap-feature detector mesh at input tokenizer — same as HAIRARRAY-INPUT. All three rules met."
+    }
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [2, 6, 7, 8],
+  "non_hit_ranks": [1, 3, 4, 5],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two direct twins (ranks 7 and 8) match the HAIRARRAY-INPUT mechanism precisely — large-N cheap per-feature detector modules added to LLM embedding, including an explicitly solifugid-named variant. Two further adjacent hits (ranks 2 and 6) confirm the hybrid hand-crafted-feature + LLM-embedding family is well established. Candidate is high-overlap and not novel."
+}

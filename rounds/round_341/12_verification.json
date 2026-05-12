@@ -1,0 +1,91 @@
+{
+  "round": "341",
+  "candidate": "FIGURE-EIGHT-DECODE: bidirectional decoder with forward AR pass (75%) + backward revise micro-pass (25%) blended pre-commit, inspired by hummingbird figure-eight wingbeat.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "semantic_threshold": 0.7,
+    "functional_threshold": 0.7,
+    "keyword_threshold": 2,
+    "content_words_llm_side": ["bidirectional decode pass", "75-25 forward-revise blend", "backward revise micro-pass", "figure-eight decoder cycle"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://www.nature.com/articles/nature03647",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology paper on hummingbird aerodynamics; no LLM-side overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.naacl-long.450.pdf",
+      "kw_count": 1,
+      "sem_cosine": 0.85,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Bi-directional multi-head decoding for LLM acceleration; sem and func both above threshold."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2411.15661v2",
+      "kw_count": 1,
+      "sem_cosine": 0.80,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "AR + auto-encoding refiner — same generate-refine functional shape as forward + revise."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2502.06901v1",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "MARIA combines MLM + AR via linear decoder; sem and func at/above threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://github.com/hitachi-nlp/backward-llm",
+      "kw_count": 1,
+      "sem_cosine": 0.78,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Backward LLM combined with forward for token representations — same family."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2404.19737",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "Multi-token prediction is forward-only; both scores below threshold."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.16880",
+      "kw_count": 4,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: forward AR + backward revise micro-pass with explicit 75-25 asymmetric blend pre-commit."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.21405",
+      "kw_count": 3,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Figure-eight decoder cycle for pre-commit revision — directly matches candidate."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 3, 4, 5, 7, 8],
+  "non_hit_ranks": [1, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "6 of 8 results are hits, including two direct twins (ranks 7 and 8) explicitly describing hummingbird-style 75-25 asymmetric bidirectional decode and figure-eight decoder cycle for pre-commit revision. Multiple adjacent works (bi-directional multi-head decoding, generate-refine, MARIA, backward-LLM) cover the same functional shape. The candidate is not novel."
+}

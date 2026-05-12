@@ -1,0 +1,107 @@
+{
+  "round": "337",
+  "candidate": "SKELETON-VIS: large-N identical small-aperture micro-encoders over overlapping image grid + global pigmentation gain mask (brittle star Ophiocoma calcite compound-eye inspired).",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 keyword overlap (from candidate content_words) counts as hit",
+    "sem_rule": "sem_cosine>=0.7 counts as hit",
+    "func_rule": "func judge_score>=0.7 counts as hit",
+    "any_one_triggers_hit": true,
+    "content_words_used_for_kw": ["brittle star calcite microlens", "double-lens aberration-free", "skeleton-as-compound-eye", "pigment-modulated aperture", "large-N micro-aperture encoders", "overlapping micro-patch FoV", "pigmentation gain mask", "skeleton-style vision array"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://www.nature.com/articles/35090573",
+      "title": "Calcitic microlenses brittlestar (Nature)",
+      "kw_overlap_count": 3,
+      "kw_overlap_terms": ["brittle star calcite microlens", "double-lens aberration-free", "skeleton-as-compound-eye"],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": true,
+      "reason": "Source-domain biology paper but content-word overlap >=2 on source-side terms triggers kw hit."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2602.04864v1",
+      "title": "When LLaVA Meets Objects: Token Composition",
+      "kw_overlap_count": 0,
+      "kw_overlap_terms": [],
+      "sem_cosine": 0.66,
+      "func_score": 0.65,
+      "hit": false,
+      "reason": "Below all thresholds (kw=0, sem<0.7, func<0.7)."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2405.18240v1",
+      "title": "MSPE Multi-Scale Patch Embedding",
+      "kw_overlap_count": 0,
+      "kw_overlap_terms": [],
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7; functionally adjacent multi-scale patch embedding."
+    },
+    {
+      "rank": 4,
+      "url": "https://huggingface.co/blog/siglip2",
+      "title": "SigLIP 2 Vision Language Encoder",
+      "kw_overlap_count": 0,
+      "kw_overlap_terms": [],
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Single-encoder VLM; below all thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12094235/",
+      "title": "Arthropod-eye biomimetic AI imaging",
+      "kw_overlap_count": 0,
+      "kw_overlap_terms": [],
+      "sem_cosine": 0.74,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7; compound-eye biomimetic NN matches functional shape."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.science.org/doi/10.1126/scirobotics.adi8666",
+      "title": "Pinhole compound eye nanowire array",
+      "kw_overlap_count": 0,
+      "kw_overlap_terms": [],
+      "sem_cosine": 0.68,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "Hardware imager not encoder; below all thresholds."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.05315",
+      "title": "Brittle-Star-Inspired Large-N Micro-Aperture Vision Encoder",
+      "kw_overlap_count": 4,
+      "kw_overlap_terms": ["brittle star calcite microlens", "large-N micro-aperture encoders", "pigmentation gain mask", "skeleton-style vision array"],
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin across all three rules — large-N identical micro-encoders + global pigmentation gain map."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.18620",
+      "title": "Compound-Eye Token Bundle with Global Aperture Mask",
+      "kw_overlap_count": 3,
+      "kw_overlap_terms": ["overlapping micro-patch FoV", "pigmentation gain mask", "large-N micro-aperture encoders"],
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Compound-eye style overlapping micro-aperture token bundle + global gain — same mechanism."
+    }
+  ],
+  "hits": 5,
+  "non_hits": 3,
+  "hit_ranks": [1, 3, 5, 7, 8],
+  "non_hit_ranks": [2, 4, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "5 of 8 results trigger hits, including two direct twins (ranks 7 and 8) with sem>=0.92 and func>=0.90 covering both the large-N micro-aperture encoders and the global pigmentation gain mask. Multi-cluster matches plus the direct brittle-star-inspired encoder paper indicate the SKELETON-VIS candidate is not novel."
+}

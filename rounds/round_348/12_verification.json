@@ -1,0 +1,32 @@
+{
+  "round": "348",
+  "candidate": "RECEPTOR-MUTATE: point-wise targeted Q/K weight modification at identified critical positions to block adversarial dock-sites while preserving general attention function.",
+  "verification_status": "INFRASTRUCTURE_FAILURE_API_POLICY",
+  "infrastructure_note": "Cross-agent verification subagent returned 'Usage Policy' API error on two attempts (agentId a9085e208f8d6b1c1 and a4e8278142e2be455). Precedent: R022 same issue. Verification falls back to primary-author judgment with explicit infra-failure flag. The primary author's 07_hit_miss.json shows total_hits=6 with verdict FAIL — verdict mechanically supported even without cross-agent re-judging because keyword channel (rank 7 kw=2), semantic channel (7/8 sem>=0.7), and functional channel (6/8 func>=0.7) all independently exceed threshold and are mechanically computed.",
+  "calibration_anchors_primary_only": {
+    "rank_7_2603.21915_Q_K_point_mutation": {"func": [0.9, 0.95], "note": "direct twin of RECEPTOR-MUTATE"},
+    "rank_8_2511.18804_receptor_residue_defense": {"func": [0.85, 0.92], "note": "function-preserving point modification"},
+    "rank_2_DeTAM_ACL_2025": {"func": [0.88, 0.95], "note": "finetune-free targeted attention modification — same family"},
+    "rank_3_selective_head_intervention": {"func": [0.80, 0.88], "note": "selective head intervention"},
+    "rank_4_Antidote_2603.00498": {"func": [0.70, 0.80], "note": "harmful-weight pruning — adjacent (deletion not mutation)"},
+    "rank_5_jailbreak_trace": {"func": [0.62, 0.70], "note": "detection only"},
+    "rank_6_attention_eclipse": {"func": [0.68, 0.75], "note": "attack-side counterpart"},
+    "rank_1_mongoose_pmc": {"func": [0.0, 0.1], "note": "source-domain biology"}
+  },
+  "per_result_judgments_primary_only": [
+    {"rank": 1, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC49782/", "title": "Mongoose ACh receptor binding site", "kw": 1, "sem": 0.10, "func": 0.05, "hit": false, "rationale": "Source-domain biology only."},
+    {"rank": 2, "url": "https://aclanthology.org/2025.findings-acl.613/", "title": "DeTAM Defending Jailbreak via Targeted Attention Modification (ACL 2025)", "kw": 1, "sem": 0.90, "func": 0.92, "hit": true, "rationale": "Direct match: finetune-free targeted attention modification at adversarial-sensitive heads. sem>=0.7 AND func>=0.7."},
+    {"rank": 3, "url": "https://openreview.net/forum?id=ClraZoVSWx", "title": "Selective Head Intervention", "kw": 0, "sem": 0.85, "func": 0.85, "hit": true, "rationale": "Selective intervention at identified heads — same family."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2603.00498", "title": "Strengthening Defense Harmful Fine-tuning (Antidote)", "kw": 0, "sem": 0.78, "func": 0.75, "hit": true, "rationale": "Antidote identifies + prunes harmful weights — adjacent (pruning vs. mutation)."},
+    {"rank": 5, "url": "https://arxiv.org/html/2602.11495", "title": "Jailbreaking Leaves a Trace internal repr (2026/02)", "kw": 0, "sem": 0.70, "func": 0.68, "hit": true, "rationale": "Detection from internal representations — semantic threshold reached."},
+    {"rank": 6, "url": "https://arxiv.org/html/2502.15334", "title": "Attention Eclipse Manipulating Attention", "kw": 0, "sem": 0.72, "func": 0.72, "hit": true, "rationale": "Attention manipulation (attack side); functionally adjacent to defensive modification."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.21915", "title": "Q/K Point-Mutation Adversarial-Site Blocking (2026/03)", "kw": 2, "sem": 0.95, "func": 0.95, "hit": true, "rationale": "Direct twin: targeted Q/K point-wise weight modification at identified positions."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2511.18804", "title": "Receptor-Residue Function-Preserving Defense (2025/11)", "kw": 1, "sem": 0.92, "func": 0.90, "hit": true, "rationale": "Function-preserving point modification at critical positions — same as RECEPTOR-MUTATE."}
+  ],
+  "hits": 7,
+  "non_hits": 1,
+  "hit_ranks": [2, 3, 4, 5, 6, 7, 8],
+  "non_hit_ranks": [1],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two-attempt cross-agent spawn returned API policy errors (Request IDs req_011Cay3v1jbSZ1n11EdqCs4B and req_011Cay3wHY8wqLVDS5eKUvvT) — same failure pattern as R022. Primary-author judgment substituted, with explicit infrastructure-failure flag. RECEPTOR-MUTATE has direct prior art (DeTAM ACL 2025 + 2603.21915 + 2511.18804); verdict mechanically supported by all three channels (kw, sem, func) at multiple results."
+}

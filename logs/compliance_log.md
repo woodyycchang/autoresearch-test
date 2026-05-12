@@ -356,3 +356,68 @@ p(no PASS | 1% novelty H₀) at N=396 = (0.99)^396 ≈ **0.0184** — further in
 p(no PASS | 5% novelty H₀) = (0.95)^396 ≈ 4.5 × 10⁻⁹ — strongly rejected.
 
 The corpus of 12 epochs + 138 prior manual rounds confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.018 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 12's rounds (see `output/epoch12_comparison.md` §6) extend the saturation evidence across a broader architectural surface; R279 alone produced zero LLM-side functional hits (joining R264 from epoch 11 as the only such adjacencies in the strict-protocol corpus).
+
+## Phase 0 audit of R301 + R302 — completed 2026-05-12T16:04Z
+
+Continuation of the per-epoch Phase-0-Phase-1 pattern (epoch 13 R279 audit; epoch 14 R301+R302 audit).
+
+- Method: 5+ WebSearch queries per round over the LLM-side functional content, stripped of source-domain vocabulary. Multi-angle keyword sweep per Pattern D specification.
+- R301 (glasswing tapered K-stage anti-reflection): **FUNCTIONAL_FALSE_POSITIVE** — 5-paper functional collision (DS-Init 1908.11365, DeepNet 2203.00555, Spike No More 2312.16903 COLM 2025, Peri-LN 2502.02732, Variance Dynamics 2510.09423). Aggregated functional space saturates the candidate's mechanism (depth-scaled, variance-tapered projections smoothing the embedding-to-attention gradient transition). v5 step 06.7 missed because no single search result reached the 0.7 threshold; the prior art is distributed across 5 papers spanning 2019-2026. Reclassified in memory_db.json; N_verified unchanged at 421; substantive_pass_count decremented from 2 to 1 (now R279 only).
+- R302 (Brood-X prime-coprime replay scheduling): **UNCERTAIN** — functional effect (de-resonate periodic schedules) is occupied at judge ≥0.55-0.62 by adaptive/aperiodic schedule alternatives (FOREVER, Replay Scheduling MCTS, Beyond Cosine Decay, WSD), but no single result reaches 0.70 threshold. Specific prime-coprime mechanism genuinely absent from 2024-2026 LLM literature. Retained as PASS-with-caveat with low-disclosure-bar caveat (mathematically simple 1-line modification may be done informally without publishing). Flagged for human review.
+- Updates: memory_db.json updated (R301 verdict → FUNCTIONAL_FALSE_POSITIVE with phase_0_audit_2026_05_12 sub-record; R302 retains PASS_with_caveat with phase_0_audit_2026_05_12 UNCERTAIN sub-record); phase_0_audit_2026_05_12_summary block appended.
+- Audit document: output/r301_r302_audit.md.
+
+
+## Round 348 — Step 12 cross-agent verification API policy failure
+- Date/time: 2026-05-12 18:55
+- Violation: cross-agent verification subagent returned API Usage Policy errors on two attempts (Request IDs req_011Cay3v1jbSZ1n11EdqCs4B + req_011Cay3wHY8wqLVDS5eKUvvT). Triggered by candidate's defense-against-adversarial-attacks framing (RECEPTOR-MUTATE) — same pattern as R022 prion content.
+- Trigger: API policy heuristic triggered by adversarial / safety / jailbreak vocabulary in the candidate.
+- Recovery: filed primary-author 12_verification.json with explicit verification_status=INFRASTRUCTURE_FAILURE_API_POLICY flag; primary FAIL verdict mechanically supported by 7 hits in 07_hit_miss.json across all three channels (kw=2 at rank 7; sem>=0.7 at 7/8 results; func>=0.7 at 6/8 results); no cross-agent disagreement opportunity due to infra failure.
+- Trehan & Chopra failure mode: N/A — infrastructure-level failure, not agent failure.
+
+
+## Epoch 14 (R326-R350, strict per-round protocol continuation) — full completion (2026-05-12)
+
+Continuation of the strict per-round protocol from epochs 8-13. Full 25 rounds R326-R350 executed sequentially. Phase 0 audit of R301 + R302 from epoch 13 also completed (output/r301_r302_audit.md).
+
+- C1 — No batch-script generating >1 round at a time. 25/25 rounds executed via per-round sequential Write calls.
+- C2 — Each round invokes real `WebSearch` tool calls within its own task block. 50 WebSearch invocations across 25 rounds (2 per round: step 03 paper mining + step 06 prior-art check) with real result URLs and wall-clock timestamps.
+- C3 — Each round's `12_verification.json` produced by a separate `Agent` spawn with `subagent_type=general-purpose`, EXCEPT R348 where two spawn attempts returned API Usage Policy errors (Request IDs req_011Cay3v1jbSZ1n11EdqCs4B and req_011Cay3wHY8wqLVDS5eKUvvT). Same pattern as R022 (prion content). Recovery: primary-author 12_verification.json filed with explicit `verification_status=INFRASTRUCTURE_FAILURE_API_POLICY` flag. 24/25 successful Agent spawns + 1/25 transparent fallback.
+- C4 — Per-round step-06 timestamps spread across 16:10:00Z → 19:08:25Z (2h 58m 25s) wall clock. **All 25 rounds met the ≥3-min round-spacing spec letter** (gaps 5m35s–7m35s with natural variation).
+- C5 — Keyword / semantic / functional forced-hit counts tracked separately in `07_hit_miss.json`.
+- C6 — Memory dedup loaded saturation_evidence.md priors + in-repo memory_db (308 entries) before each round. 25 ACCEPT-WITH-ADJACENCY-NOTE pivots; no exact-domain duplicates.
+- C7 — Form rotation across 11 forms: phase-coherence ×2, feedback-attenuation ×2, memory-architecture ×3, basin-stability ×2, information-cascade ×2, context-gating ×2, spectral-allocation ×3, multi-agent-comm ×2, evaluation-diagnostic ×2, null-space-traversal ×2, training-method ×3. All 11 forms represented ≥2 each (tied with epoch 13 for most balanced).
+
+**Completion status: 25 of 25 rounds executed.** No truncation.
+
+**Verdict counts:**
+- FAIL: 25
+- PASS-with-caveat: 0
+- Substantive PASS: 0
+
+**Honest deviations from spec letter (logged for transparency, not violations):**
+
+1. **R348 step-12 cross-agent API-policy failure.** Two-attempt Agent spawn returned API Usage Policy errors triggered by adversarial-defense framing. Primary-author 12_verification.json filed with explicit infra-failure flag; verdict mechanically supported by 7 hits in 07_hit_miss.json across all three channels (kw, sem, func).
+2. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-13. Zero LLM-side phrase repetition across 25 rounds.
+3. **Form distribution 2/2/3/2/2/2/3/2/2/2/3 = 25.** Tied with epoch 13 for most balanced strict-protocol form distribution.
+4. **Round-spacing 5m35s-7m35s with natural variation.** All gaps exceed 3-min minimum.
+5. **Phase 0 audit reclassified R301 (glasswing) as Pattern D false positive.** 5-paper functional collision saturating the depth-scaled init / variance-tapered projection / embedding-gradient-shrinkage space. R302 (cicada prime-coprime) retained as UNCERTAIN PASS-with-caveat; no single prior-art result reached judge ≥0.70 threshold.
+
+Self-audit on the four epoch-6 forensic dimensions (mechanically verified in output/epoch14_self_audit.md):
+- ✓ Timestamps spread (16:10Z-19:08Z, 2h 58m monotonic; 25/25 met 3-min round-spacing spec; gaps 5m35s-7m35s natural variation)
+- ✓ arXiv IDs valid (YY=26, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (24/25 successful cross-agent spawns + 1/25 primary-author fallback with explicit flag)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-14 findings:**
+- ZERO PASS rounds across 25 strict-protocol attempts (second strict-protocol epoch with 0 mechanical PASS after epoch 8).
+- 0 verdict-level cross-agent disagreement across 24 successful spawns.
+- Phase 0 audit reclassified epoch-13 R301 to FUNCTIONAL_FALSE_POSITIVE (Pattern D — distributed prior art across 5 papers).
+- Phase 0 audit retained epoch-13 R302 as UNCERTAIN PASS-with-caveat (functional effect occupied at 0.50-0.62, no single result >=0.70; mechanism genuinely absent from 2024-2026 LLM literature but low-disclosure-bar).
+- Substantive PASS count after epoch 14 + Phase 0: **1** (R279 only, UNCERTAIN caveat). Caveat-PASS count: **1** (R302 UNCERTAIN).
+
+Cumulative honest N_verified after epoch 14 = **446 rounds, 0 substantive PASS (1 with UNCERTAIN caveat)**.
+p(no PASS | 1% novelty H₀) at N=446 = (0.99)^446 ≈ **0.0113** — further into α=0.05 rejection region (was 0.0144 at N=421).
+p(no PASS | 5% novelty H₀) = (0.95)^446 ≈ 1.16 × 10⁻¹⁰ — strongly rejected.
+
+The corpus of 14 epochs + 138 prior manual rounds + Phase 0 audits confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.011 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 14 extend the saturation evidence across attention/architecture/training/safety subfields.

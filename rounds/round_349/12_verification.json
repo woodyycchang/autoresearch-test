@@ -1,0 +1,96 @@
+{
+  "round": "349",
+  "candidate": "STOT-SIGNAL: handicap-principle costly honesty-signal per multi-agent response making deception expensive at emission time.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "semantic_threshold": 0.7,
+    "functional_threshold": 0.7,
+    "keyword_threshold": 2,
+    "content_words_llm_side": [
+      "costly honesty-signal per response",
+      "handicap-principle multi-agent verification",
+      "per-response proof-of-work signal",
+      "deception-expensive worker output"
+    ]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Stotting",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source domain (gazelle biology); not LLM-side overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2506.04133v3",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (TRiSM trust framework adjacent)."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2604.01151",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (collusion detection — same goal)."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2503.09648v1",
+      "kw_count": 1,
+      "sem_cosine": 0.80,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (BlockAgents Proof-of-Thought consensus — direct cost-signal mechanism)."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2508.02994v1",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (agent-as-judge evaluation, adjacent)."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2503.13657",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "Below all thresholds; failure analysis not honesty mechanism."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.15205",
+      "kw_count": 3,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: handicap-principle costly honesty-signal per response — all three signals pass."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.21330",
+      "kw_count": 3,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Stotting-inspired proof-of-work worker-output verification — direct match all three signals."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 3, 4, 5, 7, 8],
+  "non_hit_ranks": [1, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Six of eight results hit, including two direct twins (ranks 7 and 8) explicitly describing handicap-principle costly honesty-signals and stotting-inspired proof-of-work signals on worker responses. With max sem 0.95 and max func 0.95, plus distinct overlapping clusters (TRiSM, collusion detection, BlockAgents Proof-of-Thought, agent-as-judge), the STOT-SIGNAL mechanism is well-covered in prior work and not novel."
+}

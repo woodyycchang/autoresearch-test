@@ -1,0 +1,98 @@
+{
+  "round": "346",
+  "candidate": "MULTILAYER-DETERRENT-EVAL: 5-layer cost-escalating eval cascade (regex/keyword surface check -> small classifier -> embedding-similarity -> mid-size judge -> frontier LLM-as-judge last resort), mirroring velvet-ant escalating defense topology.",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 content-word matches across LLM-side and source-side",
+    "sem_rule": "sem_cosine>=0.7",
+    "func_rule": "judge_score>=0.7",
+    "hit_if": "kw>=2 OR sem>=0.7 OR func>=0.7"
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Velvet_ant",
+      "kw": 4,
+      "kw_matched": ["velvet ant aposematic", "5-layer escalating defense", "high-cost sting last resort", "Mullerian mimicry warning"],
+      "sem": 0.10,
+      "func": 0.05,
+      "hit": true,
+      "note": "Source-domain anchor: matches >=2 source-side content words about velvet-ant aposematic defense; sem/func near zero because it is biology not LLM evaluation. Counts as hit by kw rule (source-side overlap)."
+    },
+    {
+      "rank": 2,
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/08dabd5345b37fffcbe335bd578b15a0-Paper-Conference.pdf",
+      "kw": 2,
+      "kw_matched": ["cheap-to-expensive judge cascade", "last-resort frontier judge"],
+      "sem": 0.88,
+      "func": 0.90,
+      "hit": true,
+      "note": "Trust-or-Escalate (ICLR 2025): confidence-based escalation cascade from small to stronger judge — direct functional twin of the cheap-to-expensive aspect, just not explicitly 5 layers."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2605.06350",
+      "kw": 2,
+      "kw_matched": ["cheap-to-expensive judge cascade", "5-layer escalating eval cascade"],
+      "sem": 0.82,
+      "func": 0.82,
+      "hit": true,
+      "note": "Decision-theoretic LLM cascade: cost-quality cheap-then-expensive — same backbone idea as the cost-escalating eval cascade."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2604.13717",
+      "kw": 1,
+      "kw_matched": ["cheap-to-expensive judge cascade"],
+      "sem": 0.78,
+      "func": 0.75,
+      "hit": true,
+      "note": "Cost-effective LLM-as-judge: addresses the same cost-vs-judge-quality optimization without explicit 5-layer cascade."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2511.06396v2",
+      "kw": 1,
+      "kw_matched": ["last-resort frontier judge"],
+      "sem": 0.74,
+      "func": 0.72,
+      "hit": true,
+      "note": "Multi-agent debate for safety eval: multi-stage evaluation pipeline; similar layered evaluation but debate not strict cost-cascade."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2603.05399v1",
+      "kw": 0,
+      "kw_matched": [],
+      "sem": 0.68,
+      "func": 0.65,
+      "hit": false,
+      "note": "Judge reliability harness — about stress testing judges, not cost-escalating cascade. Below all three thresholds."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.21205",
+      "kw": 4,
+      "kw_matched": ["5-layer escalating eval cascade", "cheap-to-expensive judge cascade", "aposematic-deterrent surface check", "last-resort frontier judge"],
+      "sem": 0.95,
+      "func": 0.95,
+      "hit": true,
+      "note": "Direct twin: explicit 5-layer regex->classifier->embedding->mid-judge->frontier cascade — matches the candidate's distinctive mechanism almost exactly."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.04610",
+      "kw": 3,
+      "kw_matched": ["aposematic-deterrent surface check", "last-resort frontier judge", "cheap-to-expensive judge cascade"],
+      "sem": 0.92,
+      "func": 0.90,
+      "hit": true,
+      "note": "Aposematic surface deflection + last-resort frontier judge — explicitly the candidate's distinctive surface-plus-last-resort framing."
+    }
+  ],
+  "hits": 7,
+  "non_hits": 1,
+  "hit_ranks": [1, 2, 3, 4, 5, 7, 8],
+  "non_hit_ranks": [6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "7 of 8 retrieved sources hit on the cost-escalating LLM judge cascade theme via at least one of the three rules, including two near-direct twins (ranks 7 and 8) that match the explicit 5-layer cascade and the aposematic surface + last-resort frontier framing. The candidate's distinctive contribution (explicit velvet-ant-style 5-layer cascade with aposematic surface deflection) is already covered by prior/concurrent work, so MULTILAYER-DETERRENT-EVAL is high-overlap and not novel."
+}

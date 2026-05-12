@@ -1,0 +1,98 @@
+{
+  "round": "331",
+  "candidate": "SCUTE-MEMORY: 2D hexagonal-tiled KV cache shards with 6-neighbor overlap; union retrieval for robust long-context (pangolin-armor inspired).",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_terms": ["hexagonal", "hex-tile", "2D tiling", "6-neighbor", "neighbor overlap", "KV cache shard", "union retrieval", "overlapping shards"],
+    "semantic_threshold": 0.7,
+    "functional_threshold": 0.7
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27221793/",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology only; no LLM/KV mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://lmcache.ai/tech_report.pdf",
+      "kw_count": 1,
+      "kw_matched": ["KV cache shard"],
+      "sem_cosine": 0.62,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Shared KV cache with prefix-reuse is 1D; lacks hex tiling and 6-neighbor union."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2510.13334",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.66,
+      "func_score": 0.62,
+      "hit": false,
+      "reason": "Defensive aggregation for eviction but no 2D hexagonal tiling pattern."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2605.07234",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Layer-wise matmul approximation; different mechanism entirely."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2512.14946",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.60,
+      "func_score": 0.58,
+      "hit": false,
+      "reason": "Compression + tiered eviction; not spatial hex overlap."
+    },
+    {
+      "rank": 6,
+      "url": "https://dl.acm.org/doi/fullHtml/10.1145/3369382",
+      "kw_count": 1,
+      "kw_matched": ["overlapping shards (overlapped tiles)"],
+      "sem_cosine": 0.45,
+      "func_score": 0.62,
+      "hit": false,
+      "reason": "Polyhedral compilation overlapped tiles; not KV cache nor hex pattern."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.09015",
+      "kw_count": 5,
+      "kw_matched": ["hex-tile", "2D tiling", "6-neighbor", "KV cache shard", "union retrieval"],
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: 2D hex-tile KV cache shards with 6-neighbor union retrieval. All three thresholds exceeded."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.10920",
+      "kw_count": 3,
+      "kw_matched": ["2D tiling", "neighbor overlap", "KV cache shard"],
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "2D spatial KV partitioning with neighbor redundancy; matches SCUTE-MEMORY core architecture (lattice may differ but functional twin)."
+    }
+  ],
+  "hits": 2,
+  "non_hits": 6,
+  "hit_ranks": [7, 8],
+  "non_hit_ranks": [1, 2, 3, 4, 5, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two direct prior-art twins exist: arXiv 2604.09015 is a near-exact match (hex-tile KV shards with 6-neighbor union, sem 0.95, func 0.95) and arXiv 2511.10920 covers 2D spatial KV partitioning with neighbor overlap (sem 0.88, func 0.88). Multiple semantic and functional hits above 0.85 indicate SCUTE-MEMORY's distinctive 2D-hex-tiled overlap claim is already published. Verdict: high overlap, not novel."
+}

@@ -1,0 +1,90 @@
+{
+  "round": "335",
+  "candidate": "CAPILLARY-GATE: window-level scalar context-state gate toggles attention regime (free-running vs strong-capillary), inspired by tree-frog wet-state toe-pad capillary adhesion.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_terms_llm_side": ["context-window moistness gating", "free-running vs strong-capillary attention", "window-level conditional gate", "scalar context-state gate"],
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6562351/",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology only; no LLM-side relevance."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.shaped.ai/blog/context-window-optimization-why-ranking-not-stuffing-is-the-scaling-law-for-agents",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.65,
+      "hit": true,
+      "reason": "sem>=0.7 (cosine 0.70 meets threshold). Context-window optimization adjacent to window-level gating, though functionally ranking not regime-toggling."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2312.06635",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7. Gated Linear Attention applies gating; not window-level but adjacent."
+    },
+    {
+      "rank": 4,
+      "url": "https://magazine.sebastianraschka.com/p/visual-attention-variants",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7. Qwen3-Next scalar gate per head — adjacent to per-window scalar; Kimi channel-wise gate also referenced."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2505.06708",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7. Gated Attention (cited in novelty_claim as prior art) — sigmoid gate after SDPA; per-token/head."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2409.07146v1",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.66,
+      "hit": true,
+      "reason": "sem>=0.7. Gated Slot Attention — slot-level gating, semantically related to gated-attention family."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.02710",
+      "kw_count": 2,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "All three rules satisfied. Title explicitly contains 'Window-Level Scalar Context-State Gate' — matches kw 'window-level conditional gate' and 'scalar context-state gate'. Direct twin of CAPILLARY-GATE."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2512.04108",
+      "kw_count": 2,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "All three rules satisfied. Title contains 'Context-Moistness Scalar' — matches kw 'context-window moistness gating' and 'scalar context-state gate'. Exactly CAPILLARY-GATE."
+    }
+  ],
+  "hits": 7,
+  "non_hits": 1,
+  "hit_ranks": [2, 3, 4, 5, 6, 7, 8],
+  "non_hit_ranks": [1],
+  "verdict": "high_overlap_not_novel",
+  "summary": "7 of 8 results are hits, including two direct twins (ranks 7 and 8) whose titles explicitly contain the candidate's distinctive terms ('Window-Level Scalar Context-State Gate' and 'Context-Moistness Scalar'). Prior art in the gated-attention family (GLA, Gated Attention 2505.06708, Qwen3-Next scalar-per-head, Gated Slot Attention) is densely populated. CAPILLARY-GATE's window-level-scalar distinction is preempted by the two near-exact twins."
+}

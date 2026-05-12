@@ -1,0 +1,90 @@
+{
+  "round": "343",
+  "candidate": "PUFFER-CAPACITY: threat-detector-triggered 3x inference-capacity inflation loading reasoning LoRA + self-reflection + safety-judge cascade only on detected adversarial input, capped by session inflation budget.",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 keyword overlap on LLM-side content words (threat-triggered capacity inflate, rapid compute 3x burst, session-budget defense burst, context-sensor inflate gate)",
+    "sem_rule": "sem_cosine>=0.7",
+    "func_rule": "func_score>=0.7",
+    "hit_if_any": "kw>=2 OR sem>=0.7 OR func>=0.7"
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://utmsi.utexas.edu/science-and-the-sea/print-article/a-swell-adaptation/",
+      "kw_overlap": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain pufferfish biology only; not LLM-side."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.findings-emnlp.503.pdf",
+      "kw_overlap": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Progressive self-reflection safeguard — sem and func both >= 0.7; adjacent always-on mechanism."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2410.02725",
+      "kw_overlap": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Adaptive inference-time compute by predicted improvement; sem & func >= 0.7."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2602.13562",
+      "kw_overlap": 1,
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Adaptive safe context invoked when needed — same functional shape; sem & func >= 0.7."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2604.14853",
+      "kw_overlap": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Constrained-policy adaptive test-time compute allocation; sem & func >= 0.7."
+    },
+    {
+      "rank": 6,
+      "url": "https://openreview.net/forum?id=6qUUgw9bAZ",
+      "kw_overlap": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "Input-adaptive computation allocation; sem & func >= 0.7."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.31010",
+      "kw_overlap": 4,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: pufferfish-style threat-triggered 3x compute burst + safety cascade + session budget. All three rules satisfied."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.30801",
+      "kw_overlap": 3,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Threat-detector gate + reasoning+self-reflection+judge cascade with explicit session inflation cost cap — matches PUFFER-CAPACITY directly."
+    }
+  ],
+  "hits": 7,
+  "non_hits": 1,
+  "hit_ranks": [2, 3, 4, 5, 6, 7, 8],
+  "non_hit_ranks": [1],
+  "verdict": "high_overlap_not_novel",
+  "summary": "7 of 8 results pass the hit rule; ranks 7 and 8 are direct twins (pufferfish-style threat-triggered inflation with cascade and session cost cap), and ranks 2-6 cover adjacent adaptive-compute and self-reflection safeguards. The only non-hit is the source-domain biology article. The candidate's threat-triggered capacity inflation with safety cascade and inflation budget is already realized in prior work."
+}

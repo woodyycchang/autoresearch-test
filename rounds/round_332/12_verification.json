@@ -1,0 +1,91 @@
+{
+  "round": "332",
+  "candidate": "SNAP-ATTN: phase-coherent attention burst via multi-layer latch-accumulator + threshold-triggered sharp-τ release (pistol shrimp cavitation latch-and-snap).",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_threshold": 2,
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7,
+    "content_words_llm_side": ["inter-layer latch accumulator", "sharp-temperature attention burst", "phase-coherent latch-and-release", "occasional impulsive burst layer"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Alpheidae",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain shrimp biology page; no LLM-side overlap on any axis."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2511.01292",
+      "kw_count": 1,
+      "sem_cosine": 0.66,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "Optimal attention temperature for ICL: touches sharp-τ axis (1 kw) but lacks accumulator/burst-layer mechanism; all three axes below threshold."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2409.19764",
+      "kw_count": 1,
+      "sem_cosine": 0.72,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Spiking transformer with spatial-temporal accumulator: sem>=0.7 AND func>=0.7. Same functional family of accumulator+spike attention."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2312.16903",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Loss-spike management (Spike No More): about training-loss spikes, not controlled attention burst; all axes below threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2407.04752",
+      "kw_count": 1,
+      "sem_cosine": 0.68,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "SpikeLLM saliency-based spiking: func>=0.7 (saliency-spike accumulator + release in same family)."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2602.01194",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Accumulative-context fine-tuning for temporal forecasting; accumulator concept but no impulsive sharp-τ burst layer; all axes below threshold."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.13315",
+      "kw_count": 4,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "reason": "Direct twin: 'Multi-Layer Latch Accumulator with Impulsive Sharp-τ Attention Burst' matches all four LLM-side content words; all three axes far above threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.18402",
+      "kw_count": 3,
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Adaptive temperature burst layers selected via accumulator: matches sharp-temperature burst + occasional impulsive burst layer + inter-layer accumulator; all three axes above threshold."
+    }
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [3, 5, 7, 8],
+  "non_hit_ranks": [1, 2, 4, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Four of eight retrieved results clear the hit-rule, including two near-direct twins (ranks 7 and 8) that explicitly describe a multi-layer accumulator triggering a sharp-temperature attention burst layer. Ranks 3 and 5 establish the broader spiking/saliency-accumulator family that SNAP-ATTN sits within. The distinctive multi-layer-latch + impulsive-sharp-τ release combination is already covered in the prior literature, so the candidate is high-overlap and not novel."
+}

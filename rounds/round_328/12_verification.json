@@ -1,0 +1,123 @@
+{
+  "round": "328",
+  "candidate": "GOLIATH-PERIMETER: large-N (~10-20) independent narrow-purpose guard filters around LLM input with union-of-flags admit/reject and individual replaceability (stigmergy-style perimeter trading depth for breadth).",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_threshold": 2,
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7,
+    "candidate_keywords": ["large-N independent guard filters", "union-of-flags perimeter", "stigmergy-style redundant defense", "single-purpose filter mesh", "individual stone replaceability", "aggregate passive defense"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Goliath_frog",
+      "title": "Goliath frog — Wikipedia",
+      "kw_count": 0,
+      "sem_cosine": 0.12,
+      "func_score": 0.05,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "is_hit": false,
+      "reasoning": "Pure source-domain biology page (frog only), no LLM-side overlap on any axis."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2505.03574v1",
+      "title": "LlamaFirewall: Open-source guardrail system (Meta, 2025/05)",
+      "kw_count": 1,
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": true,
+      "is_hit": true,
+      "reasoning": "Parallel multi-guardrail aggregator. Small-N (3 channels) but same parallel-union shape; sem and func both clear thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.mdpi.com/2076-3417/15/13/7298",
+      "title": "Innovative Guardrails for Generative AI (MDPI 2025)",
+      "kw_count": 1,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": true,
+      "is_hit": true,
+      "reasoning": "Agreement Validation Interface — ensemble of specialized modules at gateway; sem and func both at/above threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2502.15427v1",
+      "title": "Adversarial Prompt Evaluation: Benchmarking Guardrails (2025/02)",
+      "kw_count": 1,
+      "sem_cosine": 0.70,
+      "func_score": 0.68,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": false,
+      "is_hit": true,
+      "reasoning": "Sem exactly at 0.70 threshold (inclusive). Benchmarking work; func just below. One axis is sufficient per hit-rule."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2504.11168v1",
+      "title": "Bypassing Prompt Injection and Jailbreak Detection (2025/04)",
+      "kw_count": 1,
+      "sem_cosine": 0.65,
+      "func_score": 0.62,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "is_hit": false,
+      "reasoning": "Bypass analysis adjacent but not perimeter-architecture; all three axes below threshold."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2605.05704",
+      "title": "SafeHarbor Hierarchical Memory-Augmented Guardrail (2026/05)",
+      "kw_count": 1,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": true,
+      "is_hit": true,
+      "reasoning": "Hierarchical not perimeter, but multi-layer guardrail achieving same defensive end; both sem and func above threshold."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.18820",
+      "title": "Many-Filter Union Perimeter for LLM Input Safety (2026/03)",
+      "kw_count": 4,
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "kw_hit": true,
+      "sem_hit": true,
+      "func_hit": true,
+      "is_hit": true,
+      "reasoning": "Direct twin — 16+ narrow-purpose filters, union-decision, input perimeter — matches keywords 'union-of-flags perimeter', 'single-purpose filter mesh', 'large-N independent guard filters', 'aggregate passive defense'. All three axes well above threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.10405",
+      "title": "Replaceable Filter Mesh for Robust LLM Guardrail (2025/11)",
+      "kw_count": 4,
+      "sem_cosine": 0.93,
+      "func_score": 0.92,
+      "kw_hit": true,
+      "sem_hit": true,
+      "func_hit": true,
+      "is_hit": true,
+      "reasoning": "Direct twin — 20 narrow filters, hot-swap (individual replaceability), union flag aggregation. Matches 'single-purpose filter mesh', 'individual stone replaceability', 'union-of-flags perimeter', 'large-N independent guard filters'. All three axes clear."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 3, 4, 6, 7, 8],
+  "non_hit_ranks": [1, 5],
+  "verdict": "high_overlap_not_novel",
+  "summary": "6 of 8 results are hits, including two direct twins (rank 7 'Many-Filter Union Perimeter' and rank 8 'Replaceable Filter Mesh') that independently realize GOLIATH-PERIMETER's core distinctive claims — large-N narrow filters, union-of-flags decision, and individual replaceability — with max cosine 0.95 and max func 0.95. The candidate's stated novelty (large-N + union + replaceable) is already published prior art; verdict is high-overlap, not novel."
+}

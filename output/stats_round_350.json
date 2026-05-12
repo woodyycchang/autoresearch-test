@@ -1,0 +1,146 @@
+{
+  "rounds_completed": 350,
+  "epoch": 14,
+  "epoch_14_rounds": "326..350",
+  "program": "program_v5.md (strict per-round protocol continuation)",
+  "pass_count_substantive_confirmed": 0,
+  "pass_count_mechanical_v5_definition": 0,
+  "pass_with_caveat_count": 0,
+  "fail_count": 25,
+  "pass_with_caveat_rounds": [],
+  "pass_with_caveat_notes": {},
+  "substantive_pass_count_v5": 0,
+  "v5_functional_metrics_epoch_14": {
+    "functional_hits_caught_total": 110,
+    "rounds_with_at_least_one_functional_hit": 25,
+    "mean_max_judge_score_per_round": 0.95,
+    "multi_cluster_match_rounds": 25
+  },
+  "forced_hit_stats_epoch_14": {
+    "mean_forced_hit_per_round_keyword_only": 0.96,
+    "mean_forced_hit_per_round_semantic_only": 4.84,
+    "mean_forced_hit_per_round_functional_only": 4.40,
+    "mean_total_forced_hit_per_round_all_channels": 4.92,
+    "rounds_with_zero_keyword_forced_hits": 1,
+    "rounds_with_zero_semantic_forced_hits": 0,
+    "rounds_with_zero_functional_forced_hits": 0
+  },
+  "max_cosine_per_round_mean": 0.86,
+  "disagreement_count_verdict_level": "0/24 successful spawns (0%); 1/25 R348 step-12 infra-failure with primary-author fallback",
+  "verdict_disagreement_rounds": [],
+  "compliance_rates_epoch_14": {
+    "step_03_web_search_performed_per_round": "25/25",
+    "step_04_5_memory_check_performed": "25/25",
+    "step_05_candidate_with_4llm_4src_composition": "25/25",
+    "step_06_web_search_performed_per_round": "25/25",
+    "step_06_5_semantic_check_performed": "25/25",
+    "step_06_7_functional_judge_performed": "25/25",
+    "step_07_keyword_AND_semantic_AND_functional_rules_applied": "25/25",
+    "step_10_mechanical_verdict": "25/25",
+    "step_11_audit_performed": "25/25",
+    "step_12_verification_completed_via_agent_spawn": "24/25 successful + 1 primary-author-fallback (R348 API policy infra failure)"
+  },
+  "forms_used_epoch_14": {
+    "phase-coherence": 2,
+    "feedback-attenuation": 2,
+    "memory-architecture": 3,
+    "basin-stability": 2,
+    "information-cascade": 2,
+    "context-gating": 2,
+    "spectral-allocation": 3,
+    "multi-agent-comm": 2,
+    "evaluation-diagnostic": 2,
+    "null-space-traversal": 2,
+    "training-method": 3
+  },
+  "v5_score_calculation_epoch_14": {
+    "formula": "(substantive_pass_count × 10) + (25 − mean_forced_hit_keyword_only) + (disagreement_rate × 5) − (false_positive_count × 5)",
+    "substantive_pass_count_x_10_confirmed": 0,
+    "twenty_five_minus_mean_forced_hit_keyword": 24.04,
+    "disagreement_rate_verdict_level_x_5": 0.00,
+    "false_positive_count_x_5_negative": 0,
+    "score_v5_confirmed": 24.04
+  },
+  "integrity_audit_summary_epoch_14": {
+    "timestamps_spread_minutes": 178,
+    "first_ts_identical_across_rounds": false,
+    "round_to_round_gap_3min_compliance": "25/25 (gaps 5m35s-7m35s, naturally varying)",
+    "arxiv_ids_valid_yymm": true,
+    "synthetic_arxiv_ids_count": 0,
+    "verification_byte_differ_from_07": "24/25 from cross-agent spawns + 1/25 primary-author fallback (R348 with explicit infra-failure flag)",
+    "content_words_lists_distinct": "25/25",
+    "llm_side_phrase_repeats_across_rounds": 0,
+    "form_distribution_uniform_5_5_5_5_5": false,
+    "form_distribution_explanation": "11 forms exercised at 2/2/3/2/2/2/3/2/2/2/3 — matches epoch 13 balance; all 11 v5 forms ≥2 times"
+  },
+  "phase_0_audit_outcomes": {
+    "R301_glasswing_nano_pillar_tapered_K_stage": {
+      "verdict": "FUNCTIONAL_FALSE_POSITIVE",
+      "pattern": "D",
+      "prior_art_collisions_count": 5,
+      "prior_art_papers": ["DS-Init 1908.11365", "DeepNet 2203.00555", "Spike No More 2312.16903 COLM 2025", "Peri-LN 2502.02732", "Weight Init Variance Dynamics 2510.09423"],
+      "note": "5-paper functional collision across 2019-2026; v5 step 06.7 missed because prior art distributed across multiple papers, no single result reached 0.7. Recommends v6 multi-result functional-judge aggregation."
+    },
+    "R302_brood_X_prime_coprime_replay": {
+      "verdict": "UNCERTAIN",
+      "pattern": "borderline-D",
+      "prior_art_collisions_count_below_threshold": 5,
+      "prior_art_papers": ["Periodic Behavior NN BN+WD 2106.15739", "FOREVER 2601.03938", "Replay Scheduling MCTS 2209.08660", "Beyond Cosine Decay 2503.02844", "WSD non-cyclical scheduler"],
+      "note": "Functional effect occupied at 0.50-0.62; no single result reaches 0.70. Prime/coprime mechanism genuinely absent from 2024-2026 LLM literature. Caveat: low-disclosure-bar mechanism — negative search evidence is weak. Retained as PASS-with-caveat, flagged for human review."
+    }
+  },
+  "combined_with_prior_epochs": {
+    "total_rounds_claimed_at_end_of_epoch_14": 438,
+    "N_compromised_epoch_6": 25,
+    "N_verified_honest_cumulative": 446,
+    "calculation_note": "138 prior + 25 e1 + 25 e2 + 25 e3 + 25 e4 + 25 e5 + 0 e6 (compromised) + 8 e7 + 25 e8 + 25 e9 + 25 e10 + 25 e11 + 25 e12 + 25 e13 + 25 e14 = 446",
+    "substantive_pass_count_confirmed": 0,
+    "substantive_pass_count_with_caveat": "1 (R279, UNCERTAIN caveat) + 1 (R302, UNCERTAIN caveat after Phase 0)",
+    "p_value_vs_1pct_novelty_rate_no_pass": "0.0113 — deeper into α=0.05 rejection region (was 0.0144 at N=421)",
+    "p_value_vs_2pct_novelty_rate_no_pass": "1.22e-04",
+    "p_value_vs_5pct_novelty_rate_no_pass": "1.16e-10",
+    "p_value_vs_10pct_novelty_rate_no_pass": "3.91e-21"
+  },
+  "stats_progression": {
+    "N_verified_round_300": 396,
+    "N_verified_round_325": 421,
+    "N_verified_round_350": 446,
+    "p_1pct_at_N_verified_progression": {
+      "N=263": 0.0711,
+      "N=296": 0.0518,
+      "N=321": 0.0388,
+      "N=346": 0.0302,
+      "N=371": 0.0235,
+      "N=396": 0.0184,
+      "N=421": 0.0144,
+      "N=446": 0.0113
+    }
+  },
+  "literature_clusters_retrieved_epoch_14": [
+    "frequency-disjoint specialist attention heads + Fourier disjoint weights + wavelet-banded MHA (R326 mantis-shrimp 16-cone)",
+    "drift-compensated RoPE base + decode-velocity aware PE + dynamic-YaRN (R327 bat Doppler)",
+    "many-filter union perimeter + replaceable filter mesh + LlamaFirewall + AVI gateway (R328 Goliath frog stones)",
+    "aftereffect-style residual drift diagnostic + per-prompt-class distortion lookup (R329 archerfish)",
+    "two-stimulus pre-commit gate + integrate-and-fire tool-call routing (R330 Venus flytrap)",
+    "hex-tiled overlapping KV cache + 2D spatial KV partitioning (R331 pangolin)",
+    "multi-layer latch accumulator + sharp-τ burst layer + spiking transformer (R332 pistol shrimp)",
+    "eusocial-style suppression hierarchy + single-queen succession failover (R333 mole-rat)",
+    "bilayer spring parameter group + cyclic preload-release-reset optimizer (R334 stomatopod saddle)",
+    "window-level scalar context-state gate + context-moistness scalar + gated attention (R335 tree-frog toe)",
+    "repose-angle loss regularizer + critical-angle basin maintenance + SAM (R336 antlion)",
+    "brittle-star micro-aperture vision encoder + compound-eye token bundle + MSPE (R337 brittle star)",
+    "dedicated low-pass residual branch + casque-resonant receiver branch + RMT (R338 cassowary)",
+    "twin-LoRA gradual bias-blend swap + phenotype-style adapter alternation + dynamic LoRA (R339 snowshoe hare)",
+    "asymmetric dual-path encoder + ILD-difference channel + LTX-2 asymmetric stream (R340 owl)",
+    "hummingbird-style 75-25 asymmetric decode + figure-eight decoder cycle + Bi-directional NAACL 2025 (R341 hummingbird)",
+    "multi-tier bark-snapshot defense + heartwood-checkpoint bark + TAR tamper resistance (R342 sequoia)",
+    "pufferfish-style threat-triggered inflation + threat-detector gated inflation + ASCL + adaptive compute (R343 pufferfish)",
+    "pre-folded reserve pleat + saguaro-style accordion parameter expansion (R344 saguaro)",
+    "polarization-style orthogonal channel pairs + mantis-shrimp reserved polarity channel + hidden-dim alignment (R345 mantis shrimp polarization)",
+    "5-layer cost-escalating eval cascade + aposematic surface + trust-or-escalate ICLR 2025 (R346 velvet ant)",
+    "hairarray embedding-extension + solifugid detector mesh + LLM feature generation interpretable (R347 solifugid)",
+    "DeTAM targeted attention modification + Q/K point-mutation + receptor-residue defense (R348 mongoose)",
+    "handicap-principle costly honesty signal + stotting-inspired proof-of-work + BlockAgents Proof-of-Thought (R349 gazelle)",
+    "bipolar stress-direction init + composite-laminate-style init + tanh fixed-point init + gradient-alignment PINN (R350 Mongolian bow)"
+  ]
+}

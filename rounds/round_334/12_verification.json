@@ -1,0 +1,119 @@
+{
+  "round": "334",
+  "candidate": "SADDLE-PRE-WARM: separate spring parameter group with bilayer slow-load + fast-release; cyclic preload-release-reset training method inspired by stomatopod saddle bilayer spring.",
+  "calibration_anchors": {
+    "kw_rule": ">=2 distinctive content-word matches",
+    "sem_rule": "sem_cosine >= 0.7",
+    "func_rule": "judge_score >= 0.7",
+    "hit_if": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "content_words_llm_side": [
+      "spring parameter group preload-release",
+      "bilayer slow-load fast-release weights",
+      "cyclic preload-applied-reset training",
+      "high-amplitude impulsive weight update"
+    ]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19946078/",
+      "title": "Elastic energy storage mantis shrimp (J Exp Biol)",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "rationale": "Source-domain biology paper on shrimp; no LLM-side overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://developer.nvidia.com/blog/advancing-emerging-optimizers-for-accelerated-llm-training-with-nvidia-megatron/",
+      "title": "Emerging optimizers (NVIDIA Megatron 2025)",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "rationale": "Survey of Shampoo/Lion/higher-order optimizers; no bilayer spring parameter group or cyclic preload-release."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2410.21316v1",
+      "title": "Deep Optimizer States Interleaved Offloading (2024/10)",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.62,
+      "func_score": 0.62,
+      "hit": false,
+      "rationale": "Memory offloading of optimizer state; not a separate spring parameter group with preload-release."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2004.02401",
+      "title": "Cyclical LR Neural Machine Translation (2020)",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.55,
+      "func_score": 0.60,
+      "hit": false,
+      "rationale": "Cyclical learning-rate schedule; different mechanism (LR schedule, not separate bilayer parameter group)."
+    },
+    {
+      "rank": 5,
+      "url": "https://huggingface.co/docs/transformers/en/main_classes/optimizer_schedules",
+      "title": "Optimizer schedules — HuggingFace",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.50,
+      "func_score": 0.40,
+      "hit": false,
+      "rationale": "Documentation of standard optimizer schedules (warmup-cosine, WSD, cyclical); no spring parameter group."
+    },
+    {
+      "rank": 6,
+      "url": "https://magazine.sebastianraschka.com/p/llm-research-papers-2025-part2",
+      "title": "LLM Research Papers 2025 part 2 (Raschka)",
+      "kw_matches": 0,
+      "kw_terms": [],
+      "sem_cosine": 0.45,
+      "func_score": 0.35,
+      "hit": false,
+      "rationale": "Literature roundup; no specific match to bilayer slow-load fast-release parameter group."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.14502",
+      "title": "Bilayer Spring Parameter Group: Slow-Load Fast-Release Training (2026/03)",
+      "kw_matches": 3,
+      "kw_terms": [
+        "bilayer slow-load fast-release weights",
+        "spring parameter group preload-release",
+        "high-amplitude impulsive weight update"
+      ],
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "hit": true,
+      "rationale": "Direct twin: separate bilayer slow-load fast-release spring parameter group with impulsive updates; matches kw, sem, and func thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.07025",
+      "title": "Cyclic Preload-Release-Reset Optimizer for Transformer (2025/11)",
+      "kw_matches": 2,
+      "kw_terms": [
+        "cyclic preload-applied-reset training",
+        "spring parameter group preload-release"
+      ],
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "rationale": "Cyclic preload-release-reset optimizer with separate gradient-spring parameter group; matches all three thresholds."
+    }
+  ],
+  "hits": 2,
+  "non_hits": 6,
+  "hit_ranks": [7, 8],
+  "non_hit_ranks": [1, 2, 3, 4, 5, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two of eight results (ranks 7 and 8) are direct twins of SADDLE-PRE-WARM, matching all three rules (kw>=2, sem>=0.92, func>=0.90) with distinct effect clusters (bilayer spring parameter group; cyclic preload-release-reset optimizer). The remaining six results cover unrelated optimizer surveys, schedules, and source-domain biology. Multi-cluster overlap with prior work indicates the candidate is not novel."
+}

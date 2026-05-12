@@ -1,0 +1,26 @@
+{
+  "round": "345",
+  "candidate": "POLARIZATION-CHANNEL: reserved orthogonal linear+circular hidden-channel pairs encode polarity attributes (mantis-shrimp-inspired).",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 content-word matches across LLM-side terms",
+    "sem_rule": "sem_cosine>=0.7",
+    "func_rule": "func_score>=0.7",
+    "hit_if_any": true
+  },
+  "per_result_judgments": [
+    {"rank": 1, "url": "https://www.nature.com/articles/ncomms12140", "kw": 0, "sem": 0.10, "func": 0.05, "hit": false, "note": "Source-domain biology paper."},
+    {"rank": 2, "url": "https://aclanthology.org/2025.findings-acl.316/", "kw": 1, "sem": 0.75, "func": 0.72, "hit": true, "note": "Single-channel hidden-state scaling — sem & func above threshold."},
+    {"rank": 3, "url": "https://scholars.cityu.edu.hk/en/publications/the-hidden-dimensions-of-llm-alignment-a-multi-dimensional-analys/projects/", "kw": 1, "sem": 0.78, "func": 0.78, "hit": true, "note": "Orthogonal hidden-dimension safety directions — sem & func above threshold."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2509.20997", "kw": 1, "sem": 0.66, "func": 0.62, "hit": false, "note": "SAE channel info-gain scaling — all metrics below threshold."},
+    {"rank": 5, "url": "https://arxiv.org/html/2605.00358v1", "kw": 0, "sem": 0.55, "func": 0.50, "hit": false, "note": "Parameter editing target construction — unrelated."},
+    {"rank": 6, "url": "https://oa.ee.tsinghua.edu.cn/dailinglong/publications/paper/Large_Language_Model_Enabled_Multi-Task_Physical_Layer_Network.pdf", "kw": 0, "sem": 0.50, "func": 0.45, "hit": false, "note": "Physical-layer comms LLM — off-topic."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.07310", "kw": 3, "sem": 0.95, "func": 0.95, "hit": true, "note": "Direct twin: polarization-style orthogonal linear+circular hidden-channel pairs."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2511.27640", "kw": 3, "sem": 0.92, "func": 0.90, "hit": true, "note": "Mantis-shrimp biomimetic reserved polarity-channel encoding — exact match."}
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [2, 3, 7, 8],
+  "non_hit_ranks": [1, 4, 5, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Four of eight results clear the hit threshold, including two direct twins (ranks 7 and 8) with sem>=0.92 and func>=0.90 that explicitly describe polarization-style orthogonal hidden-channel pairs and mantis-shrimp biomimetic polarity-channel encoding. The candidate POLARIZATION-CHANNEL mechanism is therefore substantially anticipated by prior LLM-side work and is not novel."
+}
