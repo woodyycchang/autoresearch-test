@@ -367,3 +367,11 @@ Continuation of the per-epoch Phase-0-Phase-1 pattern (epoch 13 R279 audit; epoc
 - Updates: memory_db.json updated (R301 verdict → FUNCTIONAL_FALSE_POSITIVE with phase_0_audit_2026_05_12 sub-record; R302 retains PASS_with_caveat with phase_0_audit_2026_05_12 UNCERTAIN sub-record); phase_0_audit_2026_05_12_summary block appended.
 - Audit document: output/r301_r302_audit.md.
 
+
+## Round 348 — Step 12 cross-agent verification API policy failure
+- Date/time: 2026-05-12 18:55
+- Violation: cross-agent verification subagent returned API Usage Policy errors on two attempts (Request IDs req_011Cay3v1jbSZ1n11EdqCs4B + req_011Cay3wHY8wqLVDS5eKUvvT). Triggered by candidate's defense-against-adversarial-attacks framing (RECEPTOR-MUTATE) — same pattern as R022 prion content.
+- Trigger: API policy heuristic triggered by adversarial / safety / jailbreak vocabulary in the candidate.
+- Recovery: filed primary-author 12_verification.json with explicit verification_status=INFRASTRUCTURE_FAILURE_API_POLICY flag; primary FAIL verdict mechanically supported by 7 hits in 07_hit_miss.json across all three channels (kw=2 at rank 7; sem>=0.7 at 7/8 results; func>=0.7 at 6/8 results); no cross-agent disagreement opportunity due to infra failure.
+- Trehan & Chopra failure mode: N/A — infrastructure-level failure, not agent failure.
+

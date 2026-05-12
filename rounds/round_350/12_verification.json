@@ -1,0 +1,123 @@
+{
+  "round": "350",
+  "candidate": "LAMINATE-INIT: gradient-flow-direction-informed bipolar weight initialization with heavy-tail (tension) vs bounded (compression) distributions per weight position, inspired by Mongolian recurve composite bow's opposing-stress laminate.",
+  "calibration_anchors": {
+    "kw_rule": "kw>=2 content-word matches in title+snippet",
+    "sem_rule": "sem_cosine>=0.7",
+    "func_rule": "judge_score>=0.7",
+    "hit_if_any": true,
+    "content_words": ["mongolian composite bow", "horn-compression sinew-tension", "opposing-stress laminate", "year-long construction binding", "gradient-direction-informed init", "tension-vs-compression init distributions", "laminate-style weight initialization", "stress-direction-aware init"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Composite_bow",
+      "kw_matches": 1,
+      "kw_matched_terms": ["mongolian composite bow"],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "hit": false,
+      "note": "Source-domain reference only; no LLM init content."
+    },
+    {
+      "rank": 2,
+      "url": "https://openreview.net/forum?id=Es4RPNDtmq",
+      "kw_matches": 0,
+      "kw_matched_terms": [],
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": true,
+      "hit": true,
+      "note": "Activation-aware structured init (tanh fixed-point) — same family as candidate."
+    },
+    {
+      "rank": 3,
+      "url": "https://link.springer.com/article/10.1007/s10462-021-10033-z",
+      "kw_matches": 0,
+      "kw_matched_terms": [],
+      "sem_cosine": 0.66,
+      "func_score": 0.62,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "hit": false,
+      "note": "General weight init survey; no bipolar/laminate aspect."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.amazon.science/publications/on-the-initialization-of-graph-neural-networks",
+      "kw_matches": 0,
+      "kw_matched_terms": [],
+      "sem_cosine": 0.60,
+      "func_score": 0.55,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "hit": false,
+      "note": "GNN-specific init; not direction-aware/bipolar."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2502.00604v2",
+      "kw_matches": 0,
+      "kw_matched_terms": [],
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "kw_hit": false,
+      "sem_hit": true,
+      "func_hit": true,
+      "hit": true,
+      "note": "Directional gradient conflicts + alignment — directly addresses gradient-direction signal."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0263822322012326",
+      "kw_matches": 1,
+      "kw_matched_terms": ["laminate-style weight initialization (partial: laminate composite)"],
+      "sem_cosine": 0.65,
+      "func_score": 0.62,
+      "kw_hit": false,
+      "sem_hit": false,
+      "func_hit": false,
+      "hit": false,
+      "note": "ANN used to design laminate composites — inverse of candidate (laminate design, not laminate init)."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.06010",
+      "kw_matches": 3,
+      "kw_matched_terms": ["gradient-direction-informed init", "tension-vs-compression init distributions", "stress-direction-aware init"],
+      "sem_cosine": 0.95,
+      "func_score": 0.95,
+      "kw_hit": true,
+      "sem_hit": true,
+      "func_hit": true,
+      "hit": true,
+      "note": "Direct twin: bipolar stress-direction weight init for transformers with two distinct distribution families."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.27305",
+      "kw_matches": 3,
+      "kw_matched_terms": ["laminate-style weight initialization", "tension-vs-compression init distributions", "stress-direction-aware init"],
+      "sem_cosine": 0.92,
+      "func_score": 0.90,
+      "kw_hit": true,
+      "sem_hit": true,
+      "func_hit": true,
+      "hit": true,
+      "note": "Composite-laminate-inspired bipolar init for transformer pretraining — direct functional match to LAMINATE-INIT."
+    }
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [2, 5, 7, 8],
+  "non_hit_ranks": [1, 3, 4, 6],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two direct twins exist (ranks 7 and 8) with sem>=0.92, func>=0.90, and 3+ keyword matches each, including an explicit 'Bipolar Stress-Direction Weight Initialization for Transformers' paper and a 'Composite-Laminate-Inspired Weight Init' paper. Combined with two further functional/semantic hits (tanh fixed-point structured init; directional gradient alignment), the candidate's gradient-direction-informed bipolar tension/compression laminate init is already covered by prior work. High overlap, not novel."
+}
