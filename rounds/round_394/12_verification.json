@@ -1,0 +1,112 @@
+{
+  "round": "394",
+  "verifier": "cross-agent fresh-context R394",
+  "verifier_model": "claude-opus-4-7 (1M, fresh context)",
+  "rule": "hit iff (kw_count>=2) OR (sem_cosine>=0.7) OR (func_score>=0.7); total_hits>=1 -> FAIL",
+  "candidate_form": "null-space-traversal",
+  "candidate_llm_application": "TAMPU-CHASQUI-ADAPTER: two-level fixed-spacing adapter scheme; major tampu every K-layers + minor chasqui-wasi every-layer; heterogeneous function and parameter budget per level",
+  "content_words": [
+    "inca tampu way-station",
+    "chasqui-wasi relay house",
+    "modular standardised station",
+    "Andean road network",
+    "two-level fixed-spacing adapter scheme",
+    "tampu major every K-layers + chasqui-wasi minor every-layer",
+    "different parameter budget per level",
+    "standardised modular pluggable adapters"
+  ],
+  "independent_assessment": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/pdf/2506.18267",
+      "title": "ARD-LoRA Dynamic Rank Allocation Per-Head Per-Layer (2025/06)",
+      "kw_count": 0,
+      "sem_cosine": 0.85,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "Per-head per-layer learnable rank allocation = differentiated multi-level capacity scheme; functional twin of two-level heterogeneous adapter design."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.findings-emnlp.1074.pdf",
+      "title": "NormAL LoRA Average Rank Across Layers (EMNLP 2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Layer-specific rank/adaptation with norm regularization covers per-layer differentiation core of TAMPU."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2605.07850",
+      "title": "MatryoshkaLoRA Hierarchical Low-Rank Representations (2026/05)",
+      "kw_count": 0,
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "rationale": "Explicitly hierarchical low-rank adapters with sub-rank embedding: direct twin of two-level hierarchical TAMPU-CHASQUI scheme."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2502.03884v1",
+      "title": "HiLo Hierarchical Configuration MoE Adapter Experts (2025/02)",
+      "kw_count": 0,
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "HiLo flexibly adjusts NUMBER and RANK of adapter experts across layers - structurally identical to differentiated per-layer scheme."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2405.13053v1",
+      "title": "MeteoRA Multiple-Tasks Embedded LoRA (2024)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "MoE-based dynamic LoRA selection + gating - adjacent design space of differentiated adapters."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2511.22880v1",
+      "title": "Serving Heterogeneous LoRA Distributed LLM Inference (2025/11)",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "rationale": "Heterogeneous LoRA ranks covers the heterogeneous-capacity concept central to TAMPU's two-level scheme."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2402.07148v1",
+      "title": "X-LoRA Mixture Low-Rank Adapter Experts (2024)",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Layer-wise gating + mixture of adapters covers per-layer differentiation of adapter functions."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.emergentmind.com/topics/dynamic-lora-adapters",
+      "title": "Dynamic LoRA Adapters MoA CompAs LoRAServe",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.76,
+      "hit": true,
+      "rationale": "Heterogeneous adapter ranks + dynamic placement broadly covers two-level differentiated adapter design space."
+    }
+  ],
+  "tally": {
+    "total_results": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "total_hits": 8,
+    "max_sem_cosine": 0.88,
+    "max_func_score": 0.88
+  },
+  "agreement_with_07_hit_miss": true,
+  "verdict": "FAIL",
+  "verdict_sentence": "The TAMPU-CHASQUI-ADAPTER proposal collides with 8 prior-art hits (sem and func both forcing every result above 0.7, max sem 0.88 via MatryoshkaLoRA and max func 0.88 via HiLo/MatryoshkaLoRA), so total_hits=8>=1 yields FAIL."
+}

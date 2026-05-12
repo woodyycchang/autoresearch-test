@@ -1,0 +1,127 @@
+{
+  "round": "393",
+  "verifier": "fresh cross-agent verifier R393 (claude-opus-4-7, no prior context)",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "candidate_summary": "BADKHN-EVAL: dual-axis evaluation diagnostic combining (a) creativity = semantic novelty vs base corpus, (b) factual accuracy vs ground-truth person-facts F, into a single score via geometric mean sqrt(c*f) so that either-axis collapse drives the score to zero.",
+  "content_words": [
+    "yiddish badkhn wedding bard",
+    "shtey gramen standing rhymes",
+    "person-specific improvisation",
+    "joint creativity accuracy audience",
+    "dual-axis creativity-accuracy eval",
+    "geometric-mean joint score",
+    "either-axis collapse penalty",
+    "person-specific live improvisation eval"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2402.06647v1",
+      "title": "Survey LLM Hallucination via Creativity Perspective",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Survey explicitly frames hallucination-vs-creativity as a joint trade-off and motivates dual-axis evaluation; same dual-dimension problem statement that BADKHN-EVAL operationalises. Crosses both 0.7 thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.csl.cornell.edu/~zhiruz/pdfs/heurigym-iclr2026.pdf",
+      "title": "HeuriGym Quality-Yield Index unified metric (ICLR 2026)",
+      "kw_count": 0,
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "DIRECT TWIN — QYI is an explicit unified 0-1 metric that JOINTLY captures feasibility (a correctness axis) AND quality (a creativity/optimality axis) in one product-like score that goes to zero if either axis collapses. This is mechanistically the same construct as the geometric-mean dual-axis BADKHN score. Far above both thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2505.08253v1",
+      "title": "Evaluating LLM Metrics Through Real-World Capabilities (2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Argues that no single-axis number captures multidimensional LLM reality and advocates combined multi-dimensional metrics — establishes the prior-art motivation that the candidate frames as novel. Crosses both 0.7 thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.confident-ai.com/blog/llm-evaluation-metrics-everything-you-need-for-llm-evaluation",
+      "title": "LLM Evaluation Metrics Ultimate Guide (Confident AI)",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "DIRECT TWIN — describes operational LLM metrics that combine factual-alignment and inclusion via a MIN-of-two intermediary score, which is the same conjunctive logic as the geometric mean (both penalise either-axis collapse to zero). The 'novel' joint-collapse property of BADKHN-EVAL is already an industry pattern. Crosses both 0.7."
+    },
+    {
+      "rank": 5,
+      "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1622292/full",
+      "title": "Survey Hallucinations LLM Prompting/Model Attribution (Frontiers 2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Formalises a Generalization-Hallucination Trade-off — same dual-axis (creativity-like generalisation vs factual accuracy) phenomenon BADKHN-EVAL is designed around. Crosses both thresholds."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2510.06265v2",
+      "title": "LLM Hallucinations Comprehensive Survey (2025/10)",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Comprehensive survey explicitly covering the creativity-accuracy trade-off and joint evaluation considerations; subsumes the joint-axis framing of BADKHN-EVAL. Crosses both 0.7."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2504.17550v1",
+      "title": "HalluLens LLM Hallucination Benchmark (2025/04)",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.66,
+      "hit": false,
+      "rationale": "Single-axis hallucination benchmark without an explicit creativity axis or joint-collapse penalty. Below both 0.7 thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://medium.com/autonomous-agents/mathematically-evaluating-hallucinations-in-llms-like-chatgpt-e9db339b39c2",
+      "title": "Mathematically Evaluating Hallucinations in LLMs",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false,
+      "rationale": "Single-axis mathematical hallucination evaluation, no joint creativity-accuracy combination. Below thresholds."
+    }
+  ],
+  "summary": {
+    "total_hits": 6,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 6,
+    "functional_forced_hits": 6,
+    "max_sem_cosine": 0.86,
+    "max_func_score": 0.86,
+    "direct_twins": 2
+  },
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL — six of eight retrieved sources (notably HeuriGym's Quality-Yield Index and Confident AI's min-of-factual-and-inclusion metric, both direct twins) cross sem>=0.7 and func>=0.7, establishing that joint dual-axis creativity-accuracy metrics with either-axis-collapse penalty are already prior art, so BADKHN-EVAL is non-novel."
+}
