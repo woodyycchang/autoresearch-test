@@ -1,0 +1,104 @@
+{
+  "round": "386",
+  "verifier": "cross-agent",
+  "candidate_form": "adversarial-coevolution",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "maori ta moko chiselled tattoo",
+    "whakapapa genealogy encoding",
+    "signature on land deeds",
+    "permanent tamper-evident mark",
+    "multi-attribute weight fingerprint",
+    "attribute-specific probe readout",
+    "tamper-evident parameter perturbation",
+    "orthogonal coordinate-set encoding"
+  ],
+  "results": [
+    {
+      "idx": 1,
+      "url": "https://arxiv.org/pdf/2502.07760",
+      "title": "Scalable Fingerprinting of LLMs (Nasery 2025/02)",
+      "kw_count": 1,
+      "sem_cosine": 0.6,
+      "func_score": 0.62,
+      "hit": false,
+      "note": "Multiple fingerprint payloads conceptually relate to multi-attribute but no disjoint coordinate sets / per-attribute probe; below all thresholds."
+    },
+    {
+      "idx": 2,
+      "url": "https://arxiv.org/html/2509.26598v1",
+      "title": "Are Robust LLM Fingerprints Adversarially Robust? (2025/09)",
+      "kw_count": 1,
+      "sem_cosine": 0.55,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "Touches tamper-evidence and fingerprints but no multi-attribute orthogonal encoding; below thresholds."
+    },
+    {
+      "idx": 3,
+      "url": "https://www.emergentmind.com/topics/robust-llm-fingerprinting",
+      "title": "Robust LLM Fingerprinting overview",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Generic overview of uniqueness/harmlessness/reliability; no multi-attribute orthogonal payload mechanism."
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2604.11491",
+      "title": "ADD for Multi-Bit Image Watermarking (2026/04)",
+      "kw_count": 2,
+      "sem_cosine": 0.78,
+      "func_score": 0.85,
+      "hit": true,
+      "note": "Multi-bit watermark embedding owner+user+timestamp+IP via orthogonal watermark components is functionally near-identical to MOKO multi-attribute orthogonal-coordinate encoding; image domain but mechanism collides."
+    },
+    {
+      "idx": 5,
+      "url": "https://eprint.iacr.org/2024/759.pdf",
+      "title": "Watermarking LMs for Many Adaptive Users (Cohen 2024)",
+      "kw_count": 1,
+      "sem_cosine": 0.5,
+      "func_score": 0.55,
+      "hit": false,
+      "note": "Per-user payload tracking is single-payload-per-user, not orthogonal multi-attribute with partial readout; below thresholds."
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/html/2403.10893v1",
+      "title": "Watermark-Conditioned Diffusion Model IP Protection (2024)",
+      "kw_count": 2,
+      "sem_cosine": 0.7,
+      "func_score": 0.72,
+      "hit": true,
+      "note": "Mutually-orthogonal watermark components directly match orthogonal coordinate-set encoding; multi-payload IP protection mechanism overlaps strongly."
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2603.20304",
+      "title": "Transferable Multi-Bit Watermarking via Latent Consistency Bridges (2026/03)",
+      "kw_count": 1,
+      "sem_cosine": 0.6,
+      "func_score": 0.6,
+      "hit": false,
+      "note": "Multi-bit watermarking with bit channels; no explicit attribute-specific probe or coordinate-set partitioning; below thresholds."
+    },
+    {
+      "idx": 8,
+      "url": "https://arxiv.org/abs/2505.16723",
+      "title": "LLM Fingerprinting Semantically Conditioned Watermarks (2025/05)",
+      "kw_count": 1,
+      "sem_cosine": 0.55,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "Single statistical signal on semantic queries; candidate explicitly differentiates; below thresholds."
+    }
+  ],
+  "total_hits": 2,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 1,
+  "functional_forced_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior works collide with MOKO-FINGERPRINT's core mechanism of orthogonal multi-attribute watermark payloads: (1) Result 4 (ADD multi-bit image watermarking, 2604.11491) embeds owner+user+timestamp+IP via orthogonal components -- functionally near-identical multi-attribute orthogonal encoding (func=0.85, sem=0.78, kw>=2); (2) Result 6 (Watermark-Conditioned Diffusion 2403.10893v1) uses mutually-orthogonal watermark components for IP protection (sem=0.7, func=0.72). The candidate's claim of novel ORTHOGONAL MULTI-ATTRIBUTE encoding is anticipated; only the explicit attribute-specific probe + Maori framing differ, not the core fingerprinting mechanism."
+}

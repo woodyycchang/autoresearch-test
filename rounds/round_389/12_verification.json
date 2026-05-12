@@ -1,0 +1,106 @@
+{
+  "round": "389",
+  "verifier": "cross-agent fresh R389",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": [
+    "mauritanian guedra trance",
+    "circle A/B alternating clap",
+    "phase-coherent collective rhythm",
+    "trance entrainment",
+    "2-subgroup phase-alternating SGD",
+    "interleaved gradient-push schedule",
+    "straggler-flattened arrival rate",
+    "constant-rate parameter-server stream"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://ieeexplore.ieee.org/document/9834752/",
+      "title": "G-CADA Adaptive Worker Grouping Distributed SGD",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.83,
+      "func_score_estimate": 0.84,
+      "hit": true,
+      "reason": "Worker subgroup partitioning + scheduling = direct functional twin of GUEDRA's A/B subgroup primitive; sem above 0.7 and func above 0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://dl.acm.org/doi/fullHtml/10.1145/3417607",
+      "title": "OD-SGD One-Step Delay SGD",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.86,
+      "func_score_estimate": 0.86,
+      "hit": true,
+      "reason": "Explicit two-phase parameter-server communication + one-step delay = near-exact match to GUEDRA 2-phase + 1-sub-step staleness."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/1906.05936",
+      "title": "Layered SGD: Decentralized Synchronous SGD",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.76,
+      "func_score_estimate": 0.74,
+      "hit": true,
+      "reason": "Structured worker grouping in layered decentralized synchronous SGD; sem and func both above threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2301.08895",
+      "title": "ABS Adaptive Bounded Staleness Async",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.80,
+      "func_score_estimate": 0.78,
+      "hit": true,
+      "reason": "Bounded staleness scheduling = matches GUEDRA bounded 1-sub-step staleness component."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2603.01501",
+      "title": "GAC Gradient Alignment Control Async RL LLM",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.74,
+      "func_score_estimate": 0.73,
+      "hit": true,
+      "reason": "Bounded staleness convergence in async LLM; covers stability of staleness primitive; both above 0.7."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.arxiv.org/pdf/2506.04531",
+      "title": "HALoS Hierarchical Asynchronous Local SGD",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.80,
+      "func_score_estimate": 0.78,
+      "hit": true,
+      "reason": "Hierarchical async local SGD with grouped workers + async comm; same worker-grouping artifact."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2411.15871",
+      "title": "Hiding Communication Cost in Distributed LLM Training",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.78,
+      "func_score_estimate": 0.74,
+      "hit": true,
+      "reason": "Interleaves comm+compute for distributed LLM training = adjacent interleaving primitive; both above 0.7."
+    },
+    {
+      "rank": 8,
+      "url": "https://openreview.net/pdf?id=ZO5cn4IfaN",
+      "title": "CO2 Full Communication-Computation Overlap",
+      "kw_count_estimate": 0,
+      "sem_cosine_estimate": 0.74,
+      "func_score_estimate": 0.72,
+      "hit": true,
+      "reason": "Full overlap of communication and computation flattens server stream; aligned with constant-rate goal; both above 0.7."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "verdict": "FAIL",
+    "agreement_with_07_hit_miss": true
+  },
+  "verdict_sentence": "FAIL: all 8 results clear sem>=0.7 and func>=0.7 thresholds (OD-SGD is a near-exact twin of GUEDRA-INTERLEAVE's two-phase + bounded-staleness combo; G-CADA, HALoS, ABS, and Layered SGD redundantly cover worker subgrouping and bounded staleness), so the candidate is not novel."
+}

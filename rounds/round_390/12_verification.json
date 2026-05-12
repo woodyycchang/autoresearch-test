@@ -1,0 +1,107 @@
+{
+  "round": "390",
+  "verifier": "fresh cross-agent verifier R390 (claude-opus-4-7, no prior context)",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "sami yoik wordless syllables",
+    "prosody melody conjuring subject",
+    "pre-linguistic vocal channel",
+    "no-word-alignment vocalization",
+    "wordless prosody-only context channel",
+    "pre-token acoustic feature gate",
+    "cross-attention prosody conditioning",
+    "word-boundary-independent prosody signal"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2605.05927",
+      "title": "Speech LLM as Prosody-Aware Text LLM (TextPro-SLM + WhisperPro)",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "rationale": "Direct twin: WhisperPro synchronizes text tokens with prosody embeddings fed to LLM backbone for paralinguistic understanding. Differs only on word-synchronization vs wordless time-continuous, but both deliver prosody as a non-text conditioning channel into an LLM."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.coling-main.518/",
+      "title": "ProsodyFlow High-Fidelity TTS Conditional Flow",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "rationale": "Speech-LLM extracts acoustic features into prosody latent used as conditioning. Different artefact (TTS output not text gen) but same effect cluster: prosody latent conditioning."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2507.20091v1",
+      "title": "ProsodyLM Word-level Prosody Tokens",
+      "kw_count": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.74,
+      "hit": true,
+      "rationale": "ProsodyLM injects word-level prosody tokens into LM; explicitly cited by the candidate as the closest prior. Functional twin on 'prosody as conditioning channel for LM', differs on alignment granularity."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2303.11607",
+      "title": "Acoustic Feature Conditional Generation",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.68,
+      "hit": true,
+      "rationale": "Acoustic features as conditional inputs covers the core mechanism (non-text acoustic conditioning of generation). Crosses semantic threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/74a31a3b862eb7f01defbbed8e5f0c69-Paper-Conference.pdf",
+      "title": "MaskGCT Zero-Shot TTS",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.66,
+      "hit": false,
+      "rationale": "Duration-controlled TTS via flow matching uses prosody attributes but for TTS output generation; below 0.7 on both since no LLM text-gen gating and tokenized rather than time-continuous."
+    },
+    {
+      "rank": 6,
+      "url": "https://aclanthology.org/2025.emnlp-main.40.pdf",
+      "title": "Controllable Speech Synthesis Survey",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.68,
+      "hit": true,
+      "rationale": "Survey of free-form inline emotion/prosody control mechanisms includes channels akin to candidate's conditioning approach. Semantic threshold met."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2506.12537",
+      "title": "Good Speech Tokenizer for LLM Speech Generation",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.64,
+      "hit": false,
+      "rationale": "Speech-tokenizer design for LLM-centric speech generation — different artefact and tokenized rather than time-continuous; below 0.7 thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://aclanthology.org/2025.emnlp-main.1322.pdf",
+      "title": "Anti-Causally Aligned Collaborative Residual Transformers",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "rationale": "Residual transformer alignment work; no prosody/wordless conditioning mechanism. Far below thresholds."
+    }
+  ],
+  "summary": {
+    "total_hits": 5,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 5,
+    "functional_forced_hits": 3,
+    "max_sem_cosine": 0.82,
+    "max_func_score": 0.82
+  },
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL — at least 5 of 8 results cross the sem>=0.7 or func>=0.7 thresholds (notably TextPro-SLM/WhisperPro at ~0.82 as a direct twin and ProsodyLM at ~0.75 as the explicitly-cited closest prior), so total_hits>=1 and the candidate is rejected."
+}

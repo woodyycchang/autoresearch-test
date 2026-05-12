@@ -1,0 +1,96 @@
+{
+  "round": "387",
+  "verifier": "cross-agent",
+  "candidate_form": "multi-agent-comm",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "hopi snake dance trio",
+    "carrier hugger gatherer roles",
+    "rattlesnake grasp protocol",
+    "specialised boundary roles",
+    "3-role specialised tool-call agent protocol",
+    "executor + constrainer + containment temporal sequencing",
+    "strict role boundaries no-overlap",
+    "pre-call constraint + in-call execute + post-call rollback"
+  ],
+  "results": [
+    {
+      "url": "https://www.researchgate.net/post/Deterministic_vs_Probabilistic_Guards_for_AI_Agent_Tool_Calls_Where_Should_the_Security_Boundary_Sit",
+      "title": "Deterministic vs Probabilistic Guards for AI Agent Tool Calls",
+      "kw_count": 1,
+      "sem_cosine": 0.62,
+      "func_score": 0.65,
+      "hit": false,
+      "note": "Full pre/in/post pipeline with rollback and drift detection is functionally close but described as a single middleware layer, NOT a 3-role specialised multi-agent split with strict role boundaries; lacks role-specialisation across distinct agents."
+    },
+    {
+      "url": "https://arxiv.org/html/2503.18666v1",
+      "title": "AgentSpec Customizable Runtime Enforcement (2025/03)",
+      "kw_count": 1,
+      "sem_cosine": 0.45,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Single-role runtime enforcement with triggers/predicates/boundaries; no 3-role split, no temporal sequencing across multiple agents."
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.00500",
+      "title": "ProbGuard Probabilistic Runtime Monitoring (2025/08)",
+      "kw_count": 0,
+      "sem_cosine": 0.4,
+      "func_score": 0.35,
+      "hit": false,
+      "note": "DTMC-based monitoring with pre-violation intervention only; lacks 3-role split, no post-call containment agent, no executor/constrainer separation."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.17562",
+      "title": "SafeAgent Runtime Protection Architecture (2026)",
+      "kw_count": 0,
+      "sem_cosine": 0.4,
+      "func_score": 0.35,
+      "hit": false,
+      "note": "Tool-dependency graph + constrained traversal; single architectural mechanism, not three-role boundary protocol."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.08646",
+      "title": "Architecting Resilient LLM Agents Secure Plan-to-Execute (2025/09)",
+      "kw_count": 1,
+      "sem_cosine": 0.5,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "P-t-E with containment + pre-approved plans + sandboxes; has containment notion but not three role-specialised agents with strict boundaries and temporal pre/in/post split."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.06396v2",
+      "title": "Multi-Agent Debate Critic-Defender-Judge Safety Eval (2025/11)",
+      "kw_count": 1,
+      "sem_cosine": 0.55,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Three-role debate (Critic/Defender/Judge) but OPINION-LEVEL debate, not tool-call lifecycle with temporal sequencing (pre/in/post). The candidate's novelty claim explicitly distinguishes this; functionally different mechanism."
+    },
+    {
+      "url": "https://medium.com/@mjgmario/multi-agent-system-patterns-a-unified-guide-to-designing-agentic-architectures-04bb31ab9c41",
+      "title": "Multi-Agent System Patterns Unified Guide",
+      "kw_count": 1,
+      "sem_cosine": 0.45,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Capability-based routing with specialisation boundaries; lacks specific 3-role executor/constrainer/containment pre/in/post temporal sequencing on tool-call lifecycle."
+    },
+    {
+      "url": "https://arxiv.org/html/2510.17109v1",
+      "title": "VeriMAP Verification-Aware Planning for MAS",
+      "kw_count": 0,
+      "sem_cosine": 0.35,
+      "func_score": 0.3,
+      "hit": false,
+      "note": "Task decomposition with verification functions; no 3-role specialised tool-call protocol with strict boundaries and pre/in/post temporal split."
+    }
+  ],
+  "total_hits": 0,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 0,
+  "functional_forced_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": ""
+}

@@ -1,0 +1,89 @@
+{
+  "round": "388",
+  "verifier": "cross-agent-fresh-R388",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); total_hits>=1 -> FAIL",
+  "results": [
+    {
+      "url": "https://www.databricks.com/blog/efficient-fine-tuning-lora-guide-llms",
+      "title": "Efficient LoRA Fine-Tuning Guide (Databricks)",
+      "kw_count": 1,
+      "kw_matched": ["LoRA/adapter freeze"],
+      "sem_cosine": 0.35,
+      "func_score": 0.3,
+      "hit": false,
+      "note": "Generic LoRA guide — freezes base + trains adapter, but no fixed-template prompt vocabulary restriction and no cryptographic fire-lock seal. Missing both distinctive mechanisms."
+    },
+    {
+      "url": "https://huggingface.co/papers/2309.14717",
+      "title": "QA-LoRA Quantization-Aware Low-Rank Adaptation (2024)",
+      "kw_count": 1,
+      "kw_matched": ["quantize+freeze adapter"],
+      "sem_cosine": 0.45,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Quantization-aware LoRA captures the quantize-freeze aspect but lacks fixed K-template prompt vocabulary restriction and cryptographic hash seal. Only partial overlap."
+    },
+    {
+      "url": "https://openreview.net/forum?id=LzPWWPAdY4",
+      "title": "LoftQ LoRA-Fine-Tuning-Aware Quantization (ICLR 2024)",
+      "kw_count": 1,
+      "kw_matched": ["quantize+freeze"],
+      "sem_cosine": 0.42,
+      "func_score": 0.38,
+      "hit": false,
+      "note": "Quantization-aware LoRA init only; no template vocabulary restriction at training time, no cryptographic seal."
+    },
+    {
+      "url": "https://github.com/artidoro/qlora",
+      "title": "QLoRA Efficient Finetuning of Quantized LLMs",
+      "kw_count": 1,
+      "kw_matched": ["quantize+LoRA"],
+      "sem_cosine": 0.4,
+      "func_score": 0.35,
+      "hit": false,
+      "note": "4-bit base quantize + LoRA, but quantizes base not adapter post-FT; no fixed-template prompt vocabulary, no cryptographic fire-lock."
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3745533.3745585",
+      "title": "LoRA + Prompt Engineering Q&A Study (2025)",
+      "kw_count": 1,
+      "kw_matched": ["LoRA+prompt"],
+      "sem_cosine": 0.5,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Combines LoRA with prompt engineering for Q&A but does not restrict training-time prompts to a fixed K-template vocabulary and no fire-lock cryptographic seal step."
+    },
+    {
+      "url": "https://cameronrwolfe.substack.com/p/easily-train-a-specialized-llm-peft",
+      "title": "PEFT/LoRA/QLoRA/LLaMA-Adapter Survey",
+      "kw_count": 1,
+      "kw_matched": ["PEFT adapter"],
+      "sem_cosine": 0.3,
+      "func_score": 0.3,
+      "hit": false,
+      "note": "Generic PEFT survey, no fixed prompt-template vocabulary mechanism, no cryptographic seal."
+    },
+    {
+      "url": "https://www.mercity.ai/blog-post/guide-to-fine-tuning-llms-with-lora-and-qlora/",
+      "title": "LoRA + QLoRA Guide",
+      "kw_count": 1,
+      "kw_matched": ["LoRA+QLoRA narrow-domain"],
+      "sem_cosine": 0.38,
+      "func_score": 0.35,
+      "hit": false,
+      "note": "Practical narrow-domain LoRA+QLoRA guide, lacks fixed K-template prompt restriction and cryptographic fire-lock."
+    },
+    {
+      "url": "https://arxiv.org/html/2511.08484v1",
+      "title": "Patching LLM like Software Lightweight Safety Patch (2025/11)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.25,
+      "func_score": 0.2,
+      "hit": false,
+      "note": "Learnable prefix/safety patch at input embeddings — orthogonal to fixed-template training restriction + cryptographic adapter sealing."
+    }
+  ],
+  "total_hits": 0,
+  "verdict": "PASS"
+}
