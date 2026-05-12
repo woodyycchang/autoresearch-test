@@ -481,3 +481,60 @@ p(no PASS | 1% novelty H₀) at N=471 = (0.99)^471 ≈ **0.0089** — BELOW α=0
 p(no PASS | 5% novelty H₀) = (0.95)^471 ≈ 3.4 × 10⁻¹¹ — overwhelmingly rejected.
 
 The corpus of 15 epochs + 138 prior manual rounds + Phase 0 audits provides high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.009 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 15 (see output/stats_round_375.json §literature_clusters_retrieved_epoch_15) extend the saturation evidence across attention / KV-cache / fine-tuning / safety / hallucination-detection / agent / tokenization subfields.
+
+---
+
+## Epoch 16 (R376-R400) compliance summary
+
+**Protocol:** program_v5.md (strict per-round protocol continuation).
+**Branch:** `claude/verify-r279-steel-pan-Iq0aR`.
+**Wall-clock window:** 2026-05-13 00:30Z → 04:09Z (3h 39m).
+
+**Phase 0 R279 final cross-LLM audit (third audit).** 28 new WebSearch queries spanning signal processing, ML4audio, music informatics, quantization, harmonic loss, DDSP, harmonic convolution, eigenmodes, Tonnetz, neural ODE, persona vectors — 37 cumulative cross-LLM queries across three audits. **CONFIRMED HONEST PASS UNCERTAIN.** No single paper scores ≥0.7 against PTCH kernel; closest adjacency DDSP harmonic-plus-noise model at judge=0.62 (different layer). Promoted to STRONGEST NICHE CANDIDATE IN CORPUS status. r279_triple_audited=true. Report: `output/r279_final_audit.md`.
+
+**Phase 1 R376-R400 strict-protocol execution (25 rounds).**
+
+| Compliance check | Met? |
+|---|---|
+| C1: Step 06 web_search ≥2 queries with real URLs per round | ✓ 25/25 |
+| C2: Step 06.5 semantic-similarity check performed (cosine ≥0.7 forces hit) | ✓ 25/25 |
+| C3: Step 06.7 functional-judge performed (≥0.7 forces hit) | ✓ 25/25 |
+| C4: Step 07 keyword-overlap threshold ≥2 forces hit | ✓ 25/25 |
+| C5: Step 10 mechanical verdict from total_hits | ✓ 25/25 |
+| C6: Step 12 cross-agent verification via real Agent spawn | ✓ 25/25 |
+| C7: Memory_db read in step 04.5 before step 05 | ✓ 25/25 |
+
+**Honest deviations from spec letter:**
+
+1. **R376/R377/R378/R380/R383/R384/R385/R387/R388/R398 verdict-level disagreements.** Primary FAIL vs verifier PASS — 10/25 rounds (40% — highest in corpus). Pattern: verifier scored borderline functional-twin hits 0.10-0.20 lower than primary. Per R279/R351 precedent, primary FAIL stands as FAIL_with_caveat_PassC_borderline. Flagged for human review.
+
+2. **Mongolian over-representation.** R395 deel + R398 dombra + R399 kimchi = 3 Mongolian-source rounds. Combined with epoch-15 Mongolian khoomei + airag = 5 cumulative Mongolian rounds. Source-family rotation discipline should tighten in epoch 17.
+
+3. **Hopi double-tap.** R381 Hopi katsina + R387 Hopi snake dance = 2 Hopi-source rounds. Distinct LLM-side mechanisms but Hopi over-represented.
+
+4. **Round-spacing 8m00s-9m30s, tighter than epoch 15.** All gaps ≥3-min minimum.
+
+5. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-15. Zero LLM-side phrase repetition.
+
+6. **Form distribution 2/2/3/2/2/1/2/1/2/2/2/2/2 = 25 across 13 forms.** 11/13 forms ≥2; topological-defect + adversarial-coevolution ×1 each.
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch16_self_audit.md`):
+- ✓ Timestamps spread (00:30-04:09Z, 3h 39m monotonic; 25/25 met 3-min round-spacing spec; gaps 8m00s-9m30s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {23,24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns, 0 infra failures)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-16 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- 10 verdict-level cross-agent disagreements (40% — highest in corpus). Pattern documented.
+- R279 promoted to STRONGEST NICHE CANDIDATE IN CORPUS after third audit.
+- Mean total-hit rose to 7.08 (epoch 15: 5.96), confirming further literature saturation: many candidate niches now have EXACT TWIN papers (R382 AuditableLLM, R392 LLM-Multi-Agent-Blackboard, R395 NeMo Guardrails 5-rail, R399 Mid-Training Survey, R400 MAD-Adaptive-Stability).
+
+Cumulative honest N_verified after epoch 16 = **496 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7)**.
+
+p(no PASS | 1% novelty H₀) at N=496 = (0.99)^496 ≈ **0.00684** — deeper than the 0.0089 at N=471.
+p(no PASS | 2% novelty H₀) = (0.98)^496 ≈ 4.45 × 10⁻⁵.
+p(no PASS | 5% novelty H₀) = (0.95)^496 ≈ 8.93 × 10⁻¹².
+
+The 16-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.007 against the 1% novelty hypothesis. The R279 PTCH candidate (within-head harmonic-integer-ratio singular-direction constraint) is the SINGLE strongest niche in the corpus and warrants targeted human verification + empirical falsification testing.
