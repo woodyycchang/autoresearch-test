@@ -1,0 +1,104 @@
+{
+  "round": "380",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "korean ondol underfloor",
+    "agungi furnace horizontal flue",
+    "gudeul-jang stone heat retention",
+    "spatial temperature gradient",
+    "single-point LR injection cascade",
+    "per-layer thermal-mass absorption coefficient",
+    "temporal-spatial heat-bleed schedule",
+    "lateral exponential LR cascade"
+  ],
+  "results": [
+    {
+      "index": 1,
+      "url": "https://mbrenndoerfer.com/writing/fine-tuning-learning-rates-llrd-warmup-decay-transformers",
+      "title": "LLRD Warmup & Decay Strategies",
+      "kw_count": 0,
+      "sem_cosine": 0.42,
+      "func_score": 0.40,
+      "hit": false,
+      "note": "LLRD: static layer-wise exponential decay across all layers; not single-point injection nor lateral cascade with thermal-mass decay. No content-word matches."
+    },
+    {
+      "index": 2,
+      "url": "https://openreview.net/forum?id=vhhwY0AVgu",
+      "title": "Layerwise Learning Rate in LLM Era",
+      "kw_count": 0,
+      "sem_cosine": 0.40,
+      "func_score": 0.38,
+      "hit": false,
+      "note": "Adaptive learnable distinct LR per layer; no single-point injection, no lateral spatial decay alpha^|l-l0|, no warmup-active gating. No keyword matches."
+    },
+    {
+      "index": 3,
+      "url": "https://openreview.net/pdf?id=mSSi0zYkEA",
+      "title": "Initializing the Layer-wise Learning Rate",
+      "kw_count": 0,
+      "sem_cosine": 0.35,
+      "func_score": 0.32,
+      "hit": false,
+      "note": "Initialization principles for layer-wise LR; no injection-point cascade structure. No keyword matches."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2603.05369",
+      "title": "Progressive Residual Warmup for LLM Pretraining (2026/03)",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "note": "Residual-component reparametrization across warmup/stable/decay; candidate explicitly differentiates (not lateral cascade, no single-point injection, no thermal-mass). No content-word matches."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/pdf/2502.15938",
+      "title": "Why linearly decaying LR to zero works best (2025/02)",
+      "kw_count": 0,
+      "sem_cosine": 0.25,
+      "func_score": 0.20,
+      "hit": false,
+      "note": "Theory for linear decay to zero LR; global schedule analysis, no layer-spatial cascade. No keyword matches."
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/pdf/2405.18392",
+      "title": "Scaling Laws Compute-Optimal Training Beyond Fixed Durations (2024)",
+      "kw_count": 0,
+      "sem_cosine": 0.30,
+      "func_score": 0.28,
+      "hit": false,
+      "note": "Scaling laws + WSD generalisation; global schedule, not single-point spatial cascade. No keyword matches."
+    },
+    {
+      "index": 7,
+      "url": "https://www.rohan-paul.com/p/stabilizing-llm-training-techniques",
+      "title": "Stabilizing LLM Training Techniques",
+      "kw_count": 0,
+      "sem_cosine": 0.32,
+      "func_score": 0.30,
+      "hit": false,
+      "note": "Survey of stable training techniques including layer-wise LR; no single-point injection cascade with thermal-mass decay. No keyword matches."
+    },
+    {
+      "index": 8,
+      "url": "https://arxiv.org/html/2507.01467v2",
+      "title": "Representation Entanglement for Generation (2025/07)",
+      "kw_count": 0,
+      "sem_cosine": 0.28,
+      "func_score": 0.25,
+      "hit": false,
+      "note": "Per-layer training of diffusion transformers with representation entanglement; no LR-injection cascade or thermal-mass absorption mechanism. No keyword matches."
+    }
+  ],
+  "total_hits": 0,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 0,
+  "functional_forced_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": ""
+}
