@@ -1,0 +1,107 @@
+{
+  "round": "400",
+  "verifier": "cross-agent-R400",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "basin-stability",
+  "candidate_summary": "ILPAYIANI-CONSENSUS: age-weighted ballots + KS-distance basin-stability termination + multi-round refinement",
+  "results_analysis": [
+    {
+      "url": "https://arxiv.org/pdf/2510.12697",
+      "title": "Multi-Agent Debate LLM Judges Adaptive Stability Detection (2025/10)",
+      "kw_matches": ["KS-statistic stability detection", "multi-round debate", "multi-agent", "adaptive stopping when distribution stabilizes"],
+      "kw_count": 4,
+      "kw_score": 1.0,
+      "sem_score": 0.92,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "Direct overlap: KS-statistic adaptive stability + multi-round multi-agent debate; candidate explicitly admits 'Differs from ... Multi-Agent Debate (Beta-Binomial stability)' yet borrows the same KS-based stability termination core mechanism."
+    },
+    {
+      "url": "https://openreview.net/pdf?id=Yol6nUVIJD",
+      "title": "RECONCILE Round-Table Conference (ICLR 2024)",
+      "kw_matches": ["weighted voting", "model confidence into weight", "multi-agent", "round-table/multi-round"],
+      "kw_count": 4,
+      "kw_score": 1.0,
+      "sem_score": 0.82,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "RECONCILE already does confidence-weighted voting in multi-agent round-table; candidate's prior-calibrated weighted ballots overlap directly."
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-acl.744.pdf",
+      "title": "Ranked Voting Self-Consistency LLMs (ACL 2025)",
+      "kw_matches": ["ranked voting", "self-consistency", "multi-agent voting", "ballot-based aggregation"],
+      "kw_count": 3,
+      "kw_score": 0.85,
+      "sem_score": 0.74,
+      "func_score": 0.68,
+      "hit": true,
+      "reason": "Ranked voting self-consistency overlaps with weighted-ballot aggregation across agents."
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/multi-agent-debate-mad-frameworks",
+      "title": "Multi-Agent Debate Frameworks Overview",
+      "kw_matches": ["calibrated confidence voting", "multi-agent debate", "weighted voting schemes"],
+      "kw_count": 3,
+      "kw_score": 0.85,
+      "sem_score": 0.78,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Frameworks already include calibrated-confidence weighted voting in multi-agent debate."
+    },
+    {
+      "url": "https://arxiv.org/html/2404.09127v1",
+      "title": "Confidence Calibration Rationalization LLMs Multi-Agent Deliberation (2024)",
+      "kw_matches": ["confidence calibration", "multi-agent deliberation"],
+      "kw_count": 2,
+      "kw_score": 0.70,
+      "sem_score": 0.71,
+      "func_score": 0.65,
+      "hit": true,
+      "reason": "Confidence calibration via multi-agent deliberation overlaps with prior-calibrated weights in iterative agent voting."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2508.17536",
+      "title": "Debate or Vote Better Decisions Multi-Agent LLMs (NeurIPS 2025)",
+      "kw_matches": ["majority voting", "multi-agent debate", "decision aggregation"],
+      "kw_count": 3,
+      "kw_score": 0.80,
+      "sem_score": 0.66,
+      "func_score": 0.62,
+      "hit": true,
+      "reason": "Directly studies vote vs debate decision aggregation in multi-agent LLMs."
+    },
+    {
+      "url": "https://assets.amazon.science/48/5d/20927f094559a4465916e28f41b5/enhancing-llm-as-a-judge-via-multi-agent-collaboration.pdf",
+      "title": "LLM-as-Judge via Multi-Agent Collaboration (Amazon Science)",
+      "kw_matches": ["multi-agent collaboration"],
+      "kw_count": 1,
+      "kw_score": 0.40,
+      "sem_score": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Below all thresholds."
+    },
+    {
+      "url": "https://arxiv.org/html/2506.00066v1",
+      "title": "Literature Review Multi-Agent Debate Problem-Solving (2025/06)",
+      "kw_matches": ["multi-agent debate"],
+      "kw_count": 1,
+      "kw_score": 0.40,
+      "sem_score": 0.50,
+      "func_score": 0.45,
+      "hit": false,
+      "reason": "Generic literature review; below thresholds."
+    }
+  ],
+  "hit_counts": {
+    "kw_hits": 6,
+    "sem_hits": 4,
+    "func_hits": 2,
+    "total_hits": 6
+  },
+  "total_hits": 6,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL: ILPAYIANI-CONSENSUS is a recombination of existing prior art with 6 hits (notably arxiv 2510.12697 which already combines KS-statistic stability detection with multi-round multi-agent debate, plus RECONCILE confidence-weighted voting and Ranked Voting Self-Consistency), so the candidate is not sufficiently novel."
+}

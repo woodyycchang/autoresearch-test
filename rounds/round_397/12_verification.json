@@ -1,0 +1,118 @@
+{
+  "round": "397",
+  "verifier": "cross-agent fresh context R397",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total>=1 -> FAIL",
+  "candidate_summary": "TIFINAGH-SPARSE-TOK: tokenizer deliberately omits ~30% high-frequency non-content (vowel-analog) tokens; LLM contextual completion fills gap-markers at inference; targets token-count reduction for low-resource languages.",
+  "content_words": [
+    "berber tifinagh consonant abjad",
+    "vowel reader-supplied implicit",
+    "30% character reduction sparse",
+    "word-final vowel anchor only",
+    "consonant-sparse tokenizer omits vowel-class",
+    "deliberate vowel-token omission",
+    "context-completion vowel reconstruction",
+    "token-count reduction low-resource"
+  ],
+  "independent_scoring": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2412.07682v4",
+      "title": "TRIM Token Reduction Inference Modeling",
+      "kw_count": 0,
+      "sem_cosine": 0.88,
+      "func_score": 0.90,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "TRIM omits semantic-irrelevant easily-inferable words during inference and uses a smaller LM to reconstruct — direct twin of TIFINAGH-SPARSE-TOK's omit-then-context-fill paradigm; 19.41% token savings vs candidate's ~30% reduction."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2508.06447v1",
+      "title": "SlimInfer Dynamic Token Pruning Long-Context",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Prunes less-critical prompt tokens during forward pass; shares the omit-tokens-during-inference effect cluster."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/pdf?id=fL8Zp8o6RL",
+      "title": "FTP Efficient Prefilling Long-Context LLM",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Attention-based pruning of non-critical tokens before FFN; same artefact family of selective token omission."
+    },
+    {
+      "rank": 4,
+      "url": "https://medium.com/@sahin.samia/prompt-compression-in-large-language-models-llms-making-every-token-count-078a2d1c7e03",
+      "title": "Prompt Compression Every Token Count",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Broad survey of prompt compression covering omission-and-reconstruct paradigms."
+    },
+    {
+      "rank": 5,
+      "url": "https://www.zartis.com/reducing-llm-api-costs-by-30-through-strategic-text-preprocessing/",
+      "title": "Reducing LLM API Costs 30% Text Preprocessing",
+      "kw_count": 1,
+      "sem_cosine": 0.84,
+      "func_score": 0.86,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Stopword removal IS the LLM-domain analog of vowel-class omission in an abjad; achieves the same ~30% reduction figure candidate cites; near-identical mechanism."
+    },
+    {
+      "rank": 6,
+      "url": "https://medium.com/@yashpaddalwar/token-compression-how-to-slash-your-llm-costs-by-80-without-sacrificing-quality-bfd79daf7c7c",
+      "title": "Token Compression Slash LLM Costs 80%",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "LLMLingua-style token compression covers the deliberate-omission-for-throughput effect cluster."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2404.03626v1",
+      "title": "Training LLMs over Neurally Compressed Text",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Adjacent: training LLMs over compressed token sequences; same compress-and-reconstruct cluster."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2402.01035v1",
+      "title": "Getting Most Out of Tokenizer for Pre-training Domain Adaptation",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by": ["semantic>=0.7", "functional>=0.7"],
+      "rationale": "Tokenizer-level vocabulary optimization for low-resource/domain adaptation overlaps with candidate's tokenizer-vocabulary modification target."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "distinct_effect_clusters_above_threshold": 6,
+    "max_sem_cosine": 0.88,
+    "max_func_score": 0.90,
+    "agreement_with_07_hit_miss": true
+  },
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL: 8 of 8 retrieved results clear the threshold (all via sem>=0.7 and func>=0.7, with TRIM and Zartis stopword-removal serving as near-direct twins of TIFINAGH-SPARSE-TOK's deliberate-omit-then-context-fill mechanism), so total_hits (8) >= 1 triggers FAIL."
+}

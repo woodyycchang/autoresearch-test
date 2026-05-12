@@ -1,0 +1,99 @@
+{
+  "round": "399",
+  "verifier": "cross-agent R399",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1->FAIL",
+  "candidate_summary": "KIMCHI-PIPELINE: 4-stage temperature-controlled LLM training pipeline (pre-filter/broad-pretrain/domain-FT/align-cool) with coupled data+LR+duration and explicit distribution shifts at boundaries.",
+  "evaluations": [
+    {
+      "idx": 1,
+      "url": "https://arxiv.org/html/2510.06826v1",
+      "title": "Mid-Training of LLMs Survey (2025/10)",
+      "kw_overlap": 3,
+      "kw_matched": ["phases", "data quality", "annealing/stages"],
+      "sem": 0.78,
+      "func": 0.72,
+      "hit": true,
+      "reason": "Multi-phase annealing pipeline w/ data quality + optimization shifts = same coupled-phase formalism."
+    },
+    {
+      "idx": 2,
+      "url": "https://arxiv.org/html/2412.15285v1",
+      "title": "Two-Phase Pretraining Enhancing LLM Accuracy (2024/12)",
+      "kw_overlap": 2,
+      "kw_matched": ["phase", "data-mix/distribution"],
+      "sem": 0.7,
+      "func": 0.65,
+      "hit": true,
+      "reason": "Two-phase data-selection+mix design directly overlaps coupled data+phase formalism."
+    },
+    {
+      "idx": 3,
+      "url": "https://arxiv.org/html/2510.23081v1",
+      "title": "Survey LLM Mid-Training (2025/10)",
+      "kw_overlap": 3,
+      "kw_matched": ["distribution shift", "mid-training curriculum", "stages"],
+      "sem": 0.82,
+      "func": 0.75,
+      "hit": true,
+      "reason": "Explicit controlled distribution shifts + mid-training curriculum = candidate's central novelty claim."
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/html/2602.03075",
+      "title": "ReMiT RL-Guided Mid-Training Iterative LLM Evolution (2026/02)",
+      "kw_overlap": 1,
+      "kw_matched": ["mid-training"],
+      "sem": 0.55,
+      "func": 0.5,
+      "hit": false,
+      "reason": "Iterative RL-guided refinement, not sequential 4-stage coupled pipeline."
+    },
+    {
+      "idx": 5,
+      "url": "https://www.marktechpost.com/2026/04/15/a-technical-deep-dive-into-the-essential-stages-of-modern-large-language-model-training-alignment-and-deployment/",
+      "title": "Modern LLM Training Stages Alignment Deployment (2026/04)",
+      "kw_overlap": 4,
+      "kw_matched": ["stages", "pretraining", "mid-training", "SFT", "RL/alignment"],
+      "sem": 0.88,
+      "func": 0.82,
+      "hit": true,
+      "reason": "Directly enumerates pretraining-mid-training-SFT-RL stages = candidate's 4-stage framing."
+    },
+    {
+      "idx": 6,
+      "url": "https://llm-stats.com/blog/research/post-training-techniques-2026",
+      "title": "Post-Training 2026 GRPO DAPO RLVR",
+      "kw_overlap": 2,
+      "kw_matched": ["stages", "post-training"],
+      "sem": 0.6,
+      "func": 0.55,
+      "hit": true,
+      "reason": "Three distinct post-training stages overlaps multi-stage sequential framing."
+    },
+    {
+      "idx": 7,
+      "url": "https://vintagedata.org/blog/posts/what-is-mid-training",
+      "title": "What's the deal with mid-training? (Vintage Data)",
+      "kw_overlap": 2,
+      "kw_matched": ["annealing", "data shift"],
+      "sem": 0.72,
+      "func": 0.65,
+      "hit": true,
+      "reason": "Annealing + data-distribution shift role matches candidate's coupled phase boundary formalism."
+    },
+    {
+      "idx": 8,
+      "url": "https://rocm.blogs.amd.com/artificial-intelligence/multilingual-continued-pretraining/README.html",
+      "title": "Continued Pretraining Language-Specific Adaptation (ROCm)",
+      "kw_overlap": 1,
+      "kw_matched": ["continued pretraining"],
+      "sem": 0.5,
+      "func": 0.48,
+      "hit": false,
+      "reason": "Playbook focuses on language adaptation, not 4-stage coupled pipeline."
+    }
+  ],
+  "hits_total": 6,
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL: KIMCHI-PIPELINE's 4-stage coupled data+LR+duration pipeline with distribution-shift boundaries is substantially anticipated by mid-training surveys (2510.06826, 2510.23081), two-phase pretraining (2412.15285), the marktechpost pretrain-mid-SFT-RL stage taxonomy, and vintagedata's annealing+data-shift framing, yielding 6 hits >= 1."
+}
