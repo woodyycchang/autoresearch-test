@@ -1,0 +1,20 @@
+{
+  "round": "352",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["norwegian fjord pycnocline", "saltwater-freshwater stratification", "density-gradient interface", "sill-controlled deep basin", "passive interfacial gradient dissipation", "3-zone layer-group stratification", "density-mismatch buffer", "zoned-regime gradient barrier"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Pycnocline", "kw_count": 1, "sem_cosine": 0.10, "func_score": 0.05, "hit": false, "note": "Source-domain only; no LLM mechanism. Only 'pycnocline' matches as keyword (1, below kw>=2)."},
+    {"rank": 2, "url": "https://arxiv.org/abs/2402.04744", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.60, "hit": false, "note": "Progressive gradient flow targets N:M sparsity not interfacial dissipation between layer groups; below all thresholds."},
+    {"rank": 3, "url": "https://arxiv.org/abs/2410.23610", "kw_count": 0, "sem_cosine": 0.55, "func_score": 0.50, "hit": false, "note": "Theoretical convergence analysis of weight-decay training; descriptive, not a prescriptive inter-layer barrier mechanism."},
+    {"rank": 4, "url": "https://arxiv.org/html/2508.15033v1", "kw_count": 0, "sem_cosine": 0.78, "func_score": 0.78, "hit": true, "note": "Rethinking Layer Freezing — layer freezing as a barrier against destructive backward gradient flow; identical end-state to PYCNO-DAMP's sill hard-stop (deepest layers receive at most epsilon gradient). Above sem and func thresholds."},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2509.05490", "kw_count": 0, "sem_cosine": 0.82, "func_score": 0.82, "hit": true, "note": "Layer-Freezing Strategies — selective freezing prevents destructive gradient overwriting low-level/frozen early-layer features; matches PYCNO-DAMP's stated motivation (protect frozen early-layer features from high-amplitude bursts) directly."},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.01842v1", "kw_count": 0, "sem_cosine": 0.75, "func_score": 0.75, "hit": true, "note": "GradES strategically freezes parameters by gradient signal — a gradient-aware barrier separating upper-layer dynamics from lower-layer parameter updates; equivalent function."},
+    {"rank": 7, "url": "https://openreview.net/forum?id=i9UlAr1T_xl", "kw_count": 0, "sem_cosine": 0.72, "func_score": 0.72, "hit": true, "note": "SmartFRZ attention-based layer-freezing framework — equivalent inter-layer-group gradient barrier; the 3-zone qualifier is a positional grouping over the same primitive."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2502.02732", "kw_count": 0, "sem_cosine": 0.74, "func_score": 0.74, "hit": true, "note": "Peri-LN normalizes at sub-layer boundaries constraining residual/spike magnitude — same artefact (inter-layer interface) and same effect (constrain gradient amplitude at boundary). Density-mismatch scaling parametrization is a re-skin of boundary normalization."}
+  ],
+  "total_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "Five independent hits confirmed via semantic+functional channels. The PYCNO-DAMP primitive — passive inter-layer gradient dissipator that protects frozen lower layers from destructive upper-layer gradient bursts — is densely covered by 2025 layer-freezing literature (Rethinking Layer Freezing 2508.15033, Layer-Freezing Strategies 2509.05490, GradES 2509.01842, SmartFRZ). The 'density-mismatch' inter-block scaling at boundaries collapses to Peri-LN sub-layer boundary normalization (2502.02732). The 3-zone fjord-style stratification with sill hard-stop is a positional rearrangement of these established primitives — same artefact (inter-layer boundary), same effect (constrain/block gradient amplitude reaching lower layers). My independent kw/sem/func scores agree with the primary at all 8 ranks (within +/-0.03); honest concurrence with FAIL verdict."
+}

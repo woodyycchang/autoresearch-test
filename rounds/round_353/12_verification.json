@@ -1,0 +1,106 @@
+{
+  "round": "353",
+  "verifier": "cross-agent",
+  "candidate_form": "memory-architecture",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "lithuanian sutartines polyphony",
+    "secunda interval dissonance",
+    "canon-entry phase stagger",
+    "interlocking voices texture",
+    "K-staggered KV sub-cache",
+    "phase-offset attention pair",
+    "dissonance-penalty composite read",
+    "K-fold compositional KV"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1285394/full",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "rationale": "Source-domain musicology on sutartines polyphony; one content word matches but it is the source-side term. No LLM mechanism, no KV cache operation. Below all thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2412.02252v1",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Inter-Layer Attention Similarity for KV cache compression: same artefact (KV cache) and a closely-related primitive — comparing keys across multiple structural units via similarity. Mirrors the dissonance-penalty/cross-subcache comparison primitive of SUTARTINE-KV."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/forum?id=9HK2rHNAhd",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.68,
+      "hit": false,
+      "rationale": "SqueezeAttention performs 2D layer-wise KV budget allocation; same artefact but different operation (budget reallocation, not multi-cache phase-staggered duplication). Just below both 0.7 thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2510.09665v2",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "LMCache shares/duplicates KV cache across engines and queries — a multi-instance KV cache structure functionally adjacent to SUTARTINE-KV's K interleaved sub-caches (multiple coexisting cache copies queried together). Meets both 0.7 thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://www.mdpi.com/2227-7390/13/15/2366",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.65,
+      "hit": false,
+      "rationale": "Entropy-Guided KV: per-layer entropy-based budgeting. Same artefact but unrelated primitive (entropy-driven retention vs. redundant phase-offset duplication). Below thresholds."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2510.14973",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "KV cache scheme for diffusion LLMs involves multi-pass/phase-style cache indexing, structurally analogous to phase-staggered sub-caches. Meets 0.7 on both axes."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.emergentmind.com/topics/kv-cache-strategy",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "KVSharer uses Euclidean dissimilarity between layer KV caches to decide sharing — this is a functional twin of SUTARTINE-KV's dissonance penalty (penalising near-duplicate / using distance between caches) combined with multi-cache structure. Strongest match."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.emergentmind.com/topics/recursion-wise-kv-caching-729189c1-5002-4ccb-878e-f0782a8716b2",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Recursion-Wise KV partitions the cache into recursion-organised sub-structures — same artefact (KV cache) with a multi-partition primitive analogous to K interleaved sub-caches. Meets both 0.7 thresholds."
+    }
+  ],
+  "total_hits": 5,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 5,
+  "functional_forced_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "5 of 8 results trigger the hit rule (sem>=0.7 and/or func>=0.7). The LLM-side mechanism of SUTARTINE-KV — multiple coexisting KV sub-caches with cross-cache similarity/dissimilarity-driven score modulation — is anticipated by prior work: KVSharer (Euclidean dissimilarity between layer KV caches; func=0.82) is a direct functional twin of the dissonance-penalty + multi-cache primitive, and Inter-Layer Attention Similarity (2412.02252), LMCache multi-engine KV sharing, Diffusion-LLM phase-indexed KV, and Recursion-Wise KV partitioning all instantiate the same artefact + multi-partition / cross-cache-similarity primitive cluster. total_hits=5 >= 1 -> FAIL."
+}
