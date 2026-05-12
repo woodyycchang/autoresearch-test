@@ -265,3 +265,8 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
 - Round 293 | domain: giant-clam-iridocyte | mechanism: frequency-band spectral routing + depth direction in pre-attention boundary (direct collision with FreqFormer 2604.22808) | verdict: FAIL | form: spectral-allocation
 - Round 294 | domain: antikythera-multi-period-gear | mechanism: K prime-period rotor heads + differential-gear fusion as CRT composite position encoding (direct match to RoPE-CRT 2602.10959) | verdict: FAIL | form: phase-coherence
 - Round 295 | domain: manuka-honey-antimicrobial | mechanism: per-layer 4-axis normalization (magnitude/sign/kurtosis/phase) for spurious-activation suppression | verdict: FAIL | form: feedback-attenuation
+- Round 296 | domain: cataglyphis-path-integration | mechanism: long-horizon LLM agent running multi-channel state vector with direction/distance/landmark dominance-hierarchy fusion | verdict: FAIL | form: multi-agent-comm
+- Round 297 | domain: octopus-3layer-skin | mechanism: 3-head additive-logit decoder with role-specialized pigment/iridophore/leucophore heads | verdict: FAIL | form: spectral-allocation
+- Round 298 | domain: stinging-nettle-trichome | mechanism: single-turn bundled multi-component defense cocktail discharge upon classifier trigger | verdict: FAIL | form: feedback-attenuation
+- Round 299 | domain: bowerbird-bower-signal | mechanism: confidence-scaled costly-signal decoder (inverted verbosity-compensation) | verdict: FAIL | form: evaluation-diagnostic
+- Round 300 | domain: australian-magpie-carol-signature | mechanism: per-instance subtle frequency-bias provenance fingerprint (direct LLM-watermarking collision) | verdict: FAIL | form: evaluation-diagnostic
