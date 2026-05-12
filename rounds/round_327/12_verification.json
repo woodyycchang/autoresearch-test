@@ -1,0 +1,102 @@
+{
+  "round": "327",
+  "candidate": "FOVEA-DECODE: closed-loop hidden-state drift-rate sensor adjusts RoPE/positional-encoding base per decode step to keep relative-position similarity in the attention 'fovea' regardless of decode-rate-induced drift.",
+  "calibration_anchors": {
+    "rank1_doppler_wiki": "Source-domain bat biology page; no LLM/positional content; kw=0 on llm-side terms, sem=0.10, func=0.05. Clear non-hit.",
+    "rank2_emergentmind_dynamic_rope": "Survey of dynamic RoPE adjustments: per-layer scaling, base optimization, context/data-aware frequency modulation. Shares 'dynamic adjustment paradigm' for positional encoding. Snippet hits 'base value optimization' and 'dynamic adjustment' — at least 2 llm-side keywords. sem=0.82, func=0.80. Hit.",
+    "rank3_base_bounds_2405": "Static analysis of base lower bound for context length; not closed-loop, not decode-time. sem=0.66 (below 0.7), func=0.55. Borderline-low; one llm-side keyword (RoPE base) but not closed-loop/drift/velocity. Non-hit.",
+    "rank4_yarn": "Dynamic-YaRN does inference-time per-sequence-length scaling. Length signal, not velocity/drift, but covers dynamic θ-base adjustment paradigm at inference. sem=0.75, func=0.78. Hit.",
+    "rank5_longrope2": "Per-dimension RoPE scaling discovered via evolutionary search, dynamic at inference. Same goal: preserve attention quality with dynamic θ. Length-driven not drift-driven, but adjacent. sem=0.78, func=0.75. Hit.",
+    "rank6_quantized_rope": "Per-channel-band rescaling and outlier-aware RoPE scaling for quantization. Different motivating signal (quantization, not decode velocity). sem=0.70 (at threshold), func=0.65. Mixed: semantic exactly at threshold but functional below; one llm-side keyword (RoPE scaling). Hit via sem>=0.7.",
+    "rank7_drift_compensated_2604": "Title and snippet are essentially the candidate verbatim: closed-loop hidden-state-drift sensor adjusts RoPE base per decode step. kw multiple matches (closed-loop, RoPE base, drift, decode step), sem=0.95, func=0.95. Direct twin. Hit.",
+    "rank8_decode_velocity_pe_2511": "Streaming-decode positional encoding compensating for instantaneous hidden-state velocity — functional equivalent. kw multiple (decode-velocity, positional encoding, streaming, hidden-state velocity), sem=0.92, func=0.92. Hit."
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Doppler_shift_compensation",
+      "title": "Doppler shift compensation — Wikipedia",
+      "kw": 0,
+      "sem": 0.10,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Pure source-domain bat biology — no LLM content. Fails all three thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.emergentmind.com/topics/dynamic-positional-embedding-adjustments-rope-adjustments",
+      "title": "Dynamic RoPE Adjustments in Transformers (2025)",
+      "kw": 2,
+      "sem": 0.82,
+      "func": 0.80,
+      "hit": true,
+      "rationale": "Covers dynamic RoPE base adjustment paradigm including base-value optimization and data-aware frequency modulation — overlaps candidate's positional-encoding base adjustment. sem and func both above 0.7; matches >=2 llm-side content words (RoPE / base / dynamic adjustment)."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2405.14591v1",
+      "title": "Base of RoPE Bounds Context Length (2024)",
+      "kw": 1,
+      "sem": 0.66,
+      "func": 0.55,
+      "hit": false,
+      "rationale": "Static bound analysis on base for context-length capability — not closed-loop nor decode-velocity-aware. Below all thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2309.00071",
+      "title": "YaRN: Efficient Context Window Extension (2023, updated 2024-2025)",
+      "kw": 2,
+      "sem": 0.75,
+      "func": 0.78,
+      "hit": true,
+      "rationale": "Dynamic-YaRN does inference-time θ-scaling per sequence length — same family of mechanism (inference-time dynamic RoPE base correction) though triggered by length not drift. Two thresholds passed."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2502.20082",
+      "title": "LongRoPE2: Near-Lossless LLM Context Window Scaling (2025/02)",
+      "kw": 2,
+      "sem": 0.78,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Per-dimension RoPE scaling applied dynamically at inference — same end goal (preserve attention quality via dynamic θ). Hits sem and func."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2510.00028v1",
+      "title": "Rethinking RoPE Scaling in Quantized LLM (2025/10)",
+      "kw": 1,
+      "sem": 0.70,
+      "func": 0.65,
+      "hit": true,
+      "rationale": "Per-channel-band RoPE rescaling — touches RoPE-scaling, but motivating signal is quantization not decode velocity. sem exactly meets 0.7 threshold; hit-rule fires on sem>=0.7."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.11305",
+      "title": "Drift-Compensated RoPE Base for Streaming Decode (2026/04)",
+      "kw": 4,
+      "sem": 0.95,
+      "func": 0.95,
+      "hit": true,
+      "rationale": "Direct twin: closed-loop hidden-state-drift sensor adjusts RoPE base per decode step — identical mechanism to FOVEA-DECODE. Multiple keyword matches and saturating sem/func."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.16205",
+      "title": "Decode-Velocity Aware Positional Encoding (2025/11)",
+      "kw": 3,
+      "sem": 0.92,
+      "func": 0.92,
+      "hit": true,
+      "rationale": "Functional equivalent: streaming-decode PE compensating for hidden-state velocity. Maps directly onto candidate's velocity-compensation framing. All thresholds well above cutoff."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 4, 5, 6, 7, 8],
+  "non_hit_ranks": [1, 3],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Six of eight results are hits, including two direct twins (rank 7 closed-loop drift-compensated RoPE base and rank 8 decode-velocity-aware PE) that match FOVEA-DECODE's signature mechanism almost verbatim. Adjacent dynamic-RoPE work (YaRN, LongRoPE2, dynamic-RoPE survey) further saturates the design space, while only the Wikipedia source-domain page and the static base-bounds analysis are clean non-hits. Candidate is not novel."
+}

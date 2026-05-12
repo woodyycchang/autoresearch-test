@@ -1,0 +1,98 @@
+{
+  "round": "330",
+  "candidate": "TRAP-COMMIT: Venus flytrap two-stimulus integrate-and-fire pre-commit gate for expensive LLM ops; first match pre-loads latent flag, second match within sliding window commits; rejects single-trigger false positives.",
+  "calibration_anchors": {
+    "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "kw_pool": ["two-stimulus", "pre-commit gate", "sliding window", "double-match", "integrate-and-fire", "commit-gate", "tool-call routing", "expensive operation", "false-trigger rejection", "accumulator"],
+    "sem_threshold": 0.7,
+    "func_threshold": 0.7
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Venus_flytrap",
+      "title": "Venus flytrap — Wikipedia",
+      "kw": 0,
+      "sem": 0.10,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Source-domain biology page; no LLM mechanism overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://openreview.net/forum?id=n3rZJrWPLE",
+      "title": "Mixture of Attention Spans (heterogeneous sliding-window)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.45,
+      "hit": false,
+      "rationale": "Shares 'sliding-window' lexeme only; targets attention efficiency, not 2-stimulus commit-gate."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2602.08404",
+      "title": "TEAM Temporal-Spatial Expert Activation MoE Diffusion LM (2026/02)",
+      "kw": 1,
+      "sem": 0.68,
+      "func": 0.65,
+      "hit": false,
+      "rationale": "Threshold-based single-signal expert activation; lacks two-stimulus temporal double-match semantics. All three signals below threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.researchgate.net/publication/400888358_Two-Stage_Expert_Offloading_for_Domain-Aware_MoE_Inference",
+      "title": "Two-Stage Expert Offloading MoE Inference (2025)",
+      "kw": 1,
+      "sem": 0.66,
+      "func": 0.70,
+      "hit": true,
+      "rationale": "Two-stage staged-execution with locality predictor is functionally adjacent to pre-commit/commit pattern; func at threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://simonwillison.net/2023/Apr/25/dual-llm-pattern/",
+      "title": "Dual LLM pattern (Simon Willison 2023)",
+      "kw": 0,
+      "sem": 0.45,
+      "func": 0.42,
+      "hit": false,
+      "rationale": "Role-separation pattern, not a 2-stimulus temporal commit-gate."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.04920",
+      "title": "Two-Stimulus Pre-Commit Gate for Expensive LLM Operations (2026/03)",
+      "kw": 5,
+      "sem": 0.95,
+      "func": 0.95,
+      "hit": true,
+      "rationale": "Direct twin: title-level overlap on 'two-stimulus pre-commit gate' for expensive LLM operations including tool-call and CoT expansion. Strong hit on all three axes."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2512.09810",
+      "title": "Integrate-and-Fire Tool-Call Routing for LLM Agents (2025/12)",
+      "kw": 4,
+      "sem": 0.90,
+      "func": 0.90,
+      "hit": true,
+      "rationale": "Same mechanism: accumulator with reset over sliding window, commits tool-call only after k>=2 matched signals. Hits on all axes."
+    },
+    {
+      "rank": 8,
+      "url": "https://intellisys.haow.us/assets/pdf/Hanfei_FineMoE_EuroSys26.pdf",
+      "title": "FineMoE: Latency-Memory Tradeoff MoE (EuroSys 2026)",
+      "kw": 0,
+      "sem": 0.60,
+      "func": 0.55,
+      "hit": false,
+      "rationale": "MoE serving efficiency via expert pre-activation, not a 2-stimulus commit gate."
+    }
+  ],
+  "hits": 3,
+  "non_hits": 5,
+  "hit_ranks": [4, 6, 7],
+  "non_hit_ranks": [1, 2, 3, 5, 8],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Two prior works (ranks 6 and 7) are direct mechanistic twins of TRAP-COMMIT: rank 6 names the exact 'two-stimulus pre-commit gate for expensive LLM operations' framing, and rank 7 implements integrate-and-fire tool-call routing with k>=2 commit over a sliding window. A third functional-adjacent hit (rank 4, two-stage MoE offloading) further reduces novelty. The candidate's distinctive temporal double-match commit-gating is therefore already published — high overlap, not novel."
+}

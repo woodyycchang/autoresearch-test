@@ -1,0 +1,102 @@
+{
+  "round": "326",
+  "candidate": "STOMATOPOD-HEAD: replace standard multi-head attention with K=16 narrow-band specialist sub-heads, each on a disjoint DCT spectral slice, with no intra-layer cross-channel comparison and delayed aggregator.",
+  "calibration_anchors": {
+    "rank_1": "Mantis shrimp biology source page — pure source-domain, no LLM/attention content. Should yield 0/0/0.",
+    "rank_2": "FDW (CVPR 2025) — disjoint Fourier groups in convolution kernels. Same 'frequency-disjoint specialists' artefact in a different operator class. KW partial; semantic moderate-high; functional moderate-high.",
+    "rank_3": "Wavelet-like emergent band-specialist heads in transformers (ACL 2025) — describes emergent specialization (not architectural imposition). KW moderate, sem/func moderate-high.",
+    "rank_4": "Frequency Band Attention Mechanism — per-band heads with independent modules merged via gates. Direct functional twin of candidate; high on all axes.",
+    "rank_5": "FNet — FFT replaces attention entirely; does NOT keep K specialist heads with disjoint bands. Different mechanism class; low functional similarity.",
+    "rank_6": "Spectral-Slice MHA with Disjoint DCT Bands — explicitly K disjoint DCT bands → K specialist heads + late aggregator. Near-identical to candidate's claim; near-maximal scores.",
+    "rank_7": "Band-Disjoint Specialist Heads for Long-Context Transformers — explicitly addresses softmax-temperature interference via band disjointness, matching candidate's hypothesis verbatim.",
+    "rank_8": "Wavelet-Banded MHA with delayed cross-band gating — wavelet variant of the exact STOMATOPOD-HEAD shape (band-disjoint specialists + delayed aggregator)."
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp",
+      "title": "Mantis shrimp — Wikipedia",
+      "kw": 0,
+      "sem": 0.08,
+      "func": 0.03,
+      "hit": false,
+      "rationale": "Source-domain biology page. No LLM, attention, DCT, or band-specialist content. Provides only the inspiration, not prior art on the LLM application."
+    },
+    {
+      "rank": 2,
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Chen_Frequency_Dynamic_Convolution_for_Dense_Image_Prediction_CVPR_2025_paper.pdf",
+      "title": "Frequency Dynamic Convolution (FDW, CVPR 2025)",
+      "kw": 2,
+      "sem": 0.74,
+      "func": 0.7,
+      "hit": true,
+      "rationale": "Snippet describes 'spectral coefficients divided into frequency-based groups with disjoint Fourier indices' — exactly the 'frequency-disjoint specialist' artefact, though in convolution kernels rather than attention heads. Same architectural primitive transferred to a sibling operator. Counts as kw>=2 (frequency-disjoint, spectral groups) and at functional threshold."
+    },
+    {
+      "rank": 3,
+      "url": "https://aclanthology.org/2025.acl-long.303.pdf",
+      "title": "Beyond Position: emergence of wavelet-like properties in Transformers (ACL 2025)",
+      "kw": 2,
+      "sem": 0.72,
+      "func": 0.65,
+      "hit": true,
+      "rationale": "Attention heads exhibiting 'wavelet-like band specialization across frequency' is the same observable phenomenon as STOMATOPOD-HEAD's intended structure. However, this is emergent (post-hoc analysis) rather than imposed architecture, so functional score is below threshold; kw>=2 (attention heads, frequency band specialization) triggers the hit rule."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.emergentmind.com/topics/frequency-band-attention-mechanism",
+      "title": "Frequency Band Attention Mechanism (2025)",
+      "kw": 3,
+      "sem": 0.85,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Snippet states 'per-band heads specialize to different band subgroups; outputs of independent band-specific modules merged via learnable gates' — this is essentially STOMATOPOD-HEAD verbatim minus the DCT-specific basis. Hits on all three axes."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2105.03824",
+      "title": "FNet: Mixing Tokens with Fourier Transforms (2021)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.45,
+      "hit": false,
+      "rationale": "FNet replaces self-attention entirely with parameter-free FFT mixing across token AND channel axes. The opposite of STOMATOPOD-HEAD: it actively mixes across channels and has no specialist heads. Shares only 'Fourier transforms in transformers' keyword; functionally distinct."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.18045",
+      "title": "Spectral-Slice Multi-Head Attention with Disjoint DCT Bands (2026/03)",
+      "kw": 4,
+      "sem": 0.94,
+      "func": 0.95,
+      "hit": true,
+      "rationale": "Snippet: 'K disjoint DCT bands assigned to K specialist heads; no intra-layer cross-band interaction; merged via late aggregator.' This is literally the candidate's mechanism stated almost word-for-word. Maximal overlap on every axis."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2511.04220",
+      "title": "Band-Disjoint Specialist Heads for Long-Context Transformers (2025/11)",
+      "kw": 3,
+      "sem": 0.9,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Frequency-disjoint heads explicitly motivated by avoiding 'inter-head softmax-temperature interference' — matches both the architecture AND the specific claimed contribution ('per-channel softmax-temperature decoupling') of the candidate. Direct prior art on the novelty claim."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.07118",
+      "title": "Wavelet-Banded Multi-Head Attention (2026/04)",
+      "kw": 3,
+      "sem": 0.84,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Wavelet-band-disjoint specialist heads with delayed cross-band gating — same STOMATOPOD-HEAD blueprint, using wavelet basis instead of DCT. The 'delayed cross-band' phrasing matches the candidate's 'delayed aggregator stage' content word exactly."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [2, 3, 4, 6, 7, 8],
+  "non_hit_ranks": [1, 5],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Six of eight results clear the hit threshold, with three (ranks 6, 7, 8) being direct architectural twins of STOMATOPOD-HEAD: K disjoint DCT/wavelet bands assigned to specialist attention heads with no intra-layer cross-band interaction and a delayed aggregator. Rank 7 even matches the candidate's specific softmax-temperature-decoupling claim. The candidate's stated novelty (frequency-disjoint specialists with no intra-layer cross-channel comparison) is firmly established prior art."
+}

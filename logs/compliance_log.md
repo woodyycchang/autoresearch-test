@@ -356,3 +356,14 @@ p(no PASS | 1% novelty H₀) at N=396 = (0.99)^396 ≈ **0.0184** — further in
 p(no PASS | 5% novelty H₀) = (0.95)^396 ≈ 4.5 × 10⁻⁹ — strongly rejected.
 
 The corpus of 12 epochs + 138 prior manual rounds confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.018 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 12's rounds (see `output/epoch12_comparison.md` §6) extend the saturation evidence across a broader architectural surface; R279 alone produced zero LLM-side functional hits (joining R264 from epoch 11 as the only such adjacencies in the strict-protocol corpus).
+
+## Phase 0 audit of R301 + R302 — completed 2026-05-12T16:04Z
+
+Continuation of the per-epoch Phase-0-Phase-1 pattern (epoch 13 R279 audit; epoch 14 R301+R302 audit).
+
+- Method: 5+ WebSearch queries per round over the LLM-side functional content, stripped of source-domain vocabulary. Multi-angle keyword sweep per Pattern D specification.
+- R301 (glasswing tapered K-stage anti-reflection): **FUNCTIONAL_FALSE_POSITIVE** — 5-paper functional collision (DS-Init 1908.11365, DeepNet 2203.00555, Spike No More 2312.16903 COLM 2025, Peri-LN 2502.02732, Variance Dynamics 2510.09423). Aggregated functional space saturates the candidate's mechanism (depth-scaled, variance-tapered projections smoothing the embedding-to-attention gradient transition). v5 step 06.7 missed because no single search result reached the 0.7 threshold; the prior art is distributed across 5 papers spanning 2019-2026. Reclassified in memory_db.json; N_verified unchanged at 421; substantive_pass_count decremented from 2 to 1 (now R279 only).
+- R302 (Brood-X prime-coprime replay scheduling): **UNCERTAIN** — functional effect (de-resonate periodic schedules) is occupied at judge ≥0.55-0.62 by adaptive/aperiodic schedule alternatives (FOREVER, Replay Scheduling MCTS, Beyond Cosine Decay, WSD), but no single result reaches 0.70 threshold. Specific prime-coprime mechanism genuinely absent from 2024-2026 LLM literature. Retained as PASS-with-caveat with low-disclosure-bar caveat (mathematically simple 1-line modification may be done informally without publishing). Flagged for human review.
+- Updates: memory_db.json updated (R301 verdict → FUNCTIONAL_FALSE_POSITIVE with phase_0_audit_2026_05_12 sub-record; R302 retains PASS_with_caveat with phase_0_audit_2026_05_12 UNCERTAIN sub-record); phase_0_audit_2026_05_12_summary block appended.
+- Audit document: output/r301_r302_audit.md.
+
