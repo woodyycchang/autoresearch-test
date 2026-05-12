@@ -1,0 +1,104 @@
+{
+  "round": "310",
+  "verifier": "cross-agent re-judge",
+  "target": "LICHEN-LLM: obligately co-trained dual-model pair with specialist embedded in generalist residual stream; neither functions standalone",
+  "content_words": ["lichen mycobiont photobiont", "composite obligate symbiosis", "morphology-metabolism split", "obligate co-dependence", "embedded helper residual stream", "obligate co-trained pair", "small-large symbiont architecture", "cannot-function-standalone duo"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Lichen",
+      "title": "Lichen — Wikipedia",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Source-domain biology page about lichens, not an LLM mechanism. No keyword overlap with LLM-side content words; no functional similarity to co-trained dual-model architecture."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2302.01318",
+      "title": "Speculative Decoding with Draft Model (2023/2)",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.25,
+      "func": 0.55,
+      "hit": false,
+      "rationale": "Speculative decoding uses a small draft + large verifier but they are NOT obligately co-trained, NOT embedded in residual stream, and BOTH can function standalone. Speculative pattern explicitly disclaimed in novelty_claim. Func mid-range per calibration for speculative (0.5-0.65)."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2305.07759",
+      "title": "Speculative Sampling (2023/5)",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.25,
+      "func": 0.55,
+      "hit": false,
+      "rationale": "Same speculative paradigm — parallel draft model for acceleration. Models independent, not obligate, not residual-embedded. Disclaimed pattern. Func at speculative calibration range."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2504.05290",
+      "title": "Routing-Based Cascading LLM (2025/4)",
+      "kw": 0,
+      "kw_matches": [],
+      "sem": 0.2,
+      "func": 0.55,
+      "hit": false,
+      "rationale": "Cascading routes between models of different sizes; models operate independently (one at a time), not obligately co-trained nor residual-stream embedded. Disclaimed in novelty_claim. Func at cascading calibration (0.5-0.65)."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2509.13245",
+      "title": "Coupled Auxiliary Network Embedded in Transformer Residual (2025/9)",
+      "kw": 2,
+      "kw_matches": ["embedded helper residual stream (partial: 'embedded'+'residual')", "obligate co-trained pair (partial: 'jointly trained'~'co-trained')"],
+      "sem": 0.8,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Auxiliary network embedded in transformer residual at multiple layers + jointly trained with main model. Strong match to LICHEN-LLM's residual-stream embedding + co-training. Func at calibration 0.8-0.9."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.08820",
+      "title": "Obligately Co-Trained Dual-Model Inference (2026/3)",
+      "kw": 3,
+      "kw_matches": ["obligate co-trained pair (direct)", "cannot-function-standalone duo (implied by 'obligate inference pair')", "small-large symbiont architecture (main+auxiliary)"],
+      "sem": 0.92,
+      "func": 0.92,
+      "hit": true,
+      "rationale": "Direct match: 'two models trained as obligate inference pair; main model factual layers replaced by auxiliary model outputs.' Captures obligate co-training + factual-vs-structural split. Func at top calibration 0.9-0.95."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2511.13507",
+      "title": "Tightly-Coupled Specialist Embedding via Residual Stream (2025/11)",
+      "kw": 2,
+      "kw_matches": ["embedded helper residual stream (direct)", "small-large symbiont architecture (specialist+generalist)"],
+      "sem": 0.88,
+      "func": 0.88,
+      "hit": true,
+      "rationale": "Specialist model embedded in generalist residual stream — nearly verbatim match to LICHEN-LLM's mechanism. Tightly-coupled implies obligate-style dependence. Func at calibration 0.85-0.9."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.10550",
+      "title": "Composite Two-Model Architecture for Domain-Specialist LLM (2026/4)",
+      "kw": 2,
+      "kw_matches": ["composite obligate symbiosis (partial: 'composite')", "small-large symbiont architecture (generalist+domain-specialist)"],
+      "sem": 0.75,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Composite generalist + domain-specialist where both required at inference — matches cannot-function-standalone duo aspect. Does not explicitly state residual-stream embedding. Func at calibration 0.7-0.8."
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 4,
+    "misses": 4,
+    "hit_ranks": [5, 6, 7, 8],
+    "miss_ranks": [1, 2, 3, 4],
+    "verdict": "NOVELTY DEFEATED — 4 strong functional matches (ranks 5-8) demonstrate prior art covering obligately co-trained dual-model architectures with residual-stream embedding. Rank 6 is a direct match (func 0.92). Speculative/cascading priors (ranks 2-4) are mechanistically distinct as disclaimed."
+  }
+}
