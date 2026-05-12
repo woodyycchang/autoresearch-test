@@ -1,0 +1,10 @@
+{
+  "round": "279",
+  "verdict": "FAIL_with_caveat_PassC_borderline",
+  "pattern": "C (semantic surface-only) + verifier-disagreement",
+  "honest_audit": {
+    "skipped_steps": [],
+    "deviations": ["initial primary 07_hit_miss kw counts on ranks 1,2 were inflated (kw=2 each); revised to strict-substring counts (kw=0, kw=1 respectively) consistent with verifier"],
+    "borderline_notes": "Zero LLM-side functional hits ≥0.7. Only one Pattern-C semantic surface hit on the Harmonic ML Models paper (uses 'harmonic' in a different sense). Verifier (a7a05fb963d51dafc) returned PASS (total_hits=0); primary returns FAIL_with_caveat at total_hits=1 via Pattern-C borderline. This is the SECOND zero-functional-hit candidate in the strict-protocol corpus (first was R264 hagfish slime). Music-theoretic harmonic-integer-ratio constraint on attention-head singular directions appears unpublished in the surveyed literature."
+  }
+}

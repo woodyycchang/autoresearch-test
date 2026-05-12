@@ -1,0 +1,16 @@
+{
+  "round": "277",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2918", "judge_score": 0.05, "matched_effect_cluster": "source-domain biology", "functional_hit": false, "justification": "Biology paper; not LLM decoder."},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Counter-illumination", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Wiki on camouflage."},
+    {"rank": 3, "url": "https://arxiv.org/html/2604.26328", "judge_score": 0.50, "matched_effect_cluster": "detection-side KL", "functional_hit": false, "justification": "Defender side: uses KL across rewrites as detection feature. Different direction (detect, not cancel)."},
+    {"rank": 4, "url": "https://arxiv.org/html/2508.15848v1", "judge_score": 0.82, "matched_effect_cluster": "self-disguise / counter-emission", "functional_hit": true, "justification": "LLM trained to disguise own output to evade detector — functional equivalent of ECED's self-cancellation, though achieved by fine-tune not real-time closed-loop reference."},
+    {"rank": 5, "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/ab1ee157f7804a13f980414b644a9460-Paper-Conference.pdf", "judge_score": 0.86, "matched_effect_cluster": "proxy-humanizing decoder", "functional_hit": true, "justification": "Closed-loop humanizing proxy overrides LLM predictions in real time to evade detection — directly the same closed-loop counter-emission as ECED."},
+    {"rank": 6, "url": "https://arxiv.org/html/2305.10847v6", "judge_score": 0.68, "matched_effect_cluster": "prompt-guided evasion", "functional_hit": false, "justification": "Prompt-only evasion guidance; doesn't implement closed-loop ambient-reference cancellation."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2408.04237", "judge_score": 0.60, "matched_effect_cluster": "rewrite disparity", "functional_hit": false, "justification": "Trains LLM to minimize alterations on AI text — defender side, not evader."},
+    {"rank": 8, "url": "https://arxiv.org/html/2510.08602v1", "judge_score": 0.40, "matched_effect_cluster": "OOD detection", "functional_hit": false, "justification": "Detector treats human as outlier — opposite direction from ECED."}
+  ],
+  "summary": {"functional_hits_count": 2, "max_judge_score": 0.86, "distinct_effect_clusters_above_threshold": 2, "multi_cluster_match": true}
+}

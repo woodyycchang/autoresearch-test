@@ -1,0 +1,93 @@
+{
+  "round": "278",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "nepenthes peristome aquaplaning",
+    "wet-state one-way trap",
+    "anisotropic radial ridges",
+    "conditional activation gate",
+    "state-conditioned filter",
+    "invisible quarantine routing",
+    "silent absorption sandbox",
+    "directional input gate"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC521129/",
+      "kw_count": 1,
+      "sem_cosine": 0.12,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology (Nepenthes aquaplaning), no LLM defense mechanism; only one content-word substring matches."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2306268120",
+      "kw_count": 0,
+      "sem_cosine": 0.1,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Pure biology peristome mechanics paper, unrelated to LLM input filtering."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2601.14660",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Activation-velocity-conditioned LLM filter directly realizes PCAP's state-conditioned conditional-activation safety filter."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2601.04034v1",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "Multi-agent honeypot routing adversarial LLM requests into deceptive trap responses — same conditional one-way quarantine routing as PCAP."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2510.15017",
+      "kw_count": 0,
+      "sem_cosine": 0.83,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Honeypot guardrail rewrites dangerous responses into non-executable but theme-preserving outputs — operationally equivalent to PCAP's silent absorption sandbox."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2402.12991",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.45,
+      "hit": false,
+      "reason": "Adversarial-prompt honeypot used for black-box model identification, not silent safety quarantine."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2506.10597v1",
+      "kw_count": 0,
+      "sem_cosine": 0.5,
+      "func_score": 0.3,
+      "hit": false,
+      "reason": "Taxonomy survey of guardrails, not a specific conditional-routing safety mechanism."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2409.08234v1",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "LLM-powered honeypot engages attackers in extended trap sessions — same conditional routing into silent quarantine sandbox as PCAP."
+    }
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "Four results (ranks 3, 4, 5, 8) exceed sem>=0.7 and/or func>=0.7 thresholds, covering distinct effect clusters (activation-conditioned filter; honeypot routing; silent safety-rewriting; LLM honeypot sessions). PCAP's combination of conditional activation + one-way routing + silent absorption is already realized in prior LLM-guardrail/honeypot literature, falsifying novelty."
+}

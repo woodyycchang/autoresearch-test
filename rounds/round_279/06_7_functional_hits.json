@@ -1,0 +1,16 @@
+{
+  "round": "279",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Steelpan", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Wiki source-domain."},
+    {"rank": 2, "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7E1D752EAF17463DC1C0A7C713C8134/S0883769400044419a.pdf/caribbean_steel_pan_tuning_and_mode_studies.pdf", "judge_score": 0.05, "matched_effect_cluster": "source-domain physics", "functional_hit": false, "justification": "Physics of pans."},
+    {"rank": 3, "url": "https://arxiv.org/html/2505.23724v1", "judge_score": 0.62, "matched_effect_cluster": "subspace-constrained LoRA", "functional_hit": false, "justification": "Constrains updates to a subspace, but the subspace is not constructed from integer-ratio harmonic series — different constraint geometry."},
+    {"rank": 4, "url": "https://arxiv.org/abs/2502.01235", "judge_score": 0.58, "matched_effect_cluster": "singular alignment", "functional_hit": false, "justification": "LoRA aligns with full-grad singular subspace; no harmonic constraint."},
+    {"rank": 5, "url": "https://www.arxiv.org/pdf/2502.00987", "judge_score": 0.45, "matched_effect_cluster": "rank-rand", "functional_hit": false, "justification": "Different mechanism."},
+    {"rank": 6, "url": "https://arxiv.org/html/2503.05320", "judge_score": 0.55, "matched_effect_cluster": "neuron disentangling", "functional_hit": false, "justification": "Disentangles tasks; no within-head harmonic ratio."},
+    {"rank": 7, "url": "https://arxiv.org/html/2404.18825v1", "judge_score": 0.65, "matched_effect_cluster": "harmonic-function regularization", "functional_hit": false, "justification": "Harmonic-function-theory (Laplace eq) for robustness — completely different sense of 'harmonic' than music-theory integer-ratio; would mislead if classified as hit."},
+    {"rank": 8, "url": "https://arxiv.org/pdf/2601.22708", "judge_score": 0.58, "matched_effect_cluster": "LoRA variants review", "functional_hit": false, "justification": "Review paper; covers many variants but the specific integer-ratio-harmonic constraint is not in the taxonomy."}
+  ],
+  "summary": {"functional_hits_count": 0, "max_judge_score": 0.65, "distinct_effect_clusters_above_threshold": 0, "multi_cluster_match": false}
+}

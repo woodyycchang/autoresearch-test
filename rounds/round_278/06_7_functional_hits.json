@@ -1,0 +1,16 @@
+{
+  "round": "278",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC521129/", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Biology paper."},
+    {"rank": 2, "url": "https://www.pnas.org/doi/10.1073/pnas.2306268120", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Biology paper."},
+    {"rank": 3, "url": "https://arxiv.org/html/2601.14660", "judge_score": 0.72, "matched_effect_cluster": "conditional-activation guardrail", "functional_hit": true, "justification": "Conditional filter triggered by activation-velocity feature — same conditional-activation+filter mechanism as PCAP."},
+    {"rank": 4, "url": "https://arxiv.org/html/2601.04034v1", "judge_score": 0.88, "matched_effect_cluster": "honeypot trap routing", "functional_hit": true, "justification": "Multi-agent honeypot routes attackers to deceptive traps — directly the conditional one-way routing + silent quarantine mechanism of PCAP."},
+    {"rank": 5, "url": "https://arxiv.org/html/2510.15017", "judge_score": 0.85, "matched_effect_cluster": "safety-rewriting silent quarantine", "functional_hit": true, "justification": "Detects dangerous info, rewrites response to maintain theme but render non-executable — operationally same as PCAP's silent-absorption sandbox."},
+    {"rank": 6, "url": "https://arxiv.org/html/2402.12991", "judge_score": 0.65, "matched_effect_cluster": "honeypot ID", "functional_hit": false, "justification": "Adversarial-prompt honeypot for model identification — adjacent but different purpose (ID, not safety routing)."},
+    {"rank": 7, "url": "https://arxiv.org/html/2506.10597v1", "judge_score": 0.55, "matched_effect_cluster": "guardrail taxonomy", "functional_hit": false, "justification": "Taxonomy survey, not specific mechanism implementation."},
+    {"rank": 8, "url": "https://arxiv.org/html/2409.08234v1", "judge_score": 0.80, "matched_effect_cluster": "LLM honeypot session", "functional_hit": true, "justification": "LLM-powered honeypot engages attackers in long sessions — same conditional-routing-into-trap mechanism as PCAP."}
+  ],
+  "summary": {"functional_hits_count": 4, "max_judge_score": 0.88, "distinct_effect_clusters_above_threshold": 4, "multi_cluster_match": true}
+}

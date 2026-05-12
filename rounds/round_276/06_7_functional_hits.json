@@ -1,0 +1,16 @@
+{
+  "round": "276",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://www.binghamton.edu/news/story/5830/easter-islands-statues-actually-walked-and-physics-backs-it-up", "judge_score": 0.05, "matched_effect_cluster": "source-domain physics", "functional_hit": false, "justification": "Physical statue transport, not parameter optimization."},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Moai", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Wiki article on statues."},
+    {"rank": 3, "url": "https://arxiv.org/html/2511.00674", "judge_score": 0.55, "matched_effect_cluster": "gradient orthogonalization", "functional_hit": false, "justification": "Orthogonalizes the gradient (Muon-style); MPOO is orthogonal-TO the gradient. Related but not identical mechanism."},
+    {"rank": 4, "url": "https://arxiv.org/html/2602.23696", "judge_score": 0.88, "matched_effect_cluster": "transverse-cloud descent dynamics", "functional_hit": true, "justification": "Paper describes precisely the slow-fast decomposition where 1-D backbone drift + high-dim transverse oscillation IS the optimizer dynamics — same operational mechanism as MPOO."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2310.17074", "judge_score": 0.73, "matched_effect_cluster": "benign oscillation", "functional_hit": true, "justification": "Large-lr SGD's lateral oscillation is shown to be both intrinsic to and beneficial for generalization — functional equivalent of MPOO's lateral-rocking-only descent claim."},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2307.15196", "judge_score": 0.50, "matched_effect_cluster": "momentum questioned", "functional_hit": false, "justification": "Argues momentum marginal in many settings; not the same mechanism but adjacent finding."},
+    {"rank": 7, "url": "https://arxiv.org/html/2506.04487v1", "judge_score": 0.72, "matched_effect_cluster": "orthogonal-direction updates", "functional_hit": true, "justification": "Updates projected orthogonal to retained-direction gradient; same family as MPOO's transverse-step rule."},
+    {"rank": 8, "url": "https://arxiv.org/html/2508.07370v1", "judge_score": 0.75, "matched_effect_cluster": "intrinsic + transverse decomposition", "functional_hit": true, "justification": "Decomposes training into intrinsic-direction + transverse-direction dynamics — matches MPOO's intrinsic-lean + transverse-rocking decomposition."}
+  ],
+  "summary": {"functional_hits_count": 4, "max_judge_score": 0.88, "distinct_effect_clusters_above_threshold": 4, "multi_cluster_match": true}
+}
