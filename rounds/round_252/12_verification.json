@@ -1,0 +1,100 @@
+{
+  "round": "252",
+  "verifier": "claude-opus-4-7-cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff (keyword_overlap_count >= 2) OR (semantic_cosine >= 0.7) OR (judge_score >= 0.7)",
+  "content_words": ["gecko setae", "spatulae array", "van der Waals adhesion", "preload-and-drag gating", "nano-adapter hierarchy", "perpendicular selector preload", "tangential drag injection", "reverse-angle release"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.pnas.org/doi/10.1073/pnas.192252799",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["gecko setae", "van der Waals adhesion"],
+      "semantic_cosine_estimate": 0.16,
+      "functional_equivalence_score": 0.05,
+      "reason": "Source-domain biology paper documents vdW + preload/drag in gecko setae but is the analogical source, not the LLM mechanism; keyword overlap fires due to direct phrase matches in title.",
+      "hit": true,
+      "hit_trigger": "keyword"
+    },
+    {
+      "rank": 2,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2607397/",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.18,
+      "functional_equivalence_score": 0.05,
+      "reason": "Source-domain biology; no exact phrase substrings of the 8 content words appear; well below all thresholds.",
+      "hit": false,
+      "hit_trigger": "none"
+    },
+    {
+      "rank": 3,
+      "url": "https://link.springer.com/chapter/10.1007/978-3-540-77608-6_20",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.14,
+      "functional_equivalence_score": 0.05,
+      "reason": "Source-domain biology overview; no exact content-word phrase matches and far from the LLM functional target.",
+      "hit": false,
+      "hit_trigger": "none"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2502.03884",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.68,
+      "functional_equivalence_score": 0.72,
+      "reason": "HILO hierarchical MoE adapter rank-gating is structurally close to a hierarchical nano-adapter array with conditional activation, even though it lacks an explicit two-step preload+drag and reverse-angle release.",
+      "hit": true,
+      "hit_trigger": "judge"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2411.05877v1",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.60,
+      "functional_equivalence_score": 0.55,
+      "reason": "Generative Adapter is single-pass parameter-delta contextualization, missing the two-step asymmetric preload+drag gating and reverse-angle release.",
+      "hit": false,
+      "hit_trigger": "none"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2501.15087v2",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.55,
+      "functional_equivalence_score": 0.5,
+      "reason": "Multi-grained patch training controls token granularity only; no two-step gating or directional release.",
+      "hit": false,
+      "hit_trigger": "none"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2304.01933",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.58,
+      "functional_equivalence_score": 0.48,
+      "reason": "Generic PEFT adapter family with single-pass adaptation; lacks both the preload+drag two-axis gating and the reverse-angle release.",
+      "hit": false,
+      "hit_trigger": "none"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2509.16861",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.65,
+      "functional_equivalence_score": 0.74,
+      "reason": "Dual-Gated Conditional Adapter captures the two-step conditional adapter gating concept very closely; release semantics differ but the two-axis activation structure matches the PDGAC mechanism.",
+      "hit": true,
+      "hit_trigger": "judge"
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "3 hits: rank 1 (keyword_overlap=2 on 'gecko setae' and 'van der Waals adhesion'), rank 4 HILO (judge=0.72, hierarchical adapter rank gating), and rank 8 Dual-Gated Conditional Adapter (judge=0.74, two-step gated adapter activation). The PDGAC mechanism is not novel relative to existing two-step gated hierarchical adapter art and is anticipated by the explicit gecko-setae source."
+}

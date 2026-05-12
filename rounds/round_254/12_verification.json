@@ -1,0 +1,109 @@
+{
+  "round": "254",
+  "verifier": "claude-opus-4-7-cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff (keyword_overlap_count>=2) OR (semantic_cosine>=0.7) OR (functional_equivalence>=0.7)",
+  "content_words": [
+    "anglerfish esca",
+    "Photobacterium symbiont",
+    "oxygen-gated emission",
+    "saturating attenuation cap",
+    "externally-pretrained symbiont module",
+    "host-frozen attenuation gate",
+    "model-zoo-acquired auxiliary",
+    "calibrated signal generator"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://elifesciences.org/articles/47606",
+      "title": "Diverse deep-sea anglerfishes reduced luminous symbiont — eLife",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["Photobacterium symbiont"],
+      "semantic_cosine": 0.18,
+      "functional_equivalence": 0.04,
+      "is_hit": false,
+      "reason": "Source-domain biology only; one content-word match and far below semantic/functional thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://ocean.si.edu/ocean-life/fish/meet-tiny-bacteria-give-anglerfishes-their-spooky-glow",
+      "title": "Smithsonian Anglerfish bacteria",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.16,
+      "functional_equivalence": 0.04,
+      "is_hit": false,
+      "reason": "Popular-science source-domain piece; no exact 8-word substring matches and well below thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://biologyinsights.com/how-does-an-anglerfish-glow-the-science-of-bioluminescence/",
+      "title": "Anglerfish bioluminescence science — Biology Insights",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.14,
+      "functional_equivalence": 0.04,
+      "is_hit": false,
+      "reason": "Biology source domain only; no exact phrase matches and very low semantic/functional similarity."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2509.17197v2",
+      "title": "SignalLLM (2025/9)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.58,
+      "functional_equivalence": 0.55,
+      "is_hit": false,
+      "reason": "External-tool orchestration paradigm, not internal residual gated symbiont module; below all thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2406.10254v1",
+      "title": "Towards Signal Processing in LLMs (2024/6)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.55,
+      "functional_equivalence": 0.45,
+      "is_hit": false,
+      "reason": "Internal signal-processing primitives, not host-frozen symbiont with attenuation gate."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2504.04740v2",
+      "title": "SCRAMBLe Synthetic Preference (2025/4)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.48,
+      "functional_equivalence": 0.30,
+      "is_hit": false,
+      "reason": "Preference-data generation; orthogonal mechanism to gated-symbiont architecture."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2304.01933",
+      "title": "LLM-Adapters family (2023/4)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.62,
+      "functional_equivalence": 0.62,
+      "is_hit": false,
+      "reason": "Co-trained PEFT adapters; lacks externally-acquired symbiont, attenuation gate, and saturating cap; pre-cutoff."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2509.16861",
+      "title": "Conditional Adapter Module Plug (2025/9)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.72,
+      "functional_equivalence": 0.78,
+      "is_hit": true,
+      "reason": "External conditional adapter plugged into a frozen host with gated activation captures the HGSSGM externally-acquired-auxiliary + host-gating mechanism, exceeding both semantic and functional thresholds."
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result 8 (arxiv 2509.16861 Conditional Adapter Module Plug) clears both semantic (0.72>=0.7) and functional (0.78>=0.7) thresholds, instantiating frozen-host + externally-acquired auxiliary module with gated activation — functionally equivalent to HGSSGM's core claim."
+}

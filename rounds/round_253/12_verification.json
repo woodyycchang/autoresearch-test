@@ -1,0 +1,109 @@
+{
+  "round": "253",
+  "verifier": "claude-opus-4-7-cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words": [
+    "Miura-ori tessellation",
+    "rigid panel array",
+    "Maekawa balance constraint",
+    "single-DOF deployment parameter",
+    "tessellated parameter manifold",
+    "rotation-mixer crease operator",
+    "lossless-by-construction folding",
+    "deploy-time tensor collapse"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.pnas.org/content/110/9/3276",
+      "title": "Geometry of Miura-folded metamaterials — PNAS",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.20,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Source-domain origami metamaterial paper; no LLM/tensor/parameter terms, zero exact keyword matches, low semantic and functional scores."
+    },
+    {
+      "rank": 2,
+      "url": "https://naturalorigami.wordpress.com/2016/07/18/the-miura-ori-fold/",
+      "title": "Miura-ori fold — natural origami",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.18,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Source-domain origami blog; mentions Miura-ori but not as 'Miura-ori tessellation' phrase, no LLM application overlap."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.tandfonline.com/doi/full/10.1080/15376494.2022.2126567",
+      "title": "Thick Miura-ori with negative Poisson — Mech Adv Mat",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.17,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Source-domain mechanical Miura-ori study; no LLM parameter/tensor overlap, no exact multi-word content-word matches."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2505.23966",
+      "title": "FLAT-LLM (2025/5)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.62,
+      "functional_equivalence": 0.70,
+      "hit": true,
+      "reason": "FLAT-LLM head-wise PCA low-rank truncation operationally overlaps with structured low-rank panel compression; functional score meets 0.7 threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2504.11651",
+      "title": "DFloat11 Lossless (2025/4)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.55,
+      "functional_equivalence": 0.62,
+      "hit": false,
+      "reason": "Byte-level lossless float compression; lossless aspect overlaps thematically but not the tessellated single-DOF mechanism; below all thresholds."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2603.17435",
+      "title": "ZipServ (2026/3)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.52,
+      "functional_equivalence": 0.60,
+      "hit": false,
+      "reason": "Hardware-aware lossless representation; no kinematic single-DOF constraint, no exact content-word phrase matches, below thresholds."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2504.04342",
+      "title": "Compression Laws for LLMs (2025/4)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.50,
+      "functional_equivalence": 0.40,
+      "hit": false,
+      "reason": "Empirical scaling-law analysis of compression vs accuracy; no mechanism overlap with tessellated rigid panels, all scores below threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2604.18146",
+      "title": "Modular Representation Compression (2026/4)",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.65,
+      "functional_equivalence": 0.72,
+      "hit": true,
+      "reason": "Modular representation compression with structured panels operationally captures tessellated-panel reorganization; functional score 0.72 meets threshold."
+    }
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two functional hits (FLAT-LLM at 0.70 structured low-rank compression, Modular Representation Compression at 0.72 modular tessellated panels) meet the func>=0.7 threshold, indicating the candidate's structured low-rank panel reorganization concept is functionally covered by existing LLM compression literature."
+}
