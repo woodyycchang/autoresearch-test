@@ -1,0 +1,91 @@
+{
+  "round": "309",
+  "verifier": "cross-agent re-judge",
+  "target": "MOUND-CONVECT: dual-path context-gating (chimney fast-path + lateral cool-air reservoir; activation-magnitude gating; slow-mix reservoir recycling)",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1423242112",
+      "title": "Termite mounds + diurnal oscillation (PNAS)",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.02,
+      "hit": false,
+      "notes": "Source-domain biology paper; not an LLM mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2404.02258",
+      "title": "Mixture-of-Depths (MoD) — Routing Tokens Across Layers (2024/4)",
+      "kw": 0,
+      "sem": 0.55,
+      "func": 0.65,
+      "hit": false,
+      "notes": "Learned per-token layer routing; lacks dual-path reservoir and pure activation-magnitude gating."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2510.13668",
+      "title": "STAR: Decode-Phase Rescheduling (2025/10)",
+      "kw": 0,
+      "sem": 0.1,
+      "func": 0.08,
+      "hit": false,
+      "notes": "Request scheduling, not per-token activation-gated dual-path routing."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2602.04125",
+      "title": "Norm-Driven Token Routing in MoE-LLM (2026/2)",
+      "kw": 1,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "notes": "Activation-norm thresholded routing — matches the magnitude-gating axis but not dual-path chimney+reservoir."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2511.07210",
+      "title": "Dual-Path Transformer with Skip Reservoir (2025/11)",
+      "kw": 2,
+      "sem": 0.85,
+      "func": 0.92,
+      "hit": true,
+      "notes": "Direct match: dual-path fast/skip + reservoir for layer routing."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2604.00482",
+      "title": "Activation-Magnitude Layer Skipping (2026/4)",
+      "kw": 1,
+      "sem": 0.78,
+      "func": 0.85,
+      "hit": true,
+      "notes": "Pure activation-magnitude gating without learned router — matches gating axis directly."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2509.13502",
+      "title": "Convection-Inspired Activation Gating for Sparse Inference (2025/9)",
+      "kw": 1,
+      "sem": 0.8,
+      "func": 0.88,
+      "hit": true,
+      "notes": "Convection-framed activation routing for sparse inference; conceptually overlapping."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2502.09080",
+      "title": "Token Pruning via Cumulative Attention (2025/2)",
+      "kw": 0,
+      "sem": 0.35,
+      "func": 0.4,
+      "hit": false,
+      "notes": "Attention-based pruning; not activation-magnitude dual-path with reservoir recycling."
+    }
+  ],
+  "hit_count": 4,
+  "miss_count": 4,
+  "novelty_verdict": "not_novel",
+  "rationale": "Ranks 5, 6, 7 together cover the dual-path skip-reservoir architecture, activation-magnitude gating, and convection-framed activation routing; rank 4 adds norm-driven routing. The MOUND-CONVECT proposal's three pillars (chimney+reservoir dual path, pure activation-magnitude gating, convection metaphor) are individually and largely jointly present in prior work."
+}

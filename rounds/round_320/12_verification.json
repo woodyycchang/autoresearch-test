@@ -1,0 +1,106 @@
+{
+  "round": "320",
+  "epoch": 13,
+  "candidate_form": "context-gating",
+  "llm_application_summary": "KIVA-DEFLECT: deflector layer routes new incoming tokens to attention sink position to protect central focus subspace.",
+  "scoring_rubric": "hit = kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://coloradoencyclopedia.org/article/kivas",
+      "title": "Kivas — Colorado Encyclopedia",
+      "side": "source-domain",
+      "kw": 0,
+      "sem": 0.0,
+      "func": 0.0,
+      "hit": false,
+      "rationale": "Source-domain reference describing the kiva intake shaft and deflector stone; not an LLM technique, excluded from prior-art assessment."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2309.17453",
+      "title": "StreamingLLM with Attention Sinks (2023/9)",
+      "side": "llm",
+      "kw": 1,
+      "sem": 0.7,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Foundational attention-sink work — preserving initial tokens as sinks is the substrate the deflector idea sits on; strong functional overlap with the protect-central-focus-via-sink motif, though without an explicit deflector-routing layer."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2604.10027",
+      "title": "SinkTrack Context Anchoring (2026/4)",
+      "side": "llm",
+      "kw": 1,
+      "sem": 0.72,
+      "func": 0.78,
+      "hit": true,
+      "rationale": "Injects/anchors context into the first-token sink — overlaps with using the sink position as a protective routing target for incoming activations, though direction is anchor-into-sink rather than deflect-into-sink."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2308.16137",
+      "title": "Attention Sink Phenomenon (2023/8)",
+      "side": "llm",
+      "kw": 1,
+      "sem": 0.6,
+      "func": 0.65,
+      "hit": false,
+      "rationale": "Original observation of attention sinks in autoregressive LLMs; provides the mechanism KIVA-DEFLECT exploits but does not itself route new tokens to the sink, so functional overlap stays below 0.7."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2510.20194",
+      "title": "Anchor-Sink + Position-Decay Streaming Cache (2025/10)",
+      "side": "llm",
+      "kw": 2,
+      "sem": 0.75,
+      "func": 0.8,
+      "hit": true,
+      "rationale": "Combines anchor sink with position-decay for streaming — implements much of the deflect-to-sink-to-protect-focus behavior via decayed routing; clear functional precedent."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.04125",
+      "title": "Token Deflection to Sink for Streaming Inference (2026/3)",
+      "side": "llm",
+      "kw": 3,
+      "sem": 0.92,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Direct match: an explicit deflector layer that routes disrupting tokens to the attention sink during streaming inference — essentially the same mechanism as KIVA-DEFLECT."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2511.16208",
+      "title": "Central-Focus Protection via Sink Routing (2025/11)",
+      "side": "llm",
+      "kw": 3,
+      "sem": 0.88,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Title and snippet name the exact framing: protect central focus subspace by routing new tokens to sink. Same goal, same mechanism, same vocabulary — near-direct prior art."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2509.18406",
+      "title": "Outlier-Routing Stable Attention (2025/9)",
+      "side": "llm",
+      "kw": 2,
+      "sem": 0.8,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Routes outlier/disrupting tokens away from main attention to a dedicated sink position — the deflection-to-sink mechanism under a different name (outlier routing)."
+    }
+  ],
+  "llm_side_results_considered": 7,
+  "hits": 6,
+  "hit_ranks": [2, 3, 5, 6, 7, 8],
+  "hit_rate": 0.857,
+  "max_func": 0.93,
+  "max_sem": 0.92,
+  "verdict": "NOVEL_FAIL",
+  "verdict_rationale": "Six of seven LLM-side results are hits, including two near-direct matches (rank 6 'Token Deflection to Sink' at func 0.93 and rank 7 'Central-Focus Protection via Sink Routing' at func 0.9) that describe the same deflector-routes-new-tokens-to-sink-to-protect-central-focus mechanism. Rank 8 covers the same idea under outlier-routing framing, and rank 5 already pairs anchor-sink with position-decayed routing. The candidate's own novelty_claim concedes that routing-to-sink is implicit in attention-sink architecture. Prior art is dense; KIVA-DEFLECT is not novel.",
+  "calibration_check": "All assigned func scores fall within the provided per-rank calibration bands."
+}

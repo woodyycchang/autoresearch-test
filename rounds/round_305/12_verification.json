@@ -1,0 +1,20 @@
+{
+  "round": "305",
+  "verifier": "cross-agent",
+  "candidate_form": "memory-architecture",
+  "rule": "hit = kw>=2 OR sem>=0.7 OR func>=0.7; kw = STRICT substring count of multi-word content_words in title+snippet",
+  "content_words": ["persian qanat aqueduct", "mother-well aquifer tap", "gravity-fed gentle slope", "vertical access shaft", "single-anchor KV cache", "fixed-slope token decay", "access-shaft eviction merge", "passive continuous KV flow"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Qanat", "kw": 0, "sem": 0.2, "func": 0.0, "hit": false, "reason": "Source-domain Wikipedia page on qanat; no LLM/KV-cache mechanism, zero functional overlap with QANAT-KV architecture."},
+    {"rank": 2, "url": "https://arxiv.org/pdf/2510.09665", "kw": 0, "sem": 0.35, "func": 0.2, "hit": false, "reason": "LMCache is an external cross-request KV cache layer, no single-anchor + fixed-slope decay + periodic eviction-merge design."},
+    {"rank": 3, "url": "https://arxiv.org/html/2512.03324", "kw": 0, "sem": 0.55, "func": 0.75, "hit": true, "reason": "TRIM-KV per-token retention with scalar score decaying over time matches per-token decay aspect but lacks single anchor and fixed-slope passive (uses learned gate)."},
+    {"rank": 4, "url": "https://arxiv.org/html/2605.06676", "kw": 0, "sem": 0.4, "func": 0.3, "hit": false, "reason": "LKV uses differentiable learned head-wise budgets, antithetical to the passive fixed-slope no-learned-gating principle of QANAT-KV."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2309.17453", "kw": 0, "sem": 0.6, "func": 0.8, "hit": true, "reason": "StreamingLLM fixed initial-token attention-sink anchors strongly match the single mother-well anchor concept though it lacks explicit fixed-slope decay and periodic eviction-merge."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2511.04686", "kw": 0, "sem": 0.3, "func": 0.25, "hit": false, "reason": "Stateful multi-turn KV management with positional fidelity is unrelated to single-anchor passive-decay architecture."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2306.14048", "kw": 0, "sem": 0.35, "func": 0.35, "hit": false, "reason": "H2O uses heavy-hitter oracle eviction which is data-driven attention-score based, not fixed-slope passive position decay with a single anchor."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2510.20194", "kw": 0, "sem": 0.85, "func": 0.92, "hit": true, "reason": "Single attention-sink anchor + position-dependent decay weight for streaming KV is a near-identical functional match to QANAT-KV's mother-well anchor + fixed-slope token decay."}
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "3 functional hits found (ranks 3, 5, 8) — particularly rank 8 (2510.20194) implements anchor-sink + position-decay streaming cache, which is functionally near-identical to the proposed QANAT-KV single-anchor + fixed-slope passive decay architecture; the candidate is not novel."
+}

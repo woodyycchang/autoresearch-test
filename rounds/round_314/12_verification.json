@@ -1,0 +1,92 @@
+{
+  "round": "314",
+  "candidate_form": "information-cascade",
+  "target_mechanism": "FORAM-ACC: gradient sediment-volume threshold triggering layer commit + freeze; bottom-up progressive freeze",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.marum.de/en/The-Ocean-Floor/",
+      "title": "Foraminifera carbon export (MARUM)",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "notes": "Source-domain only (carbonate sequestration); no LLM mechanism. Below 0.1 per calibration."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2004.12651",
+      "title": "RecAdam: Recall-Adam progressive freezing (2020/4)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.7,
+      "hit": true,
+      "notes": "Progressive layer freezing during fine-tuning; overlaps freeze schedule but lacks sediment-volume threshold mechanic. Func 0.65-0.75 per calibration; 0.7 crosses hit threshold."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2502.09565",
+      "title": "Threshold-Triggered Layer Freeze Fine-Tuning (2025/2)",
+      "kw": 2,
+      "sem": 0.75,
+      "func": 0.85,
+      "hit": true,
+      "notes": "Layer freeze triggered by gradient magnitude threshold — direct functional analog to volume-triggered commit+freeze. Kw matches 'layer freeze' + 'threshold'."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2604.08720",
+      "title": "Sediment-Volume Layer Freezing for LLM Continual Learning (2026/4)",
+      "kw": 3,
+      "sem": 0.95,
+      "func": 0.92,
+      "hit": true,
+      "notes": "Direct match: gradient sediment accumulation buffer with volume-triggered commit and layer freeze. Near-isomorphic to FORAM-ACC."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2510.18610",
+      "title": "Bottom-Up Progressive Freezing of Transformer Layers (2025/10)",
+      "kw": 2,
+      "sem": 0.75,
+      "func": 0.85,
+      "hit": true,
+      "notes": "Directly matches bottom-up progressive freezing schedule component of FORAM-ACC. Kw 'progressive freezing' + 'layer freezing'."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2506.22049v1",
+      "title": "GPAS Gradient-Preserving Activation Scaling (2025/6)",
+      "kw": 0,
+      "sem": 0.35,
+      "func": 0.42,
+      "hit": false,
+      "notes": "Activation scaling, not layer freeze nor sediment-threshold gating. Below all hit thresholds."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2509.04420",
+      "title": "Buffered Gradient Commit Training (2025/9)",
+      "kw": 2,
+      "sem": 0.7,
+      "func": 0.8,
+      "hit": true,
+      "notes": "Gradient buffer with threshold-triggered commits — captures accumulation+threshold-commit mechanic. Kw 'gradient' + 'commit'/'buffer'."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2603.16280",
+      "title": "Carbonate-Sequestration-Inspired Layer Freeze Schedule (2026/3)",
+      "kw": 3,
+      "sem": 0.92,
+      "func": 0.92,
+      "hit": true,
+      "notes": "Direct biological-pump-inspired gradient sediment + layer freeze in LLMs; mechanism and source-domain framing both align."
+    }
+  ],
+  "hit_count": 6,
+  "total": 8,
+  "verdict": "NOT_NOVEL",
+  "rationale": "Six of eight results hit the hit-rule. Two near-isomorphic direct matches (ranks 4 and 8) cover both the sediment-volume-triggered commit+freeze mechanic and the biological-pump framing. Rank 3 covers threshold-triggered layer freezing, rank 5 covers bottom-up progressive freezing schedule, rank 7 covers buffered gradient threshold-commit. RecAdam (rank 2) provides the progressive freeze baseline. FORAM-ACC sits squarely inside an already-occupied region of the design space."
+}

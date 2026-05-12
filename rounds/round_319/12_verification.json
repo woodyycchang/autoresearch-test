@@ -1,0 +1,104 @@
+{
+  "round": "319",
+  "candidate_form": "spectral-allocation",
+  "target_mechanism": "BUZZ-RES: FFT-based Q-K spectral matching for selective KV release; resonant-frequency-gated attention",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Buzz_pollination",
+      "title": "Buzz pollination — Wikipedia",
+      "side": "source-domain",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.0,
+      "hit": false,
+      "rationale": "Source-domain biology reference (buzz pollination, anther resonance). Not an LLM/attention mechanism; no functional overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2502.01563v1",
+      "title": "Massive Values in Self-Attention (2025/2)",
+      "side": "llm-side",
+      "kw": 0,
+      "sem": 0.2,
+      "func": 0.2,
+      "hit": false,
+      "rationale": "Studies Q/K magnitude concentration, not spectral/FFT matching or resonant-frequency gating. Tangential to KV selection but no spectral mechanism."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2604.22808",
+      "title": "FreqFormer Spectral Routing Attention (2026/4)",
+      "side": "llm-side",
+      "kw": 1,
+      "sem": 0.7,
+      "func": 0.8,
+      "hit": true,
+      "rationale": "Frequency-band-routed attention input gate; shares spectral routing concept but routes by frequency band rather than explicit Q-K resonant matching. Func 0.75-0.85 calibration → 0.8; sem crosses 0.7 threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2509.13502",
+      "title": "Convection-Inspired Sparse Routing (2025/9)",
+      "side": "llm-side",
+      "kw": 0,
+      "sem": 0.15,
+      "func": 0.2,
+      "hit": false,
+      "rationale": "Routing by activation magnitude/feature; not spectral, not resonant. Generic sparse routing only."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2603.18750",
+      "title": "Spectral-Band Q-K Matching Attention (2026/3)",
+      "side": "llm-side",
+      "kw": 2,
+      "sem": 0.88,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "FFT-based spectral matching between Q and K for selective attention — near-identical mechanism to BUZZ-RES's query-key spectral matching. Calibration 0.85-0.95 → 0.9. Strong hit on all axes."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2510.21430",
+      "title": "Concentric Arc Sparse Attention",
+      "side": "llm-side",
+      "kw": 0,
+      "sem": 0.1,
+      "func": 0.1,
+      "hit": false,
+      "rationale": "Spiral arc geometric sparse pattern; unrelated to spectral or resonant gating."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2511.12203",
+      "title": "Resonance-Gated Layer Activation in Transformers (2025/11)",
+      "side": "llm-side",
+      "kw": 1,
+      "sem": 0.75,
+      "func": 0.88,
+      "hit": true,
+      "rationale": "Resonance-frequency gated layer activation — shares the resonant-frequency gating mechanism with BUZZ-RES, applied at layer level rather than Q-KV level. Calibration 0.85-0.9 → 0.88."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.11505",
+      "title": "Bumblebee-Inspired Resonant Frequency Attention (2026/4)",
+      "side": "llm-side",
+      "kw": 3,
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Buzz-pollination-inspired resonant Q-KV frequency matching for selective release — essentially the same proposal as BUZZ-RES (source-domain inspiration + mechanism). Calibration 0.9-0.95 → 0.93. Direct prior art."
+    }
+  ],
+  "hit_count": 4,
+  "novelty_verdict": "not-novel",
+  "blocking_hits": [
+    "rank 8 (2604.11505) — direct bumblebee/resonant frequency attention prior art",
+    "rank 5 (2603.18750) — FFT-based Q-K spectral matching prior art",
+    "rank 7 (2511.12203) — resonant-frequency-gated activation prior art"
+  ],
+  "notes": "Three independent prior works cover the core BUZZ-RES mechanism: (a) the bumblebee/buzz-pollination inspiration with resonant Q-KV frequency matching is already published (2604.11505); (b) FFT-based Q-K spectral matching for selective attention is already published (2603.18750); (c) resonance-frequency gating in transformers is already published (2511.12203). The proposal lies fully within established spectral/resonant attention territory."
+}

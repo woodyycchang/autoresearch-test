@@ -1,0 +1,92 @@
+{
+  "round": "324",
+  "candidate": "WANKEL-INFER",
+  "calibration_notes": "Rank 6 (3-Chamber Pipeline-Parallel 2603.21092) is essentially the candidate mechanism (3 chambers, intake/compute/emit, pipeline-parallel inference). Rank 5 (Phase-Aware Continuous Batching 2511.18065) directly covers phase-aware chunking. Rank 8 (Sequence-Position Rotor 2509.14920) covers rotor-style scheduling across sequence positions. Rank 2 (HF continuous batching) and Rank 3 (vLLM) cover the continuous-batching baseline that WANKEL-INFER explicitly extends. Rank 7 (STAR decode-phase) shares phase-rescheduling intent. Rank 4 (AWQ) is unrelated quantization. Rank 1 (Wankel Wikipedia) is the source domain only.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Wankel_engine",
+      "title": "Wankel engine — Wikipedia",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Source domain article; no LLM-inference content. Below all thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://huggingface.co/blog/continuous_batching",
+      "title": "Continuous batching (HF)",
+      "kw": 1,
+      "sem": 0.65,
+      "func": 0.78,
+      "hit": true,
+      "rationale": "Baseline continuous batching that WANKEL-INFER extends with phase chambering; functional overlap on dynamic batching of inference phases. func>=0.7 -> hit."
+    },
+    {
+      "rank": 3,
+      "url": "https://github.com/vllm-project/vllm",
+      "title": "vLLM",
+      "kw": 1,
+      "sem": 0.6,
+      "func": 0.72,
+      "hit": true,
+      "rationale": "High-throughput serving engine implementing continuous batching and prefill/decode pipelining; functional overlap with WANKEL-INFER's chamber pipeline. func>=0.7 -> hit."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2306.00978",
+      "title": "AWQ quantization (2023/6)",
+      "kw": 0,
+      "sem": 0.1,
+      "func": 0.3,
+      "hit": false,
+      "rationale": "Weight quantization, orthogonal to phase-aware chambered pipelining. Below all thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2511.18065",
+      "title": "Phase-Aware Continuous Batching for Long-Context LLMs (2025/11)",
+      "kw": 3,
+      "sem": 0.9,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Directly matches phase-aware continuous batching content word; near-identical mechanism. Hit on all three criteria."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.21092",
+      "title": "3-Chamber Pipeline-Parallel Inference Engine (2026/3)",
+      "kw": 3,
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Title explicitly names 3-chamber intake/compute/emit pipeline; essentially the candidate mechanism. Strong hit on all three criteria."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2510.13668",
+      "title": "STAR Decode-Phase Rescheduling (2025/10)",
+      "kw": 1,
+      "sem": 0.6,
+      "func": 0.72,
+      "hit": true,
+      "rationale": "Phase-aware rescheduling of decode shares the phase-segmentation principle; functional overlap. func>=0.7 -> hit."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2509.14920",
+      "title": "Sequence-Position Rotor Scheduling for Inference (2025/9)",
+      "kw": 2,
+      "sem": 0.85,
+      "func": 0.88,
+      "hit": true,
+      "rationale": "Rotor-style scheduling across sequence positions matches the rotor-cycle inference state content word; near-identical to the chamber-rotation idea. Hit on all three criteria."
+    }
+  ],
+  "hit_count": 6,
+  "hit_ranks": [2, 3, 5, 6, 7, 8],
+  "miss_ranks": [1, 4],
+  "verdict": "NOT NOVEL",
+  "verdict_rationale": "Six of eight results hit, including two arxiv items (2603.21092, 2511.18065) that directly instantiate the 3-chamber phase-aware pipeline mechanism, plus a rotor-position scheduler (2509.14920). Mechanism is anticipated by prior/concurrent work; WANKEL-INFER is not novel."
+}

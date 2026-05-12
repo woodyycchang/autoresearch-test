@@ -1,0 +1,91 @@
+{
+  "round": "307",
+  "verifier": "cross-agent re-judge",
+  "candidate_form": "PENTA-RADIAL-AGG (5-way orthogonal partition with C5-equivariant aggregation imposing pentameric inductive bias)",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Sand_dollar",
+      "title": "Sand dollar — Wikipedia",
+      "kw": 0,
+      "sem": 0.1,
+      "func": 0.0,
+      "hit": false,
+      "notes": "Source-domain reference only; no LLM mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/pdf/2603.08343",
+      "title": "Structured Hadamard Transforms for Attention",
+      "kw": 0,
+      "sem": 0.3,
+      "func": 0.2,
+      "hit": false,
+      "notes": "Orthogonal Hadamard butterfly mixing, not cyclic-group equivariant, no 5-fold partition."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2512.14925",
+      "title": "MAHA: Multiscale Aggregated Hierarchical Attention",
+      "kw": 0,
+      "sem": 0.2,
+      "func": 0.15,
+      "hit": false,
+      "notes": "Depth-multiscale aggregation; no group-theoretic symmetry or radial partition."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2512.22471",
+      "title": "Bayesian Geometry of Transformer Attention",
+      "kw": 0,
+      "sem": 0.25,
+      "func": 0.15,
+      "hit": false,
+      "notes": "Orthogonal key bases, but Bayesian geometry framing; not C5-equivariant or pentameric."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2603.18120",
+      "title": "Group-Equivariant Attention for Sequence Models",
+      "kw": 0,
+      "sem": 0.65,
+      "func": 0.8,
+      "hit": true,
+      "notes": "Group-equivariant attention for cyclic permutations directly overlaps C5-equivariant aggregation mechanism; calibrated 0.75-0.85."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2506.04687",
+      "title": "Cyclic Permutation Symmetry in Multi-Head Attention",
+      "kw": 0,
+      "sem": 0.55,
+      "func": 0.7,
+      "hit": true,
+      "notes": "Cyclic permutation symmetry across heads; related but across-head rather than within-head petal partition; calibrated 0.65-0.75."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2509.15890",
+      "title": "Equivariant Mixing Layer for Symmetric Attention",
+      "kw": 0,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "notes": "Equivariant mixing for symmetry groups in attention; covers the C5-equivariant aggregation idea generically; calibrated 0.7-0.8."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.18509",
+      "title": "DiHedral Equivariant Transformer",
+      "kw": 0,
+      "sem": 0.5,
+      "func": 0.7,
+      "hit": true,
+      "notes": "Dihedral group equivariance for sequence models; dihedral D_n contains cyclic C_n, partially overlapping C5-equivariance; calibrated 0.65-0.75."
+    }
+  ],
+  "hit_count": 4,
+  "miss_count": 4,
+  "novelty_assessment": "Four results (ranks 5-8) cover group-equivariant / cyclic-permutation / equivariant-mixing / dihedral-equivariant attention. These render the generic 'C5-equivariant attention aggregation' idea already covered. The specifically pentameric (5-fold, fixed-order) within-head petal-subspace decomposition with radial recomposition is not directly published, but the underlying mechanism (cyclic-group equivariant attention) is well-covered. Candidate is at best a narrow specialization (n=5) of existing group-equivariant attention work.",
+  "verdict": "NOT NOVEL — generic C5/cyclic-group equivariant attention already covered by ranks 5-8."
+}

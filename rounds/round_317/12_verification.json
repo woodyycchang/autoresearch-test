@@ -1,0 +1,44 @@
+{
+  "round": "317",
+  "verifier": "cross-agent-verifier (claude-opus-4-7, fresh context, 1M)",
+  "verification_timestamp": "2026-05-12T12:15:00Z",
+  "candidate_summary": "AMPHORA-KV: cryptographic-hash-sealed KV cache + per-entry precision-compensation buffer for cross-session sharing.",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "calibration_anchors": {
+    "rank_6_2603.10987": {"expected_func_range": [0.9, 0.95], "rationale": "Direct match: hash-sealed KV cache with tamper detection."},
+    "rank_8_2604.02115": {"expected_func_range": [0.85, 0.95], "rationale": "Direct combined match: cryptographic integrity + cross-session KV sharing."},
+    "rank_7_2510.18345": {"expected_func_range": [0.8, 0.9], "rationale": "Per-entry compensation buffer for quantization precision loss."},
+    "rank_2_ceph_lmcache": {"expected_func_range": [0.75, 0.85], "rationale": "Content-addressable KV (S3) is the seal-by-hash mechanism."},
+    "ranks_3_4_5": {"expected_func_range": [0.55, 0.7], "rationale": "Adjacent KV-cache infrastructure (external/SSD/multi-tier) without seal+compensation."},
+    "rank_1_amphora_wiki": {"expected_func_range": [0.0, 0.1], "rationale": "Source-domain artifact, not LLM-side."}
+  },
+  "verifier_scores": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Amphora", "kw_count": 0, "sem_cosine": 0.10, "func_score": 0.05, "hit": false, "within_calibration": true},
+    {"rank": 2, "url": "https://ceph.io/en/news/blog/2025/vllm-kv-caching/", "kw_count": 0, "sem_cosine": 0.78, "func_score": 0.80, "hit": true, "within_calibration": true, "note": "Content-addressable S3-native KV connector matches seal-by-hash mechanism."},
+    {"rank": 3, "url": "https://arxiv.org/html/2510.09665v2", "kw_count": 0, "sem_cosine": 0.68, "func_score": 0.62, "hit": false, "within_calibration": true, "note": "External KV cache; no seal or precision compensation."},
+    {"rank": 4, "url": "https://arxiv.org/html/2605.03375", "kw_count": 0, "sem_cosine": 0.70, "func_score": 0.65, "hit": true, "within_calibration": true, "note": "SSD persistence only; semantic threshold-edge hit."},
+    {"rank": 5, "url": "https://link.springer.com/article/10.1007/s40747-025-02200-4", "kw_count": 0, "sem_cosine": 0.72, "func_score": 0.68, "hit": true, "within_calibration": true, "note": "Multi-tier dynamic KV storage; not sealed."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2603.10987", "kw_count": 0, "sem_cosine": 0.93, "func_score": 0.93, "hit": true, "within_calibration": true, "note": "Direct match: cryptographically-sealed KV cache sharing."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2510.18345", "kw_count": 0, "sem_cosine": 0.88, "func_score": 0.85, "hit": true, "within_calibration": true, "note": "Quantization-aware KV with per-entry compensation buffer — the precision-compensation component."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2604.02115", "kw_count": 0, "sem_cosine": 0.91, "func_score": 0.90, "hit": true, "within_calibration": true, "note": "Integrity-verified long-term KV with cross-session sharing — combined-mechanism direct match."}
+  ],
+  "totals": {
+    "total_hits": 6,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 6,
+    "functional_forced_hits": 4,
+    "distinct_effect_clusters_above_func_threshold": 4
+  },
+  "agreement_with_07_hit_miss": {
+    "hit_set_identical": true,
+    "func_score_max_delta": 0.02,
+    "sem_score_max_delta": 0.0,
+    "all_scores_within_calibration_bands": true
+  },
+  "novelty_verdict": {
+    "is_novel": false,
+    "rationale": "Three independent prior works cover the full mechanism: 2603.10987 supplies hash-seal + tamper detection; 2604.02115 supplies integrity verification + cross-session sharing (essentially the combined AMPHORA-KV claim); 2510.18345 supplies per-entry quantization compensation buffer. The candidate's only differentiator (seal + compensation in one system) is a trivial union of disclosed components, with the Ceph/LMCache stack already providing content-addressed KV sharing in production. Functional collisions across 4 distinct clusters confirm non-novelty.",
+    "primary_collisions": ["2604.02115 (combined)", "2603.10987 (seal)", "2510.18345 (compensation)"]
+  },
+  "decision": "REJECT (non-novel; 6/8 hits, 4 functional ≥0.7 across 4 distinct effect clusters)"
+}

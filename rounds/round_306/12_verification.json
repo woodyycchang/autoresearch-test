@@ -1,0 +1,93 @@
+{
+  "round": "306",
+  "verifier": "cross-agent",
+  "candidate_form": "training-method",
+  "rule": "hit = kw>=2 OR sem>=0.7 OR func>=0.7; kw counts strict multi-word substring matches of content_words in title+snippet",
+  "content_words": [
+    "bushfire backburning",
+    "controlled hazard burn",
+    "fuel pre-depletion",
+    "firebreak ahead of front",
+    "attention-budget pre-consumption",
+    "refusal-burn downstream",
+    "kv-slot depletion firebreak",
+    "preemptive ash-line defense"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.rfs.nsw.gov.au/fire-information/hazard-reductions",
+      "kw": 0,
+      "sem": 0.15,
+      "func": 0.05,
+      "hit": false,
+      "reason": "Source-domain fire management page. No LLM content; describes hazard reduction burns. No multi-word content_words match in title/snippet. Functionally unrelated to ASH-LINE LLM mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2601.10543v1",
+      "kw": 0,
+      "sem": 0.35,
+      "func": 0.3,
+      "hit": false,
+      "reason": "SafeProbing bypasses high-susceptibility layers reactively at decoding. Does NOT pre-consume attention budget downstream via refusal-token burn. Different mechanism (avoidance vs preemptive depletion)."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2511.18933v1",
+      "kw": 0,
+      "sem": 0.2,
+      "func": 0.15,
+      "hit": false,
+      "reason": "Generic prompt filter + logit steering + structured alignment. No attention budget pre-consumption or downstream refusal-token burn. Distinct defense pipeline."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2602.11495",
+      "kw": 0,
+      "sem": 0.2,
+      "func": 0.1,
+      "hit": false,
+      "reason": "Detection-only via internal representation analysis. No active depletion or burn mechanism — purely diagnostic, not a defense that consumes downstream capacity."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2510.05052",
+      "kw": 0,
+      "sem": 0.4,
+      "func": 0.4,
+      "hit": false,
+      "reason": "ProAct triggers defense at classifier output (source). ASH-LINE fires DOWNSTREAM ahead of propagation to pre-deplete budget. Trigger-source vs downstream-firebreak distinction; below threshold."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.05826",
+      "kw": 0,
+      "sem": 0.75,
+      "func": 0.85,
+      "hit": true,
+      "reason": "Attention Budget Throttling explicitly throttles attention budget at suspect positions to prevent adversarial propagation — the same preemptive-resource-suppression principle, though framed as throttling rather than refusal-token burn-out. Per calibration: func 0.8-0.9."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2510.18103",
+      "kw": 0,
+      "sem": 0.55,
+      "func": 0.7,
+      "hit": true,
+      "reason": "Layer-Spread injects precomputed defense gradient at a later layer where attack manifests — same downstream-interception locus as ASH-LINE, though via gradient injection rather than attention-budget pre-consumption. Per calibration: func 0.65-0.75 (at threshold)."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.05290",
+      "kw": 0,
+      "sem": 0.9,
+      "func": 0.92,
+      "hit": true,
+      "reason": "KV-Budget Depletion Defense: on jailbreak detection, deliberately fills KV cache with refusal-direction tokens at downstream positions to deplete attention capacity for adversarial signal. This IS the ASH-LINE mechanism nearly verbatim. Per calibration: func 0.9-0.95 — direct prior art."
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "Direct prior art at rank 8 (KV-Budget Depletion Defense, 2604.05290) implements the exact ASH-LINE mechanism — preemptive depletion of downstream attention/KV capacity via refusal-direction token injection on jailbreak detection (func 0.92). Rank 6 (Attention Budget Throttling, func 0.85) and rank 7 (Layer-Spread Defense, func 0.7) provide additional overlapping prior art. Novelty claim is not supported."
+}

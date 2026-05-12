@@ -1,0 +1,98 @@
+{
+  "round": "304",
+  "verifier": "cross-agent-independent",
+  "candidate_summary": "FRUSTULE-FT: bottom-up self-assembling LoRA adapters via cooperative cross-rank binding objective producing emergent rank hierarchy (rank-2 -> rank-8 -> rank-32) inspired by diatom silica frustule self-assembly.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.nature.com/articles/s41598-023-31487-x",
+      "title": "Diatom frustule nanomechanical (Sci Reports 2023)",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.02,
+      "hit": false,
+      "reason": "Source-domain biology paper on diatom frustule mechanics; no LLM/LoRA content. Zero overlap with the llm_application target which is about adapter self-assembly. Provides only the biological inspiration, not a functional LLM analogue."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2502.03884v1",
+      "title": "HiLo Hierarchical Configuration for Mixture of Adapter Experts (2025/2)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.6,
+      "hit": false,
+      "reason": "HiLo configures rank/count per-layer top-down — shares the 'hierarchical adapter' surface but mechanism is prescribed top-down configuration, not bottom-up cooperative self-assembly with emergent rank hierarchy. Partial functional similarity (hierarchy + adapters) but inverted directionality. Single keyword 'hierarchical' matches; below hit thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2405.11157v1",
+      "title": "Towards Modular LLMs: Library of LoRAs (2024/5)",
+      "kw": 0,
+      "sem": 0.32,
+      "func": 0.25,
+      "hit": false,
+      "reason": "Library retrieval/routing of pre-built LoRAs — no merging, no cooperative binding, no emergent hierarchy. Modularity surface only; functionally different from self-assembly."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2510.00206v1",
+      "title": "LoRAFusion (2025/10)",
+      "kw": 0,
+      "sem": 0.3,
+      "func": 0.25,
+      "hit": false,
+      "reason": "LoRAFusion is about efficient fine-tuning compute fusion, not cooperative cross-rank binding nor emergent hierarchy. Shares LoRA domain only; no self-assembly mechanism."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2603.09415",
+      "title": "K-Merge: Online Continual LoRA Merging (2026/3)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.7,
+      "hit": true,
+      "reason": "Online continual LoRA merging shares the merging-of-LoRAs functional core, but lacks explicit cross-rank cooperative binding objective and emergent rank hierarchy (rank-2 -> rank-8 -> rank-32). Partial match on the merging mechanism; misses the bottom-up hierarchical emergence. Func at boundary (0.70). Single keyword 'merging' matches."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2604.07210",
+      "title": "MoA: Heterogeneous Mixture of Adapters with Sigmoid Gating (2026/4)",
+      "kw": 0,
+      "sem": 0.4,
+      "func": 0.55,
+      "hit": false,
+      "reason": "Mixture-of-Adapters with gating combines heterogeneous adapters via learned gates — not self-assembly, no merging, no emergent rank hierarchy. Surface-level adapter composition but mechanically distinct from cooperative binding -> merging."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2510.18506",
+      "title": "CompAs: Compositional Adapter Sum for Context Scaling (2025/10)",
+      "kw": 0,
+      "sem": 0.35,
+      "func": 0.4,
+      "hit": false,
+      "reason": "CompAs sums adapter parameters compositionally for context scaling — single-step sum, no hierarchy, no cooperative binding objective, no emergent rank levels. Explicitly flagged as different in candidate's novelty claim."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2509.16842",
+      "title": "Emergent Hierarchical Adapters via Cooperative Self-Merging (2025/9)",
+      "kw": 4,
+      "sem": 0.92,
+      "func": 0.92,
+      "hit": true,
+      "reason": "Direct functional match. Small LoRA adapters merge through learned cooperative loss into larger rank clusters with emergent hierarchy — this is essentially the same construct as FRUSTULE-FT (cooperative binding objective + bottom-up rank hierarchy + adapter self-merging). Keyword substrings: 'hierarchical', 'adapter', 'cooperative', 'emergent' all match. The biological framing differs but the LLM-side mechanism is equivalent."
+    }
+  ],
+  "totals": {
+    "hits": 2,
+    "best_func": 0.92,
+    "best_sem": 0.92,
+    "max_kw": 4
+  },
+  "verdict": {
+    "novelty_status": "anticipated",
+    "rationale": "Rank 8 (Emergent Hierarchical Adapters via Cooperative Self-Merging, arxiv 2509.16842) is a direct LLM-side anticipation: cooperative self-merging of small adapters into emergent rank hierarchy is the precise mechanism FRUSTULE-FT claims as novel. The biological-inspiration framing (diatom silica) is fresh but the operative LLM construct is already published. Rank 5 (K-Merge) provides additional partial coverage on the merging operation. Novelty claim against HiLo/Library/CompAs holds, but the candidate's novelty claim fails to address the strongest prior (2509.16842)."
+  },
+  "notes": "Calibration honored: rank 8 func=0.92 (within 0.85-0.95), rank 5 func=0.70 (within 0.65-0.75 upper bound), rank 2 HiLo func=0.60 (within 0.55-0.70), rank 6 MoA func=0.55 (within 0.5-0.65)."
+}

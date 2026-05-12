@@ -1,0 +1,46 @@
+{
+  "round": "318",
+  "verifier": "cross-agent-verifier (claude-opus-4-7, fresh context, 1M)",
+  "verification_timestamp": "2026-05-12T12:20:00Z",
+  "candidate_summary": "WEB-SPIRAL: orb-web-inspired sparse attention pattern — N radial anchor positions + M concentric spiral arcs, attention computed only at radial x spiral intersections.",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "calibration_anchors": {
+    "rank_7_2604.13205": {"expected_func_range": [0.9, 0.95], "rationale": "Direct match: orb-web-inspired radial+spiral intersection sparse attention; same metaphor and same mechanism."},
+    "rank_2_2506.19852": {"expected_func_range": [0.85, 0.9], "rationale": "Radial Attention with energy decay — supplies the radial-anchor half of the pattern."},
+    "rank_8_2510.21430": {"expected_func_range": [0.85, 0.9], "rationale": "Concentric Arc Sparse Attention — supplies the concentric-spiral half of the pattern."},
+    "rank_4_1904.10509": {"expected_func_range": [0.65, 0.75], "rationale": "Sparse Transformer (strided+block) is the functional ancestor of all geometric sparse attention patterns."},
+    "rank_5_2004.05150": {"expected_func_range": [0.65, 0.75], "rationale": "Longformer local-window+global is an adjacent sparse-attention cluster."},
+    "rank_6_2007.14062": {"expected_func_range": [0.65, 0.75], "rationale": "BigBird random+window+global is an adjacent sparse-attention cluster."},
+    "rank_3_2511.10696": {"expected_func_range": [0.6, 0.7], "rationale": "Pi-Attention periodic sparse — different geometry (periodic, not radial+spiral)."},
+    "rank_1_wiki": {"expected_func_range": [0.0, 0.1], "rationale": "Source-domain biology, not LLM-side."}
+  },
+  "verifier_scores": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Spider_web", "kw_count": 0, "sem_cosine": 0.12, "func_score": 0.05, "hit": false, "within_calibration": true},
+    {"rank": 2, "url": "https://arxiv.org/html/2506.19852v1", "kw_count": 0, "sem_cosine": 0.88, "func_score": 0.88, "hit": true, "within_calibration": true, "note": "Radial Attention directly implements the radial-anchor mechanism with energy decay; fully dominates the radial half."},
+    {"rank": 3, "url": "https://arxiv.org/html/2511.10696v2", "kw_count": 0, "sem_cosine": 0.70, "func_score": 0.65, "hit": true, "within_calibration": true, "note": "Periodic sparse pattern; semantic threshold-edge hit, functional sub-threshold (different geometry)."},
+    {"rank": 4, "url": "https://arxiv.org/abs/1904.10509", "kw_count": 0, "sem_cosine": 0.75, "func_score": 0.70, "hit": true, "within_calibration": true, "note": "Sparse Transformer; foundational strided+block sparse attention, threshold-edge functional hit."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2004.05150", "kw_count": 0, "sem_cosine": 0.72, "func_score": 0.70, "hit": true, "within_calibration": true, "note": "Longformer local-window+global sparse pattern; threshold-edge functional hit."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2007.14062", "kw_count": 0, "sem_cosine": 0.71, "func_score": 0.70, "hit": true, "within_calibration": true, "note": "BigBird random+window+global sparse pattern; threshold-edge functional hit."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.13205", "kw_count": 0, "sem_cosine": 0.94, "func_score": 0.93, "hit": true, "within_calibration": true, "note": "Direct match: orb-web-inspired radial-spiral intersection sparse attention; identical metaphor and mechanism."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2510.21430", "kw_count": 0, "sem_cosine": 0.88, "func_score": 0.88, "hit": true, "within_calibration": true, "note": "Concentric Arc Sparse Attention; fully dominates the spiral-arc half."}
+  ],
+  "totals": {
+    "total_hits": 7,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 7,
+    "functional_forced_hits": 6,
+    "distinct_effect_clusters_above_func_threshold": 6
+  },
+  "agreement_with_07_hit_miss": {
+    "hit_set_identical": true,
+    "func_score_max_delta": 0.02,
+    "sem_score_max_delta": 0.0,
+    "all_scores_within_calibration_bands": true
+  },
+  "novelty_verdict": {
+    "is_novel": false,
+    "rationale": "Rank 7 (2604.13205, Orb-Web-Inspired Radial-Spiral Sparse Attention) is a direct identity-collision — same biological metaphor and same radial+spiral intersection mechanism — by itself sufficient to reject. The candidate's two structural halves are separately dominated as well: Radial Attention (2506.19852) covers radial-anchor sparsity with energy decay, and Concentric Arc Sparse Attention (2510.21430) covers concentric-spiral-arc sparsity. Sparse Transformer, Longformer, and BigBird constitute additional adjacent prior art on geometric sparse-attention masks. The candidate offers no mechanism beyond a trivial union of disclosed components in a saturated subfield.",
+    "primary_collisions": ["2604.13205 (direct identity)", "2506.19852 (radial half)", "2510.21430 (spiral half)"]
+  },
+  "decision": "REJECT (non-novel; 7/8 hits, 6 functional >=0.7 across 6 distinct clusters; direct prior-art identity match at rank 7)"
+}
