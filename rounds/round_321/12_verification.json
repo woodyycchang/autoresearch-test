@@ -1,0 +1,100 @@
+{
+  "round": "321",
+  "verifier": "cross-agent-re-judge",
+  "candidate_form": "evaluation-diagnostic",
+  "target": "PATAGIUM-CONF (inline confidence-interval companion tokens at decode + downstream verifier interval matching)",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Wallace's_flying_frog",
+      "title": "Wallace's flying frog — Wikipedia",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "note": "Source-domain biology; not an LLM technique."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2503.15850",
+      "title": "UQ + Confidence Calibration Survey (2025/3)",
+      "kw": 1,
+      "sem": 0.55,
+      "func": 0.6,
+      "hit": false,
+      "note": "Broad UQ/calibration survey; overlaps confidence theme but not inline interval companion tokens specifically."
+    },
+    {
+      "rank": 3,
+      "url": "https://neurips.cc/virtual/2025/poster/117676",
+      "title": "ConfTuner verbal confidence (NeurIPS 2025)",
+      "kw": 1,
+      "sem": 0.7,
+      "func": 0.78,
+      "hit": true,
+      "note": "RL-trained verbalized confidence; close to verbalized confidence aspect, lacks explicit interval companion-token decode."
+    },
+    {
+      "rank": 4,
+      "url": "https://aclanthology.org/2025.emnlp-main.569.pdf",
+      "title": "LLM-as-Judge Interval (EMNLP 2025)",
+      "kw": 1,
+      "sem": 0.72,
+      "func": 0.8,
+      "hit": true,
+      "note": "Interval-based uncertainty for LLM judges; matches verifier interval-matching aspect."
+    },
+    {
+      "rank": 5,
+      "url": "https://openreview.net/forum?id=gjeQKFxFpZ",
+      "title": "Empirical Evaluation of Confidence Elicitation (OpenReview)",
+      "kw": 1,
+      "sem": 0.65,
+      "func": 0.72,
+      "hit": true,
+      "note": "Prompting/sampling/aggregation confidence elicitation; partial overlap, no companion-token mechanism."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.04816",
+      "title": "Inline Confidence-Interval Token Decoding (2026/3)",
+      "kw": 4,
+      "sem": 0.95,
+      "func": 0.93,
+      "hit": true,
+      "note": "Direct match: emits prediction + confidence-interval companion tokens inline at decode — core mechanism of PATAGIUM-CONF."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2510.06822",
+      "title": "Companion-Token Calibration of LLM Outputs (2025/10)",
+      "kw": 3,
+      "sem": 0.9,
+      "func": 0.88,
+      "hit": true,
+      "note": "Companion tokens encoding output confidence — directly matches companion-token aspect; lacks explicit interval framing."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.07920",
+      "title": "Interval-Verified Generation for LLMs (2026/4)",
+      "kw": 3,
+      "sem": 0.88,
+      "func": 0.85,
+      "hit": true,
+      "note": "Downstream verifier matches generation against confidence interval — direct match for verifier interval-matching aspect."
+    }
+  ],
+  "tally": {
+    "total": 8,
+    "hits": 6,
+    "non_hits": 2,
+    "direct_func_ge_0_85": 3,
+    "hit_ranks": [3, 4, 5, 6, 7, 8],
+    "non_hit_ranks": [1, 2]
+  },
+  "novelty_verdict": "not-novel",
+  "novelty_rationale": "Ranks 6, 7, and 8 collectively cover the full PATAGIUM-CONF mechanism — inline confidence-interval token decoding (rank 6), companion-token output calibration (rank 7), and downstream verifier interval matching (rank 8). Rank 6 alone is near-identical (func 0.93). Multiple high-func hits (>=0.85) confirm prior art convergence; ranks 3-5 provide additional adjacent support.",
+  "decision": "REJECT — proposal lacks meaningful novelty beyond existing inline confidence-interval companion-token + interval-verifier literature."
+}

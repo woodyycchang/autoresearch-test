@@ -1,0 +1,102 @@
+{
+  "round": "325",
+  "candidate": "MUDSKIP-MODE: dual-mode batch-streaming inference with environmental detector + context-preserving valve transition",
+  "calibration_anchors": {
+    "rank_6_bimodal_batch_stream_2603.07512": {"func": [0.9, 0.95], "note": "direct match: dual-mode batch-streaming engine with adaptive switch"},
+    "rank_7_request_mode_aware_2511.20940": {"func": [0.85, 0.95], "note": "request-mode-detector triggered throughput/latency switching"},
+    "rank_8_context_preserving_2509.20194": {"func": [0.85, 0.9], "note": "context-preserving valve for mode transition w/o state loss"},
+    "rank_3_latency_aware_atc25": {"func": [0.7, 0.8]},
+    "rank_4_continuous_batching_hf": {"func": [0.65, 0.75]},
+    "rank_5_star_2510.13668": {"func": [0.7, 0.8]},
+    "rank_2_kvpr_acl25": {"func": [0.55, 0.65]},
+    "rank_1_mudskipper_wikipedia": {"func": [0.0, 0.1], "note": "source-domain only"}
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Mudskipper",
+      "title": "Mudskipper — Wikipedia",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Source-domain biology page; no LLM-side functional overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.findings-acl.997.pdf",
+      "title": "KVPR I/O-Aware KV Cache (ACL 2025)",
+      "kw": 1,
+      "sem": 0.45,
+      "func": 0.6,
+      "hit": false,
+      "rationale": "KV-cache I/O management is tangential; touches the KV-light path idea but lacks dual-mode switching or environmental detector. Below all hit thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.usenix.org/system/files/atc25-tian.pdf",
+      "title": "Customizing LLMs for Latency-Aware Inference (USENIX ATC 2025)",
+      "kw": 2,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Latency-aware customization shares the streaming/decode optimization mode; kw>=2 (latency, inference) and func>=0.7. Hits."
+    },
+    {
+      "rank": 4,
+      "url": "https://huggingface.co/blog/continuous_batching",
+      "title": "Continuous batching (HF)",
+      "kw": 2,
+      "sem": 0.55,
+      "func": 0.7,
+      "hit": true,
+      "rationale": "Chunked prefill + ragged batching represents the batch-throughput mode of the proposal; kw>=2 (batching, prefill) and func at threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2510.13668",
+      "title": "STAR Decode-Phase Rescheduling (2025/10)",
+      "kw": 2,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Decode-phase rescheduling overlaps with mode-switching across phases; kw>=2 and func>=0.7."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2603.07512",
+      "title": "Bimodal Batch-Stream Inference Engine for LLMs (2026/3)",
+      "kw": 3,
+      "sem": 0.92,
+      "func": 0.93,
+      "hit": true,
+      "rationale": "Direct functional twin: dual-mode batch-streaming engine with adaptive mode switch. Saturates kw, sem, func."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2511.20940",
+      "title": "Request-Mode-Aware Adaptive Inference Switching (2025/11)",
+      "kw": 3,
+      "sem": 0.9,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Request-mode detector triggering throughput/latency switching matches the environmental detector + mode switch core."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2509.20194",
+      "title": "Context-Preserving Mode Transition for LLM Serving (2025/9)",
+      "kw": 3,
+      "sem": 0.88,
+      "func": 0.88,
+      "hit": true,
+      "rationale": "Context-preserving valve for mode transition without state loss is the exact valve component of MUDSKIP-MODE."
+    }
+  ],
+  "hits": 6,
+  "non_hits": 2,
+  "hit_ranks": [3, 4, 5, 6, 7, 8],
+  "non_hit_ranks": [1, 2],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Three prior works (ranks 6, 7, 8) cover each pillar of MUDSKIP-MODE directly: bimodal batch-stream engine, request-mode-aware switching, and context-preserving valve transition. Three further results (ranks 3, 4, 5) hit on the throughput/latency mode-optimization axis. Only the Wikipedia source-domain page and KVPR fall below the hit threshold. Candidate is not novel."
+}

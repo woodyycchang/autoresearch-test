@@ -1,0 +1,95 @@
+{
+  "round": "322",
+  "epoch": 13,
+  "probe": "CRYPTO-PROBE: paired-prompt P vs P+δ angular drift in activation space for model orientation / alignment-shift diagnosis",
+  "hit_rule": "kw>=2 OR sem>=0.7 OR func>=0.7",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Magnetoreception",
+      "title": "Magnetoreception — Wikipedia",
+      "kw": 0,
+      "sem": 0.05,
+      "func": 0.05,
+      "hit": false,
+      "rationale": "Source-domain only (cryptochrome biology); zero LLM/activation/probe content; well below all thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2308.10248",
+      "title": "Activation Steering via Paired Prompts (2023/8)",
+      "kw": 2,
+      "sem": 0.65,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Paired-prompt difference in activation space is the exact mechanism CRYPTO-PROBE renames; func 0.7-0.8 calibration. kw matches: 'paired-prompt', 'activation'. Steering vs diagnostic differs but mechanism overlaps."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2510.03825",
+      "title": "Contrastive Activation Steering (CAA) (2025/10)",
+      "kw": 2,
+      "sem": 0.6,
+      "func": 0.75,
+      "hit": true,
+      "rationale": "Contrastive (paired) activation analysis mirrors the probe mechanism. func 0.7-0.8 calibration. kw matches: 'contrastive', 'activation'."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2502.07710",
+      "title": "Activation Drift Detection in LLMs (2025/2)",
+      "kw": 3,
+      "sem": 0.72,
+      "func": 0.8,
+      "hit": true,
+      "rationale": "Activation drift under perturbation is the diagnostic framing CRYPTO-PROBE proposes. func 0.75-0.85 calibration; kw matches: 'activation', 'drift', 'perturbation'."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2603.18105",
+      "title": "Paired-Prompt Orientation Probing (2026/3)",
+      "kw": 4,
+      "sem": 0.9,
+      "func": 0.9,
+      "hit": true,
+      "rationale": "Near-identical: paired prompt P and P+δ for orientation drift diagnostic. func 0.85-0.95 calibration; kw matches: 'paired-prompt', 'orientation', 'drift', 'probe'."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2511.06108",
+      "title": "Distribution-Shift Detection via Activation Compass (2025/11)",
+      "kw": 3,
+      "sem": 0.82,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Activation 'compass' for feature-space orientation under shift = same metaphor and mechanism. func 0.8-0.9 calibration; kw matches: 'activation', 'compass', 'orientation'."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2509.20830",
+      "title": "Angular Drift Measurement for LLM Alignment (2025/9)",
+      "kw": 3,
+      "sem": 0.8,
+      "func": 0.85,
+      "hit": true,
+      "rationale": "Angular drift in activation space for alignment monitoring is the exact diagnostic CRYPTO-PROBE proposes. func 0.8-0.9 calibration; kw matches: 'angular', 'drift', 'alignment'."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2604.16100",
+      "title": "Cryptochrome-Inspired Magnetic-Probe Diagnostic (2026/4)",
+      "kw": 4,
+      "sem": 0.92,
+      "func": 0.92,
+      "hit": true,
+      "rationale": "Direct match: cryptochrome-inspired paired-perturbation diagnostic for model drift, same metaphor and mechanism. func 0.9-0.95 calibration; kw matches: 'cryptochrome', 'paired', 'perturbation', 'diagnostic'."
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "hits": 7,
+    "misses": 1,
+    "verdict": "NOT_NOVEL",
+    "reason": "Seven of eight results hit under kw>=2 OR sem>=0.7 OR func>=0.7. Rank 8 is a direct cryptochrome-inspired analogue; ranks 5-7 independently cover paired-prompt orientation, activation compass, and angular drift diagnostics; ranks 2-4 supply established paired-prompt activation mechanisms. The biological metaphor is decorative; the underlying mechanism (paired prompt difference vector in activation space as drift/alignment diagnostic) is well-established prior art."
+  }
+}
