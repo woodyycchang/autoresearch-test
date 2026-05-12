@@ -1,0 +1,20 @@
+{
+  "round": "264",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": ["hagfish slime", "thread skein expansion", "gill-clogging defense", "10000x volumetric trap", "compressed-context skein", "recursive in-context expansion", "resource-asymmetric throttle", "attacker-budget exhaustion"],
+  "results": [
+    {"url": "https://royalsocietypublishing.org/rsif/article/20/200/20220774/90371/Mechanisms-of-gill-clogging-by-hagfish", "kw_count": 1, "kw_matched": ["hagfish slime"], "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Only 'hagfish slime' matches; sem 0.20 and func 0.04 well below 0.7; source-domain biology paper."},
+    {"url": "https://asknature.org/strategy/slime-rapidly-expands-and-protects/", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "No exact content-word phrases; sem 0.18 and func 0.04 below threshold; source-domain summary."},
+    {"url": "https://www.nature.com/articles/srep00131", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Title 'Hagfish predatory and slime defence' lacks contiguous 'hagfish slime'; all thresholds clear."},
+    {"url": "https://arxiv.org/html/2605.03378", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.52, "func_score": 0.40, "hit": false, "reason": "ARGUS does provenance verification, not resource-asymmetric throttling; sem 0.52 and func 0.40 below 0.7."},
+    {"url": "https://arxiv.org/html/2509.14285v4", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.48, "func_score": 0.40, "hit": false, "reason": "Multi-agent detector pipeline, not skein-style budget exhaustion; all metrics below threshold."},
+    {"url": "https://arxiv.org/html/2510.19207v1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.45, "func_score": 0.35, "hit": false, "reason": "DataFilter is input filtering, distinct from recursive context expansion; metrics below thresholds."},
+    {"url": "https://arxiv.org/html/2510.09023v1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.50, "func_score": 0.30, "hit": false, "reason": "Adversarial-bypass analysis paper, no defender-cheap/attacker-expensive throttle; below all thresholds."},
+    {"url": "https://arxiv.org/html/2602.22242v1", "kw_count": 0, "kw_matched": [], "sem_cosine": 0.42, "func_score": 0.30, "hit": false, "reason": "Empirical robustness study, no compressed-context recursive expansion mechanism; below thresholds."}
+  ],
+  "total_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": null
+}

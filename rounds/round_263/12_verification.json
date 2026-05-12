@@ -1,0 +1,20 @@
+{
+  "round": "263",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["Tlingit bentwood box", "kerf-fold groove", "single cedar plank", "steam-pliable deploy-rigid", "kerf-grooved weight tensor", "pre-engraved fold position", "train-flat deploy-fold", "one-time topology change"],
+  "results": [
+    {"rank": 1, "url": "https://www.historymuseum.ca/teachers-zone/haida-arts-and-technologies/bentwood-boxes/", "kw_count": 0, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain CMH page; no exact content_word substring, sem 0.20<0.7, func 0.04<0.7."},
+    {"rank": 2, "url": "https://smarthistory.org/seeing-america-2/bentwood-boxes-northwest-coast/", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain Smarthistory; no content_word substring, sem 0.18<0.7, func 0.04<0.7."},
+    {"rank": 3, "url": "https://www.arcticspiritgallery.com/bentwood-boxes/", "kw_count": 0, "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Source-domain Arctic Spirit; no content_word substring, sem 0.16<0.7, func 0.04<0.7."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2502.05967", "kw_count": 0, "sem_cosine": 0.42, "func_score": 0.40, "hit": false, "reason": "FP8 precision-scaling, not topology change; kw=0, sem 0.42<0.7, func 0.40<0.7."},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2601.14053", "kw_count": 0, "sem_cosine": 0.30, "func_score": 0.25, "hit": false, "reason": "LLMOrbit taxonomy; kw=0, sem 0.30<0.7, func 0.25<0.7."},
+    {"rank": 6, "url": "https://arxiv.org/html/2511.10480v1", "kw_count": 0, "sem_cosine": 0.45, "func_score": 0.40, "hit": false, "reason": "Symbolic Tensor Graph workload synthesis; kw=0, sem 0.45<0.7, func 0.40<0.7."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.18146", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.66, "hit": false, "reason": "Modular representation compression; kw=0, sem 0.62<0.7, func 0.66<0.7 (near miss but under both)."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2505.23966", "kw_count": 0, "sem_cosine": 0.70, "func_score": 0.74, "hit": true, "reason": "FLAT-LLM training-free deploy-time tensor reshape matches train-flat deploy-fold one-time topology leg; sem=0.70>=0.7 AND func=0.74>=0.7."}
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result #8 (FLAT-LLM, arxiv 2505.23966) crosses both semantic (0.70>=0.7) and functional (0.74>=0.7) thresholds, capturing the train-flat/deploy-fold one-time topology change leg of KGSTWF via training-free deploy-time tensor reshape."
+}
