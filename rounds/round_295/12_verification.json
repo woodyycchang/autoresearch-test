@@ -1,0 +1,98 @@
+{
+  "round": "295",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "manuka honey antimicrobial",
+    "multi-axis normalization",
+    "magnitude-osmotic squash",
+    "sign-pH skew correct",
+    "kurtosis-flatten heavy-tail",
+    "phase-consistency crosscheck",
+    "spurious-activation suppress",
+    "orthogonal-stress combo"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6613335/",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.16,
+      "func": 0.05,
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2506.19697v1",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.77,
+      "func": 0.78,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2404.03605v1",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.81,
+      "func": 0.80,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2408.14690v1",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.65,
+      "func": 0.62,
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2502.02732",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.79,
+      "func": 0.78,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2503.04598v4",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.82,
+      "func": 0.82,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2510.09904v1",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.74,
+      "func": 0.74,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2406.17837v1",
+      "kw_count": 0,
+      "matched_keywords": [],
+      "sem": 0.68,
+      "func": 0.65,
+      "hit": false
+    }
+  ],
+  "total_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "5 results hit the threshold (ranks 2, 3, 5, 6, 7) via sem>=0.7 AND func>=0.7. Prior art including Outlier-Safe Pre-Training (2506.19697), Activation Regularization (2404.03605), Peri-LN (2502.02732), HybridNorm (2503.04598), and Transformer LN stability (2510.09904) functionally overlap with MANUKA-LLM's multi-axis normalization for spurious-activation suppression. total_hits=5 >= 1 -> FAIL."
+}

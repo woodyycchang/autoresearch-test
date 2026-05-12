@@ -1,0 +1,109 @@
+{
+  "round": "294",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "antikythera multi-period gear",
+    "incommensurable-cycle composition",
+    "differential-gear fusion",
+    "CRT composite position encoding",
+    "K-prime-period rotor",
+    "multi-frequency rotary attention",
+    "shared time index across cycles",
+    "differential gear angle output"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Antikythera_mechanism",
+      "snippet": "Source-domain: multi-period gear-train, differential gear, multi-cycle predictions.",
+      "kw_matches": ["antikythera multi-period gear", "differential-gear fusion"],
+      "kw": 2,
+      "sem": 0.20,
+      "func": 0.05,
+      "hit": true,
+      "hit_reason": "kw>=2 (antikythera+multi-period+gear partial; differential gear partial); source-domain Wikipedia match"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2602.10959",
+      "snippet": "LLM-side: reinterprets RoPE as phase modulation on bank of complex oscillators; high-freq heads alias and low-freq heads resolve, similar to CRT.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.91,
+      "func": 0.92,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; explicit CRT-aliasing RoPE analogy directly matches ANTIKY-LLM mechanism"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2104.09864",
+      "snippet": "LLM-side: RoPE original; multi-frequency rotor.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.85,
+      "func": 0.85,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; RoPE multi-frequency rotor = same primitive"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2410.06205v1",
+      "snippet": "LLM-side: explains why RoPE works; signal-processing perspective.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.82,
+      "func": 0.82,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; RoPE multi-frequency phase modulation analysis"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2506.03737v1",
+      "snippet": "LLM-side: generalizes RoPE via trainable commuting angle matrices.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.83,
+      "func": 0.84,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; trainable RoPE generalization"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2406.09897v1",
+      "snippet": "LLM-side: 3D-sphere rotary position encoding for long context.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.79,
+      "func": 0.80,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; 3D rotary multi-axis variant"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2509.22259",
+      "snippet": "LLM-side: RoPE generalized to graphs.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.76,
+      "func": 0.78,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7; generalized rotary encoding"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2510.13554",
+      "snippet": "LLM-side: local + global attention heads.",
+      "kw_matches": [],
+      "kw": 0,
+      "sem": 0.63,
+      "func": 0.60,
+      "hit": false,
+      "hit_reason": "all thresholds below cutoff"
+    }
+  ],
+  "total_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 hits exceed total_hits>=1 threshold. Rank 2 (arxiv 2602.10959) is the strongest hit, with explicit CRT-aliasing analogy for RoPE multi-frequency (sem=0.91, func=0.92), directly matching the ANTIKY-LLM K-prime-period rotor + CRT composite position encoding mechanism. Ranks 3-7 are RoPE/rotary variants covering the multi-frequency rotor primitive (sem and func both >=0.7). Rank 1 is the source-domain Antikythera mechanism Wikipedia page (kw>=2). Candidate's novelty claim is not preserved: RoPE-CRT phase-modulation literature already covers the proposed composite position encoding mechanism."
+}

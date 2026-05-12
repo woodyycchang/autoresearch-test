@@ -1,0 +1,15 @@
+{
+  "round": "281",
+  "epoch": 12,
+  "candidate_form": "memory-architecture",
+  "domain": "Welwitschia mirabilis basal meristem leaf growth (two leaves, base meristem, distal aging, never sheds; lifelong continuous record stored as continuous leaf-tissue strip)",
+  "specific_mechanism": "Single basal meristem appends new tissue at one end while older tissue accumulates distally and gradually frays; no shedding or replacement; the whole history sits in one continuously-growing strip.",
+  "llm_application": "WMCL: continual-learning architecture where base parameters are frozen; learning appends a NEW low-rank strip at a single fixed growth-edge (the meristem position in parameter space); previous strips are NEVER updated, NEVER removed; at inference, output is a monotonic distance-decayed weighted convolution over all historical strips. No replay, no merge, no orthogonal-subspace constraint, no router — just one-edge continuous append.",
+  "novelty_claim": "O-LoRA / OA-Adapter (2505.22358) impose orthogonal subspaces per task. ELLA (2601.02232) uses subspace de-correlation. ELDER uses adapter routers. None pin growth to a single meristem-edge with monotonic distance-decay convolution over strip-stack and zero routing.",
+  "content_words": ["welwitschia basal meristem", "one-edge append growth", "never-shed never-update", "distal aging strip", "monotonic distance decay", "continuous parameter strip stack", "no-replay no-merge continual", "base-meristem inference convolution"],
+  "content_words_composition": {
+    "llm_side": ["monotonic distance decay", "continuous parameter strip stack", "no-replay no-merge continual", "base-meristem inference convolution"],
+    "source_side": ["welwitschia basal meristem", "one-edge append growth", "never-shed never-update", "distal aging strip"],
+    "generic": []
+  }
+}

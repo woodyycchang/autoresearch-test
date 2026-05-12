@@ -1,0 +1,16 @@
+{
+  "round": "280",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Three_Sisters_(agriculture)", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Wiki source-domain."},
+    {"rank": 2, "url": "https://arxiv.org/html/2406.04692v1", "judge_score": 0.62, "matched_effect_cluster": "MoA layer-wise stacking", "functional_hit": false, "justification": "MoA stacks specialized agents in layers — adjacent but doesn't impose 3-role asymmetric DAG with distinct resource types per role."},
+    {"rank": 3, "url": "https://arxiv.org/html/2605.06320v1", "judge_score": 0.73, "matched_effect_cluster": "adaptive task graphs", "functional_hit": true, "justification": "Constructs adaptive task graphs (DAGs) over agents — directly matches TSARM's DAG cooperation structure."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2501.06322", "judge_score": 0.85, "matched_effect_cluster": "3-agent role-specialized team", "functional_hit": true, "justification": "Survey explicitly catalogs 3-agent role-specialized teams (two domain experts + summarizer) as effective MAS — directly the 3-role asymmetric structure of TSARM."},
+    {"rank": 5, "url": "https://arxiv.org/html/2602.01011v1", "judge_score": 0.50, "matched_effect_cluster": "team-vs-expert empirical", "functional_hit": false, "justification": "Empirical study of team underperformance — different inquiry."},
+    {"rank": 6, "url": "https://arxiv.org/html/2505.19591v1", "judge_score": 0.65, "matched_effect_cluster": "evolving orchestrator", "functional_hit": false, "justification": "Has central evolving orchestrator — TSARM disclaims orchestrator; different topology."},
+    {"rank": 7, "url": "https://arxiv.org/html/2511.20639v1", "judge_score": 0.72, "matched_effect_cluster": "latent shared memory MAS", "functional_hit": true, "justification": "Latent shared-memory multi-agent — operationally same mutual-support primitive, even if symmetric rather than asymmetric."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2502.07942", "judge_score": 0.65, "matched_effect_cluster": "2-agent symbiotic distillation", "functional_hit": false, "justification": "2-agent symbiotic — adjacent but different cardinality + different mechanism."}
+  ],
+  "summary": {"functional_hits_count": 3, "max_judge_score": 0.85, "distinct_effect_clusters_above_threshold": 3, "multi_cluster_match": true}
+}

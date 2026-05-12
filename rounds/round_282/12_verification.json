@@ -1,0 +1,109 @@
+{
+  "round": "282",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "coral fluorescent protein",
+    "spectral shift photoprotection",
+    "harmful frequency re-emission",
+    "safe eigenband redirect",
+    "spectral re-conversion adapter",
+    "inference-time frequency rebalancing",
+    "harmful-band classifier",
+    "energy-conserving photoshift"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://link.springer.com/article/10.1007/s00338-012-0994-9",
+      "title": "Screening by Coral GFP-like Chromoproteins (Coral Reefs 2012)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.18,
+      "func_score": 0.05,
+      "hit": false,
+      "hit_reason": "kw=0, sem<0.7, func<0.7"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2503.09066",
+      "title": "Probing Latent Subspaces in LLM for Security (2025/3)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2412.09565v2",
+      "title": "Obfuscated Activations Bypass Latent-Space Defenses (2026/2)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.77,
+      "func_score": 0.73,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2507.09406v1",
+      "title": "Adversarial Activation Patching (2025/7)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.79,
+      "func_score": 0.80,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2510.17633v1",
+      "title": "SARSteer — Safe-Ablated Refusal Steering for Audio LLMs (2025/10)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2511.00029v1",
+      "title": "Feature-Guided SAE Steering for Refusal-Rate Control (2025/11)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.81,
+      "func_score": 0.82,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2506.04250v1",
+      "title": "SafeSteer (2025/6)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2509.22067v2",
+      "title": "Rogue Scalpel — Activation Steering Compromises Safety (2025/9)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.74,
+      "func_score": 0.70,
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    }
+  ],
+  "total_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 prior works exceed the functional/semantic thresholds for FRECONV. Multiple existing methods (SARSteer, SafeSteer, Feature-Guided SAE Steering, Adversarial Activation Patching, Probing Latent Subspaces, Obfuscated Activations, Rogue Scalpel) already perform inference-time manipulation of harmful directions in LLM activation/eigenspace toward safe directions, which is functionally equivalent to FRECONV's harmful-eigenband-to-safe-eigenband remap. The 'partial energy conservation' framing does not constitute a meaningful operational difference from existing activation steering / SAE feature redirection. max_sem=0.82, max_func=0.84 — both well above 0.7 threshold across 7 of 8 retrieved works (only the coral biology source-domain paper falls below)."
+}

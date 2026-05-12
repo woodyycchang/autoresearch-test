@@ -1,0 +1,20 @@
+{
+  "round": "276",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["moai rocking transport", "D-shaped base", "lateral pivot oscillation", "forward-lean geometric drift", "transverse-step optimizer", "orthogonal-to-gradient displacement", "rocking gait descent", "emergent forward step"],
+  "results": [
+    {"rank": 1, "url": "https://www.binghamton.edu/news/story/5830/easter-islands-statues-actually-walked-and-physics-backs-it-up", "kw_count": 1, "sem_cosine": 0.13, "func_score": 0.05, "hit": false, "reason": "Source-domain physics article about Moai walking; contains 'D-shaped base' but not an LLM/NN optimizer reference and not functionally equivalent to MPOO."},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Moai", "kw_count": 0, "sem_cosine": 0.09, "func_score": 0.05, "hit": false, "reason": "Wikipedia source-domain article on Moai; no LLM-optimization content and no content-word phrase substring match."},
+    {"rank": 3, "url": "https://arxiv.org/html/2511.00674", "kw_count": 0, "sem_cosine": 0.60, "func_score": 0.55, "hit": false, "reason": "Discusses Muon-style gradient orthogonalization (transforming the gradient itself), which is mechanically distinct from MPOO's purely-transverse, orthogonal-to-gradient steps."},
+    {"rank": 4, "url": "https://arxiv.org/html/2602.23696", "kw_count": 0, "sem_cosine": 0.83, "func_score": 0.86, "hit": true, "reason": "Slow-fast decomposition with 1-D backbone drift plus high-dimensional transverse oscillation matches MPOO's emergent-descent-from-transverse-rocking mechanism with strong semantic and functional overlap."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2310.17074", "kw_count": 0, "sem_cosine": 0.71, "func_score": 0.72, "hit": true, "reason": "Large-lr SGD's lateral oscillation as beneficial for training is functionally equivalent to MPOO's claim that transverse rocking alone drives descent."},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2307.15196", "kw_count": 0, "sem_cosine": 0.55, "func_score": 0.48, "hit": false, "reason": "Argues momentum is often marginal; adjacent but does not implement orthogonal-to-gradient transverse stepping or emergent geometric descent."},
+    {"rank": 7, "url": "https://arxiv.org/html/2506.04487v1", "kw_count": 0, "sem_cosine": 0.76, "func_score": 0.72, "hit": true, "reason": "Projects updates orthogonal to retained gradient direction during training — same orthogonal-to-gradient transverse-step family as MPOO."},
+    {"rank": 8, "url": "https://arxiv.org/html/2508.07370v1", "kw_count": 0, "sem_cosine": 0.70, "func_score": 0.74, "hit": true, "reason": "Decomposes training dynamics into intrinsic + transverse modes, mirroring MPOO's forward-lean + transverse-rocking decomposition."}
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "Four prior works (2602.23696, 2310.17074, 2506.04487, 2508.07370) independently exceed the func>=0.7 and/or sem>=0.7 thresholds, covering transverse-mode optimizer dynamics, benign large-lr oscillation, orthogonal-to-gradient updates, and intrinsic+transverse decomposition — collectively the MPOO mechanism is not novel."
+}

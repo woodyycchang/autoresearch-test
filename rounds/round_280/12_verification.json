@@ -1,0 +1,101 @@
+{
+  "round": "280",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "three sisters polyculture",
+    "asymmetric resource exchange",
+    "non-circular DAG cooperation",
+    "role-specialized 3-agent guild",
+    "structure enrichment suppression",
+    "polyculture mutual support",
+    "complementary asymmetric roles",
+    "nitrogen fixation analog"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Three_Sisters_(agriculture)",
+      "title": "Three Sisters (agriculture) — Wikipedia",
+      "kw_count": 0,
+      "sem_cosine": 0.18,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain Wikipedia article on the agricultural concept itself; no LLM/MAS content."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2406.04692v1",
+      "title": "Mixture-of-Agents (MoA) Enhances LLM (2024/6)",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "MoA uses layered specialized agents but does not enforce a 3-role asymmetric non-circular DAG with distinct resource types per role."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2605.06320v1",
+      "title": "Adaptive Task Graphs for LLM Agent Teams (2026/5)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.73,
+      "hit": true,
+      "reason": "Adaptive task DAGs over LLM agents match TSARM's DAG cooperation topology (sem and func both above threshold)."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2501.06322",
+      "title": "Multi-Agent Collaboration Mechanisms — Survey of LLMs (2025/1)",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "Survey explicitly catalogs 3-agent role-specialized teams (two experts + summarizer), directly the 3-role asymmetric structure of TSARM."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2602.01011v1",
+      "title": "Multi-Agent Teams Hold Experts Back (2026/2)",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Empirical study of team underperformance; doesn't propose a 3-role asymmetric DAG mechanism."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2505.19591v1",
+      "title": "Multi-Agent Collaboration via Evolving Orchestration (2025/5)",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.65,
+      "hit": false,
+      "reason": "Relies on a central evolving orchestrator, opposite of TSARM's no-orchestrator topology."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2511.20639v1",
+      "title": "Latent Collaboration in Multi-Agent Systems (2025/11)",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Latent shared-memory MAS achieves the same mutual-support primitive (sem and func both at threshold)."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2502.07942",
+      "title": "AgentSymbiotic — Web Agents (2025/2)",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.65,
+      "hit": false,
+      "reason": "2-agent symbiotic distillation; different cardinality and mechanism from 3-role asymmetric DAG."
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "Three results trigger hits via sem>=0.7 OR func>=0.7: rank 3 (Adaptive Task Graphs, sem 0.72/func 0.73) matches the DAG-cooperation primitive; rank 4 (MAS Survey, sem 0.78/func 0.85) explicitly documents 3-agent role-specialized teams; rank 7 (Latent Collaboration, sem 0.70/func 0.72) achieves the equivalent mutual-support MAS primitive. TSARM's 3-role asymmetric non-circular DAG is not sufficiently novel against existing role-specialized and DAG-based multi-agent literature."
+}

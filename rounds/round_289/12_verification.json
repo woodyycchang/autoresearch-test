@@ -1,0 +1,101 @@
+{
+  "round": "289",
+  "verifier": "cross-agent",
+  "candidate_form": "memory-architecture",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "korean ondol heating",
+    "thermal-mass slow release",
+    "amortized prefix cache",
+    "shared-prefix kv reuse",
+    "deep-prefill warmup",
+    "staggered cache eviction",
+    "infrared-like passive cache",
+    "long-tail prefix amortization"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Ondol",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.16,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2602.12029",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.88,
+      "func_score": 0.90,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (shared prefill KV reuse - direct prior art)"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2412.03594",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.85,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (BatchLLM shared prefix amortization)"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2510.09665v2",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.87,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (LMCache KV cache layer shared across queries)"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2507.07400v1",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (KVFlow tree prefix cache)"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2411.19379v1",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (Marconi prefix cache for hybrid LLMs)"
+    },
+    {
+      "rank": 7,
+      "url": "https://docs.vllm.ai/en/stable/design/prefix_caching/",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.84,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (vLLM production automatic prefix caching)"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2605.06046v1",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (batch + prefix homogeneity - same primitive)"
+    }
+  ],
+  "total_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 of 8 retrieved results are hits via sem>=0.7 AND func>=0.7. Shared-prefix KV reuse / amortized prefix caching is published prior art across vLLM, SGLang, LMCache, KVFlow, Marconi, BatchLLM, and PrefillShare. The candidate's own novelty_claim concedes the mechanism is well-known; the 'thermal-mass' ondol framing is metaphor only and does not constitute a novel operational mechanism."
+}

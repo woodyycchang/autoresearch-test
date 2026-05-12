@@ -1,0 +1,84 @@
+{
+  "round": "277",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["bristlemouth counterillumination", "eye-reference photophore", "downwelling light match", "ventral self-cancellation", "ambient-distribution match", "closed-loop detector feedback", "live-sampled reference", "decoder counter-emission"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2918",
+      "kw_count": 1,
+      "sem_cosine": 0.18,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology paper on bristlemouth eye-reference photophores; provides the analogy itself, not an LLM functional equivalent, and only one content-word substring ('counterillumination') matches."
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Counter-illumination",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "General Wikipedia article on biological counter-illumination camouflage; no LLM relevance and no full content-word substring match."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2604.26328",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "Detection-side method using KL across rewrites as a feature; opposite direction (detect rather than cancel) and well below all thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2508.15848v1",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Self-Disguise Attack trains an LLM to disguise its own output to evade AI-text detection — same functional effect as ECED's counter-emission, exceeding sem and func thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/ab1ee157f7804a13f980414b644a9460-Paper-Conference.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.85,
+      "hit": true,
+      "reason": "Humanizing the Machine uses a closed-loop humanizing proxy decoder that overrides predictions in real time to evade detection — directly the ECED real-time counter-emission mechanism."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2305.10847v6",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.65,
+      "hit": false,
+      "reason": "Prompt-guided evasion of detectors; relevant direction but lacks live-reference closed-loop cancellation, all scores below 0.7."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2408.04237",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Defender-side rewrite training to amplify human/AI disparity; opposite functional role and below all thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2510.08602v1",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.40,
+      "hit": false,
+      "reason": "OOD detection treating human text as outliers — detection direction, no functional overlap with closed-loop ambient cancellation."
+    }
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior works achieve the same functional effect: rank 4 (Self-Disguise Attack, sem 0.78 / func 0.82) trains an LLM to disguise its output to evade detection, and rank 5 (Humanizing the Machine, sem 0.80 / func 0.85) uses a closed-loop humanizing proxy decoder overriding predictions in real time — both replicate ECED's counter-emission evasion mechanism."
+}

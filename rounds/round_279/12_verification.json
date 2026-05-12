@@ -1,0 +1,109 @@
+{
+  "round": "279",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "steel pan tuning",
+    "note section groove",
+    "harmonic series integer ratio",
+    "fundamental + overtone lock",
+    "harmonic alignment loss",
+    "shared substrate multi-note",
+    "head-wise singular-direction constraint",
+    "within-head harmonic locking"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Steelpan",
+      "title": "Steelpan — Wikipedia",
+      "kw_count": 1,
+      "kw_matched": ["steel pan tuning (partial: 'steelpan')"],
+      "sem_cosine": 0.14,
+      "func_score": 0.05,
+      "hit": false,
+      "reason": "Source-domain Wikipedia article about steelpan instrument; no LLM/transformer content and no singular-direction harmonic constraint."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7E1D752EAF17463DC1C0A7C713C8134/S0883769400044419a.pdf/caribbean_steel_pan_tuning_and_mode_studies.pdf",
+      "title": "Caribbean Steel Pan Tuning and Mode Studies (MRS Bulletin)",
+      "kw_count": 1,
+      "kw_matched": ["steel pan tuning"],
+      "sem_cosine": 0.17,
+      "func_score": 0.04,
+      "hit": false,
+      "reason": "Physics paper on steel pan acoustics; not about attention heads or LLM constraints."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2505.23724v1",
+      "title": "SC-LoRA — Subspace-Constrained LoRA (2025/5)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.63,
+      "func_score": 0.58,
+      "hit": false,
+      "reason": "Constrains LoRA updates to a subspace but does not impose any integer-ratio harmonic-series structure between singular directions."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2502.01235",
+      "title": "LoRA-One: One-Step Full Gradient Suffices (2025/2)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.59,
+      "func_score": 0.54,
+      "hit": false,
+      "reason": "LoRA aligning with gradient singular subspaces; no harmonic-ratio constraint between fundamental and overtone directions."
+    },
+    {
+      "rank": 5,
+      "url": "https://www.arxiv.org/pdf/2502.00987",
+      "title": "RandLoRA: Full-Rank Random (ICLR 2025)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.52,
+      "func_score": 0.42,
+      "hit": false,
+      "reason": "Random full-rank LoRA approximation — entirely different mechanism with no harmonic locking."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2503.05320",
+      "title": "Disentangling Multi-task Interference for Model Merging (2025/3)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.57,
+      "func_score": 0.52,
+      "hit": false,
+      "reason": "Neuron-level disentangling for task merging separates rather than harmonically constrains directions."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2404.18825v1",
+      "title": "Harmonic Machine Learning Models Are Robust (2024/4)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.68,
+      "func_score": 0.63,
+      "hit": false,
+      "reason": "Uses 'harmonic' in the Laplace-equation/harmonic-function sense for robustness, not music-theoretic integer-ratio constraints on singular directions."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2601.22708",
+      "title": "Unified Study of LoRA Variants (2026/1)",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem_cosine": 0.60,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Taxonomy/review of LoRA variants; does not include any integer-ratio harmonic-series constraint on attention-head singular directions."
+    }
+  ],
+  "total_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": ""
+}

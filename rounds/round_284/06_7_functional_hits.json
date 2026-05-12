@@ -1,0 +1,16 @@
+{
+  "round": "284",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://guillemot-kayaks.com/skin-frame/skin-frame-construction", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Kayak craft."},
+    {"rank": 2, "url": "https://arxiv.org/html/2510.09004", "judge_score": 0.92, "matched_effect_cluster": "safety-orthogonal subspace", "functional_hit": true, "justification": "Literally proves LoRA decouples safety into a subspace orthogonal to the model's intrinsic transformations — identical SOF-LLM frame/skin orthogonality claim."},
+    {"rank": 3, "url": "https://arxiv.org/html/2510.13003v2", "judge_score": 0.86, "matched_effect_cluster": "orthogonal projection LoRA", "functional_hit": true, "justification": "Double-sided orthogonal projection LoRA exactly preserves top-k singular subspace — same architectural skin/frame split."},
+    {"rank": 4, "url": "https://arxiv.org/html/2505.23724v1", "judge_score": 0.80, "matched_effect_cluster": "subspace-constrained LoRA", "functional_hit": true, "justification": "Constrains LoRA to orthogonal-to-preserved-knowledge directions — same primitive."},
+    {"rank": 5, "url": "https://arxiv.org/html/2512.23260", "judge_score": 0.85, "matched_effect_cluster": "SAE-constructed safety subspace", "functional_hit": true, "justification": "Explicit safety subspace via SAE; capabilities preserved — same mechanism with different subspace-construction tool."},
+    {"rank": 6, "url": "https://arxiv.org/html/2604.07965", "judge_score": 0.78, "matched_effect_cluster": "dynamic orthogonal partition", "functional_hit": true, "justification": "Partition into orthogonal semantic subspaces with by-construction isolation — same SOF-LLM split."},
+    {"rank": 7, "url": "https://arxiv.org/html/2512.17910v1", "judge_score": 0.60, "matched_effect_cluster": "fast adapter swap", "functional_hit": false, "justification": "Efficient inference-time swap, not safety/identity orthogonality."},
+    {"rank": 8, "url": "https://arxiv.org/pdf/2511.18039", "judge_score": 0.62, "matched_effect_cluster": "post-FT safety restore", "functional_hit": false, "justification": "Restoration after damage, not prevention by orthogonality."}
+  ],
+  "summary": {"functional_hits_count": 5, "max_judge_score": 0.92, "distinct_effect_clusters_above_threshold": 5, "multi_cluster_match": true}
+}

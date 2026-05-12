@@ -1,0 +1,29 @@
+{
+  "round": "290",
+  "verifier": "cross-agent",
+  "candidate_form": "multi-agent-comm",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "quipu inca knot-cord",
+    "multi-axis composite tag",
+    "hierarchical cord tree",
+    "spin-and-color side-channels",
+    "5-channel sum embedding",
+    "side-tag categorical embed",
+    "knot-position decimal",
+    "parent-cord attachment"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Quipu", "kw": 0, "sem": 0.16, "func": 0.05, "hit": false},
+    {"rank": 2, "url": "https://arxiv.org/pdf/2503.10566", "kw": 0, "sem": 0.80, "func": 0.82, "hit": true},
+    {"rank": 3, "url": "https://arxiv.org/html/2501.18205v1", "kw": 0, "sem": 0.75, "func": 0.73, "hit": true},
+    {"rank": 4, "url": "https://arxiv.org/html/2502.11596v1", "kw": 0, "sem": 0.78, "func": 0.78, "hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2508.01685v1", "kw": 0, "sem": 0.74, "func": 0.74, "hit": true},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.10468", "kw": 0, "sem": 0.82, "func": 0.84, "hit": true},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.09102v1", "kw": 0, "sem": 0.83, "func": 0.85, "hit": true},
+    {"rank": 8, "url": "https://arxiv.org/pdf/2511.14868", "kw": 0, "sem": 0.77, "func": 0.78, "hit": true}
+  ],
+  "total_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 of 8 results clear sem>=0.7 and func>=0.7 thresholds; LLM-side primitive (composite multi-channel/side-tag/structural token embedding with hierarchy) is densely covered by ASIDE (2503.10566), structured token-dependency encoding (2501.18205), tabular categorical embeddings (2502.11596, 2508.01685), DECOR decomposed token composition (2509.10468), Instructional Segment Embedding (2410.09102), and Hierarchical Token Prepending (2511.14868). QUIPU-TOK's 5-channel summed side-tag embedding with hierarchical attachment is the same functional primitive as multiple existing works; no functional novelty."
+}

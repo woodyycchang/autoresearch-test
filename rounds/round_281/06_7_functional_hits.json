@@ -1,0 +1,16 @@
+{
+  "round": "281",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Welwitschia", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Wiki biology source."},
+    {"rank": 2, "url": "https://arxiv.org/html/2510.25093v1", "judge_score": 0.92, "matched_effect_cluster": "cumulative-LoRA stack", "functional_hit": true, "justification": "Cumulative LoRA literally is 'reuse frozen past adapters + add new trainable adapter summed during inference' — identical operational mechanism to WMCL."},
+    {"rank": 3, "url": "https://arxiv.org/html/2502.17920v1", "judge_score": 0.78, "matched_effect_cluster": "continual-LoRA routing", "functional_hit": true, "justification": "Continual LoRA with routing manages frozen past + new trainable; same family, different routing."},
+    {"rank": 4, "url": "https://arxiv.org/html/2602.06043", "judge_score": 0.75, "matched_effect_cluster": "shared LoRA subspace", "functional_hit": true, "justification": "Single shared low-rank subspace continually updated — adjacent strip-stack mechanism."},
+    {"rank": 5, "url": "https://arxiv.org/html/2509.13211", "judge_score": 0.80, "matched_effect_cluster": "hierarchical adapter merging", "functional_hit": true, "justification": "HAM dynamically merges adapters as tasks accumulate — same accumulation primitive, with merging instead of stacking-convolution."},
+    {"rank": 6, "url": "https://arxiv.org/html/2411.05663v1", "judge_score": 0.74, "matched_effect_cluster": "online LoRA", "functional_hit": true, "justification": "Task-free online continual LoRA — adds new adapters in online stream; same one-edge-append mechanism."},
+    {"rank": 7, "url": "https://arxiv.org/html/2510.16089v1", "judge_score": 0.62, "matched_effect_cluster": "gated CL", "functional_hit": false, "justification": "Gated CL uses gating logic, not pure append."},
+    {"rank": 8, "url": "https://arxiv.org/html/2603.12658v1", "judge_score": 0.65, "matched_effect_cluster": "CL survey", "functional_hit": false, "justification": "Survey, not specific mechanism."}
+  ],
+  "summary": {"functional_hits_count": 5, "max_judge_score": 0.92, "distinct_effect_clusters_above_threshold": 5, "multi_cluster_match": true}
+}

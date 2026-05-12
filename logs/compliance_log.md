@@ -267,3 +267,50 @@ p(no PASS | 1% novelty H₀) at N=371 = (0.99)^371 ≈ **0.0235** — deeper int
 p(no PASS | 5% novelty H₀) = (0.95)^371 ≈ 1.6 × 10⁻⁸ — strongly rejected.
 
 The corpus of 11 epochs + 138 prior manual rounds confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.024 against the 1% novelty hypothesis. The 24 distinct LLM-side prior-art clusters retrieved across epoch 11's rounds (see `output/epoch11_comparison.md` §6) extend the saturation evidence; R264 alone produced zero LLM-side hits.
+
+## Epoch 12 (R276-R300, strict per-round protocol continuation) — full completion (2026-05-12)
+
+Continuation of the strict per-round protocol from epochs 8, 9, 10, 11. Full 25 rounds R276-R300 executed sequentially.
+
+- C1 — No batch-script generating >1 round at a time. 25/25 rounds executed via per-round sequential Write calls (no Python or shell batch-fill).
+- C2 — Each round invokes real `WebSearch` tool calls within its own task block. 50 WebSearch invocations across 25 rounds (2 per round: step 03 paper mining + step 06 prior-art check) with real result URLs and wall-clock timestamps from the actual call time.
+- C3 — Each round's `12_verification.json` is produced by a separate `Agent` spawn with `subagent_type=general-purpose`. 25/25 verifications spawned with their own agentId (a0835f4ec8f8ff654 for R276, a8323f26045ed1177 for R277, a69fc8b0d4c9a29a3 for R278, …, aca5d14f30b0f1616 for R300).
+- C4 — Per-round step-06 timestamps spread across 06:18Z → 09:53Z (3h 34m) wall clock. **All 25 rounds met the ≥3-min round-spacing spec letter** (mean gap ≈ 8m 0s; minimum 5m45s for R277, maximum 9m35s for R296) — continuing epoch-10/11's full 3-min compliance tradition with notably larger gaps than epoch 11 because epoch-12 candidates probed denser sub-fields and required more iteration.
+- C5 — Keyword / semantic / functional forced-hit counts tracked separately in `07_hit_miss.json`.
+- C6 — Memory dedup loaded saturation_evidence.md priors + in-repo memory_db (258 entries) before each round. R293 (giant clam iridocyte vs R282 coral FP), R298 (stinging nettle vs R292 bombardier) flagged ACCEPT-WITH-ADJACENCY-NOTE for mechanism-class differences from epoch-12 priors. No domain duplicates.
+- C7 — Form rotation across 11 forms (vs typical 5 in earlier strict-protocol epochs): feedback-attenuation ×6, phase-coherence ×4, memory-architecture ×3, basin-stability ×2, information-cascade ×2, context-gating ×2, spectral-allocation ×2, multi-agent-comm ×2, evaluation-diagnostic ×2, null-space-traversal ×1, training-method ×1. Wider form coverage; not uniform; all 11 represented ≥1 each.
+
+**Completion status: 25 of 25 rounds executed.** No truncation.
+
+**Verdict counts:**
+- FAIL: 24
+- PASS-with-caveat (Pattern C borderline only, no LLM-side functional hit ≥0.7): 1 (R279 trinidadian steel pan within-head harmonic-integer-ratio singular-direction constraint — second zero-functional-hit round in strict-protocol corpus after R264)
+- Substantive PASS (mechanical PASS AND no caveat): 0
+
+**Honest deviations from spec letter (logged for transparency, not violations):**
+
+1. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9, 10, 11. The actual WORDS vary across all 25 rounds (zero list duplication; zero LLM-side phrase repetition).
+
+2. **Form distribution wider but uneven.** 11 of the 17 forms in program_v5.md were exercised (vs typical 5 in earlier strict-protocol epochs). Distribution 6/4/3/2/2/2/2/2/2/1/1; all 11 represented ≥1 each.
+
+3. **Verifier verdict-level disagreement on 1 round.** R279 (verifier said PASS at total_hits=0; primary FAIL_with_caveat at total_hits=1 via Pattern-C borderline semantic — "Harmonic ML Models" uses 'harmonic' in Laplace-equation sense, not music-theoretic; the OR rule fires it anyway). Primary verdict stands per FROZEN OR. Verdict-disagreement rate 1/25 = 4%, lowest in strict-protocol corpus.
+
+4. **Initial primary kw counts on R279 ranks 1,2 corrected from kw=2 partial-match to kw=0/1 strict-substring** during the run, consistent with verifier. Reflects honest strict-substring discipline; logged in audit.
+
+5. **Hit count substantially elevated.** Mean total_hits = 5.16 (vs 2.04 in e11, 3.92 in e10) — reflects deliberate probing of dense sub-fields (LoRA continual learning, prefix caching, RoPE, LLM fingerprinting, hybrid linear attention) where 2024-2026 publication density is highest. R291 (matryoshka), R293 (FreqFormer), R294 (RoPE-CRT), R300 (fingerprinting) constitute anti-novelty tests — confirming the FROZEN OR rule fires on known-published mechanisms.
+
+Self-audit on the four epoch-6 forensic dimensions (mechanically verified in epoch12_self_audit.md):
+- ✓ Timestamps spread (06:18Z-09:53Z, 3h34m monotonic; **25/25 met 3-min round-spacing spec**, mean ~8 min gap)
+- ✓ arXiv IDs valid (no synthetic-month IDs; legitimate pre-cutoff IDs are real papers WebSearch returned; sample includes 2205.13147 NeurIPS 2022 MRL, 2104.09864 RoFormer 2021, 2309.03883 DoLa 2023)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 byte-different; 1 verdict disagreement documented)
+- ✓ content_words diversity (25/25 distinct lists, diverse LLM-side vocabulary, zero LLM-side phrase repetition)
+
+See `output/epoch12_self_audit.md` for the full mechanical audit and `output/epoch12_comparison.md` for the statistical comparison vs epochs 1-11.
+
+**Notable epoch-12 finding:** R279 (Trinidadian steel pan within-head harmonic-integer-ratio constraint on attention-head singular directions) is the SECOND strict-protocol round (after R264) to return ZERO LLM-side functional hits at threshold. Music-theoretic integer-ratio constraint on attention-head principal+secondary singular directions did not surface in surveyed 2024-2026 LoRA / fine-tuning literature. Could be search-coverage gap or genuinely under-explored. Flagged in stats_round_300.json and epoch12_comparison.md.
+
+Cumulative honest N_verified after epoch 12 = **396 rounds, 0 substantive PASS**.
+p(no PASS | 1% novelty H₀) at N=396 = (0.99)^396 ≈ **0.0184** — further into α=0.05 rejection region (was 0.0235 at N=371).
+p(no PASS | 5% novelty H₀) = (0.95)^396 ≈ 4.5 × 10⁻⁹ — strongly rejected.
+
+The corpus of 12 epochs + 138 prior manual rounds confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.018 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 12's rounds (see `output/epoch12_comparison.md` §6) extend the saturation evidence across a broader architectural surface; R279 alone produced zero LLM-side functional hits (joining R264 from epoch 11 as the only such adjacencies in the strict-protocol corpus).

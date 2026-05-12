@@ -1,0 +1,16 @@
+{
+  "round": "289",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Ondol", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Korean architecture."},
+    {"rank": 2, "url": "https://arxiv.org/html/2602.12029", "judge_score": 0.90, "matched_effect_cluster": "shared prefill KV reuse", "functional_hit": true, "justification": "PrefillShare literally is shared-prefill + cross-model KV reuse — exactly ONDOL-LLM's amortization."},
+    {"rank": 3, "url": "https://arxiv.org/html/2412.03594", "judge_score": 0.88, "matched_effect_cluster": "global prefix optimization", "functional_hit": true, "justification": "BatchLLM 85% token save by shared prefix amortization."},
+    {"rank": 4, "url": "https://arxiv.org/html/2510.09665v2", "judge_score": 0.88, "matched_effect_cluster": "KV cache layer", "functional_hit": true, "justification": "LMCache shares KV across engines/queries — direct ondol-like amortization."},
+    {"rank": 5, "url": "https://arxiv.org/html/2507.07400v1", "judge_score": 0.84, "matched_effect_cluster": "tree prefix cache", "functional_hit": true, "justification": "KVFlow tree prefix cache."},
+    {"rank": 6, "url": "https://arxiv.org/html/2411.19379v1", "judge_score": 0.82, "matched_effect_cluster": "prefix cache for hybrid", "functional_hit": true, "justification": "Marconi prefix cache for hybrid LLMs."},
+    {"rank": 7, "url": "https://docs.vllm.ai/en/stable/design/prefix_caching/", "judge_score": 0.85, "matched_effect_cluster": "automatic prefix caching", "functional_hit": true, "justification": "vLLM automatic prefix cache — production-standard."},
+    {"rank": 8, "url": "https://arxiv.org/html/2605.06046v1", "judge_score": 0.74, "matched_effect_cluster": "batch + prefix homogeneity", "functional_hit": true, "justification": "Batch-prefix interaction — same primitive."}
+  ],
+  "summary": {"functional_hits_count": 7, "max_judge_score": 0.90, "distinct_effect_clusters_above_threshold": 7, "multi_cluster_match": true}
+}
