@@ -1,0 +1,130 @@
+{
+  "round": "367",
+  "verifier": "cross-agent",
+  "candidate_form": "spectral-allocation",
+  "candidate_summary": "KOTEKAN-INTERLEAVE: two sub-decoders share attention trunk; sub-decoder A emits even positions, sub-decoder B emits odd positions; each half-rate; composite forms complete sequence; sparse per-channel + dense composite",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "gamelan kotekan interlocking",
+    "polos sangsih on-off beat",
+    "sparse-each dense-composite",
+    "two-player composite tempo",
+    "two-channel positional-alternation decoder",
+    "even-odd slot sub-decoder",
+    "sparse-per-channel dense-composite output",
+    "shared-trunk positional-slot allocation"
+  ],
+  "scoring_method": "independent re-scoring of kw/sem/func vs LLM-side prior art",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Kotekan",
+      "title": "Kotekan (source)",
+      "kw_count": 1,
+      "kw_matched": ["gamelan kotekan interlocking"],
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "rationale": "Source domain (gamelan); not LLM prior art."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2603.15530",
+      "title": "DUET Disaggregated Hybrid Mamba-Transformer",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "Interleaves SSM + attention blocks. Same multi-channel/interleaving primitive applied at layer level; sem and func both >= 0.7."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2504.14489",
+      "title": "MuxWise Prefill-Decode Multiplexing",
+      "kw_count": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "Bubble-less multiplex of prefill/decode = interleaved-channel allocation primitive; sem and func both >= 0.7."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2511.04791",
+      "title": "DUETSERVE Harmonize Prefill+Decode",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "Harmonized prefill+decode interleaved-channel serving primitive; sem and func both >= 0.7."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2507.06608v5",
+      "title": "Nexus Intra-GPU Disaggregation",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.68,
+      "hit": false,
+      "rationale": "Intra-GPU disaggregation focuses on scheduling rather than positional-slot decoder split; both sem and func below 0.7."
+    },
+    {
+      "rank": 6,
+      "url": "https://aclanthology.org/2025.emnlp-main.986.pdf",
+      "title": "Speculative Streaming Multi-Stream Attention",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.85,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "Multi-stream attention with frozen/shared base for chain decoding = direct twin of two sub-decoders sharing trunk; strongest match."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2512.10054",
+      "title": "Parallel Decoder Transformer (PDT) Synchronized Streams",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "PDT performs model-internal parallel decoding via shared latent = same multi-channel + shared-trunk primitive."
+    },
+    {
+      "rank": 8,
+      "url": "https://blog.vllm.ai/",
+      "title": "vLLM Chunked-Prefill Interleaving Hybrid Micro-Batch",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "rationale": "Chunked-prefill interleaving in hybrid micro-batch = positional-interleave primitive."
+    }
+  ],
+  "total_hits": 6,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 6,
+  "functional_forced_hits": 6,
+  "hit_urls": [
+    "https://arxiv.org/html/2603.15530",
+    "https://arxiv.org/html/2504.14489",
+    "https://arxiv.org/pdf/2511.04791",
+    "https://aclanthology.org/2025.emnlp-main.986.pdf",
+    "https://arxiv.org/html/2512.10054",
+    "https://blog.vllm.ai/"
+  ],
+  "strongest_match": {
+    "url": "https://aclanthology.org/2025.emnlp-main.986.pdf",
+    "title": "Speculative Streaming Multi-Stream Attention (EMNLP 2025)",
+    "func_score": 0.85,
+    "sem_cosine": 0.82,
+    "reason": "Direct twin: multi-stream attention with shared/frozen base for chain decoding mirrors two sub-decoders sharing attention trunk emitting interleaved tokens."
+  },
+  "verdict": "FAIL",
+  "fail_reason": "6 distinct LLM-side prior-art hits at sem>=0.7 and func>=0.7 (DUET interleaved blocks, MuxWise multiplex, DUETSERVE harmonized prefill/decode, Speculative Streaming multi-stream, PDT parallel decoder, vLLM chunked-prefill interleaving). The shared-trunk + multi-channel/interleaved-decoding primitive is well-established; Speculative Streaming (EMNLP 2025) is a direct twin of the proposed mechanism. total_hits=6 >= 1 -> FAIL.",
+  "agreement_with_07_hit_miss": true,
+  "notes": "Independent re-scoring matches 07_hit_miss.json exactly: same 6 hits, same misses (Wikipedia source, Nexus below threshold). No keyword forcing since candidate's compound terms (gamelan/polos/sangsih/even-odd slot) do not appear in LLM prior-art snippets."
+}
