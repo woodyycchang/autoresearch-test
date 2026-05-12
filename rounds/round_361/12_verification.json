@@ -1,0 +1,106 @@
+{
+  "round": "361",
+  "verifier": "cross-agent",
+  "candidate_form": "training-method",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "karelian peatland bog body",
+    "anaerobic acidic preservation",
+    "tannin tanning + cold + sphagnan",
+    "selective soft-vs-hard tissue preservation",
+    "4-axis passive preservation regularizer",
+    "zero-gradient mask + L2-bind + cold-LR + momentum-decouple",
+    "select critical-layer chemical preservation",
+    "passive continual-FT preservation stack"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Bog_body",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "source domain; only generic 'preservation' overlap"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2604.01152",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.85,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "Brainstacks frozen MoE-LoRA + null-space gradient constraints = multi-mechanism selective-layer preservation; null-space constraint is a direct twin of zero-gradient masking axis"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2504.13407v1",
+      "kw_count": 0,
+      "sem_cosine": 0.85,
+      "func_score": 0.88,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "LoRAC-IPC critical-parameter constraints = direct twin of 'SELECT critical layers' selective-preservation premise; constraint = L2-bind axis"
+    },
+    {
+      "rank": 4,
+      "url": "https://www.arxiv.org/pdf/2602.17559",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "EWC-LoRA combines weight-importance regularization (L2-bind to anchor) with low-rank update stack; covers tannin-L2 axis + selective-layer preservation"
+    },
+    {
+      "rank": 5,
+      "url": "https://aclanthology.org/2025.acl-long.940.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "Subspace-controlled LoRA = same selective-subspace preservation primitive"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2406.15330v1",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "Gradient-Mask Tuning = direct twin of anaerobic-style zero-gradient masking axis (i)"
+    },
+    {
+      "rank": 7,
+      "url": "https://aclanthology.org/2025.emnlp-main.1323.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "Hessian layer-wise clipping + gradient annealing = multi-axis layer-selective stability stack; clipping ~ L_inf bind, annealing ~ vanishing LR"
+    },
+    {
+      "rank": 8,
+      "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Wei_Online-LoRA_Task-Free_Online_Continual_Learning_via_Low_Rank_Adaptation_WACV_2025_paper.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": "semantic+functional",
+      "note": "Online-LoRA task-free continual = passive selective-parameter preservation primitive"
+    }
+  ],
+  "total_hits": 7,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 7,
+  "functional_forced_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "total_hits=7 >> 1. The 4-axis stack is decomposable into already-published continual-learning primitives: (i) zero-gradient masking = Gradient-Mask Tuning 2406.15330 and Brainstacks null-space 2604.01152; (ii) L2/L_inf binding to anchor = EWC-LoRA 2602.17559 and LoRAC-IPC 2504.13407 critical-parameter constraints; (iii) locally-vanishing LR = Hessian layer-wise clipping + gradient annealing 2025.emnlp-main.1323; (iv) selective critical-layer subset = LoRAC-IPC critical-param + Subspace LoRA 2025.acl-long.940 + Online-LoRA WACV 2025. Each axis individually has a direct twin; the 'stack' is a recombination, and multi-mechanism selective preservation in CL is itself densely published. The biological framing (anaerobic/tannin/cold/sphagnan) does not add a novel computational mechanism — purely positional/analogical refinement. Concurs with 10_decision.json FAIL verdict.",
+  "concurs_with_pipeline": true,
+  "pipeline_verdict": "FAIL",
+  "cross_agent_verdict": "FAIL"
+}
