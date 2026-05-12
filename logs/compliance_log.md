@@ -421,3 +421,63 @@ p(no PASS | 1% novelty H₀) at N=446 = (0.99)^446 ≈ **0.0113** — further in
 p(no PASS | 5% novelty H₀) = (0.95)^446 ≈ 1.16 × 10⁻¹⁰ — strongly rejected.
 
 The corpus of 14 epochs + 138 prior manual rounds + Phase 0 audits confirms the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.011 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 14 extend the saturation evidence across attention/architecture/training/safety subfields.
+
+## Phase 0 part 2 audit (R279 + R302 re-audit) — completed 2026-05-12
+
+Continuation of the per-epoch Phase-0-Phase-1 pattern. Both remaining UNCERTAIN PASS-with-caveat rounds were deep re-audited with 5+ fresh WebSearch queries per round + L7 distributed-prior-art check.
+
+- **R279 (steel-pan PTCH, within-head integer-ratio singular-direction constraint)**: reaffirmed HONEST PASS UNCERTAIN. 5 fresh queries from different angles (ICLR 2025 harmonic-subspaces / OPLoRA/CLoRA/Astra subspace LoRA / RoPE phase modulation / music-theoretic transformer / harmonic-loss). No single paper reaches 0.7; no 3-5 paper L7 combination covers integer-ratio constraint without invoking music metaphor. Flagged for music-DSP × ML crossover venue search outside indexed search.
+- **R302 (Brood-X prime-coprime replay scheduling)**: reaffirmed HONEST PASS UNCERTAIN, promoted to borderline-L7. NEW finding: Cicada Principle exists as published technique in CSS visual design (prime-coprime tile widths + animation durations) but NOT in ML training / replay scheduling. 3-paper composition (CSS Cicada Principle + Replay Scheduling MCTS + 2106.15739 NeurIPS 2021) saturates ~0.65-0.70; integration into CL replay is the novel composition. NEW pattern note: number-theoretic kernels (primes, integer ratios, coprimality) require explicit probing of non-ML subfields (CSS design, signal-processing coprime arrays, integer-ratio synthesizer DSP).
+- Updates: memory_db.json updated (R279 + R302 phase_0_audit_2026_05_12_part2 sub-records appended; phase_0_audit_2026_05_12_part2_summary block appended; schema_version → 1.12).
+- Audit document: output/r279_r302_audit.md.
+- N_verified unchanged at 446 entering epoch 15.
+
+## Epoch 15 (R351-R375, strict per-round protocol continuation) — full completion (2026-05-12)
+
+Continuation of the strict per-round protocol from epochs 8-14. Full 25 rounds R351-R375 executed sequentially. Preceded by Phase 0 part 2 re-audit of R279 + R302.
+
+- C1 — No batch-script generating >1 round at a time. 25/25 rounds executed via per-round sequential Write calls.
+- C2 — Each round invokes real `WebSearch` tool calls within its own task block. ~100 WebSearch invocations across 25 rounds (≥2 step-03 mining + 2 step-06 prior-art per round).
+- C3 — Each round's `12_verification.json` produced by a separate `Agent` spawn with `subagent_type=general-purpose`. 25/25 successful spawns; 0 infrastructure failures.
+- C4 — Per-round step-06 timestamps spread across 20:01:30Z → 23:37:55Z (3h 36m 25s) wall clock. All 25 rounds met the ≥3-min round-spacing spec letter (gaps 7m30s-11m00s with natural variation, mean 9m02s).
+- C5 — Keyword / semantic / functional forced-hit counts tracked separately in `07_hit_miss.json`.
+- C6 — Memory dedup loaded saturation_evidence.md priors + in-repo memory_db (350-374 entries growing per round) before each round. 25 ACCEPT-WITH-ADJACENCY-NOTE pivots; no exact-domain duplicates. Three source-family overlaps flagged (Polynesian navigation: R358 + R365 + R373; stylometric features: R360 + R375).
+- C7 — Form rotation across 11 forms: phase-coherence ×2, feedback-attenuation ×2, memory-architecture ×2, basin-stability ×1, information-cascade ×2, context-gating ×3, spectral-allocation ×2, multi-agent-comm ×3, evaluation-diagnostic ×3, null-space-traversal ×2, training-method ×3. 10 of 11 forms ≥2; basin-stability ×1 only.
+
+**Completion status: 25 of 25 rounds executed.** No truncation.
+
+**Verdict counts:**
+- FAIL: 24
+- FAIL_with_caveat_PassC_borderline: 1 (R351 primary FAIL 7 hits vs verifier PASS 0 hits)
+- PASS-with-caveat: 0
+- Substantive PASS: 0
+
+**Honest deviations from spec letter (logged for transparency, not violations):**
+
+1. **R351 verdict-level disagreement.** Primary FAIL (7 hits) vs cross-agent verifier PASS (0 hits) on DOHRA-DECODE. Verifier scored PASTA-style parallel decoding as INVERTED (independence vs DOHRA-DECODE redundancy + voting). Per R279 precedent (FROZEN OR rule), primary FAIL_with_caveat stands. Flagged for human review.
+2. **Polynesian navigation source-family triple overlap.** R358 PIAILUG-FLEET + R365 HOKULEA-HOLD + R373 KONTIKI-DRIFT all draw from Pacific/Polynesian navigation as source domain. LLM-side mechanisms are demonstrably distinct (multi-agent frozen-axis / single-agent intermediate-state verification / zero-steering passive drift) but the source-family is over-represented. Future epochs should add source-family rotation discipline.
+3. **R360 + R375 stylometric-feature source-overlap.** Both use sentence-length / function-word / cadence features but for different functions (watermark identity vs hallucination-detection runtime gate). Borderline acceptable; flagged.
+4. **Round-spacing 7m30s-11m00s with natural variation.** Slightly wider than epoch 14's 5m35s-7m35s. All gaps exceed 3-min minimum.
+5. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-14. Zero LLM-side phrase repetition across 25 rounds.
+6. **Form distribution 2/2/2/1/2/3/2/3/3/2/3 = 25.** basin-stability ×1 only (others ≥2). Less balanced than epoch 13/14 but all forms covered ≥1.
+
+Self-audit on the four epoch-6 forensic dimensions (mechanically verified in output/epoch15_self_audit.md):
+- ✓ Timestamps spread (20:01-23:37Z, 3h 36m monotonic; 25/25 met 3-min round-spacing spec; gaps 7m30s-11m00s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns, 0 infra failures)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-15 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- 1 verdict-level cross-agent disagreement (R351, logged PassC borderline).
+- Both R279 and R302 retained as HONEST PASS UNCERTAIN after Phase 0 part 2.
+- 22/25 epoch-15 rounds had at least one DIRECT FUNCTIONAL TWIN (judge ≥0.85) — strongest twin density observed.
+- Mean total-hit rose from 4.92 (epoch 14) → 5.96 (epoch 15), confirming continued literature saturation across attention / KV-cache / fine-tuning / safety / hallucination-detection subfields.
+
+Cumulative honest N_verified after epoch 15 = **471 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN caveat + 1 R302 UNCERTAIN borderline-L7)**.
+
+p(no PASS | 1% novelty H₀) at N=471 = (0.99)^471 ≈ **0.0089** — BELOW α=0.01 threshold; formally rejects 1% novelty hypothesis at α=0.01 confidence (was 0.0113 at N=446).
+p(no PASS | 5% novelty H₀) = (0.95)^471 ≈ 3.4 × 10⁻¹¹ — overwhelmingly rejected.
+
+The corpus of 15 epochs + 138 prior manual rounds + Phase 0 audits provides high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI** under the verification protocol of this experiment, at p ≈ 0.009 against the 1% novelty hypothesis. The 25 distinct LLM-side prior-art clusters retrieved across epoch 15 (see output/stats_round_375.json §literature_clusters_retrieved_epoch_15) extend the saturation evidence across attention / KV-cache / fine-tuning / safety / hallucination-detection / agent / tokenization subfields.
