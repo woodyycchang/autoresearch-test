@@ -1,0 +1,43 @@
+{
+  "round": "316",
+  "verifier": "cross-agent re-judge (fresh context, claude-opus-4-7)",
+  "candidate_summary": "PERMAFROST-PARAM: 3-tier access-gated parameter memory FP32/INT8/FP4 + stabilizer anchor",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "calibration_anchors": {
+    "rank_8_permafrost_inspired_tiering_2511.07905": {"expected_func_range": [0.9, 0.95], "original_func": 0.95, "rejudge_func": 0.95, "within_range": true},
+    "rank_4_3tier_hot_warm_cold_2603.09250": {"expected_func_range": [0.85, 0.95], "original_func": 0.93, "rejudge_func": 0.92, "within_range": true},
+    "rank_7_tiered_stabilizer_anchor_2604.05902": {"expected_func_range": [0.85, 0.9], "original_func": 0.9, "rejudge_func": 0.9, "within_range": true},
+    "rank_6_frequency_gated_mixed_precision_2509.22910": {"expected_func_range": [0.8, 0.9], "original_func": 0.85, "rejudge_func": 0.85, "within_range": true},
+    "rank_2_AWQ_2306.00978": {"expected_func_range": [0.5, 0.6], "original_func": 0.55, "rejudge_func": 0.55, "within_range": true},
+    "rank_3_GPTQ_2305.10403": {"expected_func_range": [0.5, 0.6], "original_func": 0.5, "rejudge_func": 0.55, "within_range": true},
+    "rank_5_LMCache_2510.09665": {"expected_func_range": [0.5, 0.6], "original_func": 0.55, "rejudge_func": 0.55, "within_range": true}
+  },
+  "rejudge_results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Permafrost_carbon_cycle", "kw": 0, "sem": 0.1, "func": 0.05, "hit": false, "note": "Source-domain reference; permafrost ecology, no LLM relevance."},
+    {"rank": 2, "url": "https://arxiv.org/abs/2306.00978", "kw": 0, "sem": 0.6, "func": 0.55, "hit": false, "note": "AWQ uniform activation-aware quantization; not tiered, not access-frequency-gated."},
+    {"rank": 3, "url": "https://arxiv.org/abs/2305.10403", "kw": 0, "sem": 0.55, "func": 0.55, "hit": false, "note": "GPTQ 4-bit PTQ; uniform per-layer, lacks tier hierarchy and access gating."},
+    {"rank": 4, "url": "https://arxiv.org/abs/2603.09250", "kw": 0, "sem": 0.93, "func": 0.92, "hit": true, "forced_by_semantic": true, "forced_by_functional": true, "note": "3-tier hot/warm/cold mixed-precision access-frequency-gated weight storage — direct mechanism match."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2510.09665", "kw": 0, "sem": 0.65, "func": 0.55, "hit": false, "note": "LMCache is external KV cache for cross-request reuse; not parameter tiering, not weight quantization."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2509.22910", "kw": 0, "sem": 0.85, "func": 0.85, "hit": true, "forced_by_semantic": true, "forced_by_functional": true, "note": "Per-weight access-frequency-gated mixed-precision; matches the gating + precision-tier mechanism."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.05902", "kw": 0, "sem": 0.88, "func": 0.9, "hit": true, "forced_by_semantic": true, "forced_by_functional": true, "note": "Tiered parameter cold storage with stabilizer-anchor weights — matches both tiering and iron-mineral-anchor analog."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2511.07905", "kw": 0, "sem": 0.94, "func": 0.95, "hit": true, "forced_by_semantic": true, "forced_by_functional": true, "note": "Cryogenic Permafrost-Inspired LLM weight tiering — identical metaphor and mechanism."}
+  ],
+  "summary": {
+    "total_hits": 4,
+    "kw_forced": 0,
+    "semantic_forced": 4,
+    "functional_forced": 4,
+    "distinct_effect_clusters_at_or_above_threshold": 4,
+    "multi_cluster_match": true,
+    "max_func": 0.95,
+    "max_sem": 0.94
+  },
+  "calibration_check": "PASS — all 7 anchor papers fall within prescribed functional score ranges; deviations between original and re-judge scores are <=0.05 across the board.",
+  "agreement_with_original": {
+    "hit_set_identical": true,
+    "ranks_marked_hit_original": [4, 6, 7, 8],
+    "ranks_marked_hit_rejudge": [4, 6, 7, 8],
+    "score_drift_max": 0.05
+  },
+  "verdict": "NOT NOVEL — confirmed. Four independent functional/semantic matches (ranks 4, 6, 7, 8), including one near-identical permafrost-inspired tiering paper (rank 8, func 0.95) and one explicit stabilizer-anchor + tiered parameter storage paper (rank 7, func 0.9). Multi-cluster match across 4 distinct effect clusters confirms PERMAFROST-PARAM is dominated by existing 2025-2026 literature on access-frequency-gated tiered weight storage."
+}
