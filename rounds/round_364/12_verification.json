@@ -1,0 +1,105 @@
+{
+  "round": "364",
+  "verifier": "cross-agent",
+  "candidate_form": "memory-architecture",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "bali subak irrigation",
+    "ngulu maongin ngasep tiers",
+    "water-temple cycle coordination",
+    "synchronized fallow pest control",
+    "3-tier KV pipeline coordination",
+    "central-scheduler prefill-eviction",
+    "synchronized fallow KV-eviction window",
+    "subak-style pipeline cache sync"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Subak_(irrigation)",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "source domain (Bali subak irrigation) - not an LLM-side prior"
+    },
+    {
+      "rank": 2,
+      "url": "https://www.usenix.org/system/files/fast25-qin.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.90,
+      "func_score": 0.92,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "MOONCAKE Conductor IS a central global scheduler coordinating disaggregated prefill+decode KV cache pipeline - direct functional twin of SUBAK-COORD central scheduler"
+    },
+    {
+      "rank": 3,
+      "url": "https://lmcache.ai/tech_report.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "LMCache enterprise KV layer shared across engines with prefix reuse - centralized KV coordination primitive (already cited in candidate's own novelty_claim as prior art)"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2511.02230",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "CacheTTL TTL-based KV scheduling for multi-turn agents - synchronized eviction window primitive overlaps SUBAK 'fallow windows'"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2512.14946",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "EvicPress joint KV compression+eviction - synchronized cross-layer eviction policy overlaps synchronized fallow concept"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2507.07400v1",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.85,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "KVFlow workflow-aware KV eviction based on agent execution order - directly implements ordered-stage coordinated eviction, twin of SUBAK 3-tier ordered cycle"
+    },
+    {
+      "rank": 7,
+      "url": "https://developers.redhat.com/articles/2025/10/07/master-kv-cache-aware-routing-llm-d-efficient-ai-inference",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "llm-d global near-real-time KV cache locality view + routing to pods - central-coordinator primitive over KV cache state"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2510.03215",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_rule": "sem AND func",
+      "note": "C2C KV-cache communication ICLR 2026 - projects KV between pipeline stages, inter-stage cache coordination primitive (also explicitly cited by candidate as prior art)"
+    }
+  ],
+  "total_hits": 7,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 7,
+  "functional_forced_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 of 8 results are independent hits. MOONCAKE Conductor (FAST 2025) is a near-exact functional twin: a central global scheduler coordinating prefill/decode KV-cache pipeline stages. KVFlow already implements workflow/execution-order-aware KV eviction, mapping directly onto the subak 'ordered tier cycle'. LMCache provides a centralized enterprise KV layer shared across engines. The candidate's own novelty_claim explicitly enumerates LMCache, C2C and several KV-cache scheduling priors, then leans on '3-tier partition + central scheduler + synchronized fallow window' as the differentiator - but MOONCAKE Conductor + KVFlow + llm-d global routing collectively cover central scheduling, ordered-stage coordination, and synchronized eviction. The subak source mapping is decorative; the underlying LLM mechanism (pipelined KV cache + central scheduler + coordinated eviction) is saturated prior art. Cross-agent verification confirms the original 07_hit_miss.json scoring.",
+  "agreement_with_original_07_hit_miss": true,
+  "agreement_notes": "Independent re-scoring matches original judgments at all 8 ranks within +/-0.02 on sem and func axes. Verdict FAIL confirmed."
+}

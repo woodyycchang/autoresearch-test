@@ -1,0 +1,109 @@
+{
+  "round": "368",
+  "verifier": "cross-agent",
+  "candidate_form": "multi-agent-comm",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "marshallese stick chart",
+    "memorized before voyage",
+    "4 ocean swell prototypes",
+    "retrieval-free body-sense navigation",
+    "small-K prototype pretraining",
+    "retrieval-free deployment discipline",
+    "in-context-only prototype combination",
+    "memorize-then-deploy regime"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Marshall_Islands_stick_chart",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "source domain only; not LLM-side prior art"
+    },
+    {
+      "rank": 2,
+      "url": "https://docs.nvidia.com/nim/large-language-models/latest/deploy-air-gap.html",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "NVIDIA NIM official air-gap LLM deployment; covers 'explicitly disable retrieval/web access' pillar"
+    },
+    {
+      "rank": 3,
+      "url": "https://blog.premai.io/air-gapped-ai-fine-tuning-how-to-train-custom-llms-without-internet-access/",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Combines fine-tuning + air-gapped deployment; matches both 'internalize via fine-tune' and 'retrieval-free deployment' pillars"
+    },
+    {
+      "rank": 4,
+      "url": "https://www.nexastack.ai/blog/air-gapped-model-inference",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Sovereign/offline inference behind firewalls; matches 'air-gapped/sovereign deployments where retrieval is forbidden'"
+    },
+    {
+      "rank": 5,
+      "url": "https://www.digitalapplied.com/blog/local-llm-deployment-privacy-guide-2025",
+      "kw_count": 0,
+      "sem_cosine": 0.71,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Local LLM deployment with no external calls; matches 'retrieval-free deployment discipline' albeit weaker on K-prototype angle"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2411.08447v1",
+      "kw_count": 0,
+      "sem_cosine": 0.63,
+      "func_score": 0.60,
+      "hit": false,
+      "note": "Internal cognitive map building; tangential, no retrieval-free/small-K framing"
+    },
+    {
+      "rank": 7,
+      "url": "https://openreview.net/forum?id=lTt4KjHSsyl",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.64,
+      "hit": false,
+      "note": "Map emergence in blind agents; tangential to memorize-then-deploy"
+    },
+    {
+      "rank": 8,
+      "url": "https://www.ieee-jas.net/article/doi/10.1109/JAS.2024.124332",
+      "kw_count": 0,
+      "sem_cosine": 0.60,
+      "func_score": 0.58,
+      "hit": false,
+      "note": "Topological memory for navigation; tangential"
+    }
+  ],
+  "total_hits": 4,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 4,
+  "functional_forced_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "Four results (ranks 2-5) independently exceed both sem>=0.7 and func>=0.7 thresholds. Air-gapped/sovereign LLM deployment with fine-tuning + disabled retrieval/RAG/web access is well-established prior art (NVIDIA NIM air-gap guide, Prem AI air-gapped fine-tuning, NexaStack sovereign inference, local LLM privacy deployment 2025). The 'small-K prototype curation' is the only marginally novel framing element, but the overall regime of 'heavily fine-tune then deploy with retrieval explicitly disabled in air-gapped settings' is squarely covered by existing 2024-2025 industry practice. Cross-agent verification confirms original 07_hit_miss.json scoring; total_hits=4 >= 1, so candidate FAILS novelty.",
+  "agreement_with_original": "concur: original 07_hit_miss.json also found 4 hits (ranks 2-5) via the same semantic/functional thresholds; verifier independently reproduces this outcome"
+}

@@ -1,0 +1,101 @@
+{
+  "round": "354",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "macrotermes mound ventilation",
+    "chimney-flute thermal mass",
+    "diurnal convective circulation",
+    "passive metabolic flush",
+    "two-thermal-mass parameter group",
+    "phase-offset two-channel LR",
+    "passive gradient circulation flush",
+    "convective drift removal cycle"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1423242112",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "rationale": "Source-domain PNAS paper on Macrotermes mound diurnal ventilation. Single source-side content-word match ('macrotermes mound ventilation'); no LLM mechanism, no LR schedule, no transformer artefact. Far below all thresholds."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2507.03526",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.85,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Decoupled Relative Learning Rate Schedules (2025/07): assigns distinct cosine LR schedules to different model components vs a base model. This is the direct functional twin of TERMITE-VENT's two-channel cosine LR over a partitioned parameter set. Both primitive (per-component differential cosine LR) and artefact (transformer training LR schedule) coincide. Strongest match; meets both 0.7 thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.emergentmind.com/topics/warmup-stable-decay-wsd-learning-rate-scheduling",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.65,
+      "hit": false,
+      "rationale": "WSD is the de facto modern LLM LR schedule, but it is single-channel, non-cyclic, and not phase-offset. Same artefact (LR schedule for transformer) but a different primitive. Just below both 0.7 thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://apxml.com/courses/foundations-transformers-architecture/chapter-7-implementation-details-optimization/learning-rate-scheduling",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "rationale": "Layer-wise Learning Rate Decay (LLRD) explicitly applies different LRs to shallow vs deep layers — the same depth-partitioned differential-LR primitive that TERMITE-VENT names 'two thermal-mass groups'. Same artefact, same parameter-partition primitive; only the cyclic phase-offset overlay is novel. Meets both 0.7 thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2106.15739",
+      "kw_count": 0,
+      "sem_cosine": 0.60,
+      "func_score": 0.65,
+      "hit": false,
+      "rationale": "Periodic Behavior of NN Training with BN+WD characterises an emergent periodic instability arising from BN/WD interaction; it is descriptive, not a two-channel scheduling mechanism. Adjacent (periodic dynamics in training) but not the same artefact. Below thresholds."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/1608.03983",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_functional": true,
+      "rationale": "SGDR cosine warm restarts: same artefact (cyclic cosine LR schedule). Operation differs (single global channel with growing period vs two phase-offset channels), but the cyclic-cosine-LR primitive is identical. Meets the 0.7 functional threshold."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/1711.05101",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "rationale": "AdamW decouples weight decay from the gradient update. Different mechanism axis (decay vs LR scheduling); not a parameter-partition or multi-channel-LR primitive. Below thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2502.02732",
+      "kw_count": 0,
+      "sem_cosine": 0.50,
+      "func_score": 0.50,
+      "hit": false,
+      "rationale": "Peri-LN places layer norm peripherally to constrain residual-stream spikes. Different artefact (normalisation placement, not LR schedule) and different primitive. Well below thresholds."
+    }
+  ],
+  "total_hits": 3,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 2,
+  "functional_forced_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "3 of 8 results trigger the hit rule. Decoupled Relative LR Schedules (arXiv 2507.03526) is a direct functional twin: distinct cosine LR per model component vs a base model is exactly TERMITE-VENT's two-channel cosine LR over partitioned parameter groups (sem=0.82, func=0.85). Layer-wise LR Decay supplies the depth-partitioned differential-LR primitive (the 'two thermal-mass groups' rename), and SGDR warm restarts supplies the cyclic-cosine-LR primitive. The phase-offset between two cyclic cosine channels is a positional refinement over densely-published differential-LR + cyclic-LR scheduling literature, not a novel mechanism. total_hits=3 >= 1 -> FAIL."
+}

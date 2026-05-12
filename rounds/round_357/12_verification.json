@@ -1,0 +1,131 @@
+{
+  "round": "357",
+  "verifier": "cross-agent",
+  "candidate_form": "spectral-allocation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "mongolian khoomei throat",
+    "fundamental + overtone simultaneous",
+    "selectable harmonic partial",
+    "frequency-disjoint vocal bands",
+    "dual-vocabulary disjoint decoder",
+    "shared-trunk two-stream output",
+    "vocabulary-band disjoint allocation",
+    "single-pass dual-stream decode"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Tuvan_throat_singing",
+      "title": "Tuvan throat singing (source)",
+      "kw_count": 0,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "notes": "Source-domain page on throat singing; no LLM mechanism overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2512.10054",
+      "title": "Parallel Decoder Transformer Synchronized Parallel Generation (2025/12)",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "notes": "PDT produces synchronized parallel output streams from a shared trunk via latent workspace — directly overlaps 'shared-trunk two-stream output' and 'single-pass dual-stream decode'."
+    },
+    {
+      "rank": 3,
+      "url": "https://neurips2023-enlsp.github.io/papers/paper_33.pdf",
+      "title": "Skeleton-of-Thought Parallel Decoding (NeurIPS 2023)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "notes": "Parallel decoding of multiple streams from one model; functional overlap with dual-stream decode."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2502.03275",
+      "title": "Token Assorted: Mixing Latent + Text Tokens for Reasoning (2025/02)",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "notes": "Mixes latent discrete tokens with text tokens — directly mirrors 'disjoint vocabulary subspaces' (latent vs text token IDs); same core mechanism."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2511.21613",
+      "title": "Metadata Diversity and Position for Efficient LLM Pretraining (2025/11)",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "notes": "Explicit metadata tokens (URL/domain/IDs/timestamps) match candidate's 'structured metadata tokens (citation, tag, retrieval-link)' second-stream design."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2507.22920",
+      "title": "Discrete Tokenization for Multimodal LLMs Survey (2025/07)",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.65,
+      "hit": false,
+      "notes": "Discrete tokenization survey; related but not specifically dual-stream disjoint-vocabulary decoding."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.marktechpost.com/2025/02/14/layer-parallelism-enhancing-llm-inference-efficiency-through-parallel-execution-of-transformer-layers/",
+      "title": "Layer Parallelism (Feb 2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false,
+      "notes": "Parallel layer execution for inference efficiency — different mechanism from dual-stream vocabulary-disjoint decoding."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.emergentmind.com/topics/parallel-decoding",
+      "title": "Parallel Decoding overview",
+      "kw_count": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "notes": "General parallel decoding overview directly conceptually aligned with single-pass dual-stream decode mechanism."
+    }
+  ],
+  "total_hits": 5,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 5,
+  "functional_forced_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "5 hits >= 1 threshold. Prior art saturates the LLM-side mechanism: PDT (2512.10054) provides single-trunk synchronized parallel streams; Token Assorted (2502.03275) provides disjoint-vocabulary latent+text token decoding; Metadata Diversity (2511.21613) provides structured metadata tokens (URL/ID/timestamp) as a second stream — together these directly cover the 'single-pass dual-stream decode in disjoint vocabulary subspaces with structured metadata' claim. Skeleton-of-Thought and the parallel-decoding overview reinforce that parallel-stream decoding from a shared trunk is well-established. The 'spectral allocation / khoomei' framing is metaphorical; the mechanism itself is not novel.",
+  "cross_agent_agreement": {
+    "agrees_with_prior_scorer": true,
+    "total_hits_prior": 5,
+    "total_hits_independent": 5,
+    "verdict_prior": "FAIL",
+    "verdict_independent": "FAIL"
+  }
+}

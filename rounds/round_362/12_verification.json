@@ -1,0 +1,107 @@
+{
+  "round": "362",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "bedouin mizmar double-reed",
+    "coupled reed beat-frequency",
+    "average + difference pitch",
+    "single-airstream two-oscillator",
+    "paired RoPE-offset attention heads",
+    "difference-projection beat channel",
+    "deliberately-detuned head pair",
+    "beat-frequency texture signal"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Mizmar_(instrument)",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "Source domain (mizmar instrument); not LLM prior art."
+    },
+    {
+      "rank": 2,
+      "url": "https://github.com/templetwo/PhaseGPT",
+      "kw_count": 0,
+      "sem_cosine": 0.85,
+      "func_score": 0.85,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "PhaseGPT implements Kuramoto phase-coupled oscillator attention in transformers; same coupled-oscillator attention family as MIZMAR-BEAT's detuned head pair."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.emergentmind.com/topics/differential-transformer",
+      "kw_count": 0,
+      "sem_cosine": 0.92,
+      "func_score": 0.95,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "DIRECT FUNCTIONAL TWIN — Differential Transformer doubles Q/K, computes two attention maps, and subtracts them. This is precisely the difference-projection primitive at the core of MIZMAR-BEAT."
+    },
+    {
+      "rank": 4,
+      "url": "https://iclr-blogposts.github.io/2025/blog/positional-embedding/",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "RoPE positional embedding analysis covering multi-frequency RoPE across heads — adjacent to paired-offset RoPE bases."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2410.06205",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Positional attention heads via RoPE (ICLR 2025) — direct prior art on RoPE-frequency-indexed attention heads."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0950705125012912",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Frequency-stratified transformer cross-frequency attention — multi-frequency head primitive overlapping with MIZMAR-BEAT's detuned-frequency pair."
+    },
+    {
+      "rank": 7,
+      "url": "https://transformer-circuits.pub/2025/attention-update/index.html",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.62,
+      "hit": false,
+      "note": "Descriptive QK/OV coupling analysis; below threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.emergentmind.com/topics/contiguous-rope",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.65,
+      "hit": false,
+      "note": "Extended-context RoPE variant; different artefact; below threshold."
+    }
+  ],
+  "total_hits": 5,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 5,
+  "functional_forced_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "Five prior-art hits above threshold. The mechanism is over-determined by existing work: (a) Differential Transformer is a direct functional twin of the difference-projection primitive (doubles Q/K and subtracts attention maps, func=0.95, sem=0.92); (b) PhaseGPT already implements coupled-oscillator attention in transformers via Kuramoto coupling (func=0.85, sem=0.85); (c) ICLR 2025 RoPE positional-head papers (ranks 4-5) cover RoPE-frequency-indexed attention heads, the other half of MIZMAR-BEAT; (d) frequency-stratified cross-frequency attention (rank 6) covers multi-frequency head primitive. The combination of detuned-RoPE-pair + difference projection is a thin composition of (Differential Transformer) + (RoPE positional heads with offset frequencies), both of which are established prior art. Rule total_hits>=1 -> FAIL is satisfied 5x over.",
+  "cross_agent_agreement": "Independent re-scoring confirms 07_hit_miss.json: 5 hits, same pattern (ranks 2-6 hit, ranks 1,7,8 miss). No disagreement with original judge."
+}

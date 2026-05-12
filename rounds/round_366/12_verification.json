@@ -1,0 +1,125 @@
+{
+  "round": "366",
+  "verifier": "cross-agent",
+  "candidate_form": "context-gating",
+  "candidate_summary": "TSAMPA-CACHE: anticipatory offline KV-prefill based on frequency/temporal/domain forecasts; portable serialized KV pouch shipped to edge; rehydrate by appending small per-query prefix.",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "tibetan tsampa roasted barley",
+    "pre-roasted portable food",
+    "leather-pouch carry artifact",
+    "rehydrate with butter tea",
+    "anticipatory offline KV prefill",
+    "portable serialized KV pouch",
+    "frequency-forecast pre-warming",
+    "domain-specific KV pre-roasting"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Tsampa",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "Source-domain artifact; not LLM technique."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/pdf/2512.09472",
+      "kw_count": 0,
+      "sem_cosine": 0.92,
+      "func_score": 0.92,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "WarmServe workload-predictive prewarming",
+      "note": "Directly anticipatory pre-warming of LLM instances based on workload predictability; functional twin of TSAMPA-CACHE anticipatory pre-roasting."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2601.12904v1",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "Prefix-Fusion RAG Cache",
+      "note": "Pre-computed RAG context caches for inference acceleration; anticipatory cache primitive."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2508.07675v1",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "Offline+Online Semantic Caching",
+      "note": "Explicit offline learning + online adaptation cache; matches offline-pre-roast + online-rehydrate split."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2501.12689v3",
+      "kw_count": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "IC-Cache historical-request in-context caching",
+      "note": "Uses historical-request distribution for caching; overlaps frequency-forecast pre-warming."
+    },
+    {
+      "rank": 6,
+      "url": "https://lmcache.ai/tech_report.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "LMCache 32GB pre-loaded KV",
+      "note": "Enterprise KV layer with pre-loaded portable KV cache shipped across nodes; matches portable serialized KV pouch primitive."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2603.20397",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_kw": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "matched_cluster": "InfiniGen predictive KV prefetch",
+      "note": "Anticipatory KV prefetch survey covers exactly the forecast-and-prefetch primitive."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.mdpi.com/2227-7390/13/15/2366",
+      "kw_count": 0,
+      "sem_cosine": 0.65,
+      "func_score": 0.62,
+      "hit": false,
+      "note": "Entropy-guided per-layer budget; different operation (compression-style), not anticipatory prefill."
+    }
+  ],
+  "tally": {
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 6,
+    "functional_forced_hits": 6,
+    "distinct_effect_clusters_above_threshold": 6,
+    "multi_cluster_match": true
+  },
+  "total_hits": 6,
+  "verdict": "FAIL",
+  "fail_reason": "Six independent prior-art hits above semantic and functional thresholds across distinct effect clusters: WarmServe workload-predictive prewarming (sem=0.92, func=0.92) is a direct anticipatory pre-warming twin; LMCache pre-loaded KV cache covers portable serialized KV; offline+online semantic caching covers offline-pre-roast / online-rehydrate split; InfiniGen predictive KV prefetch is anticipatory KV; IC-Cache covers historical-frequency caching; Prefix-Fusion RAG cache covers pre-computed RAG context cache. TSAMPA-CACHE's core primitive (anticipatory offline KV pre-fill with portable shipping and rehydrate) is already well established. Rule total_hits>=1 -> FAIL is satisfied 6x."
+}
