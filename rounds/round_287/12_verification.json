@@ -1,0 +1,93 @@
+{
+  "round": "287",
+  "verifier": "cross-agent",
+  "candidate_form": "context-gating",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "hawaiian fishpond makaha",
+    "size-selective tidal gate",
+    "progressive monotone-closing curriculum",
+    "checkpoint-cadence admission",
+    "token-count gate spacing",
+    "perplexity-threshold gate",
+    "passive tidal corpus flow",
+    "curriculum-as-grate-spacing"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://paepaeoheeia.org/the-fishpond/",
+      "kw": 0,
+      "sem": 0.18,
+      "func": 0.05,
+      "hit": false,
+      "reason": "no content_word substring matches; sem<0.7; func<0.7"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2601.21698",
+      "kw": 0,
+      "sem": 0.82,
+      "func": 0.83,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (difficulty-paced CL pretraining)"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2506.11300v1",
+      "kw": 0,
+      "sem": 0.85,
+      "func": 0.86,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (easy-to-hard pacing functions)"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2511.18903",
+      "kw": 0,
+      "sem": 0.77,
+      "func": 0.78,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (ascending-quality CL)"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2506.11389v1",
+      "kw": 0,
+      "sem": 0.78,
+      "func": 0.80,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (progressive complexity curriculum + layer scaling)"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2512.16676v1",
+      "kw": 0,
+      "sem": 0.65,
+      "func": 0.60,
+      "hit": false,
+      "reason": "no content_word substring matches; sem<0.7; func<0.7"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2506.06632v1",
+      "kw": 0,
+      "sem": 0.73,
+      "func": 0.74,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7 (easy-to-hard RL curriculum)"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2505.22232v1",
+      "kw": 0,
+      "sem": 0.62,
+      "func": 0.55,
+      "hit": false,
+      "reason": "no content_word substring matches; sem<0.7; func<0.7"
+    }
+  ],
+  "total_hits": 5,
+  "verdict": "FAIL",
+  "fail_reason": "5 results cross the sem>=0.7 AND func>=0.7 thresholds across 5 distinct effect clusters (difficulty-paced CL, easy-to-hard pacing functions, ascending-quality CL, progressive complexity + layer scaling, easy-to-hard RL). MAKAHA's monotone-closing curriculum gate with checkpoint-cadence admission for LLM pretraining is functionally subsumed by the existing curriculum-learning literature on progressive/ascending-difficulty pacing; the closing-gate framing does not differentiate it from already-published primitives."
+}

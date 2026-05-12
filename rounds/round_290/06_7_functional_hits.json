@@ -1,0 +1,16 @@
+{
+  "round": "290",
+  "judge_model": "claude-opus-4-7 (fresh context)",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Quipu", "judge_score": 0.05, "matched_effect_cluster": "source-domain", "functional_hit": false, "justification": "Inca recording."},
+    {"rank": 2, "url": "https://arxiv.org/pdf/2503.10566", "judge_score": 0.82, "matched_effect_cluster": "data/instruction separated embedding", "functional_hit": true, "justification": "ASIDE explicitly separates instruction vs data embeddings, encoding structural channel via rotation — direct multi-channel composite embedding."},
+    {"rank": 3, "url": "https://arxiv.org/html/2501.18205v1", "judge_score": 0.73, "matched_effect_cluster": "structured token dependency encoding", "functional_hit": true, "justification": "Structured token-dependency encoding gives multi-channel structural side-info — same primitive."},
+    {"rank": 4, "url": "https://arxiv.org/html/2502.11596v1", "judge_score": 0.78, "matched_effect_cluster": "categorical+numerical type encoding", "functional_hit": true, "justification": "Type-specific categorical embedding for tabular tokens — direct multi-channel composite."},
+    {"rank": 5, "url": "https://arxiv.org/html/2508.01685v1", "judge_score": 0.74, "matched_effect_cluster": "hybrid structured tokenization", "functional_hit": true, "justification": "Hybrid tabular tokenization for LLMs covers structural side-channel injection."},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.10468", "judge_score": 0.84, "matched_effect_cluster": "decomposed token composition fusion", "functional_hit": true, "justification": "DECOR is literally a decomposed multi-channel token-embedding sum — direct match."},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.09102v1", "judge_score": 0.85, "matched_effect_cluster": "segment-tag side embedding", "functional_hit": true, "justification": "Instructional Segment Embedding adds tag-side categorical embeddings to tokens — same QUIPU-TOK primitive."},
+    {"rank": 8, "url": "https://arxiv.org/pdf/2511.14868", "judge_score": 0.78, "matched_effect_cluster": "hierarchical prepending", "functional_hit": true, "justification": "Hierarchical token prepending for decoder LLMs implements hierarchical structure attachment."}
+  ],
+  "summary": {"functional_hits_count": 7, "max_judge_score": 0.85, "distinct_effect_clusters_above_threshold": 7, "multi_cluster_match": true}
+}

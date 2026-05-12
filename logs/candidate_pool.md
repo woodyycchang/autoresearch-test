@@ -255,3 +255,8 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
 - Round 283 | domain: andean-chuno-freeze-trample | mechanism: N-cycle 3-phase quantization with outlier-snapshot + distillation-pressure-redistribution + quant-grid-relaxation | verdict: FAIL | form: training-method
 - Round 284 | domain: inuit-skin-on-frame-kayak | mechanism: two-persistence FRAME/SKIN split with orthogonal-projection-constrained LoRA preserving safety/identity invariants | verdict: FAIL | form: null-space-traversal
 - Round 285 | domain: mudskipper-dual-mode-respiration | mechanism: single-resource KV-cache binary valve switch between cheap/expensive inference modes triggered by uncertainty hypoxia | verdict: FAIL | form: context-gating
+- Round 286 | domain: madagascar-baobab-water-storage | mechanism: elastic parameter-pool memory with temporary low-rank collapse during peak load + off-peak restore | verdict: FAIL | form: basin-stability
+- Round 287 | domain: hawaiian-fishpond-makaha | mechanism: monotone-closing size-selective curriculum gate at checkpoint cadence for LLM pretraining | verdict: FAIL | form: context-gating
+- Round 288 | domain: drosera-sundew-two-tentacle | mechanism: parallel-bicameral concurrent linear-attention snap + quadratic-attention glue with streaming-first refinement-after | verdict: FAIL | form: phase-coherence
+- Round 289 | domain: korean-ondol-heating | mechanism: amortized prefix-cache KV reuse across queries (ondol metaphor for prefix-cache) | verdict: FAIL | form: memory-architecture
+- Round 290 | domain: quipu-inca-knot-cord | mechanism: composite 5-channel side-tag categorical token embedding with hierarchical attachment | verdict: FAIL | form: multi-agent-comm
