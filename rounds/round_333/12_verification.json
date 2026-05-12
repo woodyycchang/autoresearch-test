@@ -1,0 +1,99 @@
+{
+  "round": "333",
+  "candidate": "EUSOCIAL-AGENT: coordinator-suppressed worker autonomy with signed-delegation-only execution and deterministic worker-promotion succession on coordinator failure.",
+  "calibration_anchors": {
+    "kw_rule": ">=2 candidate-distinctive keywords matched in title+snippet",
+    "sem_rule": "sem_cosine >= 0.70",
+    "func_rule": "judge_score >= 0.70",
+    "hit_definition": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "distinctive_keywords": ["coordinator-suppressed", "worker autonomy", "signed delegation", "worker-promotion", "succession", "single coordinator", "non-autonomous workers", "failover", "eusocial"]
+  },
+  "per_result_judgments": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Eusociality",
+      "kw_count": 1,
+      "kw_matched": ["eusocial"],
+      "sem": 0.10,
+      "func": 0.05,
+      "hit": false,
+      "reason": "Source-domain biology page; no LLM/agent overlap; only 'eusocial' keyword."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.augmentcode.com/guides/multi-agent-orchestration-architecture-guide",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem": 0.70,
+      "func": 0.72,
+      "hit": true,
+      "reason": "Sem>=0.7 AND func>=0.7; bounded-autonomy orchestration adjacent to suppression+delegation pattern."
+    },
+    {
+      "rank": 3,
+      "url": "https://towardsdatascience.com/the-multi-agent-trap/",
+      "kw_count": 1,
+      "kw_matched": ["worker autonomy (implied via 'autonomy suppression')"],
+      "sem": 0.66,
+      "func": 0.60,
+      "hit": false,
+      "reason": "Below thresholds on sem and func; counter-evidence stance against full suppression."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2603.28990v1",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem": 0.55,
+      "func": 0.50,
+      "hit": false,
+      "reason": "Opposite direction (self-organizing, drop hierarchy); below all thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://yinfangchen.github.io/assets/pdf/stratus_paper.pdf",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem": 0.68,
+      "func": 0.65,
+      "hit": false,
+      "reason": "State-machine recovery adjacent but below all thresholds."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.17612",
+      "kw_count": 0,
+      "kw_matched": [],
+      "sem": 0.72,
+      "func": 0.70,
+      "hit": true,
+      "reason": "Sem>=0.7 AND func>=0.7; provable coordination via MSCs enforces delegation-only execution pattern."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2603.06005",
+      "kw_count": 4,
+      "kw_matched": ["eusocial", "coordinator-suppressed worker autonomy", "signed delegation", "worker-promotion succession"],
+      "sem": 0.95,
+      "func": 0.95,
+      "hit": true,
+      "reason": "All three rules pass; direct twin paper matching candidate architecture exactly."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2511.20210",
+      "kw_count": 4,
+      "kw_matched": ["single coordinator (single-queen)", "non-autonomous workers", "worker-promotion", "failover/succession"],
+      "sem": 0.92,
+      "func": 0.90,
+      "hit": true,
+      "reason": "All three rules pass; single-queen + succession failover = EUSOCIAL-AGENT architecture."
+    }
+  ],
+  "hits": 4,
+  "non_hits": 4,
+  "hit_ranks": [2, 6, 7, 8],
+  "non_hit_ranks": [1, 3, 4, 5],
+  "verdict": "high_overlap_not_novel",
+  "summary": "Four of eight results hit, including two direct twins (ranks 7 and 8) with sem>=0.92 and func>=0.90 plus multiple distinctive keyword matches covering coordinator-suppressed autonomy, signed delegation, and worker-promotion succession. Ranks 2 and 6 provide adjacent functional matches (bounded-autonomy orchestration and provable coordination via MSCs). The candidate mechanism is already published in close form, so novelty is not supported."
+}
