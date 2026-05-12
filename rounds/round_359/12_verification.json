@@ -1,0 +1,119 @@
+{
+  "round": "359",
+  "verifier": "cross-agent",
+  "candidate_form": "evaluation-diagnostic",
+  "candidate_summary": "HARUSPEX-EVAL: frozen K-zone rubric template + constrained-decoding K-tuple judge + lookup-table aggregation (separation of per-zone judgment from non-learned aggregation).",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "haruspex piacenza liver",
+    "16-section deity zones",
+    "fixed deterministic divination template",
+    "K-tuple structured liver-judgment",
+    "frozen K-zone rubric template",
+    "constrained-decoding K-tuple judge",
+    "lookup-table aggregation eval",
+    "non-learned deterministic rubric"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Liver_of_Piacenza",
+      "kw_count": 1,
+      "sem_cosine": 0.10,
+      "func_score": 0.05,
+      "hit": false,
+      "note": "Source-side artefact; no LLM mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://medium.com/@adnanmasood/rubric-based-evals-llm-as-a-judge-methodologies-and-empirical-validation-in-domain-context-71936b989e80",
+      "kw_count": 0,
+      "sem_cosine": 0.85,
+      "func_score": 0.88,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Direct twin: DAGMetric deterministic rubric + analytic per-criterion scoring already covers frozen-template + per-zone judgment + deterministic aggregation."
+    },
+    {
+      "rank": 3,
+      "url": "https://deepeval.com/docs/metrics-llm-evals",
+      "kw_count": 0,
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "DAGMetric provides deterministic-control eval with fixed decision graph + per-node criteria; lookup-table aggregation is the standard DAGMetric pattern."
+    },
+    {
+      "rank": 4,
+      "url": "https://dl.acm.org/doi/10.1145/3702652.3744220",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Rubric Is All You Need: structured rubric-based eval; differs only in question-specific vs. frozen template (degree, not kind)."
+    },
+    {
+      "rank": 5,
+      "url": "https://aclanthology.org/2025.emnlp-industry.32.pdf",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "SLOT structured-output via constrained decoding — same K-tuple emission primitive."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2501.10868v1",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Structured-output benchmark — constrained K-tuple emission is the dominant primitive."
+    },
+    {
+      "rank": 7,
+      "url": "https://openreview.net/forum?id=L6CYAzpO1k",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Grammar-constrained decoding — exact match for the constrained-decoding mechanism in K-tuple emission."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2604.05150",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by_rule": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true,
+      "note": "Deterministic-output primitive in LLM workflow — overlaps lookup-table/deterministic aggregation claim."
+    }
+  ],
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 7,
+  "functional_forced_hits": 7,
+  "total_hits": 7,
+  "verdict": "FAIL",
+  "fail_reason": "7 of 8 results hit (sem>=0.7 AND func>=0.7). The candidate's three primitives are each prior art: (a) frozen-template rubric eval is exemplified by DAGMetric (DeepEval) and DAG-based deterministic rubric pipelines; (b) constrained-decoding K-tuple emission is covered by SLOT, grammar-constrained decoding, and the structured-output benchmark; (c) non-learned deterministic aggregation over per-criterion scores is the standard DAGMetric/analytic-rubric pattern. The claimed novelty (frozen K-zone + constrained K-tuple + lookup-table aggregation) is a recomposition of well-established eval primitives — no novel mechanism beyond the haruspex-themed framing. Independent cross-agent score agrees with prior 07_hit_miss.json: FAIL.",
+  "agreement_with_prior_audit": true
+}
