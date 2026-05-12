@@ -1,0 +1,96 @@
+{
+  "round": "382",
+  "verifier": "cross-agent",
+  "candidate_form": "topological-defect",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "japanese kintsugi gold seam",
+    "urushi lacquer crack repair",
+    "visible permanent record",
+    "wabi-sabi imperfection celebrated",
+    "golden-seam visible patch registry",
+    "audit-first inference logging on edit involvement",
+    "in-place reversible weight edit",
+    "edit-trace signed hash provenance"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.mdpi.com/2079-9292/15/1/56",
+      "kw_count": 0,
+      "sem_cosine": 0.90,
+      "func_score": 0.92,
+      "hit": true,
+      "note": "AuditableLLM hash-chain tamper-evident audit trail for adaptation/update/unlearning is a direct functional twin of KINTSUGI-PATCH's append-only visible patch registry with signed-hash provenance; semantic and functional both exceed 0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2505.20819v2",
+      "kw_count": 0,
+      "sem_cosine": 0.83,
+      "func_score": 0.84,
+      "hit": true,
+      "note": "EditScope traces and reverses edits from model weights, directly covering KINTSUGI-PATCH's edit-trace/reversibility/in-place weight edit pillars; both semantic and functional exceed 0.7."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2510.16367",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "note": "EditMark uses model editing to embed provenance watermarks in weights, hitting the 'visible seam marker for edit provenance' effect cluster of KINTSUGI-PATCH; sem and func both at threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.flowhunt.io/glossary/larql/",
+      "kw_count": 0,
+      "sem_cosine": 0.84,
+      "func_score": 0.86,
+      "hit": true,
+      "note": "LarQL SHOW-patches command provides explicit auditable record of every fact changed — direct semantic and functional twin of the patch registry / API-exposed history feature."
+    },
+    {
+      "rank": 5,
+      "url": "https://dl.acm.org/doi/full/10.1145/3698590",
+      "kw_count": 0,
+      "sem_cosine": 0.71,
+      "func_score": 0.68,
+      "hit": true,
+      "note": "Knowledge Editing survey covers ROME/MEMIT and the design space KINTSUGI-PATCH builds on; semantic similarity narrowly exceeds 0.7 (in-place weight edit, edit-trace bookkeeping)."
+    },
+    {
+      "rank": 6,
+      "url": "https://openreview.net/forum?id=ZVaVKRhq8l",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.64,
+      "hit": true,
+      "note": "Benchmark of knowledge editing aligns with the in-place weight edit aspect at the 0.7 semantic threshold; counted as hit by sem rule even though functional coverage of registry/audit angle is lower."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2512.14395v4",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.58,
+      "hit": false,
+      "note": "Dynamic massive weight editing — overlap with in-place weight edit but no registry, audit, provenance trace, or rollback; below both thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://github.com/zjunlp/EasyEdit",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "note": "EasyEdit 2.0 framework with real-time inference-time steering partially covers inference-time exposure of edits and in-place weight edit, putting both sem and func at/above 0.7."
+    }
+  ],
+  "total_hits": 7,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 7,
+  "functional_forced_hits": 6,
+  "verdict": "FAIL",
+  "fail_reason": "7 of 8 results clear the sem>=0.7 threshold (AuditableLLM hash-chain audit trail, EditScope edit-tracing+reversal, EditMark watermarking-via-editing, LarQL SHOW-patches auditable record, Knowledge Editing survey, KE benchmark, EasyEdit framework) and 6 additionally clear func>=0.7. KINTSUGI-PATCH's core mechanisms — append-only visible patch registry, inference-time provenance flagging, signed-hash edit-trace, registry rollback over in-place weight edits — are already covered by AuditableLLM (registry+hash), LarQL (SHOW patches), EditScope (trace+reverse), and EditMark (visible weight-edit provenance marker). Total hits = 7 >= 1, so the candidate is not novel."
+}

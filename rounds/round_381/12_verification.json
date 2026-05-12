@@ -1,0 +1,104 @@
+{
+  "round": "381",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "hopi katsina mask ritual",
+    "personal identity suppression mask",
+    "spirit-being persona overlay",
+    "reversible mask swap",
+    "persona-mask projection layer",
+    "null-space residual suppression β",
+    "swappable mask matrix per persona",
+    "hidden-state runtime persona overlay"
+  ],
+  "results": [
+    {
+      "url": "https://arxiv.org/pdf/2507.21509",
+      "title": "Persona Vectors: Monitoring & Controlling Character (2025/07)",
+      "kw_count": 1,
+      "kw_matches": ["persona/hidden-state"],
+      "sem_cosine": 0.62,
+      "func_score": 0.55,
+      "hit": false,
+      "note": "Persona vectors are ADDITIVE injection at hidden state (scaled coefficient + activation); not a projection matrix M_k with null-space residual suppression. Mechanism differs."
+    },
+    {
+      "url": "https://openreview.net/forum?id=HpUDi5Pe8S",
+      "title": "Steering LLM Interactions Using Persona Vectors",
+      "kw_count": 1,
+      "kw_matches": ["persona/runtime"],
+      "sem_cosine": 0.6,
+      "func_score": 0.55,
+      "hit": false,
+      "note": "Additive persona vector injection at hidden state; not projection-and-swap with null-space suppression coefficient β."
+    },
+    {
+      "url": "https://janwehner.com/files/representation_engineering.pdf",
+      "title": "Representation Engineering Survey (2025/03)",
+      "kw_count": 2,
+      "kw_matches": ["projection", "subspace~null-space"],
+      "sem_cosine": 0.66,
+      "func_score": 0.62,
+      "hit": true,
+      "note": "RepE manipulates representations via projection + addition in linear subspaces; overlaps mechanism (projection layer + subspace) though lacks per-persona swappable M_k and explicit β-coefficient null-space residual suppression."
+    },
+    {
+      "url": "https://arxiv.org/html/2502.17601v1",
+      "title": "RepE for LLMs: Survey & Research Challenges (2025/02)",
+      "kw_count": 1,
+      "kw_matches": ["projection (dot-product)"],
+      "sem_cosine": 0.55,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "PCA delta vectors with dot-product projection scoring; scoring tool not runtime persona-overlay projection-and-swap."
+    },
+    {
+      "url": "https://bai1026.github.io/LLM_Persona/",
+      "title": "BILLY: Merging Persona Vectors for Creative Gen",
+      "kw_count": 1,
+      "kw_matches": ["persona"],
+      "sem_cosine": 0.5,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Merges persona vectors; additive composition rather than null-space residual suppression and matrix swap."
+    },
+    {
+      "url": "https://arxiv.org/html/2605.03907v1",
+      "title": "Steer Like the LLM: Activation Steering Mimics Prompting (2026/05)",
+      "kw_count": 1,
+      "kw_matches": ["hidden state"],
+      "sem_cosine": 0.55,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "Activation steering at hidden state mirroring prompting effect; additive steering, not projection matrix with null-space residual and β suppression."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2602.07164",
+      "title": "ICLR 2026 LLM persona-specialized subnetworks",
+      "kw_count": 1,
+      "kw_matches": ["persona/masking"],
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "note": "Subnetwork IDENTIFICATION via masking calibration; candidate explicitly distinguishes (active runtime projection vs identification only); no projection-and-swap M_k or null-space β."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.10277",
+      "title": "Fixed-Persona SLMs with Modular Memory NPC dialogue (2025/11)",
+      "kw_count": 2,
+      "kw_matches": ["swappable", "persona/runtime"],
+      "sem_cosine": 0.6,
+      "func_score": 0.58,
+      "hit": true,
+      "note": "Dynamically SWAPPABLE module at runtime preserving persona identity WITHOUT RETRAINING — directly mirrors candidate's 'mask MATRIX SWAP at runtime without retraining'. Different module type (memory store vs projection matrix) but same swap-at-runtime persona-preservation pattern."
+    }
+  ],
+  "total_hits": 2,
+  "kw_forced_hits": 2,
+  "semantic_forced_hits": 0,
+  "functional_forced_hits": 0,
+  "verdict": "FAIL",
+  "fail_reason": "Two results trigger the hit rule by kw>=2: (3) RepE survey overlaps via 'projection' + 'linear subspaces' (≈null-space) matching the projection-layer subspace mechanism, and (8) Fixed-Persona SLMs with Modular Memory directly mirrors 'swappable...at runtime...without retraining' the same persona-preserving runtime swap pattern claimed as novel."
+}
