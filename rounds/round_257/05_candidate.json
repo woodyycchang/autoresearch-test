@@ -1,0 +1,15 @@
+{
+  "round": "257",
+  "epoch": 11,
+  "candidate_form": "phase-coherence",
+  "domain": "barchan sand dune migration (crescent shape; mass-dependent migration speed where centerline is high+slow and horns are thin+fast; saltation threshold gate for wind-mobilized grains; uniform-wind crescent is steady-state of differential migration)",
+  "specific_mechanism": "Differential mobility across the dune body produces self-organized crescent shape under uniform wind. Migration rate inversely proportional to mass/height. Below saltation threshold no migration.",
+  "llm_application": "Differential-mobility curvature-shape stable training (DMCS): per-coordinate effective height h_i = EMA(|w_i| × |∇L w_i|); per-coordinate effective LR η_i = η_base/(1 + α·h_i). Heavily-utilized 'centerline' coordinates migrate slowly; peripheral 'horn' coordinates migrate fast. Saltation-threshold gate: coordinates with |∇L_w_i| < τ are not updated. Self-organized crescent in parameter space.",
+  "novelty_claim": "Width-scaled LR (2505.22491), weight decay > muP (2510.19093), scaling-collapse (2509.25087) cover global LR. None retrieve per-coordinate mass-and-threshold-gated mobility producing self-organized crescent.",
+  "content_words": ["barchan crescent", "centerline-horn differential migration", "saltation threshold gate", "mass-dependent reconstitution time", "per-coordinate effective height", "mass-gated learning-rate scale", "self-organized parameter crescent", "threshold-floor parameter update"],
+  "content_words_composition": {
+    "llm_side": ["per-coordinate effective height", "mass-gated learning-rate scale", "self-organized parameter crescent", "threshold-floor parameter update"],
+    "source_side": ["barchan crescent", "centerline-horn differential migration", "saltation threshold gate", "mass-dependent reconstitution time"],
+    "generic": []
+  }
+}

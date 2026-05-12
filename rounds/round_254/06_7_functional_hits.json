@@ -1,0 +1,23 @@
+{
+  "round": "254",
+  "candidate_llm_application": "HGSSGM: frozen host + externally-pretrained symbiont module + host-attenuation gate σ(h) + saturating cap.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r254-hgssgm-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://elifesciences.org/articles/47606", "title": "eLife anglerfish symbiont", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://ocean.si.edu/ocean-life/fish/meet-tiny-bacteria-give-anglerfishes-their-spooky-glow", "title": "Smithsonian", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://biologyinsights.com/how-does-an-anglerfish-glow-the-science-of-bioluminescence/", "title": "Biology Insights", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2509.17197v2", "title": "SignalLLM (2025/9)", "judge_score": 0.55, "judge_justification": "External tool orchestration but not internal-residual gated symbiont module.", "matched_effect_cluster": "external-tool orchestration", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/html/2406.10254v1", "title": "Signal Processing in LLMs (2024/6)", "judge_score": 0.45, "judge_justification": "Signal-processing primitives, not host-symbiont architecture.", "matched_effect_cluster": "signal-processing primitives", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2504.04740v2", "title": "SCRAMBLe (2025/4)", "judge_score": 0.30, "judge_justification": "Preference data only.", "matched_effect_cluster": "preference-data", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2304.01933", "title": "LLM-Adapters (2023/4)", "judge_score": 0.62, "judge_justification": "Adapter family but co-trained with host, not externally-acquired with attenuation gate.", "matched_effect_cluster": "PEFT-adapter", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2509.16861", "title": "Conditional Adapter Plug (2025/9)", "judge_score": 0.78, "judge_justification": "External conditional adapter plugged into frozen host with gated activation — operationally captures the externally-acquired auxiliary module with host gating idea.", "matched_effect_cluster": "external conditional adapter with gating", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.78,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}

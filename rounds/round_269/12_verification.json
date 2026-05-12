@@ -1,0 +1,29 @@
+{
+  "round": "269",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": [
+    "Angkor baray reservoir",
+    "monsoon wet-season collection",
+    "dry-season distribution",
+    "phase-locked hydraulic cycle",
+    "gradient reservoir buffer",
+    "traffic-synced training cycle",
+    "wet-phase ingest dry-phase update",
+    "baray-buffered continual training"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://www.virtualangkor.com/waterclimate", "kw": 0, "sem": 0.20, "func": 0.04, "hit": false, "reason": "Source-domain page; no content-word phrase substring; sem 0.20<0.7; func 0.04<0.7."},
+    {"rank": 2, "url": "https://mysiemreaptours.com/the-significance-of-water-in-angkor/", "kw": 0, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Source-domain tourism page; no phrase match; sem/func well below 0.7."},
+    {"rank": 3, "url": "https://www.pnas.org/doi/10.1073/pnas.1111282109", "kw": 0, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Paleoenvironmental baray paper; source-domain only; sem/func below threshold."},
+    {"rank": 4, "url": "https://arxiv.org/html/2510.06826v1", "kw": 0, "sem": 0.58, "func": 0.55, "hit": false, "reason": "Mid-training survey; no traffic-synced wet/dry phase split; sem 0.58, func 0.55 both <0.7."},
+    {"rank": 5, "url": "https://arxiv.org/html/2511.18871", "kw": 0, "sem": 0.66, "func": 0.66, "hit": false, "reason": "Periodic async RL workflow, not traffic-synced training cycle; both metrics just under 0.7."},
+    {"rank": 6, "url": "https://arxiv.org/pdf/2603.16127", "kw": 0, "sem": 0.55, "func": 0.40, "hit": false, "reason": "LR-schedule paper; no phase ingest/distribute split; sem/func below threshold."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.20021", "kw": 0, "sem": 0.62, "func": 0.50, "hit": false, "reason": "Cache eviction policy, not gradient-reservoir buffered training; sem/func below 0.7."},
+    {"rank": 8, "url": "https://arxiv.org/html/2510.13668v2", "kw": 0, "sem": 0.70, "func": 0.72, "hit": true, "reason": "STAR traffic-pattern-aware decode-phase rescheduling between hot/cold queries captures traffic-synced phase-cycle effect; sem=0.70 meets threshold, func=0.72>=0.7."}
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result 8 (STAR Decode-Phase Rescheduling, arXiv 2510.13668v2) hits both semantic (0.70>=0.7) and functional (0.72>=0.7) thresholds; its traffic-pattern-aware phase rescheduling between hot/cold query windows matches the BBPLTC traffic-synced wet-collect/dry-distribute phase-cycle effect cluster, defeating the novelty claim."
+}

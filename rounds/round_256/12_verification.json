@@ -1,0 +1,20 @@
+{
+  "round": "256",
+  "verifier": "claude-opus-4-7",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": ["terracotta army", "modular molded body", "maker-stamp provenance", "hand-finished face module", "mold-expert catalog", "per-output assembly composition", "workshop-key watermark", "stamped expert composition"],
+  "results": [
+    {"rank": 1, "url": "https://www.cambridge.org/core/journals/antiquity/article/building-the-terracotta-army-ceramic-craft-technology-and-organisation-of-production-at-qin-shihuangs-mausoleum-complex/5A47E970740549E6EA31D957EB014AD1", "kw": 1, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Only 'terracotta army' matches; source-domain text, no LLM legs."},
+    {"rank": 2, "url": "https://visitterracottawarriors.com/index.php/2025/02/04/terracotta-materials/", "kw": 0, "sem": 0.18, "func": 0.04, "hit": false, "reason": "No full content_word substrings match; source-domain only."},
+    {"rank": 3, "url": "https://www.chinahighlights.com/xian/terracotta-army/", "kw": 1, "sem": 0.14, "func": 0.04, "hit": false, "reason": "Only 'terracotta army' matches; pure source-domain guide."},
+    {"rank": 4, "url": "https://arxiv.org/abs/2506.14794", "kw": 0, "sem": 0.74, "func": 0.74, "hit": true, "reason": "AoE Chimera passes sem and func thresholds — modular assembly of experts leg."},
+    {"rank": 5, "url": "https://www.emergentmind.com/topics/modular-llm-architectures", "kw": 0, "sem": 0.66, "func": 0.62, "hit": false, "reason": "Modular-agent overview below both thresholds; no catalog+per-output+watermark triad."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2603.07442", "kw": 0, "sem": 0.84, "func": 0.86, "hit": true, "reason": "Composable expert catalogs + audit watermark — covers all three SMMEC legs."},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.16107", "kw": 0, "sem": 0.68, "func": 0.70, "hit": true, "reason": "Stylistic module composition meets func>=0.7 on per-output composition leg."},
+    {"rank": 8, "url": "https://arxiv.org/html/2512.19908", "kw": 0, "sem": 0.72, "func": 0.80, "hit": true, "reason": "Provenance-stamped output tracing passes both sem and func — workshop-stamp leg."}
+  ],
+  "total_hits": 4,
+  "verdict": "FAIL",
+  "fail_reason": "total_hits=4 indicates substantial prior art across all three SMMEC legs (assembly-of-experts, composable-catalog+watermark, per-output stylistic composition, provenance-stamp watermark); novelty claim insufficient under FROZEN rule."
+}

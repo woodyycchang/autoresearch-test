@@ -1,0 +1,15 @@
+{
+  "round": "254",
+  "epoch": 11,
+  "candidate_form": "feedback-attenuation",
+  "domain": "anglerfish esca-Photobacterium symbiosis (host-controlled luminous bacterium in fleshy lure; bacterium generates light, host modulates emission via oxygen blood-flow; bacterium acquired from seawater and genome-reduced when host-locked)",
+  "specific_mechanism": "Host houses external symbiont in specialized organ; symbiont generates signal autonomously; host controls intensity by attenuation (oxygen gating). Saturating maximum; host cannot exceed; only attenuate. Symbiont is environment-acquired and genome-minimal.",
+  "llm_application": "Host-gated symbiotic signal-generator module (HGSSGM): frozen pretrained host LLM + small externally-pretrained 'symbiont' module for calibrated emission tasks. Learnable scalar oxygen-gate σ(h) ∈ [0,1] modulates symbiont's emission before addition to host residual. Host attenuation-only control; symbiont parameter count << host; saturating cap. Symbiont acquired from external model zoo, not co-trained.",
+  "novelty_claim": "Auxiliary classifier heads (DEX, DEACON) are co-trained with host. SignalLLM (2509.17197) is external-tool orchestration. SCRAMBLe (2504.04740) is preference-data generation. None retrieve a frozen-host + externally-acquired-symbiont + attenuation-only-host-control + saturating-cap module at inference time.",
+  "content_words": ["anglerfish esca", "Photobacterium symbiont", "oxygen-gated emission", "saturating attenuation cap", "externally-pretrained symbiont module", "host-frozen attenuation gate", "model-zoo-acquired auxiliary", "calibrated signal generator"],
+  "content_words_composition": {
+    "llm_side": ["externally-pretrained symbiont module", "host-frozen attenuation gate", "model-zoo-acquired auxiliary", "calibrated signal generator"],
+    "source_side": ["anglerfish esca", "Photobacterium symbiont", "oxygen-gated emission", "saturating attenuation cap"],
+    "generic": []
+  }
+}

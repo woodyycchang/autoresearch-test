@@ -1,0 +1,23 @@
+{
+  "round": "258",
+  "candidate_llm_application": "HALCS: corpus-level acidification + LAB-LLM decode-pass + pH-gated pathogen exclusion + iteration to steady state.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r258-halcs-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://www.mdpi.com/2311-5637/9/2/174", "title": "Bee Bread MDPI", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://www.tandfonline.com/doi/abs/10.3896/IBRA.1.48.3.07", "title": "LAB JAR", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://apiaryproject.com/blog/bee-bread-pollen-nutrition-fermentation-protein", "title": "Bee Bread Nutrition", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2506.04689", "title": "REWIRE (2025/6)", "judge_score": 0.78, "judge_justification": "Rewrites low-quality docs into useful training data — captures the LAB-decode pass leg.", "matched_effect_cluster": "doc-rewrite-for-quality", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2505.22232v1", "title": "Multilingual judge filter (2025/5)", "judge_score": 0.68, "judge_justification": "Per-doc LLM-judge quality filtering captures the pathogen-exclusion leg.", "matched_effect_cluster": "LLM-judge-filter", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2404.16789v2", "title": "Continual LLM (2024/4)", "judge_score": 0.30, "judge_justification": "Survey only.", "matched_effect_cluster": "continual-learning-survey", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.00626", "title": "Iterative Corpus Self-Distillation (2026/4)", "judge_score": 0.88, "judge_justification": "Iterative rewrite + per-doc filter at corpus level converging to steady-state quality — captures all three legs of HALCS.", "matched_effect_cluster": "iterative-corpus-refinement", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2602.09875", "title": "Quality-Gated Corpus Refinement (2026/2)", "judge_score": 0.82, "judge_justification": "Quality-gated filter excludes corrupting docs in iterative refinement — captures pathogen-exclusion + iteration legs.", "matched_effect_cluster": "quality-gated iterative refinement", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "max_judge_score": 0.88,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true
+  }
+}

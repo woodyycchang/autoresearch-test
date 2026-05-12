@@ -1,0 +1,20 @@
+{
+  "round": "275",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["Trapani salt pan", "stepped evaporation pond", "brine concentration cascade", "passive sun-wind drive", "passive-refinement stage", "alternating cheap-expensive cascade", "ambient-environment refinement", "stepped distillation pipeline"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Salt_pans_of_Trapani_and_Paceco", "kw_count": 1, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain Trapani wiki; only kw 'trapani salt pan' matches; sem/func below threshold."},
+    {"rank": 2, "url": "https://mel365.com/trapani-salt-pans/", "kw_count": 1, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain travel page; only kw 'trapani salt pan' matches; sem/func below threshold."},
+    {"rank": 3, "url": "https://www.visitsicily.info/en/trapani-and-paceco-salt-pans/", "kw_count": 0, "sem_cosine": 0.14, "func_score": 0.04, "hit": false, "reason": "Source-domain tourism page; no content-word phrases in title/snippet; sem/func far below threshold."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2603.19220", "kw_count": 0, "sem_cosine": 0.66, "func_score": 0.60, "hit": false, "reason": "Nemotron LLM-only cascade RL+distillation; no passive non-LLM refinement; sem 0.66 and func 0.60 under 0.7."},
+    {"rank": 5, "url": "https://arxiv.org/html/2509.22984", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.58, "hit": false, "reason": "Weak-strong LLM-only KD cascade; lacks passive ambient stages; both sem and func below 0.7."},
+    {"rank": 6, "url": "https://arxiv.org/html/2605.07783", "kw_count": 0, "sem_cosine": 0.65, "func_score": 0.55, "hit": false, "reason": "Progressive intermediate-model chain distillation; all LLM stages; sem/func below threshold."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.05375", "kw_count": 0, "sem_cosine": 0.58, "func_score": 0.55, "hit": false, "reason": "DAT edge-cloud adaptive transmission; not alternating cheap-passive/expensive-LLM refinement; sem/func below 0.7."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2603.03251", "kw_count": 0, "sem_cosine": 0.80, "func_score": 0.84, "hit": true, "reason": "Speculative Cascade with Cheap Verifier alternates cheap verifier and expensive LLM, directly matching PECDP alternating-cheap-expensive mechanism; sem 0.80 and func 0.84 both above 0.7."}
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Speculative Cascade with Cheap Verifier (arxiv 2603.03251) hits both sem (0.80>=0.7) and func (0.84>=0.7) thresholds; its cheap-verifier-alternating-with-expensive-LLM cascade collides with PECDP's alternating cheap passive/expensive LLM stages, so the candidate is not novel."
+}

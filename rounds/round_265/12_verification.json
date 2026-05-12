@@ -1,0 +1,93 @@
+{
+  "round": "265",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": [
+    "dervish whirling sema",
+    "locked rotation axis",
+    "4-salam tempo segment",
+    "phase-segmented invariant",
+    "residual-stream axis-lock",
+    "problem-identity projection axis",
+    "phase-tempo segmented reasoning",
+    "axis-violation rollback"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Sufi_whirling",
+      "kw_count": 0,
+      "sem_cosine": 0.18,
+      "func_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain page; no compound content-word substrings, sub-threshold sem/func."
+    },
+    {
+      "rank": 2,
+      "url": "https://ich.unesco.org/en/RL/mevlevi-sema-ceremony-00100",
+      "kw_count": 0,
+      "sem_cosine": 0.16,
+      "func_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain UNESCO page; no kw matches, sem/func far below 0.7."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.dar-al-masnavi.org/intro_ceremony.html",
+      "kw_count": 0,
+      "sem_cosine": 0.14,
+      "func_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain ceremony overview; zero kw, sub-threshold sem/func."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2602.19281v1",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.62,
+      "hit": false,
+      "reason": "Halo dynamics-aware compute; no compound terms, sem 0.66<0.7, func 0.62<0.7."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2605.06638",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "ScaleLogic RL scaling; unrelated to axis-lock; all axes below threshold."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2512.14474v1",
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "func_score": 0.60,
+      "hit": false,
+      "reason": "Model-First problem modeling; partial overlap but sem/func<0.7 and kw=0."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2604.04853",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "MemMachine anchor+rollback captures axis-lock + rollback core; sem 0.74>=0.7 AND func 0.80>=0.7."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2603.19262",
+      "kw_count": 0,
+      "sem_cosine": 0.70,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "α-Law fixed-point invariant captures axis-invariant leg; sem 0.70>=0.7 AND func 0.72>=0.7."
+    }
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "2 hits >=1: MemMachine (2604.04853) sem=0.74/func=0.80 captures anchored axis-lock + rollback; α-Law (2603.19262) sem=0.70/func=0.72 captures fixed-point invariant leg. Triad of residual-stream axis-lock + phase-segmented tempo + rollback-on-violation is covered across these two papers."
+}

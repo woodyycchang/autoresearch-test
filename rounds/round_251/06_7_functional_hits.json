@@ -1,0 +1,23 @@
+{
+  "round": "251",
+  "candidate_llm_application": "Cascaded-shaft long-context retrieval gallery (CSLRG): periodic auxiliary classifier shafts every 512 tokens infiltrate selected hidden-state summaries into a sparse global gallery cache; final decoding attends over the gallery cache.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r251-cslrg-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://whc.unesco.org/en/list/1506/", "title": "The Persian Qanat — UNESCO", "judge_score": 0.04, "judge_justification": "Source-domain only; no LLM mechanism.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Qanat", "title": "Qanat — Wikipedia", "judge_score": 0.05, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://www.worldhistory.org/qanat/", "title": "Qanat — WHE", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2501.12689v3", "title": "IC-Cache (2025/1)", "judge_score": 0.66, "judge_justification": "Same artefact (KV cache hierarchy) but caching at request granularity, not periodic mid-stream shafts during single context.", "matched_effect_cluster": "request-level KV caching", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/abs/2604.20021", "title": "Continuous Semantic Caching (2026/4)", "judge_score": 0.74, "judge_justification": "Same artefact (cache for low-cost serving); continuous eviction is functionally equivalent to periodic-shaft selection as gallery-write policy.", "matched_effect_cluster": "semantic cache eviction", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/html/2601.12904v1", "title": "Prefix→Fusion RAG Cache (2026/1)", "judge_score": 0.78, "judge_justification": "Explicit cache cascade hierarchy from prefix to fusion RAG layer — operationally captures the cascaded-shaft gallery idea minus the periodic-shaft framing.", "matched_effect_cluster": "cache cascade hierarchy", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/pdf/2510.03215", "title": "Cache-to-Cache (2025/10)", "judge_score": 0.60, "judge_justification": "Inter-model semantic projection, not intra-context shaft cascade.", "matched_effect_cluster": "inter-model cache", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2506.22791v3", "title": "ContextCache (2025/6)", "judge_score": 0.68, "judge_justification": "Multi-turn semantic cache; close but turn-boundary rather than shaft-period.", "matched_effect_cluster": "turn-level semantic cache", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "max_judge_score": 0.78,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "round": "268",
+  "candidate_llm_application": "TWDF: agitation + scalar density filter (no per-doc judge).",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r268-twdf-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Winnowing", "title": "Winnowing", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Threshing", "title": "Threshing", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://en.wikipedia.org/wiki/Chaff", "title": "Chaff", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2602.09875", "title": "Quality-Gated Refinement (2026/2)", "judge_score": 0.65, "judge_justification": "Quality-gated filter but uses LLM-judge expensive inspection.", "matched_effect_cluster": "LLM-judge-filter", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2506.04689", "title": "REWIRE (2025/6)", "judge_score": 0.55, "judge_justification": "Rewrite, not filter.", "matched_effect_cluster": "rewrite", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2505.22232v1", "title": "Multilingual Filter (2025/5)", "judge_score": 0.55, "judge_justification": "LLM-judge.", "matched_effect_cluster": "LLM-judge", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2504.04342", "title": "Compression Laws (2025/4)", "judge_score": 0.20, "judge_justification": "Scaling-law.", "matched_effect_cluster": "scaling-law", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/abs/2602.13165", "title": "Density-Score Cheap Pretraining Filter (2026/2)", "judge_score": 0.86, "judge_justification": "Scalar information-density-per-token cheap filter without LLM-judge — directly captures TWDF.", "matched_effect_cluster": "scalar-density-cheap-filter", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.86,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}

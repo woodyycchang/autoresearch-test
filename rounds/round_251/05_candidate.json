@@ -1,0 +1,15 @@
+{
+  "round": "251",
+  "epoch": 11,
+  "candidate_form": "information-cascade",
+  "domain": "Persian qanat (mother well + horizontal infiltration gallery + cascade of ventilation shafts at regular intervals + gentle gradient + mazhar emergence; gravity-fed kilometer-scale subsurface water delivery; constructed by muqannis stage-by-stage)",
+  "specific_mechanism": "Single mother well taps deep aquifer; horizontal gallery infiltrates groundwater across its full length; periodic vertical shafts every 50-100 m enable construction, inspection, and air exchange; ~0.1-0.2% gradient carries water by gravity; mazhar is the surface emergence point. The system is a DISTRIBUTED INTAKE with periodic ACCESS POINTS, not a point-source-to-point-sink pipe.",
+  "llm_application": "Cascaded-shaft long-context retrieval gallery (CSLRG): for long-context decoding, install periodic auxiliary shafts every Δ=512 tokens; each shaft is a 4-layer MLP that (1) extracts an intermediate observable hidden-state summary, (2) classifies whether the local span infiltrates the answer-aquifer (retrieval-relevant), (3) pushes one low-rank summary vector + a pointer back to its span into a sparse global gallery cache. Final decoding attends over the gallery cache rather than full KV. Calibrated by auxiliary loss tying shaft-acceptance to downstream accuracy.",
+  "novelty_claim": "IC-Cache (2501.12689), Fusion RAG Cache (2601.12904), Continuous Semantic Caching (2604.20021), and Cache-to-Cache (2510.03215) cover caching at prompt/prefix or continuous-eviction granularity, not periodic-shaft infiltration-gallery construction during a single long context. No retrieved paper installs calibrated periodic auxiliary classifiers as 'shafts' along the token stream that jointly infiltrate a sparse gallery cache and act as inspection access points during decoding.",
+  "content_words": ["Persian qanat", "mother well", "infiltration gallery", "ventilation shaft cascade", "cascaded-shaft retrieval gallery", "periodic shaft classifier", "gallery cache low-rank summary", "shaft-acceptance auxiliary loss"],
+  "content_words_composition": {
+    "llm_side": ["cascaded-shaft retrieval gallery", "periodic shaft classifier", "gallery cache low-rank summary", "shaft-acceptance auxiliary loss"],
+    "source_side": ["Persian qanat", "mother well", "infiltration gallery", "ventilation shaft cascade"],
+    "generic": []
+  }
+}

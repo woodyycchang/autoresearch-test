@@ -1,0 +1,29 @@
+{
+  "round": "268",
+  "verifier": "cross-agent",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": [
+    "wheat threshing winnowing",
+    "density-airflow separation",
+    "uniform external force",
+    "scalar-density sort",
+    "agitation embedding-shift filter",
+    "scalar density-of-information score",
+    "no-judge corpus filter",
+    "two-pass cheap separation"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Winnowing", "kw_count": 0, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "source-domain wiki; no full content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Threshing", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "source-domain wiki; no full content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 3, "url": "https://en.wikipedia.org/wiki/Chaff", "kw_count": 0, "sem_cosine": 0.14, "func_score": 0.04, "hit": false, "reason": "source-domain wiki; no content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 4, "url": "https://arxiv.org/html/2602.09875", "kw_count": 0, "sem_cosine": 0.66, "func_score": 0.65, "hit": false, "reason": "quality-gated LLM-judge filter; no content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2506.04689", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.55, "hit": false, "reason": "REWIRE rewrites docs not filter; no content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 6, "url": "https://arxiv.org/html/2505.22232v1", "kw_count": 0, "sem_cosine": 0.58, "func_score": 0.55, "hit": false, "reason": "multilingual LLM-judge filter; no content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 7, "url": "https://arxiv.org/abs/2504.04342", "kw_count": 0, "sem_cosine": 0.30, "func_score": 0.20, "hit": false, "reason": "compression scaling-law analysis; no content-word substrings; sem<0.7; func<0.7"},
+    {"rank": 8, "url": "https://arxiv.org/abs/2602.13165", "kw_count": 0, "sem_cosine": 0.82, "func_score": 0.86, "hit": true, "reason": "scalar information-density-per-token cheap filter without LLM-judge — directly captures TWDF agitation+scalar-density pass; sem>=0.7 AND func>=0.7"}
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result 8 (arxiv 2602.13165 Density-Score Cheap Pretraining Filter) hits with sem=0.82 and func=0.86; both >=0.7 thresholds. TWDF's purely scalar density-of-information filter without per-doc LLM-judge is directly anticipated by this prior work, breaking the novelty claim."
+}

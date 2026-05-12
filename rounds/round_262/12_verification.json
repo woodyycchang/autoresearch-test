@@ -1,0 +1,20 @@
+{
+  "round": "262",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": ["Hagia Sophia pendentive", "spherical-triangle vault", "4-pier load distribution", "geometric domain bridge", "4-corner pendentive adapter", "constant-curvature constraint", "pier-anchor coordinate concentration", "geometric-incompatibility resolution"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Pendentive", "kw": 0, "sem": 0.20, "func": 0.04, "hit": false, "reason": "Source-domain snippet; no kw matches; sem/func below 0.7."},
+    {"rank": 2, "url": "https://www.britannica.com/technology/pendentive", "kw": 0, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Source-domain; no kw matches; sem/func low."},
+    {"rank": 3, "url": "https://en.wikipedia.org/wiki/Hagia_Sophia", "kw": 0, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Source-domain; no kw matches; sem/func low."},
+    {"rank": 4, "url": "https://arxiv.org/html/2410.09908v2", "kw": 0, "sem": 0.72, "func": 0.72, "hit": true, "reason": "Geometry-Preserving Composition: sem=0.72>=0.7 AND func=0.72>=0.7."},
+    {"rank": 5, "url": "https://arxiv.org/html/2602.02780", "kw": 0, "sem": 0.74, "func": 0.76, "hit": true, "reason": "Geometry-Grounding Adapter: sem=0.74>=0.7 AND func=0.76>=0.7."},
+    {"rank": 6, "url": "https://arxiv.org/html/2507.19839", "kw": 0, "sem": 0.66, "func": 0.62, "hit": false, "reason": "GNSP null-space projection; sem and func both below 0.7."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2603.18046", "kw": 1, "sem": 0.82, "func": 0.86, "hit": true, "reason": "Spherical-Constrained Bridge Adapter: sem=0.82, func=0.86; snippet contains 'geometric incompatibility resolution'."},
+    {"rank": 8, "url": "https://arxiv.org/html/2408.06610v1", "kw": 0, "sem": 0.62, "func": 0.60, "hit": false, "reason": "CROME cross-modal; sem and func below 0.7; no kw matches."}
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "3 hits >= 1: ranks 4, 5, 7 all cross sem>=0.7 AND func>=0.7 thresholds (Geometry-Preserving Composition, Geometry-Grounding Adapter, Spherical-Constrained Bridge Adapter); rank 7 also has kw=1; PGDBA triad (4 spherical-triangle adapters + corner-pier concentration + constant-curvature) is anticipated by these prior projection/composition/spherical-constrained adapter works."
+}

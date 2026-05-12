@@ -1,0 +1,20 @@
+{
+  "round": "258",
+  "verifier": "claude-opus-4-7",
+  "candidate_form": "feedback-attenuation",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": ["bee bread", "honey-LAB inoculation", "lactic acidification pH drop", "sporopollenin exine decode", "LAB-LLM rewrite pass", "corpus pH steady state", "pH-gated pathogen exclusion", "auto-curated substrate iteration"],
+  "results": [
+    {"rank": 1, "url": "https://www.mdpi.com/2311-5637/9/2/174", "kw": 1, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Source-domain MDPI; only 'bee bread' matches; below all thresholds."},
+    {"rank": 2, "url": "https://www.tandfonline.com/doi/abs/10.3896/IBRA.1.48.3.07", "kw": 1, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Source-domain JAR; only 'bee bread' matches; below all thresholds."},
+    {"rank": 3, "url": "https://apiaryproject.com/blog/bee-bread-pollen-nutrition-fermentation-protein", "kw": 1, "sem": 0.14, "func": 0.04, "hit": false, "reason": "Source-domain blog; only 'bee bread' matches; below all thresholds."},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2506.04689", "kw": 0, "sem": 0.76, "func": 0.78, "hit": true, "reason": "REWIRE rewrites low-quality docs; sem 0.76 and func 0.78 — captures LAB-decode/rewrite leg."},
+    {"rank": 5, "url": "https://arxiv.org/html/2505.22232v1", "kw": 0, "sem": 0.68, "func": 0.68, "hit": false, "reason": "Multilingual LLM-judge filter; both sem and func just below 0.70 threshold."},
+    {"rank": 6, "url": "https://arxiv.org/html/2404.16789v2", "kw": 0, "sem": 0.42, "func": 0.30, "hit": false, "reason": "Continual learning survey; off-target across all axes."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.00626", "kw": 0, "sem": 0.82, "func": 0.88, "hit": true, "reason": "Iterative corpus self-distillation + per-doc filter to steady-state — captures all three HALCS legs."},
+    {"rank": 8, "url": "https://arxiv.org/html/2602.09875", "kw": 0, "sem": 0.78, "func": 0.82, "hit": true, "reason": "Quality-gated corpus refinement excludes corrupting docs iteratively — captures pathogen-exclusion + iteration legs."}
+  ],
+  "total_hits": 3,
+  "verdict": "NOVELTY_FAIL",
+  "fail_reason": "3 hits >= 1 threshold; multi-cluster (doc-rewrite-for-quality, iterative-corpus-refinement, quality-gated iterative refinement) collectively cover LAB-LLM decode + corpus-level acidification/steady-state + pH-gated pathogen exclusion legs of HALCS."
+}

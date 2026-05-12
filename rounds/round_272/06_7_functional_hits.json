@@ -1,0 +1,23 @@
+{
+  "round": "272",
+  "candidate_llm_application": "CSCIPA: per-task plots + shared canal context + periodic dredge + decomposition recycle.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r272-cscipa-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Chinampa", "title": "Chinampa Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://www.britannica.com/topic/chinampa", "title": "Britannica", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://earthobservatory.nasa.gov/images/150719/relic-chinampas-in-mexico-city", "title": "NASA", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2605.07076", "title": "SCoL (2026/5)", "judge_score": 0.55, "judge_justification": "Single-context continual incorporation, not multi-plot.", "matched_effect_cluster": "single-context-CL", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/html/2412.15563v1", "title": "InCA (2024/12)", "judge_score": 0.60, "judge_justification": "External CL pre-selection.", "matched_effect_cluster": "external-CL-pre-select", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/abs/2605.05097", "title": "Memini (2026/5)", "judge_score": 0.58, "judge_justification": "Multi-timescale.", "matched_effect_cluster": "multi-timescale-memory", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.04853", "title": "MemMachine blackboard (2026/4)", "judge_score": 0.80, "judge_justification": "Blackboard-style shared memory captures canal-pool leg.", "matched_effect_cluster": "blackboard-shared-memory", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2603.04474", "title": "Shared Workspace Periodic Dredge (2026/3)", "judge_score": 0.86, "judge_justification": "Shared workspace + periodic injection + decomposition matches CSCIPA core.", "matched_effect_cluster": "shared-workspace-periodic-dredge", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "max_judge_score": 0.86,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true
+  }
+}

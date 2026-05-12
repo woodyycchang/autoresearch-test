@@ -1,0 +1,93 @@
+{
+  "round": "267",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 => FAIL",
+  "content_words": [
+    "Saami ski wax",
+    "grip wax kick zone",
+    "glide wax tip-tail",
+    "spatially-bipolar friction",
+    "layer-zone bipolar adapter",
+    "input-temperature gated split",
+    "grip-zone conservative LR",
+    "glide-zone aggressive LR"
+  ],
+  "results": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ski_wax",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.20,
+      "functional_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain ski wax encyclopedia; no full content-word phrase substrings; kw=0, sem=0.20<0.7, func=0.04<0.7."
+    },
+    {
+      "url": "https://skiwax.ca/pages/snow-types",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.18,
+      "functional_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain snow-type wax selection; no content-word substrings; kw=0, sem=0.18<0.7, func=0.04<0.7."
+    },
+    {
+      "url": "https://reliableracing.com/downloads/1c41c5be75.pdf",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.14,
+      "functional_score": 0.04,
+      "hit": false,
+      "reason": "Source-domain waxing guide; no content-word substrings; kw=0, sem=0.14<0.7, func=0.04<0.7."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.05375",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.62,
+      "functional_score": 0.55,
+      "hit": false,
+      "reason": "DAT dual-aware transmission; topically adjacent but not layer-zone bipolar LR with input-temperature gating; kw=0, sem=0.62<0.7, func=0.55<0.7."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2601.14053",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.35,
+      "functional_score": 0.20,
+      "hit": false,
+      "reason": "LLMOrbit taxonomy; no overlap with bipolar adapter mechanism; kw=0, sem=0.35<0.7, func=0.20<0.7."
+    },
+    {
+      "url": "https://arxiv.org/html/2605.00358v1",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.55,
+      "functional_score": 0.40,
+      "hit": false,
+      "reason": "Forward Replay parameter editing; different mechanism (target construction), not zone-split bipolar LR; kw=0, sem=0.55<0.7, func=0.40<0.7."
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.05291",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.82,
+      "functional_score": 0.86,
+      "hit": true,
+      "reason": "Layer-Selective Conservative-Aggressive FT directly implements layer-split bipolar conservative+aggressive LR regime; sem=0.82>=0.7 AND func=0.86>=0.7 — collision."
+    },
+    {
+      "url": "https://arxiv.org/html/2510.18924",
+      "kw_count": 0,
+      "kw_matched": [],
+      "semantic_cosine": 0.66,
+      "functional_score": 0.68,
+      "hit": false,
+      "reason": "Noise-Corrected GRPO layer-split policy update; layer-split but not bipolar grip/glide LR regime with input-temperature gating; kw=0, sem=0.66<0.7, func=0.68<0.7."
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "1 collision: arxiv.org/abs/2509.05291 (Layer-Selective Conservative-Aggressive Fine-Tuning, 2025/9) matches the BZFRS layer-split bipolar conservative+aggressive LR regime on both semantic (0.82) and functional (0.86) channels; candidate's bipolar layer-zone LR mechanism is already covered in prior art."
+}

@@ -1,0 +1,108 @@
+{
+  "round": "251",
+  "verifier": "claude-opus-4-7-cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words": ["Persian qanat", "mother well", "infiltration gallery", "ventilation shaft cascade", "cascaded-shaft retrieval gallery", "periodic shaft classifier", "gallery cache low-rank summary", "shaft-acceptance auxiliary loss"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://whc.unesco.org/en/list/1506/",
+      "title": "The Persian Qanat — UNESCO World Heritage Centre",
+      "snippet": "Source-domain: mother well + sloping infiltration gallery + regular ventilation shafts + mazhar exit; constructed by muqannis.",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 3,
+      "kw_matched": ["mother well", "infiltration gallery", "Persian qanat"],
+      "hit": true,
+      "reason": "Title contains 'Persian Qanat' and snippet contains 'mother well' and 'infiltration gallery' as substrings, yielding 3 keyword overlaps; pure source-domain description with no LLM mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Qanat",
+      "title": "Qanat — Wikipedia",
+      "snippet": "Source-domain: kushkan tunnel gently sloping toward mazhar; vertical shafts at intervals for spoil removal.",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.20,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "No exact content-word substrings appear ('Qanat' alone is not the bigram 'Persian qanat'); below all thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.worldhistory.org/qanat/",
+      "title": "Qanat — World History Encyclopedia",
+      "snippet": "Source-domain: 3000-year-old groundwater system; vertical shafts at intervals enable construction and maintenance.",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.16,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "No exact content-word bigrams present; vertical shafts mentioned but not as 'ventilation shaft cascade'; below all thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2501.12689v3",
+      "title": "IC-Cache: Efficient LLM Serving via In-context Caching (2025/1)",
+      "snippet": "LLM-side: in-context caching layer for cross-request LLM serving.",
+      "functional_equivalence": 0.66,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Cross-request in-context caching is a different granularity from periodic mid-stream shafts; no content-word substrings; all three signals below threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2604.20021",
+      "title": "Continuous Semantic Caching for Low-Cost LLM Serving (2026/4)",
+      "snippet": "LLM-side: semantic-state cache with continuous gradient eviction.",
+      "functional_equivalence": 0.74,
+      "semantic_cosine_estimate": 0.70,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": true,
+      "reason": "Continuous-eviction semantic cache is functionally close to periodic-shaft selection writing into a sparse cache; semantic cosine reaches 0.70 and judge score 0.74 both at/above 0.70 threshold."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2601.12904v1",
+      "title": "From Prefix Cache to Fusion RAG Cache (2026/1)",
+      "snippet": "LLM-side: cascade from prefix cache to fusion RAG cache hierarchy for inference acceleration.",
+      "functional_equivalence": 0.78,
+      "semantic_cosine_estimate": 0.74,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": true,
+      "reason": "Explicit cache cascade hierarchy captures the cascaded-shaft gallery idea operationally; both judge (0.78) and semantic (0.74) above 0.70."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2510.03215",
+      "title": "Cache-to-Cache: Direct Semantic Communication (2025/10)",
+      "snippet": "LLM-side: KV-cache projection for inter-model semantic communication.",
+      "functional_equivalence": 0.60,
+      "semantic_cosine_estimate": 0.58,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Inter-model KV projection, not intra-context shaft cascade; all signals below threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2506.22791v3",
+      "title": "ContextCache: Context-Aware Semantic Cache (2025/6)",
+      "snippet": "LLM-side: context-aware semantic cache for multi-turn dialogue.",
+      "functional_equivalence": 0.68,
+      "semantic_cosine_estimate": 0.64,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Multi-turn semantic cache at turn boundaries rather than periodic mid-context shafts; all three signals below 0.70."
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "Result 1 trips keyword overlap (3 content-words: 'Persian qanat', 'mother well', 'infiltration gallery'); results 5 and 6 trip both semantic-cosine and functional-equivalence thresholds (continuous semantic caching and prefix-to-fusion RAG cache cascade describe equivalent cache-write-selection and cascade-hierarchy effects)."
+}

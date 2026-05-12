@@ -1,0 +1,23 @@
+{
+  "round": "255",
+  "candidate_llm_application": "NSCI: project away unsafe subspace + inject contrastive safe filler rank-8 + polish.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r255-nsci-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Niello", "title": "Niello Wikipedia", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://www.britannica.com/art/niello", "title": "Britannica", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://silver-lug.com/en/blogs/silver-lug/niello", "title": "Silver-Lug", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/abs/2408.08769v1", "title": "LOL (2024/8)", "judge_score": 0.55, "judge_justification": "Contrastive decoding across layers; not subspace surgery.", "matched_effect_cluster": "contrastive-decoding", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/html/2504.05764v1", "title": "Layer-Aware Embedding Fusion (2025/4)", "judge_score": 0.48, "judge_justification": "Layer-selection fusion, not subspace ablation.", "matched_effect_cluster": "layer-selection-fusion", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.00664v1", "title": "FtZ (2025/9)", "judge_score": 0.40, "judge_justification": "Multi-encoder fusion.", "matched_effect_cluster": "multi-encoder-fusion", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2403.04783", "title": "Targeted Refusal Vector Editing (2024/3)", "judge_score": 0.78, "judge_justification": "Identifies refusal subspace via probing and ablates via projection — operationally equivalent to ENGRAVE step of NSCI.", "matched_effect_cluster": "refusal-subspace ablation", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2602.05543", "title": "Subspace Ablation + Contrast Fill (2026/2)", "judge_score": 0.88, "judge_justification": "Explicitly ablate harmful subspace AND inject contrastive safe vector — directly matches the NSCI subtractive-then-fill discipline.", "matched_effect_cluster": "subspace-ablation-then-contrast-fill", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "max_judge_score": 0.88,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true
+  }
+}

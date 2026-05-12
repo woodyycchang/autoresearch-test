@@ -1,0 +1,15 @@
+{
+  "round": "268",
+  "epoch": 11,
+  "candidate_form": "feedback-attenuation",
+  "domain": "wheat threshing + winnowing (threshing loosens grain from chaff via mechanical agitation; winnowing tosses mixture into wind so dense grain falls vertically and light chaff blows aside)",
+  "specific_mechanism": "Two-stage cheap separation: agitation loosens, then uniform external force separates by scalar density.",
+  "llm_application": "TWDF: agitation pass (token shuffles + paraphrase) measures embedding shift to detect loose-attached docs; winnowing pass uses scalar density-of-information score (single lightweight metric) to blow aside low-density docs. Purely scalar, no per-doc LLM judge.",
+  "novelty_claim": "Quality-Gated Corpus Refinement (2602.09875), REWIRE (2506.04689), Multilingual LLM Filter (2505.22232) use expensive LLM-judge. TWDF is purely scalar-density + agitation-shift filter without per-doc judge.",
+  "content_words": ["wheat threshing winnowing", "density-airflow separation", "uniform external force", "scalar-density sort", "agitation embedding-shift filter", "scalar density-of-information score", "no-judge corpus filter", "two-pass cheap separation"],
+  "content_words_composition": {
+    "llm_side": ["agitation embedding-shift filter", "scalar density-of-information score", "no-judge corpus filter", "two-pass cheap separation"],
+    "source_side": ["wheat threshing winnowing", "density-airflow separation", "uniform external force", "scalar-density sort"],
+    "generic": []
+  }
+}

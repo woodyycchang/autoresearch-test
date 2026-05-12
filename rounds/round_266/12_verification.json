@@ -1,0 +1,29 @@
+{
+  "round": "266",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "buon fresco",
+    "wet plaster carbonation",
+    "time-bounded commit window",
+    "post-carbonation immutability",
+    "trainable buffer carbonation",
+    "gradient-consistency absorption pass",
+    "absorption-or-reject crystallization",
+    "hard write-window boundary"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Fresco", "kw": 0, "sem": 0.20, "func": 0.04, "hit": false, "reason": "Source-domain wiki; no kw matches, low sem/func."},
+    {"rank": 2, "url": "https://www.vaia.com/en-us/explanations/art-and-design/art-and-design-theory/fresco-technique/", "kw": 1, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Source-domain; one kw ('buon fresco') but kw<2, sem/func below threshold."},
+    {"rank": 3, "url": "https://spokenpast.com/articles/9-painted-etruscan-tombs/", "kw": 0, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Source-domain tombs; no kw, low sem/func."},
+    {"rank": 4, "url": "https://arxiv.org/html/2510.17281v4", "kw": 0, "sem": 0.60, "func": 0.55, "hit": false, "reason": "CL benchmark; all signals below thresholds."},
+    {"rank": 5, "url": "https://arxiv.org/pdf/2506.13045", "kw": 0, "sem": 0.55, "func": 0.50, "hit": false, "reason": "CL survey; all signals below thresholds."},
+    {"rank": 6, "url": "https://arxiv.org/html/2509.18133v3", "kw": 0, "sem": 0.65, "func": 0.62, "hit": false, "reason": "Task-LoRA experts; no kw, sem/func below 0.7."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2602.05927", "kw": 1, "sem": 0.84, "func": 0.88, "hit": true, "reason": "Hard-Window CL Absorption: sem 0.84 and func 0.88 both exceed 0.7; directly captures time-bounded commit window + consistent-gradient absorption."},
+    {"rank": 8, "url": "https://arxiv.org/html/2604.04853", "kw": 0, "sem": 0.72, "func": 0.74, "hit": true, "reason": "MemMachine state-locked: sem 0.72 and func 0.74 both exceed 0.7; commit/release discipline matches commit-window core."}
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior-art hits (rank 7 sem=0.84/func=0.88 directly matches time-bounded commit window + consistent-gradient absorption; rank 8 sem=0.72/func=0.74 matches state-locked commit/release discipline), so TGCCLCW core mechanism is already retrievable."
+}

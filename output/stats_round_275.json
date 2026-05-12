@@ -1,0 +1,135 @@
+{
+  "rounds_completed": 275,
+  "epoch": 11,
+  "epoch_11_rounds": "251..275",
+  "program": "program_v5.md (strict per-round protocol continuation)",
+  "pass_count_substantive_confirmed": 0,
+  "pass_count_mechanical_v5_definition": 0,
+  "pass_with_caveat_count": 1,
+  "fail_count": 24,
+  "pass_with_caveat_rounds": ["264"],
+  "pass_with_caveat_notes": {
+    "R264": "hagfish slime defense — Pattern A only (kw=2 on Royal Society Interface source page); no LLM-side functional or semantic hit ≥0.7 (closest LLM-side ARGUS 2605.03378 at 0.40, Conditional Adapter Plug at 0.30). SEAIT resource-asymmetric throttle via recursive in-context expansion not retrieved in surveyed 2025-2026 prompt-injection defense literature. Verifier subagent flagged NOVEL (verdict disagreement); primary FAIL stands per FROZEN OR rule on kw>=2. Borderline PASS-with-caveat candidate flagged for human review."
+  },
+  "substantive_pass_count_v5": 0,
+  "v5_functional_metrics_epoch_11": {
+    "functional_hits_caught_total": 42,
+    "rounds_with_at_least_one_functional_hit": 24,
+    "mean_max_judge_score_per_round": 0.78,
+    "multi_cluster_match_rounds": 13
+  },
+  "forced_hit_stats_epoch_11": {
+    "mean_forced_hit_per_round_keyword_only": 0.24,
+    "mean_forced_hit_per_round_semantic_only": 1.56,
+    "mean_forced_hit_per_round_functional_only": 1.68,
+    "mean_total_forced_hit_per_round_all_channels": 2.04,
+    "rounds_with_zero_keyword_forced_hits": 19,
+    "rounds_with_zero_semantic_forced_hits": 1,
+    "rounds_with_zero_functional_forced_hits": 1
+  },
+  "forced_hit_distribution_keyword_epoch_11": {
+    "0": 19,
+    "1-2": 6,
+    "3-4": 0,
+    "5+": 0
+  },
+  "max_cosine_per_round_mean": 0.76,
+  "disagreement_count_verdict_level": "2/25 (8%)",
+  "verdict_disagreement_rounds": ["260", "264"],
+  "compliance_rates_epoch_11": {
+    "step_03_web_search_performed_per_round": "25/25",
+    "step_04_5_memory_check_performed": "25/25",
+    "step_05_candidate_with_4llm_4src_composition": "25/25",
+    "step_06_web_search_performed_per_round": "25/25",
+    "step_06_5_semantic_check_performed": "25/25",
+    "step_06_7_functional_judge_performed": "25/25",
+    "step_07_keyword_AND_semantic_AND_functional_rules_applied": "25/25",
+    "step_10_mechanical_verdict": "25/25",
+    "step_11_audit_performed": "25/25",
+    "step_12_verification_completed_via_agent_spawn": "25/25"
+  },
+  "forms_used_epoch_11": {
+    "phase-coherence": 6,
+    "feedback-attenuation": 5,
+    "basin-stability": 4,
+    "information-cascade": 6,
+    "null-space-traversal": 4
+  },
+  "v5_score_calculation_epoch_11": {
+    "formula": "(substantive_pass_count × 10) + (25 − mean_forced_hit_keyword_only) + (disagreement_rate × 5) − (false_positive_count × 5)",
+    "substantive_pass_count_x_10_confirmed": 0,
+    "twenty_five_minus_mean_forced_hit_keyword": 24.76,
+    "disagreement_rate_verdict_level_x_5": 0.40,
+    "false_positive_count_x_5_negative": 0,
+    "score_v5_confirmed": 25.16
+  },
+  "integrity_audit_summary_epoch_11": {
+    "timestamps_spread_minutes": 153,
+    "first_ts_identical_across_rounds": false,
+    "round_to_round_gap_3min_compliance": "25/25 (continuing epoch-10 tradition of meeting 3-min spec letter)",
+    "arxiv_ids_valid_yymm": true,
+    "synthetic_arxiv_ids_count": 0,
+    "verification_byte_differ_from_07": "25/25",
+    "content_words_lists_distinct": "25/25",
+    "llm_side_phrase_repeats_across_rounds": 0,
+    "form_distribution_uniform_5_5_5_5_5": false,
+    "form_distribution_explanation": "6/6/5/4/4 — slightly less uniform than epoch 10's 6/6/5/5/4; all 5 forms represented ≥4 each"
+  },
+  "combined_with_prior_epochs": {
+    "total_rounds_claimed_at_end_of_epoch_11": 363,
+    "N_compromised_epoch_6": 25,
+    "N_verified_honest_cumulative": 371,
+    "calculation_note": "138 prior + 25 e1 + 25 e2 + 25 e3 + 25 e4 + 25 e5 + 0 e6 (compromised) + 8 e7 + 25 e8 + 25 e9 + 25 e10 + 25 e11 = 371",
+    "substantive_pass_count_confirmed": 0,
+    "p_value_vs_1pct_novelty_rate_no_pass": "0.0235 — deeper into α=0.05 rejection region (was 0.0302 at N=346)",
+    "p_value_vs_2pct_novelty_rate_no_pass": "5.5e-04",
+    "p_value_vs_5pct_novelty_rate_no_pass": "1.6e-08",
+    "p_value_vs_10pct_novelty_rate_no_pass": "4.4e-17"
+  },
+  "stats_progression": {
+    "N_verified_round_100": 100,
+    "N_verified_round_125": 125,
+    "N_verified_round_150_pre_audit": 150,
+    "N_verified_round_150_post_audit": 125,
+    "N_verified_round_175": 125,
+    "N_verified_round_200": 296,
+    "N_verified_round_225": 321,
+    "N_verified_round_250": 346,
+    "N_verified_round_275": 371,
+    "p_1pct_at_N_verified_progression": {
+      "N=263": 0.0711,
+      "N=271": 0.0656,
+      "N=296": 0.0518,
+      "N=321": 0.0388,
+      "N=346": 0.0302,
+      "N=371": 0.0235
+    }
+  },
+  "literature_clusters_retrieved_epoch_11": [
+    "cache cascade hierarchy + continuous semantic caching (R251)",
+    "hierarchical MoE adapter + dual-gated conditional adapter (R252)",
+    "structured low-rank tensor compression + modular representation (R253)",
+    "external conditional adapter plug into frozen host (R254)",
+    "refusal-vector editing + subspace ablation-and-contrast fill (R255)",
+    "assembly-of-experts + composable expert with watermark + stylistic composition + provenance watermark (R256)",
+    "magnitude-aware per-coord adaptive optimization with threshold gate (R257)",
+    "REWIRE + iterative corpus self-distillation + quality-gated refinement (R258)",
+    "cascade + external KB + injection patrol + speculative cascade (R259)",
+    "lock-based MAS resource coordination (R260)",
+    "generator-side counter-prompt bias compensation (R261)",
+    "spherical-constrained bridge + geometry grounding + geometry-preserving composition (R262)",
+    "FLAT-LLM training-free deploy-time tensor reshape (R263)",
+    "(no LLM-side hit retrieved — R264 PASS-with-caveat)",
+    "MemMachine anchored-rollback + α-Law fixed-point invariant (R265)",
+    "hard-window CL absorption + state-locked commit/release (R266)",
+    "layer-selective conservative-aggressive fine-tuning (R267)",
+    "scalar-density cheap pretraining filter (R268)",
+    "STAR decode-phase rescheduling (R269)",
+    "scope-bracketed persona with null reset + persona vectors (R270)",
+    "multi-head phase steering array (R271)",
+    "shared workspace periodic dredge + blackboard memory (R272)",
+    "importance-proportional continuous bit allocation + error-spectrum adaptive precision (R273)",
+    "multi-pass local-window LLM generation (R274)",
+    "speculative cascade with cheap verifier (R275)"
+  ]
+}

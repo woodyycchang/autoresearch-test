@@ -1,0 +1,29 @@
+{
+  "round": "274",
+  "verifier": "cross-agent",
+  "candidate_form": "null-space-traversal",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "pufferfish sand circle",
+    "simple local rule iteration",
+    "emergent radial maze",
+    "small-actor large-pattern",
+    "local-window-only generation",
+    "multi-pass emergent structure",
+    "symmetry-preservation rule",
+    "ridge-decoration injection"
+  ],
+  "results": [
+    {"rank": 1, "url": "https://www.nature.com/articles/s41598-018-30857-0", "kw_count": 0, "sem_cosine": 0.20, "func_score": 0.04, "hit": false, "reason": "Source-domain pufferfish biology; no exact content-word substrings; sem 0.20<0.7; func 0.04<0.7."},
+    {"rank": 2, "url": "https://en.wikipedia.org/wiki/Pufferfish_mating_ritual", "kw_count": 0, "sem_cosine": 0.18, "func_score": 0.04, "hit": false, "reason": "Source-domain wiki; no exact phrase matches; sem 0.18<0.7; func 0.04<0.7."},
+    {"rank": 3, "url": "https://www.nature.com/articles/srep02106", "kw_count": 0, "sem_cosine": 0.16, "func_score": 0.04, "hit": false, "reason": "Source-domain nest reproduction; no phrase matches; sem 0.16<0.7; func 0.04<0.7."},
+    {"rank": 4, "url": "https://arxiv.org/html/2509.08269v1", "kw_count": 0, "sem_cosine": 0.62, "func_score": 0.55, "hit": false, "reason": "Evolutionary optimization survey; no content-word substrings; sem 0.62<0.7; func 0.55<0.7."},
+    {"rank": 5, "url": "https://arxiv.org/html/2503.05788v1", "kw_count": 0, "sem_cosine": 0.55, "func_score": 0.50, "hit": false, "reason": "Emergent abilities survey; no exact phrase matches; sem 0.55<0.7; func 0.50<0.7."},
+    {"rank": 6, "url": "https://arxiv.org/html/2605.01280v1", "kw_count": 0, "sem_cosine": 0.40, "func_score": 0.30, "hit": false, "reason": "Serving position paper; no phrase matches; sem 0.40<0.7; func 0.30<0.7."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.11378", "kw_count": 0, "sem_cosine": 0.74, "func_score": 0.80, "hit": true, "reason": "Multi-pass local-window small-LLM iterative generation with emergent global structure directly matches PELRLA core; sem 0.74>=0.7 AND func 0.80>=0.7."},
+    {"rank": 8, "url": "https://arxiv.org/html/2512.10739v1", "kw_count": 0, "sem_cosine": 0.50, "func_score": 0.35, "hit": false, "reason": "Long-horizon olympiad reasoning agent; no phrase matches; sem 0.50<0.7; func 0.35<0.7."}
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Rank 7 arxiv 2604.11378 ('Multi-Pass Local Window LLM Generation') is a hit under both semantic (0.74>=0.7) and functional (0.80>=0.7) thresholds; it captures the PELRLA core of multi-pass local-window-only small-LLM iterative generation producing macroscale emergent structure, so the novelty claim is not preserved (total_hits=1>=1)."
+}

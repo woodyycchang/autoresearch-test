@@ -1,0 +1,101 @@
+{
+  "round": "255",
+  "verifier": "cross-agent",
+  "candidate_form": "basin-stability",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words": [
+    "silver niello",
+    "engraved channel",
+    "sulfide-alloy filler fusion",
+    "subtractive-then-fill inlay",
+    "contrastive subspace inlay",
+    "subspace-surgery projection",
+    "niello-filler rank-8 module",
+    "flux-coefficient activation polish"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Niello",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["engraved channel"],
+      "semantic_cosine": 0.20,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Source-domain niello description; one keyword substring ('engraved channel' in 'engraved channels'); no LLM mechanism overlap."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.britannica.com/art/niello",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.18,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Generic source-domain inlay history; no LLM-side mechanism."
+    },
+    {
+      "rank": 3,
+      "url": "https://silver-lug.com/en/blogs/silver-lug/niello",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.16,
+      "functional_equivalence": 0.04,
+      "hit": false,
+      "reason": "Source-domain niello contrast description; no LLM relevance."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2408.08769v1",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.58,
+      "functional_equivalence": 0.55,
+      "hit": false,
+      "reason": "Contrastive decoding across layers, not subspace surgery; below all thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2504.05764v1",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.55,
+      "functional_equivalence": 0.48,
+      "hit": false,
+      "reason": "Layer-selection embedding fusion; not subspace ablate-then-fill."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2509.00664v1",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.50,
+      "functional_equivalence": 0.40,
+      "hit": false,
+      "reason": "Multi-encoder cross-attention fusion; orthogonal to residual-stream subspace surgery."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2403.04783",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.74,
+      "functional_equivalence": 0.78,
+      "hit": true,
+      "reason": "Refusal-direction probing and projection ablation operationally equals the ENGRAVE step of NSCI; both sem>=0.7 and func>=0.7."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2602.05543",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "semantic_cosine": 0.82,
+      "functional_equivalence": 0.88,
+      "hit": true,
+      "reason": "Explicit subspace ablation plus contrastive safe-vector injection directly instantiates NSCI's subtract-then-fill discipline; sem and func far above 0.7."
+    }
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior-art hits (ranks 7 and 8) match NSCI's subspace-projection-then-contrastive-fill mechanism via both semantic (>=0.7) and functional (>=0.7) thresholds; rank 8 (Subspace Ablation + Contrast Fill, 2026/2) is a near-direct prior art instance, defeating novelty_claim."
+}

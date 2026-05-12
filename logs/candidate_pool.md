@@ -216,3 +216,32 @@ R122 viticulture (Guyot pruning) → structured weight-pruning topology
 R123 behavioral-ecology (cuckoo brood parasitism) → reward-hacking arms race
 R124 rheology-specific (Bingham yield-stress) → activation-threshold gating [PASS — flagged for review]
 R125 biogeography (island species-area) → RAG retrieval chunk composition
+
+
+## Epoch 11 (R251-R275, program_v5.md strict per-round protocol continuation)
+
+- Round 251 | domain: persian-qanat | mechanism: cascaded-shaft long-context retrieval gallery with periodic auxiliary classifier shafts | verdict: FAIL | form: information-cascade
+- Round 252 | domain: gecko-setae-vdW-adhesion | mechanism: preload-and-drag gated adapter coupling with reverse-angle release | verdict: FAIL | form: phase-coherence
+- Round 253 | domain: origami-miura-ori | mechanism: Miura-tessellated parameter manifold with rigid panels + single-DOF deploy | verdict: FAIL | form: null-space-traversal
+- Round 254 | domain: anglerfish-bioluminescence-symbiosis | mechanism: host-gated symbiotic signal-generator with externally-pretrained symbiont + attenuation cap | verdict: FAIL | form: feedback-attenuation
+- Round 255 | domain: silver-niello-inlay | mechanism: niello-style contrastive subspace inlay (subtract unsafe-subspace then inject contrast filler) | verdict: FAIL | form: basin-stability
+- Round 256 | domain: terracotta-army-modular-production | mechanism: stamped modular-mold expert composition with provenance watermark | verdict: FAIL | form: information-cascade
+- Round 257 | domain: barchan-sand-dune-migration | mechanism: differential-mobility curvature-shape training with per-coord mass-gated LR + saltation threshold | verdict: FAIL | form: phase-coherence
+- Round 258 | domain: bee-bread-fermentation | mechanism: honey-LAB auto-curated pretraining substrate with corpus acidification + pH-gated pathogen exclusion | verdict: FAIL | form: feedback-attenuation
+- Round 259 | domain: leafcutter-attini-cultivation | mechanism: size-graded specialist caste pipeline with mutualist substrate-model + antibiotic patrol | verdict: FAIL | form: information-cascade
+- Round 260 | domain: railway-interlocking-block | mechanism: interlocked-route mutual-exclusion MAS with pre-declared route locks + compatibility-table | verdict: FAIL | form: feedback-attenuation
+- Round 261 | domain: greek-entasis-optical-correction | mechanism: generator-side pre-applied counter-distortion calibrated to evaluator bias profile | verdict: FAIL | form: phase-coherence
+- Round 262 | domain: pendentive-vault-transition | mechanism: pendentive-style 4-corner spherical-triangle geometric-bridge adapter with constant-curvature constraint | verdict: FAIL | form: basin-stability
+- Round 263 | domain: tlingit-bentwood-box | mechanism: kerf-grooved single-tensor weight folding with train-flat / deploy-fold one-time topology change | verdict: FAIL | form: null-space-traversal
+- Round 264 | domain: hagfish-slime-defense | mechanism: slime-expansion adversarial-input throttling via compressed-context skein recursive in-context expansion | verdict: FAIL_with_caveat_PassA_only (verifier disagreed) | form: feedback-attenuation
+- Round 265 | domain: mevlevi-dervish-whirling | mechanism: axis-locked phase-segmented long-horizon reasoning with rollback-on-violation | verdict: FAIL | form: phase-coherence
+- Round 266 | domain: etruscan-buon-fresco-carbonation | mechanism: time-gated carbonation CL commit window with absorb-or-reject crystallization | verdict: FAIL | form: basin-stability
+- Round 267 | domain: saami-differential-ski-wax | mechanism: bipolar-zone friction-regime split adapter (glide-aggressive + grip-conservative LR) with input-temperature gating | verdict: FAIL | form: information-cascade
+- Round 268 | domain: wheat-threshing-winnowing | mechanism: threshing-winnowing data filter with agitation embedding-shift + scalar density-of-information filter (no LLM-judge) | verdict: FAIL | form: feedback-attenuation
+- Round 269 | domain: khmer-baray-hydraulic-cycle | mechanism: baray-buffered phase-locked training cycle with traffic-synced wet-collect/dry-distribute | verdict: FAIL | form: phase-coherence
+- Round 270 | domain: hopi-kachina-mask-ritual | mechanism: ritual-scoped persona null-space displacement with regalia-constraint enable check | verdict: FAIL | form: null-space-traversal
+- Round 271 | domain: yagi-uda-antenna | mechanism: Yagi-style passive phase-coupled steering with multi-head passive frozen array | verdict: FAIL | form: phase-coherence
+- Round 272 | domain: aztec-chinampa-garden | mechanism: chinampa-style shared-canal in-context plot array with periodic dredge + decomposition recycle | verdict: FAIL | form: information-cascade
+- Round 273 | domain: tibetan-thangka-pigment-grinding | mechanism: pigment-density-matched continuous precision allocation quantization with error-spectrum auto-refinement | verdict: FAIL | form: basin-stability
+- Round 274 | domain: amami-pufferfish-sand-circle | mechanism: pufferfish-style emergent local-rule large-artifact via multi-pass local-window only small-LLM iteration | verdict: FAIL | form: null-space-traversal
+- Round 275 | domain: trapani-salt-pan-cascade | mechanism: passive-environment cascading distillation pipeline alternating cheap-passive + expensive-LLM stages | verdict: FAIL | form: information-cascade
