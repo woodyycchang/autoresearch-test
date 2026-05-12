@@ -1,0 +1,20 @@
+{
+  "round": "272",
+  "verifier": "claude-opus-4-7",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": ["chinampa garden", "canal muck nutrient", "adjacent-water buffer", "rectangular plot array", "private plot buffer", "shared canal context pool", "periodic-dredge insight injection", "decomposed-output nutrient recycle"],
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Chinampa", "kw": 0, "sem": 0.18, "func": 0.04, "hit": false, "reason": "Source-domain; no content-word substrings; sub-threshold sem/func."},
+    {"rank": 2, "url": "https://www.britannica.com/topic/chinampa", "kw": 0, "sem": 0.16, "func": 0.04, "hit": false, "reason": "Source-domain; no content-word matches; sub-threshold."},
+    {"rank": 3, "url": "https://earthobservatory.nasa.gov/images/150719/relic-chinampas-in-mexico-city", "kw": 0, "sem": 0.14, "func": 0.04, "hit": false, "reason": "Source-domain satellite imagery; no matches."},
+    {"rank": 4, "url": "https://arxiv.org/html/2605.07076", "kw": 0, "sem": 0.65, "func": 0.55, "hit": false, "reason": "SCoL single-context CL; sem 0.65 and func 0.55 below 0.7."},
+    {"rank": 5, "url": "https://arxiv.org/html/2412.15563v1", "kw": 0, "sem": 0.62, "func": 0.60, "hit": false, "reason": "InCA external pre-selection; both sub-threshold."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2605.05097", "kw": 0, "sem": 0.60, "func": 0.58, "hit": false, "reason": "Memini multi-timescale memory; both sub-threshold."},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.04853", "kw": 0, "sem": 0.78, "func": 0.80, "hit": true, "reason": "MemMachine blackboard shared memory pool covers canal-pool leg; sem 0.78 and func 0.80 both above 0.7."},
+    {"rank": 8, "url": "https://arxiv.org/html/2603.04474", "kw": 0, "sem": 0.84, "func": 0.86, "hit": true, "reason": "Shared workspace + periodic insight injection + decomposition matches CSCIPA core; sem 0.84 and func 0.86 well above 0.7."}
+  ],
+  "total_hits": 2,
+  "verdict": "FAIL",
+  "fail_reason": "Two prior works hit thresholds: MemMachine (sem 0.78, func 0.80) covers shared canal-pool leg; Shared Workspace Periodic Dredge (sem 0.84, func 0.86) matches per-plot + shared workspace + periodic dredge + decomposition combo. CSCIPA not novel."
+}

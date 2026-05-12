@@ -1,0 +1,23 @@
+{
+  "round": "275",
+  "candidate_llm_application": "PECDP: cascade alternating cheap passive refinement with expensive LLM stages.",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r275-pecdp-v1",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Salt_pans_of_Trapani_and_Paceco", "title": "Trapani Wiki", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 2, "url": "https://mel365.com/trapani-salt-pans/", "title": "Trapani Mel365", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 3, "url": "https://www.visitsicily.info/en/trapani-and-paceco-salt-pans/", "title": "Visit Sicily", "judge_score": 0.04, "judge_justification": "Source-domain.", "matched_effect_cluster": "source-domain", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/pdf/2603.19220", "title": "Nemotron-Cascade 2 (2026/3)", "judge_score": 0.60, "judge_justification": "LLM-only cascade.", "matched_effect_cluster": "LLM-only-cascade", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/html/2509.22984", "title": "Inter-Cascade (2025/9)", "judge_score": 0.58, "judge_justification": "Weak-strong LLM cascade.", "matched_effect_cluster": "weak-strong-cascade", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/html/2605.07783", "title": "Chain-Based Distillation (2026/5)", "judge_score": 0.55, "judge_justification": "Progressive intermediate models.", "matched_effect_cluster": "chain-distillation", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2604.05375", "title": "DAT (2026/4)", "judge_score": 0.55, "judge_justification": "Edge-cloud transmission.", "matched_effect_cluster": "edge-cloud-transmission", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/abs/2603.03251", "title": "Speculative Cascade with Cheap Verifier (2026/3)", "judge_score": 0.84, "judge_justification": "Cheap verifier alternating with expensive LLM in cascade — captures PECDP alternating-cheap-expensive concept.", "matched_effect_cluster": "speculative-cascade-cheap-verify", "functional_hit": true}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.84,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}
