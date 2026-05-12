@@ -1,0 +1,97 @@
+{
+  "round": "233",
+  "verifier": "fresh-cross-agent",
+  "candidate_llm_application": "Nitinol-phase weight memory with deployment-time T-controlled snap + hysteresis deadband + two-way training",
+  "judge_model": "claude-opus-4-7",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Nickel_titanium",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["nitinol", "austenite martensite"],
+      "rationale": "Source-domain Wikipedia page on nitinol — has source-domain keywords (nitinol, austenite/martensite) but zero LLM-side mechanism. Functionally orthogonal to LLM adapters. However, substring keyword overlap from source-domain content words triggers kw>=2.",
+      "hit": true
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Shape-memory_alloy",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 3,
+      "keyword_overlap_terms": ["austenite martensite", "thermal hysteresis loop", "two-way training"],
+      "rationale": "Source-domain Wikipedia page on shape-memory alloys — discusses two-way thermal training and hysteresis. Source-domain only, no LLM mechanism, but substring keyword overlap is high.",
+      "hit": true
+    },
+    {
+      "rank": 3,
+      "url": "https://blog.accupathmed.com/niti-shape-memory-effect-how-it-works/",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.15,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["nitinol"],
+      "rationale": "Source-domain medical actuator blog. No LLM-side mechanism. Limited keyword overlap.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2405.17741",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "LoRA-Switch: dynamic per-token adapter switching at runtime. Operationally implements the core phase-snap (switch between adapter states at runtime), although without the explicit hysteresis-deadband or the two-way-training discipline. Functional equivalence >= 0.7.",
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2508.14904",
+      "functional_equivalence": 0.80,
+      "semantic_cosine_estimate": 0.66,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Magic-Token Co-Training for Switchable Safety: explicit control-token toggles between divergent safety behaviors; co-training imprints both behaviors simultaneously, paralleling two-way training that imprints both shapes. Operationally matches T-controlled phase snap with dual-shape behaviors.",
+      "hit": true
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2509.16861v1",
+      "functional_equivalence": 0.71,
+      "semantic_cosine_estimate": 0.60,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "AdaptiveGuard: OOD-aware runtime safety with LoRA updates post-deployment. Runtime risk signal triggers a safety LoRA application = T-controlled snap leg of the candidate. Functional equivalence above threshold.",
+      "hit": true
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2501.06208",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Fusion of LoRA for safety — combines adapters statically, not a runtime phase-snap with dual-state hysteresis. Below all thresholds.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2507.17075v2",
+      "functional_equivalence": 0.52,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "LoRA single-direction safety alignment — describes a static low-rank safety subspace, not deployment-time T-controlled snap nor hysteresis. Below thresholds.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 5,
+    "functional_hits": 3,
+    "semantic_hits": 0,
+    "keyword_hits_only": 2,
+    "verdict": "FAIL",
+    "rationale": "Total hits >= 1 under FROZEN OR rule. Source-domain Wikipedia pages (ranks 1 and 2) trigger kw>=2 due to direct substring overlap of source-domain content words (nitinol, austenite martensite, thermal hysteresis loop, two-way training). Three LLM-side adapter-switching papers (ranks 4, 5, 6) cross func>=0.7, with rank 5 (Magic-Token Co-Training) being the strongest functional match — switchable safety control with co-training imprinting both behaviors directly mirrors the candidate's dual-shape T-controlled phase snap with two-way training discipline."
+  }
+}

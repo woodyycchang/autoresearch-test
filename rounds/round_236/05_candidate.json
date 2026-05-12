@@ -1,0 +1,15 @@
+{
+  "round": "236",
+  "epoch": 10,
+  "candidate_form": "information-cascade",
+  "domain": "wayang kulit (Indonesian Javanese shadow puppet theatre; single performer 'dalang' simultaneously voices all characters with distinct registers, conducts gamelan orchestra, provides percussive cues, narrates and improvises around canonical Mahabharata/Ramayana frames; voice-switching happens within a single breath)",
+  "specific_mechanism": "One dalang IS the entire performance. He sits behind the screen manipulating puppets in each hand while orally producing all character voices (king-style high register, clown-style nasal, hero-style declamatory, villain-style growl), striking percussive metal cempala blocks with his right toe for dramatic punctuation, and signaling the gamelan orchestra. Character switches occur within a breath; the canonical story-frame persists across the whole 8-hour performance.",
+  "llm_application": "Single-model dalang-scaffold multi-role engine: prepend a learned compressed latent scaffold to every decode step. The scaffold has three slots: (scene-frame, character-list, current-active-character). Only the (current-active-character) slot changes on role switch (sub-token, no model reload). The (scene-frame, character-list) slots persist across the entire conversation, preserving narrative coherence. Each character has a learned 'voice embedding' that conditions the decode distribution. This delivers multi-persona dialogue from ONE model invocation, with persistent scene state, no inter-agent message passing, and the switching cost = updating ONE scaffold slot. Distinct from multi-agent role-playing (N separate instances) and from prompt-based persona switching (re-state full character description each turn).",
+  "novelty_claim": "Prompt-based persona switching (PsyPlay 2502.03821, OpenCharacter 2501.15427, Talk-Less 2509.00482) re-state the persona via system prompt each turn. Multi-agent role-play (most LLM-MAS) uses N instances. The dalang scaffold's distinguishing features are: (1) structured 3-slot persistent latent code; (2) sub-token role switch by updating ONE slot; (3) learned voice embeddings rather than text prompts; (4) single-model invocation throughout. Not retrieved in surveyed prior art as a single mechanism with all four properties.",
+  "content_words": ["wayang kulit", "dalang single performer", "multi-voice puppet", "gamelan conducting", "dalang latent scaffold", "scene-frame slot persistence", "sub-token role switch", "single-instance multi-persona"],
+  "content_words_composition": {
+    "llm_side": ["dalang latent scaffold", "scene-frame slot persistence", "sub-token role switch", "single-instance multi-persona"],
+    "source_side": ["wayang kulit", "dalang single performer", "multi-voice puppet", "gamelan conducting"],
+    "generic": []
+  }
+}

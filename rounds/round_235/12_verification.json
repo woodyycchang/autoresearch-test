@@ -1,0 +1,125 @@
+{
+  "round": "235",
+  "verifier": "cross-agent-fresh",
+  "candidate_summary": "Phase-locked two-agent rhythmic edit correction: pounder emits fixed-cadence token blocks; moderator inserts edits within Δt/2 window; silent overrun drop; N-pounder counterpoint extension",
+  "frozen_OR_rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words_for_keyword_match": ["yam pounding fufu", "pounder moderator pair", "rhythmic mortar pestle", "counterpoint offset", "phase-locked edit window", "rhythm-commit decoding", "silent overrun drop", "fixed-cadence streaming correction"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Pounded_yam",
+      "title": "Pounded yam — Wikipedia",
+      "functional_equivalence": 0.03,
+      "func_justification": "Source-domain article about yam pounding cuisine; describes the physical fufu preparation, not an LLM/multi-agent edit-correction mechanism. Functional analogue absent.",
+      "semantic_cosine_estimate": 0.18,
+      "sem_justification": "Shares source-domain vocabulary (yam, pounding, mortar, pestle) but no overlap with phase-locked decoding / streaming correction concepts.",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["yam pounding fufu"],
+      "kw_justification": "Wikipedia page about pounded yam covers the source domain (yam pounding fufu). Does not mention pounder-moderator pair as a coordination pair, counterpoint offset, or any LLM-side terms.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://www.culturesofwestafrica.com/fufu-african-cuisine/",
+      "title": "Fufu — Cultures of West Africa",
+      "functional_equivalence": 0.04,
+      "func_justification": "Cultural/culinary description of fufu preparation; not an LLM or computational coordination scheme.",
+      "semantic_cosine_estimate": 0.2,
+      "sem_justification": "Source-domain only overlap (fufu, pounder, turner). No semantic overlap with LLM streaming or decoding.",
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["yam pounding fufu", "pounder moderator pair"],
+      "kw_justification": "Mentions fufu preparation involving a pounder and a turner/moderator coordinated rhythm. Two source-domain content words match.",
+      "hit": true
+    },
+    {
+      "rank": 3,
+      "url": "https://www.myguidenigeria.com/travel-articles/iyan---pounded-yam",
+      "title": "Iyan — Pounded Yam (My Guide Nigeria)",
+      "functional_equivalence": 0.03,
+      "func_justification": "Travel/food article on Yoruba iyan; no LLM or computational mechanism.",
+      "semantic_cosine_estimate": 0.17,
+      "sem_justification": "Source-domain only; no overlap with phase-locked decoding.",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["yam pounding fufu"],
+      "kw_justification": "Pounded yam description references source domain only; does not specifically encode pounder-moderator pair coordination as a distinct concept.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2503.03106v2",
+      "title": "Monitoring Decoding: Mitigating Hallucination via Partial Response Factuality (2025/3)",
+      "functional_equivalence": 0.72,
+      "func_justification": "Monitoring Decoding introduces a runtime monitor that revises crucial tokens during generation — operationally equivalent to a moderator inserting in-stream edits at the generator's pace. Lacks explicit fixed-cadence Δt/2 window and silent-overrun-drop discipline, but the core two-role in-process edit-correction is present.",
+      "semantic_cosine_estimate": 0.62,
+      "sem_justification": "Strong overlap on dynamic monitor + token revision during decoding; weaker on phase-locked / fixed-cadence framing.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "kw_justification": "Uses 'monitoring decoding' / 'partial response factuality' terminology, none of the candidate's specific content phrases.",
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2509.03531v1",
+      "title": "Real-Time Detection of Hallucinated Entities (2025/9)",
+      "functional_equivalence": 0.71,
+      "func_justification": "Real-time hallucination detection during long-form generation establishes the moderator role: a concurrent detector operating alongside the generator. Functionally captures the moderator-during-stream role though it focuses on detection rather than the fixed-window edit insertion.",
+      "semantic_cosine_estimate": 0.6,
+      "sem_justification": "Significant overlap on real-time streaming + detection-during-generation; missing phase-lock and edit-insertion specifics.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "kw_justification": "No verbatim matches of candidate content-word phrases.",
+      "hit": true
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2601.19106",
+      "title": "Detecting & Correcting Hallucinations in LLM-Generated Code (2026/1)",
+      "functional_equivalence": 0.72,
+      "func_justification": "Concurrent analyzer applies high-confidence corrections during code generation — the two-role rhythmic pair structure. Lacks explicit Δt-fixed-window and silent-overrun-drop but achieves the same effect of in-stream concurrent correction.",
+      "semantic_cosine_estimate": 0.61,
+      "sem_justification": "Strong on real-time concurrent correction during generation; lacks rhythm/phase vocabulary.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "kw_justification": "No matches with candidate content phrases.",
+      "hit": true
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2410.11779",
+      "title": "DeCo: Dynamic Correction Decoding (ICLR 2025)",
+      "functional_equivalence": 0.55,
+      "func_justification": "DeCo is intra-model layer-signal-based correction — single-agent / single-pass mechanism, not a two-agent rhythmic pair. Lacks the moderator role and the phase-locking property.",
+      "semantic_cosine_estimate": 0.48,
+      "sem_justification": "Some overlap on decoding-time correction concept; lacks two-agent / phase / cadence framing.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "kw_justification": "No matches.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2511.20639v1",
+      "title": "Latent Collaboration in MAS (2025/11)",
+      "functional_equivalence": 0.45,
+      "func_justification": "Structured MAS communication with emergent specialization; not specifically fixed-rhythm phase-locked edit correction. Different mechanism (latent collaboration).",
+      "semantic_cosine_estimate": 0.4,
+      "sem_justification": "General MAS overlap; no rhythmic/phase-locked overlap.",
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "kw_justification": "No matches with candidate content words.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 4,
+    "hits_by_rank": [2, 4, 5, 6],
+    "hit_breakdown": {
+      "rank_2": "kw>=2 (yam pounding fufu, pounder moderator pair)",
+      "rank_4": "func>=0.7 (0.72)",
+      "rank_5": "func>=0.7 (0.71)",
+      "rank_6": "func>=0.7 (0.72)"
+    },
+    "verdict": "FAIL",
+    "rationale": "total_hits=4 >= 1 under the frozen OR rule. The candidate's LLM application overlaps functionally with three existing concurrent in-process correction/monitoring works (Monitoring Decoding, Real-Time Hallucinated Entity Detection, Hallucination Detection-and-Correction in Code), and a culinary source-domain page also matches 2 source-side content words. The phase-locked / fixed-window / silent-overrun-drop discipline is a distinguishing nuance, but functional equivalence at >=0.7 is reached in multiple effect clusters."
+  }
+}

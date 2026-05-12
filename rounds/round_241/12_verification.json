@@ -1,0 +1,110 @@
+{
+  "round": "241",
+  "verifier": "fresh-cross-agent",
+  "candidate_llm_application": "Catastrophe-class spike fingerprint via Thom-Berry 7-elementary classification of attention-spike topology",
+  "rule": "FROZEN OR: hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words_llm_side": ["catastrophe-class spike fingerprint", "attention-spike topology", "structural-class audit", "Thom-elementary classification"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Catastrophe_theory",
+      "title": "Catastrophe theory — Wikipedia",
+      "snippet": "Source-domain: 7 elementary catastrophes; Thom-Berry classification.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Pure source-domain encyclopedia entry on catastrophe theory; no LLM, attention, audit, or spike-detection application. Functional equivalence to LLM-side mechanism is essentially nil.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://link.springer.com/chapter/10.1007/978-3-642-67363-4_8",
+      "title": "Optical Caustics and Diffraction Catastrophes — Springer",
+      "snippet": "Source-domain: caustic-classification at optical singularities.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.16,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Pure optics/physics source-domain chapter on diffraction catastrophes; no LLM attention application or audit pipeline.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2509.09551v1",
+      "title": "Caustic morphologies in charged-particle optics (2025/9)",
+      "snippet": "Source-domain charged-particle optics caustic morphologies.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.14,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Charged-particle optics caustic study; pure source-domain, unrelated to LLM attention spikes or audit signaling.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2504.10063v3",
+      "title": "Hallucination Detection via Topological Divergence on Attention Graphs (2025/4 v3)",
+      "snippet": "LLM-side: topological divergence on attention graphs identifies hallucination-aware heads.",
+      "functional_equivalence": 0.74,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["attention", "topology"],
+      "func_justification": "Uses topology-derived features over attention graphs as an audit/anomaly signal for hallucination detection. Operationally implements the same effect cluster as candidate: topology-of-attention as structural audit signal, despite different topological invariants (persistent homology / graph divergence vs. Thom-Berry catastrophe class labels). Functional equivalence above 0.7 threshold.",
+      "hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2506.01631",
+      "title": "Gradient-Based Model Fingerprinting (2025/6)",
+      "snippet": "LLM-side: gradient-response fingerprinting for LLM family classification.",
+      "functional_equivalence": 0.32,
+      "semantic_cosine_estimate": 0.34,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["fingerprint"],
+      "func_justification": "Fingerprints models from gradient responses for family identification, not structural classification of attention-spike geometry. Different effect cluster: model-attribution vs. spike-structure audit.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2505.24201v1",
+      "title": "SentinelAgent: Graph-based MAS Anomaly Detection (2025/5)",
+      "snippet": "LLM-side: dynamic graph anomaly detection in MAS.",
+      "functional_equivalence": 0.22,
+      "semantic_cosine_estimate": 0.28,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Multi-agent-system interaction-graph anomaly detection at inter-agent level, not within-model attention-spike geometry. Different granularity and substrate.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://aclanthology.org/2025.findings-naacl.333.pdf",
+      "title": "LLM-Based Anomaly + OOD Detection (NAACL 2025)",
+      "snippet": "LLM-side: taxonomy of LLM anomaly/OOD detection methods.",
+      "functional_equivalence": 0.20,
+      "semantic_cosine_estimate": 0.26,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Broad survey/taxonomy of anomaly and OOD detection methods using LLMs; no catastrophe-class or attention-spike topology mechanism.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://www.arxiv.org/pdf/2509.24378",
+      "title": "AXIS: Explainable Time-Series Anomaly Detection (2025/9)",
+      "snippet": "LLM-side: explainable AD; uses structure-aware features.",
+      "functional_equivalence": 0.18,
+      "semantic_cosine_estimate": 0.22,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "func_justification": "Time-series anomaly detection on external signals using LLM-based explainability; not attention-spike topology audit inside a transformer.",
+      "hit": false
+    }
+  ],
+  "total_hits": 1,
+  "matched_effect_clusters": ["topology-based attention audit (Hallucination Detection via Topological Divergence on Attention Graphs)"],
+  "verdict": "FAIL",
+  "agreement_with_06_7": true,
+  "notes": "Independent re-judgment confirms rank 4 (Topological Divergence on Attention Graphs) as a functional hit under the FROZEN OR rule (func 0.74 >= 0.7; also kw>=2 via attention+topology). All 7 other results below all three thresholds. total_hits=1, so verdict FAIL."
+}

@@ -1,0 +1,112 @@
+{
+  "round": "237",
+  "verifier": "fresh-cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "candidate_llm_application": "Espalier-trellis adapter: human-authored offline sparse trellis prior with out-of-trellis gradient zero + sequential cumulative fine-tune + compositional trellis union",
+  "frozen_or_rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "thresholds": {"keyword_overlap_count": 2, "semantic_cosine_estimate": 0.7, "functional_equivalence": 0.7},
+  "content_words_llm_side": ["trellis-prior adapter", "out-of-trellis gradient zero", "cumulative-along-trellis accumulation", "compositional trellis union"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.rhs.org.uk/fruit/apples/training-espalier",
+      "title": "Espalier — RHS",
+      "snippet": "Source-domain: horizontal cordon training + annual out-of-plane pruning.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.05,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Pure source-domain horticulture page. No LLM, no adapter, no gradient discipline. Zero overlap with LLM-side content words.",
+      "is_hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://garden.org/learn/articles/view/4067/How-to-Espalier-an-Apple-Tree/",
+      "title": "How to Espalier — Garden.org",
+      "snippet": "Source-domain: multi-year process; 3-5 years for structure.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.04,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain only. Gardening article describing tree training. No LLM machinery.",
+      "is_hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://orchardpeople.com/espalier-pruning/",
+      "title": "Art of Espalier Pruning — Orchard People",
+      "snippet": "Source-domain: 4-step espalier pruning.",
+      "functional_equivalence": 0.02,
+      "semantic_cosine_estimate": 0.04,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Source-domain horticultural pruning guide. No LLM mapping.",
+      "is_hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2405.18897v2",
+      "title": "MLAE: Masked LoRA Experts (2024/5 v2)",
+      "snippet": "LLM-side: masked LoRA experts with fixed/stochastic/mixed masking strategies.",
+      "functional_equivalence": 0.80,
+      "semantic_cosine_estimate": 0.74,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["trellis-prior adapter (~ fixed-mask LoRA adapter)", "out-of-trellis gradient zero (~ masked LoRA → out-of-mask weights inactive)"],
+      "rationale": "MLAE applies fixed binary masks to LoRA adapter parameters. Under a fixed mask, only in-mask coordinates receive updates; out-of-mask are effectively zero. This is operationally equivalent to the espalier discipline (trellis-prior adapter + out-of-trellis gradient zero). Also discusses expert composition which maps to compositional trellis union. Hit on all three rule legs.",
+      "is_hit": true
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2502.00258",
+      "title": "ProxSparse: Semi-Structured Sparsity Masks for Pretrained LLMs (2025/2)",
+      "snippet": "LLM-side: regularized learning of sparsity mask; once fixed, weight-space constant.",
+      "functional_equivalence": 0.68,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["out-of-trellis gradient zero (~ out-of-mask zero after mask fixed)"],
+      "rationale": "ProxSparse LEARNS the mask via regularization, not human-authored. After the mask freezes, out-of-mask is zero — that part matches espalier discipline. But the candidate's distinguishing claim is the human-authored offline prior. Learned mask is closer to movement pruning / lottery ticket family. Semantic similarity is moderate but below 0.7; functional equivalence is borderline below 0.7. Keyword overlap count = 1 (only out-of-mask zero parallel). Does not hit any leg.",
+      "is_hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2507.07140",
+      "title": "Sparse Adapters for Scalable Merging of PEFT Experts (2025/7)",
+      "snippet": "LLM-side: sparse adapter expert merging.",
+      "functional_equivalence": 0.71,
+      "semantic_cosine_estimate": 0.66,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["trellis-prior adapter (~ sparse adapter)", "compositional trellis union (~ merging of PEFT experts via mask)"],
+      "rationale": "Sparse adapters merged across PEFT experts directly corresponds to the candidate's 'compositional trellis union' — distinct sparse adapter masks unioned at deployment. Also each sparse adapter has out-of-mask zero by construction. Two content-word equivalences and functional equivalence just at threshold. Hits on keyword overlap (>=2) and functional_equivalence (~0.71 >= 0.7).",
+      "is_hit": true
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2501.16372v1",
+      "title": "Low-Rank Adapters meet NAS for LLM Compression (2025/1)",
+      "snippet": "LLM-side: NAS to design adapter sparsity.",
+      "functional_equivalence": 0.50,
+      "semantic_cosine_estimate": 0.52,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["trellis-prior adapter (~ structured adapter, but NAS-searched not human-authored)"],
+      "rationale": "NAS searches the adapter sparsity structure automatically rather than using a human-authored offline trellis. Lacks the cumulative-along-trellis sequential fine-tune and explicit out-of-trellis gradient zero training-time discipline. No leg passes threshold.",
+      "is_hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://www.arxiv.org/pdf/2511.07482",
+      "title": "Alignment-Constrained Dynamic Pruning (2025/11)",
+      "snippet": "LLM-side: constraint-satisfying pruning for safe LLMs.",
+      "functional_equivalence": 0.48,
+      "semantic_cosine_estimate": 0.50,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "rationale": "Dynamic pruning with alignment constraints — pruning is dynamic, not a fixed authored prior. Does not match espalier trellis as authored offline sparse pattern with gradient zero discipline. No content-word equivalence above threshold.",
+      "is_hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 2,
+    "hit_ranks": [4, 6],
+    "verdict": "FAIL"
+  }
+}

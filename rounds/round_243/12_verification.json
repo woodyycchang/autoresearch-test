@@ -1,0 +1,114 @@
+{
+  "round": "243",
+  "verifier": "cross-agent-fresh",
+  "verifier_model": "claude-opus-4-7",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7); FAIL if total_hits>=1 else PASS",
+  "candidate_llm_application_summary": "Ginga-baseline background idle reasoning loop: continuous low-temp background anticipation between user requests + response launches from background-reasoning state + tempo-aware rate scaling to idle duration",
+  "candidate_content_words": ["capoeira ginga", "rhythmic baseline footwork", "berimbau tempo", "launch-from-baseline", "background reasoning loop", "idle-time anticipation generation", "warm launch buffer", "ambient context tracking"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Capoeira",
+      "title": "Capoeira — Wikipedia",
+      "snippet": "Source-domain: ginga + berimbau + martial-dance hybrid.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Pure source-domain description of capoeira/ginga/berimbau as martial-dance hybrid. Contains no LLM-side mechanism — no idle reasoning, no background loops, no launch-from-buffer. Zero functional overlap with the candidate's LLM application.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Ginga_(capoeira)",
+      "title": "Ginga (capoeira) — Wikipedia",
+      "snippet": "Source-domain: continuous swaying triangular footwork; baseline for all techniques.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.12,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Source-domain explication of ginga as continuous-baseline footwork. No LLM/inference content; the candidate's LLM-side claim is wholly orthogonal. Functional overlap negligible.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://capoeirawiki.org/wiki/Ginga",
+      "title": "Ginga — CapoeiraWiki",
+      "snippet": "Source-domain: ginga details and variations.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.10,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Wiki entry on ginga variants — purely source-domain. Carries none of the candidate's LLM-side mechanism (idle background reasoning loop, warm launch buffer, anticipation generation). No functional or semantic match.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2603.03251",
+      "title": "Speculative Speculative Decoding (2026/3)",
+      "snippet": "LLM-side: draft precomputes speculations for many possible verification outcomes; immediate response.",
+      "functional_equivalence": 0.68,
+      "semantic_cosine_estimate": 0.58,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["warm launch buffer (loose match via precompute/buffer)"],
+      "functional_justification": "SSD precomputes speculative branches for multiple verification outcomes so the system can launch immediately on the realized outcome. This is a precompute-then-launch pattern in spirit similar to 'launch from background-reasoning state', BUT it operates strictly DURING active generation (per-step), not as a CONTINUOUS BACKGROUND IDLE LOOP between user requests. The candidate explicitly distinguishes its mechanism from speculative decoding ('Speculative decoding works on next-token prediction during active generation, not background loops between requests'). The 'idle-between-requests' axis and 'continuous tempo-paced background reasoning queue' axis are absent in SSD. Functional similarity is partial — branch-precompute concept overlaps but core differentiator (idle baseline rather than per-step speculation) does not. Score 0.68, below 0.7 threshold.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2509.24328v2",
+      "title": "Speculative Verification (2025/9 v2)",
+      "snippet": "LLM-side: predict speculation accuracy via output-distribution comparison.",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.32,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Speculative verification accuracy predictor; orthogonal to idle-baseline background-reasoning concept. No idle loop, no anticipation, no tempo coupling. Low functional overlap.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2512.20573",
+      "title": "FailFast: Diffusion-Draft Speculative Decoding (2025/12)",
+      "snippet": "LLM-side: minimize drafter effort in harder regions, extend in easier.",
+      "functional_equivalence": 0.40,
+      "semantic_cosine_estimate": 0.35,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Adaptive drafter effort modulation during generation. Some loose conceptual resonance with tempo-aware rate, but it is conditioned on token-region difficulty during active drafting, not a continuous background idle loop. No idle/anticipation/buffer axis. Below threshold.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2510.13161",
+      "title": "Mirror Speculative Decoding (2025/10)",
+      "snippet": "LLM-side: branch-complete speculative rollouts on early-exit signals.",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Mirror-SD pre-rolls branch completions triggered by early-exit signals — a form of speculative buffer. However, these rollouts are tied to an active generation step (intra-request), not a continuous background idle loop running between user requests, and there is no tempo-to-user-idle-duration coupling. Conceptually adjacent to 'warm launch buffer' but not the candidate's idle-time anticipation. Below threshold.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2604.09722v1",
+      "title": "ConfigSpec: Profiling-Based Config Selection for Edge-Cloud Speculative (2026/4)",
+      "snippet": "LLM-side: speculative serving configuration selection.",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.28,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "functional_justification": "Config selection for speculative serving — orthogonal to background idle reasoning. No functional or semantic match with candidate's mechanism.",
+      "hit": false
+    }
+  ],
+  "per_axis_totals": {
+    "kw_hits": 0,
+    "sem_hits": 0,
+    "func_hits": 0
+  },
+  "total_hits": 0,
+  "verdict": "PASS",
+  "notes": "Re-judged independently of 06_7. SSD (rank 4) is the closest prior art at func=0.68 (just below 0.7) because branch-precompute is request-scoped not idle-scoped. All other LLM-side results target intra-request speculative-decoding variants, not a continuous between-requests background reasoning loop with tempo-coupling to user idle duration. Source-domain wiki entries contribute zero LLM-side overlap. No axis triggers a hit under the frozen OR rule."
+}

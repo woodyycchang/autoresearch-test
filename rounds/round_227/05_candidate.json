@@ -1,0 +1,15 @@
+{
+  "round": "227",
+  "epoch": 10,
+  "candidate_form": "feedback-attenuation",
+  "domain": "falconry (hooding + manning + gradual dark-to-light habituation training of birds of prey)",
+  "specific_mechanism": "A leather hood blocks all visual stimulus, putting the raptor in calm-receptive state. Training protocol: dark room → hood-on → unhood in dim light to food reward → gradually raise ambient light → introduce sound, motion, human, outdoor over weeks. Each unhood is paired with food reward at the precise moment input becomes interpretable.",
+  "llm_application": "Inference-time stimulus-mask anneal: for safety-critical or high-risk inputs, run an additional internal 'habituation pass loop' where input embeddings are first masked at very high ratio (hood — effective blindness, no token can attend to itself) and softmax temperature is set near-uniform; mask ratio + temperature are then annealed downward across K passes (K conditioned on a pre-computed input-risk score), with a 'calm-receptive' commit check at each pass. Final output emits only after the model passes a low-energy / low-entropy check at low mask. The hood mask is a per-input STIMULUS firewall, not a training-time curriculum, and the schedule is risk-conditioned per request.",
+  "novelty_claim": "Curriculum learning (2601.21698, 2503.07065, 2508.01540) applies a graduated-stimulus principle at TRAINING time over a fixed dataset. The hood-style framing is INFERENCE-time, per-input, with mask schedule conditioned on input-risk estimate. Test-time scaling work (DiffAdapt, BudgetThinker) anneals COMPUTE not VISIBILITY. Iterative refinement (Self-Refine etc.) revisits output not input. Closest substantive prior art: progressive de-masking decoders for diffusion-LLM hybrids (MAR/MaskGIT family), but not risk-conditioned per-request safety-time hood-anneal.",
+  "content_words": ["falconry hood", "manning protocol", "dark-to-light habituation", "stimulus mask anneal", "inference-time hood schedule", "input-risk conditioned passes", "calm-receptive commit", "per-request safety firewall"],
+  "content_words_composition": {
+    "llm_side": ["stimulus mask anneal", "inference-time hood schedule", "input-risk conditioned passes", "calm-receptive commit", "per-request safety firewall"],
+    "source_side": ["falconry hood", "manning protocol", "dark-to-light habituation"],
+    "generic": []
+  }
+}

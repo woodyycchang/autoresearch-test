@@ -1,0 +1,121 @@
+{
+  "round": "229",
+  "verifier": "fresh-cross-agent",
+  "candidate_form": "basin-stability",
+  "candidate_llm_application": "Brick-and-mortar adapter laminate: alternating hard rotation-locked + soft regularizer + sparse skip-bridge for crack-arrest fine-tune robustness",
+  "frozen_or_rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words": [
+    "abalone nacre",
+    "aragonite tablet",
+    "chitin-protein mortar",
+    "mineral nanobridge",
+    "alternating-stiffness laminate",
+    "low-rank rotation-locked adapter",
+    "sparse skip-bridge",
+    "crack-arrest fine-tune robustness"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5090675/",
+      "title": "Toughening mechanism of nacre (PMC review)",
+      "snippet": "Source-domain: brick-and-mortar + mineral bridges + 3 toughening mechanisms (crack deflection, fiber pull-out, organic matrix bridging).",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.32,
+      "functional_equivalence": 0.05,
+      "functional_justification": "Pure source-domain review of nacre toughening (brick-and-mortar, mineral bridges, crack deflection). No LLM/adapter/PEFT content; cannot be functionally equivalent to the LLM laminate application.",
+      "is_hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://www.nature.com/articles/srep01693",
+      "title": "Origin of flaw-tolerance in nacre (Sci Rep)",
+      "snippet": "Source-domain: flaw tolerance from architecture; alternating-stiffness.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.30,
+      "functional_equivalence": 0.05,
+      "functional_justification": "Source-domain mechanics paper on nacre flaw tolerance and alternating-stiffness. Materials-science only, no LLM application; not functionally equivalent.",
+      "is_hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://link.springer.com/article/10.1007/BF02486881",
+      "title": "Mineral bridges of nacre (Acta Mech Sin)",
+      "snippet": "Source-domain: brick-bridge-mortar 3D interface; 15-22% stress reduction.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.30,
+      "functional_equivalence": 0.05,
+      "functional_justification": "Source-domain mechanics of nacre mineral-bridge interface. No LLM/PEFT side; not a functional equivalent of the proposed laminate adapter scheme.",
+      "is_hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2603.12681",
+      "title": "Colluding LoRA: Composite Attack on LLM Safety (2026/3)",
+      "snippet": "LLM-side: CoLoRA composite attack evading detection.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.28,
+      "functional_equivalence": 0.40,
+      "functional_justification": "Composite collusion across LoRA modules is an attack-side construction, not a defensive alternating hard/soft laminate with skip-bridges. Some overlap in 'multi-LoRA composition' framing only.",
+      "is_hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2404.13425v1",
+      "title": "AdvLoRA: Adversarial Low-Rank Adaptation of VLMs",
+      "snippet": "LLM-side: PEFT for adversarial robustness via LoRA.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.36,
+      "functional_equivalence": 0.50,
+      "functional_justification": "AdvLoRA targets adversarial robustness via LoRA, sharing the goal of robust PEFT but uses adversarial training rather than alternating-stiffness lamination + sparse skip-bridges; mechanism differs.",
+      "is_hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2602.19926v1",
+      "title": "Rethinking LoRA for Privacy-Preserving Federated Learning (2026/2)",
+      "snippet": "LLM-side: alternating-minimization LoRA for federated robustness.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.42,
+      "functional_equivalence": 0.60,
+      "functional_justification": "Introduces 'alternating' structure but at the optimization (FL aggregation) level, not as a structural hard/soft laminate of adapters. Shares the alternation motif but not the brick-and-mortar topology with skip-bridges.",
+      "is_hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2407.11046v4",
+      "title": "Survey on LoRA of LLMs",
+      "snippet": "LLM-side: broad survey covering many LoRA variants.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.38,
+      "functional_equivalence": 0.55,
+      "functional_justification": "Survey provides coverage of stacked/multi-LoRA designs; may mention compositions or modular schemes but does not specify the alternating hard/soft laminate with nacre-style nanobridges and crack-arrest robustness.",
+      "is_hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2504.12397",
+      "title": "Activated LoRA: Fine-tuned LLMs for Intrinsics (2025/4)",
+      "snippet": "LLM-side: activation-conditioned LoRA gating.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_cosine_estimate": 0.34,
+      "functional_equivalence": 0.45,
+      "functional_justification": "Activation-gated LoRA modulates which adapter fires per input; not a structural hard/soft laminate with sparse skip-bridges for crack-arrest robustness to adversarial fine-tune.",
+      "is_hit": false
+    }
+  ],
+  "total_hits": 0,
+  "distinct_effect_clusters_above_threshold": 0,
+  "multi_cluster_match": false,
+  "matched_effect_clusters": [],
+  "verdict": "NOVEL",
+  "verdict_justification": "Zero hits across the 8 results under the frozen OR rule. No source has kw>=2 (all are 0), none reach sem>=0.7, and none reach func>=0.7. The closest LLM-side prior (alternating-minimization LoRA-FL at func=0.60) shares the 'alternation' motif but at the optimization level, not as a structural hard/soft laminate with sparse skip-bridge crack-arrest. The candidate brick-and-mortar adapter laminate is not prefigured by any retrieved work."
+}

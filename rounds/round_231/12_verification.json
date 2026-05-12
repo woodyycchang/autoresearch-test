@@ -1,0 +1,107 @@
+{
+  "round": "231",
+  "verifier": "claude-opus-4-7-fresh-cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff (keyword_overlap_count>=2) OR (semantic_cosine_estimate>=0.7) OR (functional_equivalence>=0.7)",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Morin_khuur",
+      "title": "Morin khuur — Wikipedia",
+      "snippet": "Source-domain: biphonic instrumental; main tone + overtones simultaneous.",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.12,
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["morin khuur", "biphonic instrumental"],
+      "hit": true,
+      "hit_reason": "kw>=2 (morin khuur in title, biphonic instrumental in snippet)"
+    },
+    {
+      "rank": 2,
+      "url": "https://ich.unesco.org/en/RL/traditional-music-of-the-morin-khuur-00068",
+      "title": "Traditional music of Morin Khuur — UNESCO",
+      "snippet": "Source-domain: cultural heritage protection of morin khuur.",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.08,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["morin khuur"],
+      "hit": false,
+      "hit_reason": "none: kw=1, sem<0.7, func<0.7"
+    },
+    {
+      "rank": 3,
+      "url": "https://organology.net/instrument/morin-khuur/",
+      "title": "Morin khuur — Organology",
+      "snippet": "Source-domain: Bb-string overtones at natural-harmonic positions during F-string fundamental.",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["morin khuur"],
+      "hit": false,
+      "hit_reason": "none: kw=1 ('sympathetic overtone' and 'harmonic node bow' as full substrings absent), sem<0.7, func<0.7"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2510.13161",
+      "title": "Mirror Speculative Decoding (2025/10)",
+      "snippet": "LLM-side: branch-complete speculative rollouts conditioned on early-exit signals + heterogeneous execution.",
+      "functional_equivalence": 0.62,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "hit": false,
+      "hit_reason": "none: kw=0; Mirror-SD branches on early-exit signals, not on harmonic-position prob-mass maxima with sympathetic cross-channel coupling; functional similarity present but below 0.7 for the specific harmonic-anchored + bow-coupling mechanism"
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2409.16560",
+      "title": "Dynamic-Width Speculative Beam Decoding (2024/9)",
+      "snippet": "LLM-side: speculative + beam-search combined.",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "hit": false,
+      "hit_reason": "none: kw=0; dynamic-width beam adjusts width per step but lacks harmonic-node anchoring or sympathetic coupling scalar; below 0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2511.01695",
+      "title": "Collaborative LLM Inference via Resource-Aware Parallel Spec Decode (2025/11)",
+      "snippet": "LLM-side: parallel speculative decoding across resources.",
+      "functional_equivalence": 0.30,
+      "semantic_cosine_estimate": 0.38,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "hit": false,
+      "hit_reason": "none: parallel-across-resources is orthogonal to harmonic-anchored branching"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2502.19732v4",
+      "title": "Speculative Decoding Survey (2025/2)",
+      "snippet": "LLM-side: in-depth survey of speculative-decoding techniques.",
+      "functional_equivalence": 0.40,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "hit": false,
+      "hit_reason": "none: generic survey, no specific harmonic-anchored alternate-branch mechanism"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2603.03251",
+      "title": "Speculative Speculative Decoding (2026/3)",
+      "snippet": "LLM-side: meta-speculative-decoding compositional approach.",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "hit": false,
+      "hit_reason": "none: recursive composition of two speculators is not the bow-pressure-style amplitude-modulated coupling at harmonic-position seeds; functional similarity below 0.7"
+    }
+  ],
+  "total_hits": 1,
+  "verdict": "FAIL",
+  "fail_reason": "Result rank 1 (Wikipedia Morin khuur) has keyword_overlap_count=2 ('morin khuur' in title, 'biphonic instrumental' in snippet), triggering the keyword overlap branch of the FROZEN OR rule. Note: this is a source-domain hit (functional_equivalence=0.04), not an LLM-side prior-art hit. Fresh verifier disagrees with 06_7_functional_hits.json on ranks 4, 5, 8: independent re-judging places them below 0.7 functional_equivalence (Mirror-SD branches on early-exit, not on prefix prob-mass harmonics; Dynamic-Width Beam lacks node anchoring; Speculative-Speculative is recursive composition rather than sympathetic-amplitude coupling). However, the rank-1 source-domain keyword hit alone is sufficient to fail under the FROZEN OR rule."
+}

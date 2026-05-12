@@ -1,0 +1,23 @@
+{
+  "round": "247",
+  "candidate_llm_application": "4-stage forest-succession training with explicit gap-dynamics weight removal and self-shade-tolerance climax selection",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r247-forest-succession-llm-train",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Ecological_succession", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4319751/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/forest-succession", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2507.18212", "judge_score": 0.74, "judge_justification": "Prune&Comp iterative prune-and-compensate loop is operationally the gap-dynamics weight-removal-then-recompensate leg of the candidate. Multiple-stage iterative is also covered.", "matched_effect_cluster": "iterative prune + compensate", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/abs/2505.18232", "judge_score": 0.72, "judge_justification": "Two-stage L1-regularization pruning explicitly STAGES the training; first regularize then prune. Stage-explicit training is shared with candidate.", "matched_effect_cluster": "stage-explicit regularized pruning", "functional_hit": true},
+    {"rank": 6, "url": "https://www.arxiv.org/pdf/2602.07375", "judge_score": 0.62, "judge_justification": "Statistical post-training pruning; not explicit 4-stage succession.", "matched_effect_cluster": "statistical post-train prune", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/abs/2505.14970", "judge_score": 0.65, "judge_justification": "Self-evolving curriculum is phase-aware but for data-difficulty not weight-gap recruitment.", "matched_effect_cluster": "self-evolving curriculum", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2502.11196v1", "judge_score": 0.62, "judge_justification": "Phase shift in knowledge circuits during continual PT — descriptive, not prescriptive 4-stage schedule.", "matched_effect_cluster": "phase-shift descriptive", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 2,
+    "distinct_effect_clusters_above_threshold": 2,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["iterative prune + compensate", "stage-explicit regularized pruning"]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "round": "246",
+  "verifier": "fresh-cross-agent",
+  "verifier_model": "claude-opus-4-7",
+  "frozen_rule": "hit iff (keyword_overlap_count>=2) OR (semantic_cosine_estimate>=0.7) OR (functional_equivalence>=0.7)",
+  "candidate_llm_application": "Phalanx-overlap MAS ring defense: agents in ring, each runs safety-checker over self AND left-neighbor; attack requires compromising contiguous neighbors (contiguous-range agreement); distinct from majority/BFT threshold voting.",
+  "content_words_llm_side": [
+    "phalanx-ring MAS topology",
+    "neighbor-shield overlap check",
+    "contiguous-range agreement",
+    "non-redundant overlap defense"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Hoplite",
+      "title": "Hoplite — Wikipedia",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.05,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Pure source-domain (ancient Greek hoplite warfare). Contains nothing about LLM/MAS agent ring defense, neighbor-overlap safety checks, or contiguous-range agreement.",
+      "hit": false
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Phalanx",
+      "title": "Phalanx — Wikipedia",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.05,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Pure source-domain (phalanx formation, othismos). No LLM-side application content.",
+      "hit": false
+    },
+    {
+      "rank": 3,
+      "url": "https://www.worldhistory.org/article/110/the-greek-phalanx/",
+      "title": "The Greek Phalanx — World History",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.05,
+      "keyword_overlap_count": 0,
+      "matched_keywords": [],
+      "rationale": "Pure source-domain article on Greek phalanx. No agent-side overlap-defense content.",
+      "hit": false
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2510.01617",
+      "title": "AMAS: Adaptive Communication Topology for LLM-MAS (2025/10)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["phalanx-ring MAS topology (partial: 'MAS topology' generic)"],
+      "rationale": "AMAS designs task-adaptive topologies for LLM-MAS but does not propose a ring with contiguous-range neighbor-overlap safety check. Only 'topology' is a generic shared word; no overlap/contiguous/neighbor-shield specific match.",
+      "hit": false
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2603.01213",
+      "title": "Can AI Agents Agree? (2026/3)",
+      "functional_equivalence": 0.6,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["agreement (partial generic)"],
+      "rationale": "BFT-style honest-agent consensus is threshold-based not contiguous-range. Shares 'agreement' generically but not contiguous-range or neighbor-overlap. Below 0.7 on all three axes.",
+      "hit": false
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2505.05103",
+      "title": "Weighted BFT Consensus Multi-LLM Network (2025/5)",
+      "functional_equivalence": 0.62,
+      "semantic_cosine_estimate": 0.46,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["agreement (partial generic)"],
+      "rationale": "WBFT weighted-vote consensus; threshold/quorum not contiguous-range neighbor overlap. Functional mechanism differs (weight on votes vs spatial neighbor concurrence). Below threshold on all axes.",
+      "hit": false
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2505.22467",
+      "title": "Topological Structure Learning Priority for LLM-MAS (2025/5)",
+      "functional_equivalence": 0.55,
+      "semantic_cosine_estimate": 0.4,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["topology (generic)"],
+      "rationale": "Advocates topology-aware MAS design but does not specify contiguous-range overlap defense. Only generic 'topology' overlaps. Below threshold on all axes.",
+      "hit": false
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2502.11127",
+      "title": "G-Safeguard: Topology-Guided MAS Security (2025/2)",
+      "functional_equivalence": 0.65,
+      "semantic_cosine_estimate": 0.5,
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["topology / MAS defense (generic)"],
+      "rationale": "G-Safeguard uses GNN-based topology anomaly detection plus intervention. Defense mechanism differs from hard architectural contiguous-range neighbor-overlap requirement. Functional similarity is in 'topology-based MAS defense' generally but not in the specific overlap-ring contiguous-concurrence mechanism. Below 0.7 on all axes.",
+      "hit": false
+    }
+  ],
+  "summary": {
+    "total_hits": 0,
+    "hit_ranks": [],
+    "verdict": "PASS",
+    "notes": "All 8 results fall below the OR-threshold. Source-domain results (1-3) are pure history articles. LLM-side results (4-8) all describe different agent-coordination mechanisms (adaptive topology, BFT/WBFT consensus, GNN-anomaly detection, topology-aware design) — none implement the specific contiguous-range neighbor-overlap shield-wall defense the candidate proposes."
+  }
+}

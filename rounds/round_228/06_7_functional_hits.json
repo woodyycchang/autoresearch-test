@@ -1,0 +1,23 @@
+{
+  "round": "228",
+  "candidate_llm_application": "Wax-schedule fine-tuning: ordered monotonically-growing mask stack across N sequential dye stages",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r228-batik-wax-stack-finetune",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://en.wikipedia.org/wiki/Batik", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://www.britannica.com/technology/batik", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://ibatik.com.my/history-culture/batik-tulis-indonesia/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2601.21682", "judge_score": 0.72, "judge_justification": "FIT's targeted layer attribution + redundancy filtering across a stream of unlearning operations is functionally a monotonically protected coordinate set across sequential stages — the wax-stack discipline.", "matched_effect_cluster": "sequential-stage selective protection", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2601.18699v1", "judge_score": 0.55, "judge_justification": "Mechanistic analysis of forgetting; diagnostic only, not a wax-stack mitigation.", "matched_effect_cluster": "forgetting-mechanism analysis", "functional_hit": false},
+    {"rank": 6, "url": "https://openreview.net/forum?id=1ktdvp1EYI", "judge_score": 0.75, "judge_justification": "Low-perplexity token-mask explicitly masks tokens on which gradient is suppressed during fine-tune to preserve prior capabilities — operationally the per-stage wax mask on protected tokens. Repeating across stages would yield the candidate's monotonically growing stack.", "matched_effect_cluster": "per-stage selective gradient mask", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/abs/2501.13669", "judge_score": 0.78, "judge_justification": "Element-wise importance regularization with layer-wise coefficients across fine-tune — functionally a soft wax stack that protects high-importance coordinates from update. Repeated stage applications produce the candidate's monotonic protection.", "matched_effect_cluster": "element-wise regularized protection", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/html/2509.01213", "judge_score": 0.50, "judge_justification": "Model growth approach; adds capacity instead of waxing prior coords.", "matched_effect_cluster": "growth-based forgetting mitigation", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["sequential-stage selective protection", "per-stage selective gradient mask", "element-wise regularized protection"]
+  }
+}

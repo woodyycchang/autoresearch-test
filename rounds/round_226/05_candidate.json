@@ -1,0 +1,15 @@
+{
+  "round": "226",
+  "epoch": 10,
+  "candidate_form": "null-space-traversal",
+  "domain": "bobbin lace (Honiton non-continuous & Bruges continuous; two-move twist/cross calculus over pricking pin lattice)",
+  "specific_mechanism": "Bobbin lace produces 2D textile from ONLY two primitive operations applied to bobbin-thread pairs: TWIST (one bobbin over its neighbor) and CROSS (two bobbins exchanging positions). The full pattern is encoded by (a) a PRICKING — a pre-defined planar graph of pin positions — and (b) a SCHEDULE assigning {T, X} to each pin-anchored interaction. Non-continuous (Honiton) style first composes independent motif sprigs then stitches them via ground threads; continuous (Bruges) style weaves a single bobbin set through the whole pricking.",
+  "llm_application": "Two-op model-merge calculus: reduce ALL multi-expert model merging to a programmable sequence of TWIST (in-subspace rotation / orthogonal-frame change inside one expert) and CROSS (between-expert subspace swap) operations applied along a user-authored pricking graph in parameter-coordinate space. The pricking is a sparse, human-readable program describing exactly which subspace at which layer participates in which T/X op. Sprigs = subskill experts merged first; ground = final routing through pricking. The merged model's behavior is fully determined by the pricking + schedule, no per-input router needed.",
+  "novelty_claim": "Existing model-merge literature uses (i) arithmetic averaging (TIES, DARE, Task Arithmetic), (ii) layer-wise selective averaging (Mediator 2502.04411), (iii) per-input routing (Universal Model Routing 2502.08773, MoE), or (iv) hierarchical pruning (training-free survey 2603.09938). None expresses merge as a finite-alphabet (T, X) program over a pre-authored coordinate-graph pricking with sprig-then-ground composition. The closest mathematical model of bobbin lace itself (1406.1532) treats it as graph-theoretic but never as an LLM operation.",
+  "content_words": ["bobbin lace", "twist cross calculus", "pricking lattice", "sprig motif", "two-op merge program", "subspace exchange", "pin-anchored schedule", "ground-stitch composition"],
+  "content_words_composition": {
+    "llm_side": ["two-op merge program", "subspace exchange", "pin-anchored schedule", "ground-stitch composition"],
+    "source_side": ["bobbin lace", "twist cross calculus", "pricking lattice", "sprig motif"],
+    "generic": []
+  }
+}

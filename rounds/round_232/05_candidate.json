@@ -1,0 +1,15 @@
+{
+  "round": "232",
+  "epoch": 10,
+  "candidate_form": "information-cascade",
+  "domain": "Victorian floriography + Turkish selam (compositional flower-language messaging code where a nosegay's flower selection + position + ribbon collectively encodes a hidden message via a shared dictionary; Turkish selam adds rhyme-substitution for full phrase encoding)",
+  "specific_mechanism": "A bouquet (tussie-mussie) communicates a message through: (1) dictionary entries for each flower; (2) hierarchical position (central focus vs. accent vs. base herb); (3) ribbon color modifier; (4) hand-of-presentation (left = no, right = yes); (5) seasonal calibration of the dictionary. The composite message is COMPOSITIONAL — no single element is the message, and the same elements rearranged yield different messages.",
+  "llm_application": "Floriography compositional-adversarial-prompt classifier: a defence-side detector that scans incoming prompts for compositional signatures using a learned 'floriography dictionary' (a learned codebook of cover-text-tokens → adversarial-semantic-meaning mappings) PLUS a positional-decoder (which sentence-position a codebook token occurs in determines its semantic role). Output: 'bouquet decode score' = posterior probability that the prompt's BENIGN surface text overlays a compositional adversarial message. Critical features: (i) detector is compositional, not single-token; (ii) positional encoding matters; (iii) dictionary is learned, not hand-crafted; (iv) prompt + tool-call history + referenced-file metadata are all jointly scanned as one bouquet.",
+  "novelty_claim": "Semantic Intent Fragmentation Attack (2604.08608) describes the ATTACK side (single-shot compositional attack on MAS). Existing adversarial-prompt detectors (jailbreak classifiers, intent classifiers) operate on single-prompt features, not on composite multi-source bouquets. Compositional Steering with Steering Tokens (2601.05062) controls behavior via composition, not detection. No surveyed work proposes the floriography-dictionary discipline as a defence-side detector that jointly scans prompt + tool-call sequence + file metadata for compositional adversarial signatures.",
+  "content_words": ["Victorian floriography", "tussie mussie nosegay", "selam compositional code", "dictionary decode", "bouquet decoder", "compositional adversarial detector", "positional-role encoder", "multi-source prompt scan"],
+  "content_words_composition": {
+    "llm_side": ["bouquet decoder", "compositional adversarial detector", "positional-role encoder", "multi-source prompt scan"],
+    "source_side": ["Victorian floriography", "tussie mussie nosegay", "selam compositional code", "dictionary decode"],
+    "generic": []
+  }
+}

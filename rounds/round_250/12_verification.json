@@ -1,0 +1,108 @@
+{
+  "round": "250",
+  "verifier": "claude-opus-4-7-cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "content_words": ["spider orb web", "auxiliary scaffold spiral", "sticky-spiral replacement", "scaffold-then-ablate", "auxiliary adapter A_temp", "auxiliary internalization verification", "formal deployment ablation", "3-stage scaffold protocol"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://britishspiders.org.uk/orb-webs",
+      "title": "Orb Web Construction — British Arachnological Society",
+      "snippet": "Source-domain: auxiliary spiral (temporary) + capture spiral (replaces auxiliary).",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.18,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Source-domain biology only; no LLM/training mechanism. No substring matches of multi-word content_words in title+snippet (e.g., 'spider orb web' as bigram not present verbatim; 'auxiliary scaffold spiral' absent; only 'auxiliary spiral' which is not a content_word). func<0.7, sem<0.7, kw<2."
+    },
+    {
+      "rank": 2,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8612999/",
+      "title": "Distinct Movement Patterns Generate Stages of Spider Web-Building — PMC",
+      "snippet": "Source-domain: hub-out auxiliary spiral; rim-to-center capture spiral; scaffold removal.",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.20,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Source-domain biology only. No exact substring of any multi-word content_word ('spider orb web' bigram not in text; 'auxiliary scaffold spiral' not present). func<0.7, sem<0.7, kw<2."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(21)01322-1",
+      "title": "Orb weavers: Movement Sequences — Current Biology",
+      "snippet": "Source-domain: stage-defined movement trajectories during web building.",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.12,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Source-domain only; movement sequences, no LLM mechanism. No content_word substring matches. func<0.7, sem<0.7, kw<2."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2411.08937v1",
+      "title": "Dual-Head Knowledge Distillation (2024/11)",
+      "snippet": "LLM-side: dual classification heads, auxiliary heads removed at inference.",
+      "functional_equivalence": 0.76,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": true,
+      "reason": "Functional equivalence is strong: explicit auxiliary head used during training and REMOVED (ablated) at inference — directly matches the candidate's scaffold-then-ablate discipline (auxiliary scaffold installed → main learns → auxiliary formally removed). func>=0.7 triggers OR."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2506.07055v1",
+      "title": "Layered Self-Supervised KD (LSSKD) (2025/6)",
+      "snippet": "LLM-side: stage-wise auxiliary classifiers removed at inference.",
+      "functional_equivalence": 0.79,
+      "semantic_cosine_estimate": 0.58,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": true,
+      "reason": "LSSKD attaches stage-wise auxiliary classifiers across multiple layers and removes ALL of them at inference — operationally equivalent to candidate's multi-stage scaffold-then-ablate. The 'stage-wise' framing aligns with the candidate's 3-stage protocol. func>=0.7 triggers OR."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2601.15657",
+      "title": "Sequential Multi-Stage KD Framework (2026/1)",
+      "snippet": "LLM-side: multi-stage distillation; frozen reference anchors prior-stage knowledge.",
+      "functional_equivalence": 0.71,
+      "semantic_cosine_estimate": 0.52,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": true,
+      "reason": "Sequential multi-stage KD with a frozen reference anchoring prior-stage knowledge matches the candidate's stage-2 mechanic (frozen A_temp+H_aux consulted while A_main learns). Multi-stage structure aligns with 3-stage protocol. func>=0.7 triggers OR."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2502.18530",
+      "title": "IMPROVE: Iterative Pipeline Refinement (2025/2)",
+      "snippet": "LLM-side: one-component-at-a-time pipeline refinement.",
+      "functional_equivalence": 0.58,
+      "semantic_cosine_estimate": 0.45,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Iterative refinement, not auxiliary-installation-then-ablation. No formal scaffold removal step. The candidate's novelty_claim explicitly distinguishes from IMPROVE. func<0.7, sem<0.7, kw<2."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2604.01029",
+      "title": "Revision or Re-Solving: Second-Pass Gains (2026/4)",
+      "snippet": "LLM-side: scaffold-then-refine in multi-LLM pipelines.",
+      "functional_equivalence": 0.62,
+      "semantic_cosine_estimate": 0.48,
+      "keyword_overlap_count": 0,
+      "kw_matched": [],
+      "hit": false,
+      "reason": "Inference-time scaffold-then-refine across multi-LLM pipelines, not training-time auxiliary installation with formal ablation. Candidate explicitly distinguishes inference-time scaffolding from training-with-ablation. func<0.7, sem<0.7, kw<2."
+    }
+  ],
+  "total_hits": 3,
+  "verdict": "FAIL",
+  "fail_reason": "3 functional hits at func>=0.7: rank 4 (Dual-Head KD, auxiliary-head-removed-at-inference), rank 5 (LSSKD, stage-wise auxiliary classifiers removed), rank 6 (Sequential Multi-Stage KD, multi-stage with frozen reference). The candidate's 3-stage scaffold-then-ablate discipline is functionally captured by existing KD-with-auxiliary-head-removal literature; the 'internalization verification' addendum is a minor probing step on top of established practice, insufficient to constitute a novel mechanism."
+}

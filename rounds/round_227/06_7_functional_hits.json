@@ -1,0 +1,23 @@
+{
+  "round": "227",
+  "candidate_llm_application": "Inference-time stimulus-mask anneal: per-input hood with high mask + uniform temperature, annealed by risk-conditioned schedule",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r227-falconry-hood-inference-anneal",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://falconryadvice.com/equipment/falconry-hood-training-guide/", "judge_score": 0.05, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://nysfa.org/becoming-a-falconer/husbandry-equipment/hooding/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://en.wikipedia.org/wiki/Falconry_training_and_technique", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://avian-behavior.org/hooding-and-birds-of-prey/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 5, "url": "https://arxiv.org/abs/2603.01494", "judge_score": 0.50, "judge_justification": "Inference-time safety via RAG revision; uses input-side risk surfacing but no mask-annealing schedule.", "matched_effect_cluster": "inference-time safety", "functional_hit": false},
+    {"rank": 6, "url": "https://arxiv.org/abs/2511.04847", "judge_score": 0.45, "judge_justification": "Test-time adaptation via environment interaction; addresses adaptation but not per-input stimulus mask anneal.", "matched_effect_cluster": "test-time adaptation", "functional_hit": false},
+    {"rank": 7, "url": "https://arxiv.org/html/2410.02725v1", "judge_score": 0.78, "judge_justification": "Adaptive Inference-Time Compute uses temperature-annealing strategy + adaptive (risk-like) per-input sample allocation — operationally captures the temperature-anneal-conditioned-on-difficulty leg of the candidate; lacks explicit token-mask leg, but the per-input adaptive anneal is the functional core.", "matched_effect_cluster": "adaptive per-input temperature anneal", "functional_hit": true},
+    {"rank": 8, "url": "https://arxiv.org/abs/2502.12521", "judge_score": 0.50, "judge_justification": "Benchmark survey of inference-time techniques; covers many strategies but is not a specific per-input mask-anneal mechanism.", "matched_effect_cluster": "inference-time survey", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false,
+    "matched_effect_clusters": ["adaptive per-input temperature anneal"]
+  }
+}

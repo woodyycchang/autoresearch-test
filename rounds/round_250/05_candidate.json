@@ -1,0 +1,15 @@
+{
+  "round": "250",
+  "epoch": 10,
+  "candidate_form": "information-cascade",
+  "domain": "spider orb-web construction (multi-stage build by orb-weaver: bridge line → polygonal frame → 15-35 radial spokes at 10-25° intervals → AUXILIARY non-sticky temporary spiral hub-outward → STICKY capture spiral outside-inward that REPLACES and often REMOVES the auxiliary; total time ~1 hour; the auxiliary is structurally essential during construction but is removed once the sticky is laid)",
+  "specific_mechanism": "Two distinct spirals: auxiliary (temporary, non-sticky, hub-outward, used as scaffold for the spider's body to walk on) and sticky (permanent, capture, outside-inward, replaces auxiliary). Spider often consumes/removes auxiliary as it lays sticky. Auxiliary's only function is scaffolding for sticky-spiral construction.",
+  "llm_application": "Scaffold-then-replace progressive fine-tune with formal auxiliary ablation: train in 3 stages — (1) BOOTSTRAP: install auxiliary adapter A_temp + head H_aux predicting intermediate quantities (entity tags, refusal flags, calibration scores); A_temp drives easy learning signal. (2) MAIN-TASK: train primary adapter A_main with A_temp+H_aux FROZEN and CONSULTED via auxiliary loss term; A_main learns to use the auxiliary signal. (3) ABLATION: fine-tune A_main with A_temp removed; verify A_main has absorbed the auxiliary function (via held-out probes); FORMALLY ABLATE A_temp+H_aux at deployment. Distinguished from standard auxiliary-loss training: explicit ablation stage with internalization verification.",
+  "novelty_claim": "IMPROVE (2502.18530), EVOLVE (2502.05605) refine iteratively but do not formally ablate auxiliary. Two-stage prompting (2604.01029) uses scaffold-then-refine at INFERENCE not training-with-ablation. Standard distillation removes the teacher entirely but is one-shot, not staged with auxiliary internalization verification. The 3-stage bootstrap-main-ablation with verification is not retrieved in surveyed prior art.",
+  "content_words": ["spider orb web", "auxiliary scaffold spiral", "sticky-spiral replacement", "scaffold-then-ablate", "auxiliary adapter A_temp", "auxiliary internalization verification", "formal deployment ablation", "3-stage scaffold protocol"],
+  "content_words_composition": {
+    "llm_side": ["auxiliary adapter A_temp", "auxiliary internalization verification", "formal deployment ablation", "3-stage scaffold protocol"],
+    "source_side": ["spider orb web", "auxiliary scaffold spiral", "sticky-spiral replacement", "scaffold-then-ablate"],
+    "generic": []
+  }
+}

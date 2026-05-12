@@ -1,0 +1,23 @@
+{
+  "round": "250",
+  "candidate_llm_application": "3-stage scaffold-then-ablate fine-tune: bootstrap with A_temp+H_aux, main-task with A_main consulting frozen A_temp, formal ablation with internalization verification",
+  "judge_model": "claude-opus-4-7",
+  "judge_prompt_hash": "sha256:r250-spider-orbweb-scaffold-ablate",
+  "functional_threshold": 0.7,
+  "results": [
+    {"rank": 1, "url": "https://britishspiders.org.uk/orb-webs", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 2, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8612999/", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 3, "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(21)01322-1", "judge_score": 0.04, "judge_justification": "Source-domain only.", "matched_effect_cluster": "source-domain only", "functional_hit": false},
+    {"rank": 4, "url": "https://arxiv.org/html/2411.08937v1", "judge_score": 0.78, "judge_justification": "Dual-Head KD: explicit auxiliary classification head used during training and REMOVED at inference — operationally the candidate's auxiliary-then-ablate discipline.", "matched_effect_cluster": "auxiliary-head removed at inference", "functional_hit": true},
+    {"rank": 5, "url": "https://arxiv.org/html/2506.07055v1", "judge_score": 0.80, "judge_justification": "LSSKD attaches stage-wise auxiliary classifiers across bottleneck layers; all removed at inference — same scaffold-then-ablate discipline with multiple auxiliary scaffolds.", "matched_effect_cluster": "stage-wise auxiliary classifiers removed", "functional_hit": true},
+    {"rank": 6, "url": "https://arxiv.org/html/2601.15657", "judge_score": 0.72, "judge_justification": "Sequential multi-stage KD framework with frozen-reference anchoring prior-stage knowledge; very close to candidate's 3-stage scaffold-then-internalize discipline.", "matched_effect_cluster": "sequential multi-stage KD with frozen reference", "functional_hit": true},
+    {"rank": 7, "url": "https://arxiv.org/abs/2502.18530", "judge_score": 0.62, "judge_justification": "Iterative one-component-at-a-time refinement; not auxiliary-ablation.", "matched_effect_cluster": "iterative pipeline refinement", "functional_hit": false},
+    {"rank": 8, "url": "https://arxiv.org/html/2604.01029", "judge_score": 0.65, "judge_justification": "Inference-time scaffold-then-refine; not training-time auxiliary-ablation.", "matched_effect_cluster": "inference scaffold-refine", "functional_hit": false}
+  ],
+  "summary": {
+    "functional_hits_count": 3,
+    "distinct_effect_clusters_above_threshold": 3,
+    "multi_cluster_match": true,
+    "matched_effect_clusters": ["auxiliary-head removed at inference", "stage-wise auxiliary classifiers removed", "sequential multi-stage KD with frozen reference"]
+  }
+}

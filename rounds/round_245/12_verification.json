@@ -1,0 +1,106 @@
+{
+  "round": "245",
+  "verifier": "fresh-cross-agent",
+  "judge_model": "claude-opus-4-7",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_keywords": ["wabi-sabi aesthetic", "imperfection valorization", "kintsugi gold seam", "visible patina", "wabi confidence vector", "sabi annotation provenance", "kintsugi knowledge-gap seam", "calibration-as-aesthetic"],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://en.wikipedia.org/wiki/Wabi-sabi",
+      "functional_equivalence": 0.05,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 2,
+      "keyword_overlap_terms": ["wabi-sabi aesthetic", "imperfection valorization"],
+      "hit": true,
+      "hit_reason": "kw>=2 (source-domain wabi-sabi terms match)",
+      "justification": "Source-domain wikipedia article on wabi-sabi. Discusses imperfection/impermanence aesthetic but no LLM/calibration content. Functional equivalence to LLM application is near-zero, but source-domain keywords ('wabi-sabi aesthetic', 'imperfection valorization') trigger the keyword threshold."
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Sen_no_Riky%C5%AB",
+      "functional_equivalence": 0.03,
+      "semantic_cosine_estimate": 0.40,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["wabi-sabi aesthetic"],
+      "hit": false,
+      "hit_reason": "kw=1 (below threshold), sem<0.7, func<0.7",
+      "justification": "Biography of tea master. Only one source-domain keyword likely present (wabi-sabi). No LLM/calibration content. Below all thresholds."
+    },
+    {
+      "rank": 3,
+      "url": "https://japanesegarden.org/2024/12/04/wabi-tea/",
+      "functional_equivalence": 0.04,
+      "semantic_cosine_estimate": 0.42,
+      "keyword_overlap_count": 1,
+      "keyword_overlap_terms": ["wabi-sabi aesthetic"],
+      "hit": false,
+      "hit_reason": "kw=1 (below threshold), sem<0.7, func<0.7",
+      "justification": "Garden-society blog on wabi-sabi and tea. Source-domain only; one keyword likely. No LLM mechanism content. Below thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2410.09724",
+      "functional_equivalence": 0.78,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "hit": true,
+      "hit_reason": "func>=0.7 (PPO-M = RLHF reward with verbalized confidence)",
+      "justification": "PPO-M (Taming Overconfidence) integrates verbalized confidence into the RLHF reward model. This is functionally the same mechanism as the candidate's 'RLHF reward function: polished-but-overconfident answers PENALIZED; visibly-uncertain-but-calibrated answers REWARDED.' Same operational pathway."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2502.11028",
+      "functional_equivalence": 0.72,
+      "semantic_cosine_estimate": 0.60,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "hit": true,
+      "hit_reason": "func>=0.7 (verbalized confidence calibration)",
+      "justification": "Mind the Confidence Gap: verbalized confidence calibration via prompting. Operationally same as per-claim visible-uncertainty hedging proposed by candidate."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2503.02623",
+      "functional_equivalence": 0.80,
+      "semantic_cosine_estimate": 0.65,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "hit": true,
+      "hit_reason": "func>=0.7 (Rewarding Doubt = RL-trained doubt verbalization)",
+      "justification": "'Rewarding Doubt' explicitly trains via RL to verbalize doubt. Near-identical operational target to candidate's wabi-sabi visible-imperfection RLHF reward. Strong functional overlap."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2508.15842v1",
+      "functional_equivalence": 0.68,
+      "semantic_cosine_estimate": 0.55,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "hit": false,
+      "hit_reason": "func=0.68 (below 0.7), sem<0.7, kw=0",
+      "justification": "Lexical Hints of Accuracy: hedging-words correlate with internal confidence + accuracy. Provides observational lexical signal but does NOT train/reward visible imperfection. Close to threshold but observation-not-intervention; functional equivalence below 0.7."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2603.25052v1",
+      "functional_equivalence": 0.74,
+      "semantic_cosine_estimate": 0.62,
+      "keyword_overlap_count": 0,
+      "keyword_overlap_terms": [],
+      "hit": true,
+      "hit_reason": "func>=0.7 (RLHF overconfidence mitigation)",
+      "justification": "Closing Confidence-Faithfulness Gap analyzes how RLHF compresses verbalized confidence toward overconfidence and proposes mitigations. Same problem and mechanism domain as candidate's RLHF reward-penalize-overconfidence proposal."
+    }
+  ],
+  "total_hits": 6,
+  "hits_by_rule": {
+    "keyword_only": 1,
+    "functional_only": 5,
+    "semantic_only": 0,
+    "multi_criterion": 0
+  },
+  "verdict": "FAIL",
+  "rationale": "total_hits=6 >= 1. Rank 1 hits on keyword (>=2 source-domain matches). Ranks 4,5,6,8 hit on functional equivalence (RLHF/verbalized-confidence calibration mechanisms operationally equivalent to candidate's proposed reward function and per-claim hedging). The candidate's core LLM mechanism (verbalized uncertainty + RLHF reward for calibrated humility) is well-precedented in 2024-2026 literature."
+}

@@ -1,0 +1,15 @@
+{
+  "round": "229",
+  "epoch": 10,
+  "candidate_form": "basin-stability",
+  "domain": "abalone nacre brick-and-mortar nano-architecture (95% aragonite tablets + 5% chitin-protein mortar + mineral nanobridges crossing the mortar; 3000× toughness vs monolithic aragonite via crack deflection)",
+  "specific_mechanism": "Aragonite platelets are highly oriented, mostly horizontal, separated by a thin organic chitin+protein matrix. Mineral nanobridges (small ASC-grown islands) pierce the organic mortar at controlled density, providing crack-deflection paths. Cracks travel along the soft mortar and dissipate energy; tablets stay intact. The composite is ~3000× tougher than monolithic aragonite at the SAME volume fraction of stone.",
+  "llm_application": "Brick-and-mortar adapter laminate: a model's adapter stack is decomposed into alternating HARD layers (low-rank rotation-locked orthogonal adapters with high magnitude, providing task capability) and SOFT layers (high-rank, low-magnitude regularizer-dominant adapters, providing buffering). Sparse 'mineral nanobridges' = trainable scalar gates that skip-connect a small fraction (controlled density d ≈ 5-10%) of HARD layers across non-adjacent positions. Under adversarial fine-tune (data poisoning attack), gradient flow encounters soft buffer layers first and dissipates over them — the propagation of corrupted update is ARRESTED at soft boundaries — while the bridges preserve the original task connectivity to deeper hard layers. Predicted property: 3000×-style robustness to adversarial fine-tune at the same total parameter cost as a monolithic LoRA.",
+  "novelty_claim": "Modular foundation work (Configurable Foundation Models 2409.02877) treats neurons as functional partitions but not as a hard/soft alternating laminate. LoRA-library reuse (2405.11157) is composition-of-experts at deployment, not lamination. Layer-aware safety methods (LARF 2507.18631, SafeMERGE 2503.17239, DeepRefusal 2509.15202) freeze specific layers but do not propose the alternating-stiffness laminate with sparse nanobridge skip-connections. No surveyed work uses the nacre topology specifically for crack-arrest-style robustness to adversarial fine-tune.",
+  "content_words": ["abalone nacre", "aragonite tablet", "chitin-protein mortar", "mineral nanobridge", "alternating-stiffness laminate", "low-rank rotation-locked adapter", "sparse skip-bridge", "crack-arrest fine-tune robustness"],
+  "content_words_composition": {
+    "llm_side": ["alternating-stiffness laminate", "low-rank rotation-locked adapter", "sparse skip-bridge", "crack-arrest fine-tune robustness"],
+    "source_side": ["abalone nacre", "aragonite tablet", "chitin-protein mortar", "mineral nanobridge"],
+    "generic": []
+  }
+}
