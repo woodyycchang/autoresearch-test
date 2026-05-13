@@ -1,0 +1,118 @@
+{
+  "round": "421",
+  "verifier_id": "R421-cross-agent-verifier",
+  "verifier_model": "claude-opus-4-7 (independent fresh scoring)",
+  "candidate_llm_application": "DERVISH-RING: multi-layer phase-coherent activation steering via fixed-pivot rotation with calibrated layer-wise angular progression",
+  "thresholds": {"kw_min": 2, "sem_min": 0.7, "func_min": 0.7},
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); total>=1 -> FAIL",
+  "independent_scores": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2510.26243v1",
+      "title": "Angular Steering Behavior Control Rotation in Activation Space",
+      "kw_count": 3,
+      "kw_matched": ["activation", "rotation", "steering"],
+      "sem_cosine": 0.91,
+      "func_score": 0.90,
+      "func_cluster": "Angular Steering: bounded-angle rotation in fixed 2D activation subspace",
+      "hit": true,
+      "reason": "Core mechanism (angle rotation in fixed activation subspace) is exact twin of DERVISH-RING per-layer rotation; only differs by being single-layer."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2602.08169v1",
+      "title": "Spherical Steering Geometry-Aware Activation Rotation",
+      "kw_count": 3,
+      "kw_matched": ["activation", "rotation", "steering"],
+      "sem_cosine": 0.93,
+      "func_score": 0.92,
+      "func_cluster": "Spherical Steering: geometry-aware rotation + vMF gating",
+      "hit": true,
+      "reason": "Training-free geometry-aware activation rotation is direct functional twin of fixed-pivot rotation steering."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2601.19375",
+      "title": "Selective Steering Norm-Preserving Discriminative Layer Selection",
+      "kw_count": 3,
+      "kw_matched": ["multi-layer", "steering", "activation"],
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "func_cluster": "Multi-layer norm-preserving steering with layer selection",
+      "hit": true,
+      "reason": "Norm-preserving multi-layer steering covers (a) multi-layer + (b) calibrated layer-wise selection of DERVISH-RING."
+    },
+    {
+      "rank": 4,
+      "url": "https://openreview.net/forum?id=wj4lM45xQR",
+      "title": "LayerNavigator Finding Promising Intervention Layers",
+      "kw_count": 2,
+      "kw_matched": ["layer", "steering"],
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "func_cluster": "Principled cross-layer steering layer selection",
+      "hit": true,
+      "reason": "Layer-selection for activation steering covers calibrated layer-wise progression aspect of DERVISH-RING."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2605.03907v1",
+      "title": "Steer Like the LLM PSR",
+      "kw_count": 2,
+      "kw_matched": ["steering", "coefficients"],
+      "sem_cosine": 0.82,
+      "func_score": 0.78,
+      "func_cluster": "PSR token-specific steering coefficients",
+      "hit": true,
+      "reason": "Token/layer-specific calibrated steering coefficients are functional analog of layer-wise theta progression."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.19018",
+      "title": "Local Linearity of LLMs Steering Linear Optimal Control",
+      "kw_count": 2,
+      "kw_matched": ["steering", "control"],
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "func_cluster": "Linear optimal control multi-layer activation steering",
+      "hit": true,
+      "reason": "Model-based optimal control across layers for steering directly covers calibrated cross-layer steering."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2505.20309",
+      "title": "Guiding Giants Lightweight Controllers Weighted Activation Steering",
+      "kw_count": 3,
+      "kw_matched": ["activation", "steering", "weighted"],
+      "sem_cosine": 0.76,
+      "func_score": 0.76,
+      "func_cluster": "Weighted multi-vector activation steering with controllers",
+      "hit": true,
+      "reason": "Weighted multi-vector controllers cover calibrated per-layer steering magnitude/angle progression."
+    },
+    {
+      "rank": 8,
+      "url": "https://openreview.net/forum?id=9wjGUN65tY",
+      "title": "From Steering Vectors to Conceptors and Beyond",
+      "kw_count": 2,
+      "kw_matched": ["steering", "vectors"],
+      "sem_cosine": 0.83,
+      "func_score": 0.82,
+      "func_cluster": "Conceptors compositional affine steering",
+      "hit": true,
+      "reason": "Compositional affine conceptors generalize multi-layer rotational/projective steering — covers DERVISH-RING mechanism."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 8,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_sem_cosine": 0.93,
+    "max_func_score": 0.92,
+    "distinct_effect_clusters_above_threshold": 8
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "Total hits = 8 (>=1). All 8 results trigger hit via all three modalities (kw>=2, sem>=0.7, func>=0.7). Angular Steering (2510.26243) and Spherical Steering (2602.08169) are exact functional twins of fixed-pivot activation rotation; Selective Steering (2601.19375) and LayerNavigator cover multi-layer calibrated layer-wise progression; Conceptors and PSR cover compositional/calibrated steering. DERVISH-RING is a recombination of well-covered prior art and not novel.",
+  "agreement_with_prior_scorers": "Verifier independently confirms semantic and functional hits as reported by 06_5 and 06_7. Independent func scores within +-0.04 of prior judge. No disagreement on hit/no-hit classifications."
+}
