@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R464",
+  "candidate": "SINAWALI-FLOW",
+  "candidate_form": "training-method",
+  "candidate_summary": "Multi-modal 5-stage flow-drill skill-ladder (token/reasoning/plan/tool/multi-agent) with per-stage long-medium-close range-partition sub-curriculum, pace-locked mastery-threshold acceleration, and cross-modality late-early back-feed gradient.",
+  "content_words": [
+    "filipino arnis eskrima kali flow",
+    "sinawali double-stick weave drill",
+    "single-stick empty-hand knife sword progression",
+    "long-medium-close range ladder pace-lock",
+    "multi-modal flow-drill skill-ladder stage",
+    "range-partitioned long-medium-close sub-curriculum",
+    "pace-locked threshold-graduated acceleration",
+    "cross-modality late-early back-feed"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "Multimodal Reasoning Staged RL (2506.04207)",
+      "description": "LLM-side: optimized cold start + staged RL phases multimodal reasoning; gradient stagnation handled via staged transition.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["multi-modal flow-drill skill-ladder stage (partial: multi-modal + staged)", "pace-locked threshold-graduated acceleration (partial: staged transition)"],
+      "semantic_score": 0.72,
+      "functional_score": 0.65,
+      "rationale": "Staged RL phases for multimodal reasoning aligns with multi-modal stage ladder. Lacks explicit range-partition, pace-lock mastery threshold, and cross-modality back-feed. Same artefact (staged curriculum) but partial effect coverage.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "MAPS Advancing Multi-Modal Reasoning ICLR 2025",
+      "description": "LLM-side: multi-modal reasoning staged training for vision + reasoning + tool integration.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["multi-modal flow-drill skill-ladder stage (partial: multi-modal staged)", "single-stick empty-hand knife sword progression (partial: vision+reasoning+tool integration analog)"],
+      "semantic_score": 0.74,
+      "functional_score": 0.70,
+      "rationale": "Multi-modal staged training across vision/reasoning/tool maps to skill-ladder progression spanning modalities. Same artefact (staged multi-modal curriculum) and similar effect of cross-stage skill transfer. Lacks pace-lock and back-feed.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Curriculum Design Trajectory-Constrained Agent CoT Compression (2511.02690)",
+      "description": "LLM-side: curriculum gradually tightens constraints + smoother transition + CoT compression.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["pace-locked threshold-graduated acceleration (partial: gradual tightening transition)"],
+      "semantic_score": 0.55,
+      "functional_score": 0.45,
+      "rationale": "Gradual constraint tightening is a single-axis curriculum without multi-modal ladder, range partition, or back-feed. Different artefact (constraint schedule vs modality ladder); effect overlaps only at the level of pacing.",
+      "hit": false
+    },
+    {
+      "id": 4,
+      "name": "CAMPUS Competence-Aware Multi-Perspective Curriculum Instruction (2509.13790)",
+      "description": "LLM-side: CAMPUS competence-aware curriculum with dynamic difficulty + adversarial-learned scoring.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["pace-locked threshold-graduated acceleration (partial: competence-aware dynamic difficulty)"],
+      "semantic_score": 0.68,
+      "functional_score": 0.62,
+      "rationale": "Competence-aware dynamic difficulty matches the pace-lock mastery threshold concept. However missing multi-modal ladder, range partition, and back-feed. Same effect (mastery-gated pacing) but only one of four mechanisms.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "VL-Cogito Progressive Curriculum RL (2507.22607)",
+      "description": "LLM-side: PCuRL three-stage easy/medium/hard with difficulty soft-weighting.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["pace-locked threshold-graduated acceleration (partial: progressive three-stage)"],
+      "semantic_score": 0.62,
+      "functional_score": 0.55,
+      "rationale": "Three-stage progressive curriculum is structurally similar but single-modality, no range partition, no back-feed. Candidate explicitly differentiates from this paper.",
+      "hit": false
+    },
+    {
+      "id": 6,
+      "name": "Curriculum RL Easy-to-Hard LLM Reasoning",
+      "description": "LLM-side: easy-to-hard task curriculum RL with probabilistic scheduler + foundational skill build-up.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["pace-locked threshold-graduated acceleration (partial: probabilistic scheduler)"],
+      "semantic_score": 0.58,
+      "functional_score": 0.50,
+      "rationale": "Easy-to-hard probabilistic scheduler is generic curriculum without multi-modal ladder or back-feed. Different artefact.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "WISDOM Progressive Curriculum Synthesis Math",
+      "description": "LLM-side: gradually synthesize CoT data easy-to-hard.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.50,
+      "functional_score": 0.40,
+      "rationale": "CoT synthesis easy-to-hard is single-modality data generation, not multi-modal ladder. Candidate explicitly differentiates.",
+      "hit": false
+    },
+    {
+      "id": 8,
+      "name": "Pre-Training Curriculum Multi-Token Prediction LM (2505.22757)",
+      "description": "LLM-side: pre-training curriculum for multi-token prediction in language models.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.45,
+      "functional_score": 0.35,
+      "rationale": "Multi-token prediction curriculum is token-level only; lacks multi-modal ladder, range partition, pace-lock, back-feed. Different artefact and effect.",
+      "hit": false
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 2,
+  "kw_forced_hits": 2,
+  "semantic_forced_hits": 2,
+  "functional_forced_hits": 1,
+  "result": "FAIL",
+  "decision_rationale": "Independent scoring finds 2 hits among 8 results (Multimodal Staged RL 2506.04207 and MAPS ICLR 2025), both crossing thresholds on the multi-modal staged-curriculum dimension. Prior art covers the core combination of multi-modal + staged skill ladder, so candidate is not sufficiently novel. R464 SINAWALI-FLOW FAILS the novelty bar."
+}

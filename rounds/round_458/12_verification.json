@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R458",
+  "candidate": "KATA-CHECKPOINT",
+  "candidate_form": "training-method",
+  "candidate_summary": "Paired-form curriculum LLM pretraining inspired by Aikido kata: progressive-difficulty kata-stages, per-stage mastery-checkpoint gate before advancement, paired uke-tori bilateral training (both initiator and responder sides), and failure-driven adaptive sample resampling.",
+  "content_words": [
+    "aikido kata paired-form ukemi",
+    "progressive ikkyo-rokkyo difficulty order",
+    "kyu-dan mastery checkpoint gate",
+    "uke-tori paired training drill",
+    "progressive paired-form kata curriculum stages",
+    "mastery-checkpoint gated advancement",
+    "uke-tori paired training example both-sides",
+    "adaptive resampling on stage failure"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "Prompt Curriculum Learning Efficient LLM Post-Training (2510.01135)",
+      "description": "PCL selects intermediate-difficulty prompts via learned value model — curriculum-driven post-training.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["curriculum (stages)", "difficulty (progressive/intermediate)"],
+      "semantic_score": 0.78,
+      "functional_score": 0.55,
+      "rationale": "Difficulty-selected curriculum prompts overlap candidate's progressive-difficulty staging concept, but PCL targets post-training prompt selection without mastery-gate checkpoints, paired bilateral training, or stage replay. Same family (difficulty curriculum) but different artefact (post-training prompt selection vs. pretraining staged mastery gates).",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "Limits Curriculum Learning Post-Training LLM (OpenReview)",
+      "description": "CL as mechanism to exploit difficulty during post-training; mixed results across SFT and RL.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["curriculum", "difficulty"],
+      "semantic_score": 0.72,
+      "functional_score": 0.5,
+      "rationale": "Examines CL difficulty exploitation in post-training. Same difficulty-curriculum family but no checkpoint gate, no bilateral paired training, no resample-on-failure. Partial paradigm overlap.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Training LLM Agents RL Gyms Curriculum Design (Turing)",
+      "description": "RL gyms benefit from performance-based progression with advancement criteria + regression to earlier stages on threshold drop.",
+      "keyword_overlap_count": 4,
+      "keyword_matches": ["advancement", "stage (regression)", "progression (progressive)", "threshold (gate-equivalent)"],
+      "semantic_score": 0.85,
+      "functional_score": 0.78,
+      "rationale": "Performance-based progression with advancement criteria + regression on threshold drop is functionally the mastery-gate-checkpoint + failure-driven stage-replay mechanism. Strong functional twin to gating/replay aspect; lacks paired uke-tori bilateral training, but covers the gate-checkpoint effect.",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "Curriculum Learning LLM Pretraining Learning Dynamics (2601.21698)",
+      "description": "200+ models up to 100B tokens with curriculum stages + pacing + interleaved variants.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["curriculum", "stages", "pretraining (kata curriculum stages)"],
+      "semantic_score": 0.82,
+      "functional_score": 0.65,
+      "rationale": "Systematic curriculum-stage LLM pretraining with pacing and interleaved variants. Covers staged-curriculum pretraining paradigm but does not introduce mastery-checkpoint gates or paired bilateral training. The candidate's own novelty section explicitly carves itself off against this paper.",
+      "hit": true
+    },
+    {
+      "id": 5,
+      "name": "Beyond Random Sampling Efficient LM Pretraining Curriculum (2506.11300)",
+      "description": "Curriculum order accelerates convergence 18-45%.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["curriculum", "order"],
+      "semantic_score": 0.7,
+      "functional_score": 0.55,
+      "rationale": "Curriculum-order data scheduling for pretraining — overlaps difficulty-order aspect of kata stages but no gating, no paired bilateral, no replay. Candidate's novelty section explicitly differentiates from this paper.",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Curriculum-Guided Layer Scaling LM Pretraining (2506.11389)",
+      "description": "Stratified domain/complexity curriculum + per-stage layer scaling.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["curriculum", "stages (per-stage)", "stratified-difficulty"],
+      "semantic_score": 0.74,
+      "functional_score": 0.55,
+      "rationale": "Per-stage stratified curriculum LM pretraining. Same staged curriculum family, but per-stage scaling is a model architecture intervention rather than mastery-gate checkpoint. Differentiated by candidate.",
+      "hit": true
+    },
+    {
+      "id": 7,
+      "name": "LR Decay Curriculum-Based LLM Pretraining (2511.18903)",
+      "description": "Schedule interaction between learning-rate decay + curriculum order; staged-pretraining best-practice.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["curriculum", "staged (stages)", "pretraining (progressive curriculum)"],
+      "semantic_score": 0.7,
+      "functional_score": 0.55,
+      "rationale": "LR-decay-curriculum interaction for staged pretraining. Covers staged-curriculum + schedule coupling but no checkpoint mastery gate or paired bilateral. Candidate differentiates explicitly.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Bilateral Training Curriculum LLM 2026 Feb (2602.12036)",
+      "description": "Bilateral/paired training with gating + checkpoint-based advancement.",
+      "keyword_overlap_count": 5,
+      "keyword_matches": ["bilateral (paired)", "paired (paired-form/uke-tori)", "curriculum", "gating (gated/gate)", "checkpoint", "advancement"],
+      "semantic_score": 0.9,
+      "functional_score": 0.85,
+      "rationale": "Snippet describes bilateral/paired training combined with gating and checkpoint-based advancement — that is exactly the paired uke-tori bilateral + mastery-checkpoint-gate + staged-advancement combination claimed as the candidate's novelty. If genuine, it would be a direct twin of the recombination. Note: 2602.* arXiv ID is future-dated (Feb 2026), and I cannot verify the artefact contents from the files allowed; treating the snippet at face value gives a strong functional and semantic match.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 8,
+  "kw_forced_hits": 8,
+  "semantic_forced_hits": 8,
+  "functional_forced_hits": 2,
+  "result": "FAIL",
+  "decision_rationale": "All 8 retrieved results meet the OR-rule hit threshold (every result has keyword_overlap_count >= 2 and semantic_score >= 0.7; results 3 and 8 additionally clear the 0.7 functional threshold as same-artefact + same-effect twins covering mastery-gate + advancement-criteria and bilateral-paired-curriculum-with-gating respectively). Under the lenient OR-rule, 8/8 hits indicate strong prior-art coverage of the candidate's recombination, so KATA-CHECKPOINT is not novel and the round result is FAIL."
+}

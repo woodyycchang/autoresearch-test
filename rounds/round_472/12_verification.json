@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R472",
+  "candidate": "BAYANIHAN-LIFT",
+  "candidate_form": "phase-coherence",
+  "candidate_summary": "BAYANIHAN-LIFT: phase-locked collective gradient-step coordination for distributed LLM training. Workers synchronize update-phase via shared cadence-token broadcast every K steps; central workers receive larger asymmetric update weights; combined gradient bounded by anti-twist max-eigenvalue λ_struct; small-LR consolidation feast round after major sync events.",
+  "content_words": [
+    "filipino bayanihan bahay-kubo house-move",
+    "communal pole-bearer synchronized lift",
+    "phase-locked cadence walking step",
+    "asymmetric load center-periphery distribution",
+    "phase-locked collective gradient cadence-token broadcast",
+    "asymmetric weighted worker update center-periphery",
+    "anti-twist structural-integrity gradient constraint",
+    "post-task small-LR consolidation feast round"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "LlamaRL Distributed Asynchronous RL LLM Training (2505.24034)",
+      "description": "fully distributed asynchronous RL framework for 8B/70B/405B LLM training; lower step time than synchronous.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["distributed (partial match to 'phase-locked collective gradient cadence-token broadcast' via distributed training context)"],
+      "semantic_score": 0.55,
+      "functional_score": 0.5,
+      "rationale": "LlamaRL is a distributed async RL framework but does not implement cadence-token broadcast for phase-coherence, asymmetric center-periphery worker weights, anti-twist eigenvalue constraint, or consolidation feast round. It is async (opposite of phase-locked synchronization). Covers general distributed training territory but misses all four specific BAYANIHAN mechanisms.",
+      "hit": false
+    },
+    {
+      "id": 2,
+      "name": "Token Coherence MESI Multi-Agent LLM (2603.15183)",
+      "description": "MESI cache protocols + lazy invalidation; O(n×S×|D|)→O((n+W)×|D|) sync cost reduction.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.4,
+      "functional_score": 0.35,
+      "rationale": "MESI is a cache coherence protocol from CPU architectures applied to multi-agent token sync — about cache invalidation/coherence not phase-locked gradient cadence. No asymmetric weights, no anti-twist eigenvalue bound, no consolidation feast. 'Coherence' word match is misleading — MESI cache coherence ≠ phase coherence in gradient training.",
+      "hit": false
+    },
+    {
+      "id": 3,
+      "name": "AsyncFlow Asynchronous Streaming RL LLM (2507.01663)",
+      "description": "async streaming RL framework with distributed data storage + transfer + fine-grained scheduling.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.45,
+      "functional_score": 0.4,
+      "rationale": "AsyncFlow is async streaming RL (opposite of phase-locked synchronous cadence). Fine-grained scheduling is generic scheduling, not cadence-token broadcast. No asymmetric worker weights, no anti-twist constraint, no consolidation feast.",
+      "hit": false
+    },
+    {
+      "id": 4,
+      "name": "Adaptive Consensus Gradients Aggregation Distributed (2411.03742)",
+      "description": "subspace-optimization adaptive consensus gradient aggregation + efficient linear weighting.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["weighting (partial match to 'asymmetric weighted worker update center-periphery')"],
+      "semantic_score": 0.62,
+      "functional_score": 0.6,
+      "rationale": "Adaptive consensus with linear weighting is closest match to asymmetric weighted aggregation, but the 'weighting' is for consensus (uniform-ish) not explicitly center-periphery asymmetric. No cadence-token broadcast, no anti-twist eigenvalue bound, no consolidation feast. One out of four mechanisms partially overlaps.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "GAC Gradient Alignment Control Async RL LLM (2603.01501)",
+      "description": "GAC gradient alignment control for asynchronous LLM RL training stability.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["gradient (partial match to multiple content words via 'gradient' substring)"],
+      "semantic_score": 0.55,
+      "functional_score": 0.5,
+      "rationale": "GAC is gradient alignment control for async RL stability — different mechanism (alignment, not phase-locked cadence). Async by design (opposite of cadence-locked). No asymmetric center-periphery weights, no anti-twist eigenvalue bound, no consolidation feast. Candidate explicitly differentiates from GAC.",
+      "hit": false
+    },
+    {
+      "id": 6,
+      "name": "Distributed LLMs Multimodal Survey (2503.16585)",
+      "description": "distributed LLM + multimodal survey with cadence + weighted gradient + eigenvalue patterns.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["cadence (matches 'phase-locked collective gradient cadence-token broadcast')", "weighted gradient (matches 'asymmetric weighted worker update center-periphery')", "eigenvalue (matches 'anti-twist structural-integrity gradient constraint')"],
+      "semantic_score": 0.72,
+      "functional_score": 0.75,
+      "rationale": "Survey explicitly mentions cadence + weighted gradient + eigenvalue patterns spanning 3 of 4 LLM-side mechanisms. Three keyword overlaps; survey coverage triggers semantic and functional thresholds. Survey saturation makes this a hit.",
+      "hit": true
+    },
+    {
+      "id": 7,
+      "name": "GaLore 2 Gradient Low-Rank Projection LLM Pretraining (2504.20437)",
+      "description": "GaLore 2 gradient low-rank projection with eigenvalue subspace constraint for memory-efficient distributed training.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["gradient eigenvalue subspace constraint (matches 'anti-twist structural-integrity gradient constraint')", "distributed training (matches distributed training context)"],
+      "semantic_score": 0.7,
+      "functional_score": 0.72,
+      "rationale": "Eigenvalue subspace constraint on gradients is functionally equivalent to anti-twist λ-bound structural integrity constraint. Two keyword overlaps (gradient + eigenvalue constraint, distributed training). Strong match on the anti-twist mechanism specifically. Hit on all three criteria.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Efficient Training LLM Distributed Infrastructures Survey (2407.20018)",
+      "description": "distributed LLM training survey with synchronization + eigenvalue + cadence patterns.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["synchronization (matches 'phase-locked collective gradient cadence-token broadcast')", "eigenvalue (matches 'anti-twist structural-integrity gradient constraint')", "cadence (matches 'phase-locked cadence walking step' / 'cadence-token broadcast')"],
+      "semantic_score": 0.7,
+      "functional_score": 0.72,
+      "rationale": "Distributed training survey explicitly mentions synchronization + eigenvalue + cadence — covers 3 of 4 LLM-side mechanisms. Three keyword overlaps; survey saturation makes this a clear hit.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 3,
+  "kw_forced_hits": 3,
+  "semantic_forced_hits": 3,
+  "functional_forced_hits": 3,
+  "result": "FAIL",
+  "decision_rationale": "Independent verification confirms 3 of 8 results hit: (6) Distributed LLMs Survey covers cadence + weighted gradient + eigenvalue (3 keywords); (7) GaLore 2 eigenvalue subspace constraint is functional twin to anti-twist λ-bound; (8) Efficient Distributed Training Survey covers synchronization + eigenvalue + cadence (3 keywords). Two surveys + GaLore 2 eigenvalue constraint together saturate the anti-twist mechanism + cadence + weighted gradient territory. With 3 hits exceeding any reasonable novelty floor, BAYANIHAN-LIFT fails as a novel candidate — the anti-twist eigenvalue constraint is well-covered by GaLore 2 and both surveys explicitly mention all three: cadence + weighted + eigenvalue patterns. FAIL."
+}

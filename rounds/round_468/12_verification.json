@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R468",
+  "candidate": "PIPA-BEND",
+  "candidate_form": "spectral-allocation",
+  "candidate_summary": "PIPA-BEND: 4-string per-head spectral allocation with continuous pitch-bend + tremolo + cross-band harmonics. Partition transformer heads into 4 spectral bands per layer (analog of 4 pipa strings); per-head attention restricted to its band's spectral signature via learned spectral mask; learned per-token RoPE phase offset δ_t for continuous pitch-bend; per-band amplitude modulation (tremolo); cross-band Hadamard product for harmonic interaction.",
+  "content_words": [
+    "chinese pipa 4-string lute",
+    "high-fret continuous pitch-bend vibrato",
+    "per-string spectral allocation tuning",
+    "right-hand tremolo plucking ornament",
+    "4-band per-head spectral allocation lute analog",
+    "continuous pitch-bend learned per-token RoPE offset",
+    "rapid tremolo per-band amplitude modulation",
+    "cross-band hadamard harmonic production"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "Learning to Rotate Temporal Semantic Rotary Encoding (2604.24717)",
+      "description": "Dual-branch SIREN-DNN maps continuous timestamps to per-dimension rotation angles for periodic + aperiodic structure.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["continuous pitch-bend learned per-token RoPE offset", "high-fret continuous pitch-bend vibrato"],
+      "semantic_score": 0.9,
+      "functional_score": 0.92,
+      "rationale": "Learned continuous per-token rotation angle offset IS exactly the continuous pitch-bend RoPE offset mechanism (component 2). Direct functional twin.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "Dynamic RoPE Adjustments Transformers Emergentmind",
+      "description": "Context-aware RoPE (CARoPE) with dynamic per-head + per-token phase shifts.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["continuous pitch-bend learned per-token RoPE offset", "4-band per-head spectral allocation lute analog"],
+      "semantic_score": 0.9,
+      "functional_score": 0.9,
+      "rationale": "Per-head + per-token RoPE phase shifts IS exactly the per-band per-token learned pitch-bend offset mechanism (components 1+2 combined).",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Rethinking Attention Output Hadamard (2603.08343)",
+      "description": "Walsh-Hadamard structured output projection — 25% parameter reduction + global cross-head interaction.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["cross-band hadamard harmonic production"],
+      "semantic_score": 0.82,
+      "functional_score": 0.85,
+      "rationale": "Walsh-Hadamard structured projection with cross-head interaction matches the cross-band Hadamard harmonic mechanism (component 4).",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "Hadamard Attention Recurrent Transformer HART (2501.01023)",
+      "description": "HART stereo Hadamard product attention with MKOI cross-band cross-spatial integration.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["cross-band hadamard harmonic production", "per-string spectral allocation tuning"],
+      "semantic_score": 0.83,
+      "functional_score": 0.82,
+      "rationale": "Stereo Hadamard product with explicit cross-band integration is direct match for cross-band Hadamard harmonic mechanism (component 4).",
+      "hit": true
+    },
+    {
+      "id": 5,
+      "name": "AMSFormer Multi-Scale Spectral Filtering",
+      "description": "Hierarchical frequency-domain filtering with periodic component isolation + multi-scale partitioning.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["per-string spectral allocation tuning", "4-band per-head spectral allocation lute analog"],
+      "semantic_score": 0.85,
+      "functional_score": 0.85,
+      "rationale": "Hierarchical multi-scale spectral partitioning matches the multi-band per-head spectral allocation paradigm (component 1).",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Spectral-Spatial Wave Frequency Interactive Transformer",
+      "description": "Frequency-aware + phase-aware token representations in unified Transformer.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["per-string spectral allocation tuning", "continuous pitch-bend learned per-token RoPE offset"],
+      "semantic_score": 0.8,
+      "functional_score": 0.8,
+      "rationale": "Frequency + phase-aware token combination covers band-allocation + phase-bend combined paradigm (components 1+2).",
+      "hit": true
+    },
+    {
+      "id": 7,
+      "name": "Sparse Spectral Transformer Dynamic Frequency-Aware Attention",
+      "description": "Dynamic frequency-aware attention for scalable multimodal fusion.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["per-string spectral allocation tuning"],
+      "semantic_score": 0.78,
+      "functional_score": 0.78,
+      "rationale": "Dynamic frequency-aware attention is the dynamic per-band spectral allocation paradigm (component 1).",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "MFformer Multi-Frequency Feature Aggregation",
+      "description": "Multi-frequency aggregation transformer for time-series; multi-band partitioning.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["per-string spectral allocation tuning", "4-band per-head spectral allocation lute analog"],
+      "semantic_score": 0.77,
+      "functional_score": 0.76,
+      "rationale": "Multi-frequency aggregation with multi-band partitioning is direct match for multi-band per-head spectral allocation (component 1).",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 8,
+  "kw_forced_hits": 6,
+  "semantic_forced_hits": 8,
+  "functional_forced_hits": 8,
+  "result": "FAIL",
+  "decision_rationale": "All 8 search results exceed semantic (>=0.7) and functional (>=0.7) thresholds; results 1-2 are direct twins for the learned per-token RoPE offset mechanism (Learning to Rotate, CARoPE), results 3-4 cover cross-band Hadamard harmonic interaction, and results 5-8 cover the multi-band per-head spectral allocation paradigm. The recombination is fully anticipated by prior art — no novel mechanism survives. PIPA-BEND fails as non-novel."
+}

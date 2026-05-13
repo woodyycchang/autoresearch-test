@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R462",
+  "candidate": "WABI-PATINA",
+  "candidate_form": "feedback-attenuation",
+  "candidate_summary": "Per-sample aging-timestamped loss-weight exponential decay with per-category half-life T_patina + 5% cracked-bowl intentional-noise reservoir for epistemic humility + curvature-tuned schedule for SFT/RL continual learning.",
+  "content_words": [
+    "japanese wabi-sabi tea ceremony",
+    "sen-no-rikyu patina aged raku",
+    "weathered bamboo scoop moss-on-stone",
+    "controlled imperfection cracked teabowl",
+    "patina-aging timestamped loss-weight attenuation",
+    "per-category half-life decay schedule training",
+    "controlled-imperfection cracked-bowl noise sample",
+    "graceful-decay SFT-RL signal weight curve"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "MSSR Memory-Aware Adaptive Replay Continual LLM Fine-Tuning",
+      "description": "Ebbinghaus forgetting curve memory retention time-dependent decay; inverse-retention weighting + adaptive replay intervals.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["decay", "schedule (adaptive replay intervals)", "weight (inverse-retention weighting)"],
+      "semantic_score": 0.88,
+      "functional_score": 0.85,
+      "rationale": "MSSR uses time-dependent decay + inverse-retention weighted replay which is functionally near-identical to per-sample timestamped patina decay loss-weight attenuation. Same artefact (per-sample weighted decay replay) + same effect (controlled forgetting in CL).",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "FOREVER Forgetting Curve-Inspired Memory Replay LLM",
+      "description": "Model-centric virtual Ebbinghaus days calibrated by accumulated parameter-update magnitude; replay triggered by model learning progress.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["decay (Ebbinghaus)", "schedule (replay triggered)", "patina-aging (forgetting curve / virtual Ebbinghaus days)"],
+      "semantic_score": 0.86,
+      "functional_score": 0.82,
+      "rationale": "FOREVER virtual-Ebbinghaus days = effectively per-sample timestamped aging schedule for replay. Same artefact (forgetting-curve weighted replay) + same effect (graceful decay of sample influence over training time).",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "SuRe Surprise-Driven Prioritised Replay Continual LLM",
+      "description": "Dual-learner fast+slow LoRA + EMA merge; surprise-prioritized replay for CL.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["schedule (replay)"],
+      "semantic_score": 0.55,
+      "functional_score": 0.55,
+      "rationale": "Surprise-prioritized replay + EMA merge addresses CL via a different mechanism (priority by surprise + parameter EMA, not per-sample timestamped exponential decay). Some functional overlap (replay buffer with weighting) but not same artefact (no time-decay, no per-category half-life, no cracked-bowl noise reservoir).",
+      "hit": false
+    },
+    {
+      "id": 4,
+      "name": "Inducing Epistemological Humility LLMs Targeted SFT",
+      "description": "HypoTermInstruct targeted SFT teaches LLM to acknowledge knowledge limits via synthetic hypothetical terms — induces epistemological humility.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["epistemic humility", "SFT"],
+      "semantic_score": 0.62,
+      "functional_score": 0.55,
+      "rationale": "Same EPISTEMIC HUMILITY goal as cracked-bowl reservoir but the mechanism is wholly different: targeted SFT on synthetic hypothetical-term data vs. retaining a noise reservoir at full weight in the loss schedule. Keyword overlap >=2 forces a hit; not a strong artefact match.",
+      "hit": true
+    },
+    {
+      "id": 5,
+      "name": "Enhancing Hallucination Detection Noise Injection",
+      "description": "Noise injection perturbs intermediate representations + prediction-layer sampling — captures epistemic + aleatoric uncertainty.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["noise (injection)", "epistemic (uncertainty)"],
+      "semantic_score": 0.6,
+      "functional_score": 0.5,
+      "rationale": "Noise-injection at representation/sampling layer for uncertainty is conceptually adjacent to cracked-bowl noise reservoir but the artefact (activation/representation noise during inference) differs from the candidate (training-data sample reservoir kept at full weight). Keyword count forces hit.",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Engineering Consistent Procedures Epistemic Stability LLM",
+      "description": "Engineering procedures for industrial LLM hallucination reduction + epistemic stability.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["epistemic"],
+      "semantic_score": 0.45,
+      "functional_score": 0.4,
+      "rationale": "Generic engineering procedures for epistemic stability/hallucination reduction. Does not describe per-sample timestamped patina decay or cracked-bowl noise-reservoir mechanism. Vague industrial-procedures paper.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "Effect Noise LLM Training Algorithmic CoT",
+      "description": "TInt framework injects dynamic + static noise into algorithmic CoT training data.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["noise (sample)", "training"],
+      "semantic_score": 0.62,
+      "functional_score": 0.6,
+      "rationale": "TInt dynamic+static noise into training data is functionally close to controlled-imperfection cracked-bowl noise samples in training. Keyword count forces hit; covers controlled-imperfection-in-training mechanism though not timestamped decay.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Scalable Strategies Continual Learning Replay",
+      "description": "Scalable CL with replay buffers + adaptive scheduling.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["schedule (adaptive scheduling)", "replay (decay schedule paradigm)"],
+      "semantic_score": 0.7,
+      "functional_score": 0.65,
+      "rationale": "Replay-buffer + adaptive scheduling for CL covers the broad replay-buffer family but candidate is narrower (per-sample timestamped exponential half-life). Semantic forced to threshold; functionally adjacent.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 6,
+  "kw_forced_hits": 4,
+  "semantic_forced_hits": 4,
+  "functional_forced_hits": 2,
+  "result": "FAIL",
+  "decision_rationale": "Independent rescoring yields 6/8 hits. Result #1 MSSR (Ebbinghaus time-dependent decay + inverse-retention weighted replay) is a near-exact artefact + effect match for per-sample timestamped patina loss-weight attenuation; result #2 FOREVER (forgetting-curve replay with virtual Ebbinghaus days) is also a near-exact match. Together these two papers cover the core WABI-PATINA mechanism (timestamped per-sample loss-weight decay + replay) at the v5 rubric 0.7 threshold (same artefact + same effect). Additional papers (#4 epistemic humility SFT, #5 noise injection epistemic, #7 TInt training noise, #8 scalable CL replay) cover the cracked-bowl + replay-schedule sub-mechanisms. With 6 hits and 2 strong artefact-twin matches (MSSR and FOREVER), the candidate is not sufficiently novel: FAIL."
+}
