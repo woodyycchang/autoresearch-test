@@ -1,0 +1,123 @@
+{
+  "round": "406",
+  "verifier": "cross-agent-R406",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); FAIL iff total_hits >= 1",
+  "candidate_form": "basin-stability",
+  "candidate_summary": "SEGA-RAVANNE state-coupled basin-stable LR schedule with gradient-noise-stall-triggered warm-restart spikes: monitor gradient-noise scale s_t, trigger short high-LR spike when s_t falls below stall threshold; (LR_t, s_t) forms basin-stable attractor cycle.",
+  "results_analysis": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/pdf/2507.10575",
+      "title": "VolSched: Adaptive Volatility-based LR Scheduler",
+      "kw_matches": ["state-triggered LR spike", "plateau"],
+      "kw_count": 2,
+      "sem_cosine": 0.92,
+      "sem_hit": true,
+      "func_score": 0.93,
+      "func_hit": true,
+      "hit": true,
+      "reason": "EXACT TWIN — VolSched literally triggers LR INCREASE on plateau via volatility ratio; same state-triggered re-warm spike mechanism; kw>=2 AND sem>=0.7 AND func>=0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2512.14527v1",
+      "title": "GreedyLR: Dynamic LR Scheduling based on Loss Changes",
+      "kw_matches": ["dynamic LR", "loss-state coupling"],
+      "kw_count": 2,
+      "sem_cosine": 0.83,
+      "sem_hit": true,
+      "func_score": 0.85,
+      "func_hit": true,
+      "hit": true,
+      "reason": "GreedyLR adaptively adjusts LR based on current loss state with noise robustness; same state-coupled LR-adjustment paradigm."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.rohan-paul.com/p/stabilizing-llm-training-techniques",
+      "title": "SPAM Spike-Aware Adam with Momentum Reset",
+      "kw_matches": ["spike detection", "optimizer state reset"],
+      "kw_count": 2,
+      "sem_cosine": 0.78,
+      "sem_hit": true,
+      "func_score": 0.78,
+      "func_hit": true,
+      "hit": true,
+      "reason": "SPAM resets optimizer moments on gradient-spike detection; same gradient-state-triggered intervention mechanism."
+    },
+    {
+      "rank": 4,
+      "url": "https://openreview.net/forum?id=52YBEzcI0l",
+      "title": "Spike No More: Stabilizing LLM Pre-training",
+      "kw_matches": ["LLM pretraining", "spike stabilization"],
+      "kw_count": 2,
+      "sem_cosine": 0.74,
+      "sem_hit": true,
+      "func_score": 0.72,
+      "func_hit": true,
+      "hit": true,
+      "reason": "Same operating regime — LLM pretraining spike behavior; sem and func above threshold."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2410.05192v1",
+      "title": "Understanding WSD Learning Rates: River Valley Loss Landscape",
+      "kw_matches": ["WSD", "warmup-stable-decay"],
+      "kw_count": 2,
+      "sem_cosine": 0.72,
+      "sem_hit": true,
+      "func_score": 0.65,
+      "func_hit": false,
+      "hit": true,
+      "reason": "WSD scheduling family for LLM pretraining; kw>=2 AND sem>=0.7 satisfies hit rule."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/1910.11605",
+      "title": "Simple Dynamic LR Tuning for Automated DNN Training",
+      "kw_matches": ["dynamic LR tuning", "state monitoring"],
+      "kw_count": 2,
+      "sem_cosine": 0.72,
+      "sem_hit": true,
+      "func_score": 0.68,
+      "func_hit": false,
+      "hit": true,
+      "reason": "Dynamic LR tuning monitoring training state; kw>=2 AND sem>=0.7."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2602.06797",
+      "title": "Optimal LR Schedules under Functional Scaling Laws",
+      "kw_matches": ["LR schedule"],
+      "kw_count": 1,
+      "sem_cosine": 0.66,
+      "sem_hit": false,
+      "func_score": 0.55,
+      "func_hit": false,
+      "hit": false,
+      "reason": "Scaling-law/power-decay angle; kw=1, sem<0.7, func<0.7 — no hit."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2502.15938",
+      "title": "Why Linearly Decaying LR to Zero Works Best (D2Z)",
+      "kw_matches": ["linear decay LR"],
+      "kw_count": 1,
+      "sem_cosine": 0.62,
+      "sem_hit": false,
+      "func_score": 0.52,
+      "func_hit": false,
+      "hit": false,
+      "reason": "Fixed D2Z decay; no state coupling; below all thresholds."
+    }
+  ],
+  "hit_counts": {
+    "kw_hits": 6,
+    "semantic_hits": 6,
+    "functional_hits": 4,
+    "any_rule_hits": 6
+  },
+  "total_hits": 6,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL: 6 hits found (threshold=1). VolSched (arxiv 2507.10575) is an exact functional twin (sem=0.92, func=0.93) — literally triggers LR INCREASE on plateau detection via volatility ratio, the same state-triggered re-warm spike mechanism as SEGA-RAVANNE; GreedyLR, SPAM, Spike-No-More, WSD-river-valley, and dynamic LR tuning provide additional independent hits across kw/sem/func criteria. Candidate is not novel."
+}
