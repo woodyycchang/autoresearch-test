@@ -1,0 +1,121 @@
+{
+  "round": "395",
+  "verifier": "fresh cross-agent R395",
+  "verifier_model": "claude-opus-4-7 (fresh context)",
+  "rule": "hit iff (kw>=2) OR (sem>=0.7) OR (func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "basin-stability",
+  "candidate_domain": "Mongolian deel 4-layer winter clothing",
+  "candidate_llm_application": "DEEL-SAFETY-STACK: 4-stage WICK/TRAP/INSULATE/BLOCK explicit functional differentiation safety pipeline with non-overlap design",
+  "content_words_evaluated": [
+    "mongolian deel winter robe",
+    "silk wool fur multi-layer",
+    "windbreaker insulation 40 below",
+    "T-shaped double-layer fabric",
+    "4-stage functionally-differentiated safety stack",
+    "wick-trap-insulate-block role differentiation",
+    "sequential explicit function safety pipeline",
+    "non-overlapping role filter design"
+  ],
+  "independent_results": [
+    {
+      "rank": 1,
+      "url": "https://developer.nvidia.com/nemo-guardrails",
+      "snippet": "NeMo Guardrails 5 rail types: input / dialog / retrieval / execution / output rails — explicit functional differentiation by stage",
+      "kw_count": 0,
+      "sem_cosine": 0.92,
+      "func_score": 0.94,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Direct twin: NeMo Guardrails already provides 5 functionally-differentiated rail stages (more than candidate's 4). Explicit functional roles per stage is the core novelty claim of DEEL-SAFETY-STACK but is the defining feature of NeMo Guardrails."
+    },
+    {
+      "rank": 2,
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+      "snippet": "Programmable guardrails for LLM apps; input + dialog + output rails",
+      "kw_count": 0,
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Explicit input/dialog/output rail differentiation — same artefact as candidate's stage pipeline."
+    },
+    {
+      "rank": 3,
+      "url": "https://medium.com/data-science-collective/essential-guide-to-llm-guardrails-llama-guard-nemo-d16ebb7cbe82",
+      "snippet": "Production stack Llama Guard + Llama Prompt Guard + NeMo orchestrating multiple guards",
+      "kw_count": 0,
+      "sem_cosine": 0.86,
+      "func_score": 0.84,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Multi-guard production stack with role-specific orchestration — covers role-differentiated pipeline."
+    },
+    {
+      "rank": 4,
+      "url": "https://aiworkflowlab.dev/article/llm-guardrails-production-defense-in-depth-safety-systems-nemo-guardrails-ai-openai",
+      "snippet": "Defense-in-depth multi-rail safety architecture",
+      "kw_count": 0,
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Defense-in-depth multi-rail is exactly what candidate proposes; candidate explicitly cites Defense-in-Depth as prior art."
+    },
+    {
+      "rank": 5,
+      "url": "https://www.tecace.com/post/from-filters-to-feedback-loops-how-post-monitoring-enables-safe-llm-operations-includes-research-o",
+      "snippet": "Pre-screening + post-monitoring multi-layered approach",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Pre-filter + post-filter multi-layer mirrors WICK + BLOCK stages."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.mdpi.com/2076-3417/15/13/7298",
+      "snippet": "Multi-stage intelligent filter for safe deployment",
+      "kw_count": 0,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Multi-stage filter for safe LLM deployment — same artefact."
+    },
+    {
+      "rank": 7,
+      "url": "https://apxml.com/courses/llm-alignment-safety/chapter-5-adversarial-attacks-defenses-llms/input-output-filtering-defenses",
+      "snippet": "Standard input + output filtering pipeline",
+      "kw_count": 0,
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Standard input/output filter pipeline is canonical prior art for WICK + BLOCK."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2506.09996v1",
+      "snippet": "Streaming output monitor + early-stop on harmful content",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "forced_by": ["semantic", "functional"],
+      "justification": "Streaming output monitor maps to BLOCK stage post-filter function."
+    }
+  ],
+  "totals": {
+    "total_hits": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "max_sem_cosine": 0.92,
+    "max_func_score": 0.94,
+    "distinct_effect_clusters": 6
+  },
+  "agreement_with_07_hit_miss": true,
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL: DEEL-SAFETY-STACK is a direct twin of NVIDIA NeMo Guardrails (which already provides 5 functionally-differentiated rail stages — input/dialog/retrieval/execution/output) and overlaps with 8 prior-art sources spanning defense-in-depth, multi-rail safety, and input/output filtering pipelines, with semantic and functional scores well above the 0.7 threshold."
+}

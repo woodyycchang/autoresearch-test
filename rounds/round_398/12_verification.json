@@ -1,0 +1,91 @@
+{
+  "round": "398",
+  "verifier": "cross-agent R398",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); total_hits>=1 -> FAIL",
+  "candidate_summary": "DOMBRA-CONSISTENCY-EVAL: paired single test prompt + canonical reference prompt; joint correctness + consistency-drift diagnostic; fixed-interval expected response distance; differs from variance-across-N-paraphrase brittleness benchmarks by SINGLE-PAIRED anchor comparison.",
+  "evaluations": [
+    {
+      "url": "https://arxiv.org/html/2603.13285",
+      "title": "Brittlebench Quantifying LLM Robustness via Prompt Sensitivity (2026/03)",
+      "kw_overlap": 1,
+      "kw_matched": ["brittleness/prompt-sensitivity (generic)"],
+      "sem": 0.42,
+      "func": 0.40,
+      "hit": false,
+      "reason": "Measures variance/sensitivity, not paired single-anchor + joint correctness+drift; no canonical-reference mechanism."
+    },
+    {
+      "url": "https://github.com/microsoft/promptbench",
+      "title": "PromptBench Microsoft Unified LLM Evaluation Framework",
+      "kw_overlap": 1,
+      "kw_matched": ["paraphrase/prompt-eval (generic)"],
+      "sem": 0.40,
+      "func": 0.38,
+      "hit": false,
+      "reason": "Multi-paraphrase adversarial/dynamic eval, not paired test+canonical-anchor with joint correctness+drift. Already declared differs-from."
+    },
+    {
+      "url": "https://arxiv.org/html/2510.08616",
+      "title": "LLMs Surface-Form Brittleness Under Paraphrase Stress Tests (2025/10)",
+      "kw_overlap": 1,
+      "kw_matched": ["paraphrase (generic)"],
+      "sem": 0.42,
+      "func": 0.38,
+      "hit": false,
+      "reason": "Stress tests over many paraphrases; no single paired anchor; no joint correctness+drift scoring."
+    },
+    {
+      "url": "https://aclanthology.org/2025.naacl-industry.39.pdf",
+      "title": "Systematic Consistency and Robustness Evaluation (NAACL 2025 Industry)",
+      "kw_overlap": 1,
+      "kw_matched": ["consistency (generic)"],
+      "sem": 0.52,
+      "func": 0.50,
+      "hit": false,
+      "reason": "Broad consistency+robustness benchmark over multi-paraphrase sets; does not implement SINGLE paired test+canonical anchor with joint correctness+drift scoring."
+    },
+    {
+      "url": "https://courses.grainger.illinois.edu/cs440/fa2025/Quizzes/grad-readings/mizrahi-2024-fragility-of-test.pdf",
+      "title": "State of What Art Multi-Prompt LLM Evaluation (Mizrahi 2024)",
+      "kw_overlap": 1,
+      "kw_matched": ["paraphrase (generic)"],
+      "sem": 0.40,
+      "func": 0.38,
+      "hit": false,
+      "reason": "Large-scale paraphrase collections, variance-based; not paired single-anchor consistency-drift + correctness joint diagnostic."
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/promptrobust-benchmark",
+      "title": "PromptRobust Benchmark LLM Robustness",
+      "kw_overlap": 1,
+      "kw_matched": ["consistency-rate (generic)"],
+      "sem": 0.50,
+      "func": 0.48,
+      "hit": false,
+      "reason": "Computes consistency rate over ten semantically similar prompts (variance across N); not single paired test+canonical anchor with joint correctness+drift. Already declared differs-from."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.24130",
+      "title": "Beyond Magic Words Sharpness-Aware Prompt Evolving (2025/09)",
+      "kw_overlap": 0,
+      "kw_matched": [],
+      "sem": 0.30,
+      "func": 0.28,
+      "hit": false,
+      "reason": "Sharpness-aware prompt evolving for robust LLM, not paired test+canonical anchor with joint correctness+drift."
+    },
+    {
+      "url": "https://arxiv.org/html/2401.00595v3",
+      "title": "Multi-Prompt LLM Evaluation State of What Art",
+      "kw_overlap": 1,
+      "kw_matched": ["multi-prompt-eval (generic)"],
+      "sem": 0.40,
+      "func": 0.38,
+      "hit": false,
+      "reason": "Multi-prompt aggregation addressing single-prompt brittleness; not paired single test+canonical anchor with joint correctness+drift."
+    }
+  ],
+  "total_hits": 0,
+  "verdict": "PASS",
+  "verdict_sentence": "PASS: no source in 06_search_raw.json meets the hit thresholds (kw>=2, sem>=0.7, or func>=0.7) against DOMBRA-CONSISTENCY-EVAL's distinguishing single paired-anchor + joint correctness+drift mechanism, with all hits being generic-overlap variance/robustness benchmarks rather than single-paired canonical-reference diagnostics."
+}

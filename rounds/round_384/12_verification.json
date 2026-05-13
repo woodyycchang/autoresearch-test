@@ -1,0 +1,104 @@
+{
+  "round": "384",
+  "verifier": "cross-agent",
+  "candidate_form": "phase-coherence",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "roman aqueduct constant gradient",
+    "inverted siphon valley crossing",
+    "communicating vessels pressure",
+    "long-distance phase coherent flow",
+    "per-token gradient-norm variance penalty",
+    "inverted-siphon long-range residual bypass",
+    "constant-gradient pretraining regularizer",
+    "position-uniform gradient flow"
+  ],
+  "results": [
+    {
+      "idx": 1,
+      "url": "https://teapot123.github.io/files/CSE_5610_Fall25/Lecture_12_Long_Context.pdf",
+      "title": "Lost in the Middle: How LMs Use Long Contexts (Liu et al.)",
+      "kw_count": 0,
+      "sem_cosine": 0.42,
+      "func_score": 0.25,
+      "hit": false,
+      "note": "Diagnoses long-context attenuation but proposes no gradient-variance penalty or low-rank residual bypass; candidate explicitly acknowledges these papers diagnose but few prescribe fixes."
+    },
+    {
+      "idx": 2,
+      "url": "https://arxiv.org/html/2601.11564v1",
+      "title": "Context Discipline and Performance Correlation LLM (2026/01)",
+      "kw_count": 0,
+      "sem_cosine": 0.35,
+      "func_score": 0.2,
+      "hit": false,
+      "note": "Empirical analysis of quality degradation under varying context lengths; no training-time gradient-norm regularizer or residual bypass mechanism."
+    },
+    {
+      "idx": 3,
+      "url": "https://arxiv.org/html/2507.07485",
+      "title": "Token Space Gradient Conflicts: Multi-Task Transformer (2025/07)",
+      "kw_count": 1,
+      "sem_cosine": 0.5,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Per-token gradient manipulation but for multi-task gradient conflict resolution, not for variance-of-per-position-gradient-norms across long context; different objective and target."
+    },
+    {
+      "idx": 4,
+      "url": "https://arxiv.org/abs/2510.00345",
+      "title": "Cutting the Skip: Training Residual-Free Transformers (2025/10)",
+      "kw_count": 0,
+      "sem_cosine": 0.32,
+      "func_score": 0.2,
+      "hit": false,
+      "note": "Removes residual connections via Jacobian analysis; opposite direction from adding low-rank inverted-siphon residual bypass."
+    },
+    {
+      "idx": 5,
+      "url": "https://arxiv.org/abs/2506.21103",
+      "title": "Learning to Skip Middle Layers of Transformers (2025/06)",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Dynamic learned gate to bypass middle layers per sample; not a fixed low-rank LoRA bypass from input embedding to layer-K output, and no gradient-variance regularizer."
+    },
+    {
+      "idx": 6,
+      "url": "https://arxiv.org/abs/2510.13876",
+      "title": "GateSkip Layers When Residual Gates Token-wise (2025/10)",
+      "kw_count": 0,
+      "sem_cosine": 0.42,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "Token-wise residual-stream gating for layer-skipping; gating mechanism not equivalent to additive low-rank long-range bypass, no position-uniform gradient objective."
+    },
+    {
+      "idx": 7,
+      "url": "https://arxiv.org/html/2605.06554",
+      "title": "Long Context Pre-Training with Lighthouse Attention (2026/05)",
+      "kw_count": 0,
+      "sem_cosine": 0.4,
+      "func_score": 0.3,
+      "hit": false,
+      "note": "Hierarchical multi-resolution attention selection; explicitly contrasted by candidate's novelty claim; different mechanism (attention pattern vs gradient regularization + residual)."
+    },
+    {
+      "idx": 8,
+      "url": "https://aclanthology.org/2025.acl-long.1375.pdf",
+      "title": "Value Residual Learning (ACL 2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.38,
+      "func_score": 0.35,
+      "hit": false,
+      "note": "Alternative residual connection patterns (value-side residuals) for transformer training; not low-rank input-to-deep-layer bypass and no gradient-variance objective."
+    }
+  ],
+  "total_hits": 0,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 0,
+  "functional_forced_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": ""
+}

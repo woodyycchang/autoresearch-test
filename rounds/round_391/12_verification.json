@@ -1,0 +1,108 @@
+{
+  "round": "391",
+  "verifier": "fresh cross-agent verifier R391 (claude-opus-4-7, no prior context)",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "candidate_summary": "BAGH-POOL: hierarchical multi-scale transformer with per-scale pooling P_s plus an explicit intra-pool variance penalty term lambda_s * Var(F_s) imposing progressive smoothness at deeper scales.",
+  "content_words": [
+    "persian bagh terraced",
+    "qanat aquifer cascade pool",
+    "stepped cooling pool",
+    "chahar bagh symmetric layout",
+    "per-scale pooling + variance penalty",
+    "stepped cascade regularization",
+    "multi-scale intra-pool smoothness",
+    "hierarchical pool-then-regularize"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2412.13993v2",
+      "title": "PINN Loss Regularization Variance-Based Term (2024/12)",
+      "kw_count": 0,
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Variance-based regularization loss combined with MSE for neural networks. Functionally overlaps with candidate's lambda*Var(F_s) smoothness penalty even though it lacks per-scale hierarchical pool structure. Crosses sem and func 0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231221006081",
+      "title": "Multi-scale and Multi-pooling Sparse Filtering",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "rationale": "Multi-scale + multi-pooling feature fusion with sparse-filtering regularization. Combines hierarchical pooling with a regularization objective on pooled features — same mechanism cluster as BAGH-POOL. Crosses sem and func 0.7."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2202.08345",
+      "title": "Learning Smooth Neural Functions via Lipschitz Regularization (2022)",
+      "kw_count": 0,
+      "sem_cosine": 0.71,
+      "func_score": 0.70,
+      "hit": true,
+      "rationale": "Explicit smoothness loss via Jacobian/Lipschitz norm — exactly the 'progressive smoothness as explicit objective' that the candidate frames as cooling. Same effect (force smoother features via added loss term), differs only in penalty form (Lipschitz vs intra-pool variance). At/above the 0.7 threshold."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.sciencedirect.com/science/article/pii/S2405896322009399",
+      "title": "Variance Inflation Regularization in Autoencoders",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "rationale": "Explicit variance regularization on feature space within deep representation learning. Mechanism is a variance-penalty term on layer features — the core of candidate's lambda*Var(F_s). Crosses both thresholds."
+    },
+    {
+      "rank": 5,
+      "url": "https://proceedings.mlr.press/v227/rahman24a/rahman24a.pdf",
+      "title": "Multi-scale Hierarchical ViT Cascaded Attention Decoding",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "rationale": "Hierarchical multi-scale ViT with cascaded decoding — candidate explicitly admits this prior is similar but claims novelty via added variance penalty. Functional pool-cascade twin minus the regularizer. Crosses 0.7 on both."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2205.14756v6",
+      "title": "EfficientViT Multi-Scale Linear Attention",
+      "kw_count": 0,
+      "sem_cosine": 0.66,
+      "func_score": 0.64,
+      "hit": false,
+      "rationale": "Multi-scale linear-attention for efficiency, no explicit smoothness/variance penalty term. Below 0.7 thresholds on the smoothness-objective axis."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.nature.com/articles/s41598-025-95361-8",
+      "title": "Grouped Multi-Scale ViT GMSA (2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.68,
+      "func_score": 0.66,
+      "hit": false,
+      "rationale": "Channel-group multi-scale attention; explicitly named in candidate as prior that does NOT include variance penalty. Below thresholds on the variance-regularization axis."
+    },
+    {
+      "rank": 8,
+      "url": "https://link.springer.com/article/10.1007/s40747-024-01650-6",
+      "title": "Mix-layers semantic extraction + Multi-scale Aggregation Transformer",
+      "kw_count": 0,
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "rationale": "Multi-scale aggregation Transformer with multi-stage feature-mixing LOSS aggregation — explicit multi-scale loss across pooled stages overlaps strongly with candidate's per-scale loss-term scheme. Crosses 0.7 on both."
+    }
+  ],
+  "summary": {
+    "total_hits": 6,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 6,
+    "functional_forced_hits": 6,
+    "max_sem_cosine": 0.76,
+    "max_func_score": 0.74
+  },
+  "verdict": "FAIL",
+  "verdict_sentence": "FAIL — at least six of eight retrieved papers (PINN variance loss, Multi-scale Multi-pooling Sparse Filtering, Lipschitz smoothness regularization, Variance Inflation Regularization, Cascaded Attention Decoding, and Mix-layers Multi-scale Aggregation Transformer) independently cross the sem>=0.7 / func>=0.7 thresholds by combining either hierarchical multi-scale pooling with a regularization loss or explicit variance/smoothness penalties on features, so total_hits>=1 and BAGH-POOL is rejected as non-novel."
+}

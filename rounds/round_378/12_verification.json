@@ -1,0 +1,96 @@
+{
+  "round": "378",
+  "verifier": "cross-agent",
+  "candidate_form": "information-cascade",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits>=1 -> FAIL",
+  "content_words": [
+    "skaldic kenning recursion",
+    "two-noun unspoken referent",
+    "tvikent nested kenning",
+    "mythology decode key",
+    "recursive 2-to-1 anchor fusion",
+    "log-depth multiplicative compression",
+    "referent-preservation cross-attention",
+    "pretrained background decode key"
+  ],
+  "results": [
+    {
+      "url": "https://arxiv.org/html/2512.24601v1",
+      "title": "Recursive Language Models (2025/12)",
+      "kw_count": 0,
+      "sem_cosine": 0.42,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "RLM uses Python REPL to recursively sub-call LLMs on chunked input. Recursion exists, but no pairwise 2-to-1 anchor fusion, no log-depth multiplicative compression, no cross-attention referent preservation. Functionally distinct: code-driven sub-calls vs. multiplicative token fusion."
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.08907",
+      "title": "Autoencoding-Free Context Compression via Contextual Semantic Anchors (2025/10)",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.5,
+      "hit": false,
+      "note": "Single-stage anchor compression with anchor-attention into K-V. Candidate explicitly distinguishes itself: RECURSIVE multi-stage vs. SINGLE-STAGE. No log-depth, no 2-to-1 pairwise fusion. Candidate's novelty_claim flags this as prior art that differs."
+    },
+    {
+      "url": "https://www.primeintellect.ai/blog/rlm",
+      "title": "Recursive Language Models 2026 paradigm",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Hierarchical recursive task partitioning + LCM summary DAG with lossless pointers. Recursion at task level, not pairwise multiplicative token fusion. Lossless pointers differ from cross-attention referent recovery."
+    },
+    {
+      "url": "https://openreview.net/pdf?id=HJxK5pEYvr",
+      "title": "Tree-Structured Attention with Hierarchical Accumulation (ICLR 2020)",
+      "kw_count": 0,
+      "sem_cosine": 0.58,
+      "func_score": 0.6,
+      "hit": false,
+      "note": "Parse-tree hierarchical accumulation, 3-stage. Tree structure is close, but candidate's design is BALANCED-BINARY pairwise 2-to-1 with shared fusion function and explicit log-depth multiplicative compression — parse-tree depends on syntactic structure, not balanced halving. Below 0.7 functional threshold."
+    },
+    {
+      "url": "https://openreview.net/pdf?id=l3Qq5MU5VX",
+      "title": "AdmTree Adaptive Semantic Trees (2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.6,
+      "func_score": 0.55,
+      "hit": false,
+      "note": "Hierarchical gist-token summarization, tree-structured. Candidate's novelty_claim explicitly distinguishes: AdmTree is ONE-LEVEL gist tokens summarising independent blocks, not recursive 2-to-1 pairwise log-depth multiplicative cascade. Functionally distinct."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.14244",
+      "title": "Context to EDUs Faithful Structured Compression (2026/01)",
+      "kw_count": 0,
+      "sem_cosine": 0.4,
+      "func_score": 0.4,
+      "hit": false,
+      "note": "EDU-level structured compression with lossless referential pointers. Single-pass discourse-unit compression, no recursive pairwise fusion, no log-depth cascade. Referential integrity via pointers (not via cross-attention to original tokens at every stage)."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.20581",
+      "title": "Hierarchical Resolution Transformers Wavelet-Inspired (2025/09)",
+      "kw_count": 1,
+      "sem_cosine": 0.62,
+      "func_score": 0.62,
+      "hit": false,
+      "note": "Wavelet-style multi-resolution log-depth attention. Matches 'log-depth' concept (1 kw) and is closest functional analog (multi-resolution hierarchical). But wavelet decomposition is not pairwise 2-to-1 anchor fusion with shared cross-attention referent preservation; wavelets operate on signals/feature maps via filter banks. Below thresholds."
+    },
+    {
+      "url": "https://arxiv.org/html/2509.09199v1",
+      "title": "CCF Context Compression Framework (2025/09)",
+      "kw_count": 0,
+      "sem_cosine": 0.5,
+      "func_score": 0.45,
+      "hit": false,
+      "note": "Segment-wise semantic aggregation + KV memory. Candidate's novelty_claim explicitly distinguishes: CCF is single-pass segment-wise, not recursive multi-stage log-depth cascade. Functionally distinct."
+    }
+  ],
+  "total_hits": 0,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 0,
+  "functional_forced_hits": 0,
+  "verdict": "PASS",
+  "fail_reason": ""
+}
