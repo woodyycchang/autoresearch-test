@@ -1,0 +1,118 @@
+{
+  "round": "410",
+  "verifier": "cross-agent independent verifier",
+  "candidate_llm_application": "FAMADIHANA-CYCLE: cyclical checkpoint refresh - load oldest, wrap in fresh data, preserve original + ensemble inference over wrapped versions",
+  "scoring_rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); total hits >= 1 => FAIL",
+  "thresholds": {"kw_min": 2, "sem_min": 0.7, "func_min": 0.7},
+  "independent_scores": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2504.02107v1",
+      "title": "TiC-LM: Web-Scale Benchmark Time-Continual LLM Pretraining",
+      "kw_count": 3,
+      "kw_matched": ["cyclic/cyclical", "checkpoint preservation", "continual pretraining periodic refresh"],
+      "sem_cosine": 0.86,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "Time-continual cyclic-cosine pretraining schedule with periodic refresh and checkpoint preservation directly matches cyclical-refresh + preserved-original."
+    },
+    {
+      "rank": 2,
+      "url": "https://openreview.net/forum?id=DimPeeCxKO",
+      "title": "Simple Scalable Strategies Continual Pre-train LLMs",
+      "kw_count": 3,
+      "kw_matched": ["constant-LR main branch preservation", "decay-branch checkpoints (cyclical)", "continual pretraining"],
+      "sem_cosine": 0.92,
+      "func_score": 0.92,
+      "hit": true,
+      "rationale": "WSD preserves main branch while spawning decay-branch checkpoints — direct functional twin of preserved-original + cyclical refresh."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/pdf?id=pg7PUJe0Tl",
+      "title": "Continual Pre-Training How to (re)warm your model",
+      "kw_count": 2,
+      "kw_matched": ["re-warming (fresh wrapping)", "continual pretraining"],
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "rationale": "Re-warm strategy functionally equivalent to fresh-wrapping cycle in FAMADIHANA-CYCLE."
+    },
+    {
+      "rank": 4,
+      "url": "https://link.springer.com/article/10.1007/s13042-025-02918-0",
+      "title": "Continual Fine-Tuning with Model Soup",
+      "kw_count": 3,
+      "kw_matched": ["continual fine-tuning", "model soup (ensemble inference)", "version preservation"],
+      "sem_cosine": 0.88,
+      "func_score": 0.86,
+      "hit": true,
+      "rationale": "C-Soup explicitly combines preservation + ensemble inference over versions — direct twin of ensemble-over-wrapped-versions."
+    },
+    {
+      "rank": 5,
+      "url": "https://venturebeat.com/orchestration/mits-new-fine-tuning-method-lets-llms-learn-new-skills-without-losing-old",
+      "title": "MIT SDFT (VentureBeat)",
+      "kw_count": 2,
+      "kw_matched": ["fine-tuning preservation", "self-distillation preserving previous capabilities"],
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "rationale": "SDFT preserves prior capabilities during fine-tuning — covers preservation aspect of FAMADIHANA."
+    },
+    {
+      "rank": 6,
+      "url": "https://github.com/Wang-ML-Lab/llm-continual-learning-survey",
+      "title": "LLM Continual Learning Survey",
+      "kw_count": 3,
+      "kw_matched": ["continual learning", "ensemble", "replay/version"],
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "rationale": "Survey covers cyclical refresh + ensemble + replay methods spanning FAMADIHANA-CYCLE components."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.aussieai.com/research/checkpointing",
+      "title": "LLM Checkpointing",
+      "kw_count": 2,
+      "kw_matched": ["checkpoint management/registry", "ensemble inference over versions"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Checkpoint registry + ensemble inference over versions covers preserved-original + ensemble inference."
+    },
+    {
+      "rank": 8,
+      "url": "https://aclanthology.org/2024.acl-long.77/",
+      "title": "Self-Synthesized Rehearsal (SSR)",
+      "kw_count": 1,
+      "kw_matched": ["rehearsal for forgetting mitigation"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "SSR addresses same forgetting problem; sem and func both above 0.7 threshold — qualifies as hit."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 7,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_sem_cosine": 0.92,
+    "max_func_score": 0.92,
+    "distinct_prior_art_clusters": [
+      "Time-continual cyclic-cosine pretraining (TiC-LM)",
+      "WSD main+decay-branch preservation",
+      "Re-warming continual pretraining",
+      "C-Soup continual model-soup ensemble",
+      "SDFT self-distillation preservation",
+      "Continual-learning survey",
+      "Checkpoint ensemble inference",
+      "Self-synthesized rehearsal"
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "8 of 8 results clear the hit threshold via multiple channels (kw, semantic, functional). The cyclical-refresh + preserved-original + ensemble-over-versions combination is densely covered by C-Soup, WSD branching, TiC-LM cyclic-cosine schedules, and checkpoint-ensemble literature. Recombination is not sufficient novelty.",
+  "agreement_with_prior_checks": "Agrees with 06_5_semantic_hits.json (8 sem hits) and 06_7_functional_hits.json (8 func hits, multi-cluster)."
+}
