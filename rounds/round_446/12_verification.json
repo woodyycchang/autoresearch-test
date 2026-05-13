@@ -1,0 +1,132 @@
+{
+  "round": "446",
+  "candidate": "HEIVA-DUAL-TRACK",
+  "form": "training-method",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7; total_hits >= 1 => FAIL",
+  "content_words": [
+    "tahitian heiva ote'a aparima dance",
+    "fa'arapu rapid hip rotation percussion",
+    "speed-precision dual discipline rehearsal",
+    "polynesian heiva months festival training",
+    "phase-interleaved dual-track training schedule",
+    "precision-track SFT + speed-track RL on-policy",
+    "synchronized assessment endpoints checkpoint",
+    "ote'a+aparima paired training discipline"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "title": "SFT-then-RL vs Mixed-Policy",
+      "id": "2604.23747",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.86,
+      "functional_score": 0.84,
+      "rationale": "Directly compares SFT-then-RL vs alternating-SFT-RL training. The candidate's phase-interleaved alternation between precision-SFT and speed-RL tracks is the same alternating-SFT-RL paradigm. High semantic and functional similarity; both alternate SFT and RL phases per epoch.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 2,
+      "title": "BRIDGE Cooperative SFT+RL Bilevel",
+      "id": "2509.06948",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.82,
+      "functional_score": 0.80,
+      "rationale": "Cooperative bilevel SFT+RL with SFT (precision/golden) and RL (policy optimization) as paired branches. Functionally equivalent to candidate's dual-track A (SFT) + B (RL) decomposition with periodic combination. The combination mechanism differs (bilevel vs task-arithmetic merge), but the two-track decomposition is the same.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 3,
+      "title": "Alternating SFT-RL Updates",
+      "id": "2508.11408",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.90,
+      "functional_score": 0.88,
+      "rationale": "Explicitly proposes alternating SFT+RL updates for faster convergence. Candidate's per-epoch alternation between SFT track and RL track is essentially this method. Very high overlap; the candidate's twist is task-arithmetic merge every 4 epochs, but the alternating scheme is identical.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 4,
+      "title": "Iterative RL/SFT Bridging",
+      "id": "EmergentMind",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.84,
+      "functional_score": 0.82,
+      "rationale": "Iterative SFT-RL paradigm matches candidate's interleaved/iterative epoch-level alternation between SFT precision and RL speed phases. Functional overlap on the core scheduling pattern.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 5,
+      "title": "Streaming Merging ARM",
+      "id": "2602.03237",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.74,
+      "functional_score": 0.78,
+      "rationale": "Non-linear activation-guided rotation merging operator. Functionally overlaps with candidate's checkpoint merge step (combining two model branches into one). The merge operator differs (rotation vs linear task-arithmetic), but the role of periodic branch merging is shared.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 6,
+      "title": "SFT-RL Post-Training Quagmires",
+      "id": "2510.01624",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.78,
+      "functional_score": 0.76,
+      "rationale": "Analyzes SFT+RL post-training pipelines including alternating and combined schedules. Candidate's design falls within the analyzed space (alternating SFT and RL with periodic checkpointing). Semantic and functional scope overlap.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 7,
+      "title": "On-Policy Distillation",
+      "id": "Thinking Machines",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.72,
+      "functional_score": 0.74,
+      "rationale": "Combines RL with distillation (precision-like signal from teacher). Functionally overlaps with candidate's combination of precision-SFT (golden references) and on-policy RL signal. Both blend a precision/teacher-style supervised signal with on-policy reinforcement.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    },
+    {
+      "rank": 8,
+      "title": "Multi-task LLM Data-Mix vs Model-Merge",
+      "id": "2601.21115",
+      "keyword_overlap_count": 0,
+      "semantic_score": 0.80,
+      "functional_score": 0.82,
+      "rationale": "Directly studies model-merging via task-arithmetic vs data-mixing for multi-task training. The candidate's merge step θ_merged = α·θ_A + (1-α)·θ_B is exactly the task-arithmetic linear combination operator analyzed here. Very high functional overlap on the merge mechanism.",
+      "hit": true,
+      "forced_by_keyword": false,
+      "forced_by_semantic": true,
+      "forced_by_functional": true
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "keyword_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "total_hits": 8
+  },
+  "verdict": "FAIL",
+  "reason": "total_hits = 8 >= 1. Every web result triggers a hit via semantic >= 0.7 and/or functional >= 0.7. The candidate decomposes into well-known primitives: (a) alternating/interleaved SFT+RL training (results 1, 2, 3, 4, 6) and (b) task-arithmetic linear checkpoint merging (results 5, 8). The 'precision-track + speed-track' framing maps directly to SFT (golden refs) + RL (reward) decompositions already in the literature; periodic linear merge θ = α·θ_A + (1-α)·θ_B with validation-tuned α is the canonical task-arithmetic primitive. None of the tahitian/heiva/polynesian dance content_words appear in technical results (kw=0 across the board), but the rule fires on semantic/functional thresholds.",
+  "decision": "FAIL"
+}
