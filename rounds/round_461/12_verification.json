@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R461",
+  "candidate": "KHIPU-GATE",
+  "candidate_form": "context-gating",
+  "candidate_summary": "KHIPU-GATE: position-bit-encoded context-gating attention inspired by Andean Inca khipu knotted cords. Per-token category-cord bit-code + layer-wise category-allowed gate + position-bit knot additive bias + selective re-tie promotion. KV-cache stores (c_i, p_i, value) bit-encoded.",
+  "content_words": [
+    "andean inca khipu knotted cord",
+    "decimal positional knot encoding selective",
+    "khipu-kamayuk untie re-tie sections",
+    "multi-modal color fiber weave decode",
+    "category-cord bit-gated context-attention selective",
+    "khipu position-bit-encoded layer-wise gate",
+    "knot-type orientation low-bit positional code",
+    "selective re-tie promotion-demotion gated KV"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "KVComm Selective KV Sharing ICLR 2026",
+      "description": "Layer-wise selection strategy based on attention importance Gaussian prior; transmits as few as 30% of layers' KV pairs.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["selective (decimal positional knot encoding selective)", "layer-wise gate (khipu position-bit-encoded layer-wise gate)"],
+      "semantic_score": 0.82,
+      "functional_score": 0.78,
+      "rationale": "Layer-wise selective KV transmission shares the same artefact (KV cache) and same effect (selective access per-layer) as KHIPU-GATE's layer-wise category gate, via a different mechanism (Gaussian prior vs bit-encoded category codes). Strong functional twin.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "KVTuner Sensitivity-Aware Layer-Wise Mixed-Precision KV ICML 2025",
+      "description": "Adaptive layer-wise KV quantization precision; 3.25-bit mixed-precision near-lossless Llama-3.1-8B.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["bit (knot-type orientation low-bit positional code)", "layer-wise gate (khipu position-bit-encoded layer-wise gate)"],
+      "semantic_score": 0.80,
+      "functional_score": 0.75,
+      "rationale": "Layer-wise mixed-precision bit-encoded KV quantization. Same artefact (KV cache), same effect (layer-wise bit-encoded compression), different mechanism (sensitivity-based precision vs category bit codes). Functional twin.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Entropy-Guided KV Caching Efficient LLM Inference",
+      "description": "Per-head entropy → layer importance → KV cache budget allocation.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["layer-wise gate (khipu position-bit-encoded layer-wise gate)"],
+      "semantic_score": 0.74,
+      "functional_score": 0.72,
+      "rationale": "Per-layer entropy-guided KV budget allocation. Same artefact (KV cache) and same effect (selective per-layer access budget) via different mechanism (entropy vs category bit code). Functional twin above threshold.",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "SqueezeAttention 2D Layer-Wise KV-Cache Budget",
+      "description": "2D management of KV-cache sequence-wise + layer-wise budget allocation.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["layer-wise gate (khipu position-bit-encoded layer-wise gate)"],
+      "semantic_score": 0.78,
+      "functional_score": 0.80,
+      "rationale": "2D layer + sequence KV budget covers BOTH layer-wise gating AND per-token (sequence) selective access — the exact twin paradigm of KHIPU-GATE's layer + per-token category gate. Same artefact, same dual-dimension effect, different mechanism (budget allocation vs bit-encoded category). Strong functional twin.",
+      "hit": true
+    },
+    {
+      "id": 5,
+      "name": "KVQuant 10M Context KV Quantization NeurIPS 2024",
+      "description": "KV-cache bit-encoded quantization (2-bit + 4-bit) preserving accuracy via pre-RoPE quantization.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["bit (knot-type orientation low-bit positional code)"],
+      "semantic_score": 0.72,
+      "functional_score": 0.70,
+      "rationale": "Bit-encoded KV quantization. Same artefact (KV cache), same effect (bit-encoded storage), different mechanism (quantization vs category bit codes). Borderline functional twin at threshold.",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "RetrievalAttention Long-Context Vector Retrieval OpenReview",
+      "description": "Training-free approximate NN search for KV vectors retrieved during generation.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["selective (decimal positional knot encoding selective)"],
+      "semantic_score": 0.66,
+      "functional_score": 0.68,
+      "rationale": "Approximate NN search for selective KV retrieval. Same artefact (KV cache) and similar effect (selective access), but mechanism is vector-search rather than category-gating. Below functional threshold but close.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "TidalDecode Fast Accurate LLM Decoding ICLR 2025",
+      "description": "Position-anchored selective KV retrieval for long-context decoding.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["positional (knot-type orientation low-bit positional code)", "selective (decimal positional knot encoding selective)"],
+      "semantic_score": 0.76,
+      "functional_score": 0.74,
+      "rationale": "Position-anchored selective KV. Same artefact (KV cache), same effect (position-based selective access mirroring position-bit knot additive bias), different mechanism. Functional twin.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Akshat Sharma IDEALS Per-Token KV Bit-Code Selective 2025",
+      "description": "Per-token KV bit-code with category-bit gating for long-context LLM access mask.",
+      "keyword_overlap_count": 4,
+      "keyword_matches": ["bit (knot-type orientation low-bit positional code)", "category (category-cord bit-gated context-attention selective)", "selective (decimal positional knot encoding selective)", "gated (selective re-tie promotion-demotion gated KV)"],
+      "semantic_score": 0.90,
+      "functional_score": 0.92,
+      "rationale": "EXACT TWIN — per-token KV bit-code with category-bit gating IS exactly the KHIPU-GATE bit-encoded category-cord scheme. Same artefact, same mechanism essentially. Strongest hit across all dimensions.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 7,
+  "kw_forced_hits": 4,
+  "semantic_forced_hits": 6,
+  "functional_forced_hits": 7,
+  "result": "FAIL",
+  "decision_rationale": "7 of 8 results hit on at least one dimension (functional twin threshold dominates). The Sharma IDEALS paper is an exact twin describing per-token KV bit-code with category-bit gating — identical to KHIPU-GATE's core mechanism. SqueezeAttention (2D layer × sequence budget), KVComm (layer-wise selective KV), KVTuner (layer-wise bit-encoded), and TidalDecode (position-anchored selective) collectively cover layer-wise + position + bit-encoded + selective gating paradigms. The khipu metaphor adds vocabulary but the underlying LLM mechanism (bit-encoded category code + layer-wise gating + position bias + selective promotion) is recombination of known techniques. Novelty fails."
+}
