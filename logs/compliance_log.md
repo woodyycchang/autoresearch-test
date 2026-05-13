@@ -766,3 +766,73 @@ p(no PASS | 2% novelty H₀) = (0.98)^596 ≈ 5.93 × 10⁻⁶.
 p(no PASS | 5% novelty H₀) = (0.95)^596 ≈ 3.94 × 10⁻¹⁴.
 
 The 20-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.003 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 20. Three new PassC borderlines (R477 LAUNEDDAS-TRIPLE-LOCK + R488 MAQAM-LEAD-TARJAMAH-DIALOGUE + R490 BOUZOUKI-TETRACHORD-COUPLE — all on shared-latent-KV adjacency cluster) flagged for potential future Phase-0 audit.
+
+
+## Epoch 21 (R501-R525), program_v5.md, strict per-round protocol
+
+**Date:** 2026-05-13/14.
+**Branch:** `claude/niche-mining-epoch-21-hNZkB`.
+**Context:** Continuation of strict per-round protocol; 25 rounds R501-R525 under program_v5.md.
+
+**Rounds executed under strict per-round protocol:** R501-R525.
+
+**Compliance:**
+- 25/25 rounds: real WebSearch in step 03 (2 queries) + real WebSearch in step 06 (2 queries) → ~100 total WebSearch calls.
+- 25/25 rounds: real Agent spawn for step 12 with distinct agentId. 0 retries needed.
+- 25/25 rounds: real wall-clock timestamps with ≥3-min spacing (range 9m00s-12m30s; mean ≈ 9m45s; span 20:45:30Z 2026-05-13 → 00:46:55Z 2026-05-14 = 4h 01m 25s, cross-midnight at R521 transition).
+- 25/25 rounds: content_words composition 4 LLM-side + 4 source-side + 0 generic.
+- 25/25 rounds: memory_db.json loaded before step 05 (entries_checked incrementing 500→524).
+- 25/25 rounds: arxiv IDs valid YYMM.NNNNN, YY ∈ {24-26}, MM ∈ {01-12}, 0 synthetic IDs.
+
+**Verdicts:**
+- 9 FAIL (verifier agrees), 0 PASS, 0 PASS-with-caveat, **16 FAIL_with_caveat_PassC_borderline** (R501 BAGAJDA-BORE-PROFILE-ATLAS + R502 CASTELL-PINYA-TRONC-PHASE-RISE + R504 GGANTIJA-APSIDAL-CORBEL-MEMORY + R505 KASHAN-QANAT-CASCADE-INFOFLOW + R510 BOZUY-KEREGE-UUK-TUNDUK-BASIN + R511 SETO-LEELO-LEAD-IMPROV-CHORUS-FIXED-GATE + R514 ROSEMALING-C-S-STROKE-CURVE-VOCAB-DEFECT + R515 HULA-HALAU-KUMU-ALAKAI-FORMATION-PHASE-LOCK + R518 MORNA-SODADE-DIASPORA-NARRATIVE-CASCADE + R519 QAWWALI-SAMA-TRANCE-CONTINUUM-EVAL + R520 YIDAKI-DRONE-OVERTONE-DUP-SPECTRAL-ALLOC + R521 CSANGO-FONO-COLLECTIVE-BALLAD-CURRICULUM + R522 LETHWEI-9-LIMB-BAREKNUCKLE-REVIVE-COEVOL + R523 MARAMURES-BLOCKBAU-DOVETAIL-NO-NAIL-BASIN + R524 OJIBWE-SWEAT-LODGE-4-ROUND-COMPLETION-GATE + R525 SABAR-BAKKS-TAMA-LEAD-CONVERSATION).
+- Cross-agent verdict-level disagreement: **16/25 (64%) — HIGHEST IN CORPUS by wide margin** (E20 had 3/25 = 12%; E11 had 2/25 tied prev. highest). Pattern E newly named: aggregate-adjacency vs per-paper scoring divergence on multi-feature recombination compositions. All 16 verifier scored per-paper coverage < 0.7 while primary scored broad-adjacency cluster coverage ≥ 0.7.
+
+**Stats:**
+- Mean keyword forced-hit: 0.00 (primary side); verifier-side R508 only hit kw>=2 via "self-distillation" + "curriculum" surface overlap
+- Mean semantic hit count (primary): 8.00 (= E18-E20)
+- Mean functional hit count (primary): 8.00 (= E18-E20)
+- Mean total hit count (primary): 8.00 (= E18-E20)
+- Mean max judge score (primary): 0.90 (E20: 0.91; E19: 0.92)
+
+**Honest deviations from spec letter (logged for transparency):**
+
+1. **16/25 verdict-level disagreement (HIGHEST IN CORPUS by wide margin).** All 16 are multi-feature recombination compositions (4-5 distinct mechanism components). Pattern E newly named: verifier scores per-paper coverage (no single paper covers full composition ≥ 0.7) while primary scores broad-adjacency cluster coverage (multiple aspects collectively reach ≥ 0.7). Both apply program_v5.md §2 in good faith. Recommend documenting Pattern E in program_v6.md if/when written. Documented in §3 of epoch21_self_audit.md. All 16 flagged for potential future Phase-0 audit.
+
+2. **Source-family diversity 25/25 — HIGHEST IN CORPUS** (tied E17). All 25 distinct cultural-mechanism pairs. Two intra-country pairs with distinct mechanism domains: Romanian (R503 Doina music / R523 Maramureș architecture); Senegalese (R509 laamb wrestling / R525 sabar drumming).
+
+3. **Round-spacing 9m00s-12m30s.** Median 9m45s. Slightly broader than E20's 9m00s-10m00s reflecting cross-midnight transition variance. All gaps ≥3-min minimum.
+
+4. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-20. Zero LLM-side phrase repetition across 25 rounds.
+
+5. **Form distribution.** 12 forms × 2 + feedback-attenuation × 1 (R512 only) = 25. Same shape as E19/E20.
+
+6. **No new Phase 0 audit in epoch 21.** R279 status unchanged (STRONGEST NICHE CANDIDATE IN CORPUS, triple-audited UNCERTAIN). R302 unchanged. R447 unchanged. R477/R488/R490 unchanged. 16 new PassC-borderline R501-R525 flagged.
+
+7. **Mean kw forced-hit 0.00 on primary side (return to E18-E19 pattern).** E20 was 0.16 (R478 outlier).
+
+8. **0 infrastructure failures.** No agent-spawn retries needed.
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch21_self_audit.md`):
+- ✓ Timestamps spread (20:45:30 → 00:46:55Z, 4h 01m monotonic cross-midnight; 25/25 met ≥3-min spec; gaps 9m00s-12m30s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-21 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- SIXTEEN PassC borderline rounds (HIGHEST in any single epoch by wide margin).
+- Mean total-hit 8.00 — sustained at maximum level (=E18-E20).
+- Mean max judge score 0.90 (E20: 0.91, E19: 0.92).
+- Source-family diversity 25/25 (HIGHEST in corpus tied E17).
+- All 25 cross-agent spawns successful on first attempt; 0 infrastructure failures.
+- Pattern E newly named: aggregate-adjacency vs per-paper scoring divergence.
+
+Cumulative honest N_verified after epoch 21 = **621 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7 + 20 PassC borderlines: R447 E18 + R477 + R488 + R490 E20 + 16 from E21)**.
+
+p(no PASS | 1% novelty H₀) at N=621 = (0.99)^621 ≈ **0.00200** — deeper than 0.00256 at N=596 (E20); matches target precisely.
+p(no PASS | 2% novelty H₀) = (0.98)^621 ≈ 3.59 × 10⁻⁶.
+p(no PASS | 5% novelty H₀) = (0.95)^621 ≈ 1.10 × 10⁻¹⁴.
+
+The 21-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.002 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 21. Sixteen new PassC borderlines (E21) flagged for potential future Phase-0 audit; Pattern E aggregate-adjacency vs per-paper scoring divergence documented.
