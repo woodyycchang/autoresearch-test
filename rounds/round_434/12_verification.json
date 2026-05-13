@@ -1,0 +1,141 @@
+{
+  "round": "434",
+  "verifier": "cross-agent-R434",
+  "candidate_form": "basin-stability",
+  "candidate_llm_application": "ZOU-HUN-BASIN: no-commitment dual-equal-persona-attractor inference scheme. Model maintains two persona-vectors v_A, v_B as fixed steering directions in residual stream. Per-query router α = sigmoid(W_router·h_query); v_mix(α) = α·v_A + (1-α)·v_B added to residual at selected layers. No parameters committed to either attractor between queries.",
+  "rule": "hit iff kw_count>=2 OR sem_score>=0.7 OR func_score>=0.7; total_hits>=1 => FAIL",
+  "threshold": {"kw": 2, "sem": 0.7, "func": 0.7},
+  "content_words": [
+    "mosuo zou hun walking marriage",
+    "matrilineal Awo dual-house residence",
+    "no-contract no-obligation courtship",
+    "night-visit multiple parallel partners",
+    "dual-equal persona attractor inference",
+    "no-commitment soft cross-attention router",
+    "per-query convex mix two-Awo basin",
+    "night-visit ephemeral persona blend"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2510.10157",
+      "title": "BILLY 2510.10157 — training-free merging of multiple persona vectors in activation space",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.93,
+      "sem_hit": true,
+      "functional_score": 0.92,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "EXACT-TWIN. BILLY explicitly merges multiple distinct persona vectors in activation space producing a blended steering vector — identical in computational substance to ZOU-HUN-BASIN's v_mix = α·v_A + (1-α)·v_B convex combination. Training-free + activation-space + multi-persona-blend is the same recipe. ZOU-HUN's per-query α router is the only delta; BILLY already merges multiple vectors and steers generation. Cultural Mosuo framing supplies narrative, not mechanism."
+    },
+    {
+      "rank": 2,
+      "url": "https://www.anthropic.com/research/persona-vectors",
+      "title": "Anthropic Persona Vectors 2025 — decode + direct LLM personality at activation level",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.88,
+      "sem_hit": true,
+      "functional_score": 0.86,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Anthropic's persona vector framework provides the canonical v_A, v_B extraction primitive (mean-activation-difference style) that ZOU-HUN-BASIN explicitly uses (`computed offline via mean activation difference, like ITI or RepE`). Activation-level personality control + no-finetuning-commit is exactly the no-commitment property ZOU-HUN claims. The dual-persona convex mix is a trivial composition over Anthropic's single-persona scheme."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/forum?id=HpUDi5Pe8S",
+      "title": "Steering LLM Interactions Using Persona Vectors — α coefficient controls intervention strength",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.89,
+      "sem_hit": true,
+      "functional_score": 0.87,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Persona-vector steering with explicit α coefficient controlling intervention strength is the exact scalar-router primitive of ZOU-HUN-BASIN. The α-controlled intervention IS the convex-mix coefficient. Two-persona mix is a one-line composition: v_mix = α·v_A + (1-α)·v_B is just two parallel α-scaled interventions. Already canonical."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2603.21398",
+      "title": "Persona Vectors in Games 2603.21398 — contrastive activation persona vectors for strategic-choice shifts",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.82,
+      "sem_hit": true,
+      "functional_score": 0.80,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Contrastive activation addition for multiple persona-vectors with quantitative shift measurement covers the multi-persona-vector library + activation-addition primitive ZOU-HUN requires. Multiple persona vectors held simultaneously and switched via activation injection is the parallel-persona property ZOU-HUN claims as distinguishing. Already standard."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2605.03907v1",
+      "title": "PSR Steer Like the LLM 2605.03907 — token-specific α estimated from activations imitating prompts",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.87,
+      "sem_hit": true,
+      "functional_score": 0.88,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "EXACT-TWIN of router component. PSR estimates token-specific steering coefficient α directly from activations — this IS the W_router·h_query → α scheme ZOU-HUN-BASIN proposes (sigmoid(W_router·h_query) is a degenerate linear-probe form of PSR's α-estimator). Per-query/per-token data-dependent α with no-parameter-commit is already PSR. Combined with multi-persona vectors (BILLY, rank 1), the full ZOU-HUN scheme is decomposed."
+    },
+    {
+      "rank": 6,
+      "url": "https://www.researchgate.net/publication/394298701_MasRouter_Learning_to_Route_LLMs_for_Multi-Agent_Systems",
+      "title": "MasRouter — dynamic LLM routing for multi-agent",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.74,
+      "sem_hit": true,
+      "functional_score": 0.72,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Dynamic per-query routing across multiple LLM personas/teams with no-permanent-commitment is the high-level routing skeleton of ZOU-HUN-BASIN. MasRouter is at model-level rather than steering-vector-level (which ZOU-HUN tries to use as differentiator), but the per-query soft-route-without-commit pattern is identical. Combined with PSR/BILLY which already operate at steering-vector level, the differentiator collapses."
+    },
+    {
+      "rank": 7,
+      "url": "https://vllm-semantic-router.com/",
+      "title": "vLLM Semantic Router — open-source mixture-of-models semantic routing",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.71,
+      "sem_hit": true,
+      "functional_score": 0.70,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Mixture-of-models semantic routing per query with no-commit is the deployed-system analog of ZOU-HUN's per-query α-router. Although operating at model-selection granularity (not residual-vector mix), the no-commit + per-query + soft-mix-over-experts pattern is identical. Compositional with persona-vector-level mixing (BILLY) yields ZOU-HUN."
+    },
+    {
+      "rank": 8,
+      "url": "https://medium.com/@Mr_20dollars/llm-black-box-dynamics-attractor-based-continuity-of-llm-personas-1a974c369a20",
+      "title": "Attractor-Based Persona Continuity Medium 2026 — semantic basin + attractor collapse for persona continuity",
+      "keyword_overlap_count": 0,
+      "kw_hit": false,
+      "semantic_score": 0.81,
+      "sem_hit": true,
+      "functional_score": 0.78,
+      "func_hit": true,
+      "hit": true,
+      "rationale": "Attractor + semantic-basin + persona-continuity is the same conceptual frame ZOU-HUN-BASIN labels as 'basin-stability'. The Medium piece focuses on single-attractor collapse, but the basin/attractor framing for LLM persona dynamics is anticipated. ZOU-HUN's claimed differentiator vs this source ('maintains BOTH attractors simultaneously, no termination') is a trivial extension to two parallel basins — and the parallel-basin property is already given by multi-persona-vector blending (BILLY). Basin language + persona-vector substrate fully anticipated."
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 8,
+    "total_hits": 8,
+    "max_semantic": 0.93,
+    "max_functional": 0.92,
+    "exact_twin_present": true,
+    "exact_twin_urls": [
+      "https://arxiv.org/html/2510.10157",
+      "https://arxiv.org/html/2605.03907v1"
+    ]
+  },
+  "verdict": "FAIL",
+  "reason": "All 8 results trigger hit under sem>=0.7 AND func>=0.7 (kw_count=0 across the board because Mosuo/Awo cultural lexicon does not appear in technical LLM literature, as expected). Two exact functional twins are present: (a) BILLY 2510.10157 supplies training-free merging of multiple persona vectors in activation space producing a blended steering vector — this is precisely v_mix = α·v_A + (1-α)·v_B; (b) PSR 2605.03907 supplies per-token data-dependent α-coefficient estimation from activations — this is precisely sigmoid(W_router·h_query). Composition of BILLY (multi-persona blend) with PSR (data-driven α) reconstructs ZOU-HUN-BASIN entirely. The remaining results redundantly anticipate sub-components: Anthropic Persona Vectors supplies the v_A,v_B extraction primitive; OpenReview HpUDi5Pe8S confirms α-coefficient intervention strength is canonical; Persona Vectors in Games confirms multi-persona-vector libraries; MasRouter + vLLM Semantic Router supply the no-commit per-query routing skeleton; Attractor-Based Persona Continuity supplies the basin/attractor framing. ZOU-HUN's claimed novelty (dual-equal-attractor + per-query soft router + no-parameter-commit) is decomposed exhaustively: dual-equal-attractor = multi-persona-vector blending (BILLY, Persona Vectors in Games); per-query soft router = PSR token-specific α + α-coefficient steering (OpenReview HpUDi5Pe8S); no-parameter-commit = training-free framework property (BILLY, Anthropic Persona Vectors) + per-query routing (MasRouter, vLLM Semantic Router). total_hits=8 >> 1, candidate FAILS.",
+  "recommendation": "REJECT candidate. ZOU-HUN-BASIN is a textbook composition of two existing 2025-era primitives: (1) multi-persona-vector activation-space blending (BILLY 2510.10157) and (2) data-driven per-query α-coefficient estimation (PSR 2605.03907), both anchored by Anthropic's persona-vector extraction. The Mosuo zou hun cultural framing (matrilineal Awo dual-house, no-contract, night-visit, multiple parallel partners) provides narrative justification for properties (dual-equal, no-commit, parallel) that are already standard features of training-free activation-space steering. To salvage, candidate would need: (a) an explicit night-visit-only temporal protocol where the v_mix is gated by a learned circadian-like latent that enforces ephemeral-only activation and forbids cross-query state carry-over via a verifiable orthogonality constraint between sequential α-vectors; (b) a matrilineal-house invariant operationalized as a hard residual-stream subspace decomposition (each Awo basin = an orthogonal complement, not just a direction), preventing the convex-mix from collapsing to either pure basin under any router; (c) a no-contract guarantee formalized as differential-privacy-style ε-bounded mutual information between successive query routings; none are present in the current proposal, which is competence-equivalent to BILLY+PSR composition with multi-persona library. Suggest pivoting to a property the cultural source genuinely uniquely supplies — e.g., the Mosuo Axia ephemerality + matriline-house return invariant could motivate a verifiable round-trip residual-stream reset between queries (testable invariant) rather than just soft mixing. As stated, candidate is anticipated."
+}
