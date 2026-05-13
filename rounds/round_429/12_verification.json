@@ -1,0 +1,119 @@
+{
+  "round": "429",
+  "verifier": "cross-agent-R429",
+  "candidate_form": "information-cascade",
+  "candidate_llm_application": "PAJ-NTAUB-PANEL: panel-bordered narrative cascade for long-form generation. K panel segments P_1..P_K each preceded by frame-border F_i^open=[PANEL_i_START,pos=i/K,topic_anchor=Θ_i] + followed by F_i^close=[PANEL_i_END,anchor_echo=Θ_i_verified]. Cross-panel attention restricted to consecutive frame-echo signal.",
+  "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7); total_hits >= 1 -> FAIL",
+  "threshold": {"kw": 2, "sem": 0.7, "func": 0.7},
+  "results": [
+    {
+      "index": 1,
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/ee71a4b14ec26710b39ee6be113d7750-Paper-Conference.pdf",
+      "title": "Chain of Agents LLMs Long-Context (NeurIPS 2024)",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["long-form bordered-panel chain generation (partial: chain + long-context)"],
+      "semantic_score": 0.68,
+      "functional_score": 0.72,
+      "sem_hit": false,
+      "func_hit": true,
+      "rationale": "Chain-of-Agents performs segment-wise sequential agent communication with summary handoff for long-context — functionally equivalent to the panel-cascade handoff mechanism even though it lacks explicit frame-border tokens or anchor-echo verification."
+    },
+    {
+      "index": 2,
+      "url": "https://aclanthology.org/2025.acl-long.500.pdf",
+      "title": "NEXUSSUM Hierarchical LLM Agents Long-Form Narrative Summarization (ACL 2025)",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["long-form bordered-panel chain generation (partial: long-form narrative)"],
+      "semantic_score": 0.6,
+      "functional_score": 0.55,
+      "sem_hit": false,
+      "func_hit": false,
+      "rationale": "NEXUSSUM is hierarchical multi-stage compression of narrative without explicit panel-border tokens or topic-anchor echo handoff; overlap is generic long-form narrative segmentation."
+    },
+    {
+      "index": 3,
+      "url": "https://www.mdpi.com/2079-8954/14/2/175",
+      "title": "Game Knowledge Management Schema-Governed LLM Narrative Generation MDPI 2026",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["frame-token topic-anchor opening closing (partial: structural anchors)"],
+      "semantic_score": 0.62,
+      "functional_score": 0.66,
+      "sem_hit": false,
+      "func_hit": false,
+      "rationale": "G-KMS uses schema-governed structural anchors with normalization-based repair — conceptually adjacent to topic-anchor verification but applied at schema/admission level, not as per-panel bracketing tokens with cross-panel attention restriction."
+    },
+    {
+      "index": 4,
+      "url": "https://opencredo.com/blogs/how-to-use-llms-to-generate-coherent-long-form-content-using-hierarchical-expansion",
+      "title": "Hierarchical Expansion Long-Form Coherent Content OpenCredo",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["frame-token topic-anchor opening closing (partial: topic anchors per section)"],
+      "semantic_score": 0.66,
+      "functional_score": 0.64,
+      "sem_hit": false,
+      "func_hit": false,
+      "rationale": "Outline-then-expand with per-section topic anchors overlaps in spirit with panel topic-anchors but lacks explicit frame-border open/close tokens, anchor-echo verification, and restricted cross-panel attention mechanism."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/html/2603.06688v2",
+      "title": "Narrative Weaver Long-Range Visual Consistency Multi-Modal (2603.06688)",
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["panel-bordered serialized narrative cascade (panel-based serialized narrative)", "long-form bordered-panel chain generation (cross-panel conditioning)"],
+      "semantic_score": 0.78,
+      "functional_score": 0.74,
+      "sem_hit": true,
+      "func_hit": true,
+      "rationale": "Narrative Weaver explicitly uses panel-based serialized narrative with cross-panel conditioning for long-range consistency — strong keyword, semantic, and functional overlap with the panel-bordered cascade mechanism even though the modality is visual."
+    },
+    {
+      "index": 6,
+      "url": "https://aclanthology.org/2025.findings-emnlp.750.pdf",
+      "title": "Survey LLMs Story Generation (Findings EMNLP 2025)",
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["panel-bordered serialized narrative cascade (panel-structured story generation)", "frame-token topic-anchor opening closing (frame-narrative bracketing)"],
+      "semantic_score": 0.75,
+      "functional_score": 0.7,
+      "sem_hit": true,
+      "func_hit": true,
+      "rationale": "EMNLP 2025 survey explicitly covers multi-stage panel-structured story generation with frame-narrative bracketing — directly subsumes the panel-bordered narrative cascade with frame tokens."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/html/2602.15851v1",
+      "title": "Narrative Theory-Driven LLM Story Generation Survey (2602.15851)",
+      "keyword_overlap_count": 1,
+      "matched_keywords": ["panel-bordered serialized narrative cascade (partial: segment generation with narrative structure framing)"],
+      "semantic_score": 0.71,
+      "functional_score": 0.68,
+      "sem_hit": true,
+      "func_hit": false,
+      "rationale": "Multi-stage segment generation with explicit narrative structure framing semantically overlaps panel-bordered cascade; lacks explicit anchor-echo verification handoff but covers the framing primitive."
+    },
+    {
+      "index": 8,
+      "url": "https://arxiv.org/html/2512.19179",
+      "title": "CascadeInfer Length-Aware Inter-Instance Cascade LLM (2025/12)",
+      "keyword_overlap_count": 2,
+      "matched_keywords": ["handoff verification frame echo (length summary handoff)", "long-form bordered-panel chain generation (cascade pipeline with stage boundary)"],
+      "semantic_score": 0.72,
+      "functional_score": 0.76,
+      "sem_hit": true,
+      "func_hit": true,
+      "rationale": "CascadeInfer is an explicit cascade pipeline with stage boundary adjustment and lightweight summary handoff between stages — directly mirrors the frame-bordered cascade with compressed handoff mechanism."
+    }
+  ],
+  "summary": {
+    "total_results": 8,
+    "kw_hits": 3,
+    "sem_hits": 4,
+    "func_hits": 4,
+    "total_hits": 5,
+    "max_semantic": 0.78,
+    "max_functional": 0.76,
+    "distinct_effect_clusters_above_threshold": 3
+  },
+  "verdict": "FAIL",
+  "reason": "Five of eight results trigger the hit rule. Narrative Weaver (#5) and EMNLP 2025 Story Generation Survey (#6) both cover panel-structured serialized narrative with frame bracketing (kw>=2, sem>=0.7, func>=0.7). CascadeInfer (#8) provides explicit cascade-with-stage-boundary + summary handoff (kw>=2, sem>=0.7, func>=0.7). Chain-of-Agents (#1) covers functional segment handoff (func>=0.7). Narrative Theory survey (#7) provides semantic coverage of multi-stage segment+structure framing (sem>=0.7). The panel-bordered narrative cascade core mechanism is already covered by prior work across three distinct clusters (panel-structured narrative, cascade-with-stage-boundary handoff, sequential agent segment handoff).",
+  "recommendation": "REJECT — recombination of panel-structured narrative generation, frame bracketing, and cascade-handoff is already established. To gain novelty, candidate must move beyond bracketing+echo to a mechanistically distinct primitive (e.g., bidirectional anchor reconciliation, verifier-gated panel re-emission, or quantitative cross-panel attention budget tied to border-token entropy) not currently covered by Narrative Weaver/EMNLP survey/CascadeInfer."
+}
