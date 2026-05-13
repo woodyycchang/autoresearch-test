@@ -671,3 +671,98 @@ p(no PASS | 2% novelty H₀) = (0.98)^546 ≈ 1.62 × 10⁻⁵.
 p(no PASS | 5% novelty H₀) = (0.95)^546 ≈ 8.55 × 10⁻¹³.
 
 The 18-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.004 against the 1% novelty hypothesis. R279 PTCH (within-head harmonic-integer-ratio singular-direction constraint) remains the SINGLE strongest niche in the corpus, unchanged through epoch 18. R447 MBUTI-HOCKET-DECODE (K-draft modulo-K phase-offset speculative decoder with cohesive verification) PassC borderline flagged for potential future Phase-0 audit.
+
+
+## Epoch 19 (R451-R475), program_v5.md, strict per-round protocol
+
+**Date:** 2026-05-13.
+**Branch:** `claude/epoch-19-niche-mining-wV6VB`.
+**Context:** Continuation of strict per-round protocol; 25 rounds R451-R475 under program_v5.md.
+
+**Rounds executed:** R451-R475.
+
+**Compliance:**
+- 25/25 rounds: real WebSearch in step 03 (2 queries) + step 06 (2 queries) → ~100 WebSearch calls.
+- 25/25 rounds: real Agent spawn for step 12 with distinct agentId.
+- 25/25 rounds: real wall-clock timestamps with ≥3-min spacing (9m00s-14m30s).
+- 25/25 rounds: content_words composition 4 LLM-side + 4 source-side + 0 generic.
+- 25/25 rounds: memory_db.json loaded before step 05.
+- 25/25 rounds: arxiv IDs valid YYMM.NNNNN.
+
+**Verdicts:** 25 FAIL, 0 PASS, 0 PASS-with-caveat, 0 PassC borderline. 0 verdict-level cross-agent disagreement (lowest in corpus, matches E17).
+
+**Stats:**
+- Mean keyword forced-hit: 0.00
+- Mean total hit count: 8.00 (= E18; highest in rolling corpus)
+- Mean max judge score: 0.92 (highest in corpus)
+
+N_verified after E19 = 571. p(no PASS|1%) ≈ 0.00326.
+
+---
+
+## Epoch 20 (R476-R500), program_v5.md, strict per-round protocol
+
+**Date:** 2026-05-13.
+**Branch:** `claude/niche-mining-epoch-20-Gepi4`.
+**Context:** Continuation of strict per-round protocol; 25 rounds R476-R500 under program_v5.md.
+
+**Rounds executed under strict per-round protocol:** R476-R500.
+
+**Compliance:**
+- 25/25 rounds: real WebSearch in step 03 (2 queries) + real WebSearch in step 06 (2 queries) → ~100 total WebSearch calls.
+- 25/25 rounds: real Agent spawn for step 12 with distinct agentId. 0 retries needed.
+- 25/25 rounds: real wall-clock timestamps with ≥3-min spacing (range 9m00s-10m00s, tightest in corpus; mean ≈ 9m30s; span 16:47:30Z → 20:36:25Z = 3h 48m 55s).
+- 25/25 rounds: content_words composition 4 LLM-side + 4 source-side + 0 generic.
+- 25/25 rounds: memory_db.json loaded before step 05 (entries_checked incrementing 475→499).
+- 25/25 rounds: arxiv IDs valid YYMM.NNNNN, YY ∈ {23-26}, MM ∈ {01-12}, 0 synthetic IDs.
+
+**Verdicts:**
+- 22 FAIL (verifier agrees), 0 PASS, 0 PASS-with-caveat, **3 FAIL_with_caveat_PassC_borderline (R477 LAUNEDDAS-TRIPLE-LOCK + R488 MAQAM-LEAD-TARJAMAH-DIALOGUE + R490 BOUZOUKI-TETRACHORD-COUPLE)**.
+- Cross-agent verdict-level disagreement: **3/25 (12%)** — all three verifier-PASS / primary-FAIL pairs on shared-latent-KV/multi-head adjacency cluster (TransMLA/MLA/GQA/CLA/MALLM). Verifier judged specific architectural variation (1+2 triplet+EMA-drone for R477, tarjamah+modal-anchor for R488, 4-course octave-V-scale-2x for R490) as residual novelty beyond cluster.
+
+**Stats:**
+- Mean keyword forced-hit: 0.16 (R478 SUTARTINES had 4 kw forced hits on "orthogonal LoRA" overlap)
+- Mean semantic hit count: 8.00 (= E18-E19)
+- Mean functional hit count: 8.00 (= E18-E19)
+- Mean total hit count: 8.00 (= E18-E19)
+- Mean max judge score: 0.91 (E18: 0.91; E19: 0.92)
+
+**Honest deviations from spec letter (logged for transparency):**
+
+1. **3/25 verdict-level disagreement (highest tied with E11).** All three on shared-latent-KV adjacency cluster (phase-coherence × 2 + multi-agent-comm × 1). Documented in §3 of epoch20_self_audit.md. Flagged for potential future Phase-0 audit.
+
+2. **Source-family overlaps within epoch.** Khmer-2 (R486 apsara + R497 pradal serey — distinct mechanism classes) only repeat. 23 otherwise-distinct source cultures: Slovenian Idrija + Sardinian launeddas + Lithuanian sutartines + Tuvan ovoo + Faroese ringdans + Mongolian khoomei + Andalusian flamenco + Chinese jieqi + Tuareg takouba + Druze jabal + Punjabi dhol + Iraqi maqam + Persian carpet + Greek bouzouki + Cherokee stomp + Sami stallo + Welsh eisteddfod + Tibetan nechung + Korean gayageum + Mande griot + Inca Moray + Bhutanese tshachu + Inuit qulliq. Total 23 (E19: 22, E17: 25).
+
+3. **Round-spacing 9m00s-10m00s (tightest in corpus).** Median 9m30s. R476 had +10m00s gap from R475 (epoch transition). All gaps ≥3-min minimum.
+
+4. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-19. Zero LLM-side phrase repetition across 25 rounds.
+
+5. **Form distribution.** 12 forms × 2 + feedback-attenuation × 1 (R487 only) = 25. Same shape as E19.
+
+6. **No new Phase 0 audit in epoch 20.** R279 status unchanged (STRONGEST NICHE CANDIDATE IN CORPUS, triple-audited UNCERTAIN). 3 new PassC-borderline candidates (R477+R488+R490) flagged.
+
+7. **Mean kw forced-hit 0.16 (first non-zero since E17).** Driven entirely by R478 SUTARTINES-DIAPHONY-NULL (4 kw-forced hits via "orthogonal LoRA" + "null-space" surface overlap).
+
+8. **0 infrastructure failures.** No agent-spawn retries needed.
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch20_self_audit.md`):
+- ✓ Timestamps spread (16:47:30 → 20:36:25Z, 3h 48m monotonic; 25/25 met ≥3-min spec; gaps 9m00s-10m00s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {23,24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-20 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- THREE PassC borderline rounds (highest in any single epoch).
+- Mean total-hit 8.00 — sustained at maximum level (=E18-E19).
+- New EXACT TWINs retrieved this epoch include Graph-Isomorphic Attention 2501.02393 (R476), TransMLA 2502.07864 (R477+R490), CLoRA ACL 2025 (R478), MemPalace 2604.21284 (R479), Multi-Agent Consensus 2310.20151 (R480), RULERS 2601.08654 (R481), Mixture-of-Depths 2404.02258 (R482), Cyclical Loss-Based KBS 2025 (R483), Digital Red Queen Sakana (R484), AsFT 2506.08473 (R485), MoE LLMs Survey 2507.11181 (R486), AdEMAMix (R487), Multi-Agent Constraint Factorization 2601.15077 (R488), PSEAD 2507.14908 (R489), GQA (R490), Lotus 2602.01233 (R491), MAGMA 2601.03236 (R492), CATArena 2510.26852 (R493), llm-council (R494), Mixed-Frequency RoPE (R495), POCL 2506.05695 (R496), OWASP ASI 8-Family 2605.04019 (R497), Adaptive Temperature 2602.11779 (R498), TURN 2502.05234 (R499), Token-Level Round-Robin 2604.17139 (R500).
+- Khmer-2 only within-epoch source-family repeat.
+
+Cumulative honest N_verified after epoch 20 = **596 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7 + 4 PassC borderlines: R447 E18 + R477 + R488 + R490 E20)**.
+
+p(no PASS | 1% novelty H₀) at N=596 = (0.99)^596 ≈ **0.00256** — deeper than 0.00326 at N=571 (E19); matches target precisely.
+p(no PASS | 2% novelty H₀) = (0.98)^596 ≈ 5.93 × 10⁻⁶.
+p(no PASS | 5% novelty H₀) = (0.95)^596 ≈ 3.94 × 10⁻¹⁴.
+
+The 20-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.003 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 20. Three new PassC borderlines (R477 LAUNEDDAS-TRIPLE-LOCK + R488 MAQAM-LEAD-TARJAMAH-DIALOGUE + R490 BOUZOUKI-TETRACHORD-COUPLE — all on shared-latent-KV adjacency cluster) flagged for potential future Phase-0 audit.
