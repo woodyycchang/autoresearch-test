@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R457",
+  "candidate": "IMZAD-MONOSTRING",
+  "candidate_form": "spectral-allocation",
+  "candidate_summary": "Single-channel rich-spectrum allocation for LLM compute: one channel (head/expert/embedding axis) carries K-tone information via explicit harmonic-basis projection with learned per-channel fundamental frequency and sparse top-K harmonic coefficients; continuous-pitch (non-quantized) fundamental varies per token. Inspired by the Tuareg Imzad single-string bowed fiddle whose entire melodic range comes from continuous fingerboard pressure + harmonic overtones.",
+  "content_words": [
+    "tuareg imzad single-string gourd-fiddle",
+    "horsehair string cross-bridge overtone",
+    "no-fret continuous-pitch finger pressure",
+    "single-channel multi-pitch women instrument",
+    "single-channel harmonic-basis overtone allocation",
+    "continuous-frequency no-fret spectral pitch",
+    "top-K sparse harmonic-coefficient compression",
+    "one-string rich time-frequency LLM head"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "FourierAttention Memory-Efficient LLMs Fourier-Approximated KV Cache (2506.11886)",
+      "description": "LLM-side: projects long-context-insensitive head dimensions onto orthogonal Fourier bases; approximates temporal evolution via fixed-length spectral coefficients.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.78,
+      "functional_score": 0.82,
+      "rationale": "FourierAttention projects head dimensions onto orthogonal Fourier bases with fixed-length spectral coefficients. Functionally this is the same artefact-class (attention head) using a spectral/harmonic basis projection to compress representation; differs from IMZAD-MONOSTRING in that it uses fixed Fourier bases over head dims (not a learned per-channel continuous fundamental with sparse top-K harmonic coefficients) and targets KV-cache compression rather than single-channel multi-pitch carrier. Same artefact + same compression-via-spectral-coefficients effect via different (orthogonal-Fourier vs learned-fundamental harmonic-series) mechanism — clears the 0.7 functional twin bar.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "FourierCompress Layer-Aware Spectral Activation Compression (2510.16418)",
+      "description": "LLM-side: transforms activations into frequency domain + retains dominant low-frequency coefficients; near-lossless FFT-based compression.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.74,
+      "functional_score": 0.78,
+      "rationale": "FourierCompress retains dominant low-frequency coefficients which is essentially sparse top-K coefficient compression. Same effect class (sparse spectral coefficient retention for activation compression) as IMZAD-MONOSTRING's top-K harmonic-coefficient compression, but operates per-layer on whole activation tensors via FFT rather than per-channel on a learned harmonic-basis with learned fundamental. Clears functional twin bar.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "SpecQuant Spectral Decomposition Ultra-Low-Bit LLM Quantization (2511.11663)",
+      "description": "LLM-side: two-stage spectral decomposition + adaptive channel-wise Fourier-domain truncation.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.74,
+      "functional_score": 0.76,
+      "rationale": "SpecQuant performs channel-wise Fourier-domain truncation for ultra-low-bit quantization. The 'channel-wise spectral truncation' directly maps to IMZAD-MONOSTRING's per-channel sparse top-K coefficient allocation. Different end-purpose (quantization vs spectral allocation) and different basis (Fourier vs learned harmonic with learned fundamental) but same channel-level spectral-truncation effect. Clears functional bar.",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "Harmonizer Universal Signal Tokenization Multimodal LLM 2025",
+      "description": "LLM-side: harmonic tokenization for heterogeneous signals + multimodal LLM integration.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.62,
+      "functional_score": 0.58,
+      "rationale": "Harmonizer uses 'harmonic tokenization' for multimodal heterogeneous signal input. Shares the harmonic-basis-projection vocabulary but operates as a tokenizer over multimodal inputs rather than as a per-channel internal compute allocation with sparse coefficients. Different artefact (tokenizer vs attention/MoE channel) and different effect (signal unification vs compute compression). Below functional twin threshold.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "Spectral Modulation LLMs EMNLP 2024",
+      "description": "LLM-side: spectral modulation on Transformer weight matrices to enhance performance.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.58,
+      "functional_score": 0.55,
+      "rationale": "Spectral modulation on weight matrices is a tensor-level spectral operation, not single-channel harmonic-basis projection with learned fundamental + sparse top-K. Different granularity (full weight matrix vs single channel) and different mechanism (modulation vs basis projection + sparse coefficient). Below functional twin bar.",
+      "hit": false
+    },
+    {
+      "id": 6,
+      "name": "Automated Fine-Grained MoE Quantization ACL 2025",
+      "description": "LLM-side: fine-grained MoE quantization with expert-channel spectral awareness.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.55,
+      "functional_score": 0.5,
+      "rationale": "Fine-grained MoE quantization with expert-channel awareness is at the right granularity (per-expert/per-channel) but the effect is bit-precision allocation, not harmonic-basis spectral projection with sparse top-K coefficient + learned fundamental. Below functional twin bar.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "Graph-Based Spectral Decomposition LM Fine-Tuning (2504.19583)",
+      "description": "LLM-side: graph spectral analysis for parameter coordination + per-channel allocation.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.55,
+      "functional_score": 0.5,
+      "rationale": "Graph-spectral decomposition uses graph Laplacian spectral analysis for parameter coordination — different spectral domain (graph spectral vs frequency-domain harmonic basis) and targets parameter coordination during fine-tuning rather than runtime channel compute allocation with continuous-frequency fundamental. Below functional twin bar.",
+      "hit": false
+    },
+    {
+      "id": 8,
+      "name": "LESTD LLM Compression via Learning-Based Spectral Truncation Decomposition",
+      "description": "LLM-side: learning-based spectral truncation decomposition for LLM channel compression.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.76,
+      "functional_score": 0.78,
+      "rationale": "LESTD performs learning-based spectral truncation for channel compression — this is essentially learned sparse top-K spectral coefficient selection on a per-channel basis, the core compression mechanism of IMZAD-MONOSTRING. Different decomposition basis (likely SVD/PCA-like vs harmonic-series with learned fundamental) and no continuous-pitch fundamental story, but same artefact-class (per-channel) and same effect (learned-coefficient spectral truncation for compression). Clears functional twin bar.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 4,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 4,
+  "functional_forced_hits": 4,
+  "result": "FAIL",
+  "decision_rationale": "Four prior-art results independently clear the 0.7 functional threshold and the 0.7 semantic threshold: FourierAttention (2506.11886) and LESTD provide channel/head-level learned spectral-coefficient projection; FourierCompress (2510.16418) provides sparse top-K spectral coefficient retention; SpecQuant (2511.11663) provides per-channel spectral truncation. Collectively these cover the three load-bearing claims of IMZAD-MONOSTRING (single-channel spectral allocation + sparse top-K coefficient compression + learned spectral basis at the head/channel granularity). The only differentiators left to the candidate are (a) explicit harmonic-series basis with a single learned fundamental and (b) continuous-pitch fundamental varying per token — both are minor recombinations of a Fourier/spectral basis paradigm that is already mainstream, as the candidate itself concedes in novelty_claim. Verdict: FAIL — not novel enough; functional twins are present at >=4 distinct prior-art results."
+}
