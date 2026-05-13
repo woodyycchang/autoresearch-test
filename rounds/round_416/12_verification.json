@@ -1,0 +1,123 @@
+{
+  "round": "416",
+  "verifier": "cross-agent-R416",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); independent scoring per result",
+  "candidate_form": "information-cascade",
+  "candidate_summary": "XYLEM-TENSION secondary tension stream initialized at output, propagating backward through layers via weighted alpha-cohesion in forward pass; concatenated with each layer's input.",
+  "results_analysis": [
+    {
+      "rank": 1,
+      "url": "https://huggingface.co/blog/encoder-decoder",
+      "title": "Transformer-based Encoder-Decoder Models",
+      "kw_matches": ["top-down feature provision", "output→input feature flow (via cross-attention)"],
+      "kw_count": 2,
+      "sem_cosine": 0.72,
+      "sem_hit": true,
+      "func_score": 0.72,
+      "func_hit": true,
+      "hit": true,
+      "reason": "kw>=2 (top-down + output-feature flow); sem>=0.7; func>=0.7. Encoder-decoder cross-attention provides top-down output-to-input feature flow analogous to the candidate's secondary-stream concept."
+    },
+    {
+      "rank": 2,
+      "url": "https://cdn.aaai.org/ojs/20144/20144-13-24157-1-2-20220628.pdf",
+      "title": "UCTransNet: Rethinking Skip Connections via Channel Transformer (AAAI 2022)",
+      "kw_matches": ["skip connections (secondary stream)", "cross-skip attention (concatenation/augmentation)"],
+      "kw_count": 2,
+      "sem_cosine": 0.74,
+      "sem_hit": true,
+      "func_score": 0.75,
+      "func_hit": true,
+      "hit": true,
+      "reason": "kw>=2; sem>=0.7; func>=0.7. UCTransNet redesigns skip connections as channel-wise transformer cross-attention — same secondary-stream augmentation pattern as candidate."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2502.06895",
+      "title": "Comprehensive Review of U-Net Variants",
+      "kw_matches": ["skip-connection variants (secondary stream)"],
+      "kw_count": 1,
+      "sem_cosine": 0.70,
+      "sem_hit": true,
+      "func_score": 0.68,
+      "func_hit": false,
+      "hit": true,
+      "reason": "sem>=0.7 triggers hit. Survey of skip-connection / multi-resolution U-Net variants overlapping with secondary-stream augmentation idea."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/1912.05074",
+      "title": "UNet++: Redesigning Skip Connections",
+      "kw_matches": ["dense nested skip connections (secondary stream)", "multi-stream feature fusion (concatenation/augmentation)"],
+      "kw_count": 2,
+      "sem_cosine": 0.72,
+      "sem_hit": true,
+      "func_score": 0.74,
+      "func_hit": true,
+      "hit": true,
+      "reason": "kw>=2; sem>=0.7; func>=0.7. UNet++ dense nested skip connections provide multi-stream secondary-information flow analogous to candidate's tension stream concatenation."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2305.07715",
+      "title": "Optimal Signal Propagation in ResNets via Residual",
+      "kw_matches": ["alpha-residual scaling (weighted α-cohesion)", "signal propagation (forward-pass propagation)"],
+      "kw_count": 2,
+      "sem_cosine": 0.74,
+      "sem_hit": true,
+      "func_score": 0.72,
+      "func_hit": true,
+      "hit": true,
+      "reason": "kw>=2; sem>=0.7; func>=0.7. Optimal alpha-scaled residual signal propagation directly matches candidate's weighted α-cohesion blend principle."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2404.10947v1",
+      "title": "Residual Connections Harm SSL Abstract Feature Learning",
+      "kw_matches": ["residual connections"],
+      "kw_count": 1,
+      "sem_cosine": 0.60,
+      "sem_hit": false,
+      "func_score": 0.55,
+      "func_hit": false,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7. SSL critique of residual; no specific overlap with secondary-stream / α-cohesion mechanism."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/pdf/2506.21103",
+      "title": "Learning to Skip the Middle Layers of Transformers",
+      "kw_matches": ["skip (layers, not secondary stream)"],
+      "kw_count": 1,
+      "sem_cosine": 0.66,
+      "sem_hit": false,
+      "func_score": 0.62,
+      "func_hit": false,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7. Selective middle-layer skipping is different mechanism from secondary tension stream."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/pdf/2403.09635",
+      "title": "Transformers Get Stable: End-to-End",
+      "kw_matches": [],
+      "kw_count": 0,
+      "sem_cosine": 0.62,
+      "sem_hit": false,
+      "func_score": 0.55,
+      "func_hit": false,
+      "hit": false,
+      "reason": "kw<2, sem<0.7, func<0.7. Training stability work; no specific overlap with backward-stream-in-forward-pass mechanism."
+    }
+  ],
+  "hit_counts": {
+    "kw_hits": 4,
+    "semantic_hits": 5,
+    "functional_hits": 4,
+    "results_with_any_hit": 5
+  },
+  "total_hits": 5,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL_NOVELTY",
+  "verdict_sentence": "Candidate FAILS novelty: 5 of 8 retrieved results trigger hits (4 kw>=2, 5 sem>=0.7, 4 func>=0.7) across multiple distinct effect clusters (encoder-decoder top-down flow, UCTransNet/UNet++ skip-connection redesign, alpha-scaled ResNet signal propagation), far exceeding the threshold of 1; the candidate's three claimed novel components (secondary stream, α-weighted blend, output-initialized propagation) each individually map to established mechanisms in the prior art."
+}

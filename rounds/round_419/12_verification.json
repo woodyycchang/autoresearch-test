@@ -1,0 +1,113 @@
+{
+  "round": "419",
+  "verifier": "cross-agent-R419",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "candidate_form": "basin-stability",
+  "candidate_summary": "RAVINALA orthogonal basin-stable KV reserve: augment standard KV cache with secondary orthogonal reserve-basin via low-rank decomposition (I - Proj_U) on evicted tokens; rehydration on retrieval via projection sum primary_KV approx Proj_U(prior) + reserve_KV. Three recombined components: orthogonal decomposition + reserve basin for evicted tokens + projection-sum rehydration.",
+  "content_words_llm_side": [
+    "orthogonal reserve KV basin",
+    "low-rank evicted-token preservation",
+    "projection-sum KV rehydration",
+    "off-axis basin-stable cache reserve"
+  ],
+  "results_analysis": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2512.17917",
+      "title": "KVReviver: Reversible KV Cache Compression with Sketch-Based Reconstruction",
+      "kw_count_independent": 0,
+      "kw_notes": "Snippet mentions 'reversible KV cache compression' and 'reconstruct compressed tokens from auxiliary data structure' — conceptually overlaps low-rank evicted-token preservation and projection-sum rehydration, but no exact 2+ content-word literal match.",
+      "sem_cosine": 0.94,
+      "func_score": 0.95,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2605.07234",
+      "title": "Reformulating KV Cache Eviction Problem (KVzip)",
+      "kw_count_independent": 0,
+      "kw_notes": "Reconstruction-driven eviction; no literal content-word match.",
+      "sem_cosine": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2505.24357",
+      "title": "ReCalKV: Low-Rank KV Cache Compression via Head Reordering",
+      "kw_count_independent": 0,
+      "kw_notes": "Low-rank KV cache compression overlaps 'low-rank evicted-token preservation' concept; no exact literal phrase match.",
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2603.27819",
+      "title": "KVSculpt: KV Cache Compression as Distillation",
+      "kw_count_independent": 0,
+      "kw_notes": "KV cache compression via distillation; no literal content-word match.",
+      "sem_cosine": 0.78,
+      "func_score": 0.75,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2504.09936",
+      "title": "KeepKV: Periodic Lossless KV Cache Compression",
+      "kw_count_independent": 0,
+      "kw_notes": "Lossless KV cache merging preserving context; no literal phrase match.",
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2512.03324v2",
+      "title": "Cache What Lasts: Token Retention Memory-Bounded KV",
+      "kw_count_independent": 0,
+      "kw_notes": "Token retention strategy; no literal content-word match.",
+      "sem_cosine": 0.74,
+      "func_score": 0.70,
+      "hit": true,
+      "forced_by": ["semantic", "functional"]
+    },
+    {
+      "rank": 7,
+      "url": "https://www.marktechpost.com/2026/04/29/top-10-kv-cache-compression-techniques-for-llm-inference-reducing-memory-overhead-across-eviction-quantization-and-low-rank-methods/",
+      "title": "Top 10 KV Cache Compression Techniques 2026",
+      "kw_count_independent": 0,
+      "kw_notes": "Survey of eviction + low-rank + quantization; no literal content-word match.",
+      "sem_cosine": 0.72,
+      "func_score": 0.65,
+      "hit": true,
+      "forced_by": ["semantic"]
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2603.20397v1",
+      "title": "KV Cache Optimization Strategies Survey",
+      "kw_count_independent": 0,
+      "kw_notes": "5 directions survey; no literal content-word match.",
+      "sem_cosine": 0.74,
+      "func_score": 0.68,
+      "hit": true,
+      "forced_by": ["semantic"]
+    }
+  ],
+  "hit_counts": {
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 6,
+    "any_rule_hits": 8
+  },
+  "total_hits": 8,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL_NOT_NOVEL",
+  "verdict_sentence": "RAVINALA orthogonal basin-stable KV reserve fails novelty: 8/8 retrieved results hit by rule (0 kw / 8 sem / 6 func), with KVReviver (arxiv 2512.17917) acting as an exact functional twin (sem 0.94, func 0.95) for reversible KV cache compression with sketch-based reconstruction, and ReCalKV/KVzip/KVSculpt/KeepKV/Cache-What-Lasts forming a multi-cluster prior-art neighborhood spanning low-rank decomposition, reconstruction-driven eviction, and retention/rehydration of evicted KV state — far exceeding the threshold_for_fail=1."
+}
