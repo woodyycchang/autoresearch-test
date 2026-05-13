@@ -1,0 +1,120 @@
+{
+  "verifier_id": "R449",
+  "candidate": "PARRANDA-PRIMERO",
+  "candidate_form": "multi-agent-comm",
+  "candidate_summary": "2-agent LLM ensemble: AGENT-SEGUNDO emits fixed-rate timing-anchor token stream (every K=8 tokens output [ANCHOR_T] marker, T monotonic, deterministic); AGENT-PRIMERO generates free-form response conditioned on segundo's anchor stream as polyrhythm-phase reference (every K_p tokens consumes latest anchor; K_p coprime to K, e.g. (K,K_p)=(8,12) for 2:3 polyrhythm). Final output = primero stream stripped of anchor tokens.",
+  "content_words": [
+    "garifuna parranda primero segundo",
+    "belize honduras call-response drum",
+    "2-3 polyrhythm dance-step rhythm",
+    "primero-improviser segundo-timer ensemble",
+    "primero-improviser segundo-timer 2-agent ensemble",
+    "shared timing-anchor stream polyrhythm reference",
+    "call-response leader-follower drum-pair LLM",
+    "fixed-rate anchor marker every-K tokens"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "Token Coherence Cache-Protocol Multi-Agent 2603.15183",
+      "description": "cache-coherence protocol with lazy invalidation for multi-agent sync",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.55,
+      "functional_score": 0.50,
+      "rationale": "Token-coherence cache-protocol concerns shared-state invalidation across multi-agent caches, not a fixed-rate timing-anchor token stream consumed by a free-form generator as polyrhythmic phase reference. Functional core differs: cache-line invalidation/synchronization vs. periodic positional marker emission. The shared element ('token' + 'multi-agent') is surface-only. Both scores below 0.7; no keyword matches → MISS.",
+      "hit": false
+    },
+    {
+      "id": 2,
+      "name": "RL Orchestration Multi-Agent Traces 2605.02801",
+      "description": "5-decision orchestration with role/turn-level credit",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.50,
+      "functional_score": 0.45,
+      "rationale": "RL-orchestration assigns role/turn-level credit across multi-agent decisions via reinforcement learning. The candidate has fixed roles (timer/improviser) and NO learned credit assignment, NO RL training loop, NO 5-decision orchestrator. Mechanism family completely different: trained orchestration vs. deterministic anchor-emission + coprime-cycle consumption. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 3,
+      "name": "AgentsNet 2507.08616",
+      "description": "100-agent scale coordination + role separation",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.45,
+      "functional_score": 0.40,
+      "rationale": "AgentsNet studies scaling multi-agent coordination to 100 agents with role separation but does NOT employ a 2-agent timer/improviser asymmetric pair, fixed-rate anchor-token emission, or polyrhythmic coprime-K cycling. The cardinality (100 vs. 2) and the specific timing-anchor mechanism are absent. Surface overlap (multi-agent, role separation) only; functional mechanism diverges. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 4,
+      "name": "LLM-Coordination NAACL 2025",
+      "description": "multi-agent coordination eval framework",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.40,
+      "functional_score": 0.35,
+      "rationale": "LLM-Coordination is an evaluation/benchmark framework for multi-agent coordination — it MEASURES coordination quality rather than proposing an architecture. The candidate is a generative-architecture proposal (anchor-stream polyrhythmic phase reference). Evaluation framework vs. generation mechanism are different artifact categories. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "Communication-Centric Survey 2502.14321",
+      "description": "system-level + internal communication framework",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.50,
+      "functional_score": 0.40,
+      "rationale": "Survey paper taxonomizing communication patterns in multi-agent LLMs. While the candidate falls under the broad umbrella surveyed, the survey does not specify a fixed-rate timing-anchor token stream with coprime-K polyrhythmic consumption — that specific combination is not catalogued. Surveys describe the design space rather than instantiate this mechanism. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 6,
+      "name": "Multi-Agent Collab Survey 2501.06322",
+      "description": "Stackelberg leader-follower coordination mechanisms",
+      "keyword_overlap_count": 1,
+      "keyword_matches": [
+        "call-response leader-follower drum-pair LLM (partial: Stackelberg leader-follower mechanism)"
+      ],
+      "semantic_score": 0.72,
+      "functional_score": 0.74,
+      "rationale": "Stackelberg leader-follower coordination is a 2-agent asymmetric mechanism where one agent commits first (leader/segundo) and the other responds (follower/primero). The candidate's primero-segundo role asymmetry maps onto Stackelberg leader-follower: SEGUNDO commits to a deterministic anchor schedule (leader), PRIMERO conditions its generation on that committed schedule (follower). The polyrhythmic coprime-K detail is the candidate's added flourish, but the CORE 2-agent asymmetric commit-then-respond structure is the Stackelberg pattern with a fixed-strategy leader. Semantic score >=0.7 AND functional score >=0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 7,
+      "name": "TokenFlow Preemptive Scheduling 2510.02758",
+      "description": "preemptive token-level scheduling",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.50,
+      "functional_score": 0.55,
+      "rationale": "TokenFlow concerns preemptive scheduling of token generation for throughput/latency optimization at the serving layer, NOT a semantic-level anchor-token emission consumed for polyrhythmic phase reference. Operational layer differs (serving infrastructure vs. multi-agent communication protocol). Token-level scheduling overlap is surface only. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 8,
+      "name": "LLM Orchestration 2026",
+      "description": "22-framework comparison of LLM orchestration frameworks",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.45,
+      "functional_score": 0.40,
+      "rationale": "A comparison/review of 22 orchestration frameworks; does not propose a 2-agent timer/improviser asymmetric architecture with polyrhythmic coprime-K anchor consumption. Compendium-of-frameworks ≠ specific-mechanism proposal. Below 0.7 on both → MISS.",
+      "hit": false
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 1,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 1,
+  "functional_forced_hits": 1,
+  "result": "FAIL",
+  "decision_rationale": "Total hits = 1 (>= 1 required for FAIL). The decisive hit is Result #6 (Multi-Agent Collab Survey 2501.06322, Stackelberg leader-follower coordination mechanisms): semantic_score=0.72, functional_score=0.74. The candidate's 2-agent primero-segundo role asymmetry IS a Stackelberg leader-follower instance — SEGUNDO commits to a deterministic anchor-emission schedule (the leader's fixed strategy), and PRIMERO best-responds by conditioning its generation on SEGUNDO's committed schedule (the follower's response). The candidate's own novelty_claim explicitly acknowledges Stackelberg coverage of leader-follower MAS space and only adds (a) the cultural primero/segundo labels, (b) a polyrhythmic coprime-K cycling detail, (c) anchor-token stripping post-hoc — all of which are surface-level parameterizations of the underlying Stackelberg commit-then-respond pattern. The candidate's own framing positions itself as 'recombination', which by the verification rule constitutes prior art. Candidate FAILS as not novel."
+}

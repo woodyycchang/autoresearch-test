@@ -1,0 +1,135 @@
+{
+  "verifier_id": "R450",
+  "candidate": "LAAGER-BASIN",
+  "candidate_form": "basin-stability",
+  "candidate_summary": "Robust-basin radius-maximization training objective for safety-aligned LLMs. L_total = L_safety + lambda_basin * E_epsilon[||grad_x L_safety(x + epsilon)||_F^2] where epsilon is small input perturbation; gradient-flatness term widens basin of attraction around safe behavior. Optionally combined with SAM-style ascent-then-descent.",
+  "content_words": [
+    "boer voortrekker laager wagon-circle",
+    "great trek vegkop blood-river defense",
+    "closed-ring perimeter cattle inside",
+    "robust under numerical-disadvantage siege",
+    "robust-basin radius-maximization safety-attractor",
+    "gradient-flatness regularizer adversarial perturbation",
+    "laager closed-ring defensive training objective",
+    "flat-loss-region wide-basin alignment"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "ANTIBODY Robust Alignment Flat Loss ICLR 2026 2603.00498",
+      "description": "robust alignment optimizes model to flat loss region around harmful samples",
+      "keyword_overlap_count": 3,
+      "keyword_matches": [
+        "robust-basin radius-maximization safety-attractor (robust alignment + safety)",
+        "gradient-flatness regularizer adversarial perturbation (flat loss region around perturbed/harmful samples)",
+        "flat-loss-region wide-basin alignment (direct match: flat loss region alignment)"
+      ],
+      "semantic_score": 0.92,
+      "functional_score": 0.93,
+      "rationale": "ANTIBODY is a near-direct prior-art match. It proposes optimizing safety-aligned models to a FLAT LOSS REGION around harmful/perturbed samples — which is exactly the candidate's mechanism: gradient-flatness regularizer ||grad_x L_safety(x+epsilon)||^2 producing a wide low-loss basin around safe behavior. Both are: (a) safety-alignment objectives, (b) operating on input/sample space, (c) using flatness/basin-width as the robustness mechanism, (d) targeting robustness to perturbed (jailbreak/adversarial) inputs. The candidate's 'laager basin' framing is a cultural re-label of ANTIBODY's flat-loss-region approach. kw>=2 AND sem>=0.7 AND func>=0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "SAM 2010.01412",
+      "description": "seeks parameters in neighborhoods with uniformly low loss + min-max",
+      "keyword_overlap_count": 2,
+      "keyword_matches": [
+        "gradient-flatness regularizer adversarial perturbation (SAM's ascent-then-descent uses adversarial-like parameter perturbation)",
+        "flat-loss-region wide-basin alignment (SAM explicitly seeks uniformly-low-loss neighborhoods = wide basin)"
+      ],
+      "semantic_score": 0.85,
+      "functional_score": 0.82,
+      "rationale": "Sharpness-Aware Minimization is the canonical wide-basin/flat-minima training objective. The candidate explicitly cites 'optionally combined with SAM-style ascent-then-descent', acknowledging SAM as the parent method. SAM's min-max formulation max_{||epsilon||<=rho} L(w+epsilon) is the parameter-space analogue of the candidate's input-space gradient-flatness term, and both produce the same wide-basin geometry. Even the input-space variant is a well-known SAM relative. kw>=2 AND sem>=0.7 AND func>=0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Friendly SAM 2403.12350",
+      "description": "FSAM flat-minima convergence",
+      "keyword_overlap_count": 2,
+      "keyword_matches": [
+        "gradient-flatness regularizer adversarial perturbation (FSAM uses friendly perturbations toward flat minima)",
+        "flat-loss-region wide-basin alignment (explicit flat-minima convergence guarantee)"
+      ],
+      "semantic_score": 0.78,
+      "functional_score": 0.75,
+      "rationale": "Friendly SAM (FSAM) is an SAM variant that targets flat-minima convergence with friendly (less-adversarial) perturbations. The candidate's gradient-flatness penalty ||grad_x L||^2 averaged over small epsilon is functionally equivalent to FSAM's flat-minima objective, just parameterized as a direct gradient-norm regularizer rather than a max-then-min. Both produce wide-basin solutions via perturbation-based flatness. sem>=0.7 AND func>=0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "SL-SAM Sparse-Layer SAM 2602.09395",
+      "description": "efficient LLM FT",
+      "keyword_overlap_count": 1,
+      "keyword_matches": [
+        "flat-loss-region wide-basin alignment (SL-SAM applies SAM to LLM fine-tuning)"
+      ],
+      "semantic_score": 0.65,
+      "functional_score": 0.60,
+      "rationale": "Sparse-Layer SAM is an efficiency-focused SAM variant for LLM fine-tuning — it inherits SAM's flat-minima objective but adds sparse-layer perturbation for cost. The candidate is broader (full-input gradient-flatness, not sparse-layer parameter perturbation). Shares the flat-basin philosophy via SAM lineage but with a different efficiency angle and an LLM-FT focus rather than safety-alignment. Below 0.7 on both individual scores, only 1 kw match → MISS (but SAM family already covered by results #2, #3).",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "Adversarial Robustness Deep Equilibrium Models",
+      "description": "DEQ fixed-point attractor adversarial robustness",
+      "keyword_overlap_count": 1,
+      "keyword_matches": [
+        "robust under numerical-disadvantage siege (adversarial robustness under attack)"
+      ],
+      "semantic_score": 0.55,
+      "functional_score": 0.50,
+      "rationale": "DEQ adversarial robustness leverages fixed-point attractor dynamics (different basin notion: dynamical-system attractor basin of an equilibrium) rather than loss-landscape basin width. The candidate's basin is a loss-geometry concept (flat region of L_safety), not a dynamical attractor. Functional family differs: implicit fixed-point computation vs. explicit gradient-norm regularization. Surface overlap on 'basin/attractor/robustness' only. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 6,
+      "name": "Agentic Loops Geometric Dynamics 2512.10350",
+      "description": "contractive/oscillatory/exploratory regimes",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.35,
+      "functional_score": 0.30,
+      "rationale": "Geometric dynamics of agentic loops characterizes regime classification (contractive/oscillatory/exploratory) of multi-step agent trajectories, not a training-time loss-flatness objective. Different artifact category (descriptive analysis of agent dynamics vs. prescriptive training objective). Surface overlap on 'geometric/dynamics' only. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "Latent Adversarial States Probing 2503.09066",
+      "description": "probes latent-space adversarial states",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.45,
+      "functional_score": 0.40,
+      "rationale": "Latent adversarial state probing is a diagnostic/analysis method that probes existing models for adversarial latent states; it is not a training objective producing wide loss basins. The candidate adds a regularizer at training time to widen the basin; the probe paper measures susceptibility post-hoc. Different artifact category (diagnostic probe vs. training objective). Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 8,
+      "name": "SAM Theoretical Understanding 2206.06232",
+      "description": "theoretical analysis of SAM's flat-minima properties",
+      "keyword_overlap_count": 2,
+      "keyword_matches": [
+        "gradient-flatness regularizer adversarial perturbation (theoretical link between SAM's perturbation and gradient-norm regularization)",
+        "flat-loss-region wide-basin alignment (theoretical characterization of SAM's flat-minima preference)"
+      ],
+      "semantic_score": 0.80,
+      "functional_score": 0.76,
+      "rationale": "The SAM theoretical-understanding paper proves that SAM's min-max is, to first order, equivalent to a gradient-norm regularizer ||grad L||^2 — which is exactly the candidate's regularizer term lambda_basin * E[||grad_x L||^2]. This is a near-mechanical equivalence: the candidate's stated objective IS the first-order SAM surrogate that this paper analyzes. The only twist is the candidate's input-space gradient (instead of parameter-space), but the paper's framework covers this variant. sem>=0.7 AND func>=0.7 → HIT.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 4,
+  "kw_forced_hits": 4,
+  "semantic_forced_hits": 4,
+  "functional_forced_hits": 4,
+  "result": "FAIL",
+  "decision_rationale": "Total hits = 4 (>= 1 required for FAIL). Multiple decisive overlaps: (1) ANTIBODY (2603.00498) — kw=3, sem=0.92, func=0.93 — explicitly proposes flat-loss-region safety alignment around harmful/perturbed samples, which is the candidate's exact mechanism re-labeled. (2) SAM (2010.01412) — kw=2, sem=0.85, func=0.82 — the canonical wide-basin training objective; the candidate explicitly cites SAM as an optional component, conceding parentage. (3) Friendly SAM (2403.12350) — kw=2, sem=0.78, func=0.75 — flat-minima SAM variant with friendly perturbation. (4) SAM Theoretical Understanding (2206.06232) — kw=2, sem=0.80, func=0.76 — proves that SAM's min-max ≡ gradient-norm regularization, which is mechanically identical to the candidate's lambda_basin * E[||grad_x L||^2] term. The candidate's 'laager basin' is a cultural re-label of well-established flat-minima / wide-basin / gradient-flatness safety-alignment training, with ANTIBODY providing the safety-alignment-specific prior art and SAM-family providing the optimization core. Candidate FAILS as not novel."
+}

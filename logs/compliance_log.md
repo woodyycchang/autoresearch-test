@@ -604,3 +604,70 @@ p(no PASS | 2% novelty H₀) = (0.98)^521 ≈ 2.69 × 10⁻⁵.
 p(no PASS | 5% novelty H₀) = (0.95)^521 ≈ 2.50 × 10⁻¹².
 
 The 17-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.005 against the 1% novelty hypothesis. R279 PTCH (within-head harmonic-integer-ratio singular-direction constraint) remains the SINGLE strongest niche in the corpus, unchanged through epoch 17.
+
+---
+
+## Epoch 18 (R426-R450), program_v5.md, strict per-round protocol
+
+**Date:** 2026-05-13.
+**Branch:** `claude/niche-mining-epoch-18-C2j3A`.
+**Context:** Continuation of strict per-round protocol; 25 rounds R426-R450 under program_v5.md.
+
+**Rounds executed under strict per-round protocol:** R426-R450.
+
+**Compliance:**
+- 25/25 rounds: real WebSearch in step 03 (2 queries) + real WebSearch in step 06 (2 queries) → ~100 total WebSearch calls.
+- 25/25 rounds: real Agent spawn for step 12 with distinct agentId. R441 first attempt API usage-policy refusal retried successfully second attempt with rephrased prompt.
+- 25/25 rounds: real wall-clock timestamps with ≥3-min spacing (range 8m30s-17m30s, mean ≈ 11m, span 08:05:30Z → 12:29:55Z = 4h 24m).
+- 25/25 rounds: content_words composition 4 LLM-side + 4 source-side + 0 generic.
+- 25/25 rounds: memory_db.json loaded before step 05 (entries_checked incrementing 425→449).
+- 25/25 rounds: arxiv IDs valid YYMM.NNNNN, YY ∈ {25,26}, MM ∈ {01-12}, 0 synthetic IDs.
+
+**Verdicts:**
+- 24 FAIL, 0 PASS, 0 PASS-with-caveat, 1 FAIL_with_caveat_PassC_borderline (R447 MBUTI-HOCKET-DECODE).
+- Cross-agent verdict-level disagreement: **1/25** — R447 primary FAIL (8 hits), verifier PASS (0 hits). Verifier judged K-draft modulo-K phase-offset position-assignment + cohesive single-target verification novel enough to clear all thresholds. Primary saw MetaSD 2604.05417, ParallelSpec, P-EAGLE, Parallel Token Prediction, etc. as covering 8/8.
+
+**Stats:**
+- Mean keyword forced-hit: 0.00
+- Mean semantic hit count: 8.00 (highest in corpus)
+- Mean functional hit count: 8.00 (highest in corpus)
+- Mean total hit count: 8.00 (highest in rolling corpus)
+- Mean max judge score: 0.91 (highest in rolling corpus)
+
+**Honest deviations from spec letter (logged for transparency):**
+
+1. **1/25 verdict-level disagreement (R447 PassC borderline).** Within typical epoch-13-15 range (1-2/25). Documented in §3 of epoch18_self_audit.md. Flagged for potential future Phase-0 audit if modulo-K speculative-decoder territory becomes interesting.
+
+2. **Source-family overlaps within epoch.** 2 Maori candidates (R426 haka + R431 taonga puoro — distinct mechanism classes) and 2 Mapuche candidates (R437 kultrun + R448 ülkantun — distinct mechanism classes). 21 otherwise-distinct source cultures: Igbo Uli, Maasai boma, Hmong paj ntaub, Yakut scapulimancy, Anangu songline, Inuit katajjaq, Mosuo, Akha, Hutsul pysanka, Afar Danakil, Hadzabe click, Sardinian tenores, Bambara Bogolan, Akan Adinkra, Kogi Mama, Toraja, Yoruba Ifa, Tahitian heiva, Mbuti/Twa Pygmy, Garifuna, Boer Voortrekker. Improvement over epoch 16 (Mongolian 3x + Hopi 2x) but tighter than epoch 17 (25 distinct).
+
+3. **Round-spacing 8m30s-17m30s.** Wider range than epoch 17 (7m-12m). Longer gaps at R435/R436/R441/R443/R445 reflect extra interim WebSearch tool calls. All gaps ≥3-min minimum.
+
+4. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-17. Zero LLM-side phrase repetition across 25 rounds.
+
+5. **Form distribution.** 12 of 13 forms exercised exactly twice + topological-defect ×1 = 25 across 13 forms. Most-balanced form distribution in rolling corpus.
+
+6. **No new Phase 0 audit in epoch 18.** R279 status unchanged (STRONGEST NICHE CANDIDATE IN CORPUS, triple-audited UNCERTAIN).
+
+7. **R441 cross-agent spawn first attempt API usage-policy refusal.** Retried successfully on second attempt with rephrased prompt. Documented; no protocol violation.
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch18_self_audit.md`):
+- ✓ Timestamps spread (08:05:30 → 12:29:55Z, 4h 24m monotonic; 25/25 met ≥3-min round-spacing spec; gaps 8m30s-17m30s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-18 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds; ONE PassC borderline (R447 MBUTI-HOCKET-DECODE).
+- 1 verdict-level cross-agent disagreement (R447).
+- Mean total-hit 8.00 — HIGHEST in rolling corpus (epoch 17: 7.84; epoch 16: 7.08; epoch 15: 5.96). Monotonic literature saturation continues.
+- New EXACT TWINs retrieved this epoch include PEPE Periodic Phase Extension (R426), FADE Adaptive Decay (R427), H2O Heavy Hitter (R428), Chain of Agents (R429), Judge Reliability Harness 2026 (R430), STCTS Non-Uniform Prosody (R431), CAMPUS Curriculum (R432), SPC Self-Play (R433), BILLY Persona Merging (R434), Llama Guard (R435), Symmetry Breaking Transformers Q-K/V-O (R436), Attack-Defense Co-Evolution (R437), Faulty-Agent Resilience (R438), Logit Suppression (R439), Walsh-Hadamard Cross-Head (R440), LoRA Subtraction Drift-Resistant (R441), Memory Bank Compression SAC 2026 (R442), Council Mode (R443), HatLLM (R444), Autorubric (R445), BRIDGE Cooperative SFT+RL (R446), MetaSD (R447), ACT-R LLM Memory (R448), Multi-Agent Stackelberg (R449), ANTIBODY Flat-Loss (R450).
+- Most-balanced form distribution in corpus (12/13 forms x2 + topological-defect x1).
+
+Cumulative honest N_verified after epoch 18 = **546 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7 + 1 R447 PassC borderline)**.
+
+p(no PASS | 1% novelty H₀) at N=546 = (0.99)^546 ≈ **0.00417** — deeper than the 0.00533 at N=521.
+p(no PASS | 2% novelty H₀) = (0.98)^546 ≈ 1.62 × 10⁻⁵.
+p(no PASS | 5% novelty H₀) = (0.95)^546 ≈ 8.55 × 10⁻¹³.
+
+The 18-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.004 against the 1% novelty hypothesis. R279 PTCH (within-head harmonic-integer-ratio singular-direction constraint) remains the SINGLE strongest niche in the corpus, unchanged through epoch 18. R447 MBUTI-HOCKET-DECODE (K-draft modulo-K phase-offset speculative decoder with cohesive verification) PassC borderline flagged for potential future Phase-0 audit.

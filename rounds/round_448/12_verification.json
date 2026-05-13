@@ -1,0 +1,122 @@
+{
+  "verifier_id": "R448",
+  "candidate": "ULKANTUN-DAMP",
+  "candidate_form": "feedback-attenuation",
+  "candidate_summary": "Category-conditioned multi-rate context-decay attention attenuator. Segment classifier tags context segment with c_t in {EPIC, HEAL, LOVE, ELEGY, LULLABY}; per-category decay rate delta_c (epic=0.01 slow, lullaby=0.5 fast); attention bias logit(query->s_t) += -delta_{c_t} * tau where tau = position offset.",
+  "content_words": [
+    "mapuche ülkantun song chant memory",
+    "mapudungun oral lineage occupation",
+    "epic-elegy-lullaby category damping",
+    "weichapegüm-pichiche ül multi-category",
+    "category-conditioned multi-rate context decay",
+    "per-segment ulkantun-style anchor category",
+    "attention weight scaled exp-delta-tau attenuation",
+    "epic-slow lullaby-fast damping rate"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "ALiBi Attention Linear Biases 2108.12409",
+      "description": "per-head distance bias with varying slope",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["attention weight scaled exp-delta-tau attenuation (partial: distance-bias attention)"],
+      "semantic_score": 0.78,
+      "functional_score": 0.75,
+      "rationale": "ALiBi adds per-head linear distance bias (-m_h * |i-j|) to attention logits. Candidate adds per-CATEGORY exponential decay (-delta_c * tau). Both modify pre-softmax attention logits as a function of position offset with rate that varies across a partitioning dimension (heads in ALiBi, categories in ULKANTUN-DAMP). Functional mechanism family is identical: position-offset-conditioned attention attenuation with multi-rate parameterization. The only innovation is replacing 'per-head varying slope' with 'per-category varying decay rate', which is a trivial axis-swap recombination. Semantic score >= 0.7 and functional score >= 0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "Linear Recency Bias During Training COLING 2025",
+      "description": "linear recency bias during training improves long-context",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["attention weight scaled exp-delta-tau attenuation (partial: recency-bias attention)"],
+      "semantic_score": 0.74,
+      "functional_score": 0.72,
+      "rationale": "Linear recency bias adds a decaying weight as a function of token-position recency to attention. The candidate's exp(-delta * tau) factor is a recency-bias attention mechanism conditioned by segment category. Once 'category' is dropped, the candidate's core operation is identical to recency bias. The category-conditioning is a soft partition over which existing recency-bias techniques can be parameterized — a known recombination move. Both sem and func >= 0.7 → HIT.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Bayesian Attention Probabilistic Positional 2505.22842",
+      "description": "Bayesian / probabilistic positional bias for attention",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.72,
+      "functional_score": 0.70,
+      "rationale": "Probabilistic positional bias treats position offset as a parameterized variable controlling attention attenuation. The candidate's delta_{c_t}*tau bias is a deterministic instance of position-offset attention biasing. The category-conditioning amounts to choosing a posterior over delta from a categorical prior, exactly the kind of mixture model contemplated in Bayesian attention frameworks. Sem and func both at threshold → HIT.",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "Memory Curse Expanded Recall LLM 2605.08060",
+      "description": "context expansion erodes cooperation; memory-erosion phenomenology",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.55,
+      "functional_score": 0.45,
+      "rationale": "Memory Curse is a problem/phenomenon paper documenting context-expansion erosion of LLM cooperation. It does not propose a remediation mechanism. The candidate IS a remediation (per-category decay attention bias). Semantic overlap exists (both about context-memory decay over long horizon) but functional mechanism differs (analysis vs. attenuator). Below 0.7 thresholds on both kw and func; sem also below 0.7 → MISS.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "ACT-R LLM Memory Architecture (category-specific decay parameters)",
+      "description": "ACT-R-inspired memory architecture with category-specific decay parameters in LLM",
+      "keyword_overlap_count": 3,
+      "keyword_matches": [
+        "category-conditioned multi-rate context decay (direct: category-specific decay parameters)",
+        "epic-slow lullaby-fast damping rate (concept: per-category decay rate)",
+        "per-segment ulkantun-style anchor category (concept: per-category memory tagging)"
+      ],
+      "semantic_score": 0.90,
+      "functional_score": 0.90,
+      "rationale": "EXACT TWIN. ACT-R LLM memory architecture explicitly uses CATEGORY-SPECIFIC decay parameters — the precise mechanism the candidate claims as novel. The candidate's mapping of (segment -> category -> per-category decay rate -> exponential attention attenuation) IS the ACT-R decay schema applied to attention logits. The only difference is the surface layer (attention bias vs. retrieval activation), but the functional core (per-category decay rate δ_c applied to a memory-strength-over-time decay function) is identical. KW >= 2, sem >= 0.7, func >= 0.7 — all three channels fire → HIT.",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Proactive Interference Memory Limits OpenReview",
+      "description": "proactive interference characterizes memory limits in LLM context",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.55,
+      "functional_score": 0.50,
+      "rationale": "Proactive interference is a characterization of memory-limit phenomenology, not a per-category multi-rate attenuation mechanism. The candidate is a remediation/attenuator, not an interference characterization. Both sem and func below 0.7; no keyword hits → MISS.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "Context Window RAM-not-Storage 2026",
+      "description": "turn-based constraint compliance decay; context-as-RAM engineering",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.60,
+      "functional_score": 0.55,
+      "rationale": "Context-as-RAM is an engineering metaphor / pattern for managing context-window decay. It does not specify a per-category attention-bias mechanism. The candidate's per-category exp-decay attention bias is a more specific intervention than the RAM-pattern blog framing. Below 0.7 on both → MISS.",
+      "hit": false
+    },
+    {
+      "id": 8,
+      "name": "Memory Management Long-Running Agents 2509.25250",
+      "description": "memory management for long-running LLM agents",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.62,
+      "functional_score": 0.58,
+      "rationale": "Long-running agent memory management addresses durability/eviction of memory entries across long horizons, typically with structured storage rather than per-category attention bias. Semantic overlap with context-decay theme but functional mechanism differs (storage management vs. attention attenuation). Below 0.7 on both → MISS.",
+      "hit": false
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 4,
+  "kw_forced_hits": 1,
+  "semantic_forced_hits": 4,
+  "functional_forced_hits": 4,
+  "result": "FAIL",
+  "decision_rationale": "Total hits = 4 (>= 1 required for FAIL). The decisive hit is Result #5 (ACT-R LLM Memory Architecture with category-specific decay parameters): keyword_overlap_count = 3, semantic_score = 0.90, functional_score = 0.90 — an EXACT TWIN of the candidate's category-conditioned multi-rate decay mechanism. ACT-R memory architectures already use per-category decay parameters δ_c; the candidate merely maps these into attention-bias space (logit += -δ_c·τ), which is a trivial surface transformation. Additionally, ALiBi (#1) is a multi-rate (per-head) position-offset attention attenuator — the candidate's per-CATEGORY variant is an axis-swap recombination of the same mechanism. Linear Recency Bias COLING 2025 (#2) and Bayesian Probabilistic Positional (#3) further cover the position-offset attention decay design space. The novelty claim of CATEGORY-CONDITIONED multi-rate δ_c is preempted by ACT-R, and the position-offset attention bias is preempted by ALiBi/recency-bias. Candidate is not novel."
+}
