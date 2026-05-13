@@ -1,0 +1,116 @@
+{
+  "round": "412",
+  "verifier": "cross-agent verifier R412 (independent fresh-context scoring)",
+  "candidate_form": "context-gating",
+  "candidate_llm_application": "MAJLIS-GATE: dual-axis attention mask (causal-position AND status-priority) with per-token classifier-derived status embedding and tight status-inequality boundary",
+  "hit_rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "threshold": {"kw": 2, "sem": 0.7, "func": 0.7},
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/pdf/2603.12277",
+      "title": "Prompt Injection as Role Confusion (2026/03)",
+      "kw_overlap": ["role boundary", "role privileges"],
+      "kw_count": 2,
+      "sem_cosine": 0.87,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "Direct functional twin — addresses representational role-hijack and role-boundary enforcement, which is exactly the status-axis violation MAJLIS-GATE prevents. kw>=2, sem>=0.7, func>=0.7 — triple hit."
+    },
+    {
+      "rank": 2,
+      "url": "https://dl.acm.org/doi/10.1145/3733799.3762982",
+      "title": "Defending Against Prompt Injection With Few DefensiveTokens (ACM AISec)",
+      "kw_overlap": ["defensive token insertion", "role-isolation"],
+      "kw_count": 2,
+      "sem_cosine": 0.81,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Defensive tokens + role-isolation overlap with per-token status embedding and status-axis mask. Triple hit."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2507.07974v1",
+      "title": "Defending Prompt Injection DefensiveTokens (2025/07)",
+      "kw_overlap": ["defensive tokens", "attention-level isolation (implicit)"],
+      "kw_count": 1,
+      "sem_cosine": 0.77,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "Defensive tokens prevent injection via attention isolation — sem>=0.7 and func>=0.7."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.nature.com/articles/s41598-025-31086-y",
+      "title": "PromptGuard Structured Injection Resilient LMs (Nature 2025)",
+      "kw_overlap": ["input-gatekeeping", "structured-prompt-formatting"],
+      "kw_count": 2,
+      "sem_cosine": 0.79,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "4-layer structured defense covers gating/formatting axis. Triple hit."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2404.13208v1",
+      "title": "The Instruction Hierarchy (OpenAI Wallace 2024)",
+      "kw_overlap": ["privilege hierarchy", "role tokens", "instruction hierarchy"],
+      "kw_count": 3,
+      "sem_cosine": 0.85,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "Direct precursor — 5-level privilege hierarchy via special role tokens IS the status-axis. MAJLIS-GATE only adds per-token mask. Triple hit."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.09443",
+      "title": "Many-Tier Instruction Hierarchy LLM Agents (2026/04)",
+      "kw_overlap": ["many-tier hierarchy", "instruction hierarchy", "conflictable-instruction anchors"],
+      "kw_count": 3,
+      "sem_cosine": 0.83,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Tier-graded hierarchy covers the status-axis directly. Triple hit."
+    },
+    {
+      "rank": 7,
+      "url": "https://github.com/iLearn-Lab/ACL26-EvoSparse",
+      "title": "EvoSparse Token-Importance Sparse Attention (ACL 2026)",
+      "kw_overlap": ["sparse attention", "token-importance"],
+      "kw_count": 2,
+      "sem_cosine": 0.70,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "Per-token importance-driven sparse attention mask — same mechanism family as per-token status mask. Triple hit at threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://brightsec.com/blog/the-2026-state-of-llm-security-key-findings-and-benchmarks/",
+      "title": "2026 State of LLM Security Bright Security",
+      "kw_overlap": ["all-context-untrusted", "least-privilege"],
+      "kw_count": 2,
+      "sem_cosine": 0.73,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Untrusted-context + least-privilege design principle is exactly the conceptual frame MAJLIS-GATE instantiates. Triple hit."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 7,
+    "sem_hits": 8,
+    "func_hits": 8,
+    "max_kw_overlap": 3,
+    "max_sem_cosine": 0.87,
+    "max_func_score": 0.88,
+    "distinct_effect_clusters_above_threshold": 8,
+    "multi_cluster_match": true
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "Total hits = 8 (>=1). Candidate MAJLIS-GATE is fully covered by prior art: Instruction Hierarchy (2404.13208) and Many-Tier Hierarchy (2604.09443) cover status-priority privilege; EvoSparse (ACL26) covers per-token attention mask; DefensiveTokens (ACM AISec / 2507.07974) covers role-isolation via token-level mechanism. Recombination is incremental and falls within established effect clusters. Author's own novelty claim acknowledges recombination of existing components.",
+  "agreement_with_prior_layers": {
+    "agrees_with_semantic_layer": true,
+    "agrees_with_functional_layer": true,
+    "independent_kw_check_adds_evidence": true
+  }
+}
