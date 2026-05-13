@@ -1,0 +1,112 @@
+{
+  "round": "408",
+  "verifier": "cross-agent-verifier-R408",
+  "verifier_model": "claude-opus-4-7 (fresh context)",
+  "candidate_llm_application": "SAGA-CHAIN: per-fact teller-chain provenance metadata in RAG memory + chain-length/authority retrieval + cross-entry teller-intersection consistency graph",
+  "scoring_rules": {
+    "hit_condition": "(keyword_overlap>=2) OR (semantic_cosine>=0.7) OR (functional_score>=0.7)",
+    "fail_threshold": "total_hits>=1 -> FAIL"
+  },
+  "independent_scores": [
+    {
+      "rank": 1,
+      "url": "https://nstarxinc.com/blog/the-next-frontier-of-rag-how-enterprise-knowledge-systems-will-evolve-2026-2030/",
+      "kw_overlap": 3,
+      "kw_terms_matched": ["per-fact provenance", "source signatures/chain", "metadata retrieval"],
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "rationale": "Cryptographic source signatures + version tracking + per-fact provenance chain — direct functional twin of per-fact teller-chain metadata in RAG."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2511.07585",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["cross-source validation", "audit attestation"],
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "rationale": "Dual-provider cross-source attestation covers cross-entry intersection consistency."
+    },
+    {
+      "rank": 3,
+      "url": "https://medium.com/logspace/beyond-basic-rag-retrieval-weighting-86deb741f5cc",
+      "kw_overlap": 3,
+      "kw_terms_matched": ["authority weighting", "metadata-aware ranking", "retrieval filtering"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "rationale": "Source authority weighting + metadata-aware ranking directly covers chain-length/authority retrieval filter."
+    },
+    {
+      "rank": 4,
+      "url": "https://blog.weskill.org/2026/04/retrieval-augmented-generation-rag.html",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["metadata indexing", "authority scores"],
+      "sem_cosine": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "rationale": "Metadata-rich indexing with authority scores covers authority-weighted retrieval dimension."
+    },
+    {
+      "rank": 5,
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5682942",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["provenance traceability", "PROV-O"],
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "Prompt Provenance PROV-O is explicitly named in candidate's own novelty disclaimer; functional overlap on per-entity provenance pattern."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2508.21323v1",
+      "kw_overlap": 3,
+      "kw_terms_matched": ["provenance forensics", "RAG", "chain-of-thought audit"],
+      "sem_cosine": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "ProvSEEK directly named in candidate disclaimer; agent+RAG+CoT chain audit overlaps chain-length retrieval."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2604.08224v1",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["memory architecture", "protocols"],
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Unified externalization review covers memory+protocol architecture pattern."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.mdpi.com/2073-431X/15/3/178",
+      "kw_overlap": 3,
+      "kw_terms_matched": ["per-triplet provenance", "anchor verification", "source grounding"],
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "AEVS named in candidate disclaimer; per-triplet source provenance is functional twin of per-fact teller chain."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "keyword_hits": 8,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_cosine": 0.88,
+    "max_func_score": 0.88,
+    "distinct_prior_art_clusters": [
+      "Cryptographic per-fact source signatures (NStarX)",
+      "Cross-provider validation/attestation (arxiv 2511.07585)",
+      "Source-authority retrieval weighting (Logspace)",
+      "Metadata-rich indexing with authority (Weskill)",
+      "Prompt Provenance PROV-O (SSRN)",
+      "ProvSEEK forensic chain audit (arxiv 2508.21323)",
+      "Externalization memory+protocols review (arxiv 2604.08224)",
+      "AEVS per-triplet provenance (MDPI)"
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "All 8 retrieved results trigger hit under at least one criterion (kw>=2, sem>=0.7, func>=0.7); total_hits=8 >> 1. Candidate explicitly acknowledges Prompt Provenance, AEVS, ProvSEEK as prior art. The cross-entry teller-intersection extension is admitted to be a 'small extension' / 'recombination'. SAGA-CHAIN fails novelty under the cross-agent rule."
+}

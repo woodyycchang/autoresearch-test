@@ -1,0 +1,112 @@
+{
+  "round": "424",
+  "verifier": "cross-agent verifier (fresh context)",
+  "candidate_llm_application": "POTLATCH-COEVOL: alternating proposer-defender escalation + second-price judge metric + K-consecutive title-transfer rule",
+  "rules": {
+    "hit_condition": "(kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+    "fail_condition": "total_hits >= 1"
+  },
+  "independent_scoring": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2510.23595v1",
+      "title": "Multi-Agent Evolve LLM Self-Improve Co-evolution",
+      "kw_overlap": 3,
+      "kw_matched": ["proposer", "coevolution", "judge"],
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "Proposer+Solver+Judge triplet coevolution directly overlaps alternating proposer-defender + judge scoring."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2603.27306v1",
+      "title": "GUIDE Guided Updates In-context Decision Evolution",
+      "kw_overlap": 1,
+      "kw_matched": ["coevolution"],
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "Semantic and functional scores meet 0.7 threshold."
+    },
+    {
+      "rank": 3,
+      "url": "https://pub.sakana.ai/drq/",
+      "title": "Digital Red Queen Adversarial Program Evolution",
+      "kw_overlap": 3,
+      "kw_matched": ["Red Queen", "coevolution", "escalation/cyclic"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Cyclic coevolutionary RPS rotation dynamics is functional twin for alternating role swap escalation."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2604.15840",
+      "title": "CoEvolve Training LLM Agents Agent-Data Mutual Evolution",
+      "kw_overlap": 2,
+      "kw_matched": ["coevolution", "mutual evolution"],
+      "sem_cosine": 0.86,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "Mutual agent-data coevolution covers POTLATCH paradigm."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2511.19218",
+      "title": "Adversarial Attack-Defense Co-Evolution LLM Safety",
+      "kw_overlap": 4,
+      "kw_matched": ["attacker-defender", "co-evolution", "escalation", "adversarial"],
+      "sem_cosine": 0.90,
+      "func_score": 0.92,
+      "hit": true,
+      "reason": "EXACT functional twin — attacker-defender LLM coevolution. Differences (K-consecutive title-transfer, second-price metric) are minor add-ons."
+    },
+    {
+      "rank": 6,
+      "url": "https://openreview.net/forum?id=nttFj0wKfD",
+      "title": "RED QUEEN Safeguarding LLMs Multi-Turn Attack",
+      "kw_overlap": 3,
+      "kw_matched": ["Red Queen", "attack", "guard/counter-strategy"],
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "RED QUEEN multi-turn jailbreak + GUARD counter-strategy mirrors escalation/refusal coevolution."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2505.04806v1",
+      "title": "Red Teaming Mind of Machine Systematic Evaluation",
+      "kw_overlap": 2,
+      "kw_matched": ["red team", "jailbreak"],
+      "sem_cosine": 0.74,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "Adversarial red-team evaluation covers methodology."
+    },
+    {
+      "rank": 8,
+      "url": "https://www.emergentmind.com/topics/multi-agent-debate-mad-strategies",
+      "title": "Multi-Agent Debate Strategies",
+      "kw_overlap": 2,
+      "kw_matched": ["alternating/sequential", "role assignment"],
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Angel-devil persona role assignment with alternating protocols is direct functional twin."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "keyword_hits": 6,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_sem_cosine": 0.90,
+    "max_func_score": 0.92,
+    "distinct_effect_clusters_above_threshold": 8,
+    "multi_cluster_match": true,
+    "exact_twin_present": true
+  },
+  "verdict": "FAIL",
+  "reasoning": "Eight prior-work matches found, all meeting hit criteria via semantic >=0.7 and functional >=0.7. Multiple direct functional twins exist: Attack-Defense Co-Evolution (func 0.92), Multi-Agent Evolve (func 0.88), Digital Red Queen (func 0.86), RED QUEEN GUARD (func 0.82). The candidate even admits in its novelty_claim that these works already cover adversarial coevolution. The combination tweaks (alternating + second-price + K-consecutive) are 'small extension' add-ons insufficient to clear the prior-art bar. total_hits=8 >> 1, therefore FAIL."
+}

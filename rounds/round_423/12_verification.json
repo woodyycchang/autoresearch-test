@@ -1,0 +1,128 @@
+{
+  "round": "423",
+  "verifier": "cross-agent verifier R423 (claude-opus-4-7, fresh context)",
+  "candidate_llm_application": "KULA-PARITY: paired forward+backward attention with parity-conservation token-pair signature + topological-defect detection",
+  "rules": {
+    "hit_condition": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "fail_condition": "total hits >= 1"
+  },
+  "key_signatures_checked": [
+    "paired forward+backward attention",
+    "parity-conservation token-pair signature",
+    "topological-defect score on attention graph",
+    "hallucination detection via attention topology"
+  ],
+  "per_result_scoring": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/abs/2504.10063",
+      "title": "TOHA Topological Divergence Attention Graphs",
+      "keyword_overlap_count": 3,
+      "keywords_matched": ["topological", "attention graph", "hallucination detection"],
+      "sem_cosine": 0.94,
+      "func_score": 0.94,
+      "hit": true,
+      "reason": "TOHA is the direct prior art — topology-on-attention-graphs for hallucination detection. KULA-PARITY's twist (paired bidirectional + parity) is a small bidirectional extension on the same paradigm."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2502.17598",
+      "title": "LapEigvals Spectral Features Attention Maps",
+      "keyword_overlap_count": 2,
+      "keywords_matched": ["attention maps", "hallucination detection"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Laplacian eigenvalues = topological/spectral signature on attention; same effect cluster as topological-defect scoring."
+    },
+    {
+      "rank": 3,
+      "url": "https://openreview.net/forum?id=4twbqwV4br",
+      "title": "CHARM Neural Message-Passing Attention Graphs",
+      "keyword_overlap_count": 2,
+      "keywords_matched": ["attention graphs", "hallucination detection"],
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "CHARM explicitly subsumes prior attention-graph-based hallucination heuristics — covers KULA-PARITY paradigm."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2605.05953",
+      "title": "Hallucination as Anomaly Latent Geometry",
+      "keyword_overlap_count": 1,
+      "keywords_matched": ["hallucination"],
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7 — latent-geometry diagnostic on internal states for hallucination."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2505.16652",
+      "title": "FarSight Attention Causal Decoding",
+      "keyword_overlap_count": 2,
+      "keywords_matched": ["attention", "hallucination"],
+      "sem_cosine": 0.78,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "Causal+attention decoding for hallucination mitigation — adjacent effect cluster."
+    },
+    {
+      "rank": 6,
+      "url": "https://aclanthology.org/2025.findings-acl.773.pdf",
+      "title": "VADE Visual Attention Hallucination",
+      "keyword_overlap_count": 2,
+      "keywords_matched": ["attention", "hallucination detection"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Attention-guided hallucination detection — same operational paradigm."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2505.02130v1",
+      "title": "Attention as Graph Processing Survey",
+      "keyword_overlap_count": 1,
+      "keywords_matched": ["attention"],
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7 — survey of attention-as-graph framing underpinning topological-defect approaches."
+    },
+    {
+      "rank": 8,
+      "url": "https://link.springer.com/article/10.1007/s41109-025-00754-3",
+      "title": "LLMs Prompted Graphs Hallucinations",
+      "keyword_overlap_count": 1,
+      "keywords_matched": ["hallucination"],
+      "sem_cosine": 0.72,
+      "func_score": 0.70,
+      "hit": true,
+      "reason": "sem>=0.7 and func>=0.7 — graph-structure-aware hallucination analysis."
+    }
+  ],
+  "summary": {
+    "total_results_scored": 8,
+    "total_hits": 8,
+    "keyword_hits": 3,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_sem_cosine": 0.94,
+    "max_func_score": 0.94,
+    "distinct_effect_clusters_above_threshold": 8,
+    "twin_or_near_twin_present": true,
+    "specific_twins": [
+      "TOHA (arxiv 2504.10063) — topological divergence on attention graphs",
+      "LapEigvals (arxiv 2502.17598) — spectral topology on attention maps",
+      "CHARM (openreview 4twbqwV4br) — GNN on attention attributed graphs"
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "Total hits = 8 >= 1. TOHA (2504.10063) is a direct topology-on-attention-graphs hallucination detector — KULA-PARITY's bidirectional+parity twist is a small extension on the established paradigm, confirmed by candidate's own novelty_claim ('Small extension'). LapEigvals and CHARM provide additional functional twins.",
+  "agreement_with_prior_artifacts": {
+    "06_5_semantic_hits": "AGREE — all 8 semantic hits independently confirmed",
+    "06_7_functional_hits": "AGREE — all 8 functional hits independently confirmed",
+    "candidate_self_assessment": "AGREE — candidate explicitly labels itself 'Small extension'"
+  }
+}

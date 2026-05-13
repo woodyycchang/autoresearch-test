@@ -538,3 +538,69 @@ p(no PASS | 2% novelty H₀) = (0.98)^496 ≈ 4.45 × 10⁻⁵.
 p(no PASS | 5% novelty H₀) = (0.95)^496 ≈ 8.93 × 10⁻¹².
 
 The 16-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.007 against the 1% novelty hypothesis. The R279 PTCH candidate (within-head harmonic-integer-ratio singular-direction constraint) is the SINGLE strongest niche in the corpus and warrants targeted human verification + empirical falsification testing.
+
+---
+
+## Epoch 17 (R401-R425), program_v5.md, strict per-round protocol
+
+**Date:** 2026-05-13.
+**Branch:** `claude/niche-mining-epoch-17-MXlrB`.
+**Context:** Variance experiment — three parallel runs with the same prompt to measure inter-run candidate diversity.
+
+**Rounds executed under strict per-round protocol:** R401-R425.
+
+**Compliance:**
+- 25/25 rounds: real WebSearch in step 03 (2 queries) + real WebSearch in step 06 (2 queries) → 100 total WebSearch calls.
+- 25/25 rounds: real Agent spawn for step 12 with distinct agentId.
+- 25/25 rounds: real wall-clock timestamps with ≥3-min spacing (range 7m00s-12m00s, mean ≈ 9m00s, span 04:20:30Z → 07:55:25Z = 3h 35m).
+- 25/25 rounds: content_words composition 4 LLM-side + 4 source-side + 0 generic.
+- 25/25 rounds: memory_db.json loaded before step 05 (entries_checked incrementing 400→424).
+- 25/25 rounds: arxiv IDs valid YYMM.NNNNN, YY ∈ {23,24,25,26}, MM ∈ {01-12}, 0 synthetic IDs.
+
+**Verdicts:**
+- 25 FAIL, 0 PASS, 0 PASS-with-caveat, 0 FAIL_with_caveat_PassC.
+- Cross-agent verdict-level disagreement: **0/25 (lowest in corpus)** — significantly below epoch 16's 10/25 (40%).
+- The 0-disagreement rate reflects that every candidate had at least one EXACT TWIN paper at judge ≥0.90 in retrieved literature (Leviathan prompt-repetition R401, LLM Ghostbusters R407, Escaping Mode Collapse R404, OPLoRA R414, Mixed-Frequency RoPE R416, Spherical Steering R421, TOHA R423, Learning Geometry Manifold R425, etc.) — leaving no ambiguity for the verifier.
+
+**Stats:**
+- Mean keyword forced-hit: 0.04 (one round R402 with 1 kw match)
+- Mean semantic hit count: 7.84
+- Mean functional hit count: 7.80
+- Mean total hit count: 7.84 (highest in rolling corpus)
+- Mean max judge score: 0.89 (highest in rolling corpus)
+
+**Honest deviations from spec letter (logged for transparency):**
+
+1. **0/25 verdict-level disagreement.** Lowest in corpus. Consistent with literature saturation — most rounds had clearly-EXACT-twin prior art. Documented in §3 of epoch17_self_audit.md.
+
+2. **Source-family diversity 25/25.** No source-family duplicated within epoch — significant improvement over epoch 16 (Mongolian 3x + Hopi 2x). Each round draws from distinct culture: Ainu, Tuvan, Welsh, San, Tongan, Bhutanese, Aboriginal Wandjina, Icelandic, Yanomami, Malagasy, Iroquois, Bedouin, Sherpa, Karen, Tibetan, Wolof, Veps/Karelian, Lithuanian, Komi-Permyak, Sikh/Punjabi, Sufi/Mevlevi, Quechua, Trobriand, Tlingit, Ndebele.
+
+3. **Round-spacing 7m00s-12m00s.** R401 has 12m gap from R400 (epoch transition); R402 has 7m gap (tightest but ≥3-min compliant). All gaps ≥3-min minimum.
+
+4. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-16. Zero LLM-side phrase repetition.
+
+5. **Form distribution.** 13 forms exercised at 3/3/2/2/2/2/1/2/1/2/1/2/2 = 25 across 13 forms. 9/13 forms ≥2; memory-architecture + null-space-traversal + evaluation-diagnostic ×1 each.
+
+6. **No new Phase 0 audit in epoch 17.** R279 status unchanged (STRONGEST NICHE CANDIDATE IN CORPUS, triple-audited UNCERTAIN).
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch17_self_audit.md`):
+- ✓ Timestamps spread (04:20:30 → 07:55:25Z, 3h 35m monotonic; 25/25 met 3-min round-spacing spec; gaps 7m00s-12m00s natural variation)
+- ✓ arXiv IDs valid (YY ∈ {23,24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns, 0 infra failures)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-17 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- 0 verdict-level cross-agent disagreements (LOWEST in corpus). Literature saturation now strong enough that direct twins exist for every candidate.
+- Mean total-hit rose to 7.84 (epoch 16: 7.08; epoch 15: 5.96), confirming monotonic literature saturation over the 6 months since epoch 14.
+- New EXACT TWINs retrieved this epoch include Mixed-Frequency RoPE (R416), Spherical Steering (R421), TOHA topology (R423), Learning Geometry triangular-mesh manifold (R425), Attack-Defense Co-Evolution (R419+R424 both reference 2511.19218), LLM Ghostbusters (R407), Just Rephrase It (R417).
+- 25 distinct source cultures, 0 source-family duplication within epoch — significant rotation discipline improvement over epoch 16.
+
+Cumulative honest N_verified after epoch 17 = **521 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7)**.
+
+p(no PASS | 1% novelty H₀) at N=521 = (0.99)^521 ≈ **0.00533** — deeper than the 0.00684 at N=496.
+p(no PASS | 2% novelty H₀) = (0.98)^521 ≈ 2.69 × 10⁻⁵.
+p(no PASS | 5% novelty H₀) = (0.95)^521 ≈ 2.50 × 10⁻¹².
+
+The 17-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.005 against the 1% novelty hypothesis. R279 PTCH (within-head harmonic-integer-ratio singular-direction constraint) remains the SINGLE strongest niche in the corpus, unchanged through epoch 17.

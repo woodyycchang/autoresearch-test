@@ -1,0 +1,102 @@
+{
+  "round": "401",
+  "verifier": "cross-agent-R401",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "context-gating",
+  "candidate_summary": "AINU-INAU-TIER-STACK: tier-K (K in 1..5) stacking of identical atomic instructions in the system prompt as a magnitude/priority signal, generalising Leviathan 2512.14982's K=2.",
+  "results_analysis": [
+    {
+      "url": "https://arxiv.org/abs/2512.14982",
+      "title": "Prompt Repetition Improves Non-Reasoning LLMs (Leviathan Google Research 2025/12)",
+      "kw_matches": ["repetition (prompt-repetition ~ discrete-repetition prompt priority)", "prompt (prompt priority/instruction)"],
+      "kw_count": 1,
+      "kw_score": 0.15,
+      "sem_score": 0.92,
+      "func_score": 0.94,
+      "hit": true,
+      "reason": "Exact twin: Leviathan establishes K=2 stacked-identical-prompt mechanism; candidate explicitly generalises to K in 1..5. Functional and semantic both far above 0.7."
+    },
+    {
+      "url": "https://arxiv.org/html/2404.13208v1",
+      "title": "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions (OpenAI Wallace 2024)",
+      "kw_matches": ["instruction (atomic-instruction multiplicity)", "priority (discrete-repetition prompt priority)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "reason": "Title contains 'Instruction' and 'Prioritize' overlapping with 'atomic-instruction multiplicity' and 'prompt priority' content words; 5-tier privilege hierarchy is functionally equivalent to K in 1..5 priority encoding."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.09443",
+      "title": "Many-Tier Instruction Hierarchy in LLM Agents (2026/04)",
+      "kw_matches": ["tier (tier-count encodes magnitude / instruction-tier-stack)", "instruction (atomic-instruction multiplicity)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.84,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "Title literally says 'Many-Tier Instruction Hierarchy' matching 'instruction-tier-stack' and 'tier-count' content words; semantic and functional both above 0.7."
+    },
+    {
+      "url": "https://venturebeat.com/orchestration/this-new-dead-simple-prompt-technique-boosts-accuracy-on-llms-by-up-to-76-on",
+      "title": "Dead simple prompt repetition boosts accuracy 76% (VentureBeat)",
+      "kw_matches": ["prompt (prompt priority)", "repetition (discrete-repetition prompt priority)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Industry coverage of identical Leviathan mechanism; multiple kw matches plus sem and func above 0.7."
+    },
+    {
+      "url": "https://akillness.github.io/posts/prompt-repetition-improves-llm-performance/",
+      "title": "Prompt Repetition: 67% accuracy gain at zero latency cost",
+      "kw_matches": ["prompt (prompt priority)", "repetition (discrete-repetition prompt priority)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "Same Leviathan double-prompting mechanism; 'Prompt Repetition' literally matches content-word substrings."
+    },
+    {
+      "url": "https://www.emergentmind.com/topics/promptreps",
+      "title": "PromptReps: Representation via Repeated Prompts (Emergent Mind)",
+      "kw_matches": ["prompt (prompt priority)", "repeated (discrete-repetition)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.80,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "K-repeated prompt mechanism for representations; functionally same K-stack construction."
+    },
+    {
+      "url": "https://toknow.ai/posts/prompt-repetition-improves-llm-accuracy/",
+      "title": "Double Prompting: How Prompt Repetition Improves LLM Accuracy",
+      "kw_matches": ["prompt (prompt priority)", "repetition (discrete-repetition)"],
+      "kw_count": 2,
+      "kw_score": 0.25,
+      "sem_score": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Alias of Leviathan double-prompting effect; same K=2 stack mechanism."
+    },
+    {
+      "url": "https://www.lakera.ai/blog/prompt-engineering-guide",
+      "title": "Ultimate Guide to Prompt Engineering 2026 (Lakera)",
+      "kw_matches": ["prompt (prompt priority)"],
+      "kw_count": 1,
+      "kw_score": 0.15,
+      "sem_score": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Single keyword match (kw fails), but sem 0.72 and func 0.72 both meet 0.7 threshold; documents priority-tier instruction stacking, the exact recombined ingredient cited in the candidate."
+    }
+  ],
+  "hit_counts": {"kw_hits": 6, "sem_hits": 8, "func_hits": 8, "total_hits": 8},
+  "total_hits": 8,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "All 8 results clear the OR-threshold (Leviathan 2512.14982 is a near-exact twin at sem 0.92 / func 0.94 with K=2, generalised by candidate to K in 1..5; multiple corroborating prompt-repetition and instruction-hierarchy papers further saturate the threshold), so the candidate is decisively non-novel and FAILS, matching the primary agent's FAIL verdict."
+}

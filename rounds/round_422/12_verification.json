@@ -1,0 +1,103 @@
+{
+  "round": "422",
+  "verifier": "cross-agent verifier R422 (fresh context)",
+  "candidate_llm_application": "CHASQUI-RELAY: fixed-segment memoryless multi-agent cascade with compressed-string quipu summary + verification-repetition handoff",
+  "rules": {
+    "hit_condition": "kw>=2 OR sem>=0.7 OR func>=0.7",
+    "fail_threshold": "total_hits >= 1"
+  },
+  "independent_scores": [
+    {
+      "rank": 1,
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "kw_count": 3,
+      "kw_matched": ["multi-agent", "specialised subagents", "summary-based handoff"],
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "Anthropic specialised subagents with summary-based handoff is a near-direct functional twin of CHASQUI-RELAY's specialised per-segment agents + compressed summary handoff."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2603.05344v1",
+      "kw_count": 3,
+      "kw_matched": ["staged compaction", "context isolation via sub-agents", "fixed segment-like pipeline"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Context isolation via sub-agents + staged compaction = memoryless + compressed-summary handoff."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2605.07935v1",
+      "kw_count": 2,
+      "kw_matched": ["verification-first", "agent coordination protocols"],
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Verification-first counterexample-driven repair covers CHASQUI-RELAY's verification-repetition mechanism."
+    },
+    {
+      "rank": 4,
+      "url": "https://www.braintrust.dev/articles/agent-observability-complete-guide-2026",
+      "kw_count": 2,
+      "kw_matched": ["handoff deviation", "multi-agent handoffs"],
+      "sem_cosine": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "reason": "Handoff deviation metric + structured tracing of parent-child handoffs maps to verification-repetition + segment specialisation."
+    },
+    {
+      "rank": 5,
+      "url": "https://developers.googleblog.com/architecting-efficient-context-aware-multi-agent-framework-for-production/",
+      "kw_count": 2,
+      "kw_matched": ["explicit handoff contracts", "structured topology"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Explicit handoff contracts + structured topology = fixed-segment + memoryless handoff with verification."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2603.07670v1",
+      "kw_count": 2,
+      "kw_matched": ["handoff", "summarization"],
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Comprehensive memory mechanism survey covers handoff + summarisation patterns including memoryless variants."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2602.02350",
+      "kw_count": 2,
+      "kw_matched": ["multi-LLM coordination", "shared contexts handoff"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Dynamic shared contexts for continual multi-LLM guidance covers segment-to-segment summary handoff."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2603.29919v1",
+      "kw_count": 2,
+      "kw_matched": ["pipeline stages", "token efficiency"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Pipeline-stage token-efficiency optimisation covers compressed-summary handoff + fixed-segment specialisation."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 8,
+    "sem_hits": 8,
+    "func_hits": 8,
+    "max_cosine": 0.88,
+    "max_func": 0.88,
+    "distinct_effect_clusters": 8,
+    "multi_cluster_match": true
+  },
+  "verdict": "FAIL",
+  "rationale": "8 of 8 results cross all three hit criteria (kw>=2, sem>=0.7, func>=0.7). Anthropic multi-agent research system and Google Developers handoff-contract framework are direct functional twins for specialised-agent + summary-handoff + verification structure. TraceFix covers verification-repetition; context-isolation/staged-compaction papers cover memoryless+compressed-summary. The recombination memoryless+verification-repetition+fixed-segment does not introduce a sufficiently novel mechanism beyond existing multi-agent orchestration literature. Total >= 1 ⇒ FAIL."
+}

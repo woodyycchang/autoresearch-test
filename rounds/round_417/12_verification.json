@@ -1,0 +1,109 @@
+{
+  "round": "417",
+  "verifier": "cross-agent verifier (independent re-score)",
+  "candidate_llm_application": "VEPS-DECRESCENDO: paraphrase-cycle logit decay alpha^k + lowest-confidence response surfacing + inverse self-consistency",
+  "hit_rule": "hit if (kw>=2) OR (sem>=0.7) OR (func>=0.7); total_hits >= 1 => FAIL",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://aclanthology.org/2025.findings-acl.1030.pdf",
+      "title": "Confidence Improves Self-Consistency CISC (ACL Findings 2025)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["self-consistency", "confidence"],
+      "sem_cosine": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "hit_reason": "kw>=2 AND sem>=0.7 AND func>=0.7; CISC = confidence-weighted self-consistency, VEPS inverts selection (lowest) but uses same paraphrase+confidence machinery"
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2502.06233v1",
+      "title": "Confidence Improves Self-Consistency (2025/02)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["self-consistency", "confidence"],
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "hit_reason": "duplicate of CISC; all three thresholds exceeded"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2405.13907",
+      "title": "Just Rephrase It! Uncertainty via Multiple Rephrased Queries (2024/05)",
+      "kw_overlap": 3,
+      "kw_terms_matched": ["paraphrase/rephrase", "uncertainty/confidence", "multiple queries cycle"],
+      "sem_cosine": 0.90,
+      "func_score": 0.90,
+      "hit": true,
+      "hit_reason": "EXACT TWIN — multiple rephrased queries for uncertainty = VEPS paraphrase-cycle core mechanism; all thresholds saturated"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2406.03441v1",
+      "title": "Cycles of Thought: Measuring LLM Confidence via Stable Explanations (2024/06)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["cycles", "confidence"],
+      "sem_cosine": 0.88,
+      "func_score": 0.86,
+      "hit": true,
+      "hit_reason": "cycle-based confidence measurement directly twins VEPS verse-cycle confidence"
+    },
+    {
+      "rank": 5,
+      "url": "https://aclanthology.org/2025.naacl-long.184/",
+      "title": "Reasoning Aware Self-Consistency RASC (NAACL 2025)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["self-consistency", "adaptive sampling"],
+      "sem_cosine": 0.80,
+      "func_score": 0.80,
+      "hit": true,
+      "hit_reason": "all three thresholds met"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.19444",
+      "title": "Unsupervised Confidence Calibration Reasoning LLMs Single Generation (2026/04)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["confidence", "calibration"],
+      "sem_cosine": 0.72,
+      "func_score": 0.72,
+      "hit": true,
+      "hit_reason": "thresholds met for sem and func"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2306.13063v2",
+      "title": "Can LLMs Express Their Uncertainty (Confidence Elicitation 2023)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["confidence elicitation", "uncertainty"],
+      "sem_cosine": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "hit_reason": "verbalised confidence elicitation foundation already named in candidate's own differentiation list"
+    },
+    {
+      "rank": 8,
+      "url": "https://aclanthology.org/2026.eacl-long.106.pdf",
+      "title": "Benchmarking LLM Uncertainty and Calibration (EACL 2026)",
+      "kw_overlap": 2,
+      "kw_terms_matched": ["uncertainty", "paraphrase-based calibration"],
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "hit_reason": "benchmark already covers paraphrase-based uncertainty"
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 8,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "distinct_effect_clusters": 7,
+    "max_sem_cosine": 0.90,
+    "max_func_score": 0.90,
+    "exact_twin_present": true,
+    "exact_twin_url": "https://arxiv.org/html/2405.13907"
+  },
+  "verdict": "FAIL",
+  "rationale": "8 hits found (threshold >=1 fails). 'Just Rephrase It!' (arxiv 2405.13907) is an exact functional twin (paraphrase-cycle for uncertainty). CISC + Cycles of Thought + RASC fully cover confidence-weighted/cyclic self-consistency. The alpha^k logit decay + lowest-confidence inversion is a trivial selection-rule flip on existing paraphrase-confidence machinery — does not constitute novelty."
+}

@@ -1,0 +1,106 @@
+{
+  "round": "403",
+  "verifier": "cross-agent-R403",
+  "rule": "hit = (kw_count>=2) OR (sem_score>=0.7) OR (func_score>=0.7); total_hits>=1 => FAIL",
+  "candidate_form": "multi-agent-comm",
+  "candidate_summary": "PENILLION-COUNTER: 2-agent fixed-vs-improvised counterpoint where Agent A runs a fixed deterministic policy, Agent B emits a non-redundant counter-melody constrained by KL(B||A) >= epsilon, and aggregator Agent C produces a harmonic-resolution output via weighted ensembling. Inspired by Welsh penillion cerdd dant.",
+  "results_analysis": [
+    {
+      "url": "https://arxiv.org/abs/2505.17508",
+      "title": "On the Design of KL-Regularized Policy Gradient Algorithms for LLM Reasoning (2025/05)",
+      "kw_matches": ["KL-divergence regularizer (partial: stay-close direction vs non-redundancy)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: KL-regularized policy gradient is structurally the same mathematical machinery as the proposed KL non-redundancy regularizer; direction differs but apparatus is identical."
+    },
+    {
+      "url": "https://arxiv.org/html/2503.11019v1",
+      "title": "Residual Policy Gradient: A Reward View of KL-regularized Objective (2025/03)",
+      "kw_matches": ["KL-regularized (partial)", "reference policy ~ fixed policy A (partial)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: reference + residual policy is an exact structural twin of fixed harp + penillion counterpoint; only direction of residual differs."
+    },
+    {
+      "url": "https://lexsi.ai/resources/articles/beyond-kl-divergence-why-your-policy-optimization-might-be-using-the-wrong-regularizer",
+      "title": "Beyond KL Divergence: GBMPO Bregman regularizer (Lexsi)",
+      "kw_matches": ["regularizer family alternatives (very weak)"],
+      "kw_count": 0,
+      "kw_score": 0,
+      "sem_score": 0.72,
+      "func_score": 0.68,
+      "hit": true,
+      "reason": "sem>=0.7: discusses Bregman/KL regularizer family which is the same generic regularizer apparatus as PENILLION's KL constraint."
+    },
+    {
+      "url": "https://openreview.net/forum?id=RQwexjUCxm",
+      "title": "From Debate to Equilibrium: Belief-Driven Multi-Agent LLM Reasoning Bayesian Nash (OpenReview)",
+      "kw_matches": ["multi-agent debate (partial)", "hierarchical aggregator (partial match to third-aggregator harmonic resolution)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.84,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: ECON hierarchical-RL Bayesian Nash equilibrium with aggregator is functional twin of harmonic-resolution aggregator over multi-agent outputs."
+    },
+    {
+      "url": "https://composable-models.github.io/llm_debate/",
+      "title": "Multiagent Debate for Factuality and Reasoning (ICML 2024)",
+      "kw_matches": ["multi-agent debate (partial)", "aggregator/majority voting matches third-aggregator harmonic resolution"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.86,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: canonical multi-agent debate + aggregator is the direct prior art that PENILLION recombines, making it an asymmetric MAD variant."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s44443-025-00353-3",
+      "title": "Adaptive Heterogeneous Multi-Agent Debate (Springer 2025)",
+      "kw_matches": ["heterogeneous role-adaptive agents ~ fixed-vs-improvised asymmetry (partial)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: heterogeneous role-asymmetric MAD covers the fixed-vs-improvised asymmetry distinguishing claim."
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.14325",
+      "title": "Improving Factuality through Multiagent Debate (Du 2023)",
+      "kw_matches": ["multi-agent debate (partial)", "aggregation (partial to third-aggregator harmonic resolution)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: foundational MAD with aggregator; canonical prior art for the multi-agent + aggregator pattern."
+    },
+    {
+      "url": "https://openreview.net/forum?id=Vusd1Hw2D9",
+      "title": "Multi-Agent Debate Adaptive Stability Detection (Vusd1Hw2D9 OpenReview)",
+      "kw_matches": ["consensus optimizer ~ harmonic-resolution aggregator (partial)"],
+      "kw_count": 1,
+      "kw_score": 0,
+      "sem_score": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "sem>=0.7 AND func>=0.7: adaptive stability detection + consensus optimizer weights cover the aggregator-with-weighted-ensembling component."
+    }
+  ],
+  "hit_counts": {
+    "kw": 0,
+    "sem": 8,
+    "func": 7
+  },
+  "total_hits": 8,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "PENILLION-COUNTER FAILS verification: 8/8 results hit (8 semantic, 7 functional) — KL-regularized PG, residual policy gradient, MAD with aggregators, and heterogeneous role-asymmetric MAD jointly cover the proposed fixed-policy + KL-constrained improviser + aggregator design."
+}

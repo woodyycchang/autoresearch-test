@@ -1,0 +1,116 @@
+{
+  "round": "413",
+  "verifier": "cross-agent verifier R413 (independent fresh-context scoring)",
+  "candidate_form": "information-cascade",
+  "candidate_llm_application": "SHERPA-RAPPEL: cascading multi-hop reasoning with per-step explicit anchor_check + mandatory overlap (step k+1's input includes step k's anchor_check) + dynamic K-step controller",
+  "hit_rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "threshold": {"kw": 2, "sem": 0.7, "func": 0.7},
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2604.12543v1",
+      "title": "Two-Stage LLM Verified XAI Framework (WCCI 2026 / 2026/04)",
+      "kw_overlap": ["per-step verifier", "iterative refeed", "verifier feedback"],
+      "kw_count": 3,
+      "sem_cosine": 0.88,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "Explainer+Verifier two-stage with iterative refeed is functional twin of per-step anchor_check + mandatory overlap. Triple hit."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/pdf/2511.22176",
+      "title": "Focused Chain-of-Thought Efficient LLM Reasoning (2025/11)",
+      "kw_overlap": ["per-step reasoning", "adaptive checkpoints"],
+      "kw_count": 2,
+      "sem_cosine": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Focused per-step reasoning with adaptive checkpoints covers cascading reasoning + per-step verification. Triple hit."
+    },
+    {
+      "rank": 3,
+      "url": "https://aclanthology.org/2025.coling-main.719.pdf",
+      "title": "Survey Chain-of-X Paradigms (COLING 2025)",
+      "kw_overlap": ["chain-of-X taxonomy", "feedback nodes"],
+      "kw_count": 2,
+      "sem_cosine": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "Chain-of-X survey formalizes per-step Feedback nodes — author explicitly acknowledges this in novelty claim. Triple hit."
+    },
+    {
+      "rank": 4,
+      "url": "https://openreview.net/forum?id=2i6Rp0gCq6",
+      "title": "Adaptive Thinking LLMs When to Think Latent Space (Sonata)",
+      "kw_overlap": ["adaptive thinking-budget", "self-consistency-guided"],
+      "kw_count": 2,
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Self-Consistency-Guided Adapter for adaptive thinking-budget IS the dynamic K-step controller. Triple hit."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/pdf/2410.08146",
+      "title": "Rewarding Progress Scaling Automated Process Verifiers (NeurIPS 2024)",
+      "kw_overlap": ["per-step process reward", "TD-style verification", "process verifiers"],
+      "kw_count": 3,
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "reason": "Per-step Process Reward Model with TD verification = exact anchor_check mechanism. Triple hit."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2504.16828v1",
+      "title": "Process Reward Models That Think ThinkPRM (2025/04)",
+      "kw_overlap": ["generative PRM", "per-step CoT verification", "process labels"],
+      "kw_count": 3,
+      "sem_cosine": 0.90,
+      "func_score": 0.92,
+      "hit": true,
+      "reason": "EXACT TWIN — ThinkPRM verifies every step via generative CoT; per-step anchor_check is generative PRM by another name. Triple hit at maximum."
+    },
+    {
+      "rank": 7,
+      "url": "https://dl.acm.org/doi/10.1145/3774904.3792551",
+      "title": "AgentPRM Process Reward Models LLM Agents Step-Wise (WWW 2026)",
+      "kw_overlap": ["step-wise process reward", "TD-based", "GAE"],
+      "kw_count": 3,
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "Step-wise PRM for agents covers per-step anchor_check + dynamic stop. Triple hit."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2603.17815",
+      "title": "Process Supervision CoT Monte Carlo Net Information Gain (2026/03)",
+      "kw_overlap": ["net-information-gain per-step", "process supervision", "marginal info gain"],
+      "kw_count": 3,
+      "sem_cosine": 0.82,
+      "func_score": 0.84,
+      "hit": true,
+      "reason": "Monte Carlo net-information-gain per-step supervision is functionally IDENTICAL to dynamic-K controller monitoring marginal-information-gain (candidate's own wording). Triple hit."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_hits": 8,
+    "sem_hits": 8,
+    "func_hits": 8,
+    "max_kw_overlap": 3,
+    "max_sem_cosine": 0.90,
+    "max_func_score": 0.92,
+    "distinct_effect_clusters_above_threshold": 8,
+    "multi_cluster_match": true
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "Total hits = 8 (>=1). SHERPA-RAPPEL is fully covered by prior art: ThinkPRM (2504.16828) and PAV (2410.08146) cover per-step anchor_check via generative/TD process reward; AgentPRM covers step-wise verification for agents; Sonata adaptive-thinking covers dynamic K-step controller; Chain-of-X survey formalizes Feedback nodes; Monte Carlo net-information-gain (2603.17815) covers marginal-info-gain stop criterion. Author's own novelty claim explicitly acknowledges 'recombination of existing components'.",
+  "agreement_with_prior_layers": {
+    "agrees_with_semantic_layer": true,
+    "agrees_with_functional_layer": true,
+    "independent_kw_check_adds_evidence": true
+  }
+}

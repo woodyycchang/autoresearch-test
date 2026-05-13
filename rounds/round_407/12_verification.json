@@ -1,0 +1,115 @@
+{
+  "round": "407",
+  "verifier": "cross-agent independent re-scoring (fresh context)",
+  "candidate_llm_application": "WANDJINA-MOUTHLESS-FT: output-head-only surface-form suppression FT with hidden-state preservation loss + null-token emission (no refusal substitution)",
+  "candidate_llm_content_words": [
+    "surface-form output suppression FT",
+    "hidden-state preservation loss",
+    "no refusal substitution null emit",
+    "output-head-only suppression"
+  ],
+  "hit_rule": "hit = (keyword_overlap>=2) OR (semantic_cosine>=0.7) OR (functional_score>=0.7)",
+  "fail_rule": "total_hits >= 1 -> FAIL",
+  "independent_scores": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2605.01047",
+      "title": "LLM Ghostbusters: Surgical Hallucination Suppression via Adaptive Unlearning (2026/05)",
+      "kw_overlap": 3,
+      "kw_matched_terms": ["surface-form output suppression FT", "hidden-state preservation loss (utility preservation)", "output-head-only suppression (distribution concentrated on target)"],
+      "sem_cosine": 0.88,
+      "func_score": 0.92,
+      "hit": true,
+      "rationale": "Surgical suppression + utility preservation + target-only distribution change is direct functional twin of output-head-only surface-form suppression with hidden-state preservation."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2508.07075",
+      "title": "Surgical Knowledge Rewrite Unlearn-then-Learn IA3 (2025/08)",
+      "kw_overlap": 2,
+      "kw_matched_terms": ["surface-form output suppression FT (forget old fact)", "hidden-state preservation (circuit-localized preserves rest)"],
+      "sem_cosine": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "rationale": "Circuit-localized IA3 PEFT is functionally the same surgical suppression + preservation paradigm."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2409.13054v1",
+      "title": "LLM Surgery Efficient Knowledge Unlearning Editing (2024/09)",
+      "kw_overlap": 2,
+      "kw_matched_terms": ["surface-form output suppression FT (reverse-gradient unlearn)", "hidden-state preservation loss (KL-divergence retain)"],
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "rationale": "KL-divergence retain term is functionally equivalent to hidden-state preservation loss; reverse-gradient is surface-form suppression."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/pdf/2601.22028",
+      "title": "From Logits to Latents: Contrastive Representation Shaping LLM Unlearning (2026/01)",
+      "kw_overlap": 2,
+      "kw_matched_terms": ["surface-form output suppression FT", "hidden-state preservation loss (preserves general reps)"],
+      "sem_cosine": 0.85,
+      "func_score": 0.85,
+      "hit": true,
+      "rationale": "Contrastive representation shaping for unlearning while preserving general reps matches both surface suppression and hidden-state preservation."
+    },
+    {
+      "rank": 5,
+      "url": "https://openreview.net/forum?id=TiYOHdK35L",
+      "title": "Just Enough Shifts: Targeted Representation FT (ICLR 2026)",
+      "kw_overlap": 2,
+      "kw_matched_terms": ["surface-form output suppression FT", "output-head-only suppression (targeted FT selective)"],
+      "sem_cosine": 0.84,
+      "func_score": 0.84,
+      "hit": true,
+      "rationale": "Candidate itself cites this as prior art. Targeted FT for selective suppression without over-refusal covers WANDJINA's core."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2504.17130v2",
+      "title": "Steering the CensorShip Representation Vectors (2025/04)",
+      "kw_overlap": 2,
+      "kw_matched_terms": ["surface-form output suppression FT (censorship)", "hidden-state preservation (preserves internals)"],
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "rationale": "Activation-vector censorship preserving internal representations is functionally the same outcome."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2501.14315v1",
+      "title": "Clear Minds Think Alike: Token Perplexity Robust FT (2025/01)",
+      "kw_overlap": 1,
+      "kw_matched_terms": ["surface-form output suppression FT (selective token masking)"],
+      "sem_cosine": 0.72,
+      "func_score": 0.71,
+      "hit": true,
+      "rationale": "Selective Token Masking at training is a form of surface-form suppression; semantic cosine clears 0.7 threshold."
+    },
+    {
+      "rank": 8,
+      "url": "https://aclanthology.org/2025.emnlp-main.1065.pdf",
+      "title": "Understanding Overrefusal LLMs (EMNLP 2025)",
+      "kw_overlap": 1,
+      "kw_matched_terms": ["hidden-state preservation loss (internal knowledge preserved)"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "rationale": "Over-refusal analysis documents the exact preserved-internals + suppressed-output asymmetry WANDJINA encodes; clears semantic and functional thresholds."
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "keyword_hits": 6,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "max_semantic_cosine": 0.88,
+    "max_functional_score": 0.92,
+    "distinct_effect_clusters": 8,
+    "agreement_with_upstream": "matches 06_5 and 06_7 within tolerance; no scoring drift; verdict identical"
+  },
+  "verdict": "FAIL",
+  "reason": "8 independent hits >= 1 threshold. Mechanism is well-covered by existing surgical-suppression / unlearning-with-preservation literature (Ghostbusters, IA3 Rewrite, LLM Surgery, Logits-to-Latents, Just Enough Shifts, CensorShip steering, Token Masking, Overrefusal analysis). Combination claim (output-head-only + hidden-state freeze + null-token emission) is too minor to escape prior art."
+}
