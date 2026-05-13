@@ -1,0 +1,107 @@
+{
+  "round": "402",
+  "verifier": "cross-agent-R402",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "null-space-traversal",
+  "candidate_summary": "TWIN-PLANE-HEAD ties K transformer head pairs by Householder mirror reflection W_B = (I - 2 n n^T) W_A across a fixed random non-symmetry plane n per pair.",
+  "results_analysis": [
+    {
+      "url": "https://www.researchgate.net/publication/397196759_Efficient_Adaptation_of_Pre-trained_Vision_Transformer_via_Householder_Transformation",
+      "title": "Efficient Adaptation of Pre-trained Vision Transformer via Householder Transformation",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.86,
+      "func_score": 0.9,
+      "hit": true,
+      "reason": "PAID applies Householder reflection (I - 2vv^T) to transformer weight direction — the exact same operator as TWIN-PLANE-HEAD's mirror tie; semantic and functional thresholds both exceeded."
+    },
+    {
+      "url": "https://aclanthology.org/2024.findings-emnlp.144.pdf",
+      "title": "Head-wise Shareable Attention for Large Language Models (EMNLP 2024)",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Head-wise weight sharing across LLM attention heads — same head-pair tying artefact, differing only by identity-sharing vs Householder reflection; passes semantic and functional thresholds."
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.11819",
+      "title": "Head-wise Shareable Attention for LLMs (arxiv 2402.11819)",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "Arxiv companion of rank 2 — same head-parameter-sharing artefact across heads; passes semantic and functional thresholds."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.08343",
+      "title": "Rethinking Attention Output Projection: Structured (2026/03)",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.74,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Walsh-Hadamard fixed parameter-free orthogonal transform couples head outputs — same fixed-orthogonal-transform-across-head-pairs pattern as TWIN-PLANE-HEAD; both sem and func above 0.7."
+    },
+    {
+      "url": "https://openreview.net/pdf?id=0oHaazjMUX",
+      "title": "LESTD: LLM Compression via Learning-Based Subspace Tensor Decomposition",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.7,
+      "func_score": 0.7,
+      "hit": true,
+      "reason": "Shared low-rank orthonormal subspace across heads — coupling/sharing of head parameters via orthonormal structure; meets thresholds."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11633-024-1393-8",
+      "title": "Vision Transformers with Hierarchical Attention",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.4,
+      "func_score": 0.32,
+      "hit": false,
+      "reason": "Tree-structured hierarchical attention — unrelated to head-pair Householder mirror tying."
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/p/visual-attention-variants",
+      "title": "A Visual Guide to Attention Variants in Modern LLMs",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.58,
+      "func_score": 0.5,
+      "hit": false,
+      "reason": "GQA/MQA/MLA survey — key sharing only, not weight-matrix Householder mirror tying."
+    },
+    {
+      "url": "https://sebastianraschka.com/llm-architecture-gallery/mha/",
+      "title": "Multi-Head Attention Architecture Gallery",
+      "kw_matches": [],
+      "kw_count": 0,
+      "kw_score": 0.0,
+      "sem_score": 0.5,
+      "func_score": 0.38,
+      "hit": false,
+      "reason": "Baseline MHA description — no twinning or reflection mechanism present."
+    }
+  ],
+  "hit_counts": {
+    "kw_hits": 0,
+    "sem_hits": 5,
+    "func_hits": 5,
+    "total_hits": 5
+  },
+  "total_hits": 5,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "Five distinct results (PAID Householder transformer adaptation, two Head-wise Shareable Attention papers, Walsh-Hadamard head-coupling, LESTD shared orthonormal subspace) each independently clear both the semantic (>=0.7) and functional (>=0.7) thresholds, with PAID using the exact Householder mirror operator on transformer weights — TWIN-PLANE-HEAD lacks novelty."
+}

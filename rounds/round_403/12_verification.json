@@ -1,0 +1,94 @@
+{
+  "round": "403",
+  "verifier": "cross-agent-R403",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "conjunction",
+  "candidate_summary": "CYNGHANEDD-MIRROR conjunction: (a) K-class discrete codebook over token embeddings (VQ) + (b) paired-sentence pretraining corpus + (c) ordered position-by-position class-sequence match as auxiliary pretraining loss.",
+  "results_analysis": [
+    {
+      "rank": 1,
+      "url": "https://aclanthology.org/2023.findings-emnlp.893.pdf",
+      "title": "Vector-Quantized Prompt Learning for Paraphrase Generation (EMNLP 2023)",
+      "kw_count": 0,
+      "sem_cosine": 0.76,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Combines VQ discrete codebook over prompt-token embeddings with paraphrase (paired-sentence) generation, capturing components (a)+(b) of the conjunction; lacks only the ordered class-sequence symmetry loss (c), so functional similarity exceeds 0.7."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/pdf/2311.14949",
+      "title": "Vector-Quantized Prompt Learning Paraphrase (arxiv 2023)",
+      "kw_count": 0,
+      "sem_cosine": 0.75,
+      "func_score": 0.75,
+      "hit": true,
+      "reason": "Same artefact as rank 1 (VQ codebook + paraphrase pretraining); two of three conjuncts directly present, so semantic/functional thresholds are crossed."
+    },
+    {
+      "rank": 3,
+      "url": "https://www.emergentmind.com/topics/token-order-prediction-top",
+      "title": "Token Order Prediction (TOP) auxiliary objective",
+      "kw_count": 0,
+      "sem_cosine": 0.55,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Ordered auxiliary token-ranking loss shares the 'ordered auxiliary loss' theme but lacks a discrete codebook and paired-sentence symmetry, so it sits below both thresholds."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2510.14751v1",
+      "title": "Beyond Multi-Token Prediction: Pretraining with Future Summaries (arxiv 2510)",
+      "kw_count": 0,
+      "sem_cosine": 0.5,
+      "func_score": 0.5,
+      "hit": false,
+      "reason": "Future-summary auxiliary loss is not symmetric paired-sentence and uses no discrete codebook, missing two of three conjuncts."
+    },
+    {
+      "rank": 5,
+      "url": "https://openreview.net/pdf?id=WDdBhcwzGe",
+      "title": "Multi-Token Prediction Needs Registers (OpenReview)",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.5,
+      "hit": false,
+      "reason": "Generic multi-token prediction with register tokens; no codebook, no paired-sentence symmetry, no class-sequence match."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2511.00198v1",
+      "title": "Training LLMs Beyond Next Token Prediction: Filling the Mutual Information Gap (arxiv 2511)",
+      "kw_count": 0,
+      "sem_cosine": 0.45,
+      "func_score": 0.45,
+      "hit": false,
+      "reason": "MI-gap auxiliary loss is generic beyond-NTP; lacks codebook and paired symmetric structure."
+    },
+    {
+      "rank": 7,
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Zhu_Addressing_Representation_Collapse_in_Vector_Quantized_Models_with_One_Linear_ICCV_2025_paper.pdf",
+      "title": "Addressing Representation Collapse in VQ Models with One Linear Layer (ICCV 2025)",
+      "kw_count": 0,
+      "sem_cosine": 0.4,
+      "func_score": 0.4,
+      "hit": false,
+      "reason": "VQ utilization fix in isolation; no paired-sentence pretraining or class-sequence symmetry component."
+    },
+    {
+      "rank": 8,
+      "url": "https://openreview.net/forum?id=0NMzBwqaAJ",
+      "title": "Not All Tokens Are What You Need for Pretraining (OpenReview)",
+      "kw_count": 0,
+      "sem_cosine": 0.35,
+      "func_score": 0.3,
+      "hit": false,
+      "reason": "Selective token-weighting pretraining; no codebook, no pair symmetry, no ordered class-sequence loss."
+    }
+  ],
+  "hit_counts": {"kw_hits": 0, "sem_hits": 2, "func_hits": 2, "total_hits": 2},
+  "total_hits": 2,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "Two independent hits (ranks 1 and 2, the Vector-Quantized Prompt Learning for Paraphrase Generation paper) cross both the semantic (>=0.7) and functional (>=0.7) thresholds by combining a VQ discrete codebook with paired-sentence paraphrase pretraining, so the candidate fails novelty."
+}

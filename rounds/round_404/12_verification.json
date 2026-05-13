@@ -1,0 +1,107 @@
+{
+  "round": "404",
+  "verifier": "cross-agent-R404",
+  "rule": "hit=(kw>=2)OR(sem>=0.7)OR(func>=0.7); total>=1 -> FAIL",
+  "candidate_form": "multi-agent-comm",
+  "candidate_summary": "ANGKLUNG-OCTAVE: pair-level top-k MoE routing where N experts are grouped into N/2 pairs (E_a, E_b), router selects a pair (not single expert), both pair members fire simultaneously at half capacity each, and FFN weights within a pair are tied via a FIXED 'octave permutation' operator W_b = O W_a producing structured 2-octave output.",
+  "results_analysis": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2505.21411",
+      "title": "Pangu Pro MoE: Mixture of Grouped Experts (MoGE, 2025/05)",
+      "kw_count": 3,
+      "kw_matches": ["grouped experts (paired-expert MoE)", "expert group activation (pair-level top-k MoE)", "equal-number activate within group (pair co-activation)"],
+      "sem_score": 0.84,
+      "func_score": 0.88,
+      "hit": true,
+      "reason": "MoGE explicitly groups experts and routes by forcing equal activations within each predefined group — directly realizes pair-level (K=2 special case) top-k routing, the central novelty axis of ANGKLUNG-OCTAVE."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/html/2604.23108",
+      "title": "Mixture of Heterogeneous Grouped Experts (MoHGE, 2026/04)",
+      "kw_count": 2,
+      "kw_matches": ["grouped experts (paired-expert MoE)", "two-level group routing (pair-level top-k MoE)"],
+      "sem_score": 0.82,
+      "func_score": 0.82,
+      "hit": true,
+      "reason": "MoHGE performs two-level routing over heterogeneous expert groups — same architectural class as pair-level routing claimed novel by ANGKLUNG-OCTAVE."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2410.07524v1",
+      "title": "Upcycling LLMs into MoE (arxiv 2024/10)",
+      "kw_count": 2,
+      "kw_matches": ["weight permutation over FFN (fixed permutation expert pair operator)", "FFN copies into experts (octave-coupled FFN weight tie)"],
+      "sem_score": 0.78,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Upcycling uses a fixed weight permutation operator applied to FFN before copying into expert slots — directly the 'fixed permutation operator' relating experts that ANGKLUNG claims as a novel component."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2410.21804v1",
+      "title": "Weight-Ensembling Mixture of Experts (arxiv 2024/10)",
+      "kw_count": 2,
+      "kw_matches": ["weight ensembling/sharing across experts (FFN weight tie)", "shared expert structure (paired-expert MoE)"],
+      "sem_score": 0.76,
+      "func_score": 0.74,
+      "hit": true,
+      "reason": "Weight-Ensembling MoE shares/ties weights across experts via a structured combiner — same artefact (tied FFN weights between experts) ANGKLUNG calls novel."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2507.05724v2",
+      "title": "Omni-Router: Sharing Routing Decisions in Sparse MoE (2025/07)",
+      "kw_count": 1,
+      "kw_matches": ["shared routing in sparse MoE (pair-level top-k MoE generic match)"],
+      "sem_score": 0.72,
+      "func_score": 0.68,
+      "hit": true,
+      "reason": "Cross-layer router sharing is a different axis, but sem cosine 0.72 (>=0.7) registers a hit; functionally it remains a 'shared structure in MoE routing' adjacent to ANGKLUNG's mechanism."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2601.15370",
+      "title": "Improving MoE Compute Efficiency by Composing Weight and Data Sparsity (2026/01)",
+      "kw_count": 1,
+      "kw_matches": ["MoE weight sparsity (generic MoE)"],
+      "sem_score": 0.68,
+      "func_score": 0.55,
+      "hit": false,
+      "reason": "Weight+data sparsity composition is an orthogonal compute-efficiency mechanism with no pair-routing or permutation-tie content; all three scores below threshold."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/html/2510.11370v1",
+      "title": "Stabilizing MoE RL by Aligning Training and Inference Routers (2025/10)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_score": 0.60,
+      "func_score": 0.40,
+      "hit": false,
+      "reason": "Router train/inference alignment under RL is unrelated to pair-level routing or weight-tied experts; clearly below thresholds."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2411.15708v1",
+      "title": "LLaMA-MoE v2 Exploring Sparsity (2024/11)",
+      "kw_count": 1,
+      "kw_matches": ["sparse MoE (generic)"],
+      "sem_score": 0.62,
+      "func_score": 0.50,
+      "hit": false,
+      "reason": "General post-training sparsity exploration without grouped/paired routing or permutation tying; below all thresholds."
+    }
+  ],
+  "hit_counts": {
+    "kw_hits": 4,
+    "sem_hits": 5,
+    "func_hits": 4,
+    "total_hits": 5
+  },
+  "total_hits": 5,
+  "threshold_for_fail": 1,
+  "verdict": "FAIL",
+  "verdict_sentence": "ANGKLUNG-OCTAVE fails verification: 5 distinct prior works hit (MoGE pair/group routing, MoHGE two-level group routing, Upcycling fixed weight permutation over FFN copies, Weight-Ensembling MoE for tied expert weights, and Omni-Router shared-routing MoE), so each of the three claimed components (pair-level routing, fixed permutation weight tie, shared/structured pair) and their conjunction lacks novelty."
+}
