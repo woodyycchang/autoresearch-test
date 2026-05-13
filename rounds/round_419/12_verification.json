@@ -1,0 +1,109 @@
+{
+  "round": "419",
+  "verifier": "cross-agent (fresh context)",
+  "candidate_llm_application": "KOMI-WARD: input-boundary defensive-prefix token trained in attacker-defender coevolution loop",
+  "thresholds": {"kw_min": 2, "sem_min": 0.7, "func_min": 0.7},
+  "hit_rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7)",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2412.10321",
+      "title": "AdvPrefix Objective for Nuanced LLM Jailbreaks",
+      "kw_count": 2,
+      "kw_matched": ["prefix", "jailbreak"],
+      "sem_cosine": 0.84,
+      "func_score": 0.80,
+      "hit": true,
+      "reason": "Prefix-objective adversarial work; defender side of prefix-token coevolution is direct mirror."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2502.04204",
+      "title": "Short-length Adversarial Training Helps Defend Long Jailbreaks",
+      "kw_count": 2,
+      "kw_matched": ["adversarial training", "jailbreak"],
+      "sem_cosine": 0.86,
+      "func_score": 0.83,
+      "hit": true,
+      "reason": "Adversarial-suffix training with coevolution-style training is functional twin."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/pdf/2511.19218",
+      "title": "Adversarial Attack-Defense Co-Evolution LLM Safety",
+      "kw_count": 4,
+      "kw_matched": ["adversarial", "attacker-defender", "co-evolution", "safety"],
+      "sem_cosine": 0.94,
+      "func_score": 0.94,
+      "hit": true,
+      "reason": "EXACT TWIN of coevolution loop — explicit attack-defense coevolution for safety alignment."
+    },
+    {
+      "rank": 4,
+      "url": "https://aclanthology.org/2025.findings-acl.1126.pdf",
+      "title": "Adversarial Preference Learning Robust LLM Alignment",
+      "kw_count": 3,
+      "kw_matched": ["adversarial", "dynamically evolving", "alignment"],
+      "sem_cosine": 0.88,
+      "func_score": 0.87,
+      "hit": true,
+      "reason": "Defender learns from dynamically evolving adversarials — direct functional twin."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/html/2601.10543v1",
+      "title": "Defending LLMs Against Jailbreak via In-Decoding Safety-Awareness Probing",
+      "kw_count": 2,
+      "kw_matched": ["defending", "jailbreak"],
+      "sem_cosine": 0.78,
+      "func_score": 0.73,
+      "hit": true,
+      "reason": "In-decoding safety probe is boundary-defense paradigm adjacency."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/pdf/2309.02705",
+      "title": "Certifying LLM Safety Against Adversarial Prompting",
+      "kw_count": 2,
+      "kw_matched": ["adversarial", "safety"],
+      "sem_cosine": 0.74,
+      "func_score": 0.72,
+      "hit": true,
+      "reason": "Erase-and-check at boundary covers boundary-defense framework."
+    },
+    {
+      "rank": 7,
+      "url": "https://www.nature.com/articles/s41598-025-31086-y",
+      "title": "PromptGuard Structured Injection Resilient LMs",
+      "kw_count": 2,
+      "kw_matched": ["defense", "adaptive"],
+      "sem_cosine": 0.78,
+      "func_score": 0.76,
+      "hit": true,
+      "reason": "4-layer boundary defense with adaptive refinement covers boundary-defense paradigm."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2405.20770v1",
+      "title": "LLM Sentinel Adversarial Robustness Agent",
+      "kw_count": 2,
+      "kw_matched": ["adversarial", "boundary"],
+      "sem_cosine": 0.82,
+      "func_score": 0.78,
+      "hit": true,
+      "reason": "Boundary sentinel agent is functional twin of defensive-token-at-input-boundary."
+    }
+  ],
+  "summary": {
+    "total_results_scored": 8,
+    "kw_hits": 8,
+    "semantic_hits": 8,
+    "functional_hits": 8,
+    "overall_hits": 8,
+    "max_cosine": 0.94,
+    "max_func": 0.94,
+    "agreement_with_primary": "full"
+  },
+  "verdict": "FAIL",
+  "verdict_rationale": "Total hits = 8 (>= 1). Multiple direct twins exist: rank 3 (Attack-Defense Co-Evolution 2511.19218, cos 0.94, func 0.94) is explicit attacker-defender coevolution for LLM safety; rank 4 (Adversarial Preference Learning) covers dynamically evolving adversarial defender; rank 1 (AdvPrefix) covers prefix-token jailbreak adjacency; rank 8 (LLM Sentinel) covers boundary defense. Candidate's recombination (prefix-token + coevolution + input-boundary) is not novel — components are individually well-covered and pairwise overlap is high."
+}

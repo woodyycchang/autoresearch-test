@@ -1,0 +1,115 @@
+{
+  "round": "420",
+  "verifier": "cross-agent verifier R420 (claude-opus-4-7, fresh context)",
+  "candidate_form": "basin-stability",
+  "candidate_llm_application": "LANGAR-CONSENSUS: uniform pre-task shared-context + role-prior zeroing + equal-vote-weight multi-agent consensus",
+  "rule": "hit = (kw>=2) OR (sem>=0.7) OR (func>=0.7); total>=1 -> FAIL",
+  "per_result_scores": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/html/2310.20151v2",
+      "title": "Multi-Agent Consensus Seeking via Large Language Models",
+      "kw_count": 3,
+      "kw_matched": ["multi-agent consensus", "egalitarian", "equal-weight average"],
+      "sem_cosine": 0.92,
+      "func_score": 0.92,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Direct twin: emergent egalitarian average-strategy consensus among LLM agents"
+    },
+    {
+      "rank": 2,
+      "url": "https://aclanthology.org/2025.findings-acl.606.pdf",
+      "title": "Voting or Consensus Decision-Making Multi-Agent",
+      "kw_count": 3,
+      "kw_matched": ["consensus", "voting/equal-vote", "multi-agent"],
+      "sem_cosine": 0.86,
+      "func_score": 0.84,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Catalog of 7 decision protocols incl. equal-vote egalitarian consensus"
+    },
+    {
+      "rank": 3,
+      "url": "https://aclanthology.org/2025.findings-acl.1141/",
+      "title": "CONSENSAGENT Efficient Consensus Sycophancy Mitigation",
+      "kw_count": 2,
+      "kw_matched": ["consensus", "role/prior leveling via sycophancy mitigation"],
+      "sem_cosine": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Sycophancy mitigation overlaps with role-prior leveling"
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/html/2410.15168v1",
+      "title": "Electoral Approach Diversify Collective Decision-Making",
+      "kw_count": 2,
+      "kw_matched": ["collective decision-making", "equal-vote electoral"],
+      "sem_cosine": 0.80,
+      "func_score": 0.78,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Electoral equal-vote multi-agent decision approach"
+    },
+    {
+      "rank": 5,
+      "url": "https://www.science.org/doi/10.1126/sciadv.adu9368",
+      "title": "Emergent Social Conventions Collective Bias LLM Populations",
+      "kw_count": 2,
+      "kw_matched": ["emergent egalitarian conventions", "LLM populations collective"],
+      "sem_cosine": 0.78,
+      "func_score": 0.74,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Emergent egalitarian conventions in LLM populations - direct twin"
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/html/2604.17139",
+      "title": "Consensus Trap Rescuing Multi-Agent Token-Level Collaboration",
+      "kw_count": 2,
+      "kw_matched": ["consensus", "multi-agent collaboration"],
+      "sem_cosine": 0.82,
+      "func_score": 0.80,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Token-level egalitarian collaboration alternative"
+    },
+    {
+      "rank": 7,
+      "url": "https://openreview.net/forum?id=AYqtMLRwzj",
+      "title": "Belief-Calibrated Multi-Agent Consensus Seeking BCCS",
+      "kw_count": 2,
+      "kw_matched": ["multi-agent consensus seeking", "belief calibration / prior leveling"],
+      "sem_cosine": 0.84,
+      "func_score": 0.82,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Belief calibration is direct analog to role-prior zeroing"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2602.02350",
+      "title": "Context Learning for Multi-Agent Discussion",
+      "kw_count": 3,
+      "kw_matched": ["shared context", "multi-agent discussion", "pre-task context bootstrap"],
+      "sem_cosine": 0.86,
+      "func_score": 0.86,
+      "hit": true,
+      "hit_reasons": ["kw>=2", "sem>=0.7", "func>=0.7"],
+      "note": "Functional twin of pre-task shared-meal context (acknowledged by candidate itself)"
+    }
+  ],
+  "totals": {
+    "kw_hits": 8,
+    "sem_hits": 8,
+    "func_hits": 8,
+    "total_hits": 8,
+    "distinct_effect_clusters_above_threshold": 8
+  },
+  "verdict": "FAIL",
+  "reason": "All 8 retrieved results are hits across keyword, semantic, AND functional axes. The candidate explicitly acknowledges 2602.02350 + AgentsNet + Consensus-LLM cover shared-context multi-agent consensus; the recombination of uniform-context + role-prior-zero + equal-vote does not produce a novel functional cluster beyond prior art. BCCS (belief calibration ~ role-prior zeroing), 2310.20151 (equal-weight average-strategy consensus), and 2602.02350 (shared-context MAD) jointly cover all three claimed components. Total hits >= 1 -> FAIL.",
+  "consensus_with_prior_layers": true
+}

@@ -1,0 +1,145 @@
+{
+  "round": "416",
+  "verifier": "cross-agent independent (claude-opus-4-7, fresh context)",
+  "candidate_id": "XALAM-FREQ",
+  "candidate_summary": "Per-head RoPE frequency band pre-allocation + L2-norm Q/K constraint + token-tessitura routing",
+  "rule": "hit iff kw>=2 OR sem>=0.7 OR func>=0.7",
+  "content_words": [
+    "wolof xalam 5-string griot lute",
+    "ci suuf ci kow ardin tunings",
+    "string-band frequency allocation",
+    "phrase-aware string-switch",
+    "per-head RoPE band pre-allocation",
+    "L2-norm band-constrained Q/K",
+    "token-tessitura band-routing",
+    "5-band fixed frequency partition"
+  ],
+  "independent_scoring": [
+    {
+      "rank": 1,
+      "url": "https://openreview.net/pdf?id=PR1PPxvG9Q",
+      "title": "Frequency Bands in RoPE (ICLR 2026)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.93,
+      "sem_justification": "Directly studies per-head preferential RoPE band usage; same domain & object (RoPE frequency bands) and same observed effect (per-head specialisation). Strong semantic overlap with components (1).",
+      "func_score": 0.90,
+      "func_justification": "Twin observation: per-head band preference in RoPE. Lacks L2-norm constraint and tessitura routing, but the central PER-HEAD BAND mechanism is observed.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 2,
+      "url": "https://www.emergentmind.com/topics/mixed-frequency-rope",
+      "title": "Mixed-Frequency RoPE LLMs",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.92,
+      "sem_justification": "Head-specific RoPE frequency sets via greedy elite-set selection — direct match to per-head pre-allocation component.",
+      "func_score": 0.93,
+      "func_justification": "EXACT TWIN of component (1). Assigns disjoint/elite frequency sets per head. The remaining XALAM-FREQ deltas (L2 norm + tessitura) are secondary additions on this same mechanism.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/html/2510.00028v1",
+      "title": "Q-ROAR Rethinking RoPE Scaling Quantized LLM",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.87,
+      "sem_justification": "Partitions RoPE channels into contiguous log-frequency bands with per-band rescaling — overlap with band-partition core.",
+      "func_score": 0.84,
+      "func_justification": "Functional twin of partitioning-into-bands mechanism; differs in motivation (quantization) but the band-partition device is the same.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 4,
+      "url": "https://pub.sakana.ai/DroPE/",
+      "title": "DroPE Extending Context by Dropping Positional Embeddings",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.71,
+      "sem_justification": "Same family (RoPE manipulation for LLMs) but different mechanism (dropping vs band-allocation).",
+      "func_score": 0.62,
+      "func_justification": "Different functional effect (context extension via dropping). Below functional threshold.",
+      "hit": true,
+      "hit_reason": "sem>=0.7"
+    },
+    {
+      "rank": 5,
+      "url": "https://aclanthology.org/2025.emnlp-main.1239.pdf",
+      "title": "Hallucination Detection Spectral Features (EMNLP 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.70,
+      "sem_justification": "Spectral feature framing in LLMs; weak but at threshold.",
+      "func_score": 0.65,
+      "func_justification": "Spectral features for detection, not attention allocation. Below functional threshold.",
+      "hit": true,
+      "hit_reason": "sem>=0.7"
+    },
+    {
+      "rank": 6,
+      "url": "https://aclanthology.org/2025.emnlp-main.1776.pdf",
+      "title": "Spectral Scaling Laws Language Models (EMNLP 2025)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.73,
+      "sem_justification": "Spectral analysis of LLM widths; intersects band-partition perspective.",
+      "func_score": 0.71,
+      "func_justification": "Spectral rank utilization can be cast as band-allocation perspective; just above threshold.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2302.05693",
+      "title": "Local Spectral Attention Speech Enhancement (2023)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.78,
+      "sem_justification": "Per-band attention design paradigm; speech domain but same mechanism shape.",
+      "func_score": 0.73,
+      "func_justification": "Per-band attention design overlapping with band-allocation paradigm. Candidate explicitly lists this as prior art it tries to differentiate from.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/html/2504.00927v1",
+      "title": "Multi-Token Attention (2025/04)",
+      "kw_count": 0,
+      "kw_matches": [],
+      "sem_cosine": 0.73,
+      "sem_justification": "Head-specialisation variants in attention; partial overlap with per-head pre-allocation.",
+      "func_score": 0.71,
+      "func_justification": "Head specialisation patterns cover per-head allocation device at a generic level.",
+      "hit": true,
+      "hit_reason": "sem>=0.7 AND func>=0.7"
+    }
+  ],
+  "summary": {
+    "total_hits": 8,
+    "kw_forced_hits": 0,
+    "semantic_forced_hits": 8,
+    "functional_forced_hits": 6,
+    "max_sem_cosine": 0.93,
+    "max_func_score": 0.93,
+    "exact_twin_present": true,
+    "exact_twin_url": "https://www.emergentmind.com/topics/mixed-frequency-rope",
+    "secondary_twin_urls": [
+      "https://openreview.net/pdf?id=PR1PPxvG9Q",
+      "https://arxiv.org/html/2510.00028v1"
+    ]
+  },
+  "agreement_with_07_hit_miss": {
+    "hits_count_match": true,
+    "hit_status_match_per_item": true,
+    "score_deviations_within_0.05": true,
+    "notes": "Independent scoring confirms 8/8 hits. Minor cosine deviations (<=0.02) and functional deviations (<=0.02) do not change hit status. Mixed-Frequency RoPE remains the strongest exact twin."
+  },
+  "verdict": "FAIL",
+  "verdict_reason": "total_hits=8 (>=1). Per-head RoPE band pre-allocation and band-partition mechanisms are well-covered prior art (Mixed-Frequency RoPE = exact twin; Frequency Bands in RoPE ICLR 2026 and Q-ROAR are direct twins). Candidate is a recombination of established components — not novel."
+}
