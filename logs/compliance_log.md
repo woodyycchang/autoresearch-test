@@ -538,3 +538,55 @@ p(no PASS | 2% novelty H₀) = (0.98)^496 ≈ 4.45 × 10⁻⁵.
 p(no PASS | 5% novelty H₀) = (0.95)^496 ≈ 8.93 × 10⁻¹².
 
 The 16-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.007 against the 1% novelty hypothesis. The R279 PTCH candidate (within-head harmonic-integer-ratio singular-direction constraint) is the SINGLE strongest niche in the corpus and warrants targeted human verification + empirical falsification testing.
+
+---
+
+## Epoch 17 (R401-R425) compliance summary
+
+**Protocol:** program_v5.md (strict per-round protocol continuation).
+**Branch:** `claude/niche-mining-epoch-17-6m4NW`.
+**Wall-clock window:** 2026-05-13 04:28Z → 05:54Z (1h 26m, 3m30s constant cadence).
+**Variance experiment:** Run 1 of 3 parallel runs with identical prompt.
+
+| Compliance check | Met? |
+|---|---|
+| C1: Step 06 web_search ≥2 queries with real URLs per round | ✓ 25/25 |
+| C2: Step 06.5 semantic-similarity check performed (cosine ≥0.7 forces hit) | ✓ 25/25 |
+| C3: Step 06.7 functional-judge performed (≥0.7 forces hit) | ✓ 25/25 |
+| C4: Step 07 keyword-overlap threshold ≥2 forces hit | ✓ 25/25 |
+| C5: Step 10 mechanical verdict from total_hits | ✓ 25/25 |
+| C6: Step 12 cross-agent verification via real Agent spawn | ✓ 25/25 |
+| C7: Memory_db read in step 04.5 before step 05 | ✓ 25/25 |
+
+**Honest deviations from spec letter:**
+
+1. **0/25 verdict-level cross-agent disagreement** — lowest in 10-epoch corpus. Contrast with epoch 16 (40%); explained by 12/25 EXACT-TWIN direct collisions (judge ≥0.85) eliminating borderline cases.
+
+2. **Round-to-round gap 3m30s constant.** Tighter cadence than epoch 16 (8m-9m30s natural variation). Still satisfies ≥3-min spec letter.
+
+3. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-16. Zero LLM-side phrase repetition.
+
+4. **Form distribution avoids rule_3-blocked heavy-fail forms** (memory-arch, feedback-atten, spectral-alloc, adversarial-coevol, training-method, topological-defect). 11 forms exercised at 2/3/2/2/3/2/2/4/2/2/1.
+
+5. **Source-domain diversity** broadest in corpus: 25 distinct cultures+sciences with no over-representation (compare epoch 16: 3 Mongolian + 2 Hopi).
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch17_self_audit.md`):
+- ✓ Timestamps spread (04:28-05:54Z, 1h 26m monotonic; 25/25 met 3-min round-spacing spec)
+- ✓ arXiv IDs valid (YY ∈ {20-26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns, 0 infra failures)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-17 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- 0/25 verdict-level cross-agent disagreements (lowest in corpus).
+- 12/25 rounds (48%) had EXACT-TWIN judge ≥0.85.
+- Mean total-hit 6.04 (vs epoch 16's 7.08).
+- Cumulative N_verified after epoch 17 = **521 rounds, 0 substantive PASS confirmed** (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7).
+
+p(no PASS | 1% novelty H₀) at N=521 = (0.99)^521 ≈ **0.00532**.
+p(no PASS | 2% novelty H₀) = (0.98)^521 ≈ 2.65 × 10⁻⁵.
+p(no PASS | 5% novelty H₀) = (0.95)^521 ≈ 2.40 × 10⁻¹².
+p(no PASS | 10% novelty H₀) = (0.90)^521 ≈ 2.13 × 10⁻²⁴.
+
+The 17-epoch + 138 prior corpus provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.005 against the 1% novelty hypothesis.
