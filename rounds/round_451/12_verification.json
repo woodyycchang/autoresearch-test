@@ -1,0 +1,113 @@
+{
+  "verifier_id": "R451",
+  "candidate": "NGATU-DEFECT",
+  "candidate_form": "topological-defect",
+  "candidate_summary": "NGATU-DEFECT is a per-head topological defect detector for transformer attention that treats RoPE phase as a 1D grid, computes a sliding-window cohomology cocycle invariant on phase differences, and applies a per-head correction-projection P_repair to smooth detected phase-deviation cells, optionally aggregating persistent-homology H0/H1 features across heads.",
+  "content_words": [
+    "tongan ngatu tapa kupesi grid",
+    "kupesi stencil repeating motif cells",
+    "bark-cloth communal panel patches",
+    "ngatu defect-stitched edge overlay",
+    "topological defect detection RoPE phase",
+    "persistent homology positional grid",
+    "cohomology cocycle attention head",
+    "phase-deviation pattern repair projection"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "Topology-Aware Attention Persistent Homology Euler Biases (2605.03163)",
+      "description": "Topology-aware attention injects persistent-homology H0-H2 + Euler-characteristic biases into attention logits to model structural patterns.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["topological defect detection RoPE phase (partial: topological)", "persistent homology positional grid (partial: persistent homology)", "cohomology cocycle attention head (partial: attention)"],
+      "semantic_score": 0.82,
+      "functional_score": 0.72,
+      "rationale": "Strong overlap on persistent-homology bias for attention but uses logit-bias injection rather than cocycle defect detection + correction-projection repair. The PH multi-head aggregation component of NGATU-DEFECT closely matches, but the core RoPE-phase cocycle + P_repair mechanism is absent. Same artefact family (PH applied to attention) but different effect (bias injection vs defect repair).",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "Surgical Repair of Collapsed Attention Heads in ALiBi Transformers (2603.09616)",
+      "description": "Identifies attention-head collapse pathology in BLOOM/ALiBi and proposes surgical per-head repair projection.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["cohomology cocycle attention head (partial: attention head)", "phase-deviation pattern repair projection (partial: repair projection)", "topological defect detection RoPE phase (partial: defect-like collapse)"],
+      "semantic_score": 0.78,
+      "functional_score": 0.80,
+      "rationale": "Direct hit on the per-head defect detection + repair-projection mechanism, though defect concept is head-collapse on BOS rather than RoPE-phase cocycle. Same artefact (per-head repair projection on detected pathological heads) and very similar effect, with different defect-detection mechanism. Functionally very close to P_repair component.",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "xPerT: Extended Persistence Transformer (2410.14193)",
+      "description": "Scalable transformer on persistence diagrams; multi-resolution PH features as input for downstream tasks.",
+      "keyword_overlap_count": 1,
+      "keyword_matches": ["persistent homology positional grid (partial: persistence)"],
+      "semantic_score": 0.62,
+      "functional_score": 0.62,
+      "rationale": "Uses multi-resolution PH features in transformer architecture, overlapping with the multi-head PH aggregation aspect of NGATU-DEFECT. However, processes PH diagrams as input rather than computing cocycle on RoPE phase or applying defect-repair projection. Adjacent but not a functional twin.",
+      "hit": false
+    },
+    {
+      "id": 4,
+      "name": "Persistent Homology Structural Overfitting Detection Transformer 2026",
+      "description": "PH dissects transformer embedding topology evolution; short-lived unstable topologies signal overfitting; long-lived stable topologies signal generalization.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["persistent homology positional grid (partial: persistent homology)", "topological defect detection RoPE phase (partial: topology + detection)"],
+      "semantic_score": 0.70,
+      "functional_score": 0.68,
+      "rationale": "Uses PH for detecting transformer pathologies (overfitting as defect proxy) but the operationalization is on embedding topology evolution rather than per-head RoPE-phase cocycle. No correction-projection mechanism present. Same family of PH-based defect detection but different artefact level.",
+      "hit": true
+    },
+    {
+      "id": 5,
+      "name": "ComplexFormer Head-Specific Complex Vector Attention (2505.10222)",
+      "description": "Per-head complex-valued attention with phase representation; per-head rotation phase as architectural primitive.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["cohomology cocycle attention head (partial: attention head)", "topological defect detection RoPE phase (partial: phase)"],
+      "semantic_score": 0.65,
+      "functional_score": 0.60,
+      "rationale": "Treats per-head rotation phase as a first-class primitive overlapping with the RoPE-phase substrate NGATU-DEFECT operates on, but does NOT compute cohomology cocycle, defect detection, or apply repair projection. Provides the underlying phase representation but not the defect-repair mechanism.",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Persformer Transformer Topological ML (2112.15210)",
+      "description": "Transformer learns on persistence-diagram input; structural defects encoded as topological invariants via attention.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["persistent homology positional grid (partial: persistence)", "topological defect detection RoPE phase (partial: topological + defects)"],
+      "semantic_score": 0.66,
+      "functional_score": 0.62,
+      "rationale": "Encodes structural defects as topological invariants on persistence diagrams via attention, conceptually adjacent to cocycle-invariant defect detection but operates on different substrate (PH diagrams not RoPE phase) and lacks correction-projection repair step. Same family, different mechanism.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "Persistent Homology Whitens Transformer BERT Compression (2312.10702)",
+      "description": "PH analysis of attention maps used to whiten/compress BERT; topology of attention heads informs pruning/repair.",
+      "keyword_overlap_count": 3,
+      "keyword_matches": ["persistent homology positional grid (partial: persistent homology)", "cohomology cocycle attention head (partial: attention head)", "phase-deviation pattern repair projection (partial: repair via pruning)"],
+      "semantic_score": 0.68,
+      "functional_score": 0.65,
+      "rationale": "PH applied to attention maps to drive head-level pruning/repair overlaps with multi-head PH aggregation for defect detection. However the mechanism is whitening/pruning rather than per-head cocycle + correction-projection; the repair is pruning not phase smoothing. Adjacent but functionally distinct.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Rethinking Attention Output Projection Hadamard Efficient Transformers (2603.08343)",
+      "description": "Walsh-Hadamard structured output projection replacing standard projection; per-head fixed orthogonal projection for cross-head interaction.",
+      "keyword_overlap_count": 2,
+      "keyword_matches": ["cohomology cocycle attention head (partial: head)", "phase-deviation pattern repair projection (partial: projection)"],
+      "semantic_score": 0.50,
+      "functional_score": 0.55,
+      "rationale": "Provides a per-head structured orthogonal output projection but for efficiency reasons, not defect repair. The artefact (per-head projection) overlaps loosely with P_repair but the effect is computational restructuring rather than phase-coherence restoration. Closer to efficient-transformer literature than defect repair.",
+      "hit": true
+    }
+  ],
+  "hit_threshold": {"keyword_overlap_count": 2, "semantic_score": 0.7, "functional_score": 0.7, "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"},
+  "total_hits": 6,
+  "kw_forced_hits": 6,
+  "semantic_forced_hits": 2,
+  "functional_forced_hits": 2,
+  "result": "FAIL",
+  "decision_rationale": "Six of eight results clear the hit threshold under the OR rule, primarily via keyword overlap (>=2) on persistent-homology, attention-head, and projection terms. The two closest functional twins are Topology-Aware Attention (PH biases in attention) and Surgical Repair of Collapsed Attention Heads (per-head repair projection). Together these cover both the PH multi-head aggregation component and the correction-projection repair component, leaving only the RoPE-phase cohomology cocycle invariant as the genuinely novel piece — which the candidate itself acknowledges as a recombination. With 6/8 hits and two functional twins above 0.7, the candidate fails the novelty bar."
+}

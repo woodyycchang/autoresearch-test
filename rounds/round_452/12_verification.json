@@ -1,0 +1,118 @@
+{
+  "verifier_id": "R452",
+  "candidate": "HAENYEO-PHASE",
+  "candidate_form": "phase-coherence",
+  "candidate_summary": "HAENYEO-PHASE: multi-expert LLM inference pool inspired by Korean Jeju haenyeo divers — coordinated dive-surface K-token phase schedule per expert + sumbisori-style signal-token synchronization stream + ceil(M/N) divers-at-a-time concurrency constraint across the expert pool.",
+  "content_words": [
+    "korean jeju haenyeo woman diver",
+    "sumbisori breath-hold whistle surface",
+    "collective community matrilineal sea-women",
+    "diving party shared horizon coordination",
+    "synchronized expert pool inference phase",
+    "coordinated dive-surface compute schedule",
+    "breath-hold per-expert K-token quota",
+    "sumbisori-style signal token release"
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "DuoServe-MoE Dual-Phase Expert Prefetch Caching LLM QoS (2509.07379)",
+      "description": "DuoServe-MoE dual-phase scheduling — prefetch and cache experts across prefill/decode phases for QoS-assured MoE serving.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.78,
+      "functional_score": 0.72,
+      "rationale": "Same artefact (MoE expert pool serving with phase-coordinated dispatch); same effect family (per-phase expert scheduling for throughput); different mechanism (prefill/decode phase split + prefetch caching vs. dive-surface K-block + sumbisori signal). Meets v5 0.7 same-artefact-same-effect-different-mechanism bar.",
+      "hit": true
+    },
+    {
+      "id": 2,
+      "name": "Efficient MoE Serving Memory-Bound Balance Activated Experts (2512.09277)",
+      "description": "Balance activated experts not tokens; coordinated dispatch across pool with phase-aware scheduling for memory-bound MoE serving.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.74,
+      "functional_score": 0.7,
+      "rationale": "Same artefact (MoE expert pool serving with concurrency-balancing dispatch); same effect (limit number of simultaneously active experts to stay within memory bound — analog of ceil(M/N) divers-at-a-time); different mechanism (memory-bound activation balancing vs. dive-surface phase schedule).",
+      "hit": true
+    },
+    {
+      "id": 3,
+      "name": "Token Coherence Adapting MESI Cache Protocols Multi-Agent LLM (2603.15183)",
+      "description": "MESI cache protocol adapted to minimize synchronization overhead in multi-agent LLM systems — coordinated token-coherence sync across pool.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.7,
+      "functional_score": 0.7,
+      "rationale": "Same artefact (multi-agent LLM pool with coherence-protocol-based synchronization); same effect (broadcast coherence signal across pool to coordinate token-state — analog of sumbisori signal-token stream); different mechanism (MESI cache lines vs. sumbisori signal token).",
+      "hit": true
+    },
+    {
+      "id": 4,
+      "name": "RL LLM Multi-Agent Orchestration Traces (2605.02801)",
+      "description": "Orchestration traces — temporal interaction graphs with spawning, delegation, communication, tool-use, aggregation; signal-bearing units coordinating turn-taking.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.68,
+      "functional_score": 0.68,
+      "rationale": "Same artefact family (multi-agent LLM pool with signal-bearing coordination units) and similar coordination effect, but turn-taking traces are at coarser interaction-graph level and lack any explicit dive-surface K-block phase structure; this is generic orchestration formalism rather than the same-effect coordination primitive. Just below 0.7.",
+      "hit": false
+    },
+    {
+      "id": 5,
+      "name": "Aegaeon GPU Pooling Concurrent LLM Serving SOSP 2025",
+      "description": "Shared-memory synchronized request metadata across pooled GPUs — coordinated phase-balanced pool serving.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.72,
+      "functional_score": 0.7,
+      "rationale": "Same artefact (pooled-GPU concurrent LLM serving with shared synchronization layer); same effect (coordinated phase-balanced pool serving via shared signaling — analog of sumbisori sync stream); different mechanism (shared-memory metadata vs. per-expert dive-surface phase schedule).",
+      "hit": true
+    },
+    {
+      "id": 6,
+      "name": "Continuum Multi-Turn LLM Agent Scheduling KV Cache TTL (2511.02230)",
+      "description": "Continuum schedules multi-turn LLM agents with KV-cache time-to-live to coordinate pool concurrency.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.65,
+      "functional_score": 0.65,
+      "rationale": "Same artefact (multi-turn LLM agent pool with concurrency-coordination scheduler), but effect is coarser — KV-TTL governs cache eviction rather than per-expert dive-recover phase. Mechanism differs and effect cluster (TTL-based eviction) is distinct from K-block dive-surface phase. Sub-threshold.",
+      "hit": false
+    },
+    {
+      "id": 7,
+      "name": "ICLR 2026 MoE Expert Pool Coordination",
+      "description": "ICLR 2026 paper on MoE expert pool dispatch + coordination + phase-aware token routing.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.72,
+      "functional_score": 0.7,
+      "rationale": "Same artefact (MoE expert pool with explicit dispatch coordination) and same effect (phase-aware coordinated dispatch of pool experts); different mechanism (token-routing-based phase awareness vs. sumbisori signal + ceil(M/N) cap). Meets 0.7.",
+      "hit": true
+    },
+    {
+      "id": 8,
+      "name": "Agent.xpu Agentic LLM Heterogeneous SoC (2506.24045)",
+      "description": "Agentic LLM workload scheduling on heterogeneous SoC — per-expert dispatch + phase coordination.",
+      "keyword_overlap_count": 0,
+      "keyword_matches": [],
+      "semantic_score": 0.66,
+      "functional_score": 0.66,
+      "rationale": "Same artefact family (per-expert dispatch with phase coordination), but heterogeneous SoC scheduling targets device-affinity placement rather than relative-phase pool coupling; effect cluster (SoC compute-unit dispatch) is distinct from coordinated dive-surface K-block. Sub-threshold.",
+      "hit": false
+    }
+  ],
+  "hit_threshold": {
+    "keyword_overlap_count": 2,
+    "semantic_score": 0.7,
+    "functional_score": 0.7,
+    "rule": "hit = (kw>=2 OR sem>=0.7 OR func>=0.7)"
+  },
+  "total_hits": 5,
+  "kw_forced_hits": 0,
+  "semantic_forced_hits": 5,
+  "functional_forced_hits": 5,
+  "result": "FAIL",
+  "decision_rationale": "Independent verification finds 5 of 8 results clear hits (DuoServe-MoE 2509.07379, MoE balance-activated 2512.09277, MESI multi-agent 2603.15183, Aegaeon SOSP 2025, ICLR 2026 MoE pool coord) — all share the MoE/multi-agent-LLM expert-pool artefact and a phase-coordinated dispatch / coherence-signaling effect, differing only in mechanism. Even discounting the three weaker matches (orchestration traces, Continuum KV-TTL, Agent.xpu SoC) as sub-threshold under a strict reading, the five strong twins exhaust the same-artefact-same-effect space the candidate claims; the proposed novelty (dive-surface K-block + sumbisori signal + ceil(M/N) concurrency) is a recombination of (a) DuoServe-MoE/ICLR 2026 phase-coordinated MoE dispatch, (b) MESI-style multi-agent coherence signaling, (c) Aegaeon pool-wide shared sync, and (d) memory-bound activated-expert balancing — no functionally distinct primitive remains. Hits >= 2 forces FAIL."
+}
