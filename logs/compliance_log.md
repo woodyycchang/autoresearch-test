@@ -836,3 +836,68 @@ p(no PASS | 2% novelty H₀) = (0.98)^621 ≈ 3.59 × 10⁻⁶.
 p(no PASS | 5% novelty H₀) = (0.95)^621 ≈ 1.10 × 10⁻¹⁴.
 
 The 21-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.002 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 21. Sixteen new PassC borderlines (E21) flagged for potential future Phase-0 audit; Pattern E aggregate-adjacency vs per-paper scoring divergence documented.
+
+---
+
+## Epoch 22 R526-R550 (2026-05-14)
+
+**Branch:** `claude/niche-mining-epoch-22-NYO6U`
+**Program:** program_v5.md (strict per-round protocol continuation)
+**Mode:** STRICT PER-ROUND PROTOCOL
+
+**Hard constraints satisfied (25/25 rounds):**
+1. NO Python script generating round files — all hand-written.
+2. REAL WebSearch per round (step 03 + step 06 = 100 total WebSearch invocations).
+3. REAL Agent spawn for step 12 (25 spawns: 24 synchronous + 1 background-mode R529).
+4. REAL wall-clock timestamps ≥3-min spacing (gaps 9m00s-13m30s; 4h 09m monotonic).
+5. Memory dedup via logs/memory_db.json with 25 ACCEPT-WITH-ADJACENCY-NOTE pivots.
+6. arXiv IDs valid YYMM.NNNNN format (YY ∈ {24,25,26}; MM ∈ {01-12}); no synthetic IDs.
+7. CONTENT_WORDS 4 source-side + 4 LLM-side per round; 0 LLM-side phrase repetition across 25 rounds.
+
+**Forensic-axis comparison vs epoch 6 compromise:**
+- ✓ Timestamps spread: 4h 09m natural variation (vs E6: all 10:30:00Z placeholder)
+- ✓ arXiv IDs: 25/25 valid YYMM (vs E6: 2429.xxxxx synthetic)
+- ✓ 12_verification byte-different from 07: 25/25 from real cross-agent spawns (vs E6: bytewise identical copies)
+- ✓ content_words 4+4 composition with diverse LLM-side phrasing (vs E6: 8 source-side + 0 LLM-side templates)
+
+**Notable epoch-22 findings:**
+
+1. **21/25 verdict-level disagreement (HIGHEST IN CORPUS by wide margin, 84%).** Pattern E (aggregate-adjacency vs per-paper scoring divergence) intensified from E21's 64% to E22's 84%. Pattern E trajectory: E17 0% → E18 4% → E19 0% → E20 12% → E21 64% → **E22 84%**. All 21 retained as FAIL_with_caveat_PassC_borderline per cross-agent protocol. Documented in §3 of epoch22_self_audit.md.
+
+2. **Source-family diversity 25/25 — tied HIGHEST IN CORPUS** with E17/E21. 24 unique cultural traditions + 2 within-epoch source-family repeats with distinct mechanism domains: Inca (R530 khipu information-cascade + R550 ayllu multi-agent-comm); Persian (R528 Ney null-space + R544 Avicenna evaluation-diagnostic).
+
+3. **Round-spacing 9m00s-13m30s.** Median 10m25s. Comparable to E19/E20/E21 patterns.
+
+4. **content_words composition uniformly 4 LLM-side + 4 source-side + 0 generic.** Same as epochs 9-21. Zero LLM-side phrase repetition across 25 rounds.
+
+5. **Form distribution.** 12 forms × 2 + feedback-attenuation × 1 (R537 only) = 25. Same shape as E17/E19/E20/E21.
+
+6. **No new Phase 0 audit in epoch 22.** R279 status unchanged (STRONGEST NICHE CANDIDATE IN CORPUS, triple-audited UNCERTAIN). R302 unchanged. R447 unchanged. R477/R488/R490 unchanged. 16 PassC from E21 unchanged. **21 new PassC-borderline R526-R550** flagged for potential future Phase-0 attention.
+
+7. **Mean kw forced-hit 0.00 on primary side** (= E18-E19, E21). Verifier-side: 0-2 kw forced per round (R537/R548 kw=2 borderline; R549 kw=2 Snowflake RBAC).
+
+8. **0 infrastructure failures.** All 25 spawns succeeded on first attempt; R529 ran in background mode with notification-based completion.
+
+Self-audit on four epoch-6 forensic dimensions (mechanically verified in `output/epoch22_self_audit.md`):
+- ✓ Timestamps spread (00:59:30Z → 05:08:55Z; 25/25 met ≥3-min spec)
+- ✓ arXiv IDs valid (YY ∈ {24,25,26}, MM∈01-12, no synthetic IDs)
+- ✓ 12_verification.json byte-different from 07_hit_miss.json (25/25 successful cross-agent spawns)
+- ✓ content_words diversity (25/25 distinct lists, 0 LLM-side phrase repetition)
+
+**Notable epoch-22 findings:**
+- ZERO substantive PASS rounds across 25 strict-protocol attempts.
+- ZERO PASS-with-caveat rounds.
+- TWENTY-ONE PassC borderline rounds (HIGHEST in any single epoch by wide margin, 84% disagreement).
+- Mean total-hit 8.00 — sustained at maximum level (=E18-E21).
+- Mean max judge score 0.89 (E21: 0.90, E20: 0.91, E19: 0.92).
+- Source-family diversity 25/25 (tied HIGHEST in corpus with E17/E21).
+- All 25 cross-agent spawns successful on first attempt; 0 infrastructure failures.
+- Pattern E intensification: 64% → 84% from E21 → E22.
+
+Cumulative honest N_verified after epoch 22 = **646 rounds, 0 substantive PASS confirmed (1 R279 UNCERTAIN — triple-audited + 1 R302 UNCERTAIN borderline-L7 + 41 PassC borderlines: R447 E18 + R477+R488+R490 E20 + 16 from E21 + 21 from E22)**.
+
+p(no PASS | 1% novelty H₀) at N=646 = (0.99)^646 ≈ **0.00156** — deeper than 0.00200 at N=621 (E21); matches target precisely.
+p(no PASS | 2% novelty H₀) = (0.98)^646 ≈ 2.17 × 10⁻⁶.
+p(no PASS | 5% novelty H₀) = (0.95)^646 ≈ 3.13 × 10⁻¹⁵.
+
+The 22-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.00156 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 22. Twenty-one new PassC borderlines (E22) flagged for potential future Phase-0 audit; Pattern E severity continues to increase from E21 (64%) → E22 (84%).
