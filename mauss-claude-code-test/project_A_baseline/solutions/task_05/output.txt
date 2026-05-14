@@ -1,0 +1,23 @@
+PASSED: 37/37 tests passed in 0.03s
+
+Task: evaluate(expression: str) -> int | float - arithmetic expression calculator in solution.py without using eval()/exec().
+
+Implementation:
+- Tokenizer scans string into tokens (NUM, +, -, *, /, (, ))
+- Recursive-descent parser with classic grammar (expr/term/factor/primary)
+- Operator precedence and left-associativity handled by grammar structure
+- Integer literals stay int; literals with '.' become float; division always produces float
+- Unary +/- supported, including chained
+- All input errors raise CalculatorError (ValueError subclass)
+
+Test coverage (8 classes, 37 tests):
+- TestBasicArithmetic: 7 tests
+- TestPrecedence: 4 tests
+- TestParentheses: 4 tests
+- TestUnary: 5 tests
+- TestWhitespace: 3 tests
+- TestFloatingPoint: 3 tests
+- TestErrors: 10 tests
+- TestNoEvalUsed: 1 test (guards against eval()/exec() in source)
+
+No fixes needed - solution works on first run.

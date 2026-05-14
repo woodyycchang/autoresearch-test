@@ -1,0 +1,17 @@
+PASSED: 37/37 tests passed in 0.03s
+
+Task: Minimal JSON parser exposing `parse(s)` (recursive-descent) in solution.py.
+
+Coverage:
+- Literals (true, false, null)
+- Numbers (int, float, scientific notation)
+- Strings with escapes (\", \\, \/, \n, \t, \r, \b, \f, \uXXXX)
+- Arrays and objects with arbitrary nesting
+- Whitespace handling between tokens
+- Rejection cases via ValueError: unterminated strings, invalid escapes,
+  trailing commas, missing values/colons, unquoted keys, extra data,
+  malformed numbers, bad literals, empty/non-string input, control chars.
+
+Constraints honored: no json/ast.literal_eval/eval/exec; stdlib only.
+
+No fixes required.

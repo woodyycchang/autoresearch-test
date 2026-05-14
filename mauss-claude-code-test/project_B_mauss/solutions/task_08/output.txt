@@ -1,0 +1,40 @@
+Task 08 — Validator Output
+===========================
+
+## ACCEPT
+Acknowledging the Implementer's handoff: they delivered a Roman numeral
+converter pair (`to_roman`/`from_roman`) over `[1, 3999]` using standard
+subtractive notation, with a notable design choice — `from_roman` enforces
+canonical form by round-tripping through `to_roman` and rejecting any
+string whose canonical form differs. The Implementer specifically flagged
+this is stricter-than-required (rejecting `IIII`, `VV`, `IC`, `IL`, `VX`,
+`XM`, `MCMC`, lowercase, etc.), and noted clean `TypeError` vs
+`ValueError` separation plus a full `1..3999` round-trip test.
+
+## VALIDATION RESULT
+Command run:
+    cd solutions/task_08/ && pytest test_solution.py -v
+
+Result: **67 passed in 0.08s** — matches Implementer's reported count
+exactly. No fixes required.
+
+Verified categories:
+- `to_roman` valid cases (1, 4, 9, 40, 90, 400, 900, 1994, 2024, 3999, ...)
+- `to_roman` invalid domain (0, -1, 4000, 10000) -> ValueError
+- `to_roman` wrong type (str, None, float, bool) -> TypeError
+- `from_roman` valid cases (I..MMMCMXCIX, CDXLIV)
+- `from_roman` invalid form (IIII, VV, IC, IL, XM, VX, MMMM, ABC, "",
+  lowercase iv, MCMC) -> ValueError
+- `from_roman` wrong type (int, None, list, float) -> TypeError
+- Exhaustive `1..3999` round-trip
+- Return type assertions
+
+## RECIPROCATE
+My contribution: independent verification that the Implementer's strict
+canonical-form contract holds across all 67 test cases including the
+exhaustive `1..3999` round-trip — confirming bidirectional consistency
+between `to_roman` and `from_roman`. This builds on the Implementer's
+canonical-form design by certifying empirically that the round-trip
+property (which they identified as the key correctness invariant) is
+satisfied without exception, so downstream consumers can rely on
+`from_roman(to_roman(n)) == n` for every n in the supported range.

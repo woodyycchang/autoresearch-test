@@ -1,0 +1,14 @@
+PASSED: 67/67 tests passed in 0.07s
+
+Task: Roman numeral converter (solution.py)
+- to_roman(n): integer [1, 3999] -> Roman numeral string (greedy descent through ordered value/symbol pairs)
+- from_roman(s): Roman numeral string -> integer (right-to-left parse with canonical-form check via round-trip)
+
+Test coverage:
+- Parametrized known-value tests for to_roman and from_roman (edge cases: 1, 4, 9, 40, 49, 90, 99, 400, 444, 900, 999, 1987, 2024, 3000, 3888, 3999)
+- Full round-trip over all integers [1, 3999]
+- Range / TypeError tests for to_roman (0, 4000, -3, float, str, bool)
+- Invalid-input tests for from_roman (empty, non-str, lowercase, unknown char)
+- Non-canonical rejection (IIII, VV, IC, MMMM)
+
+No fixes required; solution worked on first run.

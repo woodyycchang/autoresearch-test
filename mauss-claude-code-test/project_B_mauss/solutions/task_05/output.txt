@@ -1,0 +1,51 @@
+Task 05 Validation Report — Arithmetic Calculator
+====================================================
+
+ACCEPT
+------
+Acknowledging the Implementer's HANDOFF.md: they built a shunting-yard
+based `evaluate(expression)` in solution.py with three layers
+(tokenize → to_postfix → eval_postfix), preserved int-vs-float return
+typing (int stays int unless `/` is used or any float operand appears),
+supported unary +/- via context-sensitive pseudo-ops `u+`/`u-`, and
+reported 40/40 passing tests. Specifically acknowledged: their flagged
+binding test `test_task_example` covering `"3 + 4 * 2 - (1 + 1)" == 9`,
+and their disclosure that `**`, `%`, and scientific notation (`1e5`)
+are intentionally NOT supported. I also noted their open question about
+output.txt — my validator instructions explicitly require it, so I am
+producing it here (resolving the ambiguity they surfaced).
+
+VALIDATION RESULT
+-----------------
+Command: pytest test_solution.py -v
+Outcome: 40 passed in 0.04s
+Environment: Python 3.11.15, pytest 9.0.2
+
+Independent checks performed:
+- Re-ran the full suite from the task directory — all 40 tests green.
+- Grepped solution.py for `eval(` / `exec(` — none found. The
+  "no eval()/exec()" constraint from the task spec is upheld.
+- Confirmed the task's example assertion (`"3 + 4 * 2 - (1 + 1)" -> 9`)
+  is exercised by `test_task_example`, which passed.
+- Coverage spans: precedence, left-associativity, nested parens,
+  unary ops (incl. `--5`, `2 * -3`), whitespace tolerance, division
+  by zero, mismatched parens, empty/whitespace-only input, invalid
+  chars, missing operands, malformed numbers (`1..2`), non-string
+  input, and result-type preservation (int-only stays int; `/` -> float).
+
+No fixes were required.
+
+RECIPROCATE
+-----------
+My contribution: an independent, reproducible validation confirming
+the Implementer's solution.py passes all 40 of its own tests AND
+satisfies the task's hard constraint (no eval/exec), plus this
+output.txt that resolves the HANDOFF's flagged ambiguity about
+whether output.txt should exist. This builds on the Implementer's
+40-test pytest suite and shunting-yard implementation by providing
+an external verification pass (re-execution + static grep for
+forbidden builtins) and by documenting the validated public API
+(`evaluate`, `CalculatorError <: ValueError`) and the explicit
+non-goals they disclosed (`**`, `%`, scientific notation) so any
+downstream consumer inherits an accurate contract rather than an
+optimistic one.

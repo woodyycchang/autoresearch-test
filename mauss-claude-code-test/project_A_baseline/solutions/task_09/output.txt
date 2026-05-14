@@ -1,0 +1,19 @@
+PASSED: 19/19 tests passed in 0.02s
+
+Task 09: Linked list cycle detection (Floyd's tortoise-and-hare).
+
+Solution components:
+- ListNode class with __slots__ (val, next).
+- has_cycle(head): O(n) time, O(1) space; returns bool.
+- build_list(values, cycle_index=-1): helper for constructing test lists with optional cycle.
+
+Test coverage validated:
+- Empty list, single node (with/without self-cycle).
+- Acyclic lists (short, 100-node long).
+- Cycles at head, middle, tail.
+- Long cycle (1000 nodes, cycle_index=500).
+- build_list helper, including invalid cycle_index values.
+- ListNode default + explicit construction.
+- Return type is bool.
+
+No fixes required.
