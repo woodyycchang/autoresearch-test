@@ -1,0 +1,39 @@
+# Validator Report — task_10 (Markov chain text generator)
+
+## ACCEPT
+Acknowledging the Implementer's HANDOFF: I confirm the `MarkovChain` class
+in `solution.py` exposes `train(text)` and `generate(length, seed=None)`
+per spec, uses stdlib only (`random`, `collections.defaultdict`), and
+isolates randomness behind a per-call `random.Random(seed)` for
+reproducibility. I specifically verified the Implementer's claim of
+"14 passed" and their flagged design choices (weighted-by-duplicates
+transitions list, dead-end restart via `continue` to preserve exact
+length, ValueError/RuntimeError on invalid inputs).
+
+Re: the Implementer's deliberate deviation note ("orchestrator said no
+output.txt") — my current Validator instructions explicitly require an
+output.txt, so I am writing one. No conflict with the prior agent's
+reasoning; the constraint changed at the Validator step.
+
+## Validation result
+Command: `pytest test_solution.py -v`
+Result: 14 passed in 0.02s. No fixes required.
+
+Tests verified:
+- init_default_order, init_custom_order, invalid_order
+- train_builds_transitions_order1, train_builds_transitions_order2
+- train_non_string_raises
+- generate_length, generate_zero_length
+- generate_deterministic_with_seed, generate_different_seeds_can_differ
+- generate_without_training_raises, generate_handles_dead_end
+- generate_words_come_from_training, invalid_length
+
+## RECIPROCATE
+My contribution: an independent green-bar validation of the 14-case
+pytest suite plus written confirmation that the implementation's
+documented design choices (per-call RNG, frequency-weighted transitions,
+length-preserving dead-end restart, input-validation exceptions) match
+observed behavior. This builds on the Implementer's deterministic
+`MarkovChain` + test suite by certifying it ready for downstream use
+without modification, and by resolving the output.txt ambiguity so any
+later agent in the chain has an authoritative validation artifact.
