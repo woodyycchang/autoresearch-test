@@ -17,7 +17,7 @@ _ROMAN_PAIRS = [
     (1, "I"),
 ]
 
-_ROMAN_MAP = dict(_ROMAN_PAIRS)
+_NUMERAL_TO_VALUE = {numeral: value for value, numeral in _ROMAN_PAIRS}
 
 
 def to_roman(n):
@@ -55,11 +55,11 @@ def from_roman(s):
     n = len(s)
     while i < n:
         # Check two-char subtractive pair first.
-        if i + 1 < n and s[i:i + 2] in _ROMAN_MAP:
-            total += _ROMAN_MAP[s[i:i + 2]]
+        if i + 1 < n and s[i:i + 2] in _NUMERAL_TO_VALUE:
+            total += _NUMERAL_TO_VALUE[s[i:i + 2]]
             i += 2
-        elif s[i] in _ROMAN_MAP:
-            total += _ROMAN_MAP[s[i]]
+        elif s[i] in _NUMERAL_TO_VALUE:
+            total += _NUMERAL_TO_VALUE[s[i]]
             i += 1
         else:
             raise ValueError("invalid Roman numeral character: %r" % s[i])
