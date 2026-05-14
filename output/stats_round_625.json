@@ -1,0 +1,43 @@
+{
+  "round": 625,
+  "epoch": 25,
+  "program": "v7 (program_v7.md) — reverts to v5 base, adds step 11.5 adversarial external verification",
+  "rounds_completed": 25,
+  "substantive_pass_count_v7": 0,
+  "passC_borderline_v7": 25,
+  "v7_PASS_count": 0,
+  "v7_FAIL_count": 25,
+  "v7_FAIL_ADVERSARIAL_count": 0,
+  "mean_forced_hit": 0.0,
+  "mean_semantic_hit": 8.0,
+  "mean_functional_hit": 8.0,
+  "verdict_disagreement_count": 25,
+  "disagreement_rate": 1.0,
+  "v7_adversarial_metrics": {
+    "rounds_step_11_5_fired": 0,
+    "rounds_step_11_5_skipped_step_10_fail": 25,
+    "rounds_step_11_5_skipped_step_12_fail": 0,
+    "rounds_v7_PASS_after_adversarial": 0,
+    "rounds_v7_FAIL_ADVERSARIAL": 0,
+    "mean_max_functional_similarity_when_fired": 0.0,
+    "adversarial_hit_count": 0,
+    "mean_papers_found_per_fired_round": 0.0,
+    "trigger_explanation": "Step 11.5 fires only when step 10 PASS AND step 12 PASS. All 25 E25 rounds returned step 10 FAIL (total_hits=8 aggregate-adjacency cluster occupancy). Step 11.5 was SKIPPED on all 25."
+  },
+  "v7_score_components": {
+    "confirmed_substantive_pass_x_10": 0,
+    "twenty_five_minus_mean_forced_hit": 25.0,
+    "disagreement_rate_x_5": 5.0,
+    "false_positive_count_x_5_negative": 0,
+    "adversarial_hit_count_x_10_negative": 0,
+    "score_v7": 30.0
+  },
+  "comparison_with_other_epochs": {
+    "score_v6_E24_reported": "n/a (v6 deprecated; 24 PASS-eligible but rolled back to 0 substantive after audit)",
+    "score_v6_E24_audit_corrected": -125.0,
+    "score_v7_E25": 30.0
+  },
+  "form_rotation": {"training-method": 2, "topological-defect": 2, "phase-coherence": 2, "null-space-traversal": 2, "memory-architecture": 2, "information-cascade": 2, "evaluation-diagnostic": 2, "spectral-allocation": 2, "adversarial-coevolution": 2, "basin-stability": 2, "context-gating": 2, "feedback-attenuation": 1, "multi-agent-comm": 2},
+  "N_verified_cumulative_strict_v7": 721,
+  "N_verified_cumulative_substantive_pass_v7": 0
+}

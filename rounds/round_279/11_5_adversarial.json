@@ -1,0 +1,87 @@
+{
+  "round": "279",
+  "epoch": 12,
+  "v7_retrospective_audit_date": "2026-05-14",
+  "v7_branch": "claude/epoch24-false-passes-v7-5DHwe",
+  "trigger_status": "FIRED_RETROSPECTIVE",
+  "trigger_note": "Step 11.5 not part of original epoch 12 v5 pipeline. Run retrospectively under v7 adversarial protocol per Phase 2 of v7 build instructions.",
+  "skeptical_agent_id": "a5759ba5ac862fdf5",
+  "stripping_rule_applied": "Removed all source-domain musical-metaphor anchors: 'PTCH', 'Pan-Tuned Concept Heads', 'steel pan', 'oil drum', 'note', 'note section', 'tuner', 'groove', 'overtones', 'fundamental' (as musical term — replaced with 'fundamental magnitude'), 'harmonic-alignment loss' (renamed 'integer-ratio alignment loss'), 'each head becomes a note'. Preserved LLM artefacts: multi-head attention, top-K singular directions, integer-ratio (1:2:3:...) constraint, SVD, weight matrix, LoRA, alignment loss, orthogonality regularization.",
+  "stripped_llm_application": "A multi-head attention fine-tuning rule that constrains each head's top-K singular directions to integer-ratio (1:2:3:...) multiples of a per-head fundamental magnitude in the embedding space. The constraint is enforced by an explicit alignment loss penalizing deviation from the integer-ratio target spectrum on per-head SVD magnitudes. Inter-head orthogonality regularization is also applied. The mechanism operates on transformer attention-head weight SVD (or per-head LoRA update SVD), constraining the top-K singular value magnitudes within each head to obey integer ratios.",
+  "K_sub_mechanisms_enumerated_to_reviewer": 5,
+  "sub_mechanisms": [
+    "M_1: Per-attention-head SVD decomposition of weight matrix (or LoRA update)",
+    "M_2: Selection of top-K singular directions within each head",
+    "M_3: Integer-ratio (1:2:3:...) target spectrum constraint on singular-value magnitudes within each head",
+    "M_4: Explicit alignment loss penalizing deviation from integer-ratio target",
+    "M_5: Inter-head orthogonality regularization"
+  ],
+  "raw_skeptical_output": {
+    "candidate_summary_stripped_of_source": "A fine-tuning method that performs per-attention-head SVD on weight matrices (or LoRA updates), constrains the top-K singular values to follow an integer-ratio (1:2:3:...) target spectrum via an explicit alignment loss, and adds inter-head orthogonality regularization. The mechanism shapes the spectral magnitudes of each head while enforcing head diversity.",
+    "search_queries_issued": [
+      "attention head SVD singular value constraint fine-tuning LoRA spectral regularization 2024 2025",
+      "integer ratio harmonic singular value spectrum constraint transformer fine-tuning",
+      "per-head orthogonality regularization multi-head attention diversity loss 2024 2025",
+      "spectral shaping target singular value distribution LoRA adapter fine-tuning 2025",
+      "structured singular value decomposition constraint transformer weights low rank arithmetic progression"
+    ],
+    "papers_found": [
+      {
+        "title": "SVFT: Parameter-Efficient Fine-Tuning with Singular Vectors",
+        "arxiv_or_venue_id": "arXiv:2405.19597 (NeurIPS 2024)",
+        "year": 2024,
+        "functional_similarity_score": 0.75,
+        "justification": "Per-weight-matrix SVD with structured constraint on update coefficients along singular directions; covers M_1, M_2, partial M_3/M_4 but not integer-ratio per se.",
+        "covers_sub_mechanisms": ["M_1", "M_2", "M_3-partial", "M_4-partial"]
+      },
+      {
+        "title": "SALT: Parameter-Efficient Fine-Tuning via Singular Value Adaptation",
+        "arxiv_or_venue_id": "BMVC 2025",
+        "year": 2025,
+        "functional_similarity_score": 0.72,
+        "justification": "Explicit scale/shift transformations applied to top singular values of weight matrices, functionally equivalent to spectral magnitude shaping with target distribution.",
+        "covers_sub_mechanisms": ["M_1", "M_2", "M_3-partial", "M_4-partial"]
+      },
+      {
+        "title": "SORSA / SODA: Spectral Orthogonal Decomposition Adaptation",
+        "arxiv_or_venue_id": "WACV 2025 / arXiv:2405.21050",
+        "year": 2025,
+        "functional_similarity_score": 0.80,
+        "justification": "Combines spectral (SVD) decomposition adaptation with orthogonality regularization in fine-tuning, covering M_1, M_2, M_5 and the alignment-loss machinery of M_4 directly; only M_3's specific integer-ratio target differs.",
+        "covers_sub_mechanisms": ["M_1", "M_2", "M_4", "M_5"]
+      },
+      {
+        "title": "Spectral Adapter: Fine-Tuning in Spectral Space",
+        "arxiv_or_venue_id": "arXiv:2405.13952",
+        "year": 2024,
+        "functional_similarity_score": 0.70,
+        "justification": "Operates explicitly in SVD spectral space on per-layer weights with rank-K selection and adapter constraints; the apparatus of shaping top-K spectrum is present, integer-ratio target is the only novel piece.",
+        "covers_sub_mechanisms": ["M_1", "M_2", "M_4-partial"]
+      },
+      {
+        "title": "CLoRA: Controlled Low-Rank Adaptation with Subspace Constraints",
+        "arxiv_or_venue_id": "ACL 2025 long paper",
+        "year": 2025,
+        "functional_similarity_score": 0.78,
+        "justification": "Applies orthogonal loss to LoRA A/B factors on multi-head attention v-proj per layer, jointly enforcing subspace/orthogonality constraints; covers M_1, M_2, M_4, M_5 explicitly.",
+        "covers_sub_mechanisms": ["M_1", "M_2", "M_4", "M_5"]
+      }
+    ],
+    "max_functional_similarity": 0.80,
+    "adversarial_hit": true,
+    "skeptical_assessment": "The candidate's overall scaffold (per-head SVD on attention weights / LoRA updates, top-K spectrum shaping via an alignment loss, inter-head orthogonality regularization) is densely covered by 2024-2025 literature (SVFT, SALT, SORSA/SODA, Spectral Adapter, CLoRA). The only genuinely distinctive element is the specific choice of an integer-ratio (1:2:3:...) target spectrum, which appears to be a particular parametrization of an already-published spectral-shaping family rather than a new mechanism. Without a strong empirical or theoretical justification that integer ratios outperform learned/exponential/uniform spectra, this is best framed as a minor variant of the existing spectral-shaping + orthogonality-regularized PEFT paradigm."
+  },
+  "max_functional_similarity": 0.80,
+  "adversarial_hit": true,
+  "papers_found_count": 5,
+  "top_paper": {
+    "title": "SORSA / SODA: Spectral Orthogonal Decomposition Adaptation",
+    "arxiv_or_venue_id": "WACV 2025 / arXiv:2405.21050",
+    "functional_similarity_score": 0.80,
+    "covers_sub_mechanisms": ["M_1", "M_2", "M_4", "M_5"]
+  },
+  "v7_verdict_after_adversarial": "FAIL_ADVERSARIAL",
+  "verdict_change_from_prior_audits": "DOWNGRADE: prior triple-audit verdict was UNCERTAIN (HONEST PASS with caveat). v7 adversarial protocol downgrades to FAIL_ADVERSARIAL.",
+  "verdict_rationale": "Five 2024-2025 papers (SORSA/SODA at 0.80, CLoRA at 0.78, SVFT at 0.75, SALT at 0.72, Spectral Adapter at 0.70) jointly cover M_1, M_2, M_4, M_5 of the PTCH kernel. M_3 (integer-ratio 1:2:3 target spectrum) is the only sub-mechanism NOT directly covered. The skeptical-reviewer judged that M_3 is a parametrization choice within an already-published spectral-shaping family rather than an independent novelty axis. Under the v7 adversarial threshold (max_functional_similarity >= 0.7), this constitutes adversarial_hit = true.",
+  "interpretation_note": "Prior R279 audits (output/r279_audit.md, output/r279_r302_audit.md, output/r279_final_audit.md) maintained UNCERTAIN status because no SINGLE paper achieved a >=0.7 hit specifically on the integer-ratio + within-head SVD combination. The v7 adversarial protocol is stricter: the skeptical-reviewer is empowered to judge functional similarity on the OVERALL scaffold (M_1 + M_2 + M_4 + M_5) and discount M_3 as a parametrization choice. This is the v7 design intent: when the scaffolding is published, the candidate is not novel even if one parametrization detail is unique."
+}
