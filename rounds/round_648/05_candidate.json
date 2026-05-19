@@ -1,0 +1,26 @@
+{
+  "round":"648","epoch":26,"candidate_form":"evaluation-diagnostic",
+  "domain":"Doob's optional stopping theorem / e-processes",
+  "specific_mechanism":"OST-Stop: construct e-process E_n over partial decode tokens; stop when E_n > 1/α (anytime-valid α-confidence). Compatible with arbitrary decode strategy via Ville's inequality.",
+  "llm_application":"OST-Stop: at each decode step n, compute multiplier B_n based on token's normalized log-prob relative to baseline distribution (e.g., backbone model's distribution). E_n = E_{n-1} · B_n with E_0 = 1. By Ville's inequality, P(sup_n E_n ≥ 1/α) ≤ α under null. Stop decoding when E_n > 1/α; that triggers 'sufficient evidence' verdict with anytime-valid confidence.",
+  "novelty_claim":"Martingale Foresight Sampling (2601.15482) uses Doob/OST/Martingale for reasoning paths; Anytime-Valid Sufficiency (2510.06478) for LLM generation. OST-Stop's specific e-process construction may overlap heavily.",
+  "motivation_strength":"shared_math_structure",
+  "motivation_justification":"OST theorem is rigorous; martingale construction from generation log-probs needs approximation; structural transfer.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: e-process E_n construction","M_2: Per-token multiplier B_n","M_3: Ville's inequality threshold 1/α","M_4: Anytime-valid stopping decision"],
+  "content_words":[
+    "doob optional stopping theorem martingale",
+    "e-process ville inequality anytime valid",
+    "sequential test confidence bound generation",
+    "stopping rule per-token multiplier baseline",
+    "evaluation-diagnostic decode-time LLM stopping",
+    "anytime confidence interval generation halt",
+    "decode-time sufficient evidence verdict LLM",
+    "transformer per-step stop decision"
+  ],
+  "content_words_composition":{
+    "llm_side":["evaluation-diagnostic decode-time LLM stopping","anytime confidence interval generation halt","decode-time sufficient evidence verdict LLM","transformer per-step stop decision"],
+    "source_side":["doob optional stopping theorem martingale","e-process ville inequality anytime valid","sequential test confidence bound generation","stopping rule per-token multiplier baseline"],
+    "generic":[]
+  }
+}

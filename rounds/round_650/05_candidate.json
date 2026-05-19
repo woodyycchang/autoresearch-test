@@ -1,0 +1,26 @@
+{
+  "round":"650","epoch":26,"candidate_form":"topological-defect",
+  "domain":"Hopf fibration / topology",
+  "specific_mechanism":"HopfEmbed-RAG: produce S³ embedding (4D unit-norm); project via Hopf map to S² for coarse retrieval; rerank top-k by full S³ phase distance.",
+  "llm_application":"HopfEmbed-RAG: encoder head outputs e ∈ R⁴ with ‖e‖=1 (S³). Hopf projection h = π(e) ∈ S² ⊂ R³. Stage-1 retrieval over corpus uses cosine on h; top-100. Stage-2 reranks using d(e_q, e_d) = √(2-2 ⟨e_q, e_d⟩) (full S³ distance). Phase information preserved for fine ordering.",
+  "novelty_claim":"HopfE (arXiv 2108.05774) uses inverse Hopf for knowledge-graph embedding (similar idea but inverse direction; KG not RAG). HopfEmbed-RAG specifically for retrieval/RAG with two-stage Hopf-projection coarse retrieval + S³ rerank is unmined.",
+  "motivation_strength":"shared_math_structure",
+  "motivation_justification":"Hopf fibration is precise topological construction; projection map closed-form. Direct math, not metaphor.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: S³ embedding head ‖e‖=1","M_2: Hopf projection h = π(e) to S²","M_3: Two-stage retrieval coarse on h","M_4: S³ rerank top-k using e"],
+  "content_words":[
+    "hopf fibration s3 s2 projection",
+    "principal U(1) bundle phase fiber",
+    "hyperspherical embedding 4d unit norm",
+    "two stage coarse rerank retrieval",
+    "topological-defect retrieval embedding LLM",
+    "RAG sentence embedding hopf",
+    "fine-grained discrimination phase information",
+    "transformer head embedding output"
+  ],
+  "content_words_composition":{
+    "llm_side":["topological-defect retrieval embedding LLM","RAG sentence embedding hopf","fine-grained discrimination phase information","transformer head embedding output"],
+    "source_side":["hopf fibration s3 s2 projection","principal U(1) bundle phase fiber","hyperspherical embedding 4d unit norm","two stage coarse rerank retrieval"],
+    "generic":[]
+  }
+}

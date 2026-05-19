@@ -1,0 +1,26 @@
+{
+  "round":"649","epoch":26,"candidate_form":"feedback-attenuation",
+  "domain":"Birkhoff ergodic theorem / Cesaro averaging",
+  "specific_mechanism":"ERGAVG: Birkhoff-Cesaro advantage averaging in PPO. Ā_t = (1/w) Σ A_{t-k}; use Ā_t in policy update. Window w adaptive based on ergodicity diagnostic ρ_w (variance of windowed mean).",
+  "llm_application":"ERGAVG: at each PPO step, store last w=32 per-token advantage estimates. Compute Ā_t = (1/w) Σ A_{t-k}. Track ergodicity diagnostic ρ_w = Var(Ā over rolling sub-windows)/Var(A). If ρ_w < 0.1, treat as ergodic-like → use Ā for update; else fall back to raw A.",
+  "novelty_claim":"GAE (1506.02438) already averages exponentially over horizon; ERGAVG specifically uses Cesaro flat-window plus ergodicity diagnostic. Less common but related.",
+  "motivation_strength":"shared_math_structure",
+  "motivation_justification":"Birkhoff ergodic theorem requires measure-preserving dynamics; rollouts are not strictly such, so structural transfer.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Cesaro window-average advantage","M_2: Ergodicity diagnostic ρ_w","M_3: Adaptive ergodic-vs-raw switching","M_4: Fixed window w=32 default"],
+  "content_words":[
+    "birkhoff ergodic theorem cesaro average",
+    "measure preserving rollout window mean",
+    "variance ratio diagnostic ergodicity check",
+    "adaptive window advantage smoothing",
+    "feedback-attenuation PPO RLHF advantage LLM",
+    "policy gradient training step feedback attenuated",
+    "rolling sub-window variance ratio variance reduction",
+    "RLHF policy update averaged advantage"
+  ],
+  "content_words_composition":{
+    "llm_side":["feedback-attenuation PPO RLHF advantage LLM","policy gradient training step feedback attenuated","rolling sub-window variance ratio variance reduction","RLHF policy update averaged advantage"],
+    "source_side":["birkhoff ergodic theorem cesaro average","measure preserving rollout window mean","variance ratio diagnostic ergodicity check","adaptive window advantage smoothing"],
+    "generic":[]
+  }
+}

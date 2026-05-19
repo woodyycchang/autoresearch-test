@@ -1,0 +1,26 @@
+{
+  "round":"646","epoch":26,"candidate_form":"adversarial-coevolution",
+  "domain":"Bellman optimality residual / RL theory",
+  "specific_mechanism":"BR-Couple: in red-team/aligned coevolution, compute Bellman residual R(Q_R) and R(Q_A) per training cycle. Coupling constraint |R(Q_R) - R(Q_A)| ≤ τ; if violated, shrink η of dominant agent by 0.5.",
+  "llm_application":"BR-Couple: at each coevolution outer loop, fit a small Q estimator per agent (red-team Q_R, aligned Q_A) on rollouts; compute Bellman residual norm ‖T Q - Q‖₂ via TD error sum. If |R(Q_R)-R(Q_A)|>τ (default 0.2), shrink the dominant agent's learning rate by factor 0.5 next cycle. Otherwise both step normally.",
+  "novelty_claim":"AdvEvo-MARL (2510.01586) uses adversarial coevolution; Robust MARL adversarial regularization (2310.10810). Bellman-residual-gap coupling as adversarial coevolution constraint specifically is less common.",
+  "motivation_strength":"mechanism_transfer",
+  "motivation_justification":"Bellman residual is a precise algebraic quantity; gap between two agents' residuals is a well-defined coupling.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Per-agent Q estimator fit","M_2: Bellman residual ‖T Q - Q‖ computation","M_3: Gap |R_R - R_A| coupling","M_4: η_dominant ← 0.5 η_dominant when violated"],
+  "content_words":[
+    "bellman residual optimality TD error",
+    "Q estimator per-agent reinforcement learning",
+    "coupling gap subopt difference bound",
+    "dominant agent learning rate shrink adapter",
+    "adversarial-coevolution red-team aligned coevolution LLM",
+    "RLHF safety red team multi-agent training",
+    "subopt gap constraint per-cycle coupling",
+    "step-size adaptive coevolution stability"
+  ],
+  "content_words_composition":{
+    "llm_side":["adversarial-coevolution red-team aligned coevolution LLM","RLHF safety red team multi-agent training","subopt gap constraint per-cycle coupling","step-size adaptive coevolution stability"],
+    "source_side":["bellman residual optimality TD error","Q estimator per-agent reinforcement learning","coupling gap subopt difference bound","dominant agent learning rate shrink adapter"],
+    "generic":[]
+  }
+}

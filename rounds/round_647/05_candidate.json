@@ -1,0 +1,26 @@
+{
+  "round":"647","epoch":26,"candidate_form":"context-gating",
+  "domain":"Linear programming duality",
+  "specific_mechanism":"LP-Gate: at each decode step, solve small LP over candidate tokens with K active constraints; extract dual variables y_t,k as per-constraint gating weights; adjust logits by Σ y_t,k g_k(z).",
+  "llm_application":"LP-Gate decoding rule: at each decode step, build relaxed LP over top-T candidate tokens with K=4 constraints (length-remaining, must-include-token-coverage, banned-token-soft-budget, complete-by-step-T budget). Solve LP in O(K T) via revised simplex. Extract dual variables y_k. Logits adjusted: logits_z ← logits_z - Σ_k y_k g_k(z), softmax then sample.",
+  "novelty_claim":"Primal-Dual DPO (arXiv 2510.05703) uses Lagrangian for alignment fine-tuning; CRANE constrained generation. LP-Gate as per-step decode LP with dual variables specifically is less common.",
+  "motivation_strength":"mechanism_transfer",
+  "motivation_justification":"LP duality theorem is exact algebraic identity; dual variables ARE constraint Lagrangians. Direct transfer to decode-step logit adjustment.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Top-T LP relaxation per decode step","M_2: K constraints (length/cover/banned/budget)","M_3: Dual variable extraction","M_4: Logit adjustment ← Σ y_k g_k"],
+  "content_words":[
+    "linear programming duality lagrangian multiplier",
+    "complementary slackness primal dual",
+    "revised simplex small LP solve per step",
+    "constraint gating weight dual variable",
+    "context-gating constrained decoding LLM generation",
+    "length cover banned-token budget per-token",
+    "logit adjustment soft gating decode step",
+    "LP duality decode step LLM transformer"
+  ],
+  "content_words_composition":{
+    "llm_side":["context-gating constrained decoding LLM generation","length cover banned-token budget per-token","logit adjustment soft gating decode step","LP duality decode step LLM transformer"],
+    "source_side":["linear programming duality lagrangian multiplier","complementary slackness primal dual","revised simplex small LP solve per step","constraint gating weight dual variable"],
+    "generic":[]
+  }
+}
