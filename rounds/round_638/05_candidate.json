@@ -1,0 +1,28 @@
+{
+  "round": "638",
+  "epoch": 26,
+  "candidate_form": "spectral-allocation",
+  "domain": "Compressed sensing / RIP",
+  "specific_mechanism": "RIP-Router: certify Restricted Isometry Property RIP_s(δ) for the MoE router projection W_router. Estimate δ via random s-column-sub-matrix spectral norms; add RIP-aware regularizer R = (max_S ‖A_S^T A_S - I‖_F)² to training loss. Top-s expert selection then has L₁-recovery guarantee with bounded error.",
+  "llm_application": "RIP-Router: at each training step, for the router projection matrix W ∈ R^{E×d}, sample K random s-column sub-matrices A_S; compute σ_max(A_S^T A_S - I), σ_min(A_S^T A_S - I). δ_s ≈ max(|σ_max|, |σ_min|). Add penalty λ·max(0, δ_s - δ_target) where δ_target = √2-1 - margin. This biases the router to satisfy RIP_s; stability of top-s expert selection follows by compressed-sensing theory.",
+  "novelty_claim": "CSAT (arXiv 2507.02957) and Routing Transformers (arXiv 2003.05997) use compressed-sensing ideas for attention; CSAT is closest but for attention, not MoE router. RIP-Router targets MoE router specifically.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "RIP is the algebraic property guaranteeing exact L_1 recovery in compressed sensing. Direct transfer to s-sparse top-s expert selection.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Random s-column sub-matrix sampling of W_router","M_2: Spectral δ_s estimation","M_3: RIP-aware regularizer penalty","M_4: Top-s selection stability bound"],
+  "content_words": [
+    "restricted isometry property l1 recovery basis pursuit",
+    "compressed sensing random sub-matrix spectral norm",
+    "rip constant delta recovery guarantee",
+    "regularizer penalty router matrix s-sparse",
+    "spectral-allocation MoE router top-s expert selection",
+    "transformer mixture of experts gating function",
+    "stable sparse selection bound LLM",
+    "router projection matrix penalty spectral"
+  ],
+  "content_words_composition": {
+    "llm_side": ["spectral-allocation MoE router top-s expert selection","transformer mixture of experts gating function","stable sparse selection bound LLM","router projection matrix penalty spectral"],
+    "source_side": ["restricted isometry property l1 recovery basis pursuit","compressed sensing random sub-matrix spectral norm","rip constant delta recovery guarantee","regularizer penalty router matrix s-sparse"],
+    "generic": []
+  }
+}

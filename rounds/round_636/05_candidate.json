@@ -1,0 +1,44 @@
+{
+  "round": "636",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:44:00Z",
+  "candidate_form": "topological-defect",
+  "domain": "Stiefel manifold + parallel transport (Riemannian geometry)",
+  "specific_mechanism": "PT-LoRA: Parallel-Transport Sequential LoRA. Sequentially fine-tune LoRA on tasks T_1,..,T_k. Constrain B_t ∈ St(r,d). After T_t convergence, parallel-transport B_t from current Stiefel chart to next chart along the geodesic minimizing weight-delta to next task's frame using Edelman-Arias-Smith formula. Continue fine-tuning B_{t+1} on T_{t+1} initialized from transported B_t.",
+  "llm_application": "PT-LoRA: For sequential fine-tuning on tasks T_1..T_k, constrain LoRA B-matrix to lie on Stiefel St(r,d). When transitioning T_t → T_{t+1}, compute optimal Stiefel geodesic γ from current B_t to a task-T_{t+1}-anchor frame Y_{t+1}. Parallel-transport B_t along γ using the closed-form Edelman-Arias-Smith formula, yielding tilde{B}_t at the new chart. Initialize B_{t+1} = tilde{B}_t and continue Riemannian fine-tuning on T_{t+1}. The intent: preserve T_t adapter geometry as basis rotates between tasks.",
+  "novelty_claim": "Stiefel-LoRA exists (Riemannian LoRA Stiefel EMNLP 2025 arXiv 2508.17901; StelLA NeurIPS 2025) but PT-LoRA's sequential parallel transport between consecutive tasks as a continual-learning mechanism is more specific.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Parallel transport is the canonical differential-geometric operation. Stiefel St(p,n) has closed-form parallel-transport formula (Edelman-Arias-Smith). Mechanism transfer is direct.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Stiefel manifold constraint on LoRA B-matrix",
+    "M_2: Geodesic from current to next-task anchor frame",
+    "M_3: Closed-form Edelman-Arias-Smith parallel transport",
+    "M_4: Sequential task transition initialization"
+  ],
+  "content_words": [
+    "stiefel manifold parallel transport geodesic frame",
+    "edelman arias smith levi civita connection",
+    "riemannian orthonormal basis tangent space",
+    "continual learning sequential task adapter transition",
+    "topological-defect lora sequential fine-tuning LLM",
+    "B matrix orthogonality preserved across tasks",
+    "low-rank adapter chart change frame rotation",
+    "task transition initialization transported adapter"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "continual learning sequential task adapter transition",
+      "topological-defect lora sequential fine-tuning LLM",
+      "B matrix orthogonality preserved across tasks",
+      "low-rank adapter chart change frame rotation"
+    ],
+    "source_side": [
+      "stiefel manifold parallel transport geodesic frame",
+      "edelman arias smith levi civita connection",
+      "riemannian orthonormal basis tangent space",
+      "task transition initialization transported adapter"
+    ],
+    "generic": []
+  }
+}
