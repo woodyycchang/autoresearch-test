@@ -1,0 +1,26 @@
+{
+  "round":"645","epoch":26,"candidate_form":"memory-architecture",
+  "domain":"Persistent homology / topological data analysis",
+  "specific_mechanism":"PH-Memory: store per-episode persistence diagram + bottleneck-distance retrieval. Per episode, build entity-relation simplicial complex; filter by edge weights; compute PD_E in dim 0,1,2. Memory key = PD_E. At query Q, compute PD_Q; retrieve top-k episodes by minimizing d_B(PD_Q, PD_E).",
+  "llm_application":"PH-Memory: maintain a memory bank of {(PD_E, raw_text_E)} pairs. For each new episode, extract entity-relation graph G_E, build Vietoris-Rips filtration over edge-weight scan, compute PD_E using Gudhi/Ripser. Store. At query time, build G_Q, compute PD_Q, retrieve via top-k bottleneck distance d_B(PD_Q, PD_E). Combine with text-embedding similarity via weighted sum.",
+  "novelty_claim":"PH-NLP exists (AwesomeTDA4NLP collection), PH for personalized search and curiosity prediction documented. Episodic-memory LLM exists (arXiv 2502.06975, 2601.21714 E-mem). PH-as-episodic-memory-key specifically is less common.",
+  "motivation_strength":"mechanism_transfer",
+  "motivation_justification":"PH is a closed-form algebraic invariant of filtered simplicial complexes. Bottleneck distance has explicit formula. Direct mechanism transfer.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Entity-relation simplicial complex per episode","M_2: Vietoris-Rips edge-weight filtration","M_3: PD_E persistence diagram","M_4: Bottleneck d_B retrieval"],
+  "content_words":[
+    "persistent homology persistence diagram filtration",
+    "vietoris rips simplicial complex graph",
+    "bottleneck distance topological retrieval matching",
+    "entity relation graph episode encoding",
+    "memory-architecture episodic LLM agent retrieval",
+    "topological memory key store rank top-k",
+    "long-context memory bank persistent topological invariant",
+    "agent memory retrieval ranked similarity"
+  ],
+  "content_words_composition":{
+    "llm_side":["memory-architecture episodic LLM agent retrieval","topological memory key store rank top-k","long-context memory bank persistent topological invariant","agent memory retrieval ranked similarity"],
+    "source_side":["persistent homology persistence diagram filtration","vietoris rips simplicial complex graph","bottleneck distance topological retrieval matching","entity relation graph episode encoding"],
+    "generic":[]
+  }
+}

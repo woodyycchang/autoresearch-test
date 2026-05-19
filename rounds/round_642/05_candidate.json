@@ -1,0 +1,28 @@
+{
+  "round": "642",
+  "epoch": 26,
+  "candidate_form": "phase-coherence",
+  "domain": "Cheeger inequality / spectral graph theory",
+  "specific_mechanism": "CHEEGER-Attn: λ_2-monitored attention bottleneck regularizer. For each attention head h at layer l, symmetrize attention map: Ã_{l,h} = (A_{l,h} + A_{l,h}^T)/2. Compute Laplacian L = D - Ã. Estimate λ_2 via power iteration. Add regularizer R = Σ -log(λ_2(L_{l,h}) + ε) to training loss to push spectral gap up; bottlenecks → high regularizer penalty.",
+  "llm_application": "CHEEGER-Attn: each forward pass computes per-head per-layer λ_2 of symmetrized attention Laplacian via 5-step power iteration. Add R = - Σ_{l,h} log(λ_2 + ε) × λ_C as auxiliary training-time loss. By Cheeger inequality, high λ_2 implies high attention conductance — no narrow bottleneck. The regularizer pushes attention patterns to be well-mixed across tokens.",
+  "novelty_claim": "SpectralGap (arXiv 2505.15177) uses Laplacian gaps for graph OOD detection; Spectral Attention Networks (openreview) use Laplacian PE. Cheeger-Attn applies the Cheeger bound DIRECTLY as a per-head attention regularizer — different framing.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Cheeger inequality is a rigorous algebraic bound on the spectral gap. The candidate transfers the bound directly to attention-graph Laplacian as bottleneck signal.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Symmetrized attention adjacency Ã","M_2: Graph Laplacian L = D - Ã","M_3: λ_2 estimation via power iteration","M_4: -log(λ_2) regularizer training loss"],
+  "content_words": [
+    "cheeger inequality spectral gap graph laplacian",
+    "lambda 2 second eigenvalue conductance bottleneck",
+    "symmetrized adjacency directed weighted graph",
+    "power iteration eigenvalue estimation regularizer",
+    "phase-coherence attention head bottleneck transformer LLM",
+    "attention map graph weighted mixing",
+    "training-time auxiliary regularizer loss per-head per-layer",
+    "well-mixed attention spectral diagnostic"
+  ],
+  "content_words_composition": {
+    "llm_side": ["phase-coherence attention head bottleneck transformer LLM","attention map graph weighted mixing","training-time auxiliary regularizer loss per-head per-layer","well-mixed attention spectral diagnostic"],
+    "source_side": ["cheeger inequality spectral gap graph laplacian","lambda 2 second eigenvalue conductance bottleneck","symmetrized adjacency directed weighted graph","power iteration eigenvalue estimation regularizer"],
+    "generic": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "round":"643","epoch":26,"candidate_form":"basin-stability",
+  "domain":"Hopf bifurcation",
+  "specific_mechanism":"HOPF-Watcher: detect impending Hopf bifurcation in RLHF training by tracking sign of Re(λ_±) of approximate low-rank training Jacobian via Lanczos + Hutchinson.",
+  "llm_application":"HOPF-Watcher: every 50 RLHF steps, build a low-rank (r=16) Lanczos approximation of the training Jacobian J_t using Hutchinson stochastic trace. Compute its leading complex-conjugate eigenvalue pair λ_± = α ± iω. Track α over training; if α crosses near zero from negative to positive AND ω>0, log Hopf-warning. Three consecutive warnings → early-stop and revert.",
+  "novelty_claim":"Jacobian-eigenvalue early-warning for bifurcations exists (PMC8300673); RL-controlled Hopf optimization (biorxiv). HOPF-Watcher specifically as RLHF early-stop signal is less common.",
+  "motivation_strength":"shared_math_structure",
+  "motivation_justification":"Hopf condition is a precise algebraic condition on Jacobian eigenvalues. Full Jacobian intractable; low-rank approximation imposes some loss of fidelity.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Low-rank Lanczos Jacobian approx","M_2: Complex-conjugate λ_± pair tracking","M_3: Re(λ_±) zero-crossing detector","M_4: 3-warning early-stop"],
+  "content_words":[
+    "hopf bifurcation jacobian complex eigenvalue crossing",
+    "lanczos hutchinson low-rank approximation training",
+    "imaginary axis crossing limit cycle warning signal",
+    "early stop revert checkpoint policy oscillation",
+    "basin-stability RLHF training stability LLM",
+    "RLHF reward oscillation jacobian detection",
+    "policy gradient training dynamics LLM step",
+    "fine-tuning early-stop pre-bifurcation diagnostic"
+  ],
+  "content_words_composition":{
+    "llm_side":["basin-stability RLHF training stability LLM","RLHF reward oscillation jacobian detection","policy gradient training dynamics LLM step","fine-tuning early-stop pre-bifurcation diagnostic"],
+    "source_side":["hopf bifurcation jacobian complex eigenvalue crossing","lanczos hutchinson low-rank approximation training","imaginary axis crossing limit cycle warning signal","early stop revert checkpoint policy oscillation"],
+    "generic":[]
+  }
+}
