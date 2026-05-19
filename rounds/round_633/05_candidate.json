@@ -1,0 +1,44 @@
+{
+  "round": "633",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:33:00Z",
+  "candidate_form": "feedback-attenuation",
+  "domain": "Helmholtz-Hodge decomposition of vector fields",
+  "specific_mechanism": "HOPT: Hodge-Orthogonal Per-Batch Gradient Attenuator. For each minibatch B={x_i}, compute per-example gradients g_i = ∇L(θ; x_i). Form the data-indexed vector field {g_i}_{i∈B}. Apply discrete-Hodge decomposition (via graph Laplacian on a K-nearest-neighbor graph of inputs): g_i = g_i^∇ + g_i^curl + g_i^H. Update step uses (1/|B|) Σ_i (g_i^∇ + γ_curl g_i^curl + γ_H g_i^H) with γ_curl=0.3, γ_H=0.",
+  "llm_application": "HOPT (Hodge-Orthogonal Per-Batch attenuator): At each step, for batch B build KNN graph G on input embeddings (k=8). Compute graph Laplacian L_G. Decompose per-example gradients via L_G-eigenspaces: gradient component (low L_G-eigenmode), curl component (high-eigenmode), harmonic (kernel of L_G). Apply per-component scaling γ_∇=1, γ_curl=0.3, γ_H=0 before averaging. Optimizer otherwise standard AdamW.",
+  "novelty_claim": "Hodge decomposition on per-example minibatch gradients with selective component attenuation for LLM training is unusual. Existing work uses Hodge for simplicial neural networks and signal processing, not for SGD gradient noise filtering.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Hodge decomposition is a closed-form L²-orthogonal split of vector fields. The candidate transfers the same operator to the batch-gradient vector field.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: KNN graph over batch inputs",
+    "M_2: Graph-Laplacian Hodge decomposition of per-example gradients",
+    "M_3: Per-component scaling γ_∇, γ_curl, γ_H",
+    "M_4: Recombined average gradient as update direction"
+  ],
+  "content_words": [
+    "hodge decomposition discrete graph laplacian",
+    "vector field gradient curl harmonic split",
+    "knn neighbor graph over inputs",
+    "per-component scaling gradient attenuation",
+    "feedback-attenuation minibatch SGD optimizer LLM",
+    "batch gradient noise filtering per-example",
+    "selective component dampening curl rotational",
+    "transformer training step gradient cleanup"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "feedback-attenuation minibatch SGD optimizer LLM",
+      "batch gradient noise filtering per-example",
+      "selective component dampening curl rotational",
+      "transformer training step gradient cleanup"
+    ],
+    "source_side": [
+      "hodge decomposition discrete graph laplacian",
+      "vector field gradient curl harmonic split",
+      "knn neighbor graph over inputs",
+      "per-component scaling gradient attenuation"
+    ],
+    "generic": []
+  }
+}

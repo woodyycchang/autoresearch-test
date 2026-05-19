@@ -1,0 +1,44 @@
+{
+  "round": "632",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:29:00Z",
+  "candidate_form": "phase-coherence",
+  "domain": "Krylov subspace iterative methods (Lanczos/Arnoldi/CG)",
+  "specific_mechanism": "KCOT: Krylov Chain-of-Thought. Define LLM 'reasoning operator' A_θ (k-th forward pass through CoT prompt). Initial residual r_0 = embed(question). Generate Krylov basis r_k = A_θ r_{k-1} - α_k Σ_{j<k} β_{jk} r_j (Gram-Schmidt against previous basis vectors). Each r_k decodes to one CoT step. Phase-coherent: basis vectors maintain orthogonality in A-induced inner product (CG conjugacy). Stop when ‖r_n‖ < ε.",
+  "llm_application": "KCOT (Krylov Chain-of-Thought): The LLM acts as the operator A_θ. Start r_0 = question embedding. For k=1..n: (1) generate candidate next step v_k = LLM(prompt with r_{k-1} as context); (2) orthogonalize embed(v_k) against {r_0,..,r_{k-1}} via Gram-Schmidt under embedding inner product; (3) decode the orthogonalized r_k back to natural-language step; (4) compute residual norm ‖proj_{remaining-problem}(r_k)‖. Stop when residual < ε or n=n_max. The CoT scratchpad is the orthogonal Krylov basis.",
+  "novelty_claim": "Multiple iterative-refinement CoT methods exist (Progressive Thought Refinement; Iteration-of-Thought; Self-Refine) but none uses Krylov-style basis orthogonalization as the algorithmic backbone with convergence-bound stopping.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Krylov subspace methods are the canonical iterative residual-minimization framework. The candidate transfers the exact algorithm (basis generation + Gram-Schmidt + residual stopping) to CoT scratchpad construction.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: LLM as reasoning operator A_θ",
+    "M_2: Krylov basis generation via Gram-Schmidt",
+    "M_3: Embedding-space inner product orthogonality",
+    "M_4: Residual-norm stopping criterion"
+  ],
+  "content_words": [
+    "krylov subspace lanczos arnoldi gram-schmidt",
+    "conjugate gradient residual minimization iterative",
+    "basis orthogonalization inner product space",
+    "convergence bound stopping criterion epsilon",
+    "phase-coherence chain-of-thought scratchpad LLM",
+    "reasoning operator forward pass orthogonal step",
+    "residual question embedding refinement iterative",
+    "monotone error reduction transformer CoT step"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "phase-coherence chain-of-thought scratchpad LLM",
+      "reasoning operator forward pass orthogonal step",
+      "residual question embedding refinement iterative",
+      "monotone error reduction transformer CoT step"
+    ],
+    "source_side": [
+      "krylov subspace lanczos arnoldi gram-schmidt",
+      "conjugate gradient residual minimization iterative",
+      "basis orthogonalization inner product space",
+      "convergence bound stopping criterion epsilon"
+    ],
+    "generic": []
+  }
+}
