@@ -1,0 +1,91 @@
+{
+  "round": "629",
+  "verifier_agent_id": "fresh_ctx_r629_mpsa",
+  "verifier_model": "claude-opus-4-7-fresh-context",
+  "verifier_verdict": "FAIL",
+  "verifier_rubric": "per-paper joint coverage of all K=4 candidate sub-mechanisms {M_1: per-layer MP envelope estimation, M_2: outlier-eigenvalue counting s_l, M_3: proportional LoRA rank allocation, M_4: pre-finetune one-shot calibration}",
+  "verifier_disagreement_with_primary": false,
+  "verifier_disagreement_count": 0,
+  "per_paper_joint_coverage_scores": [
+    {
+      "rank": 1,
+      "url": "https://arxiv.org/abs/2604.27796",
+      "title": "Post-Optimization Adaptive Rank Allocation for LoRA",
+      "joint_coverage": 0.50,
+      "covered_sub_mechanisms": ["M_3", "M_2_partial"],
+      "missing_sub_mechanisms": ["M_1", "M_4"],
+      "rationale": "Performs adaptive LoRA rank allocation (M_3) and uses some singular-value/importance signal (partial M_2). However, allocation is POST-optimization, not pre-finetune one-shot calibration (violates M_4), and uses no MP envelope (no M_1). Score 0.50."
+    },
+    {
+      "rank": 2,
+      "url": "https://arxiv.org/abs/2603.03995",
+      "title": "Spectral Surgery: Training-Free Refinement of LoRA via Gradient-Guided SV Reweighting",
+      "joint_coverage": 0.25,
+      "covered_sub_mechanisms": ["M_2_partial"],
+      "missing_sub_mechanisms": ["M_1", "M_3", "M_4"],
+      "rationale": "Operates on singular values (partial M_2 as SV manipulation), but is post-training refinement (violates M_4), reweights rather than allocates rank (no M_3), and uses no MP envelope (no M_1). Score 0.25."
+    },
+    {
+      "rank": 3,
+      "url": "https://arxiv.org/abs/2510.02630",
+      "title": "HyperAdaLoRA: Accelerating LoRA Rank Allocation via Hypernetworks",
+      "joint_coverage": 0.25,
+      "covered_sub_mechanisms": ["M_3"],
+      "missing_sub_mechanisms": ["M_1", "M_2", "M_4"],
+      "rationale": "Covers M_3 (LoRA rank allocation) via hypernetwork-predicted rank scores, but no MP envelope (no M_1), no outlier eigenvalue counting (no M_2), and rank emerges from training-coupled hypernetwork rather than pre-finetune one-shot calibration (no M_4). Score 0.25."
+    },
+    {
+      "rank": 4,
+      "url": "https://arxiv.org/abs/2605.03724",
+      "title": "Rethinking the Rank Threshold for LoRA Fine-Tuning",
+      "joint_coverage": 0.75,
+      "covered_sub_mechanisms": ["M_1", "M_2", "M_4_partial"],
+      "missing_sub_mechanisms": ["M_3_partial"],
+      "rationale": "STRONG MATCH. Explicitly uses Marchenko-Pastur law (M_1 full), separates outlier vs bulk singular values to set rank threshold (M_2 full), and operates at fine-tuning setup time (M_4 partial - applies an MP threshold rather than budget split across layers). Stops short of full proportional R_total redistribution across layers (M_3 partial - threshold per layer, not budget-normalized split). Joint coverage 0.75 - the MP+LoRA+rank-threshold niche is essentially the candidate's core."
+    },
+    {
+      "rank": 5,
+      "url": "https://arxiv.org/abs/2502.16894",
+      "title": "Make LoRA Great Again: Adaptive SV + MoE",
+      "joint_coverage": 0.25,
+      "covered_sub_mechanisms": ["M_2_partial"],
+      "missing_sub_mechanisms": ["M_1", "M_3_partial", "M_4"],
+      "rationale": "Adaptive singular-value handling (partial M_2) but no MP envelope (no M_1), uses MoE routing rather than rank budget allocation (partial M_3 at best), and not one-shot pre-finetune calibration (no M_4). Score 0.25."
+    },
+    {
+      "rank": 6,
+      "url": "https://arxiv.org/abs/2408.03290",
+      "title": "SARA: Singular-Value Based Adaptive Low-Rank",
+      "joint_coverage": 0.50,
+      "covered_sub_mechanisms": ["M_2_partial", "M_3", "M_4_partial"],
+      "missing_sub_mechanisms": ["M_1"],
+      "rationale": "Uses per-layer singular-value distribution (partial M_2) to allocate adaptive LoRA rank (M_3) at initialization (partial M_4). Crucially missing: no MP-envelope reference distribution (no M_1) - SARA uses SVD-based heuristic thresholds rather than RMT-derived λ_+(σ²,c). Score 0.50. SARA is the closest functional adjacent without MP."
+    },
+    {
+      "rank": 7,
+      "url": "https://arxiv.org/abs/2602.22911",
+      "title": "CeRA: Overcoming Linear Ceiling of LoRA",
+      "joint_coverage": 0.0,
+      "covered_sub_mechanisms": [],
+      "missing_sub_mechanisms": ["M_1", "M_2", "M_3", "M_4"],
+      "rationale": "Addresses linear-rank ceiling of LoRA via nonlinear lifting, not spectral allocation. No MP, no outlier counting, no proportional rank split. Score 0.0."
+    },
+    {
+      "rank": 8,
+      "url": "https://arxiv.org/abs/2503.01922",
+      "title": "Pruning DNNs via Marchenko-Pastur + Regularization",
+      "joint_coverage": 0.50,
+      "covered_sub_mechanisms": ["M_1", "M_2", "M_4_partial"],
+      "missing_sub_mechanisms": ["M_3"],
+      "rationale": "Full MP envelope estimation per layer (M_1) and outlier counting (M_2) - this is canonical Bouchaud-Potters cleaning applied to weights. One-shot pre-pruning calibration (partial M_4). But the downstream action is pruning (removing bulk SVs), not LoRA rank allocation (no M_3). Score 0.50. This paper supplies M_1+M_2 verbatim from MPSA's recipe."
+    }
+  ],
+  "max_joint_coverage": 0.75,
+  "union_coverage_top2": {
+    "papers": ["arXiv:2605.03724", "arXiv:2503.01922"],
+    "union_covered": ["M_1", "M_2", "M_3_partial", "M_4_partial"],
+    "union_score": 0.875,
+    "note": "Pairing the MP-rank-threshold paper (2605.03724) with the MP-pruning paper (2503.01922) yields near-complete coverage of all four sub-mechanisms. The only un-supplied piece is the explicit proportional budget split r_l = round(R_total · s_l / Σ s_k) - and even that is a trivial algebraic re-normalization once outlier counts are available."
+  },
+  "rationale": "Verdict: FAIL. Max single-paper joint coverage is 0.75 (arXiv:2605.03724 'Rethinking the Rank Threshold for LoRA Fine-Tuning') which already pairs Marchenko-Pastur with LoRA rank determination - the candidate's central conceit. Adding arXiv:2503.01922 (MP-based DNN pruning) supplies the per-layer MP envelope estimation + outlier counting recipe verbatim from Bouchaud-Potters. Combined union coverage 0.875. The proportional R_total renormalization (M_3) is the only differentiator and is algebraically trivial given counts s_l. Verifier AGREES with primary FAIL: the MP+LoRA niche is already mined - 2605.03724 is essentially the candidate with a different aggregation rule (threshold vs proportional split). No verifier disagreement; PASS would require a paper jointly covering all four with the proportional split mechanism absent from the literature, but the threshold variant is functionally equivalent for capacity-allocation purposes."
+}

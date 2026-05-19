@@ -1,0 +1,25 @@
+{
+  "round": "626",
+  "epoch": 26,
+  "judge_model": "claude-opus-4-7",
+  "functional_threshold": 0.7,
+  "candidate_llm_application_excerpt": "Per-layer Lyapunov candidate V_l with monotone-decrease inequality used as fine-tuning gate; per-layer adaptive step + rollback.",
+  "results": [
+    {"rank": 1, "url": "https://dextralabs.com/blog/fine-tuning-llm/", "judge_score": 0.10, "matched_effect_cluster": "general fine-tuning practitioner guide", "functional_hit": false, "justification": "Generic guide; no Lyapunov certificate mechanism."},
+    {"rank": 2, "url": "https://www.superannotate.com/blog/llm-fine-tuning", "judge_score": 0.10, "matched_effect_cluster": "general fine-tuning practitioner guide", "functional_hit": false, "justification": "No certificate-based step adaptation."},
+    {"rank": 3, "url": "https://arxiv.org/abs/2604.08369", "judge_score": 0.20, "matched_effect_cluster": "adaptive compute for agents", "functional_hit": false, "justification": "Adaptive compute via action agreement, not Lyapunov fine-tuning."},
+    {"rank": 4, "url": "https://www.researchgate.net/publication/399176741", "judge_score": 0.42, "matched_effect_cluster": "lyapunov-DRL queue stability", "functional_hit": false, "justification": "Lyapunov for inference scheduling stability, not training gradient gate."},
+    {"rank": 5, "url": "https://arxiv.org/abs/2210.15055", "judge_score": 0.60, "matched_effect_cluster": "lyapunov-driven adaptive training", "functional_hit": false, "justification": "Lyapunov candidate drives convergence proof for robot model learning; not per-layer LLM fine-tuning with rollback."},
+    {"rank": 6, "url": "https://arxiv.org/abs/2005.08965", "judge_score": 0.45, "matched_effect_cluster": "deep-net lyapunov approximator", "functional_hit": false, "justification": "Trains NN to approximate Lyapunov function for control, not use it as fine-tuning gate."},
+    {"rank": 7, "url": "https://openreview.net/forum?id=rqOlUTnKWh", "judge_score": 0.55, "matched_effect_cluster": "transformer lyapunov discovery", "functional_hit": false, "justification": "Discovers analytical Lyapunov fns via transformer; different application."},
+    {"rank": 8, "url": "https://arxiv.org/abs/2410.05988", "judge_score": 0.62, "matched_effect_cluster": "lyapunov-exponent neural design", "functional_hit": false, "justification": "Uses Lyapunov exponents (different object) to inform activation/lr design."},
+    {"rank": 9, "url": "https://arxiv.org/abs/2305.13664", "judge_score": 0.72, "matched_effect_cluster": "layer-wise adaptive step size", "functional_hit": true, "justification": "Functionally equivalent: per-layer adaptive step size for deep nets. Uses Hessian curvature where candidate uses Lyapunov certificate, but the end-state (per-layer step-size adaptation gating) overlaps."},
+    {"rank": 10, "url": "https://arxiv.org/abs/2008.06546", "judge_score": 0.40, "matched_effect_cluster": "lyapunov for piecewise affine control", "functional_hit": false, "justification": "Control-policy Lyapunov, not LLM fine-tuning."}
+  ],
+  "summary": {
+    "functional_hits_count": 1,
+    "max_judge_score": 0.72,
+    "distinct_effect_clusters_above_threshold": 1,
+    "multi_cluster_match": false
+  }
+}

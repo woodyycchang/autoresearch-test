@@ -1,0 +1,44 @@
+{
+  "round": "627",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:07:30Z",
+  "candidate_form": "training-method",
+  "domain": "Hamiltonian mechanics + symplectic (leapfrog) integration",
+  "specific_mechanism": "SVFT: Symplectic-Verlet Fine-Tuning. Replace momentum SGD with Stormer-Verlet leapfrog (kick-drift-kick) updates that preserve phase-space symplectic 2-form. Energy-conservation residual r_t = |H_t - H_0| is tracked; when r_t > ε, an energy-rebalancing projection rescales momentum to restore H_t ≈ H_0. This gives bounded long-term drift from the pre-training manifold.",
+  "llm_application": "SVFT (Symplectic-Verlet Fine-Tuning): The optimizer state is (θ, p). Each step is a kick-drift-kick leapfrog: p_{t+1/2} = p_t - (η/2) ∇L(θ_t); θ_{t+1} = θ_t + η p_{t+1/2}/β; p_{t+1} = p_{t+1/2} - (η/2) ∇L(θ_{t+1}). After every K steps, compute H_t = L(θ_t) + ‖p_t‖²/(2β); if |H_t-H_0|/|H_0| > ε (default 0.05), project p_t to satisfy H_t = H_0 by rescaling. Time-reversibility holds; phase-space volume is preserved analytically.",
+  "novelty_claim": "Stormer-Verlet leapfrog with explicit energy-conservation residual projection as a fine-tuning optimizer. Hamiltonian Descent (Maddison 2018) used implicit Euler not leapfrog; symplectic neural networks model physical systems, not LLM fine-tuning.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Momentum SGD literally IS a discrete-time Hamiltonian integrator. The symplectic 2-form preservation is an exact algebraic identity that bounds energy drift. Mechanism transfer is direct, not analogical.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Stormer-Verlet kick-drift-kick leapfrog momentum step",
+    "M_2: Time-reversible symplectic update preserving dq∧dp",
+    "M_3: Energy-conservation residual r_t = |H_t-H_0| tracking",
+    "M_4: Momentum-rescaling projection when r_t > ε"
+  ],
+  "content_words": [
+    "symplectic leapfrog stormer verlet integrator",
+    "phase space volume preservation hamiltonian",
+    "energy conservation residual rescaling projection",
+    "time-reversible momentum kick drift kick",
+    "optimizer fine-tuning bounded drift pre-training manifold",
+    "training-method discrete dynamical integrator LLM",
+    "momentum projection back to constant-energy shell",
+    "transformer parameter trajectory symplectic 2-form"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "optimizer fine-tuning bounded drift pre-training manifold",
+      "training-method discrete dynamical integrator LLM",
+      "transformer parameter trajectory symplectic 2-form",
+      "momentum projection back to constant-energy shell"
+    ],
+    "source_side": [
+      "symplectic leapfrog stormer verlet integrator",
+      "phase space volume preservation hamiltonian",
+      "energy conservation residual rescaling projection",
+      "time-reversible momentum kick drift kick"
+    ],
+    "generic": []
+  }
+}

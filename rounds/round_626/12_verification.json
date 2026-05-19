@@ -1,0 +1,23 @@
+{
+  "round": "626",
+  "verifier_agent_id": "acc2deb1c1e9d0051",
+  "verifier_model": "claude-opus-4-7-fresh-context",
+  "verifier_verdict": "PASS",
+  "verifier_rubric": "per-paper joint coverage of all K=4 candidate sub-mechanisms",
+  "verifier_disagreement_with_primary": true,
+  "verifier_disagreement_count": 3,
+  "per_paper_joint_coverage_scores": [
+    {"rank": 1, "url": "https://dextralabs.com/blog/fine-tuning-llm/", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 2, "url": "https://www.superannotate.com/blog/llm-fine-tuning", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 3, "url": "https://arxiv.org/abs/2604.08369", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 4, "url": "https://www.researchgate.net/publication/399176741", "joint_coverage": 0.25, "covered_sub_mechanisms": ["M_1_loose"]},
+    {"rank": 5, "url": "https://arxiv.org/abs/2210.15055", "joint_coverage": 0.50, "covered_sub_mechanisms": ["M_1", "M_2"]},
+    {"rank": 6, "url": "https://arxiv.org/abs/2005.08965", "joint_coverage": 0.50, "covered_sub_mechanisms": ["M_1", "M_2"]},
+    {"rank": 7, "url": "https://openreview.net/forum?id=rqOlUTnKWh", "joint_coverage": 0.50, "covered_sub_mechanisms": ["M_1", "M_2"]},
+    {"rank": 8, "url": "https://arxiv.org/abs/2410.05988", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 9, "url": "https://arxiv.org/abs/2305.13664", "joint_coverage": 0.25, "covered_sub_mechanisms": ["M_3"]},
+    {"rank": 10, "url": "https://arxiv.org/abs/2008.06546", "joint_coverage": 0.50, "covered_sub_mechanisms": ["M_1", "M_2"]}
+  ],
+  "max_joint_coverage": 0.50,
+  "rationale": "No retrieved paper jointly covers >2 of 4 sub-mechanisms. Lyapunov-candidate + monotone-decrease ingredients exist in control/dynamics but not as LLM fine-tuning gate with rollback. PASS at per-paper rubric; FAIL at aggregate-adjacency rubric (3 hits) reflects v5 Pattern E disagreement preserved by design."
+}

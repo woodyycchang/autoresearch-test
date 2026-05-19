@@ -1,0 +1,44 @@
+{
+  "round": "630",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:19:25Z",
+  "candidate_form": "memory-architecture",
+  "domain": "Kalman filter / Bayesian state estimation",
+  "specific_mechanism": "KCSC: Kalman Covariance-Tracked State Cache. Maintain a compressed latent state x̂_t ∈ R^d and a diagonal covariance P_t ∈ R^d_+ for the entire context. Each new token is projected to (y_t, R_t) observation; state and covariance update via standard Kalman recursion. Attention to past is replaced by reading x̂_t with uncertainty-weighted gating using P_t.",
+  "llm_application": "KCSC (Kalman Covariance-Tracked State Cache): Replace the per-layer KV-cache with a Kalman-style filter state (x̂_t, P_t). Each new token embedding e_t produces an observation y_t = H_φ(e_t) with learned noise R_t = R_φ(e_t). State update: K_t = P_{t-1} H^T (H P_{t-1} H^T + R_t)^{-1}; x̂_t = F x̂_{t-1} + K_t(y_t - H F x̂_{t-1}); P_t = (I - K_t H) P_{t-1}. Output queries attend to x̂_t with per-dimension softmax gain scaled by 1/√(diag(P_t) + ε), so high-uncertainty dimensions are down-weighted.",
+  "novelty_claim": "Explicit Kalman gain + covariance tracking as KV-cache replacement, with uncertainty-weighted output gating, is not standard. KOSS (arXiv 2512.16723) uses Kalman-inspired selection but doesn't expose explicit per-dim covariance to attention; KalmanFormer learns Kalman gain via transformer rather than using the filter as cache architecture.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Kalman filter IS the closed-form Bayesian estimator. SSMs are linear recurrences but typically don't track P_t. The candidate transfers the full closed-form recursion with covariance.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Compressed Gaussian state (x̂_t, P_t)",
+    "M_2: Per-token Kalman gain K_t",
+    "M_3: Explicit covariance update P_t",
+    "M_4: Uncertainty-weighted attention gating via 1/√P_t"
+  ],
+  "content_words": [
+    "kalman covariance tracked filter state",
+    "bayesian recursive update gain prior posterior",
+    "uncertainty weighted gating per-dimension softmax",
+    "compressed latent state replace kv-cache",
+    "memory-architecture transformer long context",
+    "state space recurrence LLM linear",
+    "per-token observation noise learned R",
+    "kv-cache replacement uncertainty exposed read"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "compressed latent state replace kv-cache",
+      "memory-architecture transformer long context",
+      "state space recurrence LLM linear",
+      "kv-cache replacement uncertainty exposed read"
+    ],
+    "source_side": [
+      "kalman covariance tracked filter state",
+      "bayesian recursive update gain prior posterior",
+      "uncertainty weighted gating per-dimension softmax",
+      "per-token observation noise learned R"
+    ],
+    "generic": []
+  }
+}

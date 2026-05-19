@@ -1,0 +1,21 @@
+{
+  "round": "627",
+  "verifier_agent_id": "af848cbb929638721",
+  "verifier_model": "claude-opus-4-7-fresh-context",
+  "verifier_verdict": "PASS",
+  "verifier_rubric": "per-paper joint coverage of all K=4 candidate sub-mechanisms",
+  "verifier_disagreement_with_primary": true,
+  "verifier_disagreement_count": 4,
+  "per_paper_joint_coverage_scores": [
+    {"rank": 1, "url": "https://arxiv.org/abs/2602.07729", "joint_coverage": 0.0},
+    {"rank": 2, "url": "https://arxiv.org/abs/2402.11592", "joint_coverage": 0.0},
+    {"rank": 3, "url": "https://www.metriccoders.com/post/the-unsung-hero-why-the-optimizer-matters-in-llm-fine-tuning", "joint_coverage": 0.0},
+    {"rank": 4, "url": "https://arxiv.org/abs/1809.05042", "joint_coverage": 0.25},
+    {"rank": 5, "url": "https://arxiv.org/abs/2505.12553", "joint_coverage": 0.25},
+    {"rank": 6, "url": "https://arxiv.org/abs/2201.11137", "joint_coverage": 0.50},
+    {"rank": 7, "url": "https://arxiv.org/abs/2304.07070", "joint_coverage": 0.25},
+    {"rank": 8, "url": "https://openreview.net/pdf?id=G6qPBpSfyN", "joint_coverage": 0.25}
+  ],
+  "max_joint_coverage": 0.50,
+  "rationale": "Max joint coverage 0.50 (Born-Infeld ECD). No paper jointly covers KDK leapfrog + symplectic preservation + periodic residual monitor + projection rescaling. Verifier PASS at per-paper rubric disagrees with primary FAIL at aggregate-adjacency rubric (4/8 hits). Pattern E preserved."
+}

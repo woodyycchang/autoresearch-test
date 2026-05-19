@@ -1,0 +1,44 @@
+{
+  "round": "628",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:12:20Z",
+  "candidate_form": "null-space-traversal",
+  "domain": "Wasserstein-1 / Kantorovich-Rubinstein optimal transport",
+  "specific_mechanism": "WNSP: Wasserstein Null-Space Projection. Maintain a 1-Lipschitz critic f_φ trained on samples from π_ref (pre-training reference policy). Each DPO/PPO gradient ∇_θ J is split into a component aligned with ∇_θ E_{π_θ}[f_φ] (the W1-active direction) and an orthogonal complement (W1-null). Updates are restricted to the null component when the W1 distance to π_ref exceeds budget B.",
+  "llm_application": "WNSP (Wasserstein Null-Space Projection) RLHF rule: train a 1-Lipschitz critic f_φ on π_ref samples via WGAN-GP loss. At each preference-update step compute ∇_θ J_DPO and g_W = ∇_θ E_{π_θ}[f_φ]. The W1-null projection is ∇_θ J_⊥ = ∇_θ J - (⟨∇_θ J, g_W⟩/‖g_W‖²) g_W. When W1(π_θ, π_ref) > B, the update uses ∇_θ J_⊥ instead of ∇_θ J. Critic f_φ is refreshed every K steps.",
+  "novelty_claim": "Wasserstein Policy Regularization (arXiv 2602.01685) ADDS W1 as a penalty; this candidate uses W1 dual gradient as a PROJECTOR onto the null space, restricting updates to W1-invariant directions when budget breaches.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Kantorovich-Rubinstein dual IS a specific functional-analytic operator with the property that orthogonal directions to ∇f* are W1-invariant. The projection is a direct transfer of this operator, not analogy.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: 1-Lipschitz critic f_φ trained on reference distribution",
+    "M_2: Wasserstein-active gradient direction g_W = ∇_θ E[f_φ]",
+    "M_3: Orthogonal-complement projection ∇J_⊥",
+    "M_4: Budget-triggered null-space-only update rule"
+  ],
+  "content_words": [
+    "wasserstein kantorovich rubinstein dual operator",
+    "1-lipschitz critic reference distribution null direction",
+    "orthogonal-complement gradient projection optimization",
+    "budget-triggered null-space update rule",
+    "RLHF DPO preference fine-tuning regularization",
+    "null-space-traversal projection policy gradient",
+    "W1 distance invariant direction gradient",
+    "preference reward update transformer null-space"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "RLHF DPO preference fine-tuning regularization",
+      "null-space-traversal projection policy gradient",
+      "preference reward update transformer null-space",
+      "budget-triggered null-space update rule"
+    ],
+    "source_side": [
+      "wasserstein kantorovich rubinstein dual operator",
+      "1-lipschitz critic reference distribution null direction",
+      "orthogonal-complement gradient projection optimization",
+      "W1 distance invariant direction gradient"
+    ],
+    "generic": []
+  }
+}

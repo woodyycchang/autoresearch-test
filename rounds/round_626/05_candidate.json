@@ -1,0 +1,44 @@
+{
+  "round": "626",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:03:10Z",
+  "candidate_form": "training-method",
+  "domain": "Lyapunov stability theory (classical control / dynamical systems)",
+  "specific_mechanism": "PLLC: Per-Layer Lyapunov Certificate fine-tuning. For each transformer layer l, maintain a layer-local Lyapunov candidate V_l(θ_l) = ‖θ_l - θ_l*‖_M^2 (Mahalanobis distance to a reference fine-tuned anchor) and require ΔV_l ≤ -α V_l per step. Step size η_l is shrunk adaptively when the per-layer inequality fails; rollback fires when V_l fails to decrease over a sliding window.",
+  "llm_application": "PLLC (Per-Layer Lyapunov Certificate) fine-tuning rule: for each transformer block l in {1..L}, the optimizer maintains a layer-local scalar V_l = (θ_l-θ_l^anchor)^T M_l (θ_l-θ_l^anchor) with M_l a fixed positive-definite weight. After every step, if V_l(t+1) > (1-α) V_l(t), the per-layer step η_l is halved (adaptive backoff); if violation persists over k consecutive steps, the layer's parameters are rolled back to θ_l(t-k+1) and excluded from the next batch. The global update is gated by passing per-layer certificates rather than by global validation loss alone.",
+  "novelty_claim": "Per-layer Lyapunov certificate as a hard fine-tuning gate is not standard. Existing literature uses Lyapunov methods for control policy networks, not for per-layer LLM fine-tuning step adaptation with rollback. mechanism_transfer: Lyapunov inequality directly applies to SGD as a discrete dynamical system.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Lyapunov functions ARE the mathematical tool used to prove SGD convergence in optimization theory. The candidate transfers the same algebraic inequality V(x_{k+1}) ≤ (1-α)V(x_k) from global convergence proof to per-layer adaptive control. Not metaphor: same operator, different granularity.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Per-layer Lyapunov candidate V_l = Mahalanobis distance to anchor",
+    "M_2: Monotone-decrease inequality ΔV_l ≤ -α V_l as gate",
+    "M_3: Per-layer adaptive step-size halving on violation",
+    "M_4: Per-layer rollback exclusion after k consecutive violations"
+  ],
+  "content_words": [
+    "lyapunov per-layer certificate monotone decrease",
+    "mahalanobis anchor distance positive-definite weight",
+    "adaptive step-size halving on inequality violation",
+    "per-layer rollback exclusion sliding window",
+    "fine-tuning layer-local gate transformer",
+    "training-method convergence guarantee discrete dynamical system",
+    "stability certificate gradient descent per-block",
+    "monotone scalar candidate function deep network"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "fine-tuning layer-local gate transformer",
+      "training-method convergence guarantee discrete dynamical system",
+      "adaptive step-size halving on inequality violation",
+      "per-layer rollback exclusion sliding window"
+    ],
+    "source_side": [
+      "lyapunov per-layer certificate monotone decrease",
+      "mahalanobis anchor distance positive-definite weight",
+      "stability certificate gradient descent per-block",
+      "monotone scalar candidate function deep network"
+    ],
+    "generic": []
+  }
+}
