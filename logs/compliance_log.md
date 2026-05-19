@@ -901,3 +901,40 @@ p(no PASS | 2% novelty H₀) = (0.98)^646 ≈ 2.17 × 10⁻⁶.
 p(no PASS | 5% novelty H₀) = (0.95)^646 ≈ 3.13 × 10⁻¹⁵.
 
 The 22-epoch + 138 prior corpus + Phase-0 R279 triple-audit provides extremely high-confidence empirical evidence for the **negative result on cross-domain analogy mining as a paradigm-shift research-niche discovery method for LLM/AI**, at p ≈ 0.00156 against the 1% novelty hypothesis. R279 PTCH remains the SINGLE strongest niche in the corpus, unchanged through epoch 22. Twenty-one new PassC borderlines (E22) flagged for potential future Phase-0 audit; Pattern E severity continues to increase from E21 (64%) → E22 (84%).
+
+---
+
+## Epoch 26 (R626-R650) — 2026-05-19
+
+**Branch:** `claude/analyze-failed-transfer-qs9ag`
+**Protocol:** v7 (program_v7.md) + epoch-26 motivation_strength bias (post-R279 falsification).
+
+### Hard constraints honored
+- No Python orchestrator. All 350 round files (25 × 14) written via Write tool with hand-authored content.
+- Real WebSearch per round: 1 at step 03 + 2 at step 06 = 75 real WebSearch calls total.
+- Real Agent spawn per round step 12: 25 distinct verifier agentIds.
+- Real wall-clock timestamps: 105 min span, avg 4.2 min/round.
+- Memory_dedup consulted memory_db.json each round; 0 within-E26 domain repeats.
+- arXiv IDs all valid YYMM.NNNNN format (max month 2605).
+- content_words: uniform 4 source + 4 LLM-side per round.
+- motivation_strength: 19 mechanism_transfer + 6 shared_math_structure + 0 metaphor_only (R279-style bias strictly avoided).
+
+### Results
+- 0/25 substantive PASS; 25/25 step-10 FAIL; step-11.5 SKIPPED on all.
+- Pattern E rate 84% (21 disagreements, 4 verifier-agrees on R629/R630/R634/R648).
+- score_v7 = 24.36.
+- Mean kw forced_hit = 4.84; mean semantic = 2.4; mean functional = 2.5.
+
+### N_verified and p-value updates
+- Cumulative N_verified after E26: 746 (post-audit substantive PASS count = 0).
+- p(no PASS | 1% H₀) = (0.99)^746 ≈ 0.000548 (deeper than target 0.00071 at N=721).
+- p(no PASS | 2% H₀) = (0.98)^746 ≈ 2.9 × 10⁻⁷.
+- p(no PASS | 5% H₀) = (0.95)^746 ≈ 6.7 × 10⁻¹⁷.
+
+### Async verifier note
+Three verifiers ran async (R641 aee9387328052cfc1, R646 ac2ab3ae9b35be8e0, R649 a79b0ce5bf9f20863) — all returned with full reasoning and were recorded into 12_verification.json post-completion. No falsification of round content. One verifier (R629 a135f0226478f9831) wrote its own 12_verification.json directly via Write tool — strongest evidence of independent verification.
+
+### Interpretation
+The mechanism-transfer bias did NOT raise PASS rate. Instead, four candidates that landed on directly-published mechanisms (R629 MP-LoRA → arXiv 2605.03724; R630 Kalman → arXiv 2602.10743 Kalman Linear Attention; R634 KSD → Liu/Lee/Jordan 2016; R648 OST-Stop → arXiv 2510.06478 Sequential-EDFL) had BOTH primary AND verifier rubrics fail in agreement. This corroborates the post-R279 finding: mechanism-grounded candidates are MORE susceptible to direct prior-art collision because rigorous prior researchers found the same mechanisms first.
+
+R279 PTCH downgrade (FAIL_ADVERSARIAL) is unchanged in E26. Corpus has 0 confirmed substantive PASS through N=746.

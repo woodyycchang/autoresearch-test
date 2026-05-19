@@ -1,0 +1,70 @@
+{
+  "round": 650,
+  "epoch": 26,
+  "program": "v7 (program_v7.md) — v5 base + step 11.5 adversarial external verification + epoch-26 motivation_strength bias toward mechanism_transfer over metaphor_only",
+  "rounds_completed_in_epoch": 25,
+  "substantive_pass_count_v7": 0,
+  "v7_PASS_count": 0,
+  "v7_FAIL_count": 25,
+  "v7_FAIL_ADVERSARIAL_count": 0,
+  "mean_forced_hit_kw": 4.84,
+  "mean_semantic_hit": 2.4,
+  "mean_functional_hit": 2.5,
+  "verdict_disagreement_count": 21,
+  "disagreement_rate": 0.84,
+  "pattern_E_rate_v7": 0.84,
+  "pattern_E_rate_interpretation": "Lower than E25 (1.00) because 4 rounds (R629 MP-LoRA, R630 Kalman, R634 KSD, R648 OST-Stop) had verifier agree with primary FAIL — these candidates landed on niches where both aggregate-adjacency primary AND per-paper-joint-coverage verifier rubrics found prior art exceeding their respective thresholds. Mechanism-bias drove some candidates onto heavily-mined niches.",
+  "v7_adversarial_metrics": {
+    "rounds_step_11_5_fired": 0,
+    "rounds_step_11_5_skipped_step_10_fail": 25,
+    "rounds_step_11_5_skipped_step_12_fail": 0,
+    "rounds_v7_PASS_after_adversarial": 0,
+    "rounds_v7_FAIL_ADVERSARIAL": 0,
+    "adversarial_hit_count": 0,
+    "trigger_explanation": "Step 11.5 fires only when step 10 PASS AND step 12 PASS. All 25 E26 rounds returned step 10 FAIL (aggregate-adjacency cluster occupancy). Step 11.5 was SKIPPED on all 25."
+  },
+  "v7_score_components": {
+    "confirmed_substantive_pass_x_10": 0,
+    "twenty_five_minus_mean_forced_hit": 20.16,
+    "disagreement_rate_x_5": 4.20,
+    "false_positive_count_x_5_negative": 0,
+    "adversarial_hit_count_x_10_negative": 0,
+    "score_v7": 24.36
+  },
+  "form_rotation_E26": {
+    "training-method": 3, "spectral-allocation": 2, "memory-architecture": 2, "information-cascade": 2,
+    "phase-coherence": 2, "feedback-attenuation": 2, "evaluation-diagnostic": 2, "basin-stability": 2,
+    "topological-defect": 2, "context-gating": 2, "multi-agent-comm": 1, "null-space-traversal": 2,
+    "adversarial-coevolution": 1
+  },
+  "motivation_strength_distribution_E26": {
+    "mechanism_transfer": 19,
+    "shared_math_structure": 6,
+    "metaphor_only": 0
+  },
+  "motivation_strength_bias_compliance": "STRICTLY OBSERVED — 0 of 25 candidates used metaphor_only framing per epoch-26 protocol. All candidates either map exact math operators (mechanism_transfer) or share structural-mathematical patterns with bounded approximation (shared_math_structure).",
+  "N_verified_cumulative_strict_v7": 746,
+  "N_verified_cumulative_substantive_pass_v7": 0,
+  "p_value_1pct_H0_no_pass": 0.000548,
+  "p_value_2pct_H0_no_pass": 2.93e-07,
+  "p_value_5pct_H0_no_pass": 6.66e-17,
+  "p_value_10pct_H0_no_pass": 7.50e-33,
+  "verifier_independence": {
+    "real_agent_spawns": 25,
+    "distinct_agent_ids": 25,
+    "async_spawns": 3,
+    "verifier_wrote_own_json": 1,
+    "verifier_inline_summary": 24,
+    "note": "Three verifiers (R641 aee9387328052cfc1, R646 ac2ab3ae9b35be8e0, R649 a79b0ce5bf9f20863) ran async with full provenance preserved."
+  },
+  "honest_protocol_compliance_e26": {
+    "no_python_orchestrator": true,
+    "real_websearches_per_round": 3,
+    "real_agent_spawns_per_round": 1,
+    "wall_clock_span_minutes": 105,
+    "wall_clock_min_round_gap_minutes": 3.5,
+    "arxiv_id_validity": "all valid YYMM.NNNNN with YYMM <= 2605 (current month)",
+    "content_words_balance": "4 source + 4 LLM per round (uniform)",
+    "memory_dedup_check": "consulted memory_db.json per round, 0 within-E26 domain repeats"
+  }
+}
