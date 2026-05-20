@@ -1,0 +1,29 @@
+{
+  "round": "770",
+  "epoch": 31,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R770 is rank by mechanical-PASS proximity in E31 (post-filter architectural candidate with kw=2; tree-stream max sim=0.40). Per program_v10.md §2.5 (preserved in v11/v12), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R770",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "min-plus algebra new attention layer",
+  "v12_classifier_status": "architectural-topology-change (passed step 05.5)",
+  "experiment": {
+    "dataset": {"name": "Long Range Arena (LRA) Pathfinder + ListOps", "preprocessing": "standard"},
+    "base_model": {"name": "Reformer/Linformer baseline (50M params)", "framework": "PyTorch + HuggingFace", "training_budget_minutes_on_T4": 27},
+    "variants": {
+      "A_candidate": {"name": "Tropical (min-plus) attention layer", "description": "Replace softmax attention with min-plus algebra attention: attention weights computed via tropical product (min + add) instead of softmax(QK)V. Sub-quadratic via tropical sparsity.", "distinctive_parameter": "new learnable module's parameters"},
+      "B_control": {"name": "Linear attention (Performer/Linformer)", "description": "Standard linear-attention sub-quadratic baseline", "distinctive_parameter_value": "no new module / same architecture without the new pathway"},
+      "C_baseline": {"name": "Reformer LSH attention (Kitaev 2020)", "reference_paper": "Kitaev 2020 arXiv:2001.04451"}
+    },
+    "metric": {"name": "validation accuracy/BLEU/perplexity across 3 seeds", "seeds": 3},
+    "statistical_test": {"name": "paired t-test A vs B + A vs C", "significance_threshold": "p < 0.05"}
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "true",
+    "rationale": "Tropical attention is algorithmically distinct from softmax/linear/LSH attention (different algebraic structure entirely). Min-plus attention can produce extremely sparse attention patterns by design (dominated by min over keys per query). Expected: distinguishable attention patterns and likely-distinguishable downstream accuracy.",
+    "v12_observation": "Step 05.5 PASS = architectural-topology-change; candidate has a new learnable module with distinct computational signature from baseline. Distinguishability pre-check leans more toward true/uncertain than v11's typical 'uncertain' default."
+  },
+  "budget_compliance": {"total_runtime_minutes_on_T4": 27, "under_30_min_budget": true},
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "R770's architectural-topology candidate (post-v12-step-05.5-PASS) has structurally-distinct mechanism from baseline B. The new learnable module adds a distinct computation graph edge."
+}

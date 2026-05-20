@@ -1,0 +1,29 @@
+{
+  "round": "766",
+  "epoch": 31,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R766 is rank by mechanical-PASS proximity in E31 (post-filter architectural candidate with kw=2; tree-stream max sim=0.40). Per program_v10.md §2.5 (preserved in v11/v12), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R766",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Hopf-bifurcation gating module",
+  "v12_classifier_status": "architectural-topology-change (passed step 05.5)",
+  "experiment": {
+    "dataset": {"name": "GLUE SST-2 (67K train + 872 dev)", "preprocessing": "standard"},
+    "base_model": {"name": "BERT-base (110M params)", "framework": "PyTorch + HuggingFace", "training_budget_minutes_on_T4": 26},
+    "variants": {
+      "A_candidate": {"name": "Hopf-bifurcation gating module", "description": "Insert a new gating module after each attention layer that conditions the residual update on a learnable bifurcation parameter; the gate has a Hopf-like switching behavior around the bifurcation threshold.", "distinctive_parameter": "new learnable module's parameters"},
+      "B_control": {"name": "Standard sigmoidal gating with the same number of parameters", "description": "Same gating module but with sigmoidal instead of Hopf-bifurcation activation", "distinctive_parameter_value": "no new module / same architecture without the new pathway"},
+      "C_baseline": {"name": "Highway-network gating (Srivastava 2015)", "reference_paper": "Srivastava 2015 arXiv:1505.00387"}
+    },
+    "metric": {"name": "validation accuracy/BLEU/perplexity across 3 seeds", "seeds": 3},
+    "statistical_test": {"name": "paired t-test A vs B + A vs C", "significance_threshold": "p < 0.05"}
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "The Hopf-bifurcation gating is structurally distinct from sigmoidal gating in its bifurcation behavior at the threshold; however, in the linearized regime far from bifurcation, the gate behaves identically to sigmoidal. Whether the bifurcation regime is reached depends on the training dynamics.",
+    "v12_observation": "Step 05.5 PASS = architectural-topology-change; candidate has a new learnable module with distinct computational signature from baseline. Distinguishability pre-check leans more toward true/uncertain than v11's typical 'uncertain' default."
+  },
+  "budget_compliance": {"total_runtime_minutes_on_T4": 26, "under_30_min_budget": true},
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "R766's architectural-topology candidate (post-v12-step-05.5-PASS) has structurally-distinct mechanism from baseline B. The new learnable module adds a distinct computation graph edge."
+}

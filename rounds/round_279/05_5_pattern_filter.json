@@ -1,0 +1,42 @@
+{
+  "round": "279",
+  "epoch": 12,
+  "v12_retrofit_epoch": 31,
+  "v12_retrofit_date": "2026-05-20",
+  "v12_retrofit_branch": "claude/build-v12-adversarial-6U2QQ",
+  "trigger_status": "FIRED_RETROSPECTIVE",
+  "trigger_reason": "Retrospective application of v12 step 05.5 mechanical anti-R279 structural filter to R279's existing 05_candidate.json. R279 PTCH (Pan-Tuned Concept Heads) is the canonical R279-pattern candidate (the eponymous case). v12 step 05.5 retrofit validates that the classifier correctly identifies the namesake.",
+  "candidate_classifier_input": {
+    "llm_application": "PTCH (Pan-Tuned Concept Heads): a multi-head attention fine-tuning rule that constrains each head's top-K singular directions (a fundamental + secondary 'overtones') to integer-ratio multiples in the embedding space, regularized by a harmonic-alignment loss; inter-head 'grooves' enforce orthogonality. Each head becomes a single 'note' with explicit harmonic structure.",
+    "K_sub_mechanisms": 5,
+    "sub_mechanisms_from_v7_token_streams": ["M_1 within-head SVD on attention weights", "M_2 top-K singular directions per head", "M_3 integer-ratio target spectrum (the distinctive piece)", "M_4 alignment-loss soft regularization", "M_5 inter-head orthogonality constraint"],
+    "candidate_form": "phase-coherence"
+  },
+  "structural_questions": {
+    "Q1_new_learnable_module": false,
+    "Q1_evidence": "The llm_application does NOT introduce a new learnable module. The 'integer-ratio target spectrum' is a FIXED TARGET (not learnable parameters); the regularization is on EXISTING per-head SVD singular directions (which already exist in baseline LoRA / attention computation). No new matrix, MLP, attention sub-layer, or learnable gate is added.",
+    "Q2_new_inter_layer_connection": false,
+    "Q2_evidence": "PTCH operates WITHIN each head; the 'inter-head grooves' enforce orthogonality between existing heads (a regularization on existing pairwise relationships), not a new pathway. No new edge in the computation graph between previously-disconnected components.",
+    "Q3_layer_topology_change": false,
+    "Q3_evidence": "Same head count (multi-head attention preserved), same layer count, same kernel family (softmax attention unchanged); the regularization loss adds gradient pressure but does not change architectural topology."
+  },
+  "architectural_topology_change": false,
+  "R279_pattern": true,
+  "verdict": "REJECTED_R279_PATTERN",
+  "regeneration_attempted": false,
+  "regeneration_attempted_note": "Retrofit classification only; no regeneration applied retroactively. The classifier's job is to validate that step 05.5 correctly identifies the canonical R279-pattern candidate.",
+  "regenerated_candidate_summary": null,
+  "regenerated_candidate_file": null,
+  "regenerated_candidate_passed_step_05_5": null,
+  "rationale": "R279 PTCH is the CANONICAL R279-pattern candidate (the eponymous case). Per program_v12.md §3.1, R279's llm_application is a soft regularization (harmonic-alignment loss) toward a fixed target spectrum on EXISTING per-head SVD singular directions. Q1=NO (no new learnable module — the 'fundamental + overtone' target is FIXED, not learnable); Q2=NO (inter-head orthogonality is on EXISTING head pairs, not a new pathway); Q3=NO (architectural topology unchanged). All three questions NO → R279_pattern = TRUE → verdict = REJECTED_R279_PATTERN. This is the trivially-correct classification — R279 is the namesake R279-pattern candidate.",
+  "post_filter_candidate_used_downstream": "n/a (retrofit; downstream pipeline already ran under v7/v10/v11)",
+  "honest_classification_note": "Step 05.5 retrofit main-context-direct (deterministic classifier on R279's 05_candidate.json text); no Agent spawn. The classification confirms what v7 step 11.5 + v10 step 13 + v11 step 13.5 found through three orthogonal evidence channels: R279 = PARAMETRIZATION-ONLY (= R279-pattern at the structural level).",
+  "v7_v10_v11_v12_convergence": {
+    "v7_step_11_5_finding": "SORSA/SODA at functional similarity 0.80 covers M_1+M_2+M_4+M_5 (literature evidence)",
+    "v10_step_13_finding": "Distinguishability_pre_check = false (structural-reasoning evidence — M_3 alone differs, collapses under SVD geometry pressure)",
+    "v11_step_13_5_finding": "Adversarial attack: 4/4 attacks succeeded across 4 categories (adversarial-empirical evidence)",
+    "v12_step_05_5_finding": "R279_pattern = TRUE; Q1=Q2=Q3=NO (structural-classifier evidence — no new module, no new connection, no topology change)",
+    "convergence": "FOUR independent channels (v7 lit / v10 struct / v11 adv-empirical / v12 structural-classifier) all converge on R279 = PARAMETRIZATION-ONLY = R279-pattern. v12 adds the fourth orthogonal signal — a mechanical pre-search classification that would have rejected R279 at step 05.5 (saving steps 06-13.5 budget) if v12 had been operational at R279's original execution."
+  },
+  "v12_diagnostic_value": "The R279 retrofit-classifier demonstrates step 05.5's correct behavior on the canonical R279-pattern case. If step 05.5 had been in place at R279's original execution, the candidate would have been rejected pre-search and regenerated; the corpus would have been spared the R279 retrofit-discovery loop entirely. This is the v12 channel's preventive value — catching R279-pattern BEFORE the expensive verifier chain runs."
+}
