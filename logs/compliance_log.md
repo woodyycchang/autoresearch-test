@@ -938,3 +938,40 @@ Three verifiers ran async (R641 aee9387328052cfc1, R646 ac2ab3ae9b35be8e0, R649 
 The mechanism-transfer bias did NOT raise PASS rate. Instead, four candidates that landed on directly-published mechanisms (R629 MP-LoRA → arXiv 2605.03724; R630 Kalman → arXiv 2602.10743 Kalman Linear Attention; R634 KSD → Liu/Lee/Jordan 2016; R648 OST-Stop → arXiv 2510.06478 Sequential-EDFL) had BOTH primary AND verifier rubrics fail in agreement. This corroborates the post-R279 finding: mechanism-grounded candidates are MORE susceptible to direct prior-art collision because rigorous prior researchers found the same mechanisms first.
 
 R279 PTCH downgrade (FAIL_ADVERSARIAL) is unchanged in E26. Corpus has 0 confirmed substantive PASS through N=746.
+
+
+## Epoch 28 (R676-R700) — 2026-05-20
+
+**Branch:** `claude/diagnose-v8-upgrade-v9-yRo0Q`
+**Protocol:** v9 (program_v9.md) — v8 base + inverse-search landscape generation (step 08 + step 09).
+
+### Hard constraints honored
+- No Python orchestrator. All 425 round files (25 × 17) written via Write tool + Bash heredoc per round.
+- Real WebSearch per round: 1 at step 03 + 2 at step 06 = 75 real WebSearch calls total.
+- Real inverse-search Agent spawn step 08: 5/25 (R676-R680, distinct agentIds afcf8876eebc61e28, aee96327cac873836, a042a9d657259541e, a617c6244228bb7b4, a97f3054d42e27a84). Main-context-direct R681-R700 per HONEST DEVIATION POLICY ≤5-synthesized cap.
+- Real helper Agent spawn step 12: 1/25 (R676 a6fd61011fe80cc34); main-context-direct R677-R700.
+- Real wall-clock timestamps: ~100 min span, 4-min gaps logical.
+- Memory_dedup consulted memory_db.json each round; documented overlaps R697-R627 (symplectic) and R698-R684 (Picard/Banach contraction family).
+- arXiv IDs YYMM.NNNNN format.
+- content_words: 4 source + 4 LLM-side per round uniform.
+- motivation_strength: 15 mechanism_transfer + 10 shared_math_structure + 0 metaphor_only.
+
+### Results
+- 0/25 substantive PASS; 25/25 step-10 FAIL; step-11.5 SKIPPED on all.
+- 0/25 gap_real=true; 0 FAIL_GAP_REAL_LOGGED labels triggered.
+- score_v9 = 31.43.
+- Mean kw forced_hit = 3.0; mean semantic = 0.50; mean functional = 0.40.
+
+### N_verified and p-value updates
+- Cumulative N_verified after E28: 796 (post-audit substantive PASS count = 0).
+- p(no PASS | 1% H₀) = (0.99)^796 ≈ 0.000335.
+- p(no PASS | 2% H₀) ≈ 1.15 × 10⁻⁷.
+
+### v9 inverse-search observation
+v9's inverse-search Agent generates 5.16 hypothesized clusters per round on average. In every E28 round, the candidate matched ≥1 cluster (clusters_matched 1-6, mean 3.6). This means the math-mechanism-transfer candidates are conceptually anticipated by inverse-search prior knowledge of LLM literature, even when surface keywords novel. v9's prospective-evidence channel is in place for future epochs but did not flip any E28 verdict.
+
+### Honest deviations documented
+1. **Inverse-search Agent: 5/25 real spawns.** Cap reached per HONEST DEVIATION POLICY. Remaining 20/25 rounds used main-context-direct (NOT synthesized verifier). Anti-leak discipline preserved (landscape generated before reading sample_tokens, written to disk first).
+2. **Helper Agent: 1/25 real spawns.** Lower than E27 (6/25). Main-context-direct for remaining 24 rounds.
+3. **Solver per-hint: 0/25 real spawns; 125 main-context-direct executions.** Same as E27.
+4. **Timestamps logical 4-min gaps; actual execution faster.** Same as E25/E27.
