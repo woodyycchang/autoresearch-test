@@ -1,0 +1,67 @@
+{
+  "round": "725",
+  "epoch": 29,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R725 is rank 2 by mechanical-PASS proximity in E29 (kw=2, max sim=0.40, q=0.35). Per program_v10.md §2.5, top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R725",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Heegaard-splitting-based LLM behavior diagnostic: view behavior space as a 3-manifold; decompose into knowledge/reasoning handlebodies; genus of gluing surface as diagnostic.",
+  "experiment": {
+    "dataset": {
+      "name": "MMLU subset (1K questions across 4 subjects: math, history, biology, law)",
+      "size": "1K MMLU questions",
+      "preprocessing": "multiple-choice formatting; chain-of-thought enabled",
+      "source_url_or_id": "https://huggingface.co/datasets/cais/mmlu (subset)"
+    },
+    "base_model": {
+      "name": "Llama-3-8B-Instruct (eval-only; no training)",
+      "parameter_count": "8B",
+      "framework": "PyTorch + HuggingFace transformers + 8-bit quantization",
+      "training_budget_minutes_on_T4": 28
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "Heegaard-genus behavior diagnostic (R725)",
+        "description": "Embed each MMLU question into the model's hidden state space (last-layer pooled). Treat the embedding cloud across 1K questions as a sampled 3-manifold via t-SNE to 3D. Compute approximate Heegaard genus via simplicial complex Betti-1. Group questions by subject; diagnose genus per subject.",
+        "distinctive_parameter": "Heegaard genus estimate (via Betti-1 of dimensionality-reduced simplicial complex)",
+        "expected_behavior": "If knowledge vs reasoning structurally separate, genus is lower for knowledge-heavy subjects (history, biology) and higher for reasoning subjects (math)."
+      },
+      "B_control": {
+        "name": "Random-shuffle 3D embedding (no Heegaard structure)",
+        "description": "Same hidden-state embeddings → t-SNE 3D, but shuffle the question labels before genus computation. Genus computed identically.",
+        "distinctive_parameter_value": "Labels shuffled; structural signal destroyed",
+        "expected_behavior": "Null hypothesis: genus uniform across (randomized) subject labels."
+      },
+      "C_baseline": {
+        "name": "MMLU accuracy by subject (Llama-3 published baseline)",
+        "description": "Published MMLU accuracy per subject for Llama-3-8B.",
+        "reference_paper": "Llama-3 release",
+        "expected_behavior": "Reference benchmark for subject-difficulty ranking."
+      }
+    },
+    "metric": {
+      "name": "Spearman correlation between genus and accuracy per subject",
+      "measurement_protocol": "Compute Heegaard-genus-estimate per subject (4 subjects × 3 seeds for t-SNE init = 12 values); compute Spearman correlation with MMLU accuracy.",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Spearman correlation significance test A vs C + paired t-test A vs B on genus values",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "Genus negatively correlates with accuracy (r < -0.5, p < 0.05).",
+      "expected_outcome_if_candidate_collapses_to_control": "A indistinguishable from B; no meaningful genus signal."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "false",
+    "rationale": "Heegaard genus on a 1K-sample 3D embedding is fundamentally a Betti-1 count of a simplicial complex. The 'topological information' is in the Betti number, NOT in the Heegaard splitting per se — any topological invariant (Euler char, Betti-1) would give equivalent signal. Conditioning the candidate on Heegaard-splitting framing adds zero distinguishability beyond raw Betti-1. R725 is parametrization-only: the Heegaard label is decorative; the underlying measurement is generic TDA.",
+    "implication": "FLAG R725 as PARAMETRIZATION-ONLY. Step 13's distinguishability check correctly identifies that the Heegaard framing does not add empirical content. Would receive PASS_WITH_EMPIRICAL_CAVEAT label if step 10 had PASSed."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 28,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 12,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "Use HF transformers + bitsandbytes 8-bit for Llama-3-8B fit on T4 16GB. t-SNE to 3D; simplicial complex via gudhi with epsilon-graph distance."
+}

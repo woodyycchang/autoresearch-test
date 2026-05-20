@@ -1,0 +1,67 @@
+{
+  "round": "715",
+  "epoch": 29,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R715 is rank 3 by mechanical-PASS proximity in E29 (kw=2, max sim=0.40, q=0.38). Per program_v10.md §2.5, top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R715",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "An attention-head allocation that views H heads as H edge colorings of a complete graph K_N over the token positions; Ramsey's theorem guarantees existence of monochromatic structure used as a guaranteed coverage criterion.",
+  "experiment": {
+    "dataset": {
+      "name": "Long-range arena (LRA) Pathfinder + ListOps subset",
+      "size": "10K Pathfinder + 5K ListOps",
+      "preprocessing": "tokenize per LRA standard",
+      "source_url_or_id": "https://github.com/google-research/long-range-arena"
+    },
+    "base_model": {
+      "name": "Small transformer (4 layers, 4 heads, 256 hidden) trained from scratch on LRA",
+      "parameter_count": "~10M",
+      "framework": "PyTorch + JAX optional",
+      "training_budget_minutes_on_T4": 25
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "Ramsey-guaranteed head allocation (R715)",
+        "description": "Pre-allocate 4 heads such that for token positions arranged as K_8 (8 positions), R(3,3)=6 guarantees monochromatic triangle in any 2-coloring. With 4 heads as 4-coloring, guarantee monochromatic K_3 sub-structure. Initialize head attention masks to enforce this combinatorial constraint at training start.",
+        "distinctive_parameter": "Head masks initialized via Ramsey-guaranteed monochromatic structure",
+        "expected_behavior": "If Ramsey coverage matters, A achieves lower LRA-Pathfinder error than B at same compute."
+      },
+      "B_control": {
+        "name": "Random head mask initialization",
+        "description": "Identical setup but head masks initialized with random binary masks (same density).",
+        "distinctive_parameter_value": "Random masks, no combinatorial guarantee",
+        "expected_behavior": "Null hypothesis: random initialization matches Ramsey initialization."
+      },
+      "C_baseline": {
+        "name": "Standard transformer (no head-mask init)",
+        "description": "Standard multi-head attention without explicit masking; published LRA baseline.",
+        "reference_paper": "Tay et al. LRA 2011.04006",
+        "expected_behavior": "Published baseline LRA-Pathfinder result."
+      }
+    },
+    "metric": {
+      "name": "LRA-Pathfinder accuracy after 20K training steps",
+      "measurement_protocol": "Train each variant for 20K steps; evaluate on Pathfinder test set. Repeat with 3 seeds.",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Paired t-test A vs B + paired t-test A vs C",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "A significantly outperforms B (Ramsey init has inductive value).",
+      "expected_outcome_if_candidate_collapses_to_control": "A indistinguishable from B; Ramsey initialization is just one specific random init."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Ramsey-guaranteed initialization SHOULD provide an inductive bias toward coverage of token-pair interactions. However, with 4 heads on K_8 positions, the Ramsey guarantee is for monochromatic K_3 (3-token sub-cliques) — which is small relative to LRA-Pathfinder's 1024-token sequences (and any random 4-mask init also covers small sub-cliques densely). The 'guarantee' is theoretically distinct but practically might match random init. Worth running.",
+    "implication": "Worth a pilot run. If A ≈ B, Ramsey guarantee at this scale (small head count, large token count) does not add empirical value over random init."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 25,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 6,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "Small-model training keeps within T4 budget. Use LRA-Pathfinder grid 32x32 (image-classification-as-sequence). Initialize head masks via small Ramsey graph construction (Greenwood-Gleason 1955)."
+}

@@ -1,0 +1,67 @@
+{
+  "round": "708",
+  "epoch": 29,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R708 is rank 1 by mechanical-PASS proximity in E29 (kw=2, tree-stream max sim=0.35, q-rubric=0.38). Step 10 verdict=FAIL (kw=2 ≥ 2) but lowest-FAIL-margin in E29. Per program_v10.md §2.5, top-3 rounds receive full step-13 specs even when step 10 / tree-stream do not formally PASS.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R708",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "A Dirichlet-series-based head-pruning signal that treats per-head importance as series coefficients, analytically continues to special points, and uses the continuation values as a pruning criterion alternative to magnitude or attention-entropy methods.",
+  "experiment": {
+    "dataset": {
+      "name": "GLUE SST-2 (67K train + 872 dev)",
+      "size": "67K train + 872 dev",
+      "preprocessing": "BERT-base tokenization, max length 128",
+      "source_url_or_id": "https://huggingface.co/datasets/glue (SST-2)"
+    },
+    "base_model": {
+      "name": "DistilBERT-base (66M params) with N=72 attention heads (12 layers × 6 heads)",
+      "parameter_count": "66M",
+      "framework": "PyTorch + HuggingFace transformers",
+      "training_budget_minutes_on_T4": 22
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "Dirichlet-continuation prune (R708)",
+        "description": "Form a Dirichlet series D(s) = Σ a_n/n^s using head importance scores a_n. Analytically continue to s=0 and s=1. Prune heads whose individual contribution to D(0) is below epsilon=0.02.",
+        "distinctive_parameter": "Continuation values D(s=0), D(s=1) used as pruning thresholds",
+        "expected_behavior": "If Dirichlet continuation surfaces 'globally unimportant' heads that local magnitude pruning misses, A retains accuracy at higher prune ratio than B."
+      },
+      "B_control": {
+        "name": "Magnitude prune baseline",
+        "description": "Prune heads by L2 norm of attention weights, with random tie-breaking. Same prune ratio as A.",
+        "distinctive_parameter_value": "L2-magnitude threshold, no Dirichlet continuation",
+        "expected_behavior": "Established pruning baseline (Michel 2019); typical accuracy degradation at given prune ratio."
+      },
+      "C_baseline": {
+        "name": "Attention-entropy prune (Voita 2019)",
+        "description": "Prune heads by attention-entropy; lower entropy = more focused.",
+        "reference_paper": "Voita Talbot Sennrich Titov 2019",
+        "expected_behavior": "Published baseline; expected to match or beat magnitude."
+      }
+    },
+    "metric": {
+      "name": "SST-2 dev accuracy at 30% head-prune ratio",
+      "measurement_protocol": "Train DistilBERT for 3 epochs on SST-2, apply pruning, evaluate on dev. Repeat with 3 seeds (42, 137, 271).",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Paired t-test A vs B + paired t-test A vs C",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "A significantly outperforms B AND not significantly worse than C at 30% prune.",
+      "expected_outcome_if_candidate_collapses_to_control": "A indistinguishable from B (Dirichlet continuation amounts to smooth-rescaled magnitude prune)."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Dirichlet-series continuation values D(0), D(1) ARE different from raw magnitude in principle (incorporates global series structure: decay rate, sign pattern). However, for smooth importance distribution (typical case), Dirichlet continuation correlates strongly with magnitude. If importance has sharp/oscillatory structure (alternating large+small heads), continuation surfaces non-local features magnitude misses. If importance is monotone decay (common), continuation ≈ smooth rescaling of magnitude.",
+    "implication": "Worth running as human-in-loop pilot. If A indistinguishable from B, R708 is parametrization-only (R279 pattern)."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 22,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 8,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "Use distilbert-base-uncased. Compute Dirichlet sum via finite truncation N=72; for s=0,1 use direct evaluation (real positive coefficients) or Abel summation for s≤1."
+}
