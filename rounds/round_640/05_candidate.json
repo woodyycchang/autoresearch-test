@@ -1,0 +1,28 @@
+{
+  "round": "640",
+  "epoch": 26,
+  "candidate_form": "multi-agent-comm",
+  "domain": "Mean field game (MFG) theory",
+  "specific_mechanism": "MFG-LLM: Mean-Field-Game policy fine-tuning for multi-LLM-agent populations. Represent the agent population by an empirical state distribution m_t in a low-dim embedding space. Compute discretized MFG equilibrium policy π*(x; m) via fictitious play / proximal-point updates on the coupled HJB-FP system. Each LLM-agent π_i is fine-tuned (via DPO or PPO) against the equilibrium reference π*.",
+  "llm_application": "MFG-LLM: maintain a 32-dim embedding state per LLM-agent (mean output sentiment, expected length, role-vector). Empirical distribution m_t over N agents drives a continuum cost L(x_i, action, m). Solve discretized MFG by alternating: (1) HJB: optimize each agent's value given current m, (2) FP: update m_t+1 by simulating actions of best-response policies. Use π*(x; m) as fine-tuning target for each agent.",
+  "novelty_claim": "Bayesian Nash Equilibrium for LLM-MAS exists (arXiv 2506.08292 ICML 2025); Game-theoretic LLM lens exists (arXiv 2601.15047). MFG-LLM is specifically the N→∞ continuum limit, less explored.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "MFG provides the rigorous PDE framework for N→∞ multi-agent games. The candidate transfers the HJB-FP coupled equilibrium to LLM-agent populations.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Per-agent embedding-state representation","M_2: Empirical mean-field distribution m_t","M_3: Discretized HJB-FP equilibrium solver","M_4: Per-agent fine-tuning toward equilibrium policy π*"],
+  "content_words": [
+    "mean field game theory hjb fokker planck",
+    "continuum agent distribution equilibrium policy",
+    "fictitious play proximal point coupled pde",
+    "n-to-infinity multi agent game",
+    "multi-agent-comm LLM agent population fine-tuning",
+    "DPO PPO reference policy per-agent target",
+    "embedding state per-agent population statistics",
+    "transformer multi-LLM coordination reference"
+  ],
+  "content_words_composition": {
+    "llm_side": ["multi-agent-comm LLM agent population fine-tuning","DPO PPO reference policy per-agent target","embedding state per-agent population statistics","transformer multi-LLM coordination reference"],
+    "source_side": ["mean field game theory hjb fokker planck","continuum agent distribution equilibrium policy","fictitious play proximal point coupled pde","n-to-infinity multi agent game"],
+    "generic": []
+  }
+}

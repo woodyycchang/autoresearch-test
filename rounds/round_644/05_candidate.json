@@ -1,0 +1,26 @@
+{
+  "round":"644","epoch":26,"candidate_form":"null-space-traversal",
+  "domain":"Eikonal equation + fast marching",
+  "specific_mechanism":"EikonalRoute: build a token×layer grid; learned per-token-per-layer speed v(t,l); solve discretized eikonal ‖∇u‖=1/v via fast marching to obtain arrival time u(t,L); route token t to early-exit layer ⌈u(t,L)⌉.",
+  "llm_application":"EikonalRoute: per-token speed v(t,l) is computed from a learned MLP on hidden state h_l(t). Discretize a 2D token×layer grid (N_tokens × L). Run fast-marching (min-heap upwind FD) to obtain u(t,L) for all tokens. Tokens for which u(t,L) ≤ l exit at layer l (early-exit). Auxiliary loss matches u to actual exit decision.",
+  "novelty_claim":"EikoNet (Smith 2020) solves eikonal with NN; Deep Eikonal Solvers extends. EikonalRoute as token-level routing PDE is more specific.",
+  "motivation_strength":"shared_math_structure",
+  "motivation_justification":"Eikonal is a first-order PDE for shortest paths; token-layer grid is a 2D analog. Structural mapping is shared math, not exact mechanism transfer.",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1: Per-token speed v(t,l) MLP","M_2: 2D token-layer grid","M_3: Fast-marching eikonal solve","M_4: Early-exit routing via ⌈u⌉"],
+  "content_words":[
+    "eikonal equation fast marching shortest path",
+    "wavefront propagation arrival time PDE",
+    "token-layer grid speed learned MLP",
+    "early-exit routing arrival time threshold",
+    "null-space-traversal MoE depth routing LLM",
+    "per-token computational depth dynamic exit",
+    "fast marching min-heap upwind finite difference",
+    "transformer layer information path completion"
+  ],
+  "content_words_composition":{
+    "llm_side":["null-space-traversal MoE depth routing LLM","per-token computational depth dynamic exit","transformer layer information path completion","early-exit routing arrival time threshold"],
+    "source_side":["eikonal equation fast marching shortest path","wavefront propagation arrival time PDE","token-layer grid speed learned MLP","fast marching min-heap upwind finite difference"],
+    "generic":[]
+  }
+}

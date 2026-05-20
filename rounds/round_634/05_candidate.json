@@ -1,0 +1,44 @@
+{
+  "round": "634",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:36:30Z",
+  "candidate_form": "evaluation-diagnostic",
+  "domain": "Kernelized Stein Discrepancy (KSD)",
+  "specific_mechanism": "KSD-Drift: Per-prompt RLHF drift diagnostic using kernelized Stein discrepancy. For each prompt x, sample n=64 completions from current policy π_θ and from frozen reference π_ref. Compute embedding-space score function s_ref(y) from π_ref log-probs. KSD²(π_θ, π_ref | x) = (1/n(n-1)) Σ_{i≠j} u_{ref}(y_i,y_j). Bootstrap-calibrated threshold τ_x flags drift. Returns per-prompt drift score for fine-tuning monitoring.",
+  "llm_application": "KSD-Drift evaluation-diagnostic: for each evaluation prompt x, sample n=64 generations from the current policy π_θ. Compute the Stein-kernel u_{ref}(y_i, y_j) using (1) RBF kernel on embed(y) and (2) score s_ref(y) = ∂/∂e log π_ref(y|x) evaluated at the embedding of y under the frozen reference. KSD² statistic forms a per-prompt U-statistic. Bootstrap calibration on null draws gives p-value per prompt. Output: drift map over the eval set highlighting prompts where π_θ has departed from π_ref.",
+  "novelty_claim": "KSD as a per-prompt RLHF drift diagnostic with bootstrap calibration is uncommon. Existing KSD work targets generic goodness-of-fit tests, EBM evaluation, and Stein sampling, not LLM RLHF drift monitoring per prompt.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "KSD is a closed-form proper discrepancy that requires only score function. The candidate transfers the exact U-statistic to LLM evaluation.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Score function s_ref from frozen reference log-probs",
+    "M_2: Stein kernel u_ref on embedding-space pairs",
+    "M_3: U-statistic KSD² estimator per prompt",
+    "M_4: Bootstrap-calibrated per-prompt drift threshold"
+  ],
+  "content_words": [
+    "kernelized stein discrepancy goodness-of-fit u-statistic",
+    "score function reference frozen log probability",
+    "stein kernel embedding pairwise rkhs",
+    "bootstrap null calibration p-value drift threshold",
+    "evaluation-diagnostic per-prompt RLHF drift monitor",
+    "policy reference frozen base LLM comparison",
+    "completion embedding sample distribution distance",
+    "fine-tuning monitoring eval map per-question"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "evaluation-diagnostic per-prompt RLHF drift monitor",
+      "policy reference frozen base LLM comparison",
+      "completion embedding sample distribution distance",
+      "fine-tuning monitoring eval map per-question"
+    ],
+    "source_side": [
+      "kernelized stein discrepancy goodness-of-fit u-statistic",
+      "score function reference frozen log probability",
+      "stein kernel embedding pairwise rkhs",
+      "bootstrap null calibration p-value drift threshold"
+    ],
+    "generic": []
+  }
+}

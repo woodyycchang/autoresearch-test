@@ -1,0 +1,44 @@
+{
+  "round": "631",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:24:10Z",
+  "candidate_form": "information-cascade",
+  "domain": "Wilsonian Renormalization Group (β-function flow)",
+  "specific_mechanism": "RGFP: Renormalization-Group Fixed-Point regularization. For each transformer block l define K effective couplings c_l ∈ R^K via fixed observable functionals (attention spectral radius, MLP output kurtosis, residual entropy, etc.). Across layers compute discrete β_l = c_{l+1}-c_l. Add a regularizer R = Σ_l (c_l - c*)^T Σ_RG^{-1} (c_l - c*) pulling trajectories toward a learnable fixed point c*.",
+  "llm_application": "RGFP regularization: at fine-tuning time, compute K=8 effective couplings per block (spectral radius of attention map, residual stream entropy, MLP kurtosis, sparsity ratio, etc.). β-function estimate per block β_l = c_{l+1}-c_l. Add penalty Σ_l ‖c_l-c*‖²_Σ + ‖β_l‖² to the training loss with strength λ_RG. c* is a learnable per-task fixed-point vector. The intent: enforce that the cross-depth trajectory of effective couplings approaches an RG fixed point typical of well-converged trained transformers.",
+  "novelty_claim": "Multiple papers (AAAI 2025; arXiv 2510.25553; arXiv 2510.06508) treat DNN layers as RG transformations theoretically. But concrete fixed-point regularization on per-layer effective couplings as an explicit training term is less common.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "RG flow IS the mathematical structure of multi-scale coarse-graining. The β-function is the precise algebraic operator. Mechanism transfer is direct, not metaphor.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: K-dim per-layer effective coupling vector c_l",
+    "M_2: Discrete β-function β_l = c_{l+1}-c_l",
+    "M_3: Fixed-point penalty Σ‖c_l-c*‖²",
+    "M_4: Learnable per-task c* fixed point"
+  ],
+  "content_words": [
+    "renormalization group beta function fixed point",
+    "wilsonian effective coupling flow scale",
+    "trajectory regularization across layer depth",
+    "spectral radius attention MLP kurtosis residual entropy",
+    "information-cascade transformer cross-layer drift",
+    "fine-tuning training-loss regularizer per-layer",
+    "fixed-point attractor learnable per-task target",
+    "depth-scale coarse-graining LLM representation"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "information-cascade transformer cross-layer drift",
+      "fine-tuning training-loss regularizer per-layer",
+      "fixed-point attractor learnable per-task target",
+      "depth-scale coarse-graining LLM representation"
+    ],
+    "source_side": [
+      "renormalization group beta function fixed point",
+      "wilsonian effective coupling flow scale",
+      "trajectory regularization across layer depth",
+      "spectral radius attention MLP kurtosis residual entropy"
+    ],
+    "generic": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "round": "629",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:15:00Z",
+  "candidate_form": "spectral-allocation",
+  "domain": "Random Matrix Theory (Marchenko-Pastur law)",
+  "specific_mechanism": "MPSA: Marchenko-Pastur Spectral Allocation. Per attention sub-matrix (W_q, W_k, W_v, W_o), estimate the MP envelope [λ_-, λ_+] given empirical aspect ratio c. Count outlier singular values above λ_+ as `s_l`. Allocate LoRA rank r_l = round(R_total · s_l / Σ s_k) across layers.",
+  "llm_application": "MPSA (Marchenko-Pastur Spectral Allocation) LoRA capacity-allocation rule: at the start of fine-tuning, for each layer l and each of W_q,W_k,W_v,W_o compute empirical eigenvalue distribution; fit MP envelope λ_+(σ²,c); count outliers `s_l = |{σ_i > λ_+(σ²,c)}|`; allocate r_l = round(R_total · s_l / Σ s_k). Pre-trained-layers with thin spectral tail get small LoRA rank (e.g., r=2); layers with rich outliers get r=32.",
+  "novelty_claim": "MP-based allocation of LoRA rank is not standard; existing MP work in LLM context covers pruning (arXiv 2503.01922) and weight-dynamics analysis (arXiv 2507.12709), not as fine-tuning capacity allocator.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "MP distribution IS the rigorous eigenvalue law for random matrices; deviation from MP IS a measure of structural information. Bouchaud-Potters cleaning is the canonical RMT denoising tool applied to weight matrices.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Per-layer MP envelope estimation",
+    "M_2: Outlier-eigenvalue counting s_l",
+    "M_3: Proportional LoRA rank allocation",
+    "M_4: Pre-finetune one-shot calibration"
+  ],
+  "content_words": [
+    "marchenko pastur eigenvalue envelope outlier",
+    "random matrix theory bouchaud potters cleaning",
+    "spectral allocation rank lora per-layer",
+    "fine-tuning capacity budget allocation pre-trained",
+    "spectral-allocation transformer LLM attention",
+    "low-rank adaptation rank assignment per-block",
+    "weight spectrum analysis singular value count",
+    "MP envelope deviation structural information signal"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "fine-tuning capacity budget allocation pre-trained",
+      "spectral-allocation transformer LLM attention",
+      "low-rank adaptation rank assignment per-block",
+      "weight spectrum analysis singular value count"
+    ],
+    "source_side": [
+      "marchenko pastur eigenvalue envelope outlier",
+      "random matrix theory bouchaud potters cleaning",
+      "spectral allocation rank lora per-layer",
+      "MP envelope deviation structural information signal"
+    ],
+    "generic": []
+  }
+}

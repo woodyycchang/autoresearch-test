@@ -1,0 +1,28 @@
+{
+  "round": "637",
+  "epoch": 26,
+  "candidate_form": "training-method",
+  "domain": "Fokker-Planck equation / Langevin SDE",
+  "specific_mechanism": "FP-Temper: Fokker-Planck-Calibrated Tempered SGD. Estimate effective diffusion Σ_batch(θ) from mini-batch gradient variance. Choose target temperature T. Inject corrective Gaussian noise ξ ~ N(0, max(0, T I - Σ_batch) ) so total diffusion = T I. Stationary distribution under FP becomes exp(-L(θ)/T). Anneal T from T_max → T_min as schedule.",
+  "llm_application": "FP-Temper: at each SGD step measure per-coordinate batch-gradient variance σ²_i(θ); inject corrective Gaussian noise ξ_i ~ N(0, max(0, T - σ²_i)) so total per-coord diffusion equals T uniformly. As T anneals over training, the trajectory samples loss valleys at temperature T. Use this to fine-tune toward flat minima by holding T moderate before final T → 0 collapse.",
+  "novelty_claim": "SGLD (Welling-Teh 2011) and SGD-as-Bayesian-Inference (Mandt-Hoffman-Blei 2017) cover the foundational FP-SGD link. FP-Temper's per-coord corrective noise targeting uniform diffusion is a specific instantiation. The broader FP-LLM area is well-covered.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Fokker-Planck IS the PDE of SGD as SDE. The candidate transfers the closed-form Gibbs stationary identity.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Per-coord mini-batch noise variance estimation", "M_2: Corrective Gaussian noise injection", "M_3: Target uniform diffusion T I", "M_4: Annealed T schedule"],
+  "content_words": [
+    "fokker planck equation stationary distribution gibbs",
+    "langevin diffusion drift temperature",
+    "stochastic gradient noise covariance batch",
+    "tempered annealing schedule training",
+    "training-method fine-tuning flat minimum LLM",
+    "per-coordinate noise injection adaptive variance",
+    "Gibbs sample target loss valley exploration",
+    "SGD-as-SDE noise calibration step"
+  ],
+  "content_words_composition": {
+    "llm_side": ["training-method fine-tuning flat minimum LLM","per-coordinate noise injection adaptive variance","Gibbs sample target loss valley exploration","SGD-as-SDE noise calibration step"],
+    "source_side": ["fokker planck equation stationary distribution gibbs","langevin diffusion drift temperature","stochastic gradient noise covariance batch","tempered annealing schedule training"],
+    "generic": []
+  }
+}

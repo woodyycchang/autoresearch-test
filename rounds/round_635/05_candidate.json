@@ -1,0 +1,44 @@
+{
+  "round": "635",
+  "epoch": 26,
+  "timestamp": "2026-05-19T19:40:00Z",
+  "candidate_form": "basin-stability",
+  "domain": "Catastrophe theory / cusp bifurcation",
+  "specific_mechanism": "CUSP-Hyst: Cusp-Hysteresis Basin-Stability Test. Designate two LLM training control variables a, b (e.g., RLHF reward scale and curriculum mixture weight). Run forward sweep training γ_1: (a₀,b₀)→(a₁,b₁); reverse γ_2: (a₁,b₁)→(a₀,b₀). At each (a,b), measure capability score s(a,b; γ). Hysteresis H(a,b) = |s(a,b;γ_1) - s(a,b;γ_2)|. Large H signals fold-bifurcation region (cusp); refuse deploy.",
+  "llm_application": "CUSP-Hyst: pick two training control variables a, b. Train a small probe model along forward path γ_1 = {(a_0+(a_1-a_0)t/N, b_0+(b_1-b_0)t/N) : t∈0..N} and reverse γ_2 = reverse(γ_1). At each control point, evaluate task accuracy s. Compute H = |s_forward - s_reverse| as the hysteresis signal. If H > τ_H anywhere on the sweep, declare the checkpoint inside the cusp region; require additional training to escape before deployment.",
+  "novelty_claim": "Catastrophe-LLM bridge exists (System Theory blog; npj AI 2026 phase-transition compression; arXiv:2502.20779 Triple Phase Transitions). But explicit CUSP-Hyst forward/reverse training sweep for basin-stability deploy gate is less common.",
+  "motivation_strength": "shared_math_structure",
+  "motivation_justification": "Cusp catastrophe is the canonical 2D control-space fold-bifurcation model. LLM scaling shows similar phenomena (Wei 2022; npj AI 2026). The structural mapping is shared math, not exact mechanism transfer.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": [
+    "M_1: Choice of two control variables (a, b)",
+    "M_2: Forward+reverse training sweep paths γ_1, γ_2",
+    "M_3: Hysteresis H = |s_fwd - s_rev|",
+    "M_4: Threshold τ_H deploy gate"
+  ],
+  "content_words": [
+    "cusp catastrophe fold bifurcation control parameter",
+    "thom classification structural stability hysteresis",
+    "forward reverse sweep path hysteresis measurement",
+    "deployment gate basin stability checkpoint threshold",
+    "basin-stability emergent capability transition LLM",
+    "training control variables curriculum reward scale",
+    "phase transition discontinuity training checkpoint",
+    "capability monitor refuse-to-deploy probe"
+  ],
+  "content_words_composition": {
+    "llm_side": [
+      "basin-stability emergent capability transition LLM",
+      "training control variables curriculum reward scale",
+      "phase transition discontinuity training checkpoint",
+      "capability monitor refuse-to-deploy probe"
+    ],
+    "source_side": [
+      "cusp catastrophe fold bifurcation control parameter",
+      "thom classification structural stability hysteresis",
+      "forward reverse sweep path hysteresis measurement",
+      "deployment gate basin stability checkpoint threshold"
+    ],
+    "generic": []
+  }
+}

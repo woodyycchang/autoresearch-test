@@ -1,0 +1,21 @@
+{
+  "round": "630",
+  "verifier_agent_id": "a0f375023970e8013",
+  "verifier_model": "claude-opus-4-7-fresh-context",
+  "verifier_verdict": "FAIL",
+  "verifier_rubric": "per-paper joint coverage of all K=4 candidate sub-mechanisms",
+  "verifier_disagreement_with_primary": false,
+  "verifier_disagreement_count": 0,
+  "per_paper_joint_coverage_scores": [
+    {"rank": 1, "url": "https://ieeexplore.ieee.org/document/10674771/", "joint_coverage": 0.50},
+    {"rank": 2, "url": "https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2024.1460255/full", "joint_coverage": 0.44},
+    {"rank": 3, "url": "https://arxiv.org/abs/2512.16723", "joint_coverage": 0.75},
+    {"rank": 4, "url": "https://arxiv.org/abs/2410.16546", "joint_coverage": 0.13},
+    {"rank": 5, "url": "https://arxiv.org/abs/2602.10743", "joint_coverage": 1.00},
+    {"rank": 6, "url": "https://arxiv.org/abs/2601.06100", "joint_coverage": 0.88},
+    {"rank": 7, "url": "https://arxiv.org/abs/2410.12876", "joint_coverage": 0.06},
+    {"rank": 8, "url": "https://arxiv.org/abs/2502.03805", "joint_coverage": 0.06}
+  ],
+  "max_joint_coverage": 1.00,
+  "rationale": "Kalman Linear Attention (arXiv 2602.10743, Feb 2026) jointly covers all four sub-mechanisms with full match: posterior Gaussian belief state, per-token Kalman update in information form, precision recursion, and uncertainty-derived (precision-ratio) gating. The KCSC proposal is the same mechanism repositioned as KV-cache. Verifier AGREES with primary FAIL — no Pattern E disagreement on this round."
+}

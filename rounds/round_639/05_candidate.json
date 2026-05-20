@@ -1,0 +1,28 @@
+{
+  "round": "639",
+  "epoch": 26,
+  "candidate_form": "context-gating",
+  "domain": "Reproducing Kernel Hilbert Space (RKHS) / Mercer's theorem",
+  "specific_mechanism": "RKHS-BG: Mercer Modal-Energy Bandwidth Gate. Over a calibration sample of context tokens, compute the empirical Gram matrix G_ij = exp(<x_i,x_j>/√d). Compute top-r Mercer modes (λ_i, φ_i). Modal energy ratio E_r(x) = (Σ_{i≤r} λ_i φ_i(x)²)/(Σ_i λ_i φ_i(x)²) is computed per-token. Per-token softmax temperature τ_t = τ_0 / (1 + α E_r(x_t)) sharpens attention for high-modal-energy tokens.",
+  "llm_application": "RKHS-BG context-gating: at training start, fit top-r Mercer modes of the kernel matrix on a calibration prompt batch. At each forward pass, compute per-token modal energy E_r. Adapt the per-token softmax temperature τ_t for attention so high-E_r tokens get sharper attention. The intent: tokens in well-approximated low-rank regions get sharp, peaked attention; high-rank (off-manifold) tokens get diffuse attention.",
+  "novelty_claim": "Hierarchical Kernel Transformer (2604.08829) and Sparse Attention as Compact Kernel Regression (2601.22766) are adjacent. The Mercer modal-energy specifically as a per-token bandwidth gate is less common.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "Attention is kernel regression; Mercer's theorem gives the eigendecomposition. The candidate transfers the modal-energy ratio directly as a temperature controller.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Empirical Gram matrix over calibration batch","M_2: Top-r Mercer eigendecomposition","M_3: Per-token modal energy ratio E_r","M_4: Per-token softmax-temperature adapter"],
+  "content_words": [
+    "rkhs reproducing kernel hilbert space mercer",
+    "mercer eigendecomposition modal energy ratio",
+    "empirical gram matrix calibration sample top-r",
+    "per-token softmax temperature adaptation",
+    "context-gating attention bandwidth transformer LLM",
+    "kernel regression interpretation softmax",
+    "low-rank approximation attention head context",
+    "per-token diffuse vs sharp attention adapter"
+  ],
+  "content_words_composition": {
+    "llm_side": ["context-gating attention bandwidth transformer LLM","kernel regression interpretation softmax","low-rank approximation attention head context","per-token diffuse vs sharp attention adapter"],
+    "source_side": ["rkhs reproducing kernel hilbert space mercer","mercer eigendecomposition modal energy ratio","empirical gram matrix calibration sample top-r","per-token softmax temperature adaptation"],
+    "generic": []
+  }
+}

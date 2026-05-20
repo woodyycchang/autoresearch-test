@@ -1,0 +1,28 @@
+{
+  "round": "641",
+  "epoch": 26,
+  "candidate_form": "information-cascade",
+  "domain": "Stein Variational Gradient Descent (SVGD)",
+  "specific_mechanism": "LayerSVGD: treat per-layer hidden states {h_l : l∈1..L} as SVGD particles. For each batch, compute layer-wise Stein update φ*_l(h_l) = (1/L) Σ_{l'} [k(h_{l'}, h_l) s(h_{l'}) + ∇_{h_{l'}} k(h_{l'}, h_l)] with RBF kernel and learned score s(h) = ∇ log p_target. Add λ_S φ*_l as an auxiliary residual contribution at each layer.",
+  "llm_application": "LayerSVGD residual: at each transformer layer l, in addition to standard residual update h_{l+1} = h_l + Attention(h_l) + FFN(h_l), add an SVGD-style update Δh_l = λ_S φ*_l(h_l) where φ*_l = (1/L) Σ_{l'} [k(h_{l'}, h_l) s_θ(h_{l'}) + ∇k(h_{l'}, h_l)]. Learned score network s_θ produces gradients of log-target prior. The intent: enforce cross-layer diversity (via repulsion term) and alignment to a learned prior (via attraction term).",
+  "novelty_claim": "SVGD foundation (Liu-Wang 2016 arXiv 1608.04471) exists; SVGD with transformer (Springer 2025) uses SVGD as final output layer not as cross-layer residual. LayerSVGD as per-layer Stein-particle update is more specific.",
+  "motivation_strength": "mechanism_transfer",
+  "motivation_justification": "SVGD update is a closed-form algorithm with Stein-kernel construction. The candidate transfers the per-particle Stein update to per-layer hidden state.",
+  "K_sub_mechanisms": 4,
+  "sub_mechanisms": ["M_1: Per-layer hidden state as SVGD particle","M_2: RBF kernel pairwise update between layers","M_3: Learned score s_θ(h)","M_4: Auxiliary residual contribution λ_S φ*"],
+  "content_words": [
+    "stein variational gradient descent svgd kernel",
+    "particle pairwise update rbf attraction repulsion",
+    "score function target prior log probability",
+    "auxiliary residual cross-layer regularizer",
+    "information-cascade transformer per-layer hidden state LLM",
+    "diversity alignment representation depth",
+    "layer-wise cascade pairwise interaction LLM",
+    "learned score network gradient flow per-layer"
+  ],
+  "content_words_composition": {
+    "llm_side": ["information-cascade transformer per-layer hidden state LLM","diversity alignment representation depth","layer-wise cascade pairwise interaction LLM","learned score network gradient flow per-layer"],
+    "source_side": ["stein variational gradient descent svgd kernel","particle pairwise update rbf attraction repulsion","score function target prior log probability","auxiliary residual cross-layer regularizer"],
+    "generic": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "round": "628",
+  "verifier_agent_id": "a9086a5f0b555d6c2",
+  "verifier_model": "claude-opus-4-7-fresh-context",
+  "verifier_verdict": "PASS",
+  "verifier_rubric": "per-paper joint coverage of all K=4 candidate sub-mechanisms",
+  "verifier_disagreement_with_primary": true,
+  "verifier_disagreement_count": 6,
+  "per_paper_joint_coverage_scores": [
+    {"rank": 1, "url": "https://arxiv.org/abs/2602.01685", "joint_coverage": 0.0, "covered_sub_mechanisms": ["M_1_partial", "M_2_partial"]},
+    {"rank": 2, "url": "https://arxiv.org/abs/2502.06061", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 5, "url": "https://arxiv.org/abs/2205.13098", "joint_coverage": 0.0, "covered_sub_mechanisms": ["M_2"]},
+    {"rank": 6, "url": "https://arxiv.org/abs/2402.16821", "joint_coverage": 0.0, "covered_sub_mechanisms": []},
+    {"rank": 8, "url": "https://arxiv.org/abs/2601.12415", "joint_coverage": 0.0, "covered_sub_mechanisms": ["M_3_partial"]},
+    {"rank": 9, "url": "https://openreview.net/pdf/34614c3d3ac95fcfe06bce943b377a0fd7f14cce.pdf", "joint_coverage": 0.25, "covered_sub_mechanisms": ["M_2_partial", "M_4_partial"]}
+  ],
+  "max_joint_coverage": 0.25,
+  "rationale": "Strong adjacencies (OPO, Wasserstein Proximal Policy Gradient, WPR) cover disjoint sub-mechanism subsets but no single paper combines null-space projection against g_W with W1-budget trigger. Verifier raises caveat that targeted follow-up query for 'null-space projection + Wasserstein + RLHF' is warranted. Pattern E preserved (primary FAIL aggregate vs verifier PASS per-paper)."
+}
