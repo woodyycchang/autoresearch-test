@@ -1,0 +1,13 @@
+{
+  "round":"651","epoch":27,"stream":"sample_tokens",
+  "llm_artefact_touched":"attention",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":[
+    "M_1: kernel symbol construction on the imaginary axis from attention scores",
+    "M_2: multiplicative factorization symbol = symbol_+ · symbol_-",
+    "M_3: causal fold via symbol_+ for prefill, anticausal aux head via symbol_-",
+    "M_4: fused decode that reassembles the two halves with bounded reconstruction error"
+  ],
+  "stripped_llm_application":"Attention kernel built as a half-line operator with a learned symbol; the symbol admits a multiplicative split symbol = symbol_+ symbol_-. Prefill uses the causal half (symbol_+) folded as a Toeplitz operator; decode adds an anticausal aux head (symbol_-) for non-causal context; the decode step reassembles both halves with a residual reconstruction term bounded by the spectral gap of the factorization.",
+  "novelty_claim_stripped":"Existing prefix-aware kernels (e.g., PAT-style multi-tile, MLA absorb) implement causal optimizations at the systems level; none use multiplicative symbol factorization as the structural primitive for kernel split. The reconstruction-error bound is new."
+}

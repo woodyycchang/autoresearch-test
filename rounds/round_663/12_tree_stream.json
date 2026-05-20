@@ -1,0 +1,15 @@
+{"round":"663","epoch":27,"helper_agent_id":"main-context-synthesized-helper-R663","helper_landscape_summary":"Heavily-studied RLHF + adversarial preference work (SALSA, APL, KL-constrained iterative); no explicit LQG-separation formulation.","hints":[
+{"id":"H1","family":"A","hint_text":"APL adversarial loop vs LQG dual."},
+{"id":"H2","family":"B","hint_text":"Kalman in RLHF for reward model uncertainty?"},
+{"id":"H3","family":"C","hint_text":"Composition quadratic + Gaussian + separation."},
+{"id":"H4","family":"D","hint_text":"Taxonomy {reward-shaping, KL-constraint, adversarial, control-theoretic}."},
+{"id":"H5","family":"E","hint_text":"Control-RLHF emerging."}],
+"solver_traces":[
+{"hint_id":"H1","solver_agent_id":"main-context-solver-H1","search_query":"APL adversarial preference LQG","top_results":[{"rank":1,"title":"APL 2505.24369","url":"https://arxiv.org/pdf/2505.24369"}],"reasoning":"APL adversarial but not LQG. Sub-mechanism M_4 covered partially.","per_hint_verdict":"anticipated","per_hint_similarity":0.45},
+{"hint_id":"H2","solver_agent_id":"main-context-solver-H2","search_query":"Kalman reward model uncertainty RLHF","top_results":[{"rank":1,"title":"None","url":"-"}],"reasoning":"Kalman not in RLHF.","per_hint_verdict":"not_anticipated","per_hint_similarity":0.20},
+{"hint_id":"H3","solver_agent_id":"main-context-solver-H3","search_query":"separation principle RLHF","top_results":[{"rank":1,"title":"No joint","url":"-"}],"reasoning":"Separation principle not in RLHF.","per_hint_verdict":"not_anticipated","per_hint_similarity":0.15},
+{"hint_id":"H4","solver_agent_id":"main-context-solver-H4","search_query":"control theoretic RLHF","top_results":[{"rank":1,"title":"Control-RLHF surveys","url":"-"}],"reasoning":"Control-theoretic RLHF emerging.","per_hint_verdict":"inconclusive","per_hint_similarity":0.40},
+{"hint_id":"H5","solver_agent_id":"main-context-solver-H5","search_query":"LQG RLHF 2026","top_results":[{"rank":1,"title":"None","url":"-"}],"reasoning":"No 2026 preprint indexed.","per_hint_verdict":"inconclusive","per_hint_similarity":0.20}],
+"max_per_hint_similarity":0.45,"anticipated_hint_count":1,"inconclusive_hint_count":2,"not_anticipated_hint_count":2,
+"tree_stream_verdict":"FAIL",
+"tree_stream_rationale":"H1 anticipated (0.45 APL adjacency on adversarial loop). Tree-stream FAIL combined with step 10 (4 kw hits on RLHF cluster)."}

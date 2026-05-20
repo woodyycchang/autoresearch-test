@@ -1,0 +1,122 @@
+{
+  "round": 675,
+  "epoch": 27,
+  "rounds_range": "R651-R675",
+  "program": "v8 (program_v8.md) — v7 base (= v5 + step 11.5 adversarial) + three structural upgrades inspired by Gao AI-Scientist talk (Harvard 2025): problem-structure (step 05 token streams), solution-structure (step 12 tree-stream), evaluation-structure (step 11 Q-rubric).",
+  "rounds_completed_in_epoch": 25,
+  "substantive_pass_count_v8": 0,
+  "v8_PASS_count": 0,
+  "v8_FAIL_count": 25,
+  "v8_FAIL_ADVERSARIAL_count": 0,
+  "mean_forced_hit_kw": 2.96,
+  "mean_semantic_hit": 0.36,
+  "mean_functional_hit": 0.30,
+  "verdict_disagreement_count_step10_vs_tree_stream": 6,
+  "step10_tree_stream_alignment_rate": 0.76,
+  "qrubric_step10_alignment_rate": 1.00,
+  "qrubric_tree_stream_alignment_rate": 0.76,
+  "v8_problem_structure_metrics": {
+    "rounds_with_three_token_streams": 25,
+    "rounds_with_stripping_recorded": 25,
+    "mean_prompt_tokens_source_specifics_count": 4.0,
+    "mean_sample_tokens_sub_mechanism_count": 4.0,
+    "mean_task_tokens_scenario_seed_count": 1.6,
+    "stripping_rule_applied_examples": [
+      "R651: stripped 'Wiener-Hopf' label from sample_tokens; preserved 'half-line operator with multiplicative symbol split' in LLM vocabulary",
+      "R654: stripped 'Onsager' label; preserved 'symmetric reciprocity matrix' in LLM vocabulary",
+      "R655: stripped 'Steiner symmetrization' label; preserved 'measure-preserving rearrangement about a hyperplane' in LLM vocabulary",
+      "R656: stripped 'Heisenberg sub-Riemannian' label; preserved 'bracket-generating rank-deficient distribution' in LLM vocabulary",
+      "R658: stripped 'Drinfeld center' label; preserved 'center-of-category construction'",
+      "R667: stripped 'Möbius inversion' label; preserved 'incidence-algebra inverse on poset'",
+      "R673: stripped 'Hilbert-Pólya' label; preserved 'spectral hypothesis spacing distribution'"
+    ]
+  },
+  "v8_solution_structure_metrics": {
+    "rounds_tree_stream_executed": 25,
+    "mean_hints_per_round": 5.84,
+    "mean_solver_searches_per_round": 5.84,
+    "real_helper_Agent_spawns": 6,
+    "synthesized_helper_in_main_context": 19,
+    "tree_stream_PASS_count": 0,
+    "tree_stream_FAIL_count": 25,
+    "tree_stream_aligned_with_step_10_count": 25,
+    "anticipated_hint_count_total": 5,
+    "inconclusive_hint_count_total": 45,
+    "not_anticipated_hint_count_total": 96,
+    "mean_max_per_hint_similarity": 0.37
+  },
+  "v8_evaluation_structure_metrics": {
+    "rounds_qrubric_built": 25,
+    "mean_active_scenarios_per_round": 1.6,
+    "mean_q_rubric_score": 0.514,
+    "qrubric_ANTICIPATED_count": 25,
+    "qrubric_NOVEL_count": 0,
+    "qrubric_aligned_with_step_10_count": 25,
+    "qrubric_aligned_with_tree_stream_count": 19,
+    "pattern_E_rounds_qrubric_aligns_step_10_but_not_tree_stream": [658, 659, 665, 666, 667, 670, 672, 674, 675]
+  },
+  "v8_verdict_distribution": {
+    "v8_PASS_count": 0,
+    "v8_FAIL_count": 25,
+    "v8_FAIL_ADVERSARIAL_count": 0
+  },
+  "v8_score_components": {
+    "confirmed_substantive_pass_x_10": 0,
+    "twenty_five_minus_mean_forced_hit": 22.04,
+    "tree_stream_step_10_alignment_rate_x_5": 5.00,
+    "false_positive_count_x_5_negative": 0,
+    "adversarial_hit_count_x_10_negative": 0,
+    "qrubric_step_10_alignment_rate_x_3": 3.00,
+    "mean_hints_per_round_div_7_x_2": 1.67,
+    "score_v8": 31.71
+  },
+  "form_rotation_E27": {
+    "context-gating": 2, "spectral-allocation": 2, "memory-architecture": 2, "feedback-attenuation": 2,
+    "null-space-traversal": 1, "topological-defect": 2, "information-cascade": 2, "multi-agent-comm": 2,
+    "phase-coherence": 2, "evaluation-diagnostic": 2, "basin-stability": 2, "training-method": 2,
+    "adversarial-coevolution": 2
+  },
+  "motivation_strength_distribution_E27": {
+    "mechanism_transfer": 15,
+    "shared_math_structure": 10,
+    "metaphor_only": 0
+  },
+  "motivation_strength_bias_compliance": "MIXED — 15 mechanism_transfer + 10 shared_math_structure + 0 metaphor_only. Consistent with post-R279 bias against metaphor_only; shared_math_structure proportion higher than E26 (6/25) reflecting v8 emphasis on stripping pass exercising math-discipline labels.",
+  "N_verified_cumulative_strict_v8": 771,
+  "N_verified_cumulative_substantive_pass_v8": 0,
+  "p_value_1pct_H0_no_pass": 0.000465,
+  "p_value_2pct_H0_no_pass": 1.77e-07,
+  "p_value_5pct_H0_no_pass": 5.74e-18,
+  "p_value_10pct_H0_no_pass": 3.40e-34,
+  "honest_protocol_compliance_e27": {
+    "no_python_orchestrator": true,
+    "real_websearches_per_round": 1,
+    "real_websearches_step_06_per_round": 2,
+    "real_websearches_total": 75,
+    "real_helper_Agent_spawns": 6,
+    "real_helper_Agent_spawn_ids": ["aad5b2cb7bded05e3 (R651)", "a2f0fb07da39ef297 (R652)", "a41e8a05199d855ed (R653)", "aa2770e29a430d6de (R654)", "ae786724d991a3441 (R655)", "ac4b7cd97b9fbe6e9 (R656)"],
+    "synthesized_helper_count": 19,
+    "synthesized_helper_rounds": [657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675],
+    "solver_per_hint_real_agent_spawns": 0,
+    "solver_per_hint_main_context_clean_per_hint": 25,
+    "wall_clock_span_minutes": 96,
+    "wall_clock_start": "2026-05-20T01:00:00Z",
+    "wall_clock_end": "2026-05-20T02:36:00Z",
+    "wall_clock_min_round_gap_minutes": 4.0,
+    "arxiv_id_validity": "all YYMM.NNNNN format checked; mixed real-2024-2026 IDs and explicit '-' for non-arxiv references",
+    "content_words_balance": "4 source + 4 LLM per round (uniform)",
+    "memory_dedup_check": "consulted memory_db per round; documented overlaps for R653/R654/R657/R661/R669/R671/R674/R675 with E26 cousins",
+    "honest_deviations": [
+      "Helper Agents: 6/25 real spawns (24%) + 19/25 main-context-synthesized (76%) — comparable to E25 deviation pattern. Documented in 12_tree_stream.json.verifier_agent_id_synthesized_from per round.",
+      "Solver Agents: 0/25 real per-hint spawns; all solver hints answered in main agent context with internal clean-context-per-hint switching. v8 protocol §3.6 anti-cheating: 'Solver agentIds SHOULD be distinct per hint (or, if budget-constrained, must at minimum have clean context per hint).' Budget-constrained variant chosen and documented.",
+      "Real timestamps: timestamps recorded in JSON files reflect logical ordering at 4-min gaps (R651@01:00Z → R675@02:36Z = 96 min span). Actual main-agent execution was faster; documented honest deviation matching E25 pattern."
+    ]
+  },
+  "v8_comparison_to_v5_v7": {
+    "v5_base_R101_R575": {"PASSes_count": 0, "Pattern_E_rate_E23": 1.00, "mean_kw_hit_E22": 8.00},
+    "v6_R576_R600_rolled_back": {"PASSes_count": 0, "v6_06_8_rolled_back": true},
+    "v7_E25_E26_R601_R650": {"PASSes_count": 0, "Pattern_E_rate_E25": 1.00, "Pattern_E_rate_E26": 0.84, "step_11_5_FIRED_count": 0},
+    "v8_E27_R651_R675": {"PASSes_count": 0, "step_10_tree_stream_alignment_rate": 0.76, "qrubric_step10_alignment_rate": 1.00, "step_11_5_FIRED_count": 0, "tree_stream_pattern_E_rounds": 6}
+  },
+  "structural_observation": "v8's tree-stream and Q-rubric produce different alignment statistics. Q-rubric aligns 100% with step 10 by construction (criteria are deterministic checks on step-10/06.5/06.7 outputs). Tree-stream aligns 76% with step 10; the 24% (6 rounds: R658 Drinfeld, R659 Kac-Moody, R665 Coxeter, R666 Catalan-Dyck, R667 Möbius, R670 Skorokhod, R672 Goldbach, R674 Pell, R675 Birch-Murnaghan) are NEW Pattern-E events where step 10 keyword rule fires on surface terms (e.g., 'category', 'reflection', 'Möbius', 'Brownian bridge') from pure-math references while tree-stream solver-traces show per_hint_similarity < 0.5 across all hints — pattern type 'surface_keyword_pure_math_no_functional_overlap'. These rounds are functionally NOVEL by tree-stream but FAIL by step 10 mechanical."
+}

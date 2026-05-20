@@ -1,0 +1,14 @@
+{
+  "round":"651","epoch":27,"stream":"task_tokens",
+  "audit_question":"Is this LLM mechanism anticipated by 2024-2026 prior art under different vocabulary?",
+  "evaluation_axes":["functional_anticipation","sub_mechanism_coverage","vocabulary_obfuscation_risk"],
+  "scenario_seeds":[
+    "S_capability: long-context attention factorization at decoder",
+    "S_efficiency: prefill/decode disaggregation kernel split"
+  ],
+  "criteria_seeds":[
+    "at least 1 paper at functional_similarity >= 0.7",
+    "K-1 of K=4 sub-mechanisms jointly covered by a single paper",
+    "stripped llm_application surfaces prior art via solver-trace"
+  ]
+}
