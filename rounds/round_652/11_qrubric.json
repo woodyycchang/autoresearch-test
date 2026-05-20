@@ -1,0 +1,24 @@
+{"round":"652","epoch":27,"active_scenarios":["S_capability","S_efficiency"],"scenarios":[
+{"scenario_id":"S_capability","scenario_rationale":"MoE specialization preservation under load balancing.","perspectives":[
+{"perspective_id":"P_prior_art","criteria":[
+{"id":"C1","weight":0.5,"check":"kw_overlap_max>=2","fired":true,"evidence_field":"07_hit_miss kw_max=4 EMoE"},
+{"id":"C2","weight":0.3,"check":"sem_max>=0.7","fired":true,"evidence_field":"06_5 sem_max=0.72"},
+{"id":"C3","weight":0.2,"check":"func_max>=0.7","fired":false,"evidence_field":"06_7 func_max=0.65"}],"perspective_score":0.8},
+{"perspective_id":"P_obfuscation","criteria":[
+{"id":"C1","weight":0.5,"check":"metaphor_only","fired":false,"evidence_field":"mechanism_transfer"},
+{"id":"C2","weight":0.5,"check":"stripping applied","fired":true,"evidence_field":"yes"}],"perspective_score":0.5},
+{"perspective_id":"P_composition","criteria":[
+{"id":"C1","weight":0.6,"check":"K-1 covered","fired":false,"evidence_field":"max 2/4 sub-mechs by Sinkhorn"},
+{"id":"C2","weight":0.4,"check":"eigenbasis+routing+balance published","fired":true,"evidence_field":"EMoE+Sinkhorn jointly cover the triple"}],"perspective_score":0.4},
+{"perspective_id":"P_evidence","criteria":[
+{"id":"C1","weight":0.5,"check":"step 06 >=3 results","fired":true,"evidence_field":"8 results"},
+{"id":"C2","weight":0.5,"check":"total_hits>=1","fired":true,"evidence_field":"5"}],"perspective_score":1.0}],"scenario_score":0.675},
+{"scenario_id":"S_efficiency","scenario_rationale":"Balanced expert load.","perspectives":[
+{"perspective_id":"P_prior_art","criteria":[
+{"id":"C1","weight":0.5,"check":"kw_max>=2","fired":true,"evidence_field":"EMoE"},
+{"id":"C2","weight":0.3,"check":"sem_max>=0.7","fired":true,"evidence_field":"0.72"},
+{"id":"C3","weight":0.2,"check":"func_max>=0.7","fired":false,"evidence_field":"0.65"}],"perspective_score":0.8},
+{"perspective_id":"P_obfuscation","criteria":[{"id":"C1","weight":0.5,"check":"metaphor_only","fired":false,"evidence_field":"-"},{"id":"C2","weight":0.5,"check":"stripping","fired":true,"evidence_field":"yes"}],"perspective_score":0.5},
+{"perspective_id":"P_composition","criteria":[{"id":"C1","weight":0.6,"check":"K-1","fired":false,"evidence_field":"-"},{"id":"C2","weight":0.4,"check":"composition","fired":true,"evidence_field":"jointly covered"}],"perspective_score":0.4},
+{"perspective_id":"P_evidence","criteria":[{"id":"C1","weight":0.5,"check":">=3","fired":true,"evidence_field":"yes"},{"id":"C2","weight":0.5,"check":">=1","fired":true,"evidence_field":"5"}],"perspective_score":1.0}],"scenario_score":0.675}],
+"q_rubric_score":0.675,"q_rubric_verdict":"ANTICIPATED","q_rubric_aligns_with_step_10":true,"q_rubric_aligns_with_step_12_tree_stream":true}

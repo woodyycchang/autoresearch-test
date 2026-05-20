@@ -1,0 +1,14 @@
+{
+  "round":"651","epoch":27,"v8_index":true,
+  "prompt_tokens_file":"05_prompt_tokens.json","sample_tokens_file":"05_sample_tokens.json","task_tokens_file":"05_task_tokens.json",
+  "domain":"Wiener-Hopf operator theory",
+  "candidate_form":"context-gating",
+  "specific_mechanism":"WH-Attn: split self-attention kernel symbol into causal+anticausal factors via Wiener-Hopf multiplicative factorization; causal half handles prefill, anticausal aux handles non-causal context.",
+  "llm_application":"Attention kernel built as a half-line operator with learned symbol; symbol = symbol_+ symbol_-; prefill via symbol_+, decode adds anticausal aux head via symbol_-; reassembly with bounded reconstruction error.",
+  "novelty_claim":"PAT/TyphoonMLA optimize prefix/prefill at the systems level; none use multiplicative symbol factorization as primitive.",
+  "motivation_strength":"mechanism_transfer",
+  "K_sub_mechanisms":4,
+  "sub_mechanisms":["M_1 kernel symbol","M_2 W-H factorization","M_3 causal/anticausal dual fold","M_4 fused decode + reconstruction-error bound"],
+  "content_words":["wiener hopf factorization operator symbol","hardy space half line attention kernel","riemann hilbert decomposition softmax","toeplitz finite section causal fold","prefix aware kernel attention transformer","mixed naive absorb MLA prefill decode","causal anticausal dual head","fused decode reconstruction error bound"],
+  "content_words_composition":{"source_side":["wiener hopf factorization operator symbol","hardy space half line attention kernel","riemann hilbert decomposition softmax","toeplitz finite section causal fold"],"llm_side":["prefix aware kernel attention transformer","mixed naive absorb MLA prefill decode","causal anticausal dual head","fused decode reconstruction error bound"],"generic":[]}
+}

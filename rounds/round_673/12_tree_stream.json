@@ -1,0 +1,15 @@
+{"round":"673","epoch":27,"helper_agent_id":"main-context-synthesized-helper-R673","helper_landscape_summary":"LapEigvals (2502.17598) directly uses top-k Laplacian eigvals as hallucination probe; closely adjacent. Spectral-Graph framework (2508.19366).","hints":[
+{"id":"H1","family":"A","hint_text":"LapEigvals already uses eigvals - is spacing-distribution test sufficient novelty?"},
+{"id":"H2","family":"B","hint_text":"Hilbert-Pólya spectral hypothesis applied to NN spectrum?"},
+{"id":"H3","family":"C","hint_text":"Composition Laplacian + GUE/GOE + flag."},
+{"id":"H4","family":"D","hint_text":"Hallucination taxonomy."},
+{"id":"H5","family":"E","hint_text":"RMT-attention hallucination 2026."}],
+"solver_traces":[
+{"hint_id":"H1","solver_agent_id":"main-context-solver-H1","search_query":"LapEigvals spacing distribution hypothesis","top_results":[{"rank":1,"title":"LapEigvals 2502.17598","url":"https://arxiv.org/html/2502.17598v2"}],"reasoning":"LapEigvals feeds top-k eigvals as features; does NOT explicitly test GUE/GOE spacing distribution. Functional sub-mechanisms M_1+M_2 covered (2/4); HP spacing test M_3 NOT covered.","per_hint_verdict":"anticipated","per_hint_similarity":0.60},
+{"hint_id":"H2","solver_agent_id":"main-context-solver-H2","search_query":"Hilbert Polya spectral hypothesis NN","top_results":[{"rank":1,"title":"None","url":"-"}],"reasoning":"HP spectral hypothesis not directly applied to NN.","per_hint_verdict":"inconclusive","per_hint_similarity":0.30},
+{"hint_id":"H3","solver_agent_id":"main-context-solver-H3","search_query":"GUE GOE spacing attention hallucination","top_results":[{"rank":1,"title":"None","url":"-"}],"reasoning":"GUE/GOE spacing test not used for hallucination.","per_hint_verdict":"not_anticipated","per_hint_similarity":0.20},
+{"hint_id":"H4","solver_agent_id":"main-context-solver-H4","search_query":"hallucination detection taxonomy","top_results":[{"rank":1,"title":"Hallucination surveys","url":"-"}],"reasoning":"Taxonomy {self-consistency, retrieval, calibration, spectral}; HP-spectral new sub-branch but Laplacian-spectral exists.","per_hint_verdict":"inconclusive","per_hint_similarity":0.50},
+{"hint_id":"H5","solver_agent_id":"main-context-solver-H5","search_query":"RMT attention hallucination 2026","top_results":[{"rank":1,"title":"None","url":"-"}],"reasoning":"No 2026 RMT-attention-hallucination preprint indexed.","per_hint_verdict":"inconclusive","per_hint_similarity":0.30}],
+"max_per_hint_similarity":0.60,"anticipated_hint_count":1,"inconclusive_hint_count":3,"not_anticipated_hint_count":1,
+"tree_stream_verdict":"FAIL",
+"tree_stream_rationale":"H1 anticipated (0.60 LapEigvals covers M_1+M_2 = 50% of K). Combined with step 10 mechanical FAIL (3 keyword hits) - aligned FAIL. HP spacing-distribution test is plausibly novel sub-mechanism but LapEigvals proximity drives verdict."}

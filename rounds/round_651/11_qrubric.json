@@ -1,0 +1,50 @@
+{
+  "round":"651","epoch":27,
+  "active_scenarios":["S_capability","S_efficiency"],
+  "scenarios":[
+    {"scenario_id":"S_capability","scenario_rationale":"Wiener-Hopf kernel split touches LLM capability via attention factorization (long-context).",
+     "perspectives":[
+       {"perspective_id":"P_prior_art","criteria":[
+         {"id":"C1","weight":0.5,"check":"step 07 hit_miss keyword_overlap_max >= 2","fired":true,"evidence_field":"07_hit_miss.json keyword_overlap_max=3 (PAT)"},
+         {"id":"C2","weight":0.3,"check":"step 06.5 max_semantic_similarity >= 0.7","fired":false,"evidence_field":"06_5_semantic_hits.json max_semantic_similarity=0.55"},
+         {"id":"C3","weight":0.2,"check":"step 06.7 max_functional_judge >= 0.7","fired":false,"evidence_field":"06_7_functional_hits.json max_functional_similarity=0.50"}
+       ],"perspective_score":0.5},
+       {"perspective_id":"P_obfuscation","criteria":[
+         {"id":"C1","weight":0.5,"check":"metaphor_or_mechanism == metaphor_only","fired":false,"evidence_field":"05_prompt_tokens.json metaphor_or_mechanism=mechanism_transfer"},
+         {"id":"C2","weight":0.5,"check":"stripped llm_application differs from source vocabulary","fired":true,"evidence_field":"05_sample_tokens.json stripped removes 'Wiener-Hopf' label"}
+       ],"perspective_score":0.5},
+       {"perspective_id":"P_composition","criteria":[
+         {"id":"C1","weight":0.6,"check":"K-1 of K sub-mechanisms covered by single paper","fired":false,"evidence_field":"06_7_functional_hits.json max single paper covers 1/4"},
+         {"id":"C2","weight":0.4,"check":"composition prefix-aware kernel + factorization published","fired":false,"evidence_field":"no joint paper"}
+       ],"perspective_score":0.0},
+       {"perspective_id":"P_evidence","criteria":[
+         {"id":"C1","weight":0.5,"check":"step 06 returned >= 3 results","fired":true,"evidence_field":"06_search_raw.json returned 8 results across 2 queries"},
+         {"id":"C2","weight":0.5,"check":"step 07 total_hits >= 1","fired":true,"evidence_field":"10_decision.json total_hits=5"}
+       ],"perspective_score":1.0}
+     ],"scenario_score":0.5},
+    {"scenario_id":"S_efficiency","scenario_rationale":"Prefill/decode disaggregation aligns with efficiency literature.",
+     "perspectives":[
+       {"perspective_id":"P_prior_art","criteria":[
+         {"id":"C1","weight":0.5,"check":"step 07 hit (PAT prefix-aware)","fired":true,"evidence_field":"07_hit_miss.json PAT"},
+         {"id":"C2","weight":0.3,"check":"step 06.5 >= 0.7","fired":false,"evidence_field":"06_5 max=0.55"},
+         {"id":"C3","weight":0.2,"check":"step 06.7 >= 0.7","fired":false,"evidence_field":"06_7 max=0.50"}
+       ],"perspective_score":0.5},
+       {"perspective_id":"P_obfuscation","criteria":[
+         {"id":"C1","weight":0.5,"check":"metaphor_only","fired":false,"evidence_field":"mechanism_transfer"},
+         {"id":"C2","weight":0.5,"check":"stripping applied","fired":true,"evidence_field":"yes"}
+       ],"perspective_score":0.5},
+       {"perspective_id":"P_composition","criteria":[
+         {"id":"C1","weight":0.6,"check":"joint coverage K-1","fired":false,"evidence_field":"no paper covers M_1+M_2+M_3"},
+         {"id":"C2","weight":0.4,"check":"systems-level prefix optimization published","fired":true,"evidence_field":"PAT, TyphoonMLA already publish systems-level prefix optimization (different mechanism but same scenario)"}
+       ],"perspective_score":0.4},
+       {"perspective_id":"P_evidence","criteria":[
+         {"id":"C1","weight":0.5,"check":"step 06 >= 3 results","fired":true,"evidence_field":"yes"},
+         {"id":"C2","weight":0.5,"check":"total_hits >= 1","fired":true,"evidence_field":"5"}
+       ],"perspective_score":1.0}
+     ],"scenario_score":0.6}
+  ],
+  "q_rubric_score":0.55,
+  "q_rubric_verdict":"ANTICIPATED",
+  "q_rubric_aligns_with_step_10":true,
+  "q_rubric_aligns_with_step_12_tree_stream":true
+}
