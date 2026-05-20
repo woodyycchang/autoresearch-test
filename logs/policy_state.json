@@ -83,6 +83,31 @@
       "epoch": 29,
       "action": "initial v10 policy state from E28 outcomes",
       "timestamp": "2026-05-20T07:30:00Z"
+    },
+    {
+      "epoch": 29,
+      "action": "post-E29 aggregation: confirmed drift_score = 1.0 (max Jaccard distance). 5 policy_override rounds (R707-R711) where over-mined sub-patterns explored due to distinct sub-mechanism. 25/25 rounds FAIL; reward = -1 across the board. Top-3 step-13 fired: R708 R715 R725.",
+      "timestamp": "2026-05-20T11:25:00Z"
     }
-  ]
+  ],
+  "post_E29_aggregates_observed": {
+    "shared_math_structure x combinatorics": {"E29_seen": 3, "E29_fail": 3, "rounds": [701, 715, 719]},
+    "shared_math_structure x category-theory": {"E29_seen": 2, "E29_fail": 2, "rounds": [702, 717]},
+    "mechanism_transfer x learning-theory": {"E29_seen": 1, "E29_fail": 1, "rounds": [703]},
+    "shared_math_structure x homological-algebra": {"E29_seen": 1, "E29_fail": 1, "rounds": [704]},
+    "step_13_fired_count_E29": 3,
+    "step_13_distinguishable_count_E29": 0,
+    "step_13_uncertain_count_E29": 2,
+    "step_13_parametrization_only_count_E29": 1
+  },
+  "policy_update_for_E30": {
+    "recommendation": "Continue up_weight_explore on category-theory + combinatorics + homological-algebra (now seen 5+2+1=8 cumulative; still under-mined relative to applied-math at 7+). Consider adding step_13_distinguishable signal as a finer reward (rounds where distinguishability=true should up_weight their sub-patterns).",
+    "next_epoch_focus": [
+      "differential-geometry (sub-explored)",
+      "model-theory (untouched)",
+      "operator-algebras (untouched)",
+      "ergodic-theory (partially via R713)"
+    ],
+    "rationale": "E29 drift = 1.0 demonstrated policy works. E30 should maintain drift while exposing new sub-areas not yet attempted in corpus."
+  }
 }
