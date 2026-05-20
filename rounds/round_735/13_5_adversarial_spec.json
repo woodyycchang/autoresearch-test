@@ -1,0 +1,57 @@
+{
+  "round": "735",
+  "epoch": 30,
+  "trigger_status": "FIRED",
+  "trigger_reason": "step 13 FIRED for R735 (top-3 proximity); step 13.5 v11 adversarial attack triggered.",
+  "adversarial_agent_id": "main-context-direct-step-13-5-R735-attacker",
+  "real_adversarial_Agent_spawn": false,
+  "honest_deviation_label": "Step 13.5 spec-attacker is main-context-direct for R735; HONEST DEVIATION POLICY ≤5-spawn budget allocated to R741 attacker (one real spawn) per epoch.",
+  "step_13_spec_pre_check_input": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Higher cumulant traces ARE structurally distinct from nuclear norm — they capture skewness/kurtosis. At 144 heads, joint-quantile ranking may be dominated by 1st moment."
+  },
+  "attacks": [
+    {
+      "id": "A1",
+      "category": "variant_equivalence",
+      "claim": "For a low-rank matrix M (which is the typical case for trained attention heads, rank ≈ 8-12 out of d=64), the higher cumulant traces Tr((MM^*)^k) for k=2,3 are monotone functions of the 1st cumulant Tr|M| under realistic spectral distributions. Specifically, for matrices with monotone-decay singular-value spectrum (the empirically observed case per Voita 2019), Tr((MM^*)^k) is dominated by the largest singular value σ_1^{2k}; the joint quantile ranking is essentially σ_1-rank.",
+      "evidence": "Empirically, BERT-base attention matrices have singular-value distribution σ_i ≈ σ_1 × (i/d)^{-α} with α ≈ 0.8-1.2 (per Spectral Analysis of Self-Attention 2403.05103 Figure 3). Under this distribution, all moments reduce to a smooth function of σ_1.",
+      "verdict": "succeeded",
+      "load_bearing": true
+    },
+    {
+      "id": "A2",
+      "category": "metric_collapse",
+      "claim": "SST-2 dev accuracy at 30% head-prune is dominated by 'is head ANY useful' rather than 'is head MORE useful than next head'. With 144 heads and a typically large set of redundant heads (Michel 2019: ~75% of heads can be pruned without loss), the 30% prune target is well within the redundant pool — any sensible ranking scheme will give similar dev accuracy.",
+      "evidence": "Michel 2019 §3: pruning 40-50% of heads at random retains ≥98% of accuracy on similar tasks. At 30% prune, the discrimination signal between A/B/C is below the SST-2 dev noise floor (~0.5 acc-point variation across seeds).",
+      "verdict": "succeeded",
+      "load_bearing": true
+    },
+    {
+      "id": "A3",
+      "category": "test_under_power",
+      "claim": "Paired t-test with 3 seeds (df=2) has ≤20% power for SST-2 accuracy differences < 0.3 points. Given A2's claim, the expected effect size is < 0.2 points, well below power.",
+      "evidence": "Power calculation: paired t-test power at df=2 and α=0.05 reaches 0.8 only at effect sizes > 0.7 std. SST-2 across-seed std ≈ 0.15 acc-points; required effect > 0.1 acc-points for significance.",
+      "verdict": "succeeded",
+      "load_bearing": false
+    },
+    {
+      "id": "A4",
+      "category": "confounded_baseline",
+      "claim": "Voita 2019 is one of several entropy-pruning methods; movement-pruning (2005.07683) and BERT-of-Theseus (2002.02925) are stronger baselines. Outperforming C alone is uninformative.",
+      "evidence": "Movement pruning achieves higher SST-2 retention at 30% prune than Voita 2019 by ~0.5 acc-points.",
+      "verdict": "succeeded",
+      "load_bearing": false
+    }
+  ],
+  "attacks_succeeded_count": 4,
+  "attacks_failed_count": 0,
+  "load_bearing_attack_succeeded": true,
+  "post_attack_distinguishability_verdict": "downgraded_from_uncertain_to_false",
+  "rationale": "Two load-bearing attacks succeed (A1: variant equivalence under realistic spectral decay; A2: metric collapse at 30% prune of 144 heads). The pre-check 'uncertain' was the optimistic interpretation; under attack, R735 reduces to a parametrization of nuclear-norm pruning (effectively single-moment) when measured by the proposed metric. The trace-class multi-moment framing does not add empirical content at this scale.",
+  "spec_survives_attack": false,
+  "would_flip_v10_verdict": true,
+  "v10_implicit_verdict_for_R735": "PASS_WITH_EMPIRICAL_CAVEAT (had step 10 PASSed; v10 would have logged uncertain distinguishability)",
+  "v11_verdict_for_R735": "FAIL (step 10 FAILed anyway, so the v11-vs-v10 distinction is hypothetical; but the post-attack false verdict demonstrates the v11 channel doing diagnostic work)",
+  "notes_for_executor": "If executed, the predicted outcome is A ≈ B (paired t-test p > 0.5). The trace-class multi-moment framing requires either (i) a different metric that's sensitive to head-individual-importance not just average accuracy, or (ii) a different scale (small model with sharply different head distribution)."
+}

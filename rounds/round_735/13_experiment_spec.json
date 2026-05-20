@@ -1,0 +1,67 @@
+{
+  "round": "735",
+  "epoch": 30,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R735 is rank 1 by mechanical-PASS proximity in E30 (kw=2, tree-stream max sim=0.40, q-rubric=0.38). Per program_v10.md §2.5 (preserved in v11), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R735",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Attention-head pruning via nuclear-norm + 2nd/3rd cumulant traces of per-head attention matrices; rank by joint quantile of (Tr|A|, Tr(A A^*), Tr(A A^*)^2) and prune lowest 30%.",
+  "experiment": {
+    "dataset": {
+      "name": "GLUE SST-2 (67K train + 872 dev)",
+      "size": "67K train + 872 dev",
+      "preprocessing": "BERT-base tokenization, max length 128",
+      "source_url_or_id": "https://huggingface.co/datasets/glue (SST-2 config)"
+    },
+    "base_model": {
+      "name": "BERT-base-uncased (110M params, 12 layers × 12 heads = 144 heads)",
+      "parameter_count": "110M",
+      "framework": "PyTorch + HuggingFace transformers",
+      "training_budget_minutes_on_T4": 24
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "Trace-class multi-moment prune (R735)",
+        "description": "Per attention head h, compute nuclear-norm Tr|A_h|, 2nd-moment Tr(A_h A_h^*), 3rd-moment Tr((A_h A_h^*)^{3/2}). Stack into 3-vector; rank heads by joint quantile (geometric mean of per-moment ranks). Prune heads in the bottom 30% of joint ranks.",
+        "distinctive_parameter": "Multi-moment vector (3 cumulant traces) ranking, vs single-moment (magnitude or entropy) ranking",
+        "expected_behavior": "If higher cumulants capture head-importance information that single-moment scores miss, A retains accuracy at higher prune ratios than B/C."
+      },
+      "B_control": {
+        "name": "Single-moment nuclear-norm prune",
+        "description": "Per head, compute only the nuclear-norm Tr|A_h|. Rank heads by nuclear-norm. Prune lowest 30%. Same training setup as A.",
+        "distinctive_parameter_value": "Single moment (k=1) only; no higher cumulants",
+        "expected_behavior": "Null hypothesis: nuclear-norm alone is sufficient; higher moments add no information at this scale."
+      },
+      "C_baseline": {
+        "name": "Voita 2019 attention-entropy prune",
+        "description": "Per head, compute mean attention entropy across training tokens. Rank by entropy (lower entropy = more focused = more important). Prune lowest 30%.",
+        "reference_paper": "Voita Talbot Sennrich Titov 2019 arXiv:1905.09418",
+        "expected_behavior": "Published baseline; expected to match or beat magnitude-based methods."
+      }
+    },
+    "metric": {
+      "name": "SST-2 dev accuracy at 30% head-prune ratio (post-fine-tuning, 3 epochs)",
+      "measurement_protocol": "Train BERT-base for 3 epochs on SST-2; compute per-head importance score per variant; prune 30%; re-evaluate on dev. Repeat with 3 seeds (42, 137, 271).",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Paired t-test A vs B + paired t-test A vs C",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "A significantly outperforms B (higher moments add information) AND not significantly worse than C.",
+      "expected_outcome_if_candidate_collapses_to_control": "A indistinguishable from B (joint quantile dominated by 1st moment; higher moments add noise not signal at this scale)."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Higher cumulant traces ARE structurally distinct from nuclear norm — they capture skewness/kurtosis of the spectrum. For attention matrices with heavy-tailed singular-value distributions (common in well-trained transformers), 2nd and 3rd moments DO carry information beyond the 1st. However, at 12 heads × 12 layers = 144 heads, the joint-quantile ranking may be dominated by the 1st moment due to range compression; if so, A reduces to B. Worth a pilot.",
+    "implication": "Worth running. If A ≈ B, R735 is a parametrization of nuclear-norm pruning (R279-pattern); if A > B by statistically significant margin, trace-class multi-moment is a real signal."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 24,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 6,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "Use bert-base-uncased. For higher moments use torch.linalg.matrix_norm(A,'nuc') for 1st and (A@A.T) eigenvalue cumulants for 2nd/3rd."
+}

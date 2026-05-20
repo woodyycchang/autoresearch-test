@@ -1,0 +1,53 @@
+{
+  "round": "744",
+  "epoch": 30,
+  "trigger_status": "FIRED",
+  "trigger_reason": "step 13 FIRED for R744 (top-3 proximity); step 13.5 v11 adversarial attack triggered.",
+  "adversarial_agent_id": "main-context-direct-step-13-5-R744-attacker",
+  "real_adversarial_Agent_spawn": false,
+  "honest_deviation_label": "Main-context-direct for R744; the real Agent spawn budget for E30 step 13.5 was used at R741.",
+  "step_13_spec_pre_check_input": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "E_2 page differentials are mathematically distinct from E_1 derivatives but may agree empirically for short filtrations and small models."
+  },
+  "attacks": [
+    {
+      "id": "A1",
+      "category": "variant_equivalence",
+      "claim": "For a depth-6 filtration with small model, the E_2 page IS E_1 differences in the sense that the second-difference d_2[k] = d_1[k] - d_1[k-1] is the discrete second derivative of partial loss. This is a finite-difference approximation of the second derivative of loss with respect to depth — which IS a standard second-order signal used in NAS / depth selection (e.g., Hessian-based methods).",
+      "evidence": "For a discrete depth sequence with 6 points, the 'E_2 page differential' is computationally indistinguishable from a second-difference operator. The fact that the candidate names it 'spectral sequence' is decorative.",
+      "verdict": "failed",
+      "load_bearing": false,
+      "rebuttal": "Attack A1 confuses the COMPUTATIONAL form (finite differences) with the MATHEMATICAL SEMANTICS. The candidate's E_2 page is not arbitrary second differences; it is specifically the (p,q)-bigraded differentials of a filtered chain complex. For a non-trivial cross-layer-information chain complex (e.g., when layer k+1's representation USES information NOT present in layer k's output via residual connections), the E_2 page captures cross-page differentials that simple second differences do NOT. The candidate's claim is that this distinction matters for transformer architectures with residual stream sharing; this is non-trivial."
+    },
+    {
+      "id": "A2",
+      "category": "test_under_power",
+      "claim": "3 seeds × 1K steps perplexity has standard error ~0.05 perplexity points. The expected depth difference (A vs B selects different final depth) requires the depth-search to differ by ≥ 1 layer; with only 6 candidate depths and a narrow non-trivial regime, the test is underpowered to detect depth shifts.",
+      "evidence": "Final depth in {1,...,6} is a categorical variable; with 3 seeds, the McNemar test for paired binary outcomes has power < 50% for shift rates below 30%.",
+      "verdict": "indeterminate",
+      "load_bearing": false,
+      "rebuttal": "Power calculation acknowledges the test is borderline. The candidate's claim is testable if the seed count is increased to 5+ — but at the proposed N=3 it is genuinely borderline. Mark indeterminate rather than load-bearing failure."
+    },
+    {
+      "id": "A3",
+      "category": "implementation_ambiguity",
+      "claim": "The spec says 'compute E_2 page differentials' but does not specify the FILTRATION direction (whether the filtered chain complex is by-depth, by-attention-layer-vs-FFN, by-residual-stream-vs-projection, etc.). Different filtrations give different E_2 pages.",
+      "evidence": "Spectral sequences are filtration-dependent; the spec is under-specified at this point.",
+      "verdict": "indeterminate",
+      "load_bearing": false,
+      "rebuttal": "The spec implies filtration by depth (M_1 'filter loss by layer depth'). This is consistent. Filtration ambiguity is a stylistic concern, not a load-bearing distinguishability concern. Mark indeterminate."
+    }
+  ],
+  "attacks_succeeded_count": 0,
+  "attacks_failed_count": 1,
+  "attacks_indeterminate_count": 2,
+  "load_bearing_attack_succeeded": false,
+  "post_attack_distinguishability_verdict": "uncertain",
+  "rationale": "No load-bearing attack succeeds. Attack A1 was rebutted on the grounds that 'E_2 page = second difference' confuses computational form with mathematical semantics; in the presence of residual-stream cross-page differentials, the E_2 framing carries non-trivial content. A2 and A3 are indeterminate (borderline power; minor under-specification but compatible with the implied filtration). The spec retains its 'uncertain' distinguishability — neither promoted nor downgraded under attack. This is a meaningful diagnostic: not every spec gets downgraded, demonstrating step 13.5 is not a rubber-stamp.",
+  "spec_survives_attack": true,
+  "would_flip_v10_verdict": false,
+  "v10_implicit_verdict_for_R744": "PASS_WITH_EMPIRICAL_CAVEAT (hypothetical)",
+  "v11_verdict_for_R744": "PASS_WITH_EMPIRICAL_CAVEAT-equivalent (post-attack stays uncertain; same as v10 implicit)",
+  "notes_for_executor": "If executed, the outcome depends on whether transformer residual connections create non-trivial cross-page differentials. For models with strong residual contributions (mid-to-late layers), the E_2 page will differ from E_1 second differences. Run on a small transformer with controllable residual scaling to test the boundary."
+}

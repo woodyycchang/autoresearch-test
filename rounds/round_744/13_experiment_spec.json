@@ -1,0 +1,67 @@
+{
+  "round": "744",
+  "epoch": 30,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R744 is rank 3 by mechanical-PASS proximity in E30 (kw=2, tree-stream max sim=0.50, q-rubric=0.40). Per program_v10.md §2.5 (preserved in v11), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R744",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Layer-depth controller that uses E_2-page convergence of a depth-filtered spectral sequence as a stopping criterion for layer expansion during progressive training.",
+  "experiment": {
+    "dataset": {
+      "name": "WikiText-103 1K-step training subset",
+      "size": "1K training steps × batch 32",
+      "preprocessing": "GPT-2 tokenization; max length 512",
+      "source_url_or_id": "https://huggingface.co/datasets/wikitext"
+    },
+    "base_model": {
+      "name": "Small transformer (6 layers max, 256 hidden, 4 heads) trained from scratch",
+      "parameter_count": "~6M",
+      "framework": "PyTorch + HuggingFace",
+      "training_budget_minutes_on_T4": 26
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "E_2-page convergence depth controller (R744)",
+        "description": "Train progressively: start at depth 1; every 200 steps, compute E_2 page differentials (changes in per-layer-prefix loss derivatives); if all differentials < ε=0.01 for last 3 checkpoints, freeze depth; else add a layer up to max 6. Final depth determined by E_2 convergence test.",
+        "distinctive_parameter": "Depth-add trigger based on E_2-page differential threshold (algebraic-topological criterion)",
+        "expected_behavior": "If E_2 convergence captures meaningful depth-vs-information criterion, A reaches final perplexity at lower depth than B or matches at same depth."
+      },
+      "B_control": {
+        "name": "Loss-derivative depth controller (no E_2 formalism)",
+        "description": "Same progressive setup but use the simpler criterion: if per-layer-marginal loss reduction < 0.01 for last 3 checkpoints, freeze depth. No E_2 page; just direct derivative threshold.",
+        "distinctive_parameter_value": "Direct loss-derivative threshold (= E_1 page only, no E_2 differentials)",
+        "expected_behavior": "Null hypothesis: A's E_2 calculation collapses to B's E_1 derivative threshold (the E_2 page often equals E_1 for short filtrations)."
+      },
+      "C_baseline": {
+        "name": "Fixed-depth baseline (full 6 layers, no progressive)",
+        "description": "Train standard 6-layer model from scratch for 1K steps; no depth control.",
+        "reference_paper": "GPT-2 small (Radford 2019) for the architecture",
+        "expected_behavior": "Fixed-depth standard baseline."
+      }
+    },
+    "metric": {
+      "name": "WikiText-103 perplexity at end of training + final depth selected",
+      "measurement_protocol": "Train each variant for 1K steps; record final perplexity and (for A/B) final depth. 3 seeds.",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Paired t-test A vs B on perplexity, A vs B on final depth, A vs C on perplexity",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "A reaches similar perplexity as B at LOWER final depth (E_2 detects convergence earlier) OR A reaches lower perplexity at same depth.",
+      "expected_outcome_if_candidate_collapses_to_control": "A and B select the same final depth; perplexity indistinguishable."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "E_2 page differentials ARE mathematically distinct from E_1 derivatives — they incorporate the SECOND-order structure (changes in changes). For a filtration of depth 6 with non-trivial cross-layer interactions, E_2 may differ from E_1. However, for short filtrations (depth ≤ 6) and small models (~6M params), the E_2 page often agrees with E_1 because the higher differentials require pages r > 2 to differ. The empirical distinguishability is plausible but not guaranteed.",
+    "implication": "Worth running. If A ≈ B in final depth and perplexity, R744 collapses to direct-derivative depth control (analogous to layer-importance-derivative methods in NAS)."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 26,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 6,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "E_2 page differential computation: maintain partial losses L_0,...,L_d; compute first differences d_1[k] = L_k - L_{k-1} and second differences d_2[k] = d_1[k] - d_1[k-1]. E_2 convergence = max |d_2| < ε."
+}

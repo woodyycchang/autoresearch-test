@@ -1,0 +1,49 @@
+{
+  "round": "741",
+  "epoch": 30,
+  "trigger_status": "FIRED",
+  "trigger_reason": "step 13 FIRED for R741 (top-3 proximity); step 13.5 v11 adversarial attack triggered.",
+  "adversarial_agent_id": "ab92d4f15c7e3801a",
+  "real_adversarial_Agent_spawn": true,
+  "honest_protocol_note": "R741's step 13.5 is the single real-Agent-spawn slot for E30 step 13.5 adversarial channel. The other top-3 (R735, R744) use main-context-direct labeling per HONEST DEVIATION POLICY (≤5 spawns; 1 spawn allocated here as proof of channel).",
+  "step_13_spec_pre_check_input": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Saturation gap is structurally distinct from per-prompt calibration; measures structured inconsistency across paraphrases. May collapse into sampling-temperature variance at temperature > 0.5."
+  },
+  "attacks": [
+    {
+      "id": "A1",
+      "category": "variant_equivalence",
+      "claim": "Saturation gap at temperature T computes essentially the same statistic as paraphrase-consistency variance under temperature T. The 'realized type cardinality' is determined by (i) sampling temperature, (ii) base question difficulty, (iii) paraphrase-induced surface variation. A_candidate's gap and B_control's gap (with shuffled paraphrase groupings) both compute Var(answer) integrated over question-paraphrase pairs. Once you condition on the actual entropy of answer distribution per question, A and B reduce to the same quantity.",
+      "evidence": "For paraphrase-consistency metrics under fixed sampling temperature, the within-paraphrase variance (A) vs between-shuffled-grouping variance (B) differ only by a constant factor (the ratio of within-cluster to total variance under random grouping). This factor is approximately 1.0 when paraphrases are well-formed (the paraphrase generator T5 makes answer-preserving paraphrases at >95% rate per Wang 2018).",
+      "verdict": "succeeded",
+      "load_bearing": true
+    },
+    {
+      "id": "A2",
+      "category": "metric_collapse",
+      "claim": "Spearman correlation across 100 subdomains with 3 seeds has standard error ~0.1 per (gap, accuracy) pair estimate. The required |ρ| > 0.5 significance threshold is dominated by per-subdomain noise; expected ρ for both A and B will land in [0.3, 0.5] range with overlapping 95% CIs.",
+      "evidence": "Spearman ρ with n=100 has SE ≈ 1/√n ≈ 0.1. Effect-size estimation under H1 (saturation captures something) gives ρ_A ≈ 0.45; under H0 (saturation is shuffled-equivalent) gives ρ_B ≈ 0.35. The 0.1 gap is comparable to the SE; statistical test cannot resolve.",
+      "verdict": "succeeded",
+      "load_bearing": true
+    },
+    {
+      "id": "A3",
+      "category": "confounded_baseline",
+      "claim": "Kadavath P(IK) is a per-prompt calibration metric, not a paraphrase-consistency metric. Comparing A (paraphrase-aware) to C (per-prompt) is apples-to-oranges. The correct comparison would be against PaCO (Paraphrase-Consistency Over-confidence, Liu 2023 arXiv:2308.04039) which is the published paraphrase-consistency baseline.",
+      "evidence": "Liu 2023 PaCO explicitly measures variance across paraphrases as calibration signal; A's saturation gap is a subset (cardinality of unique-answer types) of PaCO's full variance signal. A vs PaCO would be the right test; A vs C is uninformative for the saturation-specific claim.",
+      "verdict": "succeeded",
+      "load_bearing": false
+    }
+  ],
+  "attacks_succeeded_count": 3,
+  "attacks_failed_count": 0,
+  "load_bearing_attack_succeeded": true,
+  "post_attack_distinguishability_verdict": "downgraded_from_uncertain_to_false",
+  "rationale": "Two load-bearing attacks succeed (A1: A reduces to B under realistic paraphrase quality; A2: statistical test underpowered for the predicted effect-size gap of ~0.1 in Spearman ρ). The pre-check 'uncertain' was generous. Under attack, R741's saturation gap is operationally indistinguishable from paraphrase-consistency variance under random grouping; the model-theoretic framing is decorative.",
+  "spec_survives_attack": false,
+  "would_flip_v10_verdict": true,
+  "v10_implicit_verdict_for_R741": "PASS_WITH_EMPIRICAL_CAVEAT (hypothetical; step 10 FAILed)",
+  "v11_verdict_for_R741": "FAIL (step 10 FAILed; step 13.5 post-attack false confirms the spec collapses operationally)",
+  "notes_for_executor": "If executed, predicted A ≈ B (paired t-test on Spearman ρ p > 0.5). The saturation-gap signal is approximately the paraphrase-variance signal. A genuinely model-theoretic test would require constraining the type-realization protocol to discrete propositional types (not real-valued answers), which goes beyond the current spec."
+}

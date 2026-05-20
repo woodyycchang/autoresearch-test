@@ -1,0 +1,67 @@
+{
+  "round": "741",
+  "epoch": 30,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R741 is rank 2 by mechanical-PASS proximity in E30 (kw=2, tree-stream max sim=0.50, q-rubric=0.40). Per program_v10.md §2.5 (preserved in v11), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R741",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Evaluation diagnostic that measures the set difference between LLM-realized answer combinations and ground-truth-consistent answer combinations across a parameter set of related queries; framed as model-theoretic saturation gap.",
+  "experiment": {
+    "dataset": {
+      "name": "TriviaQA + paraphrase parameter set (1K base questions × 4 paraphrases = 4K queries)",
+      "size": "1K base × 4 paraphrases",
+      "preprocessing": "for each base question, generate 4 paraphrases; ground-truth-consistent type = unique answer (all 4 paraphrases should give same answer)",
+      "source_url_or_id": "https://huggingface.co/datasets/trivia_qa + paraphrase generation via T5"
+    },
+    "base_model": {
+      "name": "Llama-3-8B-Instruct (eval-only; no training)",
+      "parameter_count": "8B",
+      "framework": "PyTorch + HuggingFace + 8-bit quantization",
+      "training_budget_minutes_on_T4": 27
+    },
+    "variants": {
+      "A_candidate": {
+        "name": "Saturation-gap diagnostic (R741)",
+        "description": "For each base question, query Llama-3 5 times across 4 paraphrases (20 samples). Identify the set of unique answer-combinations the model realizes. Saturation gap = |realized types ∩ (NOT consistent-with-ground-truth)| / |realized types|. Score the model by mean saturation gap across 1K base questions.",
+        "distinctive_parameter": "Set-cardinality measure of realized inconsistent type combinations",
+        "expected_behavior": "If saturation captures hallucination structure missed by per-prompt accuracy, A's saturation-gap distribution will have heavier right tail than baseline calibration metrics suggest."
+      },
+      "B_control": {
+        "name": "Random-shuffle baseline (no model-theoretic structure)",
+        "description": "Compute the same 20-sample protocol but shuffle the question-paraphrase grouping before type enumeration. The 'types' are then random groupings of 4 unrelated answers.",
+        "distinctive_parameter_value": "Type grouping randomized",
+        "expected_behavior": "Null hypothesis: with random grouping, the 'saturation gap' should reduce to a function of sampling temperature × answer-distribution entropy, independent of paraphrase consistency."
+      },
+      "C_baseline": {
+        "name": "Kadavath 2022 self-calibration (P(IK))",
+        "description": "For each base question, ask Llama-3 to predict its own probability of being correct; compare predicted vs actual.",
+        "reference_paper": "Kadavath et al 2022 (arXiv:2207.05221)",
+        "expected_behavior": "Established baseline; LLM calibration is well-studied."
+      }
+    },
+    "metric": {
+      "name": "Spearman correlation between saturation-gap and held-out accuracy across 100 subdomains (history, biology, geography, etc.)",
+      "measurement_protocol": "Compute saturation-gap per subdomain for A and B; compute Kadavath P(IK) calibration error per subdomain for C; compute accuracy per subdomain (ground truth); compute Spearman ρ between (gap/calibration error) and accuracy. 3 seeds.",
+      "seeds": 3
+    },
+    "statistical_test": {
+      "name": "Spearman correlation significance test A vs B + paired t-test A vs C on |Spearman ρ|",
+      "significance_threshold": "p < 0.05",
+      "expected_outcome_if_candidate_has_value": "Saturation gap negatively correlates with accuracy at |ρ| > 0.5 (high gap ⇒ low accuracy) significantly more strongly than random-shuffle baseline AND not significantly worse than Kadavath calibration.",
+      "expected_outcome_if_candidate_collapses_to_control": "A indistinguishable from B (saturation framing adds no information beyond random answer-grouping variance)."
+    }
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Saturation gap is structurally distinct from per-prompt calibration: it measures STRUCTURED inconsistency (across paraphrases of the same question) rather than per-prompt overconfidence. If paraphrase-consistency is a real property of model robustness, A should outperform B. However, the operational measure (cardinality of inconsistent type set) may collapse into sampling-temperature-driven variance, especially at temperature > 0.5. At Llama-3-8B and TriviaQA scale, the saturation framing may be decorative.",
+    "implication": "Worth running. If A ≈ B, the saturation framing is parametrization-only (paraphrase-consistency captures the same signal as temperature variance)."
+  },
+  "budget_compliance": {
+    "total_runtime_minutes_on_T4": 27,
+    "under_30_min_budget": true,
+    "memory_compliance_GB": 12,
+    "under_16GB_T4_memory": true
+  },
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "Use Llama-3-8B-Instruct with 8-bit quantization. Temperature for sampling = 0.7. Paraphrase generation via T5-large; verify paraphrases preserve answer."
+}
