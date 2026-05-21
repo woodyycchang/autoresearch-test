@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
@@ -9,47 +9,320 @@
   "policy_update_timestamp": "2026-05-21T14:00:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
-      {"key": "mechanism_transfer x spectral-allocation", "fail_count_in_prior_epoch": 2, "cumulative_fail_count": 16, "cumulative_seen_count": 16, "reward_estimate": -1.0, "status": "over-mined"},
-      {"key": "shared_math_structure x memory-architecture", "fail_count_in_prior_epoch": 2, "cumulative_fail_count": 12, "cumulative_seen_count": 12, "reward_estimate": -1.0, "status": "over-mined"},
-      {"key": "mechanism_transfer x information-cascade", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 11, "cumulative_seen_count": 11, "reward_estimate": -1.0, "status": "over-mined"},
-      {"key": "mechanism_transfer x training-method", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 11, "cumulative_seen_count": 11, "reward_estimate": -1.0, "status": "over-mined"},
-      {"key": "shared_math_structure x phase-coherence", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 9, "cumulative_seen_count": 9, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "mechanism_transfer x basin-stability", "fail_count_in_prior_epoch": 2, "cumulative_fail_count": 12, "cumulative_seen_count": 12, "reward_estimate": -1.0, "status": "over-mined"},
-      {"key": "mechanism_transfer x feedback-attenuation", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 9, "cumulative_seen_count": 9, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x information-cascade", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 9, "cumulative_seen_count": 9, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "mechanism_transfer x evaluation-diagnostic", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 7, "cumulative_seen_count": 7, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x category-theory", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 5, "cumulative_seen_count": 5, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "shared_math_structure x combinatorics", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "mechanism_transfer x learning-theory", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 2, "cumulative_seen_count": 2, "reward_estimate": -1.0, "status": "under-explored"},
-      {"key": "shared_math_structure x homological-algebra", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 3, "cumulative_seen_count": 3, "reward_estimate": -1.0, "status": "under-explored"},
-      {"key": "shared_math_structure x evaluation-diagnostic", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 7, "cumulative_seen_count": 7, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "mechanism_transfer x adversarial-coevolution", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 9, "cumulative_seen_count": 9, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x topological-defect", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 5, "cumulative_seen_count": 5, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x context-gating", "fail_count_in_prior_epoch": 3, "cumulative_fail_count": 9, "cumulative_seen_count": 9, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x null-space-traversal", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 7, "cumulative_seen_count": 7, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x training-method", "fail_count_in_prior_epoch": 2, "cumulative_fail_count": 7, "cumulative_seen_count": 7, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "shared_math_structure x multi-agent-comm", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "mechanism_transfer x multi-agent-comm", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 10, "cumulative_seen_count": 10, "reward_estimate": -1.0, "status": "saturated"},
-      {"key": "mechanism_transfer x phase-coherence", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 5, "cumulative_seen_count": 5, "reward_estimate": -1.0, "status": "saturated"}
+      {
+        "key": "mechanism_transfer x spectral-allocation",
+        "fail_count_in_prior_epoch": 2,
+        "cumulative_fail_count": 16,
+        "cumulative_seen_count": 16,
+        "reward_estimate": -1.0,
+        "status": "over-mined"
+      },
+      {
+        "key": "shared_math_structure x memory-architecture",
+        "fail_count_in_prior_epoch": 2,
+        "cumulative_fail_count": 12,
+        "cumulative_seen_count": 12,
+        "reward_estimate": -1.0,
+        "status": "over-mined"
+      },
+      {
+        "key": "mechanism_transfer x information-cascade",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 11,
+        "cumulative_seen_count": 11,
+        "reward_estimate": -1.0,
+        "status": "over-mined"
+      },
+      {
+        "key": "mechanism_transfer x training-method",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 11,
+        "cumulative_seen_count": 11,
+        "reward_estimate": -1.0,
+        "status": "over-mined"
+      },
+      {
+        "key": "shared_math_structure x phase-coherence",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 9,
+        "cumulative_seen_count": 9,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "mechanism_transfer x basin-stability",
+        "fail_count_in_prior_epoch": 2,
+        "cumulative_fail_count": 12,
+        "cumulative_seen_count": 12,
+        "reward_estimate": -1.0,
+        "status": "over-mined"
+      },
+      {
+        "key": "mechanism_transfer x feedback-attenuation",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 9,
+        "cumulative_seen_count": 9,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x information-cascade",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 9,
+        "cumulative_seen_count": 9,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "mechanism_transfer x evaluation-diagnostic",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 7,
+        "cumulative_seen_count": 7,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x category-theory",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 5,
+        "cumulative_seen_count": 5,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "shared_math_structure x combinatorics",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "mechanism_transfer x learning-theory",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 2,
+        "cumulative_seen_count": 2,
+        "reward_estimate": -1.0,
+        "status": "under-explored"
+      },
+      {
+        "key": "shared_math_structure x homological-algebra",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 3,
+        "cumulative_seen_count": 3,
+        "reward_estimate": -1.0,
+        "status": "under-explored"
+      },
+      {
+        "key": "shared_math_structure x evaluation-diagnostic",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 7,
+        "cumulative_seen_count": 7,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "mechanism_transfer x adversarial-coevolution",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 9,
+        "cumulative_seen_count": 9,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x topological-defect",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 5,
+        "cumulative_seen_count": 5,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x context-gating",
+        "fail_count_in_prior_epoch": 3,
+        "cumulative_fail_count": 9,
+        "cumulative_seen_count": 9,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x null-space-traversal",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 7,
+        "cumulative_seen_count": 7,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x training-method",
+        "fail_count_in_prior_epoch": 2,
+        "cumulative_fail_count": 7,
+        "cumulative_seen_count": 7,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "shared_math_structure x multi-agent-comm",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "mechanism_transfer x multi-agent-comm",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 10,
+        "cumulative_seen_count": 10,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      },
+      {
+        "key": "mechanism_transfer x phase-coherence",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 5,
+        "cumulative_seen_count": 5,
+        "reward_estimate": -1.0,
+        "status": "saturated"
+      }
     ],
     "motivation_strength_times_domain_class": [
-      {"key": "shared_math_structure x category-theory", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 5, "cumulative_seen_count": 5, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "shared_math_structure x combinatorics", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "shared_math_structure x homological-algebra", "fail_count_in_prior_epoch": 1, "cumulative_fail_count": 3, "cumulative_seen_count": 3, "reward_estimate": -1.0, "status": "under-explored"},
-      {"key": "mechanism_transfer x learning-theory", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 2, "cumulative_seen_count": 2, "reward_estimate": -1.0, "status": "under-explored"},
-      {"key": "differential-geometry", "fail_count_in_prior_epoch": 4, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "model-theory", "fail_count_in_prior_epoch": 4, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "operator-algebras", "fail_count_in_prior_epoch": 4, "cumulative_fail_count": 4, "cumulative_seen_count": 4, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "ergodic-theory", "fail_count_in_prior_epoch": 4, "cumulative_fail_count": 5, "cumulative_seen_count": 5, "reward_estimate": -1.0, "status": "explored"},
-      {"key": "algebraic-geometry", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "representation-theory", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "harmonic-analysis", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "p-adic-analysis", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "Lie-groups", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "complex-dynamics", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "information-geometry", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "tropical-geometry", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"},
-      {"key": "convex-analysis", "fail_count_in_prior_epoch": 0, "cumulative_fail_count": 0, "cumulative_seen_count": 0, "reward_estimate": null, "status": "untouched"}
+      {
+        "key": "shared_math_structure x category-theory",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 5,
+        "cumulative_seen_count": 5,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "shared_math_structure x combinatorics",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "shared_math_structure x homological-algebra",
+        "fail_count_in_prior_epoch": 1,
+        "cumulative_fail_count": 3,
+        "cumulative_seen_count": 3,
+        "reward_estimate": -1.0,
+        "status": "under-explored"
+      },
+      {
+        "key": "mechanism_transfer x learning-theory",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 2,
+        "cumulative_seen_count": 2,
+        "reward_estimate": -1.0,
+        "status": "under-explored"
+      },
+      {
+        "key": "differential-geometry",
+        "fail_count_in_prior_epoch": 4,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "model-theory",
+        "fail_count_in_prior_epoch": 4,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "operator-algebras",
+        "fail_count_in_prior_epoch": 4,
+        "cumulative_fail_count": 4,
+        "cumulative_seen_count": 4,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "ergodic-theory",
+        "fail_count_in_prior_epoch": 4,
+        "cumulative_fail_count": 5,
+        "cumulative_seen_count": 5,
+        "reward_estimate": -1.0,
+        "status": "explored"
+      },
+      {
+        "key": "algebraic-geometry",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "representation-theory",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "harmonic-analysis",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "p-adic-analysis",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "Lie-groups",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "complex-dynamics",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "information-geometry",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "tropical-geometry",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      },
+      {
+        "key": "convex-analysis",
+        "fail_count_in_prior_epoch": 0,
+        "cumulative_fail_count": 0,
+        "cumulative_seen_count": 0,
+        "reward_estimate": null,
+        "status": "untouched"
+      }
     ]
   },
   "policy_recommendations_for_next_epoch": {
@@ -82,7 +355,7 @@
       "shared_math_structure x homological-algebra (continue under-explored)",
       "mechanism_transfer x learning-theory (continue under-explored)"
     ],
-    "rationale": "E30 fully explored 4 prior math domains (differential-geometry, model-theory, operator-algebras, ergodic-theory; all now have cumulative count 4-5). E31 pivots to 9 NEW math domains: algebraic-geometry, representation-theory, harmonic-analysis, p-adic-analysis, Lie-groups, complex-dynamics, information-geometry, tropical-geometry, convex-analysis. drift_score target = ≥0.7 (between E30 top-3 sub-patterns and E31 top-3 sub-patterns). v12's step 05.5 anti-R279 filter expected to reject ~50-70% of first-attempt candidates and force regeneration to architectural-topology."
+    "rationale": "E30 fully explored 4 prior math domains (differential-geometry, model-theory, operator-algebras, ergodic-theory; all now have cumulative count 4-5). E31 pivots to 9 NEW math domains: algebraic-geometry, representation-theory, harmonic-analysis, p-adic-analysis, Lie-groups, complex-dynamics, information-geometry, tropical-geometry, convex-analysis. drift_score target = \u22650.7 (between E30 top-3 sub-patterns and E31 top-3 sub-patterns). v12's step 05.5 anti-R279 filter expected to reject ~50-70% of first-attempt candidates and force regeneration to architectural-topology."
   },
   "candidate_distribution_drift_metrics": {
     "prior_epoch_top_3_subpatterns_by_count": [
@@ -99,17 +372,67 @@
     "drift_score_computation": "Jaccard distance between E30 top-3 sub-pattern set and E31 planned top-3 set. Sets share 0 elements; |union|=6, |intersection|=0; Jaccard distance = 1.0 (maximum drift)."
   },
   "history": [
-    {"epoch": 29, "action": "initial v10 policy state from E28 outcomes", "timestamp": "2026-05-20T07:30:00Z"},
-    {"epoch": 29, "action": "post-E29 aggregation: drift_score = 1.0", "timestamp": "2026-05-20T11:25:00Z"},
-    {"epoch": 30, "action": "v11 policy state from E29 outcomes; pivot to under-explored math domains (differential-geometry, model-theory, operator-algebras, ergodic-theory).", "timestamp": "2026-05-20T12:00:00Z"},
-    {"epoch": 30, "action": "v11 step 13.5 added as adversarial-empirical channel; policy_state schema unchanged. step_13_5 metrics tracked in stats_round_NNN.json under v11_adversarial_spec_metrics block.", "timestamp": "2026-05-20T12:00:00Z"},
-    {"epoch": 31, "action": "v12 policy state from E30 outcomes; pivot to 9 NEW math domains (algebraic-geometry, representation-theory, harmonic-analysis, p-adic-analysis, Lie-groups, complex-dynamics, information-geometry, tropical-geometry, convex-analysis). E30 4 math domains now explored.", "timestamp": "2026-05-20T14:00:00Z"},
-    {"epoch": 31, "action": "v12 step 05.5 added as generator-side mechanical anti-R279 filter; schema_version bumped to 1.2 to record step_05_5_aggregates field group; step_05_5 metrics tracked in stats_round_NNN.json under v12_pattern_filter_metrics block.", "timestamp": "2026-05-20T14:00:00Z"}
+    {
+      "epoch": 29,
+      "action": "initial v10 policy state from E28 outcomes",
+      "timestamp": "2026-05-20T07:30:00Z"
+    },
+    {
+      "epoch": 29,
+      "action": "post-E29 aggregation: drift_score = 1.0",
+      "timestamp": "2026-05-20T11:25:00Z"
+    },
+    {
+      "epoch": 30,
+      "action": "v11 policy state from E29 outcomes; pivot to under-explored math domains (differential-geometry, model-theory, operator-algebras, ergodic-theory).",
+      "timestamp": "2026-05-20T12:00:00Z"
+    },
+    {
+      "epoch": 30,
+      "action": "v11 step 13.5 added as adversarial-empirical channel; policy_state schema unchanged. step_13_5 metrics tracked in stats_round_NNN.json under v11_adversarial_spec_metrics block.",
+      "timestamp": "2026-05-20T12:00:00Z"
+    },
+    {
+      "epoch": 31,
+      "action": "v12 policy state from E30 outcomes; pivot to 9 NEW math domains (algebraic-geometry, representation-theory, harmonic-analysis, p-adic-analysis, Lie-groups, complex-dynamics, information-geometry, tropical-geometry, convex-analysis). E30 4 math domains now explored.",
+      "timestamp": "2026-05-20T14:00:00Z"
+    },
+    {
+      "epoch": 31,
+      "action": "v12 step 05.5 added as generator-side mechanical anti-R279 filter; schema_version bumped to 1.2 to record step_05_5_aggregates field group; step_05_5 metrics tracked in stats_round_NNN.json under v12_pattern_filter_metrics block.",
+      "timestamp": "2026-05-20T14:00:00Z"
+    }
   ],
   "post_E30_aggregates_observed": {
-    "shared_math_structure x training-method": {"E30_seen": 4, "E30_fail": 4, "rounds": [731, 737, 738, 745]},
-    "shared_math_structure x context-gating": {"E30_seen": 4, "E30_fail": 4, "rounds": [726, 736, 739, 746]},
-    "shared_math_structure x information-cascade": {"E30_seen": 3, "E30_fail": 3, "rounds": [729, 743, 744]},
+    "shared_math_structure x training-method": {
+      "E30_seen": 4,
+      "E30_fail": 4,
+      "rounds": [
+        731,
+        737,
+        738,
+        745
+      ]
+    },
+    "shared_math_structure x context-gating": {
+      "E30_seen": 4,
+      "E30_fail": 4,
+      "rounds": [
+        726,
+        736,
+        739,
+        746
+      ]
+    },
+    "shared_math_structure x information-cascade": {
+      "E30_seen": 3,
+      "E30_fail": 3,
+      "rounds": [
+        729,
+        743,
+        744
+      ]
+    },
     "step_13_fired_count_E30": 3,
     "step_13_pre_check_uncertain_count_E30": 3,
     "step_13_pre_check_false_count_E30": 0,
@@ -119,7 +442,7 @@
     "step_13_5_post_attack_uncertain_survives_E30": 1
   },
   "policy_update_for_E31": {
-    "recommendation": "Pivot to 9 NEW math domains (≤1 prior corpus entry). Continue homological-algebra + learning-theory at lower priority. drift_score target ≥0.7. v12's step 05.5 anti-R279 filter will reject R279-pattern candidates and force regeneration to architectural-topology. Predicted post-filter candidate distribution: more architectural module-introductions, fewer functional-on-existing-parameter candidates.",
+    "recommendation": "Pivot to 9 NEW math domains (\u22641 prior corpus entry). Continue homological-algebra + learning-theory at lower priority. drift_score target \u22650.7. v12's step 05.5 anti-R279 filter will reject R279-pattern candidates and force regeneration to architectural-topology. Predicted post-filter candidate distribution: more architectural module-introductions, fewer functional-on-existing-parameter candidates.",
     "next_epoch_focus": [
       "algebraic-geometry (sheaf cohomology, etale, Grothendieck topology, Cech complex)",
       "representation-theory (character formula, Schur functor, induced representation, Frobenius reciprocity)",
@@ -153,45 +476,91 @@
     "step_05_5_two_regenerations_failed": 1,
     "step_05_5_final_architectural_count": 24,
     "step_05_5_final_REJECTED_R279_PATTERN_count": 1,
-    "step_05_5_REJECTED_R279_PATTERN_rounds": [775]
+    "step_05_5_REJECTED_R279_PATTERN_rounds": [
+      775
+    ]
   },
   "v13_observation_starting_E32": {
-    "note": "Starting E32, the policy_state tracks step_14_aggregates per sub-pattern. Rounds where step 14 FIRES (cross-step axis divergence: step 10 FAIL + step 13.5 PASS-via-rebuttal) provide an INVESTIGATIVE_CANDIDATE signal — these are architectural-distinct candidates whose attack-rebuttal at step 13.5 demonstrates genuine mechanism distinctness despite kw overlap at step 10. The label is a parallel diagnostic, NOT a substantive PASS.",
+    "note": "Starting E32, the policy_state tracks step_14_aggregates per sub-pattern. Rounds where step 14 FIRES (cross-step axis divergence: step 10 FAIL + step 13.5 PASS-via-rebuttal) provide an INVESTIGATIVE_CANDIDATE signal \u2014 these are architectural-distinct candidates whose attack-rebuttal at step 13.5 demonstrates genuine mechanism distinctness despite kw overlap at step 10. The label is a parallel diagnostic, NOT a substantive PASS.",
     "step_14_signal_class_hierarchy": {
       "FIRED_INVESTIGATIVE_CANDIDATE": "step 10 says FAIL (kw axis); step 13.5 says PASS-via-rebuttal (mechanism axis); axes diverge; candidate worth human review (best diagnostic compression)",
-      "SKIPPED_COHERENT": "step 10 says FAIL; step 13.5 also says FAIL; both axes agree on FAIL (architectural at construction; succumbed at convergence — R786 Hopf-bif / Symplectic-capacity pattern)",
+      "SKIPPED_COHERENT": "step 10 says FAIL; step 13.5 also says FAIL; both axes agree on FAIL (architectural at construction; succumbed at convergence \u2014 R786 Hopf-bif / Symplectic-capacity pattern)",
       "SKIPPED_NOT_APPLICABLE": "step 13.5 did not fire (round not in top-3 mechanical-PASS proximity); cannot evaluate axis coherence"
     }
   },
   "v13_step_14_aggregates_observed_E32": {
     "step_14_total_evaluations": 25,
     "step_14_FIRED_count": 2,
-    "step_14_FIRED_rounds": [777, 787],
+    "step_14_FIRED_rounds": [
+      777,
+      787
+    ],
     "step_14_SKIPPED_COHERENT_count": 1,
-    "step_14_SKIPPED_COHERENT_rounds": [786],
+    "step_14_SKIPPED_COHERENT_rounds": [
+      786
+    ],
     "step_14_SKIPPED_NOT_APPLICABLE_count": 22,
     "step_14_fired_rate": 0.08,
     "INVESTIGATIVE_CANDIDATE_count_E32": 2,
-    "INVESTIGATIVE_CANDIDATE_rounds_E32": [777, 787],
+    "INVESTIGATIVE_CANDIDATE_rounds_E32": [
+      777,
+      787
+    ],
     "cross_step_axis_divergence_rate_E32": 0.08,
     "rate_consistency_with_E31": "E31 retrospectively had R756 + R770 as step-13.5-rebutted (would be INVESTIGATIVE under v13 if v13 had been operational at E31). E32's 2 INVESTIGATIVE rounds matches E31's retrospective 2; rate ~0.08 stable across epochs."
   },
   "post_E31_aggregates_observed": {
-    "shared_math_structure x algebraic-geometry": {"E31_seen": 1, "E31_fail": 1, "rounds": [751]},
-    "shared_math_structure x representation-theory": {"E31_seen": 2, "E31_fail": 2, "rounds": [752, 772]},
-    "shared_math_structure x Lie-groups": {"E31_seen": 1, "E31_fail": 1, "rounds": [756]},
-    "shared_math_structure x tropical-geometry": {"E31_seen": 1, "E31_fail": 1, "rounds": [770]},
+    "shared_math_structure x algebraic-geometry": {
+      "E31_seen": 1,
+      "E31_fail": 1,
+      "rounds": [
+        751
+      ]
+    },
+    "shared_math_structure x representation-theory": {
+      "E31_seen": 2,
+      "E31_fail": 2,
+      "rounds": [
+        752,
+        772
+      ]
+    },
+    "shared_math_structure x Lie-groups": {
+      "E31_seen": 1,
+      "E31_fail": 1,
+      "rounds": [
+        756
+      ]
+    },
+    "shared_math_structure x tropical-geometry": {
+      "E31_seen": 1,
+      "E31_fail": 1,
+      "rounds": [
+        770
+      ]
+    },
     "step_05_5_first_attempt_REJECTED_E31": 16,
     "step_05_5_first_attempt_PASS_E31": 9,
-    "step_05_5_REJECTED_R279_PATTERN_rounds_E31": [775],
+    "step_05_5_REJECTED_R279_PATTERN_rounds_E31": [
+      775
+    ],
     "step_13_fired_count_E31": 3,
-    "step_13_fired_rounds_E31": [756, 766, 770],
+    "step_13_fired_rounds_E31": [
+      756,
+      766,
+      770
+    ],
     "step_13_5_load_bearing_attacks_succeeded_E31": 1,
-    "step_13_5_post_attack_true_rounds_E31": [756, 770],
-    "step_13_5_post_attack_downgraded_to_false_rounds_E31": [766]
+    "step_13_5_post_attack_true_rounds_E31": [
+      756,
+      770
+    ],
+    "step_13_5_post_attack_downgraded_to_false_rounds_E31": [
+      766
+    ]
   },
   "policy_update_for_E32": {
-    "recommendation": "Continue post-R279 shared_math majority. Pivot to 11+ NEW math domains (number-theory, geometric-group-theory, analytic-number-theory, symplectic-geometry, geometric-topology, algebra, plus deepening of representation-theory, algebraic-geometry, algebraic-topology, combinatorics, category-theory). drift_score target ≥0.7. v13's step 14 cross-step coherence detector expected to fire 1-3 times if architectural-distinct candidates continue to be rebutted at step 13.5.",
+    "recommendation": "Continue post-R279 shared_math majority. Pivot to 11+ NEW math domains (number-theory, geometric-group-theory, analytic-number-theory, symplectic-geometry, geometric-topology, algebra, plus deepening of representation-theory, algebraic-geometry, algebraic-topology, combinatorics, category-theory). drift_score target \u22650.7. v13's step 14 cross-step coherence detector expected to fire 1-3 times if architectural-distinct candidates continue to be rebutted at step 13.5.",
     "next_epoch_focus": [
       "Schubert calculus (alg-geom; deepen)",
       "Quiver representations + crystal bases (rep-theory; deepen)",
@@ -205,14 +574,128 @@
       "Whitney stratification (geometric-topology NEW)",
       "D-modules + moduli spaces (alg-geom; deepen)"
     ],
-    "v13_specific_focus": "Every round runs step 14 evaluation (FIRED / SKIPPED_COHERENT / SKIPPED_NOT_APPLICABLE). Predicted step 14 FIRED rate: ~0.08 (matching E31 retrospective). Top-3 by mechanical-PASS proximity will receive step 13 + step 13.5; expected 2/3 step-13.5 rebuttals (R777, R787) → step 14 FIRED → INVESTIGATIVE_CANDIDATE; 1/3 step-13.5 succumbed (R786) → step 14 SKIPPED_COHERENT.",
-    "rationale": "E32 maintains policy drift while testing v13's cross-step coherence detector. The v13 channel doesn't generate new candidates; it labels v12's architectural candidates. Stable architectural rate (0.96) + stable step 13.5 rebuttal rate (2/3) → stable INVESTIGATIVE rate (~0.08)."
+    "v13_specific_focus": "Every round runs step 14 evaluation (FIRED / SKIPPED_COHERENT / SKIPPED_NOT_APPLICABLE). Predicted step 14 FIRED rate: ~0.08 (matching E31 retrospective). Top-3 by mechanical-PASS proximity will receive step 13 + step 13.5; expected 2/3 step-13.5 rebuttals (R777, R787) \u2192 step 14 FIRED \u2192 INVESTIGATIVE_CANDIDATE; 1/3 step-13.5 succumbed (R786) \u2192 step 14 SKIPPED_COHERENT.",
+    "rationale": "E32 maintains policy drift while testing v13's cross-step coherence detector. The v13 channel doesn't generate new candidates; it labels v12's architectural candidates. Stable architectural rate (0.96) + stable step 13.5 rebuttal rate (2/3) \u2192 stable INVESTIGATIVE rate (~0.08)."
   },
   "v13_observation_post_E32": {
     "note": "Post-E32, the v13 channel is reproducible: 2 INVESTIGATIVE_CANDIDATE rounds in E32 (R777, R787) matches E31's retrospective 2. Both step 05.5 (v12) and step 14 (v13) signals are stable across epochs. The corpus now has signal compression at TWO new levels: generator-side (step 05.5 rejection_rate) and verifier-side cross-step (step 14 INVESTIGATIVE rate)."
   },
   "history_v13": [
-    {"epoch": 32, "action": "v13 policy state from E31 outcomes; continue pivot to 11 math sub-areas (6 NEW + 5 deepened). drift_score=0.80 (1 carry-over: representation-theory).", "timestamp": "2026-05-21T14:00:00Z"},
-    {"epoch": 32, "action": "v13 step 14 added as cross-step coherence detector; schema_version bumped to 1.3 to record step_14_aggregates field group; step_14 metrics tracked in stats_round_NNN.json under v13_cross_step_coherence_metrics block. Step 14 FIRED 2/25 (R777 Quiver + R787 Crystal-basis); INVESTIGATIVE_CANDIDATE = 2; cross_step_axis_divergence_rate = 0.08.", "timestamp": "2026-05-21T15:12:00Z"}
+    {
+      "epoch": 32,
+      "action": "v13 policy state from E31 outcomes; continue pivot to 11 math sub-areas (6 NEW + 5 deepened). drift_score=0.80 (1 carry-over: representation-theory).",
+      "timestamp": "2026-05-21T14:00:00Z"
+    },
+    {
+      "epoch": 32,
+      "action": "v13 step 14 added as cross-step coherence detector; schema_version bumped to 1.3 to record step_14_aggregates field group; step_14 metrics tracked in stats_round_NNN.json under v13_cross_step_coherence_metrics block. Step 14 FIRED 2/25 (R777 Quiver + R787 Crystal-basis); INVESTIGATIVE_CANDIDATE = 2; cross_step_axis_divergence_rate = 0.08.",
+      "timestamp": "2026-05-21T15:12:00Z"
+    }
+  ],
+  "last_updated": "2026-05-21T17:15:00Z",
+  "v14_observation_starting_E33": {
+    "note": "Starting E33, the policy_state tracks coverage_profile_aggregates per slot (NEW v14). Rounds where the primary candidate is in an undersaturated slot from prior epoch are biased up via E34+ policy. v14 integrates THREE frontier frameworks: HTS [Yu Sun + Foster] (heavy-tail 100-pool + diversity filter), ATU [Gao] (20-slot closed universe), CPM [Foster] (post-epoch coverage profile + Gini + undersaturated feedback). Step 14.5 fires ONCE per epoch (post-25-rounds) to compute coverage profile and write E{N+1} bias.",
+    "coverage_profile_signal_class_hierarchy": {
+      "distinct_slots_hit_>=15": "WIDE_COVERAGE: 75%+ of slots populated; healthy exploration",
+      "distinct_slots_hit_10_to_14": "MODERATE_COVERAGE: 50-70% of slots populated; some bias toward dominant modes",
+      "distinct_slots_hit_<10": "NARROW_COVERAGE: <50% of slots populated; strong mode collapse; aggressive feedback needed",
+      "gini_>=_0_7": "HIGH_CONCENTRATION: top slot dominates; up-weight all undersaturated",
+      "gini_0_4_to_0_7": "MODERATE_CONCENTRATION: natural domain bias; up-weight undersaturated at factor 2.0",
+      "gini_<_0_4": "LOW_CONCENTRATION: near-uniform; up-weight undersaturated at factor 1.5"
+    },
+    "max_over_100_attack_rebuttal_rate_signal_class_hierarchy": {
+      "rate_>=_0_8": "HEAVY_TAIL_STRONG: most rounds have heavy-tail rebuttal candidate; HTS confirmed",
+      "rate_0_5_to_0_8": "HEAVY_TAIL_MODERATE: about half of rounds have heavy-tail rebuttal candidate",
+      "rate_<_0_5": "HEAVY_TAIL_WEAK: most rounds lack heavy-tail rebuttal candidate; consider expanding 100-pool diversity"
+    }
+  },
+  "v14_coverage_profile_aggregates_observed_E33": {
+    "step_05_total_candidates_generated_per_round_E33": 100,
+    "step_05_total_candidates_generated_E33_aggregate": 2500,
+    "step_05_4_diversity_filter_rounds_count_E33": 25,
+    "step_05_4_kmeans_seed_E33": 33,
+    "max_over_100_attack_rebuttal_rate_E33_at_threshold_0_30": 1.0,
+    "max_over_100_attack_rebuttal_rate_E33_at_threshold_0_40": 0.48,
+    "max_over_100_projection_mean_E33": 0.389,
+    "architecture_tools_universe_size": 20,
+    "architecture_slot_assignment_rate_E33": 1.0,
+    "distinct_slots_hit_E33": 13,
+    "undersaturated_slots_E33": [
+      "S02",
+      "S05",
+      "S10",
+      "S12",
+      "S15",
+      "S16",
+      "S18"
+    ],
+    "saturated_slots_E33": [
+      "S01",
+      "S03",
+      "S06",
+      "S07",
+      "S09",
+      "S11",
+      "S19"
+    ],
+    "gini_concentration_index_E33": 0.542,
+    "max_count_slot_E33": "S01",
+    "max_count_value_E33": 5,
+    "distinct_INVESTIGATIVE_CANDIDATE_count_E33": 3,
+    "INVESTIGATIVE_CANDIDATE_rounds_E33": [
+      805,
+      814,
+      823
+    ],
+    "rate_consistency_with_E32": "E32 had 2/25 INVESTIGATIVE; E33 has 3/25 (+1 via heavy-tail diversity selection of R805 Adjoint-representation which v13 sequential top-3 would have missed). The cross-step axis divergence is REPRODUCIBLE and amplified by v14 HTS."
+  },
+  "policy_update_for_E34": {
+    "recommendation": "E34 should up-weight 7 undersaturated slots (S02, S05, S10, S12, S15, S16, S18) at bias_factor=2.0 in the 100-pool generation. Continue mechanism transfer of v13 + v12 + v11 filters. drift_score target >=0.6. v14 HTS+ATU+CPM proven effective at E33; replicate.",
+    "next_epoch_focus": [
+      "S02 change_normalization_placement (modify LayerNorm pre/post; new norm types)",
+      "S05 change_residual_structure (dense, skip patterns, ReZero)",
+      "S10 modify_layer_depth_structure (variable depth, early-exit, ALBERT-style sharing)",
+      "S12 modify_embedding_structure (learned codebook, retrieval-augmented embedding)",
+      "S15 add_discriminator_or_critic (GAN-disc, RLHF reward model)",
+      "S16 modify_token_routing (MoE token routing, capsules)",
+      "S18 modify_head_structure (head count, head specialization, MQA, GQA)",
+      "PLUS continued exploration of architectural-deep slots (S01, S04, S06, S07, S19) for INVESTIGATIVE candidates"
+    ],
+    "coverage_profile_bias": {
+      "undersaturated_slots": [
+        "S02",
+        "S05",
+        "S10",
+        "S12",
+        "S15",
+        "S16",
+        "S18"
+      ],
+      "bias_factor": 2.0,
+      "saturated_slots_no_down_weight": [
+        "S01",
+        "S03",
+        "S06",
+        "S07",
+        "S09",
+        "S11",
+        "S19"
+      ],
+      "rationale": "E33 hit S04, S08, S13, S14, S17, S20 once each (mediumly covered); hit S01 5x (dominant attention modification - natural LLM bias); 7 slots at 0 (S02, S05, S10, S12, S15, S16, S18). Up-weight the 7 at factor 2.0 in E34 100-pool generation. The dominant slots (S01, S03, S09, S11) reflect natural LLM-architecture bias and are NOT down-weighted; we want to ensure underrepresented slots have HIGHER probability not LOWER for the dominant ones."
+    },
+    "v14_specific_focus_E34": "Every E34 round generates 100 candidates with coverage-profile-biased slot distribution; step 05.4 selects 25 most-diverse; step 14.5 computes E34 coverage profile and feeds back to E35. The feedback loop has now closed (E33 was bootstrap; E34 is first feedback-driven epoch). Expected E34 outcomes: distinct_slots_hit increases to 16-18 (vs E33s 13); Gini decreases to 0.35-0.50 (vs E33s 0.542); INVESTIGATIVE candidates may shift from Lie-groups to e.g. equivariance via Mamba/RWKV (S17 recurrence) or sparsity (S07) modifications.",
+    "rationale": "v14 demonstrated +12.93 score over v13 via HTS+ATU+CPM integration. The E34 epoch tests CPM feedback loop effectiveness: does next-epoch coverage shift toward undersaturated slots when policy biases the generation?"
+  },
+  "history_v14": [
+    {
+      "epoch": 33,
+      "action": "v14 policy state from E32 outcomes; integrate 3 frontier frameworks (HTS/ATU/CPM). drift_score=0.65. 5 NEW math domains: harmonic-analysis, p-adic-analysis, complex-dynamics, information-geometry, convex-analysis.",
+      "timestamp": "2026-05-21T16:00:00Z"
+    },
+    {
+      "epoch": 33,
+      "action": "v14 step 14.5 NEW + step 05.4 NEW + logs/architecture_tools.json NEW; schema_version bumped to 1.4 to record coverage_profile_aggregates field group; coverage_profile written; coverage_profile_bias for E34 written: 7 undersaturated slots (S02, S05, S10, S12, S15, S16, S18) up-weight factor 2.0; HTS confirmed (step 14 FIRED 3/25 vs E32 v13s 2/25); ATU confirmed (100% slot assignment); CPM operational (Gini=0.542; feedback loop closed for E34).",
+      "timestamp": "2026-05-21T17:15:00Z"
+    }
   ]
 }

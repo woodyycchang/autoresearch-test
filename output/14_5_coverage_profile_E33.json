@@ -1,0 +1,125 @@
+{
+  "epoch": 33,
+  "rounds_range": "R801-R825",
+  "program": "v14 (program_v14.md) \u2014 frontier integration: HTS (Yu Sun + Foster) + ATU (Gao) + CPM (Foster)",
+  "selected_candidates_count": 25,
+  "total_slot_assignments_count": 25,
+  "coverage_profile": {
+    "S01_modify_attention_scoring_function": 5,
+    "S02_change_normalization_placement": 0,
+    "S03_add_gating_module": 3,
+    "S04_modify_positional_encoding": 1,
+    "S05_change_residual_structure": 0,
+    "S06_modify_softmax_function": 2,
+    "S07_add_sparsity_constraint": 2,
+    "S08_modify_FFN_structure": 1,
+    "S09_add_new_learnable_module": 3,
+    "S10_modify_layer_depth_structure": 0,
+    "S11_add_inter_layer_pathway": 2,
+    "S12_modify_embedding_structure": 0,
+    "S13_add_external_memory_module": 1,
+    "S14_modify_training_objective": 1,
+    "S15_add_discriminator_or_critic": 0,
+    "S16_modify_token_routing": 0,
+    "S17_add_recurrence_or_state": 1,
+    "S18_modify_head_structure": 0,
+    "S19_add_equivariance_constraint": 2,
+    "S20_modify_inference_time_compute": 1
+  },
+  "coverage_profile_compact": {
+    "S01": 5,
+    "S02": 0,
+    "S03": 3,
+    "S04": 1,
+    "S05": 0,
+    "S06": 2,
+    "S07": 2,
+    "S08": 1,
+    "S09": 3,
+    "S10": 0,
+    "S11": 2,
+    "S12": 0,
+    "S13": 1,
+    "S14": 1,
+    "S15": 0,
+    "S16": 0,
+    "S17": 1,
+    "S18": 0,
+    "S19": 2,
+    "S20": 1
+  },
+  "distinct_slots_hit": 13,
+  "undersaturated_slots": [
+    "S02",
+    "S05",
+    "S10",
+    "S12",
+    "S15",
+    "S16",
+    "S18"
+  ],
+  "saturated_slots": [
+    "S01",
+    "S03",
+    "S06",
+    "S07",
+    "S09",
+    "S11",
+    "S19"
+  ],
+  "gini_concentration_index": 0.542,
+  "mean_count_per_hit_slot": 1.9231,
+  "mean_count_per_slot_uniform_baseline": 1.25,
+  "max_count_slot": "S01",
+  "max_count_slot_name": "modify_attention_scoring_function",
+  "max_count_value": 5,
+  "coverage_profile_predicted_E34_bias": [
+    {
+      "slot_id": "S02",
+      "slot_name": "change_normalization_placement",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S02 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S05",
+      "slot_name": "change_residual_structure",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S05 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S10",
+      "slot_name": "modify_layer_depth_structure",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S10 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S12",
+      "slot_name": "modify_embedding_structure",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S12 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S15",
+      "slot_name": "add_discriminator_or_critic",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S15 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S16",
+      "slot_name": "modify_token_routing",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S16 0 times; up-weight in E34 candidate generation"
+    },
+    {
+      "slot_id": "S18",
+      "slot_name": "modify_head_structure",
+      "bias_factor": 2.0,
+      "rationale": "E33 hit S18 0 times; up-weight in E34 candidate generation"
+    }
+  ],
+  "rationale": "E33 coverage profile: 13/20 distinct slots hit. 7 undersaturated slots (count=0) to be up-weighted in E34. 7 saturated slots (count>1) reflect natural domain bias toward attention/equivariance/pathway modifications. Gini=0.542 indicates moderate concentration (uniform baseline would be Gini=0).",
+  "honest_computation_note": "Step 14.5 main-context-direct; deterministic histogram + Gini computation from 25 architecture_tool_slot fields in 05_candidate.json; no Agent spawn required per program_v14.md \u00a74.5.",
+  "main_context_direct_step_14_5_count": 1,
+  "real_step_14_5_Agent_spawns": 0,
+  "timestamp": "2026-05-21T17:15:00Z"
+}
