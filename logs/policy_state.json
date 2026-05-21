@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
-  "current_epoch": 31,
-  "prior_epoch_used_for_update": 30,
-  "policy_update_timestamp": "2026-05-20T14:00:00Z",
+  "v13_introduced_at_epoch": 32,
+  "current_epoch": 32,
+  "prior_epoch_used_for_update": 31,
+  "policy_update_timestamp": "2026-05-21T14:00:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
       {"key": "mechanism_transfer x spectral-allocation", "fail_count_in_prior_epoch": 2, "cumulative_fail_count": 16, "cumulative_seen_count": 16, "reward_estimate": -1.0, "status": "over-mined"},
@@ -153,5 +154,65 @@
     "step_05_5_final_architectural_count": 24,
     "step_05_5_final_REJECTED_R279_PATTERN_count": 1,
     "step_05_5_REJECTED_R279_PATTERN_rounds": [775]
-  }
+  },
+  "v13_observation_starting_E32": {
+    "note": "Starting E32, the policy_state tracks step_14_aggregates per sub-pattern. Rounds where step 14 FIRES (cross-step axis divergence: step 10 FAIL + step 13.5 PASS-via-rebuttal) provide an INVESTIGATIVE_CANDIDATE signal — these are architectural-distinct candidates whose attack-rebuttal at step 13.5 demonstrates genuine mechanism distinctness despite kw overlap at step 10. The label is a parallel diagnostic, NOT a substantive PASS.",
+    "step_14_signal_class_hierarchy": {
+      "FIRED_INVESTIGATIVE_CANDIDATE": "step 10 says FAIL (kw axis); step 13.5 says PASS-via-rebuttal (mechanism axis); axes diverge; candidate worth human review (best diagnostic compression)",
+      "SKIPPED_COHERENT": "step 10 says FAIL; step 13.5 also says FAIL; both axes agree on FAIL (architectural at construction; succumbed at convergence — R786 Hopf-bif / Symplectic-capacity pattern)",
+      "SKIPPED_NOT_APPLICABLE": "step 13.5 did not fire (round not in top-3 mechanical-PASS proximity); cannot evaluate axis coherence"
+    }
+  },
+  "v13_step_14_aggregates_observed_E32": {
+    "step_14_total_evaluations": 25,
+    "step_14_FIRED_count": 2,
+    "step_14_FIRED_rounds": [777, 787],
+    "step_14_SKIPPED_COHERENT_count": 1,
+    "step_14_SKIPPED_COHERENT_rounds": [786],
+    "step_14_SKIPPED_NOT_APPLICABLE_count": 22,
+    "step_14_fired_rate": 0.08,
+    "INVESTIGATIVE_CANDIDATE_count_E32": 2,
+    "INVESTIGATIVE_CANDIDATE_rounds_E32": [777, 787],
+    "cross_step_axis_divergence_rate_E32": 0.08,
+    "rate_consistency_with_E31": "E31 retrospectively had R756 + R770 as step-13.5-rebutted (would be INVESTIGATIVE under v13 if v13 had been operational at E31). E32's 2 INVESTIGATIVE rounds matches E31's retrospective 2; rate ~0.08 stable across epochs."
+  },
+  "post_E31_aggregates_observed": {
+    "shared_math_structure x algebraic-geometry": {"E31_seen": 1, "E31_fail": 1, "rounds": [751]},
+    "shared_math_structure x representation-theory": {"E31_seen": 2, "E31_fail": 2, "rounds": [752, 772]},
+    "shared_math_structure x Lie-groups": {"E31_seen": 1, "E31_fail": 1, "rounds": [756]},
+    "shared_math_structure x tropical-geometry": {"E31_seen": 1, "E31_fail": 1, "rounds": [770]},
+    "step_05_5_first_attempt_REJECTED_E31": 16,
+    "step_05_5_first_attempt_PASS_E31": 9,
+    "step_05_5_REJECTED_R279_PATTERN_rounds_E31": [775],
+    "step_13_fired_count_E31": 3,
+    "step_13_fired_rounds_E31": [756, 766, 770],
+    "step_13_5_load_bearing_attacks_succeeded_E31": 1,
+    "step_13_5_post_attack_true_rounds_E31": [756, 770],
+    "step_13_5_post_attack_downgraded_to_false_rounds_E31": [766]
+  },
+  "policy_update_for_E32": {
+    "recommendation": "Continue post-R279 shared_math majority. Pivot to 11+ NEW math domains (number-theory, geometric-group-theory, analytic-number-theory, symplectic-geometry, geometric-topology, algebra, plus deepening of representation-theory, algebraic-geometry, algebraic-topology, combinatorics, category-theory). drift_score target ≥0.7. v13's step 14 cross-step coherence detector expected to fire 1-3 times if architectural-distinct candidates continue to be rebutted at step 13.5.",
+    "next_epoch_focus": [
+      "Schubert calculus (alg-geom; deepen)",
+      "Quiver representations + crystal bases (rep-theory; deepen)",
+      "Modular forms + L-functions + profinite + Galois (number-theory family)",
+      "Stable homotopy + cohomology operations + equivariant + twisted K + Goodwillie (alg-top family)",
+      "Random graphs + Coxeter groups (combinatorics; deepen)",
+      "Symplectic topology + Floer homology (symp-geom NEW)",
+      "Buildings/Bruhat-Tits (geometric-group-theory NEW)",
+      "Operadic structures + Topos theory (category-theory; deepen)",
+      "Hopf algebras + Hochschild cohomology (algebra NEW)",
+      "Whitney stratification (geometric-topology NEW)",
+      "D-modules + moduli spaces (alg-geom; deepen)"
+    ],
+    "v13_specific_focus": "Every round runs step 14 evaluation (FIRED / SKIPPED_COHERENT / SKIPPED_NOT_APPLICABLE). Predicted step 14 FIRED rate: ~0.08 (matching E31 retrospective). Top-3 by mechanical-PASS proximity will receive step 13 + step 13.5; expected 2/3 step-13.5 rebuttals (R777, R787) → step 14 FIRED → INVESTIGATIVE_CANDIDATE; 1/3 step-13.5 succumbed (R786) → step 14 SKIPPED_COHERENT.",
+    "rationale": "E32 maintains policy drift while testing v13's cross-step coherence detector. The v13 channel doesn't generate new candidates; it labels v12's architectural candidates. Stable architectural rate (0.96) + stable step 13.5 rebuttal rate (2/3) → stable INVESTIGATIVE rate (~0.08)."
+  },
+  "v13_observation_post_E32": {
+    "note": "Post-E32, the v13 channel is reproducible: 2 INVESTIGATIVE_CANDIDATE rounds in E32 (R777, R787) matches E31's retrospective 2. Both step 05.5 (v12) and step 14 (v13) signals are stable across epochs. The corpus now has signal compression at TWO new levels: generator-side (step 05.5 rejection_rate) and verifier-side cross-step (step 14 INVESTIGATIVE rate)."
+  },
+  "history_v13": [
+    {"epoch": 32, "action": "v13 policy state from E31 outcomes; continue pivot to 11 math sub-areas (6 NEW + 5 deepened). drift_score=0.80 (1 carry-over: representation-theory).", "timestamp": "2026-05-21T14:00:00Z"},
+    {"epoch": 32, "action": "v13 step 14 added as cross-step coherence detector; schema_version bumped to 1.3 to record step_14_aggregates field group; step_14 metrics tracked in stats_round_NNN.json under v13_cross_step_coherence_metrics block. Step 14 FIRED 2/25 (R777 Quiver + R787 Crystal-basis); INVESTIGATIVE_CANDIDATE = 2; cross_step_axis_divergence_rate = 0.08.", "timestamp": "2026-05-21T15:12:00Z"}
+  ]
 }

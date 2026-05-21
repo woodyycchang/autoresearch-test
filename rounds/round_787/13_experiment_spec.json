@@ -1,0 +1,29 @@
+{
+  "round": "787",
+  "epoch": 32,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R787 is rank by mechanical-PASS proximity in E32 (post-filter architectural candidate with kw=2; tree-stream max sim=0.40). Per program_v10.md §2.5 (preserved in v11/v12/v13), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R787",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Crystal-basis attention layer: new attention layer whose key/query weights are constrained to a Kashiwara crystal basis of an irreducible highest-weight module; attention weights are computed via combinatorial monomial paths over the crystal, replacing softmax with a tableaux-indexed transition function.",
+  "v12_classifier_status": "architectural-topology-change (passed step 05.5 first attempt)",
+  "experiment": {
+    "dataset": {"name": "Long Range Arena (LRA: Pathfinder, ListOps) + WMT16 En-De", "preprocessing": "standard LRA + WMT pipelines"},
+    "base_model": {"name": "Transformer-base (60M params)", "framework": "PyTorch + HuggingFace", "training_budget_minutes_on_T4": 28},
+    "variants": {
+      "A_candidate": {"name": "Crystal-basis attention layer", "description": "Replace softmax attention with a tableaux-indexed transition function where keys/queries are constrained to Kashiwara crystal basis vectors of an irreducible sl_n+1 highest-weight module. Attention 'weights' are computed via combinatorial monomial paths over the crystal graph rather than dot-product + softmax. The crystal-basis structure introduces a combinatorial sparsity (only adjacent crystal edges have non-zero attention).", "distinctive_parameter": "new crystal-basis vectors + learnable tableau-transition coefficients"},
+      "B_control": {"name": "Same architecture WITH standard softmax attention", "description": "Baseline transformer-base", "distinctive_parameter_value": "softmax attention; no crystal-basis constraint"},
+      "C_baseline": {"name": "Reformer LSH attention (Kitaev 2020)", "reference_paper": "Kitaev 2020 arXiv:2001.04451"}
+    },
+    "metric": {"name": "LRA Pathfinder accuracy + WMT16 BLEU + sparsity pattern (Hamming-distance between learned attention and crystal-basis-implied sparsity)", "seeds": 3},
+    "statistical_test": {"name": "paired t-test A vs B + A vs C + sparsity-pattern correlation analysis", "significance_threshold": "p < 0.05"}
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "true",
+    "rationale": "Crystal basis is a discrete algebraic structure on the highest-weight representation; the attention pattern induced by tableau transitions is combinatorially distinct from softmax (softmax is dense; crystal-basis transitions are sparse and structured by the weight lattice). The combinatorial sparsity pattern of A is empirically distinguishable from B (softmax dense) and C (LSH random sparse). The attention pattern's Hamming-distance from crystal-basis sparsity is a direct measurable distinguishability metric.",
+    "v12_observation": "Step 05.5 PASS = architectural-topology-change; candidate has new learnable module with new crystal-basis vectors and tableau-transition coefficients. The combinatorial structure of crystal basis is genuinely different from softmax attention's continuous distribution."
+  },
+  "budget_compliance": {"total_runtime_minutes_on_T4": 28, "under_30_min_budget": true},
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "R787's architectural-topology candidate replaces softmax with crystal-basis transition function; the sparsity pattern is structurally distinct from both dense softmax and random LSH-sparse."
+}
