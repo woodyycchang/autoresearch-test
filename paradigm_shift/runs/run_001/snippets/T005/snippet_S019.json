@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S019",
+  "transcript_id": "T005",
+  "start_line": 241,
+  "end_line": 254,
+  "verbatim_text": "It replaces expectation with the summation. We can also do the other typical thing of replacing the rest of the objective as is. But this is nothing but standard RL. And we know that this objective, when you maximized, was not really good enough to learn algorithms. Now, to see what is better, any particular objective has two parts, which is sampling and rewarding. So roughly these two parts. If MetaORL told us anything, it was that you want algorithms that learn to explore, which means the sampler of the trace has to explore widely. And the one that rewards the trace has to reward this exploration behavior, not just the terminal rewards. So in the end, what we want is an objective which has a surrogate sampler. Why is it surrogate? Because during training, you're not sampling directly from the algorithm as you do at test time. You're sampling from a different procedure, which you are calling as a surrogate sampler, abstractly. And you're not just rewarding a trace based on correctness of the final answer, which is terminal rewards that you do at test time. You're rewarding it for exploration.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1110
+}
