@@ -1,0 +1,799 @@
+Okay, I guess we'll get started.
+So I'm very pleased to have with us Amrith Setlur from the Schumann department at CMU.
+He's giving us today to talk about reinforcement learning, reinforcement learning, and training models to adapt at test time.
+Thank you, Chris, and thank you all for signing in.
+Today I'll talk about training models to adapt at test time.
+Over the past few years, we have seen some amazing progress in AI.
+We have chatbots, coding agents, and so on.
+At the same time, there's a long way to go in some other application areas like drug discovery, or proving hard theorems in research math, or even in areas like URS.
+Now on the left are applications with tons of internet data to train on, but the ones on the right are sort of largely in.
+So in a nutshell, we are yet to see AI systems that generalize very broadly.
+Now to see where we can improve, let's take an abstract view of machine learning.
+So typically we are given this data set of input-output pairs.
+What we do next is we fit that data, and what we get in the end is a trained static model.
+Think about a neural network.
+Now, why is it static?
+Because at test time, when you feed it an input, it performs a fixed set of computations or operations before it makes a prediction.
+Now, this paradigm of static models is not really limiting in theory.
+We can represent complex functions.
+But what we see in practice is that whenever there's a hard instance, for example, there's a shift in distribution from your training images to the test image, then no matter how big the static model was, they typically end up failing.
+Now, as inputs get harder, what's more clear is that we need models with variable number of operations.
+That is, these are models that can adapt to the test instance.
+So, for example, consider this image that's given to this model.
+It's an image classification task.
+So this model that adapts would first produce a set of operations that's trying to detect some bounding boxes for the various objects in the image.
+Now, if this trace of operations is not enough to make a prediction, maybe it can produce some more operations that's trying to contrast some of the edges and keep producing this trace going longer and longer until it's confident enough to make a final prediction.
+Now I call this paradigm, where the model is adapting to the hardness of the test instance by performing variable operations as test time adaptation.
+So how do we think about test time adaptation formally?
+So the key property that we're looking for here is that as the model performs more operations on the test input, the performance on that input improves.
+That's the key property.
+And we typically get this behavior by running what we call in computer science as an algorithm.
+So we can think about test time adaptation as running an algorithm.
+So an algorithm is nothing but a randomized mapping.
+It's from an input to a trace of operations or computations performed on that input.
+And if doing test time adaptation is nothing but running this algorithm, then fundamentally learning to adapt at test time is nothing but learning this algorithm.
+So throughout the talk, whenever we think about training models or learning models that adapt at test time, we're essentially saying that we are trying to learn algorithms or train algorithms.
+So what are some examples of these algorithms?
+They can either be a piece of code, a program, or it can also be the weights of a network with a feedback loop.
+Now the defining property in both these cases is that the operations can be variable and they can be scalable, depending on that particular input.
+Now as these operations get more and more expressive, these algorithms can actually solve open-ended problems.
+I'll give you an example here.
+So let's say there is some research problem.
+You want to prove some open conjecture and partial differential equations.
+You feed that as input of the algorithm.
+It's unclear what this trace of operation should look like, but a good algorithm would produce something like this.
+It would first retrieve some prior work relevant to this research problem, build some simulations, run it, collect data, fit that data.
+Maybe even come up with a proof, try to verify that proof using some tool like Lean, and then send that as sort of feedback to the user.
+Now if we squint at it, at a high level, this trace of operations looks like a form of intelligent test time search.
+And that's a good example to keep in mind throughout this talk.
+So a good algorithm is one that's doing some intelligent test time search.
+So clearly it should be the case that these expressive adaptive algorithms should be much harder to learn than learning static models, which is what we were doing previously.
+So why is it really possible?
+It's possible now because pre-trained models come with really good priors for learning algorithms.
+So pre-trained models like large-language models or LLMs, they're trained on a vast corpus of internet data.
+And this is text data that represents the way how humans think and solve problems.
+It's in this text format.
+And now when you pre-train, these models pick up on these behaviors and patterns, and they come with these good priors for solving problems at test time, or they come with good priors for algorithm learning.
+Now with that prerequisite, I will state my broad goal, which is to train AI systems to continually adapt at test time and solve challenging test problems.
+My approach for this is rooted in this framework for algorithm learning.
+And I instantiate this approach in the setting of large-language models.
+I train these large-language models to be effective algorithms at test time through tools and techniques from reinforcement learning, which is nothing but a sub-area of machine learning that deals with sequential decision making.
+So why should we care about test time adaptation or learning algorithms?
+And as it turns out, algorithm learning can be extremely powerful.
+And to give you an example of this, I'll quote a result that we'll actually build up in the later part of the talk.
+The setting here is that we want to train LLMs to solve hard Olympiad-level math problems.
+Now if you take a pre-train LLM, a four-billion-parameter model, it's a pretty small-sized model that barely makes a dent on this hard problem.
+It's barely there.
+It's about 3%.
+Now if you take a frontier LLM, which is Gemini 3 Pro in this case, that gets to a performance of about 60% on this hard task.
+Now you can take this small model and try to improve it more generally using a barrage of techniques.
+You can use brute force RL, pick your favorite one.
+You can try to improve its performance.
+And that gets to a performance of about 34% on this task.
+That's pretty reasonable, but still on the level of Gemini.
+So now comes the interesting part.
+When we take this small four-b-size pre-train model and we train it with algorithm learning techniques that we'll see very shortly, then what we get is this model QEDnano.
+It's a four-b-size model that can scale the number of operations it performs at test time.
+That is, it can scale the tokens it produces.
+It can produce millions and millions of tokens.
+And as it does so, it keeps improving performance and eventually matches the performance of Gemini 3 Pro tasks.
+So essentially, it's a really good, effective algorithm, this model QEDnano.
+So what did we learn here?
+First, we can represent an algorithm with just four billion parameters.
+Second, if we use the right techniques, we can train this algorithm effectively to adapt at test time and match the performance of a much bigger model.
+So how did we get here?
+And the rest of the talk is sort of about this.
+It's divided into three parts.
+The first part is about a formal framework for learning algorithms.
+The second part would be about practical design choices and methods for learning algorithms.
+And in the third part, we'll talk about the QEDnano result in a bit more detail.
+With that, let's jump into the learning framework.
+So the main question here is, how can we learn algorithms?
+Now, this is a very broad question, and I take a very machine learning approach, which is, first, let's figure out the parametrization.
+How do we represent an algorithm?
+Once you have this, the second thing is, how do you evaluate a given algorithm?
+What is the objective function?
+And once you have these two pieces, then all you need to do is go and maximize this objective over the class of algorithms you just parametrized, and that gives you the golden algorithm you're looking for.
+So it has these two components.
+It's simple enough.
+So let's try to look at parametrization.
+Now, we do know that LLMs come with these priors for learning algorithms.
+That's what we just saw.
+But can they formally parametrize a given algorithm?
+And here I'll talk about one of my works, which kind of says that.
+And the simple idea here, it's sort of a proof by picture.
+So if you take a tokenized problem as input to this LLM, it decodes a block of tokens.
+It decodes it autoregressively.
+Let's denote a block of tokens as operation.
+It's operation O1.
+You feed this back into the LLM.
+It decodes another block of tokens, operation O2.
+O2 gives O3, and so on, until you get to the final.
+Now, many works, including our own, have tried to analyze these operations, and I found that broadly these operations constitute a form of search or an in-context search.
+At least they verbalize a form of in-context search.
+You can correspond this first operation, O1, with some particular skill, like generating a particular attempt on this problem.
+The second one can be trying to verify that attempt on that problem.
+Third one involves backtracking.
+Fourth involves revision, and so on.
+Roughly, we can think about tokens being sampled from an LLM as a search trace sample from an algorithm.
+And in the same vein, we can think about test time adaptation as nothing but sampling tokens, and more and more tokens, before producing the final answer that we care about.
+Now, some other notations that we'll use throughout this talk.
+We'll always refer to an operation as a block of tokens.
+A state within this trace is nothing but a prefix of tokens.
+The search trace we denoted with this notation F, trace F, the input problem is X.
+And the final answer that you get at the end of the trace for problem X is F of X.
+Now, in many cases, we cannot evaluate these intermediate operations, but we can evaluate the final answer.
+So think about solving a system of linear equations.
+You can evaluate the final answer, at least.
+And we'll assume access to a terminal reward function, which is one, if the final answer F of X is correct, and it's zero otherwise.
+Okay, so let's go back to our learning framework.
+And here we're looking at, yes.
+I'm just confused about the notation.
+You said to think of the, notate the trace by F.
+Yes.
+But then you're using function application notation.
+So should I assume that F of Y for some other problem Y?
+Yeah, yeah.
+So there's an overloading of notation here.
+So X is the problem.
+Think about it as tokens that sample for X.
+And F you can think about as like, you know, as an intermediate sequence of tokens that you produce.
+So typically in a trace, you have a thinking trace, you have a thinking part, and then you have the final answer.
+So I'll denote every computation, every matrix multiplication that you did as part of the thinking process as F.
+And that, when applied to the input, gives you the final set of decoded tokens, which is F of X.
+At least that's how I think about it.
+Awesome.
+So yes, so we have sort of answered the first part, which is parametrization.
+LLM scan reps and algorithms and test time adaptation is just sampling more tokens.
+What about the objective?
+And note that we just looked at this notion of terminal rewards.
+So it's kind of natural to try and maximize this notion of terminal rewards to learn better algorithms.
+And here I'll talk about a line of work that uses standard reinforcement learning to maximize these terminal rewards and learn better LLM.
+And I'll also talk about one of my works that says why this is not enough to learn algorithms.
+So first step is to define the objective.
+How do we compute it?
+You have this data set of training problems.
+You feed each problem as an input to the LLM.
+It decodes a bunch of traces for each problem.
+Each trace has a terminal reward at the very end.
+You can average all of the terminal rewards for each particular problem and you get this average reward.
+You have this expectation, which is average reward for that problem.
+You can sum this up over all the problems in the training data and that gives you this total reward.
+So that is the objective, which is trying to look at this average terminal reward.
+How do we maximize it?
+Now, typically these rewards may be non-differentiable.
+And in many settings where we have these non-differentiable rewards, a typical framework that we use is reinforcement learning.
+In fact, DeepSeq R1 and a line of work on RL with verifiable rewards use the standard RL approach to optimize these terminal rewards and improve the performance of LLMs.
+But as it turns out, standard RL is not the best way to learn algorithms.
+And I'll give you an example of this in a didactic setting, which is actually a descriptor of a failure mode that appears very commonly in practice.
+And I'll show you the empirical results in a few slides for it.
+But the setting here is you want to train algorithms to prove math theorems.
+We'll represent this theorem as the initial state of the algorithm, as this orange block.
+Around this state are a bunch of other states corresponding to incorrect proofs for that particular theorem.
+And somewhere in there is that state corresponding to the correct proof for that theorem.
+Now, an algorithm's job is to traverse this state space and identify the correct proof.
+And if it ends up terminating at an incorrect proof, it gets a reward of zero.
+If it terminates at the correct proof, it gets a reward of one.
+So now consider training or a family of theorems.
+Consider a family of PCS problems.
+Here the problem is about planar graph.
+It asks, is every planar graph k-colorable?
+And you train on a family of this problem.
+So you train on a bunch of these theorems during your standard RL training.
+Consider the setting where you look at all of the theorems corresponding to the case where k is greater than four.
+Now, as it turns out, roughly many of them can be solved with a similar enough proof technique that I'll abstractly denote as p6.
+And if you run standard RL that tries to maximize these terminal rewards, what that would do is it would learn a direct mapping, this greedy algorithm that takes in this input theorem and directly tries to produce the correct proof of that theorem.
+This maximizes these training rewards.
+But what happens at test time is let's say you consider the case for k is equal to four within the same family.
+It's a problem.
+It's a famous problem in PCS, but it requires a very different proof technique to be able to solve it.
+And as it turns out, this greedy algorithm, if you now run it, it would now try to produce the same proof that it saw during training, that worked reasonably during training, and it would just terminate that.
+The problem is it terminates there.
+So it fails to generalize, basically.
+And this problem is actually something that we also see in practice.
+So if you take pre-trained LLMs and you train them with RL, and then you try to see what happens if you sample more tokens from them at test time, that is, get them to produce more operations, we evaluate their performance on some standard contest level math benchmarks.
+There's a sharp increase in the performance as you get to about 8k tokens.
+They're able to solve a bunch of problems with just 8k tokens.
+But if you give them more tokens, get it to produce more tokens, there is a performance plateau.
+So the sharp increase in performance plateau is exactly like the description of a greedy algorithm.
+So what this tells us is that perhaps standard RL is not the best approach if you want to learn effective algorithms that can adapt at test time, or models that can adapt at test time.
+In fact, if you try to look at some of the state of the art LLMs, there was this first proof challenge.
+It was a collection of about 10 research math problems curated by experts in the field, and they also solved these problems.
+Now, the Gemini team at Google found that even after days and days of computation of the Gemini model, it still couldn't solve some of these problems that experts had already solved.
+And presumably, the Gemini model is trained with a lot more than standard RL.
+So it turns out that state of the art LLMs are not the best algorithms yet.
+So going back to our learning framework, we took our first stab at this, which is try to maximize total rewards and do that with standard RL to learn algorithms.
+That's not the best approach.
+Now, to see what can be better, we first have to rethink our perspective on learning algorithms.
+And here I'll describe a key insight that my work develops and tries to use throughout various works.
+OK, so let's go back to the setting where we saw standard RL greedy algorithm failed.
+This was that family of two problems where K is equal to four had a very different proof technique.
+Now, what would be an algorithm that would generalize is one that does a form of intelligent search over probable proofs before committing to the right one.
+So as long as you're searching over reasonable options and that's the behavior you're learning during training at test time, even if you have a very different proof technique to solve it, as long as you're searching over probable ones and you're covering the correct proof, then you're likely to find that and dominate that.
+Now, we can think about this set of operations as some kind of an exploration that's sampled from the algorithm.
+It's a trace sample from the algorithm.
+What is this exploration really doing?
+It's learning about the test problem.
+It's trying to figure out through search what is the right proof technique for this problem.
+And we can think about this as some optimization done solely for the problem at test time.
+So exploration is trying to learn about the test problem.
+And we can think about an algorithm now that we want that can solve a variety of problems or a variety of test problems.
+So this algorithm needs to learn to explore or, in other words, learn to learn more about the test problem.
+And this notion of learning to learn in machine learning is typically referred to as meta learning.
+And in this context of maximizing terminal rewards, that's nothing but meta reinforcement learning.
+So we have equated this notion of learning algorithms as equivalent to solving this meta reinforcement learning problem.
+Now, what does this insight really bias?
+OK, first, it's a nice conceptual insight.
+My work was the first to highlight this connection and many works in this area have built upon this insight.
+Second, it's actually a practical way to design training objectives to learn algorithms.
+That is the objective, which is if you optimize on your training set, you can learn good algorithms.
+So how does it do that?
+Let's first look at the test objective.
+This is where you sample a problem from a population of test problems.
+And for each such problem, you sample a bunch of cases from the algorithm.
+You look at the terminal rewards.
+This is the test objective.
+We want an algorithm that at the end of the day is giving us correct responses.
+So you want it to maximize this terminal rewards at the end of the day.
+But during training, we don't have access to this population of test problems.
+We do have a training data set.
+So we do the typical thing in machine learning.
+It replaces expectation with the summation.
+We can also do the other typical thing of replacing the rest of the objective as is.
+But this is nothing but standard RL.
+And we know that this objective, when you maximized, was not really good enough to learn algorithms.
+Now, to see what is better, any particular objective has two parts, which is sampling and rewarding.
+So roughly these two parts.
+If MetaORL told us anything, it was that you want algorithms that learn to explore, which means the sampler of the trace has to explore widely.
+And the one that rewards the trace has to reward this exploration behavior, not just the terminal rewards.
+So in the end, what we want is an objective which has a surrogate sampler.
+Why is it surrogate?
+Because during training, you're not sampling directly from the algorithm as you do at test time.
+You're sampling from a different procedure, which you are calling as a surrogate sampler, abstractly.
+And you're not just rewarding a trace based on correctness of the final answer, which is terminal rewards that you do at test time.
+You're rewarding it for exploration.
+And it's a different reward, which we'll call as a surrogate reward.
+So what are these two values here?
+And that's exactly what the next part of the talk will be about.
+But before that, let me summarize the first part.
+We had these two components, parametrization and objectives.
+For the first part about parametrization, we said LLMs can represent algorithms and they can perform test time adaptation by sampling more tokens.
+For the second part, we equated the notion of learning algorithms with solving a meta RL problem.
+And what that meant is that it gave us this objective, which has these two parts, sampling a trace and rewarding a trace.
+And now we need to go and figure out these two parts in the next part of the talk.
+But before that, let me actually pause here for questions, if there are any.
+Let me continue that.
+So in the next part, we'll look at some practical design choices for these two.
+But let's say I give you some Oracle options for the sample and reward.
+These are really good values.
+How do we learn an algorithm?
+That's fairly simple.
+Now you have these two quantities nailed down.
+All we need to do is maximize this objective.
+And for that, we typically use some iterative optimization procedures in reinforcement learning.
+Think about policy iteration on optimization.
+For example, those used with reinforce, PPO, GRPO, for those of you who are aware of it.
+Now there are various knobs within this optimizer.
+And those also reflect the learned algorithm and its properties.
+And this talk is mostly about the training objective, but I'm happy to go into the details of this optimizer offline, like all the different knobs tuned.
+OK, so we have two parts, sampling and reward.
+Let's look at the reward part first.
+So what is the issue with the reward that standard RL uses?
+The standard RL uses terminal rewards.
+And the main issue is that it fails to reward exploration.
+So what do I mean by this?
+Let's say you have a research problem.
+You feed that as input to this algorithm.
+It would sample a trace of operation.
+The first operation looks like restating the problem, maybe proposing some hypothesis, looks pretty reasonable.
+Then it proposes some experiments, tries to fit some predictive model based on that experiment.
+But this trace is a very, very long trace.
+Eventually, it makes a calculation error.
+And because of that, it puts itself in an incorrect state.
+And what that means is that the final terminal reward you get is zero because the final answer is incorrect.
+But this terminal reward failed to recognize the really good exploration that these intermediate operations made.
+They made a ton of progress towards solving the problem.
+And this failed to identify or incentivize that progress.
+And what Matauro tells us is that we need to reward this exploration.
+So we need to reward this progress.
+So how do we even measure it?
+So that's the first question.
+And a simple way of doing it is to take this problem.
+Let's say you sample a trace for this problem from an algorithm.
+And at any point within this trace, which is a particular state, you want to measure the progress made so far in solving that problem.
+How do we do that?
+We compute something called as the reward to go for an LLM mu.
+It's a different LLM, different from the algorithm that sampled this trace.
+The way we do that, the way we compute this reward to go at this particular state, is we condition on that state, let the LLM mu generate multiple completions.
+We look at the terminal reward at the end of these completions.
+And that gives us the average reward to go for this LLM mu at that particular state.
+Now, if this reward to go for mu is high at that state, it means it's a good state that the algorithm produced.
+And if the reward to go is low, it means it's a bad state.
+So roughly, through this notion of rewards to go for this LLM mu, we can try to quantify what is a good and bad state.
+And we can also use this to actually identify good and bad operations.
+How do we do this?
+It's fairly simple.
+We look at the state and the reward to go at the state after the operation is performed.
+And we subtract from it the reward to go at the state before the operation.
+And the difference between these two is, yes?
+I'm not trying to talk about this, but is mu a pre-training LLM that you're not updating the training process for L?
+It's not updated to the training process.
+There are versions that you can update it, but in this version, we don't.
+So different mus would give different surrogate reward functions, and you select a mu before you start your process.
+Exactly.
+And we look at the choice of mu right after this.
+But that's a critical choice.
+So the difference between these rewards to go for mu gives us the advantage of this operation O measured by this LLM mu.
+Now, this advantage connects to the notion of advantages in RL, but the key thing to note here is that if this value is positive and high, which means that the operation O improved the chances of success for mu, so it's likely a good operation.
+If this is low and negative, it means it derailed the chance of success for mu, so it's a bad operation.
+So roughly, we have a reasonable way to identify good and bad exploratory operations through this notion of advantages measured with the right choice of mu.
+Now, the only thing left to figure out is what is this value of mu?
+And we can take some different approaches here.
+The first approach is asking, can we take this algorithm that generated the trace as itself a choice of mu?
+That would be the obvious thing to do, and it connects to a notion of value functions in RL.
+And while it's reasonable, what really happens is on many hard problems, no matter which state you are in, this algorithm that sampled the original trace is really weak.
+So you can sample a bunch of completions, but all of those completions end with terminal reward zero, and you look at the reward to go, that zero will take the difference.
+That's zero.
+So the advantage is not really helpful in figuring out what is a good and bad operation, but this choice of mu is really ineffective.
+Now, you can ask, what if we use a very strong LLM?
+Let's even take the oracle.
+It's a very strong LLM mu, but now we're into this opposite problem, wherein no matter which state you are in, the reward to go for that really strong LLM is one.
+Think about the LLM mu that ignores the state that this algorithm generated and just completes optimally from there on.
+So in that case, reward to go is always one at any given state, which means that the advantage of any operation evaluates to be zero once again.
+So this choice of mu is also not a good one.
+As it turns out, the right choice of mu is something that's complementary to the algorithm that generated the original trace.
+Intuitively, what this means is that this mu is sensitive to the state that the algorithm generated or the operations that the algorithm generated.
+Roughly, you can look at some notion of mutual information between the generated state and the completions for mu.
+But formally, what we track is this notion of variance of advantages.
+So we know advantage of mu can distinguish good and bad operations.
+So roughly, if this variance of advantage is high, that is a reasonably complementary choice of this LLM mu as compared to this algorithm that generated the original trace.
+So you can think about, if this variance is high, some operations have very high advantage, some operations have very low advantage.
+So mu at least has a very strong preference over operations generated by this algorithm.
+Some highly preferred, some not so much.
+So this gives us a good learning signal.
+Yes.
+When you're doing the variance, are you thinking over the randomness in the LLM or randomness over the states?
+And if over the states, what's the distribution?
+This distribution is over the operations generated by this original algorithm.
+So it's an expectation over this choice of O.
+O is the random choice here.
+And given mu and given O, then this variance quantity is fixed.
+Because mu is fixed, you can just compute.
+So the two quantities that are random here is mu and O.
+And so if you're computing the variance, the only thing left random is O.
+Then that you can compute the expectation over the operation sample by the original algorithm.
+OK.
+So let's see what happens when you try to train with this in practice.
+So first, let's look at the case where you only actually, I don't know what happened to that.
+But OK.
+Let me try to define, I guess I haven't defined the surrogate reward here.
+OK.
+So I was talking about how this can revive the learning signal.
+This right choice of this complementary LLM mu.
+And now let's try to see how we can use this revival of the learning signal in trying to figure out our surrogate rewards.
+OK.
+So previously, we were only looking at this notion of rewarding a trace with terminal rewards.
+And that was only evaluating correctness.
+Now we define our surrogate rewards as looking at this notion of correctness, which is the term of reward.
+But in addition to that, we have this other term, which is measuring the advantages for each operation O sampled in that trace.
+And it's summing over these advantages.
+For the right choice of the complementary LLM mu, even if the first part, which is the terminal reward here is zero, that's fine.
+The second part, for the right choice of mu, would tell you what are the good and bad exploratory operations.
+And that can be a way for you to define your training objective.
+So what happens when you train with these surrogate rewards as the reward that you're optimizing in RL?
+What we notice is that if you didn't have the surrogate reward, which is only the terminal reward that you use in standard RL, you train an LLM.
+But at test time, as you get it to sample more tokens, the performance barely improves.
+You can also try to use some notion of value functions, which is prior work on some process rewards or intermediate rewards.
+Once again, like we saw, there are some issues with using value functions.
+You see some improvement in accuracy, but the performance really plateaus.
+Now, if you use the right choice of this complementary LLM mu, then what we see is that when you train with our surrogate rewards, you get an LLM that at test time, as you get it to scale the number of test time operations, the performance gain is much higher.
+So roughly what that means is that if you use the right training rewards, the right surrogate rewards, then you can effectively learn an algorithm that can scale the number of operations at test time and improve performance.
+And this is, in fact, like one of the first results to show that RL with the right process rewards can really help you learn algorithms that can scale test time operations and improve performance.
+OK, so this ends kind of the first part where we were looking at the notion of rewards.
+And to summarize, we said that the right notion of reward for a trace is the one that measures progress by advantages of a complementary LLM mu.
+The second part is sample, which is how do you sample a trace?
+And here, if you recall, in standard RL, we have a very simple sampler.
+How do you sample a trace?
+You feed a problem to the LLM, and that decodes a bunch of tokens.
+We call those traces online traces because they're sampled directly from the LLM.
+And that's our sampler.
+Now, the main issue here with the sampler is one of exploration on hard problems.
+There are some problems in our training data wherein no matter how many online traces you generate for this particular problem, all of them end with a terminal reward of zero.
+And not just that.
+Even if you try to measure the surrogate rewards at these intermediate operations, even those evaluate to be close to zero.
+So really, this particular problem provides no learning signal.
+It's as good as dropping it from the data set.
+It reduces your training sample efficiency.
+Now, what meta RL tells us here is that what we need is a sampler that can explore more widely, more widely than what these traces did.
+But we also can't just incentivize random exploration.
+This is a very large exploration space.
+We can't produce random tokens and hope that'll solve the exploration problem.
+What my work does is it tries to reduce this reliance on online traces by using offline auxiliary data.
+Now, you can think about this auxiliary data.
+You can have it for each problem.
+You can think about it as side information for that problem.
+It's actually not data that can directly give you the solution, but it's some data that can help reduce the burden of online exploration.
+So, for example, think about a case where you're trying to prove a math theorem.
+Some source of auxiliary data here can be some conjecture about some immediate result or something about some relevant proof techniques from related problems.
+The knowledge of this auxiliary data can help reduce the burden of exploration.
+And throughout my work, I've looked at different sources of this auxiliary data and how they can improve exploration.
+And I'll discuss a few of them here.
+The first one is about human and LLM collaborations.
+So, yes, we have a hard problem, and yes, a bunch of them get these incorrect traces.
+We have online traces, all of them ending up with zero terminal rewards.
+But a human can look at these traces and find some key piece of exploration that's missing, so maybe some missing glimmer, and through collaborations with the LLM can get to regions of the search space which were previously unexplored.
+And this is pretty common in practice.
+We do see human and LLM collaborate to solve problems, open problems, and math even.
+And now we can also replace, in some cases, this human with another LLM, which we'll call as a verifier.
+And the reason we can do this is that modern day LLMs come with very strong verification generation gaps.
+In many cases, it's easier for them to verify traces and find some calculation error, some incorrect lemma or some operation that was incorrect.
+And that's something that can be used to improve future exploration.
+Now, the third choice here is actually looking at logs of agent scaffold.
+So whenever we deploy an LLM in practice, we just don't deploy this model.
+We have a bunch of scaffolds and harnesses built on top of it.
+Think about like this agent in your cloud code that's running in the background.
+It keeps on running.
+It's persistent.
+You give it a problem.
+It tries to find different ways of solving it, keeps on going for hours.
+All of this exploration is essentially dumped as logs.
+Not all of it is useful, but there's a ton of it at least.
+It's dumped as logs of these agentic scaffolds.
+Now, these logs are nothing but past historical attempts made on a given problem.
+And summaries of these historical attempts can also be useful to guide future exploration towards regions that were previously not explored.
+So some notion of this can also be used.
+So there is also a lot of prior work that tries to use auxiliary data.
+Mostly, they look at corrected traces.
+So these are traces now that end with correct answers.
+So they try to clone or distill this auxiliary data directly towards improving exploration.
+That does improve training rewards.
+But in the end, what you learn are algorithms that don't generalize very broadly.
+So what we try to do is slightly different.
+We look at this auxiliary data and we try to improve or bootstrap online exploration with this auxiliary data.
+Previously, we were only giving this hard problem as input to the LLM.
+Now we append to it this offline auxiliary data.
+And with the right choice of this data, we looked at a few options previously.
+With the right choice of this data, you can now condition on this new state and generate completions that are online from the algorithm.
+And many of these online completions can now fetch correct rewards.
+So the key insight here is that conditioning on the right kind of offline auxiliary data can simplify online search and improve future success.
+Now, this is a very simple but powerful way that can help us define our surrogate sample that we're looking for.
+Remember that the job of the sampler is to explore widely and improve exploration.
+And here we have a way where you can condition on the right offline auxiliary data in addition to the problem.
+And you can now sample some of these correct traces.
+So this revives the learning signal on that hard problem.
+We can feed this to your RL optimizer.
+And that should be able to give you a better LLM because now you have some notion of getting to the right answer here.
+So now we can ask what happens when we train with this surrogate sampler in practice.
+So first, we look at the case where you only train with the typical sampler.
+You don't use this offline auxiliary data.
+You only use standard RL.
+There we directly sample these online traces and try to reward them.
+That does learn some LLM that at test time, as you get it to produce more tokens, the accuracy improves reasonably.
+This is on a contestable math benchmark.
+But if you were to use the right surrogate sampler, which is the auxiliary data here, then what you do find is that you're able to improve exploration on the hard problems during training so much because now you're able to use a bigger set of them during training.
+You're able to find some correct answers on a bigger set, which standard RL could not.
+So you generally get a more performant LLM.
+So you see this gain in accuracy at any token budget.
+But more important than that, I think, at least in my head, is this notion where as you get it to sample more tokens, in fact, way more tokens than what it previously sampled during training, then it keeps improving performance.
+And that's what we call extrapolation of test compute because it's going beyond what it produced during training and it's still able to improve accuracy as it does.
+In fact, some of the gains behind this test performance is actually rooted in something that we see during training.
+So here we look at a plot where on the x-axis you have the training compute.
+This is the compute spent during RL training.
+This is the amount of flops in the log scale.
+There is a multilayer of 1E20 here.
+So it's a ton of flops that you spend during RL training.
+And all of it is sort of fruitless exploration in online traces where on hard problems, you are measuring this accuracy on hard problems, standard RL barely makes any gain on it.
+You can throw a ton of compute at it.
+It barely gets its performance up, even after a lot of iterations.
+Now, you can use some prior work on auxiliary data that tries to clone this auxiliary data.
+So you see this initial jump in performance.
+But later on, as you spend more training compute, still the accuracy is fairly limited.
+You don't see some problems quickly, but on other problems there is limited improvement.
+But if you use our set of rewards, then what we see during training is that there's a huge gain in accuracy on the training problems where previously exploration was a bottleneck.
+And in fact, this is one of the first results, or at least a major result, on scaling off-policy RL for RLs, where you're not directly supervising.
+By off-policy, I mean it's offline data.
+So typically we had online traces.
+It's offline data.
+So that's why it's off-policy.
+So you're not using it for supervision.
+You're using it to bootstrap online exploration.
+OK.
+So with that, we conclude the sampler part.
+Here the main idea was you want to reduce the burden of online exploration using the right choice of auxiliary data.
+That figures out how we sample a trace.
+If you remember, how we reward a trace for exploration is progress measured via the advantages of a complementary LLM.
+And these two pieces would now define this training objective.
+You can go and maximize it.
+But you can ask me, why this objective?
+Why this sampler?
+Why this reward?
+Why even this procedure?
+We could have chosen a very different way of learning an algorithm.
+And for that, I like to quote a result here.
+It's a theoretical result from one of my papers, which compares the performance of the algorithm that you do get by using our sampler and reward against an algorithm you get by training on curated data.
+So in the pre-trained model satisfies some criteria.
+I'm happy to go into this later.
+There are some criteria that are satisfied.
+And you can compare the performance of the sampler and the reward, which I denote with these two boxes.
+Performance of the algorithm learned with the sampler and the reward.
+You compare the performance of that algorithm now with another algorithm that's trained on a curated data set using terminal reward.
+How do I define this?
+Essentially, it's data that you only know results in correct final answers.
+You could have gotten to that final answer in n number of ways.
+And it's curated using experts, using LLMs, whatnot.
+You only have access to this terminal reward function R in order to say this is a good trace.
+It's a correct trace.
+And that's how you curate it.
+Now, if you compare the performance of algorithms learned in either way, what we do find is that the performance gap between these two grows in the square root of the number of test time operations performed by the learned algorithm.
+So if you look at this performance plot and if you look at the x-axis as being the number of test time operations, now the algorithm that is trained on this curated data, if you compare that with the algorithm that's trained using our sampler and reward, the performance gap between these two grows in the square root of the x-axis, which is the number of test time operations.
+Roughly, that means that if you want to learn an algorithm that will perform well as you scale the number of test time operations, then you're pretty far off if you just learn curated data.
+Yes.
+Is performance between 0 and 1?
+Yes.
+In this case, I guess it's not just between 0 and 1.
+It's something that scales with the number of test time operations.
+So it's about how you get to a pertinent accuracy within a budget.
+So if you have a budget of h, let's say that's the number of test time operations, it can scale from 0 to h.
+Yeah.
+How is this possible?
+Is the purpose bounded by 1 and the square root is?
+Oh, no, the reward is bounded by 1, but the performance is bounded by the number of test time operations.
+So it's the total reward times the number of operations.
+So it's roughly you can think about how many tokens you needed to get to a certain accuracy.
+That's the performance you're measuring.
+Okay.
+So what this means is that, okay, so we have sort of compared roughly at least what learning the algorithm with the right surrogate reward and sampler compares how that compares with trying to use curated data.
+And that sort of ends the second part of the talk where we're looking at some practical design choices for a sampler and reward that define the training objective, you maximize that objective.
+And now we'll try and apply that in a real world application in the third part of the talk, which is an application on theorem proving.
+And here we'll go into the details of the QDnano result that we saw earlier on.
+In general, my work on training models to adapt at test time, I've deployed it in a few applications, including theorem proving, online web agents, which involve interactions with the web now is a little bit different than theorem proving.
+And also generally in training small models to reason for longer and improved performance in math.
+But I'll focus here on the theorem proving result.
+So the setting here is that you want to train a four billion parameter LLM.
+It's a small LLM to prove theorems.
+What do we have for this?
+We have a data set of just 5000 training problems.
+What is the problem?
+A problem is a tuple of this theorem and a grading rubric, which is used to grade proofs for that particular theorem.
+Now, these problems are sourced from this art of problem solving data set roughly.
+And what we also have is access to a pre-trained LLM, which is our initialization for our optimization algorithm, which is this QN34B thinking model.
+That's an initialization.
+Our evaluation involves evaluating on standard proof based benchmarks.
+And we also use human judges along with Gemini 3 in the loop in order to verify the quality of the proofs that are generated.
+So now let's look at what is the performance of open source models on this particular task.
+So here the x-axis is the model size of this open source model.
+The y-axis is the performance on this proof based benchmark.
+And what you see here is first that the larger models like 600B plus models, DeepSeq, Math, V2 and Gemini 3, they're much better than this 4B model that we're starting with on the left.
+But the other thing that you notice that scaling model size is not going to be the solution here because there is also a performance plateau as we scale the model size on this particular task.
+So what is our goal?
+Our goal is to take this 4 billion parameter model on the bottom left corner, the 4B thinking model, and train it using techniques that we saw such that when it adapts at test time, that is when it produces more tokens at test time, it can improve performance and match the performance of 600B plus models.
+And this goal is in some sense a bit ambitious because we only have 5,000 training problems to make this happen.
+That's a pretty small set for this particular task.
+The way we do this is we run RL training with the meta RL recipe that we just saw.
+It uses some notion of the surrogate reward and the sampler that we saw.
+And I'll get into the details of what that is.
+But when we train it with the meta RL recipe, with the writes, reward and sampler, then what we get is this QED Nano model.
+It's a 4 billion parameter model that can match its performance with GPT OSS 120B and QN3 235B thinking.
+So its performance matches with these two.
+Now, what is the sampler and the reward we used here?
+Roughly, if you recall, the right sampler is the one that uses auxiliary data.
+And the right choice of auxiliary data that we used here is looking at summaries of past proof attempts on a given problem.
+That's what we used to bootstrap exploration during RL training.
+And for the reward part, roughly we're looking at some intermediate progress that's measured through some of these process rewards.
+And in this particular case, we looked at using LLM judges equipped with the right proof rubrics in order to measure some kind of intermediate progress on some of these proofs.
+Now, in addition to these two quantities here, which define our training objective, we ran into a bunch of issues in the optimization part.
+Remember, I skipped some of the optimizer details, but that's also very important, in some cases even more important.
+And there are various knobs that need to be tuned in order to make the optimization stable.
+Typically on these hard problems, you end up generating very long traces with a lot of tokens that can make optimization hard, especially in cases where the reward is pretty sparse, your variance of gradients is high, and whatnot.
+So there are a bunch of these things that happen in practice.
+And we took our time in figuring out some of these details on what is the way to train.
+We look at curriculum over problems.
+We also look at how you can initialize problems with some hints or partial solutions.
+There are different techniques that you use, and there are a few others which I can go into offline.
+And when you use this, you do get a model that's better in the sense that, okay, it's improving performance matching that of 120B and 235B, but is it a model that adapts at test time?
+And as it turns out, if you take this QDNano model, we apply the scaffold on top of it, which is the DeepSeq math scaffold.
+It's a pretty standard scaffold.
+Essentially, you can think about this as an agent that's getting it to produce more tokens by interacting with itself.
+When we do that, it can scale computations to millions of tokens.
+But as it does so, it keeps improving performance and eventually matches the performance of Gemini 3 Pro on this particular task.
+Can I ask you a naive, really naive question?
+I'm not in this area, so I don't know how much 4% difference makes.
+But you keep saying match, but I recall 54 versus 58.
+Is that a meaningful difference in this area?
+Or is that something that you say, 4% between friends, what is it?
+No, actually, it's a performance from 34 to 58, not 54 to 58.
+I thought that in the slide that you had towards the beginning, you were pointing to your solution getting to 54 and instead Gemini being a 58.
+Oh, right, right, right.
+That's true.
+Now, that is exactly this solution here.
+So this is roughly that level.
+Actually, I don't have the Gemini plot here.
+But Stewardy Nano and Gemini, there's a reasonable gap there.
+So I think the difference is that here we measure it on harder problems.
+There I had this aggregate which was measuring on a larger subset, which is considered easier proof problems too.
+But here, this gain is significant because this is on much harder test problems that are pulled out.
+So we made sure that these are very different from what kind of proof these models are trained on.
+So this gain from 40 to 60 here is big.
+And that difference between 54 and 58, it looks pretty small.
+But that 4% is on a big fraction of hard problems, which is reflected here sometimes.
+Does that answer your question?
+Cool.
+So we saw this result wherein we can scale test time adaptation and match Gemini 3.
+And this was an open source collaboration with folks at Hugging Face, Numina Math, ETH Zurich, and CMU.
+And our work was awarded the Lord Slingshot grant as well.
+In fact, many experts in the field were super excited with this result, mainly because this was at least one of the first results which tried to show that you can train small models to be effective algorithms that can match performance of much bigger models by scaling test time adaptation.
+In fact, I figured this out later, but Sasha mentioned this on Twitter that the internal training like pipeline, the RL training pipeline and cursor resembles something similar to what we had for QDNano because they have these very long traces for coding problems.
+And we run into similar issues and we handle it in the same way.
+This is also appreciated in the wider community working on LLMs and RL.
+And that sort of brings me to the end of the third part of the talk where we're looking at QDNano results.
+So moving on to my future work.
+Broadly, my goal is to make test time adaptation reliable, scalable, and a first class capability in modern AI systems.
+Now, at least I've seen some glimpses of this in theorem proving and research math.
+There's a lot to be done there, certainly a lot.
+But I would love to work with experts in areas like drug discovery and circuit design in order to be able to build practical systems and models that adapt at test time and solve challenging problems in these domains too.
+Now, to see how we can sort of get there, before that, I'd like to first characterize what kind of problems we're going to face roughly in these domains.
+The first problem is lack of data.
+There is literally no data.
+We have to go beyond frontiers of human knowledge in order to make discoveries happen in many of these domains.
+So that is a serious challenge.
+In addition to that, the solution space for some of these problems is exponentially large in some of the problem parameters.
+They're so big.
+So think about figuring out protein structures for drug discovery.
+There are millions and billions of them.
+So the exploration space is really wide.
+Sometimes, even when you have these two, you can throw computation at this.
+If you assume access to a nice, smooth continuous reward function, you can try to optimize that and try to make discoveries happen at test time as well.
+And you can sort of find some reasonable solutions.
+And in some domains, it's possible.
+But in many domains, what we do see is that this reward function is either absent or very noisy.
+So think about doing drug discovery.
+The reward signal really comes from running wet lab tests.
+And that's not a very nice, smooth function that you can optimize.
+And it's typically a noisy one.
+So how do we solve this problem?
+The goal here is to train models in such a way such that they're effective algorithms in the sense that they can scale the test time adaptation infinitely.
+What do I mean by this?
+Given this problem, this model throws a ton of computation trying to adapt and try to solve this problem.
+But at some point, the computation alone is not enough.
+So whenever it's uncertain, it needs to query an experiment, perhaps a human, perhaps some other system.
+But it needs to make this verification call quite judiciously.
+When it knows computation won't solve the problem, we need new data.
+We need new information.
+Now, you can incorporate the results from this experiment into this learned algorithm, update its context or its weights.
+In the case of LLMs, continually improve it over a lifecycle of this improvement.
+Eventually, we keep running this.
+We can discover some solution or make some progress towards solving the problem.
+Now, my future work is divided into multiple components that look at various areas here.
+And the first trust is around lifelong test time adaptation and continual learning.
+So here, the goal is to train models not just to solve problems, but to seek informative feedback, especially when verification is hard.
+Now, currently, like pre-trained models don't really do that.
+But we need to fundamentally change our training techniques to get them to seek informative feedback in uncertain scenarios.
+We may also need to retrain or train these models in ways such that they identify what are some right sources of information that's available at test time in order to update themselves, maybe update their weights, retrain themselves on that piece of information.
+And this can also be to learn good representations for that particular task.
+Now, my second trust involves rethinking sort of pre-training.
+I mean, so far for algorithm learning, we have relied on pre-training to give us the right priors, but we can only go so far.
+And if we need to solve new problems, we need new priors to our new skills.
+And some of that involves things like generating reasonable hypothesis on research problems.
+And we need to rethink pre-training and how to kind of get that, how to change our data objectives and training pipelines and pre-training in order to build these new priors.
+And if you really want to scale test time adaptation infinitely, then we also need to sort of tackle the efficiency challenge and the architectural challenge.
+In many cases, for example, with transformer, there's a certain limit to what you can do with test time adaptation.
+The memory blows up pretty quickly if you produce more tokens.
+So we might need to augment some of these training architectures in the right way.
+And also there can be other uses of pre-training data that go beyond next token prediction.
+For example, if you want to train value functions that can predict some reasonable notions of future and some long horizon planning problems, we can do that if you try to repurpose the pre-training data in the right way.
+Finally, like I would love to build a community around test time adaptation by deploying it in many practical sequential decision making systems.
+And these could be in areas like where you have these hard discovery problems, material science, drug discovery and so on, some long horizon problems, and also in many applications.
+But the goal is to make the output of AI systems robust, fair and safe.
+And I do think test time adaptation is a very useful capability if you want to bring out these properties in many systems.
+With that, I'll quickly summarize my talk.
+We start with this goal of training models to adapt at test time.
+And for this, we said this is equivalent to learning algorithms.
+In the first part of the talk, we said, OK, if you want to learn algorithms, then you really need to solve this meta reinforcement learning problem.
+And that gave us our training objective, which had these two parts, sampling a trace, rewarding a trace.
+That's what we looked at in the second part of the talk, some practical design choices for samplers and rewards.
+We applied that in the third part into the theorem-improving application.
+And we talked about this result, which is a small model that can effectively adapt at test time.
+And with that, I'll conclude and happy to take questions.
+When you're generating requirements, exploring, is that in GRPO different rollouts to the same prompt?
+What's the difference in the exploration?
+Is it just like the sampling?
+Yeah, OK, good question.
+Let me repeat this, I guess, for people on Zoom.
+The question is about exploration.
+If I understand correctly, GRPO would typically do multiple traces or multiple rollouts per problem.
+Yeah, I guess that's a standard way of doing exploration, where you want to make parallel attempts.
+So we know that autoregressive decoding, there's a randomization process.
+So you want to maybe make parallel attempts, and that will give you some diverse responses.
+But turns out that that kind of diversity is pretty limited in scope.
+It's mostly where the problem is trying to, it's more of a brute force approach, where sometimes one of the rollouts end up getting lucky.
+And that's the one that you end up learning.
+But this kind of exploration we're looking at is something that goes beyond just like parallel sampling.
+So in general, you can think about, OK, one way of exploring is sequentially, like get them all to generate longer.
+The other way of exploration is parallel, you get parallel sequences.
+This sort of cuts across in some sense, because here what you're trying to do is looking at parallel rollouts of like past attempts, summarizing them in many cases, and trying to use that as a preconditioner for your sequential sampling.
+So you can look at like multiple past GRPO rollouts and summarize them into a sufficient state or a sufficient statistic, that now when you condition on it and you generate responses sequentially, you can improve exploration.
+So it sort of cuts across.
+So is that context given to each, like the same context?
+Yes, it's the same context given to each.
+So the difference is still in sampling?
+Yeah, the difference, like if you condition on the context, then there is difference coming from the sampling.
+But the context is the one that's like, you know, reducing the randomness in some sense.
+Like there's very little randomness from the parallel sampling.
+A lot of this, like, you know, the bigger random quantity is like the context that you feed in, which is what it is.
+I have.
+Yes.
+Yes.
+Have you gone back and looked at what the system is actually learning during the training phase?
+In particular, like, does it learn better strategies for the improving, like proof by contradiction or improved strategy or better hypothesis generation for lemmas?
+What is improved?
+Yeah, great point.
+Actually, like, okay, we can try to characterize various proof strategies, like, you know, proof by contradiction, maybe like trying to engineer through existing lemmas.
+And sometimes it involves like, you know, a very long, like a brute force search for a particular solution.
+Sometimes it requires like a key insight or a construction argument that you need to construct this object and try to manipulate it.
+I think the models are still not good enough to generate these like missing insights or like, like, you know, some key construction.
+So one example of this is like, you know, when we're looking at these traces, we saw that the main thing that's really improving is trying to like learn from like past proof attempts.
+So for example, let's say the model looks at some strategies where it's trying to prove some results like, you know, in learning theory, it tries to use some like existing, I don't know, complex notions of complexity.
+That did not work.
+That's the small thing it will do, like try to switch this notion of complexity, maybe try a different object that's similar enough that prior works have looked at.
+So it's very similar to how a grad student or like a PhD student in math would try to like look at 20 papers in an area and try to like, you know, engineer the right set of theorems and get to the solution.
+But in many cases, like for example, there are problems, especially in combinatorics, where the solution comes from a key construction that or a key reduction that you need to make.
+I don't think these models are solving that yet.
+But the hope is that we can like train models that can adapt and solve that as well.
+Yeah.
+What's the intuition behind like having a surrogate loss helps with avoiding the model to learn a 3D algorithm as the end?
+Like does it help with the model to learn, like to explore during test time or does it help the model to learn exploration during the training time?
+I think- Exploration behind why it works.
+Yeah, yeah.
+Great question, actually.
+Okay, let me repeat it.
+So the point is like how does the surrogate reward helping with exploration at test time, right?
+If I understand correctly.
+I think if you look at like, you know, what the terminal reward does, you're only rewarding it based on correctness.
+So if you look at the correlation, so if the model has a prior to produce a proof for a given theorem, that's typically what the models do.
+You give it a theorem, it tries to produce a proof.
+And now if it immediately sees terminal rewards of one for that proof, that's what it ends up learning.
+If it did not see any rewards, there is no learning signal.
+Now, if it saw a reward wherein it tried to make a proof attempt and like, you know, if that was incorrect, it tried to reattempt and that's where it saw a reward, then that's the behavior that surrogate rewards amplify.
+So you can think about surrogate rewards amplifying in context exploration, wherein you're making a proof attempt, you're trying to revise it, sort of like how you like, you know, solve a particular problem.
+So previously we were only rewarding it based on correctness.
+Now, there is a version wherein you can reward it on just correctness and maybe the model has enough priors that it can associate like, you know, different like strategies like, you know, trying a proof, trying a different proof and doing in context exploration with that terminal reward.
+But building that correlation is very like hard in general with the right priors.
+This is a more direct way of like incentivizing the model to explore different regions and not just relying on priors.
+So you can think about the surrogate reward as one wherein you're not training the model to prove something better, but you're training the model to explore something.
+You have a terminal reward in the surrogate reward that is rewarding you for correctness.
+But the other reward is more like trying to increase roughly the entropy of the system in the space of possible solutions that it can try.
+So it's encouraging in context of exploration.
+Yeah.
+If you're able to do that better than traditional RL because now we can evaluate intermediate progress.
+Yeah.
+Yeah.
+That's roughly the idea.
+Align with your answer to the previous question.
+Is it possible to solve these problems simply by getting a better prior by training a larger foundation model potentially by doing more pre-training or by pre-training on reasoning traces that actually look at the type of reasoning traces that you're doing, basically replacing the surrogate loss or the simulated loss.
+Yeah.
+How do these two approaches compare?
+Yeah, great question, I think.
+I think if you look at this, there are two approaches right now.
+Let's say you use some of the fancy rewards.
+You can also try to just use terminal rewards.
+Use the right priors.
+Where do the priors come from?
+Distillation.
+You can try to exhibit these right behaviors.
+I think that can work, but the sample efficiency there is pretty terrible.
+You need a lot of distillation data in order for the model to learn.
+In many cases, when you feed it this distillation, it just ends up and you train the model.
+It produces very long traces.
+In fact, that's some of the challenges that we run into when we train QDnano.
+This 234B thinking model is a distilled model.
+It's trained using distillation from much bigger models.
+And when you get it to solve these theorems, it produces a very, very long trace of tokens where it frequently switches directions.
+Instead of trying down a path and verifying that this proof attempt is clearly incorrect, let's move on to the next one.
+Instead of that, it tries one proof attempt, half-heartedly tries it, and tries to switch.
+The tokens are so random and the entropy is so high.
+Distillation is one of the reasons, because it's easy to minimize the distillation loss by mimicking this behavior.
+But it's harder to learn when to switch strategies and those kinds of things.
+RL is one way that you can go around.
+Roughly the idea is if the data that you're cloning is very heterogeneous, then that can make imitation terrible.
+But in RL, you can circumvent that because you're trying to have this mode-seeking behavior, like you're optimizing A reward, not trying to clone all the data.
+OK, I think we're out of time.

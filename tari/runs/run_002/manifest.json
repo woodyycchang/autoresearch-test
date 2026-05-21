@@ -1,0 +1,67 @@
+{
+  "manifest_version": "v2",
+  "created_at": "2026-05-21",
+  "notes": "TARI v2 cross-transcript run. 5 frontier-research talks. Transcript T001 (Belinda Li) is reused from run_001. Other 4 added for v2.",
+  "transcripts": [
+    {
+      "id": "T001",
+      "path": "tari/inputs/belinda_li_self_models_canonical.txt",
+      "speaker": "Belinda Li",
+      "speaker_affiliation": "MIT EECS (PhD student, advisor Jacob Andreas)",
+      "topic": "Building AI systems with coherent and updatable models of the world, user, and themselves",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-2026",
+      "claude_cutoff_relationship": "Talk timing overlaps Claude knowledge cutoff (Jan 2026); content includes prior published work by speaker (e.g., arXiv:2406.19501 propositional probes, arXiv:2503.02854 state tracking) that is likely within Claude's training corpus."
+    },
+    {
+      "id": "T002",
+      "path": "tari/inputs/transcript_002_yu_sun_canonical.txt",
+      "speaker": "Yu Sun",
+      "speaker_affiliation": "Stanford (faculty)",
+      "topic": "Test-time training and adaptive computation at inference",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-2026",
+      "claude_cutoff_relationship": "Overlaps cutoff. Test-time training and related sequence modeling (TTT layers, RNNs as TTT) are widely published 2024-2025; speaker's own work likely indexed."
+    },
+    {
+      "id": "T003",
+      "path": "tari/inputs/transcript_003_nicholas_roberts_canonical.txt",
+      "speaker": "Nicholas Roberts",
+      "speaker_affiliation": "University of Wisconsin (finishing PhD); CMU MS prior",
+      "topic": "Science of foundation models for science (FMs as scientific instruments)",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-2026",
+      "claude_cutoff_relationship": "Overlaps cutoff. FMs-for-science is an active research area 2024-2026 with substantial published work."
+    },
+    {
+      "id": "T004",
+      "path": "tari/inputs/transcript_004_valerie_chen_canonical.txt",
+      "speaker": "Valerie Chen",
+      "speaker_affiliation": "CMU ML department (PhD student, advisor Amit Kawalka)",
+      "topic": "Human-AI collaboration: measuring and improving how AI works with people",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-2026",
+      "claude_cutoff_relationship": "Overlaps cutoff. NOTE: this transcript has unusual sentence structure with very few sentence-final punctuation marks (only 35 sentences in 47KB); snippet/atom yield will be lower than other transcripts."
+    },
+    {
+      "id": "T005",
+      "path": "tari/inputs/transcript_005_amrith_setlur_canonical.txt",
+      "speaker": "Amrith Setlur",
+      "speaker_affiliation": "CMU (PhD student)",
+      "topic": "Training models to adapt at test time via reinforcement learning",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-2026",
+      "claude_cutoff_relationship": "Overlaps cutoff. Test-time RL and RL-trained reasoning models (DeepSeek-R1 family) are 2024-2026 frontier topics with extensive published work."
+    }
+  ],
+  "expected_collisions": [
+    "T002 (Yu Sun) and T005 (Amrith Setlur) both discuss test-time adaptation — pair likely to produce candidates with high overlap with TTT literature.",
+    "T001 (Belinda Li) and T002 (Yu Sun) both touch latent world models / state tracking — possible adjacency.",
+    "T003 (Nicholas Roberts) discusses foundation models for science — may collide with FM-as-science-instrument literature regardless of pairing."
+  ],
+  "expected_diverse_pairs": [
+    "T001 x T003: world/user/self models with FMs-for-science is unusual.",
+    "T001 x T004: self-model interpretability with human-AI collaboration is unusual.",
+    "T003 x T004: FMs-for-science with human-AI collaboration may produce 'how do scientists collaborate with model' candidates."
+  ]
+}

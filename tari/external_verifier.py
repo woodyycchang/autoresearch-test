@@ -193,11 +193,34 @@ def verify_candidate(
     search_fn: SearchCallable = synthesized_search_callback,
     record_real_websearch: bool = False,
     atom_text_for_keywords: str = "",
+    strict_real_search: bool = False,
 ) -> ExternalResult:
+    """Run step 06 + 13.5 + 14.6 against a candidate.
+
+    strict_real_search: when True, refuse to fall back to synthesized search.
+        If record_real_websearch is False (no real search results for this
+        candidate), return verdict NO_REAL_SEARCH_DENIED. This enforces v2's
+        hard constraint that all verification be real-web-based.
+    """
     claim = candidate.get("claim", "")
-    # Build a search query: content words joined.
     cw = extract_content_words(claim)[:8]
     query = " ".join(cw) if cw else claim[:100]
+
+    # v2 hard constraint: refuse to compute a meaningful verdict under
+    # synthesized search. Mining v20 + TARI run_001 both established that
+    # synthesized step 06/14.6 is information-zero (returns no collisions).
+    if strict_real_search and not record_real_websearch:
+        return ExternalResult(
+            candidate_id=candidate["candidate_id"],
+            verdict="NO_REAL_SEARCH_DENIED",
+            step_06={"skipped": "strict_real_search requires real WebSearch results"},
+            step_13_5={"skipped": "strict_real_search requires real WebSearch results"},
+            step_14_6={"skipped": "strict_real_search requires real WebSearch results"},
+            real_websearch_issued=False,
+            websearch_results_count=0,
+            notes=["strict_real_search=True but no real WebSearch results provided"],
+            timestamp=datetime.now(timezone.utc).isoformat(),
+        )
 
     search_results = search_fn(query)
 
@@ -239,6 +262,7 @@ def verify_all(
     out_path: Path,
     search_fn: SearchCallable = synthesized_search_callback,
     real_websearch_used: bool = False,
+    strict_real_search: bool = False,
 ) -> List[ExternalResult]:
     """Run external verification on candidates whose audit verdict starts with PASS."""
     pass_audit_ids = {r["candidate_id"] for r in audit_results
@@ -250,7 +274,9 @@ def verify_all(
             cand = json.load(f)
         if cand["candidate_id"] not in pass_audit_ids:
             continue
-        r = verify_candidate(cand, search_fn=search_fn, record_real_websearch=real_websearch_used)
+        r = verify_candidate(cand, search_fn=search_fn,
+                             record_real_websearch=real_websearch_used,
+                             strict_real_search=strict_real_search)
         results.append(r)
 
     with out_path.open("w", encoding="utf-8") as f:

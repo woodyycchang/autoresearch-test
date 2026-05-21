@@ -1,0 +1,532 @@
+One, two, tomato.
+All right, hello everyone.
+It's my great pleasure to introduce Nicholas Roberts today.
+Nick is finishing his PhD at University of Wisconsin after he did his MS at Carnegie Mellon in Pittsburgh and undergrad in Fresno.
+Nick is working, has published all the main machine learning conferences, ICML, UCL, and so on.
+Has won the ML Commons Rising Star Award and his research.
+I see it as a new interpretation of Alexandre Dumas.
+All for one, one for all.
+He's AI for science and science for learning.
+That's what he will talk about today.
+Let's welcome Nick.
+Thank you so much for the introduction.
+Cool, yeah, so today I will be telling you about the science of foundation models for science.
+Okay, so foundation models have been pushing the frontier in many different domains for the past several years.
+The first of which we've had very, very powerful chat problems came out in 2020.
+This was, say, chat GPT and so on.
+It's just revolutionized how we access information and a lot of people thought at the time this could even replace Google search.
+And then next up, somewhat more recently, in about 2024, we had really powerful coding agents that, you know, we did some science and we, you know, went from chat models and developed coding agents.
+Now these coding agents now work as assistants that when we program we can do so much more efficiently and quickly and perhaps maybe even more accurately using these coding tools.
+And around now we have this next frontier that where we're applying these agents to unsolved math problems.
+And now we're going and solving these, like, air dose problems and things like this.
+These are unsolved problems that are just available for people to solve and models are solving them.
+And the next frontier beyond these is to take these agents and get them to work on diverse scientific tasks.
+And these will be used ideally by scientists as, you know, maybe like agentic RAs or something to solve their scientific research problems.
+Okay.
+Now the leap that we needed to go from chat to coding is we needed reasoning capabilities.
+We needed these models to be able to spend inference time compute to produce better, more logical answers or perhaps code that stuff should mix up in a way or exactly a certain thing and so on.
+Now the leap from coding unsolved math, we needed something more.
+We needed these models to output formally verifiable outputs.
+For instance, we could implement these mathematical proofs and lean, for instance, and then check that they are correct or not.
+And so the question is what we're going to need to go from unsolved math, coding and chat to scientific research.
+In order to understand that, we could maybe look a bit closer into sort of what scientific research agents actually are, what domains we're talking about and how they're built.
+So within each of these scientific agents, we have a foundation model.
+And when we're talking about scientific research agents in general, we're talking about a lot of different possible domains.
+So we might have a scientific research agents for nuclear physics, one for organic chemistry and a variety of other different things.
+And then maybe one for microbiology, right?
+And we're going to need a foundation model within every single one of these.
+Okay.
+And they might be trained differently.
+And so we need to understand how to train each one of these models.
+So that's one of the things we're going to need.
+We're going to need new training recipes for each of these.
+Okay.
+What else are we going to need?
+Well, each of these disciplines is, they're oftentimes very data scarce, especially compared to general internet data.
+You know, we're not going to have internet scale data for nuclear physics.
+And so we just don't have enough scientific data, no matter what discipline we're talking about here.
+Okay.
+So what now?
+Okay.
+We're going to need to be more data efficient when we build these up.
+Okay.
+And finally, we also need to understand when these models are actually going to be good, not just in terms of benchmarking them, but how are these models actually going to be good at research?
+How are they going to help us deliver new scientific findings and so on?
+And so we need evaluations that are more targeted towards research problems.
+Okay.
+And so this thing, I want to build scientific research agents, and a lot of my research builds up the foundations for doing this.
+These are going to be the evidence that ideate, experiment, analyze, and iterate on experiments, much like a scientist.
+Okay.
+And just as a disclaimer, I want to build these as identical tools that scientists can use rather than fully autonomous replacements for some of this.
+Not only do I think that's maybe not a great goal, but I think we're very far away from things like that.
+Okay.
+So throughout the rest of the talk, I'm going to walk us through a hypothetical scientific research agent that we're going to build up throughout the talk across these different research pillars that I've been talking about.
+And so this hypothetical scientific research agent is going to be called flux agent, and it's going to help a scientist co-design a PDE solver.
+So a solver of partial differential equations that are often used for simulation and so on for nuclear fusing classes.
+Again, just to reiterate, this is a hypothetical running example, and it does not exist yet.
+Okay.
+And so whenever you see this AI-generated logo up in the corner, we're going to be talking about this hypothetical.
+The impact, of course, of doing an agent like this or perhaps any of these other scientific disciplines is very large.
+In this case, the impact would be if we solve nuclear fusion or something similarly ambitious, we could get clean energy forever, et cetera.
+And we're going to need a couple of things to build this.
+The first is we're going to need specialized reasoning.
+Second, we're going to need this agent to be able to gather data and learn from its data.
+And third, we're going to need this agent to be able to experiment and iterate, like how a scientist does, and update its priors and so forth.
+Great.
+So this brings me to the outline of my research.
+So the first part of the thoughts that I will tell you folks about is, I will tell you about training recipes for losing.
+This is going to be the first component of how we're going to build up these flux agent models or other scientific research agents.
+Next, we're going to need data efficient foundation model pipelines.
+And so that's the second part of the talk.
+And finally, I'm going to talk about benchmarking research agents.
+And that will be the final part of the talk today.
+Okay.
+So let's jump into the first one.
+In this first one, where we talk about training recipes for reasoning, I will tell you about a recent work of mine called T-squared scaling, where we created a scaling law that took into account deployment and pre-training considerations.
+So how do we get training recipes at all?
+We get them from scaling laws.
+And I want to walk us through an analogy for scaling laws so that we can understand what we're talking about here.
+Suppose you are a baker, but you're very bad at your job and you don't know how to bake a cake.
+And you're tasked with baking a ginormous wedding cake that's going to take a lot of your resources to create.
+So scaling laws are much like baking a wedding cake.
+You have perhaps different amounts of flour and eggs and butter and milk and so forth.
+I don't know how to bake a cake.
+You have some ingredients and you need some ratio of these ingredients in order to bake it.
+Now you're not going to experiment with your different ratios of ingredients since you don't know how to bake a cake at scale.
+And you're not going to create 10 different ginormous messes of wedding cakes where only maybe one or two of them actually works out.
+This is a bad way to experiment because it's very expensive.
+So instead, since you don't know how to bake a cake and you're trying out different recipes, you're going to scale things down and you're going to bake a bunch of muffins, say.
+And you're going to figure out what the right recipe is.
+And this is a much more efficient way of figuring out what to do in this situation because you're not doing it at scale.
+You don't waste as many resources.
+And so after which you're going to scale up, use that recipe and make your big wedding cake.
+Great.
+And so here's a real scaling loss plot.
+So on the x-axis here, we have the amount of compute you put in to producing your model.
+In this case, this is the amount of compute used for pre-training your foundation model.
+And on the y-axis, you have the ratio of two different decisions that you needed to put into this recipe.
+You need the number of tokens that you're going to use to train this thing and the number of parameters that are in the model, how big it is.
+And you have this ratio of tokens per parameter on the y-axis.
+And basically what happens here is you have these gray points, which are kind of like our cupcakes in the example.
+These are much cheaper to train.
+So you sweep over different choices of tokens per parameter, and you estimate some scaling law, which is this black line here.
+And then what you do is you forecast what to do at much higher compute scales.
+This is your wedding cake over here, right?
+And then you train only once one of these large models.
+This is your much more expensive model, and it should be optimal at that point.
+Okay, so let's dive into pre-training scaling laws a bit more.
+Here's an example, a very common example that everyone uses.
+This is called the Trenchilla scaling law.
+So here, the goal is to model the loss, so how good your model is, a lower loss is better, as a function of two things, the number of parameters and the number of tokens.
+And as I alluded to, there's kind of an optimal rule of thumb that people use, which is roughly 20 tokens per parameter.
+And basically everyone uses this, all of these industry labs and so on.
+They're pre-training their models at about 20 tokens per parameter.
+They're pretty much using this recipe.
+And what this plot shows here is you have your model size on the x-axis and your loss on the y-axis, and then you have a bunch of these hyperbolic kind of curves.
+So each one of these hyperbolas is basically what you do if you have a fixed compute budget, and you're trying to decide how to allocate your data set size and your model size.
+And you can make different decisions.
+It's a trade-off.
+As you train on more data, you can't train as large of a model because you've spent more of your compute on data, and vice versa.
+If you train on much less data, you can afford to train a much larger model.
+And so there's an optimal trade-off somewhere in the middle, and that's called the compute optimum.
+And as you trace out how this compute optimum evolves across several different compute scales, you can estimate the forecast you saw a couple of thoughts ago.
+And then you can use that forecast to extrapolate to much more expensive, much higher compute scales and figure out what the rate we change that.
+Okay, so that's great, but this maybe misses some things in the more modern context.
+So now we've moved to coding models and math models, and everyone is now doing reasoning with their models.
+And so maybe we should revisit Chinchilla, because if we did this pre-training and it wasn't considering reasoning at the time, Chinchilla might actually be suboptimal.
+And this is going to be true of our flux agent example as well.
+We're going to need reasoning for flux agent, right?
+And we need some way of accounting for reasoning in our pre-training scaling.
+Okay, so one way to account for reasoning that doesn't directly require pre-training scaling is to look at inference time scaling.
+And so here's a very common example that people use that's called passive k-scaling.
+Basically what you do is you take some fixed base model or post-trained model and you sample outputs repeatedly, k different times.
+And then you somehow have maybe, if you're doing code, you have test cases that you run these different outputs against, and then you pick the right one to deliver to a user.
+And you can model how the pass rate or accuracy under this passive k-scaling evolves using this kind of function here.
+So you have k different samples and p here is just the likelihood of the actual solution under your model.
+And our scaling law, t-squared scaling, combines both of these ideas.
+We jointly optimize the number of parameters, the number of tokens, and the number of repeated samples during test time.
+And we get very different looking scaling law results.
+And I want to dive a bit into some of the technical details of how this actually works.
+So here's the equation for pre-training scaling that you would see for chinchilla.
+Here, as I mentioned, you're modeling the loss as a function of the number of parameters and the number of tokens.
+And so here you have three different terms.
+You have some power loss function that you need to fit in terms of the model size.
+You add in a power law in terms of the data set size, and then you have this e term.
+E is just, it absorbs all of the other decisions that you made during pre-training.
+It sort of says that if you scaled up your model size to infinity and your data set size to infinity, that's the best possible loss you can get.
+And what we do is we add a third term to this, which is a power law in terms of k, the number of repeated samples.
+And we jointly optimize all three of these terms.
+Now we actually have another version of this where we model these three variables, not in terms of the loss, but in terms of the accuracy, the pass at k rate.
+This is a somewhat more complex scaling law.
+So I won't go into the details of how this one is actually derived, but it comes from roughly the pass at k function, and we arrive at it using a sort of beta regression problem that relates it to the Chinchilla scaling.
+Okay, so our scaling laws suggest that training decisions need to account for reasoning.
+This is what things look like, once again, when you don't take reasoning into account.
+You have these gray points and this black line here is basically just the pre-training Chinchilla scaling.
+And you get this forecast point, you train this large wedding cake model with no reasoning in mind, and that's what you get.
+Now when you account for reasoning, you get a very radically different looking curve, this blue curve here.
+This is what our t squared scaling calls us to do.
+It's really different from Chinchilla.
+What this tells us is that you should essentially increase the tokens per parameter as a sort of power law that seals up as you increase the amount of total compute.
+What are the implications?
+The implications are that this requires really a lot more data.
+This is bad.
+This is bad because even with Chinchilla scaling, we were concerned about running out of internet data.
+And so with this new t squared scaling, where we're taking reasoning into account, we are really going to run out of data quickly because we need to overtrain these models very substantially.
+But the day we finished the paper, there was a new foundation model that was released from this company called Liquid AI.
+And this was a very powerful and very, very small model that performed really well on a bunch of different agentic benchmarks.
+Okay.
+Now this model was very overtrained.
+So it's a 350 million parameter model.
+And for those of you that work with language models, you might know that this is a tiny model.
+Anything that's less than tens of billions of parameters is considered quite small.
+And this is less than half of a billion.
+This is a very, very small model.
+And it was trained on 28 trillion tokens.
+That's a lot of tokens.
+And so people were going on the internet saying, rest in peace, Chinchilla.
+That Chinchilla scaling is dead.
+Standard notions of how we should design our pre-training recipes.
+These have gone out the window.
+Okay.
+And so what we did is we took this model and we plugged it into our scaling law.
+And we found that our scaling was roughly kind of predictive of this new model, actually.
+And so T-squared scaling predicts a new foundation model.
+And this was pretty quick industry validation for us because it came out on the day that we finished the paper.
+Right.
+I have a question.
+I've been a bit out of this whole scaling discussion.
+And my question is, you see this scaling law.
+Does that mean that, okay, you take your, let's say, 28 trillion data set, now based on this sort of curve that we've gotten, you reduce the number of parameters, let's say, and then you just feed it to that many flops.
+Is that basically it?
+Or are there more tricks involved to actually get that performance?
+Yeah.
+So the question was, if you have your data set and the size of it is 28 trillion parameters and the scaling law recommends certain model files, you just keep training to some compute budget.
+What are the other decisions?
+So in terms of this, there are only three decisions that are scaling law models.
+The amount of inference time confused, that's K, the number of repeated samples, the size of your data set and the size of your model.
+And so if you have your full data set and you know you're going to just train on all of it and you have your model size, that's actually, it's all fully determined from that.
+Of course, scaling laws more generally, there are a lot of other considerations like different hyperparameters, your learning rate and these other things.
+These are indeed other considerations, but they're not modeled explicitly by our scaling law.
+A couple of slides ago, I had this equation with this E term at the end, all of the other decisions that you make get folded into this E term.
+So if you use a bad learning rate, your E just might be higher.
+Yes.
+You train these reasoning models, you train on all the rollouts with these, do you count all of that as GD data, like even if it's generated, like synthetic?
+You could, yes.
+So in this particular example, we're just using base models, but we have other experiments that I can show.
+Actually, I have backup slides for this, where we did post-training and we saw that it, this effect survives post-training.
+We didn't do RL as such, we sort of did SFT and more simple things because these models are very small and they can't generate very good rollouts.
+Okay.
+Great.
+So the normal recipe of using 20 tokens for parameter is out the window.
+This new foundation model, this LFM model was trained at roughly 80,000 tokens per parameter.
+And as you increase your new budget, that ratio might even increase.
+So industry is already over-training these small reasoning models, but they're doing so in a very ad hoc way.
+To our knowledge, they don't have any kind of like scaling law or math or understanding of how this universe of these parameters interact with one another.
+And so they're kind of just, you know, deciding, okay, these models are small, we need small models to do inference in these agentic harnesses much more efficiently.
+And so our best bet is to over-train them.
+And so that's kind of the rationale within industry.
+And this work establishes the first actual scientific law for how to do this.
+And so we've given industry now a map for how to produce these small reasoning models.
+Great.
+So what does this tell us about scaling flex agent or running example?
+Well, this tells us that we need to train a smaller model on much more data.
+This also tells us that we need to scale up our reasoning and use more inference time samples, for instance.
+So my work on scaling has had some recognition in the media.
+Recently there was a VentureBeat article about our new T-Sword scaling law.
+Folks from various industry labs have been writing about our new scaling law in their presentations and so on.
+Jane Street, it turns out, wants to deploy something like this and actually publish academic research in machine learning for the first time to my knowledge in this area.
+And also some of my other scaling law work, which I'll tell you about in a moment, we found out later on that OpenAI was doing a very similar thing.
+And so that was also some industry validation.
+This is also part of a longer work on this area of scaling.
+I've also done work on constructing LLMs with different architectures that combine components from these different architectures.
+Like there are these new linear models or state space models that are proposed as alternatives to the famous transformer architecture.
+But it's really expensive to experiment with these different combinations and so one of the things that I designed is this algorithm that produces these pre-trained hybrids from existing pre-trained models.
+And this is scaling because it kind of bypasses this pre-training scaling decision altogether.
+I've also done work on knowledge versus reasoning scaling.
+This was the work that OpenAI seems to have done in parallel.
+We basically found that pre-training scaling is different for knowledge and reasoning.
+For knowledge, you tend to want to favor having a larger model at the expense of a little bit less training data and vice versa for reasoning.
+You want to train a slightly smaller model on more data.
+And I've also done work on scaling for code generation.
+Okay, this brings us to the next part, which is going to be about data efficient foundation model pipelines.
+And in this part, I will tell you about some work I did on data selection for learning different skills.
+This is called skilling.
+Okay, so we don't have enough data for flux agent.
+Flux agent is going to be this thing for nuclear fusion plasmas and we just don't have internet scale data of that type.
+Plasma simulation data is going to be very, very expensive.
+Per this flagship DOE code, you need something like 10 to the 5 to 10 to the 6 CPU hours to evaluate a single fusion device.
+This is very expensive.
+Additionally, most other scientific data for these other agents we're going to create is also going to be quite scarce.
+And finally, zooming out back to language, we're just going to run out of human text data in general.
+So no matter how you cut it, we're in trouble.
+And so training is going to need data efficiency.
+Okay, so to kind of motivate this next work, this work on skillet, we need to kind of think about how humans learn from data.
+And the way that humans learn is usually in some kind of order.
+So when you take a class and say you learn math, say you're taking a class to learn about how to solve partial differential equations.
+So the very first thing you're going to learn is maybe addition and subtraction and multiplication to build up to this.
+Of course, you won't literally do that.
+But you need a lot of prerequisites to build up to that.
+Then you need to build up to things like solving linear operations.
+That'll help you with these more complex skills.
+So is this also how models learn?
+How do models learn?
+How do we currently train models?
+We basically train on everything.
+We throw it all together in this big heap of data when we do pre-training.
+And we just train on all of the data that we have.
+So if models also learn like this, then that means that we've been training our models suboptimally.
+And so building up to this work, we kind of have two different hypotheses here.
+The first bit is that there exists some set of skills associated with your training data that an LLM that you're training will learn most efficiently from if it's arranged in a particular order.
+Now, the second hypothesis is that you can actually learn and exploit this ordering and improve your data efficiency.
+And so you can ultimately train an equivalently good model on less data or potentially train a better model on the same amount of data.
+Okay.
+So let's get concrete about what a skill actually means in this context.
+So when we have our data, we can partition it in a certain way where it's associated with some set of skills.
+And so some examples of this could be if your data is just the internet, you could have GitHub, all of the code on GitHub as one of the skills in your data set.
+And to a human, that would look like coding capabilities or something like that.
+You could also have archived papers as one of these subsets of your overall data set that represents the skill to read papers or produce papers or something.
+Finally, you could have Wikipedia as a skill that's associated with, of course, all of the knowledge data that's on Wikipedia.
+And so, okay, that's great.
+We have that.
+So now we also need to understand how these skills are related to one another, because remember, we have these dependencies between skills.
+So some examples could be you have Wikipedia and you need to learn Wikipedia before you learn archive.
+Perhaps you're reading a very complex math paper and you need knowledge of the terms that are used in order to actually learn from that paper.
+Another example could be that you maybe need to train on a bunch of different stack over for the questions in order to understand why a GitHub pull request was merged.
+And while that's great, we don't necessarily have access to those dependencies right off the bat.
+And perhaps also if we had intuition about what things might be related to one another, those intuitions might be wrong because models also learn shortcuts and so on.
+So what we're going to do is we're instead going to learn these dependencies.
+And the way that we're going to do that is you might have skill A and skill B.
+And if training on skill A improves the performance on skill B, we're going to say that skill B is dependent on skill A.
+And so we're going to use this to construct a dependency graph that relates all of our skills in this DAG, this directed acyclic graph.
+Okay, so our goal with this algorithm is we want to order and select some set of samples from the training set in order to perform well on some evaluation set that might be different distributionally or contain different skills somehow.
+And what we're going to do is we're going to use an online optimization algorithm where we split our training into t separate rounds.
+We're going to adjust our mixture, our ratio of these different skills at each round.
+Okay, yes.
+Is this completely obvious why it is a DAG and why there are no cycles?
+Oh, sorry, the question was if it's completely obvious that it's a DAG.
+I actually missed, it's just a directed graph.
+It can have cycles.
+I think we didn't observe a lot of cycles when we actually learned these things, but you could have two skills where improving one improves the other.
+Yeah, that's I could imagine that that could happen.
+And that's why I didn't understand.
+Yeah, yeah.
+Thank you for correcting that.
+Yes.
+Okay.
+Yeah, so we're going to update our skill mixture throughout training and this is how we're going to do it.
+So we have this update rule that comes from online learning that's based on the multiplicative weights algorithm.
+And so what we're going to use is the loss on our downstream evaluation.
+We're going to plug this into the update rule.
+And so we're going to update the skill mixture according to how well we did on the different downstream skills that we're targeting.
+Okay.
+And we're also going to include the adjacency matrix.
+And so this is also going to include this information about how these skills are related to one another.
+Okay.
+Here's how it does.
+So here's some results on the natural instructions data set.
+And here in green, we have our actual algorithm, our skillet algorithm, and it also forms all of the baselines on 11 out of 12 paths.
+Our baselines here are just regular sampling, how you would normally train, just throw everything into a bucket and train, and then also treating the skills as training uniformly on all of the skills.
+And it beats both of those.
+This is part of a longer line of work on data efficiency.
+Another class of techniques in which I've been a core contributor to is this idea called weak supervision.
+Weak supervision solves a slightly different problem where you might have a training set that doesn't have any labels and you need some way of labeling the training set.
+Okay.
+And one way to do that is to just ask someone to label it.
+That's very expensive.
+It doesn't scale and so on.
+And so what we do with weak supervision is we have an expert in the data domain create these heuristic functions, these programmatic functions that will label individual data points.
+And they might not be very accurate and they might also abstain on certain examples, but we have a couple of these functions, maybe five or 10 of them.
+And we use the output from these functions to learn the true label is sort of latent variable estimation problem.
+And this is how weak supervision works.
+So we can automatically label training data.
+And I've also worked on things like training free adaptation via using external knowledge, like knowledge graphs to understand the relationships between them in classes.
+And this is how we can use it to make flex agent more data efficient.
+So we could do, for instance, for pre-training, we can use data selection to train for different physical or research skills that this agent is going to need.
+And we can also for things like post-training, learning reasoning capabilities, we can use weak supervision to perhaps automatically label promising experiments.
+Yes.
+I'm a little confused about weak supervision.
+It sounds like the likely outcome of the training process is that the learner would just learn the weak function that's generating the labels rather than learning the true labels.
+Is that failure mode present or is that in fact the goal of weak supervision or how should I think about that?
+So the question was if you're going to essentially overfit to the labeling functions.
+So you actually have several labeling functions and you're not training on the outputs of the labeling functions, you're training on basically you take all of the labeling functions, generate their label predictions on your full data set, and then you estimate the true label as a latent in sort of a graphical model kind of situation.
+And indeed, it might not be as good as training on clean labels, but it's going to be better than training on the individual labeling functions.
+Okay.
+So now we can move on to the third part here, which is going to be about benchmarking these research agents.
+So here I will quickly tell you folks about this work called ML Gym, where we evaluate agents for machine learning research.
+So the main question here is like, how will we know when Flux Agent actually works?
+Okay.
+So what if our research agents aren't even very good at doing research within domains that we're familiar with, like machine learning?
+And if they don't work for machine learning, I would argue that that's kind of a prerequisite for getting these research agents to work in the real world for diverse scientific tasks.
+If you just take agents that don't work for machine learning and you adjust their data and whatnot and deploy them for different scientific tasks, you're still going to, they're still probably not going to work.
+And on top of that, you're going to have a lot of other challenges.
+Like you're going to need to understand the science of this downstream scientific task, like nuclear fusion or something like that, where you otherwise would have that kind of information in machine learning.
+And so that's why we developed ML Gym.
+So in ML Gym, we evaluate these machine learning agents on diverse machine learning type problems.
+So we include things like classical CS problems, things in game theory, computer vision, NLP, and RL.
+So one of the things that we proposed in this paper is sort of a hierarchy of what the future might look like for research agents.
+And so at the very bottom of this hierarchy, we might have a research agent that can reproduce a paper that it takes us and put a paper in, it can maybe run some experiments and reproduce the results in the paper.
+The next level is it takes the baseline from the paper and it can maybe improve a little bit on the baseline.
+The next level is that it improves upon all baselines in existence.
+It gets the state of the art result.
+And then the next and more powerful research agent would be things like producing a novel scientific contribution.
+Beyond that, it gets a bit more vague, but it could be things like you have a more groundbreaking scientific contribution that wins you an award or something.
+And then level five is that you have an agent that autonomously or maybe non-autonomously helps guide or produce its own long-term research agenda that keeps winning awards and maybe gets someone a Turing Award or something like that.
+And so the natural question is where we actually are currently with these research agents within machine learning.
+And the answer, unfortunately, is that we're roughly at level one.
+So we're still basically slightly improving the baselines and we haven't even moved to these hard scientific questions yet.
+And currently with ML Gym, we kind of found that the best agents kind of just take these baselines and tune the hyperparameters a little bit and you get an improvement, but it's not an interesting scientific contribution.
+And there's another challenge with benchmarking these things.
+You might have very incompatible metrics across a diverse array of what you expect this agent to be able to do.
+And so you might expect it to help you with equation formatting in LaTeX or something.
+And you might also, on the other hand, expect it to help designing experiments or even running experiments or actually acting as a PDE solver itself, if we're talking about flex agents.
+And there are several things you can do.
+You can formulate these tasks.
+They each have their own evaluation metrics.
+For PDEs, this might be the L2 relative error.
+For language type things, it could be the perplexity or the loss.
+And for other things, it could be pass a K accuracy.
+So you're doing some kind of classification kind of thing.
+And of course, you can do things like averaging the scores across two things.
+They're going to be on different scales.
+And so it doesn't make a lot of sense to do that.
+And some of the things that you care about that are maybe on very smaller scales, they might wash out if you do that.
+Another thing you can do is if you're comparing a bunch of different methods, you can rank them across the different tasks that you're evaluating.
+And you can average the ranks.
+That doesn't work very well because the first place might be very, very far from the second place.
+And that doesn't account for things like that.
+And no score here will tell you how far you actually are from the state of the art on all of these problems.
+And so what we did in ML Gym, and this was my main contribution here that ended up being deployed at Meta, was we used performance profiles.
+Performance profiles are a thing that exists.
+And I didn't invent performance profiles, but they have been used in things like optimization and performance modeling for a long time.
+The idea here is that you've got some curve that tells you the percentage of tasks for which your method is within some range of the state of the art.
+In this range, this amount tau is this x-axis here.
+And basically a higher curve is better.
+If your curve is all the way to one the whole time, that means your model is the state of the art on all of the tasks you evaluated it on.
+And so most curves are not going to look like that.
+They're not going to be state of the art on everything.
+And so in general, a higher curve is better.
+So my contribution here was to turn this into a single score because this is actually a curve and it's hard to compare things like that.
+And so what we did is we essentially just integrate the performance profile over its domain.
+And this is something that's again used at Meta.
+Here, this is from the ML Gym paper.
+We basically found that these Gemini models are both the most efficient and get the highest AUP, which means that they perform the best across a variety of different tasks.
+Okay, so how are we going to know when FlexAgen actually works?
+One thing is that we're going to need to evaluate across a variety of different physical regimes, not just on these benchmark kind of tasks.
+So this would be things like if you're doing this TDE solving kind of thing, you're going to need to evaluate on a lot of different grid resolutions or boundary conditions or other kinds of things that scientists would care about.
+We're also going to need to evaluate with domain experts.
+So we're going to have to have domain experts in these fields help us figure out what things they actually care about and things we can actually evaluate on reasonably.
+And of course, there are folks here at Cornell, and for instance, the Laboratory for Plasma Studies, who might be helpful for figuring out what to do for FlexAgen in particular.
+This is also part of a longer line of work of mine on AI for science.
+I've done substantial work on benchmarks and automated machine learning methods for different scientific problems as well as competitions.
+And I've also worked recently on scaling laws for understanding when to use a neural versus classical PDE solver.
+Okay.
+And with that, I'll jump into some of the future work.
+So within the next one to two years or so, I want to make FlexAgen real.
+I want us to go beyond math and code, and I want to actually partner with domain scientists.
+And this is going to come with a lot of challenges.
+One of which is that a lot of these scientific domains don't actually have this nice verification property that we had with coding and math.
+And so we're going to need to figure out if we actually need to find ways to simulate running experiments or these other things.
+And so this is something developing new post-training algorithms is going to be something we're going to need some guidance from domain scientists for.
+We're also going to need to find ways to ground reasoning in things that are more in the language of physics and chemistry, and maybe even constrain things.
+Maybe you shouldn't reason about things in a way that doesn't make physical sense and so on, rather than just open domain language.
+In the next three years, I'd like to develop on this to produce agents that maybe co-design their own infrastructure and system, and maybe evolve their own infrastructure.
+The goal of this here would be to make FlexAgen and these scientific research agents like it more usable by scientists who maybe only have a Mac mini in their office and need to run an agent on that.
+We also need to understand for this, because it has a bunch of challenges, how to train a model to actually introspect and understand how its infrastructure is limited in various ways.
+And we also need to design agent harnesses that can self-evolve.
+And then further out in the next five years, I want to work on end-to-end scaling laws for scientific discovery.
+And so here, I want to do two things.
+I want to first understand what scientific research problems are actually modelable using some kind of scaling law.
+That's one thing.
+And two, I want to also develop scaling laws that take into account many more variables than just pre-training data set size and model size and amount of reasoning and so on.
+This could potentially take into account every single decision that goes into creating a foundation model, and I want to understand how those variables relate to these downstream scientific tasks.
+And for that, of course, we're going to need very deep integration with domain scientists to actually understand these problems and how to do this.
+And with that, this brings us to the end of my talk.
+Thank you so much, and I'll take any questions.
+Yes.
+I want to know, especially to Jenny, I imagine you've already been working with some of these domain experts in physics and other science or whatever.
+What is really the relationship between reasoning and actual natural science research?
+Because for a lot of, which I really appreciate, a lot of the talk focused a lot on scaling for reasoning models or skills.
+And I don't even really know if having physics skills is really a thing, or if having skills necessarily means you're able to find physics discoveries better.
+So it really is the relationship.
+And even in terms of, like you mentioned, one of the problems is data scaling for experimental science is, are you able to get internet scale data from physics labs, right?
+So I guess there's a qualitative difference, as well as a quantitative difference in the actual kind of experiments that we're doing with reasoning models, say, and how it could transfer for science or natural sciences.
+Right.
+So to summarize, the question was roughly, how do reasoning scaling laws and things like this, as well as skills, how do these two things translate to actual scientific problems?
+Well, I think the way I think of these is I think they're two very basic primitives that you're going to need in a lot of applications.
+So for skills in particular, this is just data, and you're going to need data to train these models.
+You're going to need data that's relevant for these scientific domains.
+There's nothing special about skills.
+This is just a definition that we use to understand how does the data that you train on relate to these downstream tasks that you're evaluating on.
+And that, as a conceptual primitive, is going to be useful for training these scientific models.
+As for reasoning, for things like physics, of course, you're going to need to be developing physical descriptions of the universe.
+These might be very long, and might be very precise, or be intricate, or you might derive them from other things like this.
+And that's all reasoning.
+And that's going to come from models that have multiple attempts at generating these things, or maybe think for a really long time before producing some very long answer that's very precise.
+Does that?
+Well, so what would be an example of a skill in physics, or like biochemistry?
+This would just be, okay, so biochemistry, that could be biochemistry data, for instance.
+Like experimental data with the scope?
+It could be, yeah.
+So in our skillet paper, I kind of sidestepped this, but the way that you partition the data, we assume that that's given to you.
+There's a separate research problem called skill discovery, where you have an unstructured data set, and you need to figure out what skills are in it.
+That's an ongoing research area that I think will also be very useful for this, because you probably don't, by default, know what data to use for these types of tasks.
+Any more questions?
+Actually, I have a question.
+I didn't quite catch, how do you find the dependency between the different skills?
+So we learn the dependencies.
+The way that we learn it is we have a rule, where you have a directed edge from one skill to another skill.
+If training on one skill improves...
+Does that mean that you are training twice, once to learn the dependencies, and then once to get...
+Yeah, so in this case, the builder skill graph, this is a limitation of this work, actually.
+To build the skill graph, you need to train a bunch of mini models.
+You need to do a bunch of tiny training runs.
+Cupcakes.
+Cupcakes.
+In some sense, this is kind of a stealing law.
+There are two different ways to do this.
+Actually, you can do what I just described, or you could also do this more extensive version, where you train on the target skill, and then you compare it to training on the target skill and the source skill.
+If performance improves when you combine both of them, you can define an edge.
+And we kind of get a better graph when we do it this way.
+So I was wondering, so in this instance, how would you simply to, I guess, stratify the data to use different skills?
+So I mentioned skill discovery, but I would imagine Wikipedia has a lot of skills.
+Like, I don't know, knowledge of history to higher level math.
+But in this work, you kind of treat the whole of Wikipedia as a single skill.
+So how do you avoid this correlation that Wikipedia then becomes nearly, I don't know, how you write encyclopedia-like particles rather than math skills and history skills?
+Well, yeah, I mean, yeah, that's a really, really good question.
+And it's very related to the skill discovery area.
+So in general, the granularity by which you define skills is very important, and it probably depends.
+How you do that is going to be very context dependent and depends on your application and so on.
+In this case, with avoiding having a skill to learn how to write Wikipedia articles rather than knowledge, you might want to break down your granularity to things that are more like sentence level or token level or something like that.
+Or maybe you only take the sentences or combinations of tokens from Wikipedia that are actually knowledge-based or something like that.
+Yes, how could you build the dependency run?
+So because now if you have like skill for token, then this would not be possible to now train so many networks, too.
+So in this case, you would probably need a different method for estimating the skills graph.
+So you have seen the commercial that says nine entities out of ten recommend X.
+So there were 11 experiments out of 12 where you were winning.
+But you didn't give any insight for what happened in the 12th and why things didn't work out there.
+Yeah.
+It would be nice to know why.
+I think it's hard to say.
+I think for some of these skills, by the way, these skills that we're evaluating on weren't in the training set.
+So these are downstream skills.
+I would say that probably within our framework, the cleanest explanation would probably be like there weren't really any skills that were related to word analogy.
+And sometimes that happens.
+We had other failure modes with this, where sometimes we would estimate the graph and the skills graph would be dense or it would be empty.
+And in those cases, you can't really do anything.
+It actually looks like it also doesn't hurt, I think, on that.
+Yeah, it doesn't tear.
+Well, wait.
+Yes, it doesn't hurt that much.
+But by doing this, you did end up wasting a lot of compute by trying to construct the skills graph.
+Yeah.
+Maybe like what you just said, even if you take the 11 cases that are better, how much more compute compared to this?
+I think it's the random that does fairly well.
+Yeah.
+So actually applying the update rule is trivial.
+The number of flops there is T, your number of training rounds, times the number of skills.
+And that's going to be very, very small compared to training.
+I think the bigger challenge is constructing the skills graph.
+And that's when you need something that's more efficient.
+You need to figure out how to scale down or find other proxies to estimate the dependencies.
+Maybe that's it.
+Let's thank the speaker on that.

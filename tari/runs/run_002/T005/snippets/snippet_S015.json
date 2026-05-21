@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S015",
+  "transcript_id": "T005",
+  "start_line": 185,
+  "end_line": 198,
+  "verbatim_text": "And if you run standard RL that tries to maximize these terminal rewards, what that would do is it would learn a direct mapping, this greedy algorithm that takes in this input theorem and directly tries to produce the correct proof of that theorem. This maximizes these training rewards. But what happens at test time is let's say you consider the case for k is equal to four within the same family. It's a problem. It's a famous problem in PCS, but it requires a very different proof technique to be able to solve it. And as it turns out, this greedy algorithm, if you now run it, it would now try to produce the same proof that it saw during training, that worked reasonably during training, and it would just terminate that. The problem is it terminates there. So it fails to generalize, basically. And this problem is actually something that we also see in practice. So if you take pre-trained LLMs and you train them with RL, and then you try to see what happens if you sample more tokens from them at test time, that is, get them to produce more operations, we evaluate their performance on some standard contest level math benchmarks. There's a sharp increase in the performance as you get to about 8k tokens. They're able to solve a bunch of problems with just 8k tokens. But if you give them more tokens, get it to produce more tokens, there is a performance plateau. So the sharp increase in performance plateau is exactly like the description of a greedy algorithm.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1476
+}
