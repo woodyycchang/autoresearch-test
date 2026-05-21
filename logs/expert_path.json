@@ -1,17 +1,17 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "created": "2026-05-21T23:45:00Z",
   "created_by": "v18 init Phase 2 bootstrap",
-  "last_updated": "2026-05-22T01:50:00Z",
-  "last_updated_by": "v19 post_epoch_anchor_update after E38",
-  "description": "Persistent registry of INVESTIGATIVE_SURVIVING anchors. Step 05 (v18) generates ~N candidates per active anchor within embedding radius epsilon. Anchors stale-drop after N=3 epochs of zero local yield. Updated post-epoch by the v18 anchor_update procedure. v19 step 05.6 learned verifier provides predictive front-end; v18 stale-drop remains reactive backstop.",
+  "last_updated": "2026-05-22T02:50:00Z",
+  "last_updated_by": "v20 post_epoch_anchor_update after E39",
+  "description": "Persistent registry of INVESTIGATIVE_SURVIVING anchors. Step 05 (v18) generates ~N candidates per active anchor within embedding radius epsilon. Anchors stale-drop after N=3 epochs of zero local yield. Updated post-epoch by the v18 anchor_update procedure. v19 step 05.6 learned verifier provides predictive front-end; v18 stale-drop remains reactive backstop. v20 step 05.7/15/self-attribution provides self-model layer; expert path grew 13 \u2192 15 (after R866 + R895 stale-drop and 4 sub-anchor promotions).",
   "stale_threshold_epochs": 3,
   "embedding_radius_upper": 0.6,
   "embedding_radius_lower": 0.15,
   "anchors_per_round_budget_E38": 10,
-  "anchors_per_round_budget_note": "Updated for E38: budget = 100 / active_anchor_count = 100 / 10 = 10 (vs E37's 14 with 7 anchors).",
+  "anchors_per_round_budget_note": "Updated for E39: budget = 100 / 13 \u2248 8 (vs E38's 10 with 10 anchors). E40 budget = 100 / 15 \u2248 7 (after stale-drop + sub-anchor promotions).",
   "fallback_to_v17_MSHT_when_active_count_below": 3,
-  "max_discovery_fraction": 0.20,
+  "max_discovery_fraction": 0.2,
   "entries": [
     {
       "anchor_id": "ANCHOR_R834",
@@ -24,12 +24,44 @@
       "stripped_skeleton": "<rare-math-class> <S15-critic-architectural> modify-transformer",
       "frontier_seed_citation": null,
       "default_citation_for_v18_neighborhood": "GAO_Q_RUBRIC",
-      "embedding_keys": ["Bayes", "categorical", "posterior", "conformal", "critic", "head", "S15", "category"],
+      "embedding_keys": [
+        "Bayes",
+        "categorical",
+        "posterior",
+        "conformal",
+        "critic",
+        "head",
+        "S15",
+        "category"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 3,
+      "total_local_yield": 4,
       "status": "active",
-      "status_history": [{"action": "bootstrap", "epoch": 36}, {"action": "yield_reset", "epoch": 37, "new_yield_this_epoch": 1, "yielding_round": 902}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 927}],
-      "rationale": "E34 v15 INVESTIGATIVE_CANDIDATE; v16-E35 step 14.6 retro confirmed (sim=0.51 vs arXiv 2511.07823 - SURVIVES). E37 produced R902 (Bayesian-posterior dual-critic). E38 produced R927 (Bayesian-monad categorical critic head) at d=0.38; yield reset."
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 37,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 902
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 927
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 951
+        }
+      ],
+      "rationale": "E34 v15 INVESTIGATIVE_CANDIDATE; v16-E35 step 14.6 retro confirmed (sim=0.51 vs arXiv 2511.07823 - SURVIVES). E37 produced R902 (Bayesian-posterior dual-critic). E38 produced R927 (Bayesian-monad categorical critic head) at d=0.38; yield reset. E39 produced R951 (Pullback-square categorical critic head)."
     },
     {
       "anchor_id": "ANCHOR_R843",
@@ -42,12 +74,44 @@
       "stripped_skeleton": "<rare-math-class> <S16-token-routing-architectural> modify-transformer",
       "frontier_seed_citation": null,
       "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
-      "embedding_keys": ["free", "cumulant", "token", "routing", "module", "S16", "free-probability"],
+      "embedding_keys": [
+        "free",
+        "cumulant",
+        "token",
+        "routing",
+        "module",
+        "S16",
+        "free-probability"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 3,
+      "total_local_yield": 4,
       "status": "active",
-      "status_history": [{"action": "bootstrap", "epoch": 36}, {"action": "yield_reset", "epoch": 37, "new_yield_this_epoch": 1, "yielding_round": 905}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 930}],
-      "rationale": "E34 v15 INVESTIGATIVE_CANDIDATE; v16-E35 step 14.6 retro confirmed. E37 produced R905 (sub-anchor ANCHOR_R905). E38 produced R930 (Voiculescu R-transform routing) at d=0.44; sub-anchor promoted (ANCHOR_R930)."
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 37,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 905
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 930
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 952,
+          "sub_anchor_promotion": "ANCHOR_R952"
+        }
+      ],
+      "rationale": "E34 v15 INVESTIGATIVE_CANDIDATE; v16-E35 step 14.6 retro confirmed. E37 produced R905 (sub-anchor ANCHOR_R905). E38 produced R930 (Voiculescu R-transform routing) at d=0.44; sub-anchor promoted (ANCHOR_R930). E39 produced R952 (Free Wick-product routing kernel) at d=0.41; sub-anchor promoted (ANCHOR_R952)."
     },
     {
       "anchor_id": "ANCHOR_R863",
@@ -60,12 +124,42 @@
       "stripped_skeleton": "<rare-math-class> <S15-critic-architectural> modify-transformer",
       "frontier_seed_citation": null,
       "default_citation_for_v18_neighborhood": "GAO_Q_RUBRIC",
-      "embedding_keys": ["Hochschild", "cochain", "critic", "head", "S15", "cohomology"],
+      "embedding_keys": [
+        "Hochschild",
+        "cochain",
+        "critic",
+        "head",
+        "S15",
+        "cohomology"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 3,
+      "total_local_yield": 4,
       "status": "active",
-      "status_history": [{"action": "bootstrap", "epoch": 36}, {"action": "yield_reset", "epoch": 37, "new_yield_this_epoch": 1, "yielding_round": 908}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 932}],
-      "rationale": "E35 v16 INVESTIGATIVE_CANDIDATE_SURVIVES (sim=0.41 at step 14.6 SURVIVES). E37 produced R908 (sub-anchor ANCHOR_R908). E38 produced R932 (Bar-resolution cochain critic) at d=0.38; yield reset."
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 37,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 908
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 932
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 953
+        }
+      ],
+      "rationale": "E35 v16 INVESTIGATIVE_CANDIDATE_SURVIVES (sim=0.41 at step 14.6 SURVIVES). E37 produced R908 (sub-anchor ANCHOR_R908). E38 produced R932 (Bar-resolution cochain critic) at d=0.38; yield reset. E39 produced R953 (Cyclic-cocycle critic head)."
     },
     {
       "anchor_id": "ANCHOR_R866",
@@ -78,16 +172,55 @@
       "stripped_skeleton": "<rare-math-class> <S16-token-routing-architectural> modify-transformer",
       "frontier_seed_citation": null,
       "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
-      "embedding_keys": ["Bezout", "resultant", "token", "routing", "S16", "elimination"],
-      "epochs_since_yield": 2,
-      "total_local_yield": 1,
-      "status": "active",
-      "status_history": [
-        {"action": "bootstrap", "epoch": 36},
-        {"action": "epochs_since_yield_increment", "epoch": 37, "new_yield_this_epoch": 0, "neighborhood_INVESTIGATIVE_demoted_to_EXTERNAL_COLLISION": [911]},
-        {"action": "epochs_since_yield_increment", "epoch": 38, "new_yield_this_epoch": 0, "neighborhood_REJECTED_LEARNED_VERIFIER": [934], "neighborhood_FAIL": [933, 935], "v19_note": "v19 learned verifier rejected R934 (Bezout-Macaulay-discriminant; counterfactual sim=0.74 EXTERNAL_COLLISION). KCD database growth prevented. Other 2 neighborhood candidates (R933 Sylvester-matrix, R935 Buchberger-algorithm) reached step 13 but did not fire (no architectural-novelty signal)."}
+      "embedding_keys": [
+        "Bezout",
+        "resultant",
+        "token",
+        "routing",
+        "S16",
+        "elimination"
       ],
-      "rationale": "E35 v16 INVESTIGATIVE_CANDIDATE_SURVIVES. E37 R911 demoted to EXTERNAL_COLLISION. E38 0 yield (v19 pre-rejected R934; R933/R935 generic FAIL). epochs_since_yield = 2. STALE-DROP IMMINENT: if E39 produces zero local yield, anchor becomes 'stale' at end of E39 per program_v18.md stale-drop rule."
+      "epochs_since_yield": 3,
+      "total_local_yield": 1,
+      "status": "stale",
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 37,
+          "new_yield_this_epoch": 0,
+          "neighborhood_INVESTIGATIVE_demoted_to_EXTERNAL_COLLISION": [
+            911
+          ]
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 38,
+          "new_yield_this_epoch": 0,
+          "neighborhood_REJECTED_LEARNED_VERIFIER": [
+            934
+          ],
+          "neighborhood_FAIL": [
+            933,
+            935
+          ],
+          "v19_note": "v19 learned verifier rejected R934 (Bezout-Macaulay-discriminant; counterfactual sim=0.74 EXTERNAL_COLLISION). KCD database growth prevented. Other 2 neighborhood candidates (R933 Sylvester-matrix, R935 Buchberger-algorithm) reached step 13 but did not fire (no architectural-novelty signal)."
+        },
+        {
+          "action": "stale_drop",
+          "epoch": 39,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL": [
+            954,
+            967
+          ],
+          "v20_note": "v20 self-prediction correctly predicted 'won't pass' for both R954 and R967; consistent with anchor history (E37 R911 EXTERNAL_COLLISION, E38 R934 REJECTED_LEARNED_VERIFIER). STALE-DROP fires at end of E39 per v18 stale_threshold=3 rule."
+        }
+      ],
+      "rationale": "E35 v16 INVESTIGATIVE_CANDIDATE_SURVIVES. E37 R911 demoted to EXTERNAL_COLLISION. E38 0 yield (v19 pre-rejected R934; R933/R935 generic FAIL). epochs_since_yield = 2. STALE-DROP IMMINENT: if E39 produces zero local yield, anchor becomes 'stale' at end of E39 per program_v18.md stale-drop rule. E39 0 yield (R954 FAIL no fire, R967 FAIL no fire). epochs_since_yield = 3. STALE-DROP fired at end of E39."
     },
     {
       "anchor_id": "ANCHOR_R883",
@@ -98,14 +231,48 @@
       "domain": "test-time-training",
       "mechanism_signature": "Test-time-training inner-loop adapter",
       "stripped_skeleton": "<TTT-class> <S20-inference-time-architectural> modify-transformer",
-      "frontier_seed_citation": ["YUSUN_TTT"],
+      "frontier_seed_citation": [
+        "YUSUN_TTT"
+      ],
       "default_citation_for_v18_neighborhood": "YUSUN_TTT",
-      "embedding_keys": ["test-time", "training", "TTT", "inner-loop", "adapter", "S20", "inference-time", "per-instance"],
+      "embedding_keys": [
+        "test-time",
+        "training",
+        "TTT",
+        "inner-loop",
+        "adapter",
+        "S20",
+        "inference-time",
+        "per-instance"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 3,
+      "total_local_yield": 4,
       "status": "active",
-      "status_history": [{"action": "bootstrap", "epoch": 36}, {"action": "yield_reset", "epoch": 37, "new_yield_this_epoch": 1, "yielding_round": 914}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 937}],
-      "rationale": "E36 v17 Strategy C INVESTIGATIVE_CANDIDATE_SURVIVES. E37 produced R914. E38 produced R937 (TTT meta-learned per-token adapter)."
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 37,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 914
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 937
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 955
+        }
+      ],
+      "rationale": "E36 v17 Strategy C INVESTIGATIVE_CANDIDATE_SURVIVES. E37 produced R914. E38 produced R937 (TTT meta-learned per-token adapter). E39 produced R955 (TTT inner-loop sparse-update adapter)."
     },
     {
       "anchor_id": "ANCHOR_R891",
@@ -116,14 +283,48 @@
       "domain": "info-theory",
       "mechanism_signature": "Heavy-tail entropic training objective with entropy-reweighting",
       "stripped_skeleton": "<entropy-reweighting-class> <S14-training-objective-architectural> modify-transformer",
-      "frontier_seed_citation": ["YUSUN_HEAVY_TAIL_ENTROPIC"],
+      "frontier_seed_citation": [
+        "YUSUN_HEAVY_TAIL_ENTROPIC"
+      ],
       "default_citation_for_v18_neighborhood": "YUSUN_HEAVY_TAIL_ENTROPIC",
-      "embedding_keys": ["heavy-tail", "entropic", "entropy", "reweighting", "training", "objective", "S14", "info-theory"],
+      "embedding_keys": [
+        "heavy-tail",
+        "entropic",
+        "entropy",
+        "reweighting",
+        "training",
+        "objective",
+        "S14",
+        "info-theory"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 3,
+      "total_local_yield": 4,
       "status": "active",
-      "status_history": [{"action": "bootstrap", "epoch": 36}, {"action": "yield_reset", "epoch": 37, "new_yield_this_epoch": 1, "yielding_round": 917}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 939}],
-      "rationale": "E36 v17 Strategy C INVESTIGATIVE_CANDIDATE_SURVIVES. E37 produced R917. E38 produced R939 (Power-law entropic loss reweighting) at d=0.42; sub-anchor promoted (ANCHOR_R939)."
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 37,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 917
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 939
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 956
+        }
+      ],
+      "rationale": "E36 v17 Strategy C INVESTIGATIVE_CANDIDATE_SURVIVES. E37 produced R917. E38 produced R939 (Power-law entropic loss reweighting) at d=0.42; sub-anchor promoted (ANCHOR_R939). E39 produced R956 (Stable-distribution entropic objective)."
     },
     {
       "anchor_id": "ANCHOR_R895",
@@ -134,18 +335,66 @@
       "domain": "complexity-theory",
       "mechanism_signature": "Polynomial-time-bounded token routing (NOT-Lie-NOT-equivariance-NOT-divergence-NOT-spectral)",
       "stripped_skeleton": "<complexity-class> <S16-token-routing-architectural> modify-transformer",
-      "frontier_seed_citation": ["FOSTER_SHARPENING_VS_DISCOVERY"],
-      "default_citation_for_v18_neighborhood": "FOSTER_SHARPENING_VS_DISCOVERY",
-      "embedding_keys": ["polynomial-time", "complexity", "bounded", "routing", "token", "S16", "NOT-Lie", "NOT-equivariance"],
-      "epochs_since_yield": 2,
-      "total_local_yield": 1,
-      "status": "active",
-      "status_history": [
-        {"action": "bootstrap", "epoch": 36},
-        {"action": "epochs_since_yield_increment", "epoch": 37, "new_yield_this_epoch": 0, "neighborhood_FAIL_EMPIRICAL_ATTACK": [920], "neighborhood_FAIL": [919, 921, 924]},
-        {"action": "epochs_since_yield_increment", "epoch": 38, "new_yield_this_epoch": 0, "neighborhood_REJECTED_LEARNED_VERIFIER": [940], "neighborhood_FAIL": [941, 942], "v19_note": "v19 learned verifier rejected R940 (Constraint-bounded; f5=1 fragile pattern; counterfactual sim=0.48 SURVIVES but no architectural distinguishability). FALSE POSITIVE: f5=1 pattern is fragile at step 13.5 but not at step 14.6. v20 may distinguish step-13.5-risk from step-14.6-risk."}
+      "frontier_seed_citation": [
+        "FOSTER_SHARPENING_VS_DISCOVERY"
       ],
-      "rationale": "E36 v17 Strategy D INVESTIGATIVE_CANDIDATE_SURVIVES. E37 0 yield (R920 FAIL_EMPIRICAL_ATTACK). E38 0 yield (v19 pre-rejected R940; R941/R942 generic FAIL). epochs_since_yield = 2. STALE-DROP IMMINENT: if E39 produces zero local yield, anchor becomes 'stale' at end of E39."
+      "default_citation_for_v18_neighborhood": "FOSTER_SHARPENING_VS_DISCOVERY",
+      "embedding_keys": [
+        "polynomial-time",
+        "complexity",
+        "bounded",
+        "routing",
+        "token",
+        "S16",
+        "NOT-Lie",
+        "NOT-equivariance"
+      ],
+      "epochs_since_yield": 3,
+      "total_local_yield": 1,
+      "status": "stale",
+      "status_history": [
+        {
+          "action": "bootstrap",
+          "epoch": 36
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 37,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL_EMPIRICAL_ATTACK": [
+            920
+          ],
+          "neighborhood_FAIL": [
+            919,
+            921,
+            924
+          ]
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 38,
+          "new_yield_this_epoch": 0,
+          "neighborhood_REJECTED_LEARNED_VERIFIER": [
+            940
+          ],
+          "neighborhood_FAIL": [
+            941,
+            942
+          ],
+          "v19_note": "v19 learned verifier rejected R940 (Constraint-bounded; f5=1 fragile pattern; counterfactual sim=0.48 SURVIVES but no architectural distinguishability). FALSE POSITIVE: f5=1 pattern is fragile at step 13.5 but not at step 14.6. v20 may distinguish step-13.5-risk from step-14.6-risk."
+        },
+        {
+          "action": "stale_drop",
+          "epoch": 39,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL": [
+            957,
+            970
+          ],
+          "v20_note": "v20 self-prediction correctly predicted 'won't pass' for both R957 and R970; constraint-bounded family structurally fragile (E37 R920 FAIL_EMPIRICAL_ATTACK, E38 R940 REJECTED_LEARNED_VERIFIER). STALE-DROP fires at end of E39 per v18 stale_threshold=3 rule."
+        }
+      ],
+      "rationale": "E36 v17 Strategy D INVESTIGATIVE_CANDIDATE_SURVIVES. E37 0 yield (R920 FAIL_EMPIRICAL_ATTACK). E38 0 yield (v19 pre-rejected R940; R941/R942 generic FAIL). epochs_since_yield = 2. STALE-DROP IMMINENT: if E39 produces zero local yield, anchor becomes 'stale' at end of E39. E39 0 yield (R957 FAIL no fire, R970 FAIL no fire). epochs_since_yield = 3. STALE-DROP fired at end of E39."
     },
     {
       "anchor_id": "ANCHOR_R905",
@@ -158,14 +407,44 @@
       "domain": "free-probability",
       "mechanism_signature": "Non-commutative cumulant token routing",
       "stripped_skeleton": "<rare-math-class> <S16-token-routing-architectural> modify-transformer",
-      "frontier_seed_citation": ["FOSTER_REP_DIVERSE_SAMPLING"],
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
       "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
-      "embedding_keys": ["non-commutative", "cumulant", "token", "routing", "S16", "free-probability", "Voiculescu"],
+      "embedding_keys": [
+        "non-commutative",
+        "cumulant",
+        "token",
+        "routing",
+        "S16",
+        "free-probability",
+        "Voiculescu"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 2,
+      "total_local_yield": 3,
       "status": "active",
-      "status_history": [{"action": "sub_anchor_promotion", "epoch": 37, "parent_anchor": "ANCHOR_R843", "local_distance": 0.45}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 944}],
-      "rationale": "v18 sub-anchor promoted from ANCHOR_R843 neighborhood. E38 produced R944 (Speicher S-transform routing) at d=0.42; sub-anchor promoted (ANCHOR_R944). First-epoch yield validation passed."
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 37,
+          "parent_anchor": "ANCHOR_R843",
+          "local_distance": 0.45
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 944
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 958,
+          "sub_anchor_promotion": "ANCHOR_R958"
+        }
+      ],
+      "rationale": "v18 sub-anchor promoted from ANCHOR_R843 neighborhood. E38 produced R944 (Speicher S-transform routing) at d=0.42; sub-anchor promoted (ANCHOR_R944). First-epoch yield validation passed. E39 produced R958 (Free Levy-process routing module) at d=0.41; sub-anchor promoted (ANCHOR_R958)."
     },
     {
       "anchor_id": "ANCHOR_R908",
@@ -178,14 +457,50 @@
       "domain": "Hochschild-cohom",
       "mechanism_signature": "Periodic-cyclic-cochain critic head",
       "stripped_skeleton": "<rare-math-class> <S15-critic-architectural> modify-transformer",
-      "frontier_seed_citation": ["GAO_Q_RUBRIC"],
+      "frontier_seed_citation": [
+        "GAO_Q_RUBRIC"
+      ],
       "default_citation_for_v18_neighborhood": "GAO_Q_RUBRIC",
-      "embedding_keys": ["periodic", "cyclic", "cochain", "critic", "head", "S15", "Hochschild", "cohomology"],
-      "epochs_since_yield": 1,
-      "total_local_yield": 1,
+      "embedding_keys": [
+        "periodic",
+        "cyclic",
+        "cochain",
+        "critic",
+        "head",
+        "S15",
+        "Hochschild",
+        "cohomology"
+      ],
+      "epochs_since_yield": 0,
+      "total_local_yield": 2,
       "status": "active",
-      "status_history": [{"action": "sub_anchor_promotion", "epoch": 37, "parent_anchor": "ANCHOR_R863", "local_distance": 0.42}, {"action": "epochs_since_yield_increment", "epoch": 38, "new_yield_this_epoch": 0, "neighborhood_FAIL": [946, 947, 948]}],
-      "rationale": "v18 sub-anchor promoted from ANCHOR_R863. E38 produced 0 yield (R946 Negative-cyclic-cohomology, R947 Connes-Tsygan cyclic, R948 Topological-cyclic-homology all FAIL no step 13). First-epoch test: this sub-anchor's neighborhood is narrower than ANCHOR_R863's main neighborhood; periodic-cyclic-cochain is a specialization, not an expansion. epochs_since_yield = 1; watch in E39."
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 37,
+          "parent_anchor": "ANCHOR_R863",
+          "local_distance": 0.42
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 38,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL": [
+            946,
+            947,
+            948
+          ]
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 959,
+          "sub_anchor_promotion": "ANCHOR_R959",
+          "v20_note": "v20 self-prediction WRONG: predicted will_pass_step_14_6=False based on E38 0-yield, but actual SURVIVES at sim=0.52. Pipeline self-attribution: my corpus prior over sub-anchor productivity was miscalibrated; sub-anchor first-epoch sterility does not generalize to second-epoch."
+        }
+      ],
+      "rationale": "v18 sub-anchor promoted from ANCHOR_R863. E38 produced 0 yield (R946 Negative-cyclic-cohomology, R947 Connes-Tsygan cyclic, R948 Topological-cyclic-homology all FAIL no step 13). First-epoch test: this sub-anchor's neighborhood is narrower than ANCHOR_R863's main neighborhood; periodic-cyclic-cochain is a specialization, not an expansion. epochs_since_yield = 1; watch in E39. E39 produced R959 (Connes-cochain critic head) at d=0.42; sub-anchor promoted (ANCHOR_R959). v20 self-model surfaced miscalibration: predicted 'won't pass' but candidate SURVIVES."
     },
     {
       "anchor_id": "ANCHOR_R922",
@@ -199,14 +514,42 @@
       "domain": "rep-exploration",
       "mechanism_signature": "Representation-visit-counter sparsity gate",
       "stripped_skeleton": "<rep-exploration-class> <S07-sparsity-architectural> modify-transformer",
-      "frontier_seed_citation": ["YUSUN_REP_EXPLORATION"],
+      "frontier_seed_citation": [
+        "YUSUN_REP_EXPLORATION"
+      ],
       "default_citation_for_v18_neighborhood": "YUSUN_REP_EXPLORATION",
-      "embedding_keys": ["representation", "visit-counter", "sparsity", "gate", "S07", "exploration", "YUSUN_REP"],
+      "embedding_keys": [
+        "representation",
+        "visit-counter",
+        "sparsity",
+        "gate",
+        "S07",
+        "exploration",
+        "YUSUN_REP"
+      ],
       "epochs_since_yield": 0,
-      "total_local_yield": 2,
+      "total_local_yield": 3,
       "status": "active",
-      "status_history": [{"action": "discovery_promotion", "epoch": 37, "discovery_strategy": "C"}, {"action": "yield_reset", "epoch": 38, "new_yield_this_epoch": 1, "yielding_round": 950}],
-      "rationale": "v18 top-level anchor promoted from E37 discovery. E38 produced R950 (Stochastic-visit-decay sparsity gate) at d=0.38; yield reset. First non-S14/S15/S16/S20 anchor confirmed productive; opens manifold extension to S07."
+      "status_history": [
+        {
+          "action": "discovery_promotion",
+          "epoch": 37,
+          "discovery_strategy": "C"
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 38,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 950
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 960
+        }
+      ],
+      "rationale": "v18 top-level anchor promoted from E37 discovery. E38 produced R950 (Stochastic-visit-decay sparsity gate) at d=0.38; yield reset. First non-S14/S15/S16/S20 anchor confirmed productive; opens manifold extension to S07. E39 produced R960 (Recurrence-tracked visit-counter sparsity gate)."
     },
     {
       "anchor_id": "ANCHOR_R930",
@@ -219,14 +562,40 @@
       "domain": "free-probability",
       "mechanism_signature": "Voiculescu R-transform token routing",
       "stripped_skeleton": "<rare-math-class> <S16-token-routing-architectural> modify-transformer",
-      "frontier_seed_citation": ["FOSTER_REP_DIVERSE_SAMPLING"],
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
       "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
-      "embedding_keys": ["Voiculescu", "R-transform", "free-probability", "token", "routing", "S16", "free-cumulant"],
-      "epochs_since_yield": 0,
+      "embedding_keys": [
+        "Voiculescu",
+        "R-transform",
+        "free-probability",
+        "token",
+        "routing",
+        "S16",
+        "free-cumulant"
+      ],
+      "epochs_since_yield": 1,
       "total_local_yield": 1,
       "status": "active",
-      "status_history": [{"action": "sub_anchor_promotion", "epoch": 38, "parent_anchor": "ANCHOR_R843", "local_distance": 0.44}],
-      "rationale": "v19 sub-anchor promoted from ANCHOR_R843 (also has ANCHOR_R905 sub-anchor); free-probability super-cluster now has 3 active anchors (parent + 2 sub-anchors). R930 step 14.6 SURVIVES (sim=0.45)."
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 38,
+          "parent_anchor": "ANCHOR_R843",
+          "local_distance": 0.44
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 39,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL_EMPIRICAL_ATTACK": [
+            961
+          ],
+          "v20_note": "v20 self-prediction WRONG in opposite direction: predicted will_pass=True (medium confidence) but step 13.5 A1 succeeded (higher-order R-transform absorbs to baseline at low order). Self-attribution: the 'higher-order' qualifier was a fragile primitive choice; future self-predictions should down-weight order-qualified primitives."
+        }
+      ],
+      "rationale": "v19 sub-anchor promoted from ANCHOR_R843 (also has ANCHOR_R905 sub-anchor); free-probability super-cluster now has 3 active anchors (parent + 2 sub-anchors). R930 step 14.6 SURVIVES (sim=0.45). E39 0 yield (R961 FAIL_EMPIRICAL_ATTACK; A1 succeeded). epochs_since_yield = 1. v20 surfaced: 'higher-order' primitive fragile."
     },
     {
       "anchor_id": "ANCHOR_R939",
@@ -239,14 +608,39 @@
       "domain": "info-theory",
       "mechanism_signature": "Power-law entropic loss reweighting",
       "stripped_skeleton": "<power-law-class> <S14-training-objective-architectural> modify-transformer",
-      "frontier_seed_citation": ["YUSUN_HEAVY_TAIL_ENTROPIC"],
+      "frontier_seed_citation": [
+        "YUSUN_HEAVY_TAIL_ENTROPIC"
+      ],
       "default_citation_for_v18_neighborhood": "YUSUN_HEAVY_TAIL_ENTROPIC",
-      "embedding_keys": ["power-law", "entropic", "loss", "reweighting", "S14", "info-theory", "heavy-tail"],
-      "epochs_since_yield": 0,
+      "embedding_keys": [
+        "power-law",
+        "entropic",
+        "loss",
+        "reweighting",
+        "S14",
+        "info-theory",
+        "heavy-tail"
+      ],
+      "epochs_since_yield": 1,
       "total_local_yield": 1,
       "status": "active",
-      "status_history": [{"action": "sub_anchor_promotion", "epoch": 38, "parent_anchor": "ANCHOR_R891", "local_distance": 0.42}],
-      "rationale": "v19 sub-anchor promoted from ANCHOR_R891. R939 step 14.6 SURVIVES (sim=0.50). Extends entropic-reweighting family with power-law substructure."
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 38,
+          "parent_anchor": "ANCHOR_R891",
+          "local_distance": 0.42
+        },
+        {
+          "action": "epochs_since_yield_increment",
+          "epoch": 39,
+          "new_yield_this_epoch": 0,
+          "neighborhood_FAIL": [
+            962
+          ]
+        }
+      ],
+      "rationale": "v19 sub-anchor promoted from ANCHOR_R891. R939 step 14.6 SURVIVES (sim=0.50). Extends entropic-reweighting family with power-law substructure. E39 0 yield (R962 Cauchy-distributed loss; FAIL no step 13 fire \u2014 heavy-tail loss with infinite variance is too well-known in published regularizer literature). epochs_since_yield = 1."
     },
     {
       "anchor_id": "ANCHOR_R944",
@@ -259,31 +653,227 @@
       "domain": "free-probability",
       "mechanism_signature": "Speicher S-transform token routing",
       "stripped_skeleton": "<rare-math-class> <S16-token-routing-architectural> modify-transformer",
-      "frontier_seed_citation": ["FOSTER_REP_DIVERSE_SAMPLING"],
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
       "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
-      "embedding_keys": ["Speicher", "S-transform", "free-probability", "token", "routing", "S16", "non-commutative"],
+      "embedding_keys": [
+        "Speicher",
+        "S-transform",
+        "free-probability",
+        "token",
+        "routing",
+        "S16",
+        "non-commutative"
+      ],
+      "epochs_since_yield": 0,
+      "total_local_yield": 2,
+      "status": "active",
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 38,
+          "parent_anchor": "ANCHOR_R905",
+          "local_distance": 0.42
+        },
+        {
+          "action": "yield_reset",
+          "epoch": 39,
+          "new_yield_this_epoch": 1,
+          "yielding_round": 963,
+          "sub_anchor_promotion": "ANCHOR_R963"
+        }
+      ],
+      "rationale": "v19 sub-anchor promoted from ANCHOR_R905 (which is itself sub-anchor of ANCHOR_R843); 3rd-generation manifold extension. R944 step 14.6 SURVIVES (sim=0.46). Free-probability super-cluster now has 4 active anchors (R843 \u2192 R905 \u2192 R944, plus R930 from R843). E39 produced R963 (Free convolution semigroup routing) at d=0.42; sub-anchor promoted (ANCHOR_R963)."
+    },
+    {
+      "anchor_id": "ANCHOR_R952",
+      "source_round": 952,
+      "source_epoch": 39,
+      "program_version_at_origin": "v20",
+      "slot": "S16",
+      "domain": "free-probability",
+      "mechanism_signature": "Free Wick-product routing kernel",
+      "stripped_skeleton": "<free-prob-class> <S16-token-routing-architectural> modify-transformer",
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
+      "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
+      "embedding_keys": [
+        "free",
+        "Wick",
+        "product",
+        "routing",
+        "kernel",
+        "S16"
+      ],
       "epochs_since_yield": 0,
       "total_local_yield": 1,
       "status": "active",
-      "status_history": [{"action": "sub_anchor_promotion", "epoch": 38, "parent_anchor": "ANCHOR_R905", "local_distance": 0.42}],
-      "rationale": "v19 sub-anchor promoted from ANCHOR_R905 (which is itself sub-anchor of ANCHOR_R843); 3rd-generation manifold extension. R944 step 14.6 SURVIVES (sim=0.46). Free-probability super-cluster now has 4 active anchors (R843 → R905 → R944, plus R930 from R843)."
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 39,
+          "parent_anchor": "ANCHOR_R843",
+          "local_distance": 0.41
+        }
+      ],
+      "rationale": "v20 sub-anchor promoted from ANCHOR_R843; R952 step 14.6 SURVIVES (sim=0.47). Free Wick-product is a routing-side primitive distinct from R843's cumulant, R905's non-commutative cumulant, R930's R-transform, R944's S-transform \u2014 extending free-probability super-cluster."
+    },
+    {
+      "anchor_id": "ANCHOR_R958",
+      "source_round": 958,
+      "source_epoch": 39,
+      "program_version_at_origin": "v20",
+      "slot": "S16",
+      "domain": "free-probability",
+      "mechanism_signature": "Free Levy-process routing module",
+      "stripped_skeleton": "<free-prob-class> <S16-token-routing-architectural> modify-transformer",
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
+      "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
+      "embedding_keys": [
+        "free",
+        "Levy",
+        "process",
+        "routing",
+        "module",
+        "S16"
+      ],
+      "epochs_since_yield": 0,
+      "total_local_yield": 1,
+      "status": "active",
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 39,
+          "parent_anchor": "ANCHOR_R905",
+          "local_distance": 0.41
+        }
+      ],
+      "rationale": "v20 sub-anchor from ANCHOR_R905 (itself a sub-anchor of R843); 3rd-generation manifold extension. Levy-process is a stochastic-process primitive within free-probability."
+    },
+    {
+      "anchor_id": "ANCHOR_R959",
+      "source_round": 959,
+      "source_epoch": 39,
+      "program_version_at_origin": "v20",
+      "slot": "S15",
+      "domain": "Hochschild-cohom",
+      "mechanism_signature": "Connes-cochain critic head",
+      "stripped_skeleton": "<NCG-class> <S15-critic-architectural> modify-transformer",
+      "frontier_seed_citation": [
+        "GAO_Q_RUBRIC"
+      ],
+      "default_citation_for_v18_neighborhood": "GAO_Q_RUBRIC",
+      "embedding_keys": [
+        "Connes",
+        "cochain",
+        "critic",
+        "head",
+        "S15"
+      ],
+      "epochs_since_yield": 0,
+      "total_local_yield": 1,
+      "status": "active",
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 39,
+          "parent_anchor": "ANCHOR_R908",
+          "local_distance": 0.42,
+          "v20_self_model_note": "Pipeline self-prediction was WRONG (predicted won't pass; actual SURVIVES). Surfaced bias: corpus prior over sub-anchor first-epoch sterility miscalibrated."
+        }
+      ],
+      "rationale": "v20 sub-anchor from ANCHOR_R908 (itself sub-anchor of R863); Connes-cochain extends non-commutative-geometry primitives. v20 NOTE: This anchor's promotion exposed a self-model miscalibration \u2014 first-epoch sub-anchor sterility (R908 E38) does NOT predict second-epoch sterility."
+    },
+    {
+      "anchor_id": "ANCHOR_R963",
+      "source_round": 963,
+      "source_epoch": 39,
+      "program_version_at_origin": "v20",
+      "slot": "S16",
+      "domain": "free-probability",
+      "mechanism_signature": "Free convolution semigroup routing",
+      "stripped_skeleton": "<free-prob-class> <S16-token-routing-architectural> modify-transformer",
+      "frontier_seed_citation": [
+        "FOSTER_REP_DIVERSE_SAMPLING"
+      ],
+      "default_citation_for_v18_neighborhood": "FOSTER_REP_DIVERSE_SAMPLING",
+      "embedding_keys": [
+        "free",
+        "convolution",
+        "semigroup",
+        "routing",
+        "S16"
+      ],
+      "epochs_since_yield": 0,
+      "total_local_yield": 1,
+      "status": "active",
+      "status_history": [
+        {
+          "action": "sub_anchor_promotion",
+          "epoch": 39,
+          "parent_anchor": "ANCHOR_R944",
+          "local_distance": 0.42
+        }
+      ],
+      "rationale": "v20 sub-anchor from ANCHOR_R944 (itself sub-anchor of R905\u2192R843); 4th-generation manifold extension. Free convolution semigroup generalizes S-transform within free-probability super-cluster (now 7 anchors deep)."
     }
   ],
   "post_epoch_anchor_update_procedure_summary": "After each epoch's AFL runs, increment epochs_since_yield for any anchor with 0 new local INVESTIGATIVE_SURVIVING this epoch; reset to 0 for anchors with >=1 new yield; mark anchor as 'stale' (and inactive) when epochs_since_yield >= 3. Discovery-mode INVESTIGATIVE_SURVIVING become new top-level anchors. Anchor-local INVESTIGATIVE_SURVIVING with local_exploration_distance > 0.4 become sub-anchors with parent_anchor_id reference.",
   "bootstrap_source_note": "Bootstrapped from cumulative INVESTIGATIVE_SURVIVING list across E34-E37 epochs (v15-v18). v19 epoch E38 grew expert path from 10 to 13.",
   "last_anchor_update": {
-    "epoch": 38,
-    "timestamp": "2026-05-22T01:50:00Z",
-    "active_count_before": 10,
-    "active_count_after": 13,
-    "newly_stale": [],
-    "newly_added": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+    "epoch": 39,
+    "timestamp": "2026-05-22T02:50:00Z",
+    "active_count_before": 13,
+    "active_count_after": 15,
+    "newly_stale": [
+      "ANCHOR_R866",
+      "ANCHOR_R895"
+    ],
+    "stale_reasons": {
+      "ANCHOR_R866": "epochs_since_yield reached 3 (E37 EXTERNAL_COLLISION, E38 REJECTED_LEARNED_VERIFIER, E39 FAIL no fire); stale-drop fires per v18 rule.",
+      "ANCHOR_R895": "epochs_since_yield reached 3 (E37 FAIL_EMPIRICAL_ATTACK, E38 REJECTED_LEARNED_VERIFIER, E39 FAIL no fire); stale-drop fires per v18 rule. v20 self-prediction correctly predicted 'won't pass' for both R957 and R970."
+    },
+    "newly_added": [
+      "ANCHOR_R952",
+      "ANCHOR_R958",
+      "ANCHOR_R959",
+      "ANCHOR_R963"
+    ],
     "newly_added_by_type": {
-      "sub_anchor_promotions": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+      "sub_anchor_promotions": [
+        "ANCHOR_R952",
+        "ANCHOR_R958",
+        "ANCHOR_R959",
+        "ANCHOR_R963"
+      ],
       "discovery_promotions": []
     },
-    "yield_reset_anchors": ["ANCHOR_R834", "ANCHOR_R843", "ANCHOR_R863", "ANCHOR_R883", "ANCHOR_R891", "ANCHOR_R905", "ANCHOR_R922"],
-    "epochs_since_yield_incremented": ["ANCHOR_R866", "ANCHOR_R895", "ANCHOR_R908"],
-    "stale_drop_pending": ["ANCHOR_R866 (epochs_since_yield=2; stale at end of E39 if 0)", "ANCHOR_R895 (epochs_since_yield=2; stale at end of E39 if 0)"]
-  }
+    "yield_reset_anchors": [
+      "ANCHOR_R834",
+      "ANCHOR_R843",
+      "ANCHOR_R863",
+      "ANCHOR_R883",
+      "ANCHOR_R891",
+      "ANCHOR_R905",
+      "ANCHOR_R908",
+      "ANCHOR_R922",
+      "ANCHOR_R944"
+    ],
+    "epochs_since_yield_incremented": [
+      "ANCHOR_R930",
+      "ANCHOR_R939"
+    ],
+    "stale_drop_pending": [],
+    "v20_self_model_observations": [
+      "R959 self-prediction was WRONG (predicted won't pass; actual SURVIVES). Bias surfaced: sub-anchor first-epoch sterility does not predict second-epoch.",
+      "R961 self-prediction was WRONG in opposite direction (predicted will_pass; actual FAIL_EMPIRICAL_ATTACK). Bias surfaced: 'higher-order' qualifier primitives are fragile under variant_equivalence attack at low order.",
+      "R965 lineage drift > 0.15 tolerance. Bias surfaced: 2nd-pull candidates can drift vocabulary into adjacent sub-anchor neighborhood without self-model noticing distance increase.",
+      "R954, R957, R967, R970 citation grounding = 0. Bias surfaced: anchor-default citations (FOSTER_REP_DIVERSE_SAMPLING for R866 elimination-theory; FOSTER_SHARPENING_VS_DISCOVERY for R895 complexity-theory) are stale when anchor's mechanism family is distant from any frontier_seed primitive."
+    ]
+  },
+  "anchors_per_round_budget_E39": 8
 }

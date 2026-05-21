@@ -3,7 +3,7 @@
   "created": "2026-05-21T22:30:00Z",
   "created_by": "v17 init Phase 3 bootstrap",
   "description": "Persistent registry of externally-validated mechanism collisions. Step 05.5 (v17) checks every new candidate's embedding against this list. If similarity > 0.5 to any entry, the candidate is REJECTED_KNOWN_COLLISION. v19 step 05.6 learned verifier uses these entries as the feature reference set for f1 (Jaccard) and f2 (rare-math overlap).",
-  "bootstrap_source_note": "Bootstrapped from prior-corpus evidence: R279 (E12; original X-divergence+Y-state-regularizer collision), R827 (E34 INVESTIGATIVE retro-flagged by v16-E35 step 14.6 as EXTERNAL_COLLISION vs arXiv 2512.14879), R855 (E35 prospective EXTERNAL_COLLISION vs arXiv 2509.18411), and the 7-candidate variant_equivalence cluster (R756/R770/R777/R787/R805/R814/R823) — Lie-group equivariance super-mode.",
+  "bootstrap_source_note": "Bootstrapped from prior-corpus evidence: R279 (E12; original X-divergence+Y-state-regularizer collision), R827 (E34 INVESTIGATIVE retro-flagged by v16-E35 step 14.6 as EXTERNAL_COLLISION vs arXiv 2512.14879), R855 (E35 prospective EXTERNAL_COLLISION vs arXiv 2509.18411), and the 7-candidate variant_equivalence cluster (R756/R770/R777/R787/R805/R814/R823) \u2014 Lie-group equivariance super-mode.",
   "entries": [
     {
       "id": "KCD_R279",
@@ -14,7 +14,16 @@
       "stripped_skeleton": "<divergence-class> <memory-state-class> <regularizer-architectural> modify-attention",
       "external_arxiv_id": null,
       "external_collision_validated_at_epoch": 12,
-      "embedding_keys": ["KL", "divergence", "memory", "state", "regularization", "steel-pan", "SVDA", "regularizer"],
+      "embedding_keys": [
+        "KL",
+        "divergence",
+        "memory",
+        "state",
+        "regularization",
+        "steel-pan",
+        "SVDA",
+        "regularizer"
+      ],
       "rationale": "R279 was the original X-divergence + Y-state-regularizer collision pattern that v12 anti-R279 filter was designed to detect (vocabulary-specifically). KCD widens to functional class."
     },
     {
@@ -28,7 +37,16 @@
       "external_arxiv_title": "Entropy-Reservoir Bregman Projection for Self-Attention",
       "external_collision_validated_at_epoch": 35,
       "functional_similarity": 0.87,
-      "embedding_keys": ["Bregman", "divergence", "reservoir", "attention", "discriminator", "convex", "projection", "self-attention"],
+      "embedding_keys": [
+        "Bregman",
+        "divergence",
+        "reservoir",
+        "attention",
+        "discriminator",
+        "convex",
+        "projection",
+        "self-attention"
+      ],
       "rationale": "v15-E34 INVESTIGATIVE candidate; v16-E35 step 14.6 retrospective flagged as EXTERNAL_COLLISION. Same super-class as KCD_R279."
     },
     {
@@ -42,7 +60,16 @@
       "external_arxiv_title": "Selberg-Trace Skip-Connection Network: Multiplicative Residuals via Zeta Eigenvalues",
       "external_collision_validated_at_epoch": 35,
       "functional_similarity": 0.83,
-      "embedding_keys": ["L-function", "spectral", "residual", "skip-connection", "zeta", "Selberg", "eigenvalue", "multiplicative"],
+      "embedding_keys": [
+        "L-function",
+        "spectral",
+        "residual",
+        "skip-connection",
+        "zeta",
+        "Selberg",
+        "eigenvalue",
+        "multiplicative"
+      ],
       "rationale": "v16-E35 prospective EXTERNAL_COLLISION at step 14.6. New super-class (X-spectral + Y-residual) distinct from R279/R827."
     },
     {
@@ -54,7 +81,22 @@
       "stripped_skeleton": "<Lie-group-class> <equivariance-constraint> modify-attention-or-embedding",
       "external_arxiv_id": null,
       "external_collision_validated_at_epoch": "31-33",
-      "embedding_keys": ["Lie", "equivariance", "SU2", "SU(2)", "quiver", "tropical", "crystal", "Heisenberg", "Stiefel", "Quaternion", "permutation", "group", "equivariant", "invariance"],
+      "embedding_keys": [
+        "Lie",
+        "equivariance",
+        "SU2",
+        "SU(2)",
+        "quiver",
+        "tropical",
+        "crystal",
+        "Heisenberg",
+        "Stiefel",
+        "Quaternion",
+        "permutation",
+        "group",
+        "equivariant",
+        "invariance"
+      ],
       "rationale": "v11-v13 INVESTIGATIVE candidates that all share the Lie-group equivariance super-mode; the variant_equivalence attack at step 13.5 demonstrated they collapse to the same mechanism under small-magnitude perturbation. v17 treats this as a single collision class."
     },
     {
@@ -68,7 +110,17 @@
       "external_arxiv_title": "Sparsity-Conditioned Retrieval Memory for Long-Context LLMs",
       "external_collision_validated_at_epoch": 36,
       "functional_similarity": 0.72,
-      "embedding_keys": ["sparsity", "sparsity-conditioned", "retrieval", "memory", "routing", "external-memory", "long-context", "S07", "S13"],
+      "embedding_keys": [
+        "sparsity",
+        "sparsity-conditioned",
+        "retrieval",
+        "memory",
+        "routing",
+        "external-memory",
+        "long-context",
+        "S07",
+        "S13"
+      ],
       "rationale": "v17-E36 prospective EXTERNAL_COLLISION at step 14.6. Strategy B slot-combination (S07+S13 never-co-occurred prior) but external arXiv match. New collision class (X-sparsity + Y-retrieval-memory) distinct from prior 4 bootstrap entries."
     },
     {
@@ -82,18 +134,29 @@
       "external_arxiv_title": "Resultant-Groebner Token Routing for Algebraic Mixture-of-Experts",
       "external_collision_validated_at_epoch": 37,
       "functional_similarity": 0.71,
-      "embedding_keys": ["Resultant", "Groebner", "basis", "token", "routing", "elimination", "S16", "MoE", "expert-routing"],
+      "embedding_keys": [
+        "Resultant",
+        "Groebner",
+        "basis",
+        "token",
+        "routing",
+        "elimination",
+        "S16",
+        "MoE",
+        "expert-routing"
+      ],
       "rationale": "v18-E37 prospective EXTERNAL_COLLISION at step 14.6. Generated from ANCHOR_R866 (Bezout-resultant) neighborhood at local_exploration_distance=0.45. The far-edge of ANCHOR_R866's neighborhood surfaced an arXiv-adjacent mechanism; KCD did not catch it (no prior KCD entry on elimination-theory). v18 anchor_update procedure: ANCHOR_R866's epochs_since_yield set to 1 since its only neighborhood INVESTIGATIVE became EXTERNAL_COLLISION. Distinct from KCD_R880 (sparsity) and KCD_R855 (spectral)."
     }
   ],
   "last_audit_feedback_loop_run": {
-    "epoch": 38,
-    "timestamp": "2026-05-22T01:50:00Z",
+    "epoch": 39,
+    "timestamp": "2026-05-22T02:50:00Z",
     "new_entries_added": 0,
     "new_entry_ids": [],
     "database_size_before": 6,
     "database_size_after": 6,
-    "v17_AFL_continuation_note": "v17 AFL procedure unchanged under v18+v19. E38 produced 0 EXTERNAL_COLLISION because v19 step 05.6 learned verifier pre-rejected the would-have-collided candidate R934 (Bezout-Macaulay-discriminant token routing; counterfactual sim=0.74 vs arXiv 2511.18394; predicted_collision_prob=0.45 >= 0.3 threshold). KCD database unchanged at 6 entries. collision_addition_rate_E38 = 0/25 = 0.0 (vs E37's 0.04). v19 thesis: pre-emptive rejection reduces collision addition rate by catching candidates BEFORE step 14.6."
+    "v17_AFL_continuation_note": "v17 AFL unchanged under v18+v19+v20. E39 produced 0 EXTERNAL_COLLISION. No candidates exceeded step 14.6 collision threshold 0.7. v20 self-model layer is ORTHOGONAL to AFL \u2014 does not modify KCD or trigger new additions. collision_addition_rate_E39 = 0/25 = 0.0 (third consecutive epoch with no growth)."
   },
-  "v19_audit_note_E38": "v19 step 05.6 learned verifier prevented 1 would-be EXTERNAL_COLLISION (R934 Bezout-Macaulay-discriminant routing). This is a TRUE POSITIVE in the v19 cross-validation metric: the learned verifier flagged a candidate that step 14.6 would have demoted. KCD database growth halted at 6 entries this epoch. The Bezout-Macaulay-discriminant feature pattern (f1=0.35, f2=2 elimination-theory vocab overlap with KCD_R911) was distinct from the published KCD_R911 (Resultant-Groebner) but in the same algebraic-geometry family; the learned verifier generalized across vocab-specific patterns."
+  "v19_audit_note_E38": "v19 step 05.6 learned verifier prevented 1 would-be EXTERNAL_COLLISION (R934 Bezout-Macaulay-discriminant routing). This is a TRUE POSITIVE in the v19 cross-validation metric: the learned verifier flagged a candidate that step 14.6 would have demoted. KCD database growth halted at 6 entries this epoch. The Bezout-Macaulay-discriminant feature pattern (f1=0.35, f2=2 elimination-theory vocab overlap with KCD_R911) was distinct from the published KCD_R911 (Resultant-Groebner) but in the same algebraic-geometry family; the learned verifier generalized across vocab-specific patterns.",
+  "v20_audit_note_E39": "v20 self-model layer adds three new components (step 05.7, step 15, epoch-end self-attribution) but does NOT modify KCD database. AFL continues unchanged. E39 had 0 candidates above step 14.6 collision threshold; 0 new KCD entries. v20 self-model surfaced a separate failure mode (R961 'higher-order' qualifier fragility under step 13.5 attack) that is NOT a collision \u2014 it's an architectural-fragility signal, distinct from KCD's vocabulary-overlap signal. v20 self-attribution document `output/epoch_39_self_attribution.md` provides the verbalization."
 }

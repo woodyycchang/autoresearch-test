@@ -1,10 +1,10 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "created": "2026-05-22T01:00:00Z",
   "created_by": "v19 init Phase 2 bootstrap on 19 labeled examples (6 KCD + 13 INVESTIGATIVE_SURVIVING)",
-  "last_refit_epoch": 38,
-  "last_refit_timestamp": "2026-05-22T01:50:00Z",
-  "last_refit_by": "v19 refit_learned_verifier post-E38",
+  "last_refit_epoch": 39,
+  "last_refit_timestamp": "2026-05-22T02:50:00Z",
+  "last_refit_by": "v19 refit_learned_verifier post-E39 (v20 self-model layer does NOT modify learned verifier)",
   "feature_names": [
     "f1_jaccard_max_kcd",
     "f2_rare_math_count_in_kcd",
@@ -19,18 +19,42 @@
     "f4_citation_in_productive_set": "1 if any candidate.frontier_seed_citation in productive set; 0 otherwise; 1 -> INVESTIGATIVE_SURVIVING likely",
     "f5_constraint_pattern_present": "1 if mechanism_signature contains constraint-pattern substring; 0 otherwise; 1 -> structurally fragile (R895/R920-style); higher collision/FAIL risk"
   },
-  "weights": [3.30, 0.85, -1.55, -1.05, 1.10],
-  "weights_at_bootstrap": [3.2, 0.8, -1.5, -1.0, 1.2],
-  "weights_delta_post_E38": [0.10, 0.05, -0.05, -0.05, -0.10],
-  "weights_refit_note": "Post-E38 refit on 26 labels (19 bootstrap + 7 new INVESTIGATIVE_SURVIVING from E38; 0 new EXTERNAL_COLLISION). The fit slightly increased w1 (Jaccard) and w2 (rare-math-count) toward more confident collision-class separation; slightly increased w3 and w4 magnitudes (productive-set membership stronger negative-class signal with more positive examples); reduced w5 magnitude (the E38 F5-positive R940 was a counterfactual FP, suggesting the constraint pattern's collision-prediction signal weakens with more INVESTIGATIVE_SURVIVING examples that lack f5=1).",
-  "bias": -0.55,
+  "weights": [
+    3.35,
+    0.87,
+    -1.65,
+    -1.13,
+    1.05
+  ],
+  "weights_at_bootstrap": [
+    3.2,
+    0.8,
+    -1.5,
+    -1.0,
+    1.2
+  ],
+  "weights_delta_post_E38": [
+    0.1,
+    0.05,
+    -0.05,
+    -0.05,
+    -0.1
+  ],
+  "weights_refit_note": "Post-E39 refit on 35 labels (26 from E38 + 9 new INVESTIGATIVE_SURVIVING from E39; 0 new EXTERNAL_COLLISION). Weights moved slightly: w3, w4 magnitudes increased (more INV examples in productive set strengthens negative-class signal); w5 magnitude decreased marginally (no new f5=1 examples; R940 FP signal continues to weaken). v20 NOTE: learned verifier component is UNCHANGED in v20; only refit procedure runs as before. v20 self-model layer is orthogonal and does not feed into learned verifier weight updates.",
+  "bias": -0.6,
   "bias_at_bootstrap": -0.5,
   "bias_delta_post_E38": -0.05,
   "reject_threshold": 0.3,
   "regularization": "L2",
   "regularization_lambda": 1.0,
   "label_convention": "label=1 means collision/EXTERNAL_COLLISION (positive class for the classifier); label=0 means INVESTIGATIVE_SURVIVING (negative class for the classifier)",
-  "productive_slots": ["S14", "S15", "S16", "S20", "S07"],
+  "productive_slots": [
+    "S14",
+    "S15",
+    "S16",
+    "S20",
+    "S07"
+  ],
   "productive_citations": [
     "YUSUN_TTT",
     "YUSUN_HEAVY_TAIL_ENTROPIC",
@@ -49,49 +73,484 @@
     "polynomial-time-bound"
   ],
   "training_labels": [
-    {"round_id": "KCD_R279", "label": 1, "features": [1.0, 6, 0, 0, 0], "source": "KCD entry", "epoch": 12},
-    {"round_id": "KCD_R827", "label": 1, "features": [0.85, 4, 1, 0, 0], "source": "KCD entry", "epoch": 34},
-    {"round_id": "KCD_R855", "label": 1, "features": [0.80, 5, 0, 0, 0], "source": "KCD entry", "epoch": 35},
-    {"round_id": "KCD_R880", "label": 1, "features": [0.70, 4, 0, 0, 0], "source": "KCD entry", "epoch": 36},
-    {"round_id": "KCD_7CLUSTER", "label": 1, "features": [1.0, 14, 0, 0, 0], "source": "KCD entry", "epoch": "29-33"},
-    {"round_id": "KCD_R911", "label": 1, "features": [0.65, 3, 1, 1, 0], "source": "KCD entry", "epoch": 37},
-    {"round_id": "R834", "label": 0, "features": [0.10, 0, 1, 0, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 34},
-    {"round_id": "R843", "label": 0, "features": [0.10, 0, 1, 0, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 34},
-    {"round_id": "R863", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 35},
-    {"round_id": "R866", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 35},
-    {"round_id": "R883", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 36},
-    {"round_id": "R891", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 36},
-    {"round_id": "R895", "label": 0, "features": [0.05, 0, 1, 1, 1], "source": "INVESTIGATIVE_SURVIVING", "epoch": 36},
-    {"round_id": "R902", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R905", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R908", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R914", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R917", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R922", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 37},
-    {"round_id": "R927", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Bayesian-monad categorical critic head; ANCHOR_R834"},
-    {"round_id": "R930", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Voiculescu R-transform routing; sub-anchor of R843"},
-    {"round_id": "R932", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Bar-resolution cochain critic; ANCHOR_R863"},
-    {"round_id": "R937", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: TTT meta-learned per-token adapter; ANCHOR_R883"},
-    {"round_id": "R939", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Power-law entropic loss reweighting; sub-anchor of R891"},
-    {"round_id": "R944", "label": 0, "features": [0.10, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Speicher S-transform routing; sub-anchor of R905"},
-    {"round_id": "R950", "label": 0, "features": [0.05, 0, 1, 1, 0], "source": "INVESTIGATIVE_SURVIVING", "epoch": 38, "note": "E38 NEW: Stochastic-visit-decay sparsity gate; ANCHOR_R922"}
+    {
+      "round_id": "KCD_R279",
+      "label": 1,
+      "features": [
+        1.0,
+        6,
+        0,
+        0,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": 12
+    },
+    {
+      "round_id": "KCD_R827",
+      "label": 1,
+      "features": [
+        0.85,
+        4,
+        1,
+        0,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": 34
+    },
+    {
+      "round_id": "KCD_R855",
+      "label": 1,
+      "features": [
+        0.8,
+        5,
+        0,
+        0,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": 35
+    },
+    {
+      "round_id": "KCD_R880",
+      "label": 1,
+      "features": [
+        0.7,
+        4,
+        0,
+        0,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": 36
+    },
+    {
+      "round_id": "KCD_7CLUSTER",
+      "label": 1,
+      "features": [
+        1.0,
+        14,
+        0,
+        0,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": "29-33"
+    },
+    {
+      "round_id": "KCD_R911",
+      "label": 1,
+      "features": [
+        0.65,
+        3,
+        1,
+        1,
+        0
+      ],
+      "source": "KCD entry",
+      "epoch": 37
+    },
+    {
+      "round_id": "R834",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 34
+    },
+    {
+      "round_id": "R843",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 34
+    },
+    {
+      "round_id": "R863",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 35
+    },
+    {
+      "round_id": "R866",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 35
+    },
+    {
+      "round_id": "R883",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 36
+    },
+    {
+      "round_id": "R891",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 36
+    },
+    {
+      "round_id": "R895",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        1
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 36
+    },
+    {
+      "round_id": "R902",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R905",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R908",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R914",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R917",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R922",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 37
+    },
+    {
+      "round_id": "R927",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Bayesian-monad categorical critic head; ANCHOR_R834"
+    },
+    {
+      "round_id": "R930",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Voiculescu R-transform routing; sub-anchor of R843"
+    },
+    {
+      "round_id": "R932",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Bar-resolution cochain critic; ANCHOR_R863"
+    },
+    {
+      "round_id": "R937",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: TTT meta-learned per-token adapter; ANCHOR_R883"
+    },
+    {
+      "round_id": "R939",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Power-law entropic loss reweighting; sub-anchor of R891"
+    },
+    {
+      "round_id": "R944",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Speicher S-transform routing; sub-anchor of R905"
+    },
+    {
+      "round_id": "R950",
+      "label": 0,
+      "features": [
+        0.05,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING",
+      "epoch": 38,
+      "note": "E38 NEW: Stochastic-visit-decay sparsity gate; ANCHOR_R922"
+    },
+    {
+      "round_id": "R951",
+      "label": 0,
+      "features": [
+        0.12,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R952",
+      "label": 0,
+      "features": [
+        0.15,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R953",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R955",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R956",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R958",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R959",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R960",
+      "label": 0,
+      "features": [
+        0.1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    },
+    {
+      "round_id": "R963",
+      "label": 0,
+      "features": [
+        0.15,
+        1,
+        1,
+        1,
+        0
+      ],
+      "source": "INVESTIGATIVE_SURVIVING_E39"
+    }
   ],
   "training_label_count_positive_collision_class": 6,
-  "training_label_count_negative_investigative_class": 20,
-  "training_label_count_total": 26,
+  "training_label_count_negative_investigative_class": 29,
+  "training_label_count_total": 35,
   "training_label_count_at_E38_start": 19,
   "training_label_count_at_E38_end": 26,
   "training_label_count_growth_E38": 7,
   "last_agreement_rate": 1.0,
   "last_agreement_rate_E38": 1.0,
   "last_agreement_rate_note": "7 of 7 rounds reaching step 14.6 in E38 had predicted_collision_prob < 0.3 (PASS) and step 14.6 verdict SURVIVES. Perfect agreement on the PASS-to-step-14.6 path. Counterfactual on REJECTED_LEARNED_VERIFIER (R934 TP, R940 FP) not included in this rate; tracked separately as TP/FP counts.",
-  "last_false_positive_rate": 0.125,
+  "last_false_positive_rate": 0.0,
   "last_false_positive_rate_E38": 0.125,
   "last_false_positive_rate_note": "FP=1 (R940 counterfactual SURVIVES at sim=0.48); TN=7 (passed step 14.6 SURVIVES); FPR = FP / (TN + FP) = 1/8 = 0.125. Within target range 0.05-0.20.",
-  "last_true_positive_count": 1,
+  "last_true_positive_count": 0,
   "last_true_positive_count_E38": 1,
   "last_true_positive_count_note": "TP=1 (R934 counterfactual EXTERNAL_COLLISION at sim=0.74 vs arXiv 2511.18394 'Macaulay-Discriminant Token Routing'). The learned verifier correctly identified a Bezout-Macaulay-discriminant candidate as collision-risk before step 14.6 could fire. This is the v19 thesis validated: predictive pre-rejection avoids one full pipeline run's worth of computation AND prevents the KCD database from growing (database remains at 6 entries; if R934 had been allowed through, KCD would have grown to 7).",
-  "agreement_rate_history": [{"epoch": 38, "agreement_rate": 1.0, "fpr": 0.125, "tp_count": 1, "training_size": 26}],
+  "agreement_rate_history": [
+    {
+      "epoch": 38,
+      "agreement_rate": 1.0,
+      "fpr": 0.125,
+      "tp_count": 1,
+      "training_size": 26
+    }
+  ],
   "predicted_collision_prob_per_E38_round_first_attempt": {
     "R926": 0.064,
     "R927": 0.075,
@@ -109,12 +568,12 @@
     "R938": 0.064,
     "R939": 0.075,
     "R940_original_rejected": 0.37,
-    "R940_post_regen": 0.20,
-    "R941": 0.20,
+    "R940_post_regen": 0.2,
+    "R941": 0.2,
     "R942": 0.22,
     "R943": 0.075,
-    "R944": 0.10,
-    "R945": 0.10,
+    "R944": 0.1,
+    "R945": 0.1,
     "R946": 0.05,
     "R947": 0.05,
     "R948": 0.05,
@@ -127,7 +586,7 @@
     "training_correctly_classified_post_E38": 26,
     "training_misclassified_post_E38": 0,
     "min_separation_margin_post_E38": "0.43 (KCD_R911 at 0.50) - (R895 at 0.14) = 0.36; margin widened by ~0.06 from bootstrap (0.30) due to new positive examples densifying productive-class cluster",
-    "predicted_prob_for_KCD_R911_post_refit": 0.50,
+    "predicted_prob_for_KCD_R911_post_refit": 0.5,
     "predicted_prob_for_R895_post_refit": 0.14,
     "predicted_prob_for_R934_first_attempt_post_refit": 0.48
   },
@@ -137,6 +596,28 @@
     "expected_agreement_rate": "0.85-0.95",
     "expected_false_positive_rate": "0.05-0.15",
     "expected_true_positive_count": "1-2",
-    "watch_anchors": ["ANCHOR_R866 (epochs_since_yield=2; stale-drop pending E39)", "ANCHOR_R895 (epochs_since_yield=2; stale-drop pending E39)", "ANCHOR_R908 (epochs_since_yield=1; sub-anchor of R863; watch for second-epoch yield)"]
-  }
+    "watch_anchors": [
+      "ANCHOR_R866 (epochs_since_yield=2; stale-drop pending E39)",
+      "ANCHOR_R895 (epochs_since_yield=2; stale-drop pending E39)",
+      "ANCHOR_R908 (epochs_since_yield=1; sub-anchor of R863; watch for second-epoch yield)"
+    ]
+  },
+  "weights_at_previous_refit": [
+    3.3,
+    0.85,
+    -1.55,
+    -1.05,
+    1.1
+  ],
+  "weights_delta_post_E39": [
+    0.05,
+    0.02,
+    -0.1,
+    -0.08,
+    -0.05
+  ],
+  "bias_at_previous_refit": -0.55,
+  "bias_delta_post_E39": -0.05,
+  "preventions_in_E39": 0,
+  "notes_E39": "E39 had 0 REJECTED_LEARNED_VERIFIER (no candidate exceeded threshold 0.3). All 25 selected_25 candidates passed step 05.6. Cross-validation with step 14.6: 9 INV rounds all had predicted_prob in [0.04, 0.20]; step 14.6 verdict SURVIVES (sim in [0.44, 0.56]). Perfect agreement maintained (1.0)."
 }

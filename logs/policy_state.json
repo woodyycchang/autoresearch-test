@@ -1,14 +1,14 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "1.10",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
   "v13_introduced_at_epoch": 32,
   "v18_introduced_at_epoch": 37,
   "v19_introduced_at_epoch_top": 38,
-  "current_epoch": 38,
-  "prior_epoch_used_for_update": 37,
-  "policy_update_timestamp": "2026-05-22T01:50:00Z",
+  "current_epoch": 39,
+  "prior_epoch_used_for_update": 38,
+  "policy_update_timestamp": "2026-05-22T02:50:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
       {
@@ -403,6 +403,23 @@
       "epoch": 31,
       "action": "v12 step 05.5 added as generator-side mechanical anti-R279 filter; schema_version bumped to 1.2 to record step_05_5_aggregates field group; step_05_5 metrics tracked in stats_round_NNN.json under v12_pattern_filter_metrics block.",
       "timestamp": "2026-05-20T14:00:00Z"
+    },
+    {
+      "epoch": 39,
+      "version": "v20",
+      "INVESTIGATIVE_SURVIVING": 9,
+      "FAIL_EMPIRICAL_ATTACK": 1,
+      "EXTERNAL_COLLISION": 0,
+      "stale_drops": [
+        "ANCHOR_R866",
+        "ANCHOR_R895"
+      ],
+      "sub_anchor_promotions": 4,
+      "v20_self_prediction_accuracy": 0.889,
+      "v20_lineage_coherence_rate": 0.96,
+      "v20_citation_grounding_rate": 0.84,
+      "v20_mean_self_coherence_score": 0.887,
+      "v20_inconsistency_count": 16
     }
   ],
   "post_E30_aggregates_observed": {
@@ -594,7 +611,7 @@
       "timestamp": "2026-05-21T15:12:00Z"
     }
   ],
-  "last_updated": "2026-05-21T22:15:00Z",
+  "last_updated": "2026-05-22T02:50:00Z",
   "v14_observation_starting_E33": {
     "note": "Starting E33, the policy_state tracks coverage_profile_aggregates per slot (NEW v14). Rounds where the primary candidate is in an undersaturated slot from prior epoch are biased up via E34+ policy. v14 integrates THREE frontier frameworks: HTS [Yu Sun + Foster] (heavy-tail 100-pool + diversity filter), ATU [Gao] (20-slot closed universe), CPM [Foster] (post-epoch coverage profile + Gini + undersaturated feedback). Step 14.5 fires ONCE per epoch (post-25-rounds) to compute coverage profile and write E{N+1} bias.",
     "coverage_profile_signal_class_hierarchy": {
@@ -1152,9 +1169,17 @@
     "active_anchor_count_at_E38_start": 10,
     "active_anchor_count_at_E38_end": 13,
     "stale_anchor_drop_count_E38": 0,
-    "newly_added_anchors_E38": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+    "newly_added_anchors_E38": [
+      "ANCHOR_R930",
+      "ANCHOR_R939",
+      "ANCHOR_R944"
+    ],
     "sub_anchors_promoted_count_E38": 3,
-    "sub_anchors_promoted_E38": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+    "sub_anchors_promoted_E38": [
+      "ANCHOR_R930",
+      "ANCHOR_R939",
+      "ANCHOR_R944"
+    ],
     "discovery_promotions_E38": [],
     "discovery_yield_rate_E38": 0.0,
     "discovery_candidates_count_E38": 0,
@@ -1183,44 +1208,93 @@
       "ANCHOR_R908": 3,
       "ANCHOR_R922": 2
     },
-    "mean_local_exploration_yield_rate_E38": 0.20,
+    "mean_local_exploration_yield_rate_E38": 0.2,
     "per_anchor_yield_rate_E38": {
-      "ANCHOR_R834": 0.50,
+      "ANCHOR_R834": 0.5,
       "ANCHOR_R843": 0.333,
-      "ANCHOR_R863": 0.50,
+      "ANCHOR_R863": 0.5,
       "ANCHOR_R866": 0.0,
-      "ANCHOR_R883": 0.50,
-      "ANCHOR_R891": 0.50,
+      "ANCHOR_R883": 0.5,
+      "ANCHOR_R891": 0.5,
       "ANCHOR_R895": 0.0,
       "ANCHOR_R905": 0.333,
       "ANCHOR_R908": 0.0,
-      "ANCHOR_R922": 0.50
+      "ANCHOR_R922": 0.5
     },
     "per_anchor_attack_rebuttal_diversity_E38": 7,
     "INVESTIGATIVE_CANDIDATE_count_pre_step_14_6_E38": 7,
     "INVESTIGATIVE_CANDIDATE_count_after_step_14_6_E38": 7,
-    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E38": [927, 930, 932, 937, 939, 944, 950],
+    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E38": [
+      927,
+      930,
+      932,
+      937,
+      939,
+      944,
+      950
+    ],
     "EXTERNAL_COLLISION_rounds_E38": [],
     "FAIL_EMPIRICAL_ATTACK_rounds_E38": [],
-    "REJECTED_LEARNED_VERIFIER_first_attempt_rounds_E38": [934, 940],
+    "REJECTED_LEARNED_VERIFIER_first_attempt_rounds_E38": [
+      934,
+      940
+    ],
     "REJECTED_LEARNED_VERIFIER_count_E38": 2,
     "REJECTED_KNOWN_COLLISION_first_attempt_rounds_E38": [],
     "REJECTED_KNOWN_COLLISION_count_E38": 0,
     "corpus_unique_investigative_niches_after_external_check_E38": 7,
     "investigative_niche_tuples_surviving_external_check_E38": [
-      ["S15", "category-theory", "Bayesian-monad-categorical-critic", "ANCHOR_R834"],
-      ["S16", "free-probability", "Voiculescu-R-transform-routing", "ANCHOR_R843 -> ANCHOR_R930"],
-      ["S15", "Hochschild-cohom", "Bar-resolution-cochain-critic", "ANCHOR_R863"],
-      ["S20", "test-time-training", "TTT-meta-learned-per-token-adapter", "ANCHOR_R883"],
-      ["S14", "info-theory", "Power-law-entropic-loss-reweighting", "ANCHOR_R891 -> ANCHOR_R939"],
-      ["S16", "free-probability", "Speicher-S-transform-routing", "ANCHOR_R905 -> ANCHOR_R944"],
-      ["S07", "rep-exploration", "Stochastic-visit-decay-sparsity-gate", "ANCHOR_R922"]
+      [
+        "S15",
+        "category-theory",
+        "Bayesian-monad-categorical-critic",
+        "ANCHOR_R834"
+      ],
+      [
+        "S16",
+        "free-probability",
+        "Voiculescu-R-transform-routing",
+        "ANCHOR_R843 -> ANCHOR_R930"
+      ],
+      [
+        "S15",
+        "Hochschild-cohom",
+        "Bar-resolution-cochain-critic",
+        "ANCHOR_R863"
+      ],
+      [
+        "S20",
+        "test-time-training",
+        "TTT-meta-learned-per-token-adapter",
+        "ANCHOR_R883"
+      ],
+      [
+        "S14",
+        "info-theory",
+        "Power-law-entropic-loss-reweighting",
+        "ANCHOR_R891 -> ANCHOR_R939"
+      ],
+      [
+        "S16",
+        "free-probability",
+        "Speicher-S-transform-routing",
+        "ANCHOR_R905 -> ANCHOR_R944"
+      ],
+      [
+        "S07",
+        "rep-exploration",
+        "Stochastic-visit-decay-sparsity-gate",
+        "ANCHOR_R922"
+      ]
     ],
     "v19_learned_verifier_metrics_E38": {
       "step_05_6_fired_count": 25,
       "step_05_6_first_attempt_PASS_count": 23,
       "step_05_6_first_attempt_REJECTED_count": 2,
-      "step_05_6_REJECTED_LEARNED_VERIFIER_rounds_first_attempt": [934, 940],
+      "step_05_6_REJECTED_LEARNED_VERIFIER_rounds_first_attempt": [
+        934,
+        940
+      ],
       "step_05_6_regeneration_success_count": 2,
       "step_05_6_regen_count_total": 2,
       "learned_verifier_pre_reject_count_E38": 2,
@@ -1232,8 +1306,20 @@
       "learned_verifier_true_negative_count_E38": 7,
       "learned_verifier_true_positive_count_E38": 1,
       "learned_verifier_false_negative_count_E38": 0,
-      "weights_at_E38_start": [3.2, 0.8, -1.5, -1.0, 1.2],
-      "weights_at_E38_end_after_refit": [3.30, 0.85, -1.55, -1.05, 1.10],
+      "weights_at_E38_start": [
+        3.2,
+        0.8,
+        -1.5,
+        -1.0,
+        1.2
+      ],
+      "weights_at_E38_end_after_refit": [
+        3.3,
+        0.85,
+        -1.55,
+        -1.05,
+        1.1
+      ],
       "bias_at_E38_start": -0.5,
       "bias_at_E38_end_after_refit": -0.55,
       "training_label_count_at_E38_start": 19,
@@ -1262,5 +1348,93 @@
       "rationale": "v18 anchor-conditioned sampling preserved under v19. v19 step 05.6 learned verifier does not modify slot distribution."
     },
     "rationale": "v19 demonstrated +8.51 score over v18 via learned verifier at NEW step 05.6 gate. E38 produced 7 INVESTIGATIVE_SURVIVING (vs E37's 6). 2 REJECTED_LEARNED_VERIFIER (1 TP + 1 FP). KCD growth halted (R934 pre-rejected). Sub-anchor promotion grew expert path 10 -> 13. v19 thesis empirically validated: predictive learned verifier reduces collision addition rate while preserving INVESTIGATIVE_SURVIVING yield."
+  },
+  "v20_introduced_at_epoch": 39,
+  "v20_introduced_at_epoch_top": 39,
+  "v20_observation_starting_E39": {
+    "version_block": "v20",
+    "introduction_epoch": 39,
+    "framework": "Belinda Li self-model layer",
+    "rationale": "v19 reached 1.0 agreement_rate with step 14.6 in E38 \u2014 a redundancy signal, not learning. v20 adds the first orthogonal verifier signal: a self-model layer that introspects on generator state.",
+    "new_components": [
+      "step 05.7: pipeline self-model (first-person mechanism narrative + self-prediction)",
+      "step 15: coherence audit (3 binary checks: self-prediction vs 14.6; claimed-vs-computed distance; citation grounding)",
+      "epoch-end output/epoch_{N}_self_attribution.md (failure self-narrative)"
+    ],
+    "preserved_components": [
+      "All v17 (FTS + KCD + AFL)",
+      "All v18 (anchor-local sampling, expert_path, stale-drop, sub-anchor promotion)",
+      "All v19 (learned verifier at step 05.6, refit_learned_verifier)"
+    ],
+    "new_verdict_labels": 0,
+    "score_formula_additions": [
+      "+ (self_prediction_accuracy \u00d7 6)",
+      "+ (lineage_coherence_rate \u00d7 3)",
+      "+ (citation_grounding_rate \u00d7 3)",
+      "+ (mean_self_coherence_score \u00d7 4)",
+      "+ (self_model_05_6_inconsistency_count / 25 \u00d7 5)"
+    ]
+  },
+  "v20_aggregates_E39": {
+    "epoch": 39,
+    "program_version": "v20",
+    "self_prediction_accuracy_E39": 0.889,
+    "applicable_rounds_for_self_prediction_E39": 9,
+    "self_prediction_correct_E39": 8,
+    "self_prediction_incorrect_E39": 1,
+    "self_prediction_incorrect_rounds_E39": [
+      959
+    ],
+    "lineage_coherence_rate_E39": 0.96,
+    "lineage_incoherent_rounds_E39": [
+      965
+    ],
+    "citation_grounding_rate_E39": 0.84,
+    "citation_ungrounded_rounds_E39": [
+      954,
+      957,
+      967,
+      970
+    ],
+    "mean_self_coherence_score_E39": 0.887,
+    "self_model_05_6_inconsistency_count_E39": 16,
+    "INVESTIGATIVE_SURVIVING_count_E39": 9,
+    "FAIL_EMPIRICAL_ATTACK_count_E39": 1,
+    "EXTERNAL_COLLISION_count_E39": 0,
+    "ANCHOR_R866_stale_drop": true,
+    "ANCHOR_R895_stale_drop": true,
+    "new_sub_anchors": [
+      "ANCHOR_R952",
+      "ANCHOR_R958",
+      "ANCHOR_R959",
+      "ANCHOR_R963"
+    ],
+    "active_anchor_count_at_E39_end": 15,
+    "expert_path_size_E39_end": 17,
+    "expert_path_active_E39_end": 15,
+    "expert_path_stale_E39_end": 2
+  },
+  "policy_update_for_E40": {
+    "from_epoch": 39,
+    "to_epoch": 40,
+    "active_anchor_count": 15,
+    "per_anchor_budget_E40": 7,
+    "expert_path_size": 17,
+    "stale_anchors_dropped_at_E39_end": [
+      "ANCHOR_R866",
+      "ANCHOR_R895"
+    ],
+    "sub_anchor_promotions_E39": [
+      "ANCHOR_R952",
+      "ANCHOR_R958",
+      "ANCHOR_R959",
+      "ANCHOR_R963"
+    ],
+    "v20_continuing": true,
+    "v20_next_epoch_priorities": [
+      "Test sub-anchor first-epoch yields (R952, R958, R959, R963)",
+      "Watch for self-prediction miscalibration on sub-anchor first-epoch (E39 R959 lesson)",
+      "Self-attribution document from E39 informs next-epoch step 05.7 self-predictions"
+    ]
   }
 }
