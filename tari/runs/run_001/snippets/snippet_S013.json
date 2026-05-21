@@ -1,0 +1,9 @@
+{
+  "snippet_id": "S013",
+  "start_line": 111,
+  "end_line": 124,
+  "verbatim_text": "So what we want to know is first what information is represented inside this activation and specifically does it encode a world model. This allows us to check whether language models can infer or update its world model from input context. A second question we want to ask is what information gets used by the language model to make its final prediction. So our language model is able to remain coherent to their internal world models. So we can use interpretability tools to answer these two questions and specifically for the first question what information is represented inside the language model we use something called probing. So probing tries to map and language model internal activation to some human interpretable concept. So it uses a low capacity model and it starts with a training set of activations to concepts and it tries to learn a model to map from these activations to these concepts. So specifically in this instance what we want is our probe to take these activations and try to extract the state of the world. Because the world state is very compositional we don't extract it entirely all at once. We have probes extract each proposition one at a time. So like Jack possesses the book and Janet does not possess the book. Okay and whenever we run probing experiments we also need to isolate the effect of the probe's own learning capacity. So to do this we train the probe on activations from a random weight transformer. Suppose this is 40 percent accurate.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=So what we want to know is fir",
+  "sentence_count": 14,
+  "char_count": 1481
+}
