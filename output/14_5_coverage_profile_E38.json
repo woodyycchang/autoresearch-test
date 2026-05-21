@@ -1,0 +1,34 @@
+{
+  "epoch": 38,
+  "fired_at_round": 950,
+  "program": "v19 (program_v19.md)",
+  "v14_index": true,
+  "v18_index": true,
+  "v19_index": true,
+  "slot_universe_size": 20,
+  "selected_25_slot_distribution_E38": {
+    "S01": 0, "S02": 0, "S03": 0, "S04": 0, "S05": 0,
+    "S06": 0, "S07": 2, "S08": 0, "S09": 0, "S10": 0,
+    "S11": 0, "S12": 0, "S13": 0, "S14": 2, "S15": 7,
+    "S16": 12, "S17": 0, "S18": 0, "S19": 0, "S20": 2
+  },
+  "distinct_slots_hit": 5,
+  "total_slot_assignments": 25,
+  "coverage_profile_gini_concentration_index": 0.60,
+  "coverage_profile_concentration_top_3_slot_share": 0.84,
+  "undersaturated_slots_list": [
+    "S01", "S02", "S03", "S04", "S05", "S06", "S08", "S09", "S10", "S11", "S12", "S13", "S17", "S18", "S19"
+  ],
+  "saturated_slots_list": ["S14", "S15", "S16", "S20", "S07"],
+  "max_count_slot_id": "S16",
+  "max_count_slot_value": 12,
+  "step_14_5_fired": true,
+  "real_step_14_5_Agent_spawns": 0,
+  "main_context_direct_step_14_5_count": 1,
+  "v19_coverage_profile_note": "E38 coverage profile is the most concentrated yet under v18/v19 anchor-local sampling. distinct_slots_hit = 5 (vs E37's 7); Gini = 0.60 (vs E37's 0.45). The concentration reflects the 13-anchor expert path's slot distribution: 12 anchors in {S14, S15, S16, S20, S07}; 0 discovery candidates squeeze out non-anchor slots. v19's learned verifier preserves this concentration (no slot-axis penalty). The narrowness is rewarded by v18/v19's anchor-yield-rate metric (each yielding anchor contributes +0.7) and is intentional under the local-exploration thesis.",
+  "max_over_100_attack_rebuttal_rate_E38_at_threshold_0_30": 1.0,
+  "max_over_100_attack_rebuttal_rate_E38_at_threshold_0_40": 0.65,
+  "max_over_100_projection_mean_E38": 0.435,
+  "architecture_slot_assignment_rate_E38": 1.0,
+  "timestamp": "2026-05-22T01:50:00Z"
+}

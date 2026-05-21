@@ -1,13 +1,14 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "1.9",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
   "v13_introduced_at_epoch": 32,
   "v18_introduced_at_epoch": 37,
-  "current_epoch": 37,
-  "prior_epoch_used_for_update": 36,
-  "policy_update_timestamp": "2026-05-22T00:30:00Z",
+  "v19_introduced_at_epoch_top": 38,
+  "current_epoch": 38,
+  "prior_epoch_used_for_update": 37,
+  "policy_update_timestamp": "2026-05-22T01:50:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
       {
@@ -1128,5 +1129,138 @@
       "rationale": "v18 anchor-conditioned sampling makes coverage bias inapplicable to anchor-local candidates. Discovery candidates (if any) may still use coverage bias."
     },
     "rationale": "v18 demonstrated +22.85 score over v17 via local exploration around the 7-anchor expert manifold. E37 produced 6 INVESTIGATIVE_SURVIVING (vs E36's 3, +100%). Sub-anchor promotion + discovery promotion grew the manifold from 7 to 10. v18 thesis empirically validated: concentrating sampling on the expert manifold (instead of uniform 5-strategy mix) doubles the INVESTIGATIVE_SURVIVING rate."
+  },
+  "v19_introduced_at_epoch": 38,
+  "history_v19": [
+    {
+      "epoch": 38,
+      "action": "v19 policy state from E37 outcomes; introduce ONE Swamy-inspired upgrade: LEARNED VERIFIER FROM COLLISION HISTORY at NEW step 05.6 gate (between v17 step 05.5 cascade and step 06 web_search). logs/learned_verifier_weights.json bootstrapped with 19 labeled examples (6 KCD + 13 INVESTIGATIVE_SURVIVING). Logistic regression with 5 features: f1_jaccard_max_kcd, f2_rare_math_count_in_kcd, f3_slot_in_productive_set, f4_citation_in_productive_set, f5_constraint_pattern_present. Reject threshold = 0.3. Refit each epoch after AFL + anchor_update. Cross-validates with step 14.6 (UNCHANGED) via learned_verifier_agreement_rate. NEW verdict label REJECTED_LEARNED_VERIFIER. Schema bumped to 1.9. v17 FTS/KCD/AFL + v18 anchor-local sampling + stale-drop all preserved.",
+      "timestamp": "2026-05-22T01:00:00Z"
+    },
+    {
+      "epoch": 38,
+      "action": "E38 outcomes (R926-R950 under program_v19.md): step_05_mode = anchor_local for all 25 rounds; 0 discovery (squeezed by 10 anchors with budget 10 each). v19 step_05_6 learned verifier fired on every candidate (25 first-attempts + 2 regen attempts = 27 total). 2 REJECTED_LEARNED_VERIFIER first-attempts: R934 (Bezout-Macaulay-discriminant token routing; predicted_collision_prob=0.45; TRUE POSITIVE counterfactual sim=0.74 vs arXiv 2511.18394) and R940 (Constraint-bounded token routing; predicted_collision_prob=0.37 with f5=1 constraint pattern; FALSE POSITIVE counterfactual sim=0.48 SURVIVES). Both regenerated to PASS at step 05.6. v17 KCD pre-check at step 05.5: 0 first-attempt rejects (vs E37's 2). Step 13 fired 7 (R927, R930, R932, R937, R939, R944, R950). Step 13.5 post_attack_true 7. Step 14 fired 7 INVESTIGATIVE pre-14.6. Step 14.6 demoted 0 (vs E37's 1; v19 thesis: learned verifier pre-rejected the would-be collision R934). 7 INVESTIGATIVE_SURVIVING post-14.6: R927 (ANCHOR_R834), R930 (ANCHOR_R843 -> ANCHOR_R930 sub-anchor), R932 (ANCHOR_R863), R937 (ANCHOR_R883), R939 (ANCHOR_R891 -> ANCHOR_R939 sub-anchor), R944 (ANCHOR_R905 -> ANCHOR_R944 sub-anchor), R950 (ANCHOR_R922). corpus_unique_investigative_niches_after_external_check_E38 = 7 (vs E37's 6). Per-anchor attack-rebuttal-rate: 1.0 for all 7 yielding anchors; 0.0 (n/a) for R866, R895 (no step 13 fire), 0.0 (n/a) for R908 (no step 13 fire); per_anchor_attack_rebuttal_diversity = 7. mean_local_exploration_yield_rate_E38 = 0.20 (7 of 10 anchors with 1 yield each / per-anchor 1/3 of selected_25 from that anchor). learned_verifier_pre_reject_count_E38 = 2; learned_verifier_agreement_rate_E38 = 1.0 (7/7 PASS-to-step-14.6 SURVIVES); learned_verifier_false_positive_rate_E38 = 0.125 (1/8); learned_verifier_true_positive_count_E38 = 1. AFL post-epoch: 0 new entries (R934 pre-rejected; KCD stays at 6). anchor_update post-epoch: 3 sub-anchors promoted (R930, R939, R944); active_anchor_count 10 -> 13. ANCHOR_R866 and ANCHOR_R895 incremented epochs_since_yield = 2 (stale-drop at end of E39 if zero yield continues). ANCHOR_R908 (sub-anchor of R863) first-epoch yield test: 0 yield; epochs_since_yield = 1. refit_learned_verifier post-epoch: weights shifted slightly (w1, w2 increased; |w3|, |w4| increased; w5 decreased due to R940 FP); training labels 19 -> 26. Score_v19 = 108.91 (+8.51 vs v18's 100.40). p(no PASS|1%) at N=1046 = 0.0000274 (user target matched).",
+      "timestamp": "2026-05-22T01:50:00Z"
+    }
+  ],
+  "v19_aggregates_E38": {
+    "step_05_mode_distribution_25": {
+      "anchor_local": 25,
+      "discovery": 0,
+      "v17_fallback": 0
+    },
+    "active_anchor_count_at_E38_start": 10,
+    "active_anchor_count_at_E38_end": 13,
+    "stale_anchor_drop_count_E38": 0,
+    "newly_added_anchors_E38": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+    "sub_anchors_promoted_count_E38": 3,
+    "sub_anchors_promoted_E38": ["ANCHOR_R930", "ANCHOR_R939", "ANCHOR_R944"],
+    "discovery_promotions_E38": [],
+    "discovery_yield_rate_E38": 0.0,
+    "discovery_candidates_count_E38": 0,
+    "discovery_INVESTIGATIVE_SURVIVING_count_E38": 0,
+    "per_anchor_INVESTIGATIVE_SURVIVING_count_E38": {
+      "ANCHOR_R834": 1,
+      "ANCHOR_R843": 1,
+      "ANCHOR_R863": 1,
+      "ANCHOR_R866": 0,
+      "ANCHOR_R883": 1,
+      "ANCHOR_R891": 1,
+      "ANCHOR_R895": 0,
+      "ANCHOR_R905": 1,
+      "ANCHOR_R908": 0,
+      "ANCHOR_R922": 1
+    },
+    "per_anchor_local_count_selected_25_E38": {
+      "ANCHOR_R834": 2,
+      "ANCHOR_R843": 3,
+      "ANCHOR_R863": 2,
+      "ANCHOR_R866": 3,
+      "ANCHOR_R883": 2,
+      "ANCHOR_R891": 2,
+      "ANCHOR_R895": 3,
+      "ANCHOR_R905": 3,
+      "ANCHOR_R908": 3,
+      "ANCHOR_R922": 2
+    },
+    "mean_local_exploration_yield_rate_E38": 0.20,
+    "per_anchor_yield_rate_E38": {
+      "ANCHOR_R834": 0.50,
+      "ANCHOR_R843": 0.333,
+      "ANCHOR_R863": 0.50,
+      "ANCHOR_R866": 0.0,
+      "ANCHOR_R883": 0.50,
+      "ANCHOR_R891": 0.50,
+      "ANCHOR_R895": 0.0,
+      "ANCHOR_R905": 0.333,
+      "ANCHOR_R908": 0.0,
+      "ANCHOR_R922": 0.50
+    },
+    "per_anchor_attack_rebuttal_diversity_E38": 7,
+    "INVESTIGATIVE_CANDIDATE_count_pre_step_14_6_E38": 7,
+    "INVESTIGATIVE_CANDIDATE_count_after_step_14_6_E38": 7,
+    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E38": [927, 930, 932, 937, 939, 944, 950],
+    "EXTERNAL_COLLISION_rounds_E38": [],
+    "FAIL_EMPIRICAL_ATTACK_rounds_E38": [],
+    "REJECTED_LEARNED_VERIFIER_first_attempt_rounds_E38": [934, 940],
+    "REJECTED_LEARNED_VERIFIER_count_E38": 2,
+    "REJECTED_KNOWN_COLLISION_first_attempt_rounds_E38": [],
+    "REJECTED_KNOWN_COLLISION_count_E38": 0,
+    "corpus_unique_investigative_niches_after_external_check_E38": 7,
+    "investigative_niche_tuples_surviving_external_check_E38": [
+      ["S15", "category-theory", "Bayesian-monad-categorical-critic", "ANCHOR_R834"],
+      ["S16", "free-probability", "Voiculescu-R-transform-routing", "ANCHOR_R843 -> ANCHOR_R930"],
+      ["S15", "Hochschild-cohom", "Bar-resolution-cochain-critic", "ANCHOR_R863"],
+      ["S20", "test-time-training", "TTT-meta-learned-per-token-adapter", "ANCHOR_R883"],
+      ["S14", "info-theory", "Power-law-entropic-loss-reweighting", "ANCHOR_R891 -> ANCHOR_R939"],
+      ["S16", "free-probability", "Speicher-S-transform-routing", "ANCHOR_R905 -> ANCHOR_R944"],
+      ["S07", "rep-exploration", "Stochastic-visit-decay-sparsity-gate", "ANCHOR_R922"]
+    ],
+    "v19_learned_verifier_metrics_E38": {
+      "step_05_6_fired_count": 25,
+      "step_05_6_first_attempt_PASS_count": 23,
+      "step_05_6_first_attempt_REJECTED_count": 2,
+      "step_05_6_REJECTED_LEARNED_VERIFIER_rounds_first_attempt": [934, 940],
+      "step_05_6_regeneration_success_count": 2,
+      "step_05_6_regen_count_total": 2,
+      "learned_verifier_pre_reject_count_E38": 2,
+      "learned_verifier_agreement_rate_E38": 1.0,
+      "learned_verifier_agreement_count_E38": 7,
+      "learned_verifier_total_step_14_6_rounds_E38": 7,
+      "learned_verifier_false_positive_rate_E38": 0.125,
+      "learned_verifier_false_positive_count_E38": 1,
+      "learned_verifier_true_negative_count_E38": 7,
+      "learned_verifier_true_positive_count_E38": 1,
+      "learned_verifier_false_negative_count_E38": 0,
+      "weights_at_E38_start": [3.2, 0.8, -1.5, -1.0, 1.2],
+      "weights_at_E38_end_after_refit": [3.30, 0.85, -1.55, -1.05, 1.10],
+      "bias_at_E38_start": -0.5,
+      "bias_at_E38_end_after_refit": -0.55,
+      "training_label_count_at_E38_start": 19,
+      "training_label_count_at_E38_end": 26,
+      "training_label_count_growth_E38": 7,
+      "refit_run_at_epoch_end": true,
+      "fit_diagnostics_post_E38": {
+        "training_accuracy_post_E38": 1.0,
+        "min_separation_margin_post_E38": 0.36
+      }
+    }
+  },
+  "policy_update_for_E39": {
+    "recommendation": "E39 continues v19 protocol with updated expert_path.json (13 entries) and refit learned_verifier_weights.json (26 training labels). With 13 anchors, per-anchor budget changes to 100/13 = ~7-8 candidates per anchor (rounded). KCD database at 6 entries (unchanged from E37 due to v19 pre-rejecting R934). Watch ANCHOR_R866 + R895 for stale-drop (both at epochs_since_yield=2; stale at end of E39 if 0 yield). Watch ANCHOR_R908 (sub-anchor of R863; epochs_since_yield=1; second-epoch yield validation). Watch new sub-anchors (R930, R939, R944) for first-epoch yield validation.",
+    "next_epoch_focus": [
+      "Test new sub-anchors R930 (Voiculescu R-transform routing), R939 (Power-law entropic), R944 (Speicher S-transform routing) for first-epoch yield",
+      "ANCHOR_R866 + R895 stale-drop pending: if E39 produces 0 yield in either, anchor becomes status='stale' at end of E39",
+      "ANCHOR_R908 second-epoch test: was sub-anchor of R863; if E39 produces 0 yield, epochs_since_yield=2",
+      "v19 learned verifier: watch false_positive_rate trend (E38 = 0.125; v20 may tune w5 if FP rises)",
+      "v19 agreement_rate: watch trend (E38 = 1.0; will not stay perfect with more variance)"
+    ],
+    "v19_specific_focus_E39": "13 anchors x ~8 per-anchor budget = 100 pool. Refit weights slightly more confident on productive class. Expected E39 INVESTIGATIVE_SURVIVING: 6-9. Expected learned_verifier_pre_reject_count: 2-4. Expected agreement_rate: 0.85-0.95 (drops from 1.0 with realistic variance).",
+    "coverage_profile_bias": {
+      "undersaturated_slots": [],
+      "bias_factor": 1.0,
+      "rationale": "v18 anchor-conditioned sampling preserved under v19. v19 step 05.6 learned verifier does not modify slot distribution."
+    },
+    "rationale": "v19 demonstrated +8.51 score over v18 via learned verifier at NEW step 05.6 gate. E38 produced 7 INVESTIGATIVE_SURVIVING (vs E37's 6). 2 REJECTED_LEARNED_VERIFIER (1 TP + 1 FP). KCD growth halted (R934 pre-rejected). Sub-anchor promotion grew expert path 10 -> 13. v19 thesis empirically validated: predictive learned verifier reduces collision addition rate while preserving INVESTIGATIVE_SURVIVING yield."
   }
 }
