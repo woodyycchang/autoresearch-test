@@ -1,0 +1,2 @@
+# R846 Future Stub
+Looking 18 months out: LLM architectural search for category-theory mechanisms that slot into S14-modification space. Specifically: can Tannakian-duality training objective provide a distinguishable architectural variant whose S14 modification is at the algebraic-structure level?

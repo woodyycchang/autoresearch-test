@@ -1,0 +1,2 @@
+# R860 Future Stub
+Looking 18 months out: LLM architectural search for info-theory mechanisms that slot into S10-modification space. Specifically: can Variational-confidence early-exit provide a distinguishable architectural variant whose S10 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R874 Future Stub
+Looking 18 months out: LLM architectural search for symp-geom mechanisms that slot into S15-modification space. Specifically: can Floer-cycle critic head provide a distinguishable architectural variant whose S15 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R855 Future Stub
+Looking 18 months out: LLM architectural search for analytic-number mechanisms that slot into S05-modification space. Specifically: can L-function residual structure provide a distinguishable architectural variant whose S05 modification is at the algebraic-structure level?

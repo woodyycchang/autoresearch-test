@@ -1,0 +1,2 @@
+# R828 Future Stub
+Looking 18 months out: LLM architectural search for algebraic-topology mechanisms that slot into S05-modification space. Specifically: can Dense residual cascade with skip-fanout provide a distinguishable architectural variant whose S05 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R863 Future Stub
+Looking 18 months out: LLM architectural search for Hochschild-cohom mechanisms that slot into S15-modification space. Specifically: can Hochschild-cochain critic head provide a distinguishable architectural variant whose S15 modification is at the algebraic-structure level?

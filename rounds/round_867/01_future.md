@@ -1,0 +1,2 @@
+# R867 Future Stub
+Looking 18 months out: LLM architectural search for symp-geom mechanisms that slot into S17-modification space. Specifically: can Floer-cycle recurrence cell provide a distinguishable architectural variant whose S17 modification is at the algebraic-structure level?

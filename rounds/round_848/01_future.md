@@ -1,0 +1,2 @@
+# R848 Future Stub
+Looking 18 months out: LLM architectural search for Lie-groups mechanisms that slot into S05-modification space. Specifically: can ReZero-Lie residual integration provide a distinguishable architectural variant whose S05 modification is at the algebraic-structure level?

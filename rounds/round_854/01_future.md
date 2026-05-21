@@ -1,0 +1,2 @@
+# R854 Future Stub
+Looking 18 months out: LLM architectural search for Lie-groups mechanisms that slot into S04-modification space. Specifically: can Stiefel-manifold positional encoding provide a distinguishable architectural variant whose S04 modification is at the algebraic-structure level?

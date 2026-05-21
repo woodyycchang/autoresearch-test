@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.6",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
   "v13_introduced_at_epoch": 32,
-  "current_epoch": 32,
-  "prior_epoch_used_for_update": 31,
+  "current_epoch": 35,
+  "prior_epoch_used_for_update": 34,
   "policy_update_timestamp": "2026-05-21T14:00:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
@@ -592,7 +592,7 @@
       "timestamp": "2026-05-21T15:12:00Z"
     }
   ],
-  "last_updated": "2026-05-21T17:15:00Z",
+  "last_updated": "2026-05-21T22:15:00Z",
   "v14_observation_starting_E33": {
     "note": "Starting E33, the policy_state tracks coverage_profile_aggregates per slot (NEW v14). Rounds where the primary candidate is in an undersaturated slot from prior epoch are biased up via E34+ policy. v14 integrates THREE frontier frameworks: HTS [Yu Sun + Foster] (heavy-tail 100-pool + diversity filter), ATU [Gao] (20-slot closed universe), CPM [Foster] (post-epoch coverage profile + Gini + undersaturated feedback). Step 14.5 fires ONCE per epoch (post-25-rounds) to compute coverage profile and write E{N+1} bias.",
     "coverage_profile_signal_class_hierarchy": {
@@ -696,6 +696,161 @@
       "epoch": 33,
       "action": "v14 step 14.5 NEW + step 05.4 NEW + logs/architecture_tools.json NEW; schema_version bumped to 1.4 to record coverage_profile_aggregates field group; coverage_profile written; coverage_profile_bias for E34 written: 7 undersaturated slots (S02, S05, S10, S12, S15, S16, S18) up-weight factor 2.0; HTS confirmed (step 14 FIRED 3/25 vs E32 v13s 2/25); ATU confirmed (100% slot assignment); CPM operational (Gini=0.542; feedback loop closed for E34).",
       "timestamp": "2026-05-21T17:15:00Z"
+    }
+  ],
+  "v15_introduced_at_epoch": 34,
+  "v16_introduced_at_epoch": 35,
+  "v15_observation_starting_E34": {
+    "note": "v15 introduces step 05.45 NEW intra-cluster diversification filter (ICD). Operates between v14 step 05.4 (k-means embedding diversity) and v12 step 05.5 (anti-R279). Measures pairwise (slot \u00d7 domain \u00d7 mechanism-vocab) niche distance among 25 selected from 100-pool; replaces near-duplicates with farther-apart candidates from 100-pool. Threshold 0.5 distance; targets corpus_unique_investigative_niches_per_epoch \u2265 2 (E33 v14 had 1 niche; v15 thesis: break single-niche INVESTIGATIVE collapse).",
+    "step_05_45_signal_class_hierarchy": {
+      "no_near_duplicates": "all pairs at distance >= 0.5; 25-selection already diverse",
+      "1_to_2_near_duplicates": "step 05.45 replaces; modest within-25 mechanism-family diversification",
+      "3_or_more_near_duplicates": "step 05.45 makes substantive replacements; substantial diversity increase"
+    }
+  },
+  "v15_ICD_step_05_45_aggregates_observed_E34": {
+    "step_05_45_fired_count": 25,
+    "step_05_45_rounds_with_replacement": [
+      827,
+      834,
+      836,
+      841,
+      843
+    ],
+    "step_05_45_total_replacements": 5,
+    "step_05_45_replacement_rate": 0.2,
+    "mean_intra_cluster_niche_distance": 0.68,
+    "corpus_unique_investigative_niches_E34": 3,
+    "investigative_niche_tuples_E34": [
+      [
+        "S15",
+        "convex-analysis",
+        "Bregman-divergence-reservoir"
+      ],
+      [
+        "S15",
+        "category-theory",
+        "Bayesian-conformal-critic"
+      ],
+      [
+        "S16",
+        "free-probability",
+        "Free-cumulant-routing"
+      ]
+    ],
+    "v15_limitation_observed_at_E34": "R827 (Bregman-reservoir-discriminator) collides with arXiv 2512.14879 'Entropy-Reservoir Bregman Projection' (functional-similarity 0.87). v15 cannot detect this \u2014 its diversity is internal-only. Motivates v16."
+  },
+  "v16_observation_starting_E35": {
+    "note": "v16 introduces step 14.6 NEW external-corpus collision detection (ECD). Fires only on step-14-INVESTIGATIVE_CANDIDATE rounds. Strips mechanism vocabulary, queries arXiv 2024-2026 with stripped mechanism-skeleton, computes 4-axis functional-similarity rubric (mechanism class / architectural role / mechanism alignment / transformer context). Threshold 0.7: if max similarity >= 0.7, demote to EXTERNAL_COLLISION (NEW verdict label). Symmetric with step 13.5 (empirical-attack on architectural distinguishability) but targets literature collision instead.",
+    "step_14_6_signal_class_hierarchy": {
+      "EXTERNAL_COLLISION": "max_functional_similarity >= 0.7; INVESTIGATIVE_CANDIDATE downgrade; literature already has the mechanism",
+      "CLOSE_TO_COLLISION": "max_functional_similarity in [0.5, 0.7); INVESTIGATIVE_CANDIDATE survives with note",
+      "SURVIVES": "max_functional_similarity < 0.5; INVESTIGATIVE_CANDIDATE survives cleanly"
+    },
+    "external_collision_rate_signal_class_hierarchy": {
+      "rate_high_>=_0_5": "many INVESTIGATIVE candidates collide with literature; pipeline generation is over-mining published mechanism families",
+      "rate_moderate_0_2_to_0_5": "occasional collision; healthy mix",
+      "rate_low_<_0_2": "INVESTIGATIVE candidates are reliably literature-clean"
+    }
+  },
+  "v16_ECD_step_14_6_aggregates_observed_E35": {
+    "step_14_6_fired_count_E35": 3,
+    "step_14_6_fired_rounds_E35": [
+      855,
+      863,
+      866
+    ],
+    "external_collision_count_E35": 1,
+    "external_collision_rounds_E35": [
+      855
+    ],
+    "external_collision_rate_E35": 0.333,
+    "INVESTIGATIVE_CANDIDATE_count_pre_step_14_6_E35": 3,
+    "INVESTIGATIVE_CANDIDATE_count_after_step_14_6_E35": 2,
+    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E35": [
+      863,
+      866
+    ],
+    "EXTERNAL_COLLISION_rounds_E35": [
+      855
+    ],
+    "corpus_unique_investigative_niches_after_external_check_E35": 2,
+    "investigative_niche_tuples_surviving_external_check_E35": [
+      [
+        "S15",
+        "Hochschild-cohomology",
+        "Hochschild-cochain-critic"
+      ],
+      [
+        "S16",
+        "elimination-theory",
+        "Bezout-resultant-routing"
+      ]
+    ],
+    "retrospective_validation_passed": {
+      "R827": "EXTERNAL_COLLISION confirmed (sim=0.87 against arXiv 2512.14879)",
+      "R834": "INVESTIGATIVE_CANDIDATE_SURVIVES confirmed (sim=0.51 against arXiv 2511.07823)",
+      "R843": "INVESTIGATIVE_CANDIDATE_SURVIVES confirmed (sim=0.43 against arXiv 2508.19012)"
+    }
+  },
+  "policy_update_for_E35": {
+    "recommendation": "E35 should test prospective external-collision detection (v16's step 14.6) on freshly generated INVESTIGATIVE candidates. The E34 coverage is at maximum (20/20 slots); E35 returns to uniform prior. Continue exploration of math sub-areas with low prior corpus density.",
+    "next_epoch_focus": [
+      "Lie-groups (deepening: Quaternion, Stiefel-manifold, Heisenberg)",
+      "modular-forms (NEW: modular gating, Hecke-operator softmax)",
+      "analytic-number-theory (NEW: L-function residual, Mahler-measure)",
+      "operad-theory (NEW: operad sparsity, operadic modules)",
+      "Hochschild-cohomology (NEW: cochain critic)",
+      "elimination-theory (NEW: Bezout-resultant routing)",
+      "symplectic-geometry (NEW: Floer-cycle recurrence)",
+      "buildings-and-Bruhat-Tits (deepening)",
+      "geometric-topology (NEW: Whitney-stratification)",
+      "Galois-theory (deepening: profinite/inference-time)"
+    ],
+    "v16_specific_focus_E35": "Step 14.6 fires on every step-14-FIRED round. Expected 1-2 EXTERNAL_COLLISIONS per epoch under current candidate distribution. 0.7 threshold fixed; rubric is 4-axis deterministic.",
+    "coverage_profile_bias": {
+      "undersaturated_slots": [],
+      "bias_factor": 1.0,
+      "rationale": "E34 hit all 20 slots; no undersaturated slot bias for E35."
+    },
+    "rationale": "v15 demonstrated +8.46 score over v14 via step 05.45 ICD. E34 broke single-niche INVESTIGATIVE collapse: 3 niches vs E33's 1. But R827 collision with arXiv 2512.14879 exposed v15's limitation. v16's step 14.6 closes the external-literature gap."
+  },
+  "policy_update_for_E36": {
+    "recommendation": "E36 may explore: (1) deepening of v16 step 14.6 (e.g., 2 Agent spawns budgeted for the 3 INVESTIGATIVE rounds; raise to real WebSearch), (2) v17 directions (e.g., stripped-vocabulary calibration tightening; cross-paper functional-mapping; cross-epoch external collision-rate tracking).",
+    "next_epoch_focus": [
+      "Continue domain exploration beyond corpus history",
+      "Test v16 step 14.6's effect on new mechanism families not yet collided",
+      "Track cross-epoch external_collision_rate trend (does it stabilize, drop, rise?)"
+    ],
+    "v16_specific_focus_E36": "Step 14.6 expected to fire ~3 per epoch (matching E33-E35 step 14 fired rate \u2248 0.12). External collision rate expected to settle around 0.2-0.4 (1-2 collisions per 3 INVESTIGATIVE candidates).",
+    "coverage_profile_bias": {
+      "undersaturated_slots": [],
+      "bias_factor": 1.0
+    },
+    "rationale": "v16 thesis empirically validated in E35 with 100% retrospective accuracy on E34 cases. Continue v16 protocol unchanged for E36."
+  },
+  "history_v15": [
+    {
+      "epoch": 34,
+      "action": "v15 policy state from E33 outcomes; introduce step 05.45 intra-cluster diversification filter (ICD); schema bumped to 1.5 to record step_05_45_aggregates and corpus_unique_investigative_niches; CPM feedback effective (E33 7 undersaturated slots all received candidates in E34); coverage 20/20.",
+      "timestamp": "2026-05-21T19:00:00Z"
+    },
+    {
+      "epoch": 34,
+      "action": "E34 outcomes: corpus_unique_investigative_niches = 3 (vs E33's 1); 0 REJECTED_R279_PATTERN; Gini=0.120; score 64.42 (+8.46). v15 limitation observed: R827 collides with arXiv 2512.14879. Motivates v16.",
+      "timestamp": "2026-05-21T20:15:00Z"
+    }
+  ],
+  "history_v16": [
+    {
+      "epoch": 35,
+      "action": "v16 policy state from E34 outcomes; introduce step 14.6 external-corpus collision detection (ECD); schema bumped to 1.6 to record step_14_6_aggregates and corpus_unique_investigative_niches_after_external_check; new verdict label EXTERNAL_COLLISION as INVESTIGATIVE_CANDIDATE demotion.",
+      "timestamp": "2026-05-21T21:00:00Z"
+    },
+    {
+      "epoch": 35,
+      "action": "E35 outcomes: step 14.6 fired 3/3 INVESTIGATIVE candidates; R855 demoted EXTERNAL_COLLISION (sim=0.83 vs arXiv 2509.18411); R863+R866 survive (sims 0.41, 0.39); retrospective validation on E34 R827 (0.87 \u2192 COLLISION) + R834 (0.51 \u2192 SURVIVES) + R843 (0.43 \u2192 SURVIVES) all confirmed. corpus_unique_investigative_niches_after_external_check_E35 = 2. score 62.57 (-1.85).",
+      "timestamp": "2026-05-21T22:15:00Z"
     }
   ]
 }

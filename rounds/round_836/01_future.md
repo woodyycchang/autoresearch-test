@@ -1,0 +1,2 @@
+# R836 Future Stub
+Looking 18 months out: LLM architectural search for free-probability mechanisms that slot into S06-modification space. Specifically: can Cumulant-expansion softmax via free-probability provide a distinguishable architectural variant whose S06 modification is at the algebraic-structure level?

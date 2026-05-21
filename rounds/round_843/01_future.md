@@ -1,0 +1,2 @@
+# R843 Future Stub
+Looking 18 months out: LLM architectural search for free-probability mechanisms that slot into S16-modification space. Specifically: can Free-cumulant token routing module provide a distinguishable architectural variant whose S16 modification is at the algebraic-structure level?

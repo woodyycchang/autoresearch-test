@@ -1,0 +1,2 @@
+# R869 Future Stub
+Looking 18 months out: LLM architectural search for category-theory mechanisms that slot into S19-modification space. Specifically: can Brauer-group equivariance constraint provide a distinguishable architectural variant whose S19 modification is at the algebraic-structure level?

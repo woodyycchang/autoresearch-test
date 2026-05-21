@@ -1,0 +1,2 @@
+# R847 Future Stub
+Looking 18 months out: LLM architectural search for Galois-theory mechanisms that slot into S20-modification space. Specifically: can Galois-group inference-time compute scheduler provide a distinguishable architectural variant whose S20 modification is at the algebraic-structure level?

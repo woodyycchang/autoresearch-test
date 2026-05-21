@@ -1,0 +1,2 @@
+# R838 Future Stub
+Looking 18 months out: LLM architectural search for operator-algebras mechanisms that slot into S11-modification space. Specifically: can Connes-product inter-layer pathway provide a distinguishable architectural variant whose S11 modification is at the algebraic-structure level?

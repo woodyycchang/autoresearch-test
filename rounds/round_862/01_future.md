@@ -1,0 +1,2 @@
+# R862 Future Stub
+Looking 18 months out: LLM architectural search for alg-geom mechanisms that slot into S12-modification space. Specifically: can Stack-quotient learned embedding provide a distinguishable architectural variant whose S12 modification is at the algebraic-structure level?
