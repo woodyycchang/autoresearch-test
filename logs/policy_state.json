@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.7",
+  "schema_version": "1.8",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
   "v13_introduced_at_epoch": 32,
-  "current_epoch": 36,
-  "prior_epoch_used_for_update": 35,
-  "policy_update_timestamp": "2026-05-21T23:30:00Z",
+  "v18_introduced_at_epoch": 37,
+  "current_epoch": 37,
+  "prior_epoch_used_for_update": 36,
+  "policy_update_timestamp": "2026-05-22T00:30:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
       {
@@ -973,5 +974,159 @@
       "action": "E36 outcomes: KCD pre-check at step 05.5 caught 2 first-attempt patterns (R882->KCD_R855, R895->KCD_7CLUSTER); both regen Strategy D, PASS. Strategy distribution selected 25: A=16, B=3, C=2, D=3, E=1; generator_distribution_shift_index=0.36 (partial). Frontier seed citation: 100% (all 25 cite); 9 distinct primitives used. Step 13 fired 5; step 13.5 post_attack_true 4; step 14 fired 4 INVESTIGATIVE pre-14.6; step 14.6 demoted 1 (R880 Strategy B, sim=0.72 vs arXiv 2503.11842) to EXTERNAL_COLLISION. 3 INVESTIGATIVE_SURVIVING post-14.6: R883 (C, TTT), R891 (C, heavy-tail entropic), R895 (D, polynomial-routing). corpus_unique_investigative_niches_after_external_check_E36 = 3 (vs E35's 2). Per-strategy attack-rebuttal-rate: A=n/a, B=0.5, C=1.0, D=1.0, E=n/a; diversity=3 strategies. AFL post-epoch: R880 appended to logs/known_collisions.json (db size 4 -> 5). Score_v17 = 77.55 (+14.98 vs v16's 62.57). p(no PASS|1%) at N=996 = 0.0000449.",
       "timestamp": "2026-05-21T23:30:00Z"
     }
-  ]
+  ],
+  "history_v18": [
+    {
+      "epoch": 37,
+      "action": "v18 policy state from E36 outcomes; introduce ONE Swamy-inspired generator-side upgrade: LOCAL HEAVY-TAIL AROUND EXPERT PATH at step 05. logs/expert_path.json bootstrapped with 7 INVESTIGATIVE_SURVIVING anchors (R834, R843, R863, R866, R883, R891, R895); step 05 generates 14 candidates within embedding epsilon [0.15, 0.6] per active anchor; 2 discovery candidates per pool (Strategy C/D mix). Stale-drop rule: anchors with 0 local INVESTIGATIVE_SURVIVING in N=3 consecutive epochs become 'stale'. Sub-anchor promotion: anchor-local INVESTIGATIVE_SURVIVING at distance > 0.4 promoted to sub-anchor. Discovery promotion: discovery INVESTIGATIVE_SURVIVING promoted to new top-level anchor. Schema bumped to 1.8. NO new verdict labels (v17's 11 preserved verbatim). v17 FTS, KCD, AFL all preserved; MSHT becomes fallback when active_anchor_count < 3.",
+      "timestamp": "2026-05-21T23:45:00Z"
+    },
+    {
+      "epoch": 37,
+      "action": "E37 outcomes (R901-R925 under program_v18.md): step_05_mode = anchor_local for 22 rounds + discovery for 3 rounds. KCD pre-check at step 05.5 caught 2 first-attempt patterns (R910 -> KCD_R880 sim=0.54 in ANCHOR_R866 neighborhood; R913 -> KCD_R880 sim=0.52 in ANCHOR_R883 neighborhood); both regen and PASS. Step 13 fired 8 (R902, R905, R908, R911, R914, R917, R920, R922); step 13.5 post_attack_true 7 (R920 load-bearing A1 succeeded, FAIL_EMPIRICAL_ATTACK); step 14 fired 7 INVESTIGATIVE pre-14.6; step 14.6 demoted 1 (R911 Resultant-Groebner-basis routing, sim=0.71 vs arXiv 2510.04532) to EXTERNAL_COLLISION. 6 INVESTIGATIVE_SURVIVING post-14.6: R902 (ANCHOR_R834), R905 (ANCHOR_R843 -> ANCHOR_R905 sub-anchor), R908 (ANCHOR_R863 -> ANCHOR_R908 sub-anchor), R914 (ANCHOR_R883), R917 (ANCHOR_R891), R922 (discovery -> ANCHOR_R922 top-level). corpus_unique_investigative_niches_after_external_check_E37 = 6 (vs E36's 3). Per-anchor attack-rebuttal-rate: R834=1/3, R843=1/3, R863=1/3, R866=1/3 (R911 EXT_COLL), R883=1/3, R891=1/3, R895=0/4 (R920 FAIL_EMP_ATK), discovery=1/3; per_anchor_attack_rebuttal_diversity = 7. mean_local_exploration_yield_rate = 0.17 (5 of 7 active anchors had 1 yield each from 14 anchor-local candidates each generated per round in pool but effective post-selection ~3 per anchor in selected_25). AFL post-epoch: R911 appended to KCD (db size 5 -> 6). anchor_update post-epoch: 2 sub-anchors promoted (ANCHOR_R905, ANCHOR_R908) + 1 discovery promoted (ANCHOR_R922); active_anchor_count 7 -> 10. ANCHOR_R866 and ANCHOR_R895 incremented epochs_since_yield = 1 (stale-drop in 2 more zero-yield epochs). Score_v18 = 100.40 (+22.85 vs v17's 77.55). p(no PASS|1%) at N=1021 = 0.0000350 (user target ~0.0000366; close match).",
+      "timestamp": "2026-05-22T00:30:00Z"
+    }
+  ],
+  "v18_aggregates_E37": {
+    "step_05_mode_distribution_25": {
+      "anchor_local": 22,
+      "discovery": 3,
+      "v17_fallback": 0
+    },
+    "active_anchor_count_at_E37_start": 7,
+    "active_anchor_count_at_E37_end": 10,
+    "stale_anchor_drop_count_E37": 0,
+    "newly_added_anchors_E37": [
+      "ANCHOR_R905",
+      "ANCHOR_R908",
+      "ANCHOR_R922"
+    ],
+    "sub_anchors_promoted_count_E37": 2,
+    "sub_anchors_promoted_E37": [
+      "ANCHOR_R905",
+      "ANCHOR_R908"
+    ],
+    "discovery_promotions_E37": [
+      "ANCHOR_R922"
+    ],
+    "discovery_yield_rate_E37": 0.333,
+    "discovery_candidates_count_E37": 3,
+    "discovery_INVESTIGATIVE_SURVIVING_count_E37": 1,
+    "per_anchor_INVESTIGATIVE_SURVIVING_count_E37": {
+      "ANCHOR_R834": 1,
+      "ANCHOR_R843": 1,
+      "ANCHOR_R863": 1,
+      "ANCHOR_R866": 0,
+      "ANCHOR_R883": 1,
+      "ANCHOR_R891": 1,
+      "ANCHOR_R895": 0,
+      "discovery": 1
+    },
+    "per_anchor_local_count_selected_25_E37": {
+      "ANCHOR_R834": 3,
+      "ANCHOR_R843": 3,
+      "ANCHOR_R863": 3,
+      "ANCHOR_R866": 3,
+      "ANCHOR_R883": 3,
+      "ANCHOR_R891": 3,
+      "ANCHOR_R895": 4,
+      "discovery": 3
+    },
+    "mean_local_exploration_yield_rate_E37": 0.167,
+    "per_anchor_yield_rate_E37": {
+      "ANCHOR_R834": 0.333,
+      "ANCHOR_R843": 0.333,
+      "ANCHOR_R863": 0.333,
+      "ANCHOR_R866": 0.0,
+      "ANCHOR_R883": 0.333,
+      "ANCHOR_R891": 0.333,
+      "ANCHOR_R895": 0.0
+    },
+    "per_anchor_attack_rebuttal_diversity_E37": 7,
+    "INVESTIGATIVE_CANDIDATE_count_pre_step_14_6_E37": 7,
+    "INVESTIGATIVE_CANDIDATE_count_after_step_14_6_E37": 6,
+    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E37": [
+      902,
+      905,
+      908,
+      914,
+      917,
+      922
+    ],
+    "EXTERNAL_COLLISION_rounds_E37": [
+      911
+    ],
+    "EXTERNAL_COLLISION_anchor_attribution_E37": {
+      "911": "ANCHOR_R866"
+    },
+    "FAIL_EMPIRICAL_ATTACK_rounds_E37": [
+      920
+    ],
+    "FAIL_EMPIRICAL_ATTACK_anchor_attribution_E37": {
+      "920": "ANCHOR_R895"
+    },
+    "REJECTED_KNOWN_COLLISION_first_attempt_rounds_E37": [
+      910,
+      913
+    ],
+    "REJECTED_KNOWN_COLLISION_matched_entries_E37": [
+      "KCD_R880",
+      "KCD_R880"
+    ],
+    "corpus_unique_investigative_niches_after_external_check_E37": 6,
+    "investigative_niche_tuples_surviving_external_check_E37": [
+      [
+        "S15",
+        "category-theory",
+        "Bayesian-posterior-dual-critic",
+        "ANCHOR_R834"
+      ],
+      [
+        "S16",
+        "free-probability",
+        "non-commutative-cumulant-routing",
+        "ANCHOR_R843 -> ANCHOR_R905"
+      ],
+      [
+        "S15",
+        "Hochschild-cohom",
+        "periodic-cyclic-cochain-critic",
+        "ANCHOR_R863 -> ANCHOR_R908"
+      ],
+      [
+        "S20",
+        "test-time-training",
+        "TTT-inner-state-adaptive",
+        "ANCHOR_R883"
+      ],
+      [
+        "S14",
+        "info-theory",
+        "long-tail-aware-adaptive-loss",
+        "ANCHOR_R891"
+      ],
+      [
+        "S07",
+        "rep-exploration",
+        "visit-counter-sparsity-gate",
+        "discovery -> ANCHOR_R922"
+      ]
+    ]
+  },
+  "policy_update_for_E38": {
+    "recommendation": "E38 continues v18 protocol with updated expert_path.json (now 10 entries: 7 bootstrap + 2 sub-anchors + 1 discovery). With 10 anchors, the per-anchor budget changes to 10 candidates per anchor (100 / 10 = 10) instead of 14. Discovery slot reduces to 0. Watch ANCHOR_R866 and ANCHOR_R895 for stale-drop (currently epochs_since_yield=1; stale at epochs_since_yield=3). Watch new anchors ANCHOR_R905, R908, R922 for first-epoch yield validation. Watch collision_addition_rate (E37: 1/25=0.04, KCD now 6 entries).",
+    "next_epoch_focus": [
+      "Test sub-anchor neighborhoods (R905 non-commutative-cumulant; R908 periodic-cyclic-cochain) for sustained yield",
+      "Test ANCHOR_R922 (visit-counter sparsity gate) -- first non-S14/S15/S16/S20 anchor; if yields, expert manifold extends to S07",
+      "ANCHOR_R866 + R895 watch: epochs_since_yield will increment to 2 if E38 produces 0 in those neighborhoods",
+      "Discovery preserves at 0-2 candidates (with 10 anchors, discovery is squeezed to 0)"
+    ],
+    "v18_specific_focus_E38": "10 anchors x 10 per-anchor budget = 100 pool; 0 discovery; v18 fully anchor-conditioned. Expected E38 INVESTIGATIVE_SURVIVING 5-9 if yield rate stays at ~0.17 per anchor. Stale-drop check at end of E38: if R866 + R895 both produce 0 again, both become epochs_since_yield=2.",
+    "coverage_profile_bias": {
+      "undersaturated_slots": [],
+      "bias_factor": 1.0,
+      "rationale": "v18 anchor-conditioned sampling makes coverage bias inapplicable to anchor-local candidates. Discovery candidates (if any) may still use coverage bias."
+    },
+    "rationale": "v18 demonstrated +22.85 score over v17 via local exploration around the 7-anchor expert manifold. E37 produced 6 INVESTIGATIVE_SURVIVING (vs E36's 3, +100%). Sub-anchor promotion + discovery promotion grew the manifold from 7 to 10. v18 thesis empirically validated: concentrating sampling on the expert manifold (instead of uniform 5-strategy mix) doubles the INVESTIGATIVE_SURVIVING rate."
+  }
 }
