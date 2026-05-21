@@ -115,9 +115,17 @@ def check_q3_quote_in_transcript(atom: dict, transcript_norm: str, transcript_ra
 def audit_candidate(
     candidate_path: Path,
     atoms_dir: Path,
-    transcript_norm: str,
-    transcript_raw: str,
+    transcript_norm,  # str OR dict[transcript_id -> normalized text]
+    transcript_raw,   # str OR dict[transcript_id -> raw text]
 ) -> AuditResult:
+    """Audit a candidate against its source transcript(s).
+
+    transcript_norm and transcript_raw may be either:
+      - a single string (run_001 backwards-compatible single-transcript mode)
+      - a dict mapping transcript_id -> string (v2 multi-transcript mode)
+    When dict mode is used, each cited atom is checked against its own
+    transcript_id's text.
+    """
     with candidate_path.open("r", encoding="utf-8") as f:
         cand = json.load(f)
 
@@ -167,7 +175,22 @@ def audit_candidate(
         res.fail_reasons.append("Q2_operator_invalid")
 
     # --- Q3: verbatim quotes appear in transcript ---
-    per_atom_checks = [check_q3_quote_in_transcript(a, transcript_norm, transcript_raw)
+    # In multi-transcript mode (dict input), look up each atom's transcript text
+    # by atom.transcript_id. In single-transcript mode (str input), use the same
+    # text for every atom (run_001 backwards-compatible).
+    def _norm_for(atom_obj):
+        if isinstance(transcript_norm, dict):
+            tid = atom_obj.get("transcript_id", "T001")
+            return transcript_norm.get(tid, "")
+        return transcript_norm
+
+    def _raw_for(atom_obj):
+        if isinstance(transcript_raw, dict):
+            tid = atom_obj.get("transcript_id", "T001")
+            return transcript_raw.get(tid, "")
+        return transcript_raw
+
+    per_atom_checks = [check_q3_quote_in_transcript(a, _norm_for(a), _raw_for(a))
                        for a in atom_objs]
     res.q3_per_atom_checks = per_atom_checks
     if per_atom_checks and all(c["ok"] for c in per_atom_checks):
@@ -223,10 +246,23 @@ def audit_candidate(
 def audit_all(
     candidates_dir: Path,
     atoms_dir: Path,
-    transcript_path: Path,
+    transcript_path,  # Path OR dict[transcript_id -> Path]
     out_path: Path,
 ) -> List[AuditResult]:
-    raw, normed = load_transcript(transcript_path)
+    """Audit candidates. transcript_path can be a single Path or a dict mapping
+    transcript_id -> Path (v2 multi-transcript mode)."""
+    if isinstance(transcript_path, dict):
+        raw_map, norm_map = {}, {}
+        for tid, tp in transcript_path.items():
+            r, n = load_transcript(Path(tp))
+            raw_map[tid] = r
+            norm_map[tid] = n
+        raw, normed = raw_map, norm_map
+        tp_meta = {tid: str(p) for tid, p in transcript_path.items()}
+    else:
+        raw, normed = load_transcript(Path(transcript_path))
+        tp_meta = str(transcript_path)
+
     results = []
     for cp in sorted(candidates_dir.glob("CAND_*.json")):
         r = audit_candidate(cp, atoms_dir, normed, raw)
@@ -235,7 +271,7 @@ def audit_all(
     with out_path.open("w", encoding="utf-8") as f:
         json.dump({
             "n_candidates": len(results),
-            "transcript_path": str(transcript_path),
+            "transcript_path": tp_meta,
             "audited_at": datetime.now(timezone.utc).isoformat(),
             "results": [asdict(r) for r in results],
             "verdict_distribution": {

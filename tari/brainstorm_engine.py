@@ -45,6 +45,8 @@ class Candidate:
     why_novel_vs_speaker: str
     why_potentially_useful: str
     source_snippets: List[str] = field(default_factory=list)
+    source_transcripts: List[str] = field(default_factory=list)
+    transcript_diversity: int = 0
     timestamp: str = ""
 
 
@@ -251,10 +253,42 @@ def make_contrast_claim(a: dict, b: dict) -> Optional[Candidate]:
     )
 
 
-def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int = 15) -> List[Candidate]:
+def _annotate_diversity(c: Optional[Candidate], atoms: List[dict]) -> Optional[Candidate]:
+    """Attach source_transcripts and transcript_diversity to a candidate."""
+    if c is None:
+        return None
+    atom_by_id = {a["atom_id"]: a for a in atoms}
+    tids = []
+    for aid in c.combined_atom_ids:
+        a = atom_by_id.get(aid)
+        if a:
+            tids.append(a.get("transcript_id", "T001"))
+    c.source_transcripts = tids
+    c.transcript_diversity = len(set(tids))
+    return c
+
+
+def brainstorm(
+    atoms_dir: Path,
+    out_dir: Path,
+    run_id: str,
+    max_candidates: int = 15,
+    require_cross_transcript: bool = False,
+    per_pair_cap: Optional[int] = None,
+) -> List[Candidate]:
+    """Generate candidates.
+
+    require_cross_transcript: when True, candidates with transcript_diversity < 2
+        are dropped. Single-atom operators (INVERT) are dropped under this flag,
+        since a single atom can't span transcripts.
+
+    per_pair_cap: when set together with require_cross_transcript, no more than
+        this many candidates per unordered transcript pair are selected. This
+        prevents one pair (e.g., the two test-time-training talks) from
+        dominating the output.
+    """
     atoms = load_atoms(atoms_dir)
-    # Deterministic seed: Python's built-in hash() is randomized across processes,
-    # which broke reproducibility in the pilot run. Use sha256 of run_id instead.
+    # Deterministic seed.
     seed_int = int(hashlib.sha256(run_id.encode("utf-8")).hexdigest()[:12], 16)
     rng = random.Random(seed_int)
 
@@ -266,23 +300,34 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
     candidates: List[Candidate] = []
 
     # Generate combinations across the 6 operators.
-    primitives = by_type.get("PRIMITIVE", [])
-    mech_claims = by_type.get("MECHANISM_CLAIM", [])
-    neg_results = by_type.get("NEGATIVE_RESULT", [])
-    open_questions = by_type.get("OPEN_QUESTION", [])
-    metrics = by_type.get("METRIC", [])
+    primitives = list(by_type.get("PRIMITIVE", []))
+    mech_claims = list(by_type.get("MECHANISM_CLAIM", []))
+    neg_results = list(by_type.get("NEGATIVE_RESULT", []))
+    open_questions = list(by_type.get("OPEN_QUESTION", []))
+    metrics = list(by_type.get("METRIC", []))
+
+    # v2: shuffle each type list so islice-bounded loops don't perpetually pull
+    # atoms from the same transcript prefix (e.g. T001 sorted-first issue).
+    # Determinism is preserved because rng was seeded from run_id.
+    for lst in (primitives, mech_claims, neg_results, open_questions, metrics):
+        rng.shuffle(lst)
+
+    # Per-operator pair budget. v2 multi-transcript runs need much wider
+    # sampling than v1 (5 transcripts -> 10 pair_keys; for each operator we
+    # need pairs from many distinct transcript-pair groups). Bumped 80/40 -> 2000.
+    PAIR_BUDGET = 2000
 
     # ANALOGIZE — sample PRIMITIVE × (MECHANISM_CLAIM ∪ OPEN_QUESTION)
     for a, b in itertools.islice(
             ((a, b) for a in primitives for b in mech_claims + open_questions
              if a["snippet_id"] != b["snippet_id"]),
-            0, 80):
+            0, PAIR_BUDGET):
         c = make_analogize_claim(a, b)
         if c:
             candidates.append(c)
 
     # INVERT — sample MECHANISM_CLAIM ∪ PRIMITIVE
-    for a in (mech_claims + primitives)[:40]:
+    for a in (mech_claims + primitives)[:PAIR_BUDGET]:
         c = make_invert_claim(a)
         if c:
             candidates.append(c)
@@ -291,7 +336,7 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
     for a, b in itertools.islice(
             ((a, b) for i, a in enumerate(primitives) for b in primitives[i + 1:]
              if a["snippet_id"] != b["snippet_id"]),
-            0, 40):
+            0, PAIR_BUDGET):
         c = make_compose_claim(a, b)
         if c:
             candidates.append(c)
@@ -300,7 +345,7 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
     for a, b in itertools.islice(
             ((a, b) for a in mech_claims for b in primitives + open_questions
              if a["snippet_id"] != b["snippet_id"]),
-            0, 40):
+            0, PAIR_BUDGET):
         c = make_generalize_claim(a, b)
         if c:
             candidates.append(c)
@@ -309,7 +354,7 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
     for a, b in itertools.islice(
             ((a, b) for a in (mech_claims + primitives) for b in (neg_results + metrics)
              if a["snippet_id"] != b["snippet_id"]),
-            0, 40):
+            0, PAIR_BUDGET):
         c = make_restrict_claim(a, b)
         if c:
             candidates.append(c)
@@ -318,24 +363,80 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
     for a, b in itertools.islice(
             ((a, b) for i, a in enumerate(primitives) for b in primitives[i + 1:]
              if a["snippet_id"] != b["snippet_id"]),
-            0, 40):
+            0, PAIR_BUDGET):
         c = make_contrast_claim(a, b)
         if c:
             candidates.append(c)
 
-    # Shuffle and cap
+    # Annotate every candidate with transcript_diversity, then optionally filter.
+    candidates = [c for c in (_annotate_diversity(c, atoms) for c in candidates) if c]
+
+    if require_cross_transcript:
+        before = len(candidates)
+        candidates = [c for c in candidates if c.transcript_diversity >= 2]
+        # Optional: report drop count for visibility
+        dropped = before - len(candidates)
+        _diag = {"dropped_single_transcript": dropped, "kept_cross_transcript": len(candidates)}
+    else:
+        _diag = {}
+
     rng.shuffle(candidates)
-    # Take a diverse sample: cap each operator to max(1, max_candidates // 6)
-    per_op = max(1, max_candidates // 6)
-    by_op = {}
-    selected: List[Candidate] = []
-    for c in candidates:
-        bucket = by_op.setdefault(c.combination_operator, [])
-        if len(bucket) < per_op:
-            bucket.append(c)
+
+    # Selection strategy when cross-transcript is required:
+    #   Group candidates by unordered transcript pair, then round-robin pick one
+    #   from each pair-bucket until budget is exhausted. This gives EVEN
+    #   coverage across the 10 possible pairs for 5 transcripts, rather than
+    #   letting one popular atom dominate every selected candidate.
+    if require_cross_transcript:
+        from collections import defaultdict
+        by_pair_groups: dict = defaultdict(list)
+        for c in candidates:
+            pair_key = tuple(sorted(set(c.source_transcripts)))
+            by_pair_groups[pair_key].append(c)
+
+        # Sort each pair-bucket's candidates by operator to interleave operators within the pair
+        for pair_key, cs in by_pair_groups.items():
+            # Stable sort so deterministic given rng.shuffle order
+            cs.sort(key=lambda c: c.combination_operator)
+
+        pair_keys_order = list(by_pair_groups.keys())
+        rng.shuffle(pair_keys_order)
+
+        selected: List[Candidate] = []
+        cap = per_pair_cap if per_pair_cap is not None else max_candidates
+        # Round-robin: take one from each pair until pairs exhausted or budget hit
+        round_idx = 0
+        while len(selected) < max_candidates:
+            progress = False
+            for pair_key in pair_keys_order:
+                bucket = by_pair_groups[pair_key]
+                if len(bucket) <= round_idx:
+                    continue
+                # Stop adding from this pair once it has reached per_pair_cap
+                already_from_pair = sum(1 for s in selected
+                                        if tuple(sorted(set(s.source_transcripts))) == pair_key)
+                if already_from_pair >= cap:
+                    continue
+                selected.append(bucket[round_idx])
+                progress = True
+                if len(selected) >= max_candidates:
+                    break
+            if not progress:
+                break
+            round_idx += 1
+    else:
+        # Non-cross-transcript mode: original per-operator cap behavior
+        per_op = max(1, max_candidates // 6)
+        by_op: dict = {}
+        selected = []
+        for c in candidates:
+            if len(selected) >= max_candidates:
+                break
+            op_bucket = by_op.setdefault(c.combination_operator, [])
+            if len(op_bucket) >= per_op:
+                continue
+            op_bucket.append(c)
             selected.append(c)
-        if len(selected) >= max_candidates:
-            break
 
     # Assign canonical IDs
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -350,6 +451,16 @@ def brainstorm(atoms_dir: Path, out_dir: Path, run_id: str, max_candidates: int 
         "candidate_ids": [c.candidate_id for c in selected],
         "operator_distribution": {op: sum(1 for c in selected if c.combination_operator == op)
                                   for op in ["ANALOGIZE", "INVERT", "COMPOSE", "GENERALIZE", "RESTRICT", "CONTRAST"]},
+        "transcript_pair_distribution": {
+            "_".join(sorted(set(c.source_transcripts))): sum(
+                1 for d in selected
+                if sorted(set(d.source_transcripts)) == sorted(set(c.source_transcripts))
+            )
+            for c in selected
+        },
+        "require_cross_transcript": require_cross_transcript,
+        "per_pair_cap": per_pair_cap,
+        "diagnostic": _diag,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
     with (out_dir / "_index.json").open("w", encoding="utf-8") as f:
@@ -364,11 +475,21 @@ def main():
     ap.add_argument("--out_dir", required=True, type=Path)
     ap.add_argument("--run_id", required=True, type=str)
     ap.add_argument("--max_candidates", type=int, default=15)
+    ap.add_argument("--require_cross_transcript", action="store_true",
+                    help="v2: require transcript_diversity >= 2 in every candidate")
+    ap.add_argument("--per_pair_cap", type=int, default=None,
+                    help="v2: max candidates per unordered transcript pair")
     args = ap.parse_args()
-    cands = brainstorm(args.atoms_dir, args.out_dir, args.run_id, args.max_candidates)
-    print(f"generated {len(cands)} candidates")
+    cands = brainstorm(
+        args.atoms_dir, args.out_dir, args.run_id, args.max_candidates,
+        require_cross_transcript=args.require_cross_transcript,
+        per_pair_cap=args.per_pair_cap,
+    )
+    print(f"generated {len(cands)} candidates "
+          f"(cross_transcript={args.require_cross_transcript})")
     for c in cands[:5]:
-        print(f"  {c.candidate_id}  {c.combination_operator}  atoms={c.combined_atom_ids}")
+        print(f"  {c.candidate_id}  {c.combination_operator}  "
+              f"div={c.transcript_diversity}  atoms={c.combined_atom_ids}")
 
 
 if __name__ == "__main__":

@@ -68,6 +68,7 @@ class Atom:
     atom_id: str
     atom_type: str
     snippet_id: str
+    transcript_id: str
     line_span: tuple  # (start_line, end_line) of the SNIPPET, not the verbatim quote
     verbatim_quote: str
     gloss: str
@@ -120,6 +121,7 @@ def extract_atoms_for_snippet(snippet_path: Path, snippet_index: int) -> List[At
 
     text = snippet["verbatim_text"]
     sid = snippet["snippet_id"]
+    tid = snippet.get("transcript_id", "T001")
     line_span = (snippet["start_line"], snippet["end_line"])
 
     atoms: List[Atom] = []
@@ -133,14 +135,19 @@ def extract_atoms_for_snippet(snippet_path: Path, snippet_index: int) -> List[At
         ("OPEN_QUESTION", OPEN_QUESTION_PATTERNS),
     ]:
         quotes = find_quotes(text, patterns)
-        # Cap per-type per-snippet to avoid one snippet dominating.
         for q in quotes[:4]:
             counter += 1
-            atom_id = f"ATOM_{sid}_{counter:02d}"
+            # atom_id format: ATOM_{transcript_id}_{snippet_id}_{NN}
+            # Examples: ATOM_T001_S004_01 (v2), ATOM_S004_01 (v1 - no transcript prefix)
+            if tid and tid != "T001_LEGACY":
+                atom_id = f"ATOM_{tid}_{sid}_{counter:02d}"
+            else:
+                atom_id = f"ATOM_{sid}_{counter:02d}"
             atoms.append(Atom(
                 atom_id=atom_id,
                 atom_type=atom_type,
                 snippet_id=sid,
+                transcript_id=tid,
                 line_span=line_span,
                 verbatim_quote=q,
                 gloss=gloss_atom(atom_type, q),
@@ -150,7 +157,13 @@ def extract_atoms_for_snippet(snippet_path: Path, snippet_index: int) -> List[At
     return atoms
 
 
-def extract_all(snippets_dir: Path, out_dir: Path) -> List[Atom]:
+def extract_all(snippets_dir: Path, out_dir: Path, append: bool = False) -> List[Atom]:
+    """Extract atoms from all snippets in snippets_dir, write to out_dir.
+
+    If append=True, do not overwrite the index — instead merge with any existing
+    atoms in out_dir. This supports multi-transcript runs that consolidate atoms
+    from multiple transcripts into a single shared atoms_dir.
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
     snippet_files = sorted(snippets_dir.glob("snippet_S*.json"))
     all_atoms: List[Atom] = []
@@ -162,15 +175,24 @@ def extract_all(snippets_dir: Path, out_dir: Path) -> List[Atom]:
         with (out_dir / f"{atom.atom_id}.json").open("w", encoding="utf-8") as f:
             json.dump(asdict(atom), f, indent=2, ensure_ascii=False)
 
-    # Type distribution
+    # Index: rebuild from all atom files in out_dir (covers append case)
+    all_files = sorted(out_dir.glob("ATOM_*.json"))
     by_type = {}
-    for atom in all_atoms:
-        by_type[atom.atom_type] = by_type.get(atom.atom_type, 0) + 1
+    by_transcript = {}
+    all_ids = []
+    for af in all_files:
+        with af.open("r", encoding="utf-8") as f:
+            d = json.load(f)
+        all_ids.append(d["atom_id"])
+        by_type[d["atom_type"]] = by_type.get(d["atom_type"], 0) + 1
+        tid = d.get("transcript_id", "T001")
+        by_transcript[tid] = by_transcript.get(tid, 0) + 1
 
     index = {
-        "n_atoms": len(all_atoms),
-        "atom_ids": [a.atom_id for a in all_atoms],
+        "n_atoms": len(all_files),
+        "atom_ids": all_ids,
         "type_distribution": by_type,
+        "transcript_distribution": by_transcript,
         "extracted_at": datetime.now(timezone.utc).isoformat(),
     }
     with (out_dir / "_index.json").open("w", encoding="utf-8") as f:

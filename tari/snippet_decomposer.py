@@ -73,6 +73,7 @@ TOPIC_SHIFT_PHRASES = [
 @dataclass
 class Snippet:
     snippet_id: str
+    transcript_id: str
     start_line: int
     end_line: int
     verbatim_text: str
@@ -113,7 +114,7 @@ def is_topic_shift(sentence: str) -> bool:
     return any(phrase in s for phrase in TOPIC_SHIFT_PHRASES)
 
 
-def decompose(transcript_path: Path, out_dir: Path) -> List[Snippet]:
+def decompose(transcript_path: Path, out_dir: Path, transcript_id: str = "T001") -> List[Snippet]:
     raw_text = transcript_path.read_text(encoding="utf-8")
     sentences = split_into_sentences_with_positions(raw_text)
 
@@ -135,6 +136,7 @@ def decompose(transcript_path: Path, out_dir: Path) -> List[Snippet]:
         sid = f"S{len(snippets) + 1:03d}"
         snippets.append(Snippet(
             snippet_id=sid,
+            transcript_id=transcript_id,
             start_line=start_line,
             end_line=end_line,
             verbatim_text=verbatim,
@@ -186,6 +188,7 @@ def decompose(transcript_path: Path, out_dir: Path) -> List[Snippet]:
     index_path = out_dir / "_index.json"
     with index_path.open("w", encoding="utf-8") as f:
         json.dump({
+            "transcript_id": transcript_id,
             "transcript_path": str(transcript_path),
             "n_snippets": len(snippets),
             "total_sentences": len(sentences),
@@ -200,8 +203,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--transcript", required=True, type=Path)
     ap.add_argument("--out_dir", required=True, type=Path)
+    ap.add_argument("--transcript_id", default="T001", type=str)
     args = ap.parse_args()
-    snippets = decompose(args.transcript, args.out_dir)
+    snippets = decompose(args.transcript, args.out_dir, args.transcript_id)
     print(f"decomposed {args.transcript} into {len(snippets)} snippets at {args.out_dir}")
     for s in snippets[:5]:
         print(f"  {s.snippet_id}  lines {s.start_line}-{s.end_line}  "

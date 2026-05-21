@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S017",
+  "transcript_id": "T001",
+  "start_line": 154,
+  "end_line": 167,
+  "verbatim_text": "Okay so we just saw that language modeling training encourages transformers to build these latent world models in their activations. Now for the second part do these internal world models actually causally influence their predictions. So we're going to use a method here that's now known as activation patching. And we begin by constructing two counterfactual inputs that accept different definitions. And to see what we want to isolate is what model components are in the critical path for producing the output. To do that we can patch in activations from the second input into the first input. And if the activation were in that critical path then the probability of the old input would decrease and the probability of the new input would increase. This suggests that this activation was actually used by the language model to make its prediction. So concretely as an example we might have Janet gave Jack the book and Jack gave Janet the book as two different counterfactual inputs. So in the first world Jack possesses the book. In the second world Janet possesses the book. We feed both through a transformer. The first results in completions like Jack returned the book to Janet and Jack lost the book. The second results in completions like Janet returned the book to Jack and Janet lost the book.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1304
+}
