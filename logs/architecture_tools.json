@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "created": "2026-05-21T16:00:00Z",
+  "created_by": "v14 init (Gao framework, Architecture Tool Universe)",
+  "description": "Closed universe of 20 LLM-architectural-modification primitives. Every step 05 candidate (v14+) must specify which slot(s) it modifies (1+). A candidate with no slot assignment is rejected at step 05.",
+  "source": "Distilled from Gao ACL-2025 keynote prescription for niche-mining-style benchmarks: define a closed solution universe so candidates are slot-able and comparable.",
+  "n_slots": 20,
+  "slots": [
+    {"id": "S01", "name": "modify_attention_scoring_function", "description": "Modify the attention scoring function (replace softmax with alternative: quadratic, kernel-based, sub-quadratic, sparse). Examples: Performer (random-feature kernel), Linformer (low-rank projection), Reformer (LSH-bucket softmax)."},
+    {"id": "S02", "name": "change_normalization_placement", "description": "Move LayerNorm pre- vs post-residual; add new normalization layer; change normalization type (LayerNorm, RMSNorm, BatchNorm). Examples: GPT-2 to GPT-3 (post-norm to pre-norm)."},
+    {"id": "S03", "name": "add_gating_module", "description": "Add a gating mechanism on hidden state, attention output, or FFN output. Gate has its own learnable parameters. Examples: GLU, gated MLP, gated residual."},
+    {"id": "S04", "name": "modify_positional_encoding", "description": "Replace absolute or rotary positional encoding with new variant. Examples: ALiBi, RoPE, Sinusoidal, Learned absolute, Relative bias."},
+    {"id": "S05", "name": "change_residual_structure", "description": "Modify residual connection topology: dense connections, skip patterns, deep-supervision, normalized residual. Examples: ResNet, DenseNet, ReZero, Highway Networks."},
+    {"id": "S06", "name": "modify_softmax_function", "description": "Replace standard softmax with alternative: entmax, sparsemax, combinatorial discrete, Gumbel-softmax, temperature-modulated. Different from S01 (S01 modifies attention SCORING; S06 modifies the softmax NORMALIZATION step). Examples: Sparsemax, Entmax, Top-k softmax."},
+    {"id": "S07", "name": "add_sparsity_constraint", "description": "Add structural sparsity: block-sparse, lottery-ticket pruned, magnitude-pruned, structured-zero patterns. Examples: BigBird, Longformer, Sparse Transformer."},
+    {"id": "S08", "name": "modify_FFN_structure", "description": "Modify feed-forward network: MoE routing, expert sub-networks, low-rank decomposition, factorized FFN. Examples: Switch Transformer, GShard, GLaM."},
+    {"id": "S09", "name": "add_new_learnable_module", "description": "Insert a new learnable sub-module: side-network, adapter, prefix-tuning, LoRA, prompt-tuning. The module has its own parameters separate from baseline weights. Examples: Adapter, LoRA, Prefix-Tuning, side-network."},
+    {"id": "S10", "name": "modify_layer_depth_structure", "description": "Variable depth, early-exit, layer skipping, ALBERT-style cross-layer sharing. Examples: ALBERT (cross-layer sharing), early-exit BERT, deep equilibrium models."},
+    {"id": "S11", "name": "add_inter_layer_pathway", "description": "Add new cross-layer connection: highway, gated skip, attention over layers. Different from S05 (which modifies the EXISTING residual). S11 ADDS a NEW pathway. Examples: Highway Networks, layer-attention."},
+    {"id": "S12", "name": "modify_embedding_structure", "description": "Replace token embedding with new structure: learned codebook, retrieval-augmented embedding, factorized embedding. Examples: ALBERT factorized embedding, VQ-VAE codebook."},
+    {"id": "S13", "name": "add_external_memory_module", "description": "Add external memory: RAG, kNN-LM, episodic memory, retrieval-augmented. The memory is queried at inference time. Examples: RAG, kNN-LM, Memorizing Transformer."},
+    {"id": "S14", "name": "modify_training_objective", "description": "Add new training-time loss: contrastive, distillation, gradient-matching, dropout-as-regularization. Examples: SimCSE, knowledge distillation, R-Drop."},
+    {"id": "S15", "name": "add_discriminator_or_critic", "description": "Add discriminator/critic head for adversarial training or RL. Examples: GAN-discriminator, RLHF reward model, ELECTRA discriminator."},
+    {"id": "S16", "name": "modify_token_routing", "description": "Token-level routing or skipping: MoE token routing, capsules, modular sub-networks per token. Examples: MoE expert routing, Switch Transformer routing, AdaTape."},
+    {"id": "S17", "name": "add_recurrence_or_state", "description": "Add recurrence, hidden state, or memory cell: RWKV, Mamba, S4, Linear RNN. Stateful inference. Examples: Mamba, RWKV, S4, RetNet, Linear RNN."},
+    {"id": "S18", "name": "modify_head_structure", "description": "Modify multi-head attention structure: head count, head specialization, hierarchical heads, grouped-query attention. Examples: Multi-Query Attention, Grouped-Query Attention, Cross-Head, Multi-Token Attention."},
+    {"id": "S19", "name": "add_equivariance_constraint", "description": "Add geometric or algebraic equivariance constraint: SE(2)-equivariant, SU(2)-equivariant, permutation-equivariant, group-equivariant. The constraint forces architectural invariance under group action. Examples: SU(2)-equivariant module, Lie-group attention, permutation-invariant pooling."},
+    {"id": "S20", "name": "modify_inference_time_compute", "description": "Modify inference-time compute: MCTS, beam, sampling temperature scheduling, test-time training, draft-verification. Examples: Speculative Decoding, Medusa, Test-time training."}
+  ],
+  "non_slots": [
+    "metaphor_only (e.g., 'X-from-physics-as-attention')",
+    "framing_only (e.g., 'topological-defect interpretation')",
+    "evaluation-diagnostic-only (e.g., 'saturation-gap metric')",
+    "parametrization-tweak (e.g., R279-style integer-ratio harmonic regularizer; rejected at step 05.5)"
+  ],
+  "expected_slot_distribution_uniform_prior": {
+    "S01": 1.25, "S02": 1.25, "S03": 1.25, "S04": 1.25, "S05": 1.25,
+    "S06": 1.25, "S07": 1.25, "S08": 1.25, "S09": 1.25, "S10": 1.25,
+    "S11": 1.25, "S12": 1.25, "S13": 1.25, "S14": 1.25, "S15": 1.25,
+    "S16": 1.25, "S17": 1.25, "S18": 1.25, "S19": 1.25, "S20": 1.25,
+    "note": "Under uniform prior, 25 selected candidates with 1 slot each gives 1.25 per slot on average (= 25/20)."
+  },
+  "architecturally_deep_slots_for_max_over_100_projection": ["S01", "S04", "S05", "S06", "S07", "S19"],
+  "architecturally_deep_slot_rationale": "These slots represent modifications that are most likely to produce architecturally-distinguishable candidates (per E31/E32 evidence: R756 SU(2)-equiv [S19], R770 tropical [S01/S06], R777 quiver [S09/S11], R787 crystal-basis [S01/S06]). The max_over_100 projection up-weights candidates in these slots.",
+  "v14_observation": "The 20-slot universe is the operational closure for niche-mining. A candidate that genuinely modifies no slot is metaphor-only by Gao's framework, and v14 rejects it at step 05.",
+  "extension_policy": "v14 freezes the universe at 20 slots. Extensions to 21+ slots are forbidden mid-epoch. v15 may extend the universe based on observed coverage patterns."
+}
