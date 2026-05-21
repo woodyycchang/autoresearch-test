@@ -1,0 +1,108 @@
+{
+ "epoch": 34,
+ "rounds_range": "R826-R850",
+ "prior_investigative_count_at_epoch_start": 7,
+ "new_investigative_in_epoch_count": 3,
+ "corpus_investigative_count_at_epoch_end": 10,
+ "intra_corpus_pairwise_cosine_mean": 0.4141,
+ "intra_corpus_pairwise_cosine_max": 0.7591,
+ "intra_corpus_pairwise_cosine_min": 0.1297,
+ "intra_corpus_pairwise_cosine_count": 45,
+ "single_linkage_cluster_count_at_threshold_0_40": 3,
+ "single_linkage_cluster_count_at_threshold_0_50": 4,
+ "single_linkage_cluster_count_at_threshold_0_60": 4,
+ "cluster_composition_at_threshold_0_40": [
+  [
+   "843"
+  ],
+  [
+   "770",
+   "787",
+   "756",
+   "777",
+   "814",
+   "805",
+   "823"
+  ],
+  [
+   "827",
+   "834"
+  ]
+ ],
+ "cluster_composition_at_threshold_0_50": [
+  [
+   "827"
+  ],
+  [
+   "834"
+  ],
+  [
+   "843"
+  ],
+  [
+   "770",
+   "787",
+   "756",
+   "777",
+   "814",
+   "805",
+   "823"
+  ]
+ ],
+ "cluster_composition_at_threshold_0_60": [
+  [
+   "827"
+  ],
+  [
+   "834"
+  ],
+  [
+   "843"
+  ],
+  [
+   "770",
+   "787",
+   "756",
+   "777",
+   "814",
+   "805",
+   "823"
+  ]
+ ],
+ "epoch_new_investigative_max_proximity_to_prior": [
+  {
+   "round": "827",
+   "max_proximity_to_prior": 0.3476,
+   "argmax_prior_round": "787",
+   "is_structural_duplicate_of_prior": false,
+   "passes_diversification": true,
+   "slot": "S05",
+   "domain": "convex-analysis"
+  },
+  {
+   "round": "834",
+   "max_proximity_to_prior": 0.2911,
+   "argmax_prior_round": "787",
+   "is_structural_duplicate_of_prior": false,
+   "passes_diversification": true,
+   "slot": "S05",
+   "domain": "representation-theory"
+  },
+  {
+   "round": "843",
+   "max_proximity_to_prior": 0.2898,
+   "argmax_prior_round": "756",
+   "is_structural_duplicate_of_prior": false,
+   "passes_diversification": true,
+   "slot": "S06",
+   "domain": "complex-dynamics"
+  }
+ ],
+ "epoch_new_investigative_passes_diversification_test_count": 3,
+ "epoch_passes_diversification": true,
+ "diversification_test_criterion": "new INVESTIGATIVE max_proximity < 0.40 to all prior",
+ "structural_duplicate_count": 0,
+ "structural_duplicate_threshold_applied": 0.5,
+ "v15_diagnostic": "v15 E34 produced 3 new INVESTIGATIVE_CANDIDATE rounds (R827, R834, R843). ALL 3/3 passed diversification test (max_proximity < 0.40 to all prior 7 INVESTIGATIVE). Mean new-INVESTIGATIVE max_proximity = 0.3095; range [0.2898, 0.3476]. corpus_unique_investigative_niches at threshold 0.40 = 3 (vs 1 at E33 end; v15 ICD raised corpus niche count from 1 to 3). Composition: cluster A = prior 7 (R756, R770, R777, R787, R805, R814, R823 \u2014 algebraic-structure-equipped-module region); cluster B = {R827 Bregman ReZero, R834 Schur-Weyl} (convex+rep-theory dense residual region \u2014 NEW); cluster C = {R843 Fatou-softmax} (complex-dynamics softmax region \u2014 NEW). v15 ICD validated: the algebraic-structure attractor is escapable under anti-cluster generator pressure; multi-cluster coverage achieved. STRUCTURAL DUPLICATE FLAG count = 0/3 (no new INVESTIGATIVE flagged as duplicate of prior; v15 ICD's filter at threshold 0.60 prevented duplicates at the primary-selection stage).",
+ "honest_computation_note": "v15 deterministic from logs/investigative_cluster_state.json + 25 candidates + agglomerative single-linkage cluster computation; no Agent spawn."
+}

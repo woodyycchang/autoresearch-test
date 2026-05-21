@@ -1,0 +1,13 @@
+# R831 Future Casting (v15)
+
+E34 R831: Julia-set MoE token routing
+
+Domain: complex-dynamics
+Slot: S16 (modify_token_routing)
+Form: training-method
+
+This candidate is generated under program_v15.md with v14 HTS+ATU+CPM + v15 ICD active.
+Coverage-profile bias for E34 up-weights 7 undersaturated slots ['S02', 'S05', 'S10', 'S12', 'S15', 'S16', 'S18'] at factor 2.0.
+Anti-cluster bias steers away from the 7-corpus INVESTIGATIVE cluster (per logs/investigative_cluster_state.json).
+
+The candidate proposes a NEW learnable mechanism at slot S16 drawing on complex-dynamics structure to produce architectural-topology change distinct from baseline.
