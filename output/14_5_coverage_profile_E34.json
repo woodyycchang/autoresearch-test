@@ -1,0 +1,83 @@
+{
+ "epoch": 34,
+ "rounds_range": "R826-R850",
+ "selected_candidates_count": 25,
+ "total_slot_assignments_count": 25,
+ "coverage_profile": {
+  "S01_modify_attention_scoring_function": 1,
+  "S02_change_normalization_placement": 2,
+  "S03_add_gating_module": 1,
+  "S04_modify_positional_encoding": 1,
+  "S05_change_residual_structure": 2,
+  "S06_modify_softmax_function": 1,
+  "S07_add_sparsity_constraint": 1,
+  "S08_modify_FFN_structure": 1,
+  "S09_add_new_learnable_module": 1,
+  "S10_modify_layer_depth_structure": 2,
+  "S11_add_inter_layer_pathway": 1,
+  "S12_modify_embedding_structure": 2,
+  "S13_add_external_memory_module": 1,
+  "S14_modify_training_objective": 1,
+  "S15_add_discriminator_or_critic": 2,
+  "S16_modify_token_routing": 2,
+  "S17_add_recurrence_or_state": 1,
+  "S18_modify_head_structure": 2,
+  "S19_add_equivariance_constraint": 0,
+  "S20_modify_inference_time_compute": 0
+ },
+ "coverage_profile_compact": {
+  "S01": 1,
+  "S02": 2,
+  "S03": 1,
+  "S04": 1,
+  "S05": 2,
+  "S06": 1,
+  "S07": 1,
+  "S08": 1,
+  "S09": 1,
+  "S10": 2,
+  "S11": 1,
+  "S12": 2,
+  "S13": 1,
+  "S14": 1,
+  "S15": 2,
+  "S16": 2,
+  "S17": 1,
+  "S18": 2,
+  "S19": 0,
+  "S20": 0
+ },
+ "distinct_slots_hit": 18,
+ "undersaturated_slots": [
+  "S19",
+  "S20"
+ ],
+ "saturated_slots": [
+  "S02",
+  "S05",
+  "S10",
+  "S12",
+  "S15",
+  "S16",
+  "S18"
+ ],
+ "gini_concentration_index": 0.254,
+ "mean_count_per_hit_slot": 1.389,
+ "max_count_slot": "S02",
+ "max_count_value": 2,
+ "coverage_profile_concentration_top_3_slot_share": 0.24,
+ "coverage_profile_predicted_E35_bias": [
+  {
+   "slot_id": "S19",
+   "bias_factor": 2.0,
+   "rationale": "E34 hit S19 0 times; undersaturated"
+  },
+  {
+   "slot_id": "S20",
+   "bias_factor": 2.0,
+   "rationale": "E34 hit S20 0 times; undersaturated"
+  }
+ ],
+ "rationale": "E34 distinct_slots_hit = 18/20 (vs E33's 13/20 = +5); Gini = 0.254 (vs E33's 0.542; LOWER = MORE EVEN distribution). Top-3 share = 0.240 (vs E33's 0.44). v14 CPM feedback loop EFFECTIVE: 7 prior-epoch undersaturated slots (S02, S05, S10, S12, S15, S16, S18) all hit 2 times each in E34; previously-saturated slots (S01, S03, S06, S07, S09, S11, S19) hit 0-1 each in E34. The bias factor 2.0 produced a near-flat distribution: 18/20 slots have 1-2 candidates; 2 slots (S19, S20) have 0. E35 should up-weight S19 and S20.",
+ "honest_computation_note": "v14 step 14.5 deterministic from 25 architecture_tool_slot assignments; no Agent spawn."
+}
