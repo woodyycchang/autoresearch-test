@@ -1,0 +1,34 @@
+{
+  "epoch": 39,
+  "fired_at_round": 975,
+  "program": "v20 (program_v20.md)",
+  "v14_index": true,
+  "v18_index": true,
+  "v19_index": true,
+  "v20_index": true,
+  "slot_universe_size": 20,
+  "selected_25_slot_distribution_E39": {
+    "S01": 0, "S02": 0, "S03": 0, "S04": 0, "S05": 0,
+    "S06": 0, "S07": 2, "S08": 0, "S09": 0, "S10": 0,
+    "S11": 0, "S12": 0, "S13": 0, "S14": 2, "S15": 6,
+    "S16": 13, "S17": 0, "S18": 0, "S19": 0, "S20": 2
+  },
+  "distinct_slots_hit": 5,
+  "total_slot_assignments": 25,
+  "coverage_profile_gini_concentration_index": 0.55,
+  "coverage_profile_concentration_top_3_slot_share": 0.84,
+  "undersaturated_slots_list": [
+    "S01", "S02", "S03", "S04", "S05", "S06", "S08", "S09", "S10", "S11", "S12", "S13", "S17", "S18", "S19"
+  ],
+  "saturated_slots_list": ["S14", "S15", "S16", "S20", "S07"],
+  "max_count_slot_id": "S16",
+  "max_count_slot_value": 13,
+  "step_14_5_fired": true,
+  "real_step_14_5_Agent_spawns": 0,
+  "main_context_direct_step_14_5_count": 1,
+  "v20_coverage_profile_note": "E39 coverage profile maintains the v18/v19 concentration pattern (distinct_slots_hit = 5; saturated_slots = {S14, S15, S16, S20, S07}). Gini fell slightly 0.60 → 0.55 (more even distribution within saturated slots) because 13-anchor expert path includes 3 new sub-anchors all in S16 → spreads more candidates across S16 vs the 5-anchor-S16 pile-up of E38. v20 self-model layer is informational; does not modify slot distribution.",
+  "v20_self_model_observation": "Step 15 coherence audit fires on all 25 rounds; self_prediction_accuracy = 0.889 on the 9 step-14.6-firing rounds. Self-attribution document `output/epoch_39_self_attribution.md` surfaces 4 bias patterns invisible to this coverage profile.",
+  "max_over_100_attack_rebuttal_rate_E39_at_threshold_0_30": 1.0,
+  "max_over_100_attack_rebuttal_rate_E39_at_threshold_0_40": 0.65,
+  "timestamp": "2026-05-22T02:48:00Z"
+}
