@@ -1,12 +1,12 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.7",
   "v10_introduced_at_epoch": 29,
   "v11_introduced_at_epoch": 30,
   "v12_introduced_at_epoch": 31,
   "v13_introduced_at_epoch": 32,
-  "current_epoch": 35,
-  "prior_epoch_used_for_update": 34,
-  "policy_update_timestamp": "2026-05-21T14:00:00Z",
+  "current_epoch": 36,
+  "prior_epoch_used_for_update": 35,
+  "policy_update_timestamp": "2026-05-21T23:30:00Z",
   "policy_aggregates": {
     "motivation_strength_times_candidate_form": [
       {
@@ -851,6 +851,127 @@
       "epoch": 35,
       "action": "E35 outcomes: step 14.6 fired 3/3 INVESTIGATIVE candidates; R855 demoted EXTERNAL_COLLISION (sim=0.83 vs arXiv 2509.18411); R863+R866 survive (sims 0.41, 0.39); retrospective validation on E34 R827 (0.87 \u2192 COLLISION) + R834 (0.51 \u2192 SURVIVES) + R843 (0.43 \u2192 SURVIVES) all confirmed. corpus_unique_investigative_niches_after_external_check_E35 = 2. score 62.57 (-1.85).",
       "timestamp": "2026-05-21T22:15:00Z"
+    }
+  ],
+  "v17_introduced_at_epoch": 36,
+  "v17_aggregates_E36": {
+    "strategies_used": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "selected_by_strategy_25_E36": {
+      "A": 16,
+      "B": 3,
+      "C": 2,
+      "D": 3,
+      "E": 1
+    },
+    "generator_distribution_shift_index_E36": 0.36,
+    "frontier_seed_citation_rate_E36": 1.0,
+    "frontier_seed_citation_diversity_E36": 9,
+    "frontier_seed_citations_used_E36": {
+      "YUSUN_REP_EXPLORATION": 3,
+      "FOSTER_COVERAGE_PROFILE": 2,
+      "GAO_Q_RUBRIC": 2,
+      "GAO_TREE_STREAM": 2,
+      "GAO_TOOL_UNIVERSE": 5,
+      "FOSTER_SHARPENING_VS_DISCOVERY": 3,
+      "YUSUN_TTT": 3,
+      "YUSUN_HEAVY_TAIL_ENTROPIC": 3,
+      "FOSTER_REP_DIVERSE_SAMPLING": 2
+    },
+    "REJECTED_KNOWN_COLLISION_count_E36": 2,
+    "REJECTED_KNOWN_COLLISION_rounds_first_attempt_E36": [
+      882,
+      895
+    ],
+    "REJECTED_KNOWN_COLLISION_matched_entries_E36": [
+      "KCD_R855",
+      "KCD_7CLUSTER"
+    ],
+    "kcd_database_size_at_E36_start": 4,
+    "kcd_database_size_at_E36_end_post_audit": 5,
+    "collision_addition_rate_E36": 0.04,
+    "per_strategy_attack_rebuttal_rate_E36": {
+      "A": null,
+      "B": 0.5,
+      "C": 1.0,
+      "D": 1.0,
+      "E": null
+    },
+    "per_strategy_attack_rebuttal_diversity_E36": 3,
+    "INVESTIGATIVE_CANDIDATE_count_pre_step_14_6_E36": 4,
+    "INVESTIGATIVE_CANDIDATE_count_after_step_14_6_E36": 3,
+    "INVESTIGATIVE_CANDIDATE_rounds_after_step_14_6_E36": [
+      883,
+      891,
+      895
+    ],
+    "INVESTIGATIVE_strategy_attribution_post_14_6_E36": {
+      "883": "C",
+      "891": "C",
+      "895": "D"
+    },
+    "EXTERNAL_COLLISION_rounds_E36": [
+      880
+    ],
+    "EXTERNAL_COLLISION_strategy_attribution_E36": {
+      "880": "B"
+    },
+    "FAIL_EMPIRICAL_ATTACK_rounds_E36": [
+      896
+    ],
+    "corpus_unique_investigative_niches_after_external_check_E36": 3,
+    "investigative_niche_tuples_surviving_external_check_E36": [
+      [
+        "S20",
+        "test-time-training",
+        "TTT-inner-loop-adapter"
+      ],
+      [
+        "S14",
+        "info-theory",
+        "heavy-tail-entropic-objective"
+      ],
+      [
+        "S16",
+        "complexity-theory",
+        "polynomial-time-bounded-routing"
+      ]
+    ]
+  },
+  "policy_update_for_E37": {
+    "recommendation": "E37 should continue v17 protocol with updated known_collisions.json (now 5 entries after AFL). Test whether the KCD growth continues to prevent R827-pattern repeats, and whether Strategy C/D candidates continue to dominate INVESTIGATIVE_SURVIVING.",
+    "next_epoch_focus": [
+      "Continue domain exploration with Strategy A coverage of unsaturated slot S06 (modify_softmax_function)",
+      "Strategy B: more never-co-occurred slot pairs",
+      "Strategy C: deeper frontier-primitive-direct extraction (YUSUN_TTT, YUSUN_HEAVY_TAIL_ENTROPIC)",
+      "Strategy D: collision-negation against the now-5-entry KCD database (NOT-divergence, NOT-spectral, NOT-Lie, NOT-sparsity-retrieval)",
+      "Strategy E: continue PROVISIONAL tagging; do not count toward INVESTIGATIVE_SURVIVING"
+    ],
+    "v17_specific_focus_E37": "Track whether generator_distribution_shift_index rises from 0.36 toward 0.5+. Watch for any KCD database entry getting matched in E37 (would indicate the distribution is still pinned to those modes despite Strategy D negation).",
+    "coverage_profile_bias": {
+      "undersaturated_slots": [
+        "S06"
+      ],
+      "bias_factor": 1.25,
+      "rationale": "E36 missed S06 (modify_softmax_function). Up-weight in E37."
+    },
+    "rationale": "v17 introduced FOUR generator-side fixes (FTS, KCD, MSHT, AFL). E36 produced 3 INVESTIGATIVE_SURVIVING (vs E35's 2). All 3 from non-default strategies (C, C, D). Distribution shift partial (0.36 vs target 0.5). KCD catches confirmed: R882, R895 first-attempts rejected via KCD; regenerated through Strategy D. AFL: R880 added to KCD; database 4 \u2192 5. v17 thesis empirically supported: generator-side intervention shifts which strategies produce INVESTIGATIVE_SURVIVING; PASS rate unchanged (acknowledged by Phase 1 diagnosis)."
+  },
+  "history_v17": [
+    {
+      "epoch": 36,
+      "action": "v17 policy state from E35 outcomes; introduce FOUR generator-side fixes: (A) Frontier Transcript Seed at logs/frontier_seeds.json with 9 primitives (Gao 3, Yu Sun 3, Foster 3); (B) Known Collision Database at logs/known_collisions.json bootstrapped with 4 entries (R279, R827, R855, 7-cluster); (C) Multi-Strategy Heavy-Tail at step 05 (A/B/C/D/E \u00d7 20 candidates); (D) Audit Feedback Loop post-epoch; schema bumped to 1.7. New verdict labels REJECTED_KNOWN_COLLISION and REJECTED_NO_FRONTIER_SEED.",
+      "timestamp": "2026-05-21T22:30:00Z"
+    },
+    {
+      "epoch": 36,
+      "action": "E36 outcomes: KCD pre-check at step 05.5 caught 2 first-attempt patterns (R882->KCD_R855, R895->KCD_7CLUSTER); both regen Strategy D, PASS. Strategy distribution selected 25: A=16, B=3, C=2, D=3, E=1; generator_distribution_shift_index=0.36 (partial). Frontier seed citation: 100% (all 25 cite); 9 distinct primitives used. Step 13 fired 5; step 13.5 post_attack_true 4; step 14 fired 4 INVESTIGATIVE pre-14.6; step 14.6 demoted 1 (R880 Strategy B, sim=0.72 vs arXiv 2503.11842) to EXTERNAL_COLLISION. 3 INVESTIGATIVE_SURVIVING post-14.6: R883 (C, TTT), R891 (C, heavy-tail entropic), R895 (D, polynomial-routing). corpus_unique_investigative_niches_after_external_check_E36 = 3 (vs E35's 2). Per-strategy attack-rebuttal-rate: A=n/a, B=0.5, C=1.0, D=1.0, E=n/a; diversity=3 strategies. AFL post-epoch: R880 appended to logs/known_collisions.json (db size 4 -> 5). Score_v17 = 77.55 (+14.98 vs v16's 62.57). p(no PASS|1%) at N=996 = 0.0000449.",
+      "timestamp": "2026-05-21T23:30:00Z"
     }
   ]
 }

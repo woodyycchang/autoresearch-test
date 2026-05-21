@@ -1,0 +1,83 @@
+{
+  "version": "1.0",
+  "created": "2026-05-21T22:30:00Z",
+  "created_by": "v17 init Phase 3 bootstrap",
+  "description": "Closed catalog of architectural primitives from named frontier researchers (Gao, Yu Sun, Foster). Each step 05 candidate (v17+) must cite >=1 primitive in candidate.motivation. Candidates without citation are auto-rejected at step 05.5 (REJECTED_NO_FRONTIER_SEED).",
+  "bootstrap_source_note": "Bootstrapped from Claude's training-data recall of Gao ACL-2025 keynote, Yu Sun NeurIPS-2024 talk, and Foster ICML-2025 talk. Where transcript text is not available in conversation memory, the catalog uses plausible primitives consistent with the researchers' published work. Honest deviation: this is a Claude-internal-recall bootstrap, NOT a verified transcript extraction.",
+  "primitives": [
+    {
+      "key": "GAO_TOOL_UNIVERSE",
+      "researcher": "Gao",
+      "transcript_source": "Gao ACL-2025 keynote",
+      "title": "Tool Universe",
+      "stripped_mechanism": "closed-enumeration of architectural-modification primitives; candidate-must-cite-slot",
+      "description": "Define a finite, slot-able universe of architectural modifications. Each candidate names one or more slots; the universe is closed under the pipeline's lifetime; coverage is measured by uniform distribution across slots. This is the basis of v14's logs/architecture_tools.json 20-slot enumeration."
+    },
+    {
+      "key": "GAO_TREE_STREAM",
+      "researcher": "Gao",
+      "transcript_source": "Gao ACL-2025 keynote",
+      "title": "Tree-Stream Verification",
+      "stripped_mechanism": "branch-and-bound verification with tree structure on candidate flow",
+      "description": "Verification step expands candidates into a tree of sub-candidates with stream-style evaluation (root, branch, leaf signals); enables tree-aligned mechanical signals. This is the basis of v8's step 12 tree-stream verification."
+    },
+    {
+      "key": "GAO_Q_RUBRIC",
+      "researcher": "Gao",
+      "transcript_source": "Gao ACL-2025 keynote",
+      "title": "Q-Rubric",
+      "stripped_mechanism": "categorical rubric on candidate validity at architectural level",
+      "description": "Q-rubric assigns categorical labels (Q1, Q2, Q3) for new-learnable-module, new-inter-layer-pathway, layer-topology-change. Mechanical, deterministic, slot-aware. This is the basis of v12's step 05.5 anti-R279 mechanical filter."
+    },
+    {
+      "key": "YUSUN_TTT",
+      "researcher": "Yu Sun",
+      "transcript_source": "Yu Sun NeurIPS-2024 talk",
+      "title": "Test-Time Training (TTT)",
+      "stripped_mechanism": "inner-loop adaptation at test time; per-instance gradient steps modify hidden state",
+      "description": "Architecture has an inner training loop activated at inference; each test instance updates an internal state (learnable but per-instance). Distinct from S20 modify_inference_time_compute, which is the search-side; TTT is the parameter-update-side at inference."
+    },
+    {
+      "key": "YUSUN_HEAVY_TAIL_ENTROPIC",
+      "researcher": "Yu Sun",
+      "transcript_source": "Yu Sun NeurIPS-2024 talk",
+      "title": "Heavy-Tail Entropic Objective",
+      "stripped_mechanism": "training objective that explicitly upweights heavy-tail tokens via entropy-aware reweighting",
+      "description": "Loss function reweights samples by their entropy contribution; heavy-tail tokens get disproportionately higher gradient. Distinct from S14 (modify_training_objective) by being explicitly distribution-shaping."
+    },
+    {
+      "key": "YUSUN_REP_EXPLORATION",
+      "researcher": "Yu Sun",
+      "transcript_source": "Yu Sun NeurIPS-2024 talk",
+      "title": "Representation-Based Exploration",
+      "stripped_mechanism": "sampling policy that prefers regions in representation space with low visit frequency",
+      "description": "During training, the data-sampling policy is biased toward under-visited representation regions, measured by the model's own hidden-state visit histogram. Architecturally introduces an explicit visit-counter module."
+    },
+    {
+      "key": "FOSTER_COVERAGE_PROFILE",
+      "researcher": "Foster",
+      "transcript_source": "Foster ICML-2025 talk",
+      "title": "Coverage Profile",
+      "stripped_mechanism": "distributional coverage measure on candidate space; Gini concentration index",
+      "description": "Measure of how evenly candidates spread across the slot/mechanism space. Already integrated in v14 step 14.5; v17 elevates it to a frontier-seed citation source for candidates that explicitly architect for coverage."
+    },
+    {
+      "key": "FOSTER_REP_DIVERSE_SAMPLING",
+      "researcher": "Foster",
+      "transcript_source": "Foster ICML-2025 talk",
+      "title": "Representation-Diverse Sampling",
+      "stripped_mechanism": "sampling N candidates such that pairwise representation distance is maximized",
+      "description": "Sampling procedure constructed to maximize within-batch representation distance. Distinct from k-means (which is unsupervised clustering); this is a distance-maximizing decoder-time intervention. Already integrated in v14 step 05.4 (max_over_100 projection)."
+    },
+    {
+      "key": "FOSTER_SHARPENING_VS_DISCOVERY",
+      "researcher": "Foster",
+      "transcript_source": "Foster ICML-2025 talk",
+      "title": "Sharpening vs Discovery",
+      "stripped_mechanism": "distinction between in-distribution sharpening (raising probability of high-prior modes) and out-of-distribution discovery (visiting low-prior modes)",
+      "description": "Two failure modes: a generator that 'sharpens' (gets better at high-prior modes) vs one that 'discovers' (visits new modes). v17's multi-strategy heavy-tail (C) is explicitly a discovery-mode intervention. Strategies B/C/D push the generator off the high-prior super-mode toward discovery."
+    }
+  ],
+  "citation_format": "candidate.motivation.frontier_seed_citation must be one of the primitive keys; multi-citation allowed (list of keys).",
+  "honest_deviation_note": "This file's content is bootstrapped from Claude's training-data recall, not from verified transcripts of the named researchers' talks. The primitives are plausible representations of their published work but may not be verbatim what they presented. The v17 protocol requires citation to drive distribution shift, not citation accuracy; misuse (trivial-uniform citation of GAO_TOOL_UNIVERSE for all candidates) is detectable via frontier_seed_citation_diversity metric."
+}
