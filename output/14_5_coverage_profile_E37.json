@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "epoch": 37,
+  "program": "v18 (program_v18.md) - v17 base + Swamy local-exploration upgrade",
+  "created": "2026-05-22T00:25:00Z",
+  "step_14_5_fired": true,
+  "epoch_level_distinct_slots_hit": 9,
+  "epoch_level_total_slot_assignments": 25,
+  "slot_distribution_25_selected": {
+    "S01": 0, "S02": 0, "S03": 1, "S04": 1, "S05": 0, "S06": 0, "S07": 1, "S08": 0, "S09": 0, "S10": 0,
+    "S11": 0, "S12": 0, "S13": 0, "S14": 3, "S15": 6, "S16": 10, "S17": 0, "S18": 0, "S19": 0, "S20": 3
+  },
+  "coverage_profile_gini_concentration_index": 0.45,
+  "coverage_profile_concentration_top_3_slot_share": 0.76,
+  "max_count_slot_id": "S16",
+  "max_count_slot_value": 10,
+  "undersaturated_slots_E37": ["S01", "S02", "S05", "S06", "S08", "S09", "S10", "S11", "S12", "S13", "S17", "S18", "S19"],
+  "saturated_slots_E37": ["S14", "S15", "S16", "S20"],
+  "v18_anchor_concentration_observation": "v18 anchor-local sampling intentionally concentrates on expert-manifold slots {S14, S15, S16, S20} (22 of 25 = 88% of selected_25). Plus 3 discovery candidates on S03, S04, S07. This is the v18 design: the empirical INVESTIGATIVE_SURVIVING manifold lives in these 4 slots; concentrating mass there is the entire upgrade. Coverage profile is NARROW by design.",
+  "policy_update_for_E38_bias_factor": 1.0,
+  "policy_update_for_E38_rationale": "v18 anchor-local candidates inherit slot from anchor. Coverage-bias does NOT apply to anchor-local mode. Discovery candidates (if any in E38) may use coverage-bias for slot selection. With 10 active anchors at end of E37, the per-anchor budget becomes 10; discovery may be squeezed to 0.",
+  "real_step_14_5_Agent_spawns": 0,
+  "main_context_direct": true
+}
