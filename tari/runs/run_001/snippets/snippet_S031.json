@@ -1,0 +1,9 @@
+{
+  "snippet_id": "S031",
+  "start_line": 312,
+  "end_line": 325,
+  "verbatim_text": "So what we're going to try to do is try to move this procedure from inside the language model to outside the language model. And we're going to use an external Bayesian model to update both the user state and remain coherent with it. OK, so on the right, we're no longer using a language model, but I'm going to keep things in relatively the same position so we can see how it maps between these two settings. So first, we're going to start by replacing the state tracking part with a Bayesian model, which takes the previous belief about the user and the current question answer pair and constructs a current belief about the user. So this maps onto the kind of blue lines we see on the top. Next, we're going to also replace question generation with a Bayesian question selection process that selects the next most informative question to ask. And this maps onto the green lines from the POMDP. So we're going to call this framework open. And formally, we use a Bayesian linear model of user preferences theta. So for example, given an article, we want to know how much the user would like this article. And suppose we have a featurization function phi that maps articles into how much different features are present. So suppose our features are tennis, basketball, and current events. So let's say this article is 0.0 tennis, 0.8 basketball, and 0.2 current events. Theta is a vector capturing user preferences over these features.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=So what we're going to try to ",
+  "sentence_count": 14,
+  "char_count": 1434
+}

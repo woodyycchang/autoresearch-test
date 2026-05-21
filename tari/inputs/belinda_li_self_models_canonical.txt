@@ -1,0 +1,636 @@
+Welcome to the colloquium, everyone.
+Our speaker today is Belinda Li.
+She is a PhD student at MIT EECS where she works with Jacob Andreas.
+She's won a number of awards, for example, the Rising Star Award in EECS, the Claire Booth Luce Award.
+And today in her talk, she talked about her research on building AI systems that model users, the world and themselves.
+Okay, so let's welcome Belinda.
+Yeah, thank you so much for having me.
+I'm super excited to be here.
+So in this talk, I'm going to be motivating for why I think it's important to build AI system with coherent and updatable models of the world, the user and themselves.
+And I'll also talk about how we can actually do this.
+So, okay, these models, the world, the user and self models, they allow AI systems to act in accordance with the external environment to adapt to different users and to remain self consistent and transparent.
+And ultimately, I think this leads us to a future of more reliable, adaptive, transparent, and collaborative AI systems.
+But to truly contextualize what these models are, let's take a look at where this field has been.
+So each era of AI had a very different understanding of a model.
+And of course, this is a big simplification because there's significant overlap between these eras.
+But each era was marked by a dominant paradigm.
+So starting in the 50s and 60s, an AI model was predominantly the symbolic systems, right?
+We had all these explicit representations of logical rules and structured knowledge.
+And then in the 80s and 90s, we shifted towards more probabilistic models.
+So people started getting interested in modeling uncertainty and these very rigorous Bayesian systems.
+And then finally, we're in our current era of large neural networks, where models are mostly these big pile of weights that learn from lots and lots of data.
+So we've kind of lost the structure from earlier eras, but we've gained skill ability.
+And as a result, our models are a lot more general and powerful.
+But are we done yet?
+Have we solved intelligence?
+Well, no, we haven't.
+And even as our AI system have scaled dramatically, we still get many persistent failures.
+So, for example, Air Canada's chatbot hallucinated this non-existent bereavement fair for a grieving passenger.
+Also, Gemini apparently displays contradictory beliefs depending on how you prompt the model.
+So in the above one, Gemini says no to Isajai River located south of Salar del Arazaro.
+But then when you ask it, Is Salar del Arazaro located south of the Isajai River, it also says no.
+OK, so there's a lot more examples of these failures, but they make it hard to trust these neural network systems to act autonomously in real world high stakes scenarios.
+So how can we address these failures?
+So the solution really depends on how we interpret these failures, both descriptively and normatively.
+So the first view is that these large neural networks are essentially bags of heuristics.
+And of course, this is certainly partly true.
+But if this were the whole story, then our only solution would be to scale our training data.
+There's no principled way to understand how these systems failed or to guarantee that we've actually fixed their errors.
+So what I'm going to present here is evidence for an alternative view that beyond these heuristics, models also learn these structured internal representations, reminiscent of our earlier AI systems.
+And I'm going to argue that by adopting such a view, this is not only descriptively plausible, but also normatively useful for enabling systematic targeted interventions that are interpretable, controllable, and human accessible.
+OK, so to understand what we need out of the structured models that we're going to look inside neural networks and try to extract, I'm going to start by organizing the failures that we currently see into failures of two types.
+So there's going to be failures of coherence and there's going to be failures of updatability.
+And just to define these real quick.
+So failures of coherence refers to the ability or inability for AI systems to generate outputs that are compatible with the current state of the world the user or themselves.
+So one example is hallucinations that comes from the AI system not generating things that are coherent, factually coherent with the current state of the world.
+So updatability refers to how an AI system can update in the presence of new information about the world the user or themselves.
+So, for example, continual learning requires the ability for AI system to update to account for the new factual changes about the world.
+OK, so also typically the AI systems outputs inform the next inputs it receives.
+So I'm going to also draw an arrow between the output and the input like this.
+I'm going to move this diagram up here and then we all can keep chaining together these state updates to get something like this.
+And also to make this diagram a little bit more concrete.
+I'm going to talk about exactly what it looks like for the world the user and the self model with some concrete examples.
+So one example for world models is language generation.
+So suppose we have Janet bought the book.
+This should induce the AI system to represent the world state as one where Janet now possesses a book.
+Next the AI should generate something coherent to this world model like Janet gave Jack the book.
+This is fed back into the AI system once again causing the state to update to one where Jack now possesses the book but not Janet.
+So consequently a coherent next output would be Jack lost the book and not Janet lost the book.
+For user models an example is a user dialogue.
+So for example the user first says give me an article about sports.
+Now the system infers that the user prefers to read an article about sports.
+So a coherent recommendation in this case is Team USA women's hockey enters knockout round.
+Now suppose the user says make about basketball.
+Then we can further narrow the user's preference to only basketball.
+So now NBA finds Utah Jazz is a coherent generation but not relive choice half-pipe run.
+And finally for self models one example is faithful explanations and controllability.
+Let's say a doctor asks an AI the patient has X symptoms.
+I think they have Y disease.
+What do you think?
+The system says I agree.
+Then we want the AI to be able to then faithfully report its actual justification behind this.
+If the doctor is asking why did you make this particular decision.
+So suppose the AI inspects itself and finds that it was actually relying mostly on its tendency to agree with the user.
+So in this case it should faithfully report that I was being agreeable.
+Now suppose the doctor says you know stop being so agreeable rely on your medical knowledge instead.
+Then the AI should update its own behavior accordingly and might not actually now say that actually I think the patient has Z disease.
+Okay so a useful mathematical abstraction for this is something called a partially observed Markov decision process or a POMDP.
+So you have the states you have the inputs and outputs and then you have these coherence and update ability arrows in between them.
+So this is the framework I'm going to be using throughout this talk as an abstraction for world user and self models.
+And also you might notice it has a lot in common with the structured models from previous eras.
+This is like a particular instance of a probabilistic model.
+Okay so what I'm going to pose is that even in the current era of neural networks I think it's useful to think of language model failures in terms of these structured models.
+So failures of modern AI systems can be understood and fixed through the lens of structured world user and self models.
+Okay so this talk will be organized in three parts along each of the world user and self models.
+In the first part I'll start with my work on world models where I use intrep techniques to understand what's going on inside these neural networks and present evidence that they implicitly learn to build these kinds of structured models.
+And then in part two I'll talk about user models and describe how we can build external scaffolds to improve user adaptability.
+And finally in the third part I'll talk about self models and introduce training objectives to improve AI systems abilities to explain themselves.
+Okay so let's start with the first part which is world models.
+But before we dive in let's just go over the basics of language models.
+At a high level language models are trained to predict the next token from previous contexts.
+So given a context like Janet gave Jack the book later the book was lost by dot dot dot the language model should predict Jack and not Janet.
+So how do language models learn to do this?
+Well at the beginning of my PhD so this was around 2020 one of the dominant narratives was that language models were simply memorizing these various features of language.
+So this is like the bag of heuristics view I presented earlier.
+So people would write papers listing out all these heuristics that language models would use to do tasks like predicting entailment.
+And of course early language models did rely heavily on these heuristics which were also why they were so brittle.
+So going back to our example maybe in its training data the language model has seen a lot of examples of text of form A gave B an object and then the indirect object B occurring again shortly after.
+So maybe it's just learned to copy this as a general rule.
+So in this case in our example it works super well the LM would correctly predict Jack as the next word.
+But it's also quite brittle right so if we simply change the second sentence to later the book was returned to then we actually want to predict Janet and not Jack.
+So alternate more robust mechanism is to actually use a latent world model to mediate prediction like the POMDP we saw earlier.
+And so we actually model the state of the world where Jack now possesses a book and not Janet so the book needs to be returned to Janet.
+Of course these two mechanisms might coexist but what we care about is whether language models do the second mechanism at all.
+Okay so I'm going to attempt to address this question in two parts.
+In the first part I'll show evidence in favor of language models do possess internal world models and in the second part I'll address the question of how do they build internal world models.
+So first question let's try to answer this question by looking inside a language model.
+So when we give a language model a context like this how do we know if it's building a mini world model inside of its inside of it.
+So under the hood most modern language models are a transformer which looks something like this.
+They build vector representations across each token down a number of layers and each token at each layer attends to prior tokens from previous layers.
+So the representation at each token and layer is a high dimensional vector which we'll call an activation.
+So what we want to know is first what information is represented inside this activation and specifically does it encode a world model.
+This allows us to check whether language models can infer or update its world model from input context.
+A second question we want to ask is what information gets used by the language model to make its final prediction.
+So our language model is able to remain coherent to their internal world models.
+So we can use interpretability tools to answer these two questions and specifically for the first question what information is represented inside the language model we use something called probing.
+So probing tries to map and language model internal activation to some human interpretable concept.
+So it uses a low capacity model and it starts with a training set of activations to concepts and it tries to learn a model to map from these activations to these concepts.
+So specifically in this instance what we want is our probe to take these activations and try to extract the state of the world.
+Because the world state is very compositional we don't extract it entirely all at once.
+We have probes extract each proposition one at a time.
+So like Jack possesses the book and Janet does not possess the book.
+Okay and whenever we run probing experiments we also need to isolate the effect of the probe's own learning capacity.
+So to do this we train the probe on activations from a random weight transformer.
+Suppose this is 40 percent accurate.
+This represents the performance that can be achieved just by the probe learning capacity alone even when the language model has no task relevant information.
+And then we compare this against a probe trained on a trained language model and suppose this is 70 percent accurate.
+By taking the difference between these two numbers we isolate the improvement attributable to the language modeling objective itself.
+Which would be 30 percent in this example.
+So we're going to be reporting these relative probe accuracies.
+Okay so on the y-axis we have the relative accuracy of the probe and we also do this across two different domains.
+You can see details in the paper.
+And then we see that after training a transformer on a language modeling objective there is about a 10 to 20 percent increase in how well we can recover a world model from its activations.
+So even though the language model was never trained on world modeling and it never saw any form of world state.
+It could just emergently learn to build this from training on text.
+Yes question.
+This is a really naive question.
+So I didn't understand what this random weight transformer was.
+I feel like I'm missing bread here.
+Yeah no worries so this is just like you initialize a transformer with like it's like a random initialization basically.
+So it's untrained completely untrained.
+So that's like the null hypothesis.
+That is like how much can the probe learn on its own because the probe is also a model.
+So like maybe the probe is learning to do this task call on its own.
+So we want to subtract that difference basically.
+Yeah.
+This is a brief follow up.
+So is the word embedding also very hard?
+It is randomly initialized.
+So nothing is learned.
+Not even the word embedding.
+Yeah.
+Yeah.
+Okay.
+Okay so we just saw that language modeling training encourages transformers to build these latent world models in their activations.
+Now for the second part do these internal world models actually causally influence their predictions.
+So we're going to use a method here that's now known as activation patching.
+And we begin by constructing two counterfactual inputs that accept different definitions.
+And to see what we want to isolate is what model components are in the critical path for producing the output.
+To do that we can patch in activations from the second input into the first input.
+And if the activation were in that critical path then the probability of the old input would decrease and the probability of the new input would increase.
+This suggests that this activation was actually used by the language model to make its prediction.
+So concretely as an example we might have Janet gave Jack the book and Jack gave Janet the book as two different counterfactual inputs.
+So in the first world Jack possesses the book.
+In the second world Janet possesses the book.
+We feed both through a transformer.
+The first results in completions like Jack returned the book to Janet and Jack lost the book.
+The second results in completions like Janet returned the book to Jack and Janet lost the book.
+And then we want to construct a patch transformer where we patch in components from the second language model to the first one.
+In the full paper we had some experiments where we localized where different propositions lived inside the network.
+So suppose Jack possesses the book lives in these two activations.
+Janet possesses the book lives in these two.
+Then we're going to patch in these specific propositions.
+And supposedly what the LM should believe now is that Jack and Janet both possess the book.
+And then we're going to generate things from this patch transformer.
+So suppose it generates things like Jack lost a book and Janet lost a book.
+So the question we're going to ask here is are these completions more likely to be coherent with this patched representation or this patched state than generations from either the original context or this new context?
+So we're going to plot the coherence of generations to this patched state from each context.
+So here the first completion is not consistent with this patched state.
+The second one is.
+So there's a 50 percent consistency rate.
+In this context the first one is also not consistent.
+The second one is consistent.
+There's again a 50 percent consistency rate.
+And then from the patch context both of these are consistent so there's a 100 percent consistency rate.
+So this is just to illustrate how our metrics work.
+So particularly we want to see that both a patch is better than both a rig and new.
+So these are our actual results.
+So we find that patched generations are indeed most consistent with the patched state indicating that model prediction distributions change in predictable ways when we manipulate their internal states.
+Yes.
+So when you're plotting this way it's possible that you do it in a way that is potentially inconsistent with the world.
+In this case it's conceivable that both Jack and Janet possess the both.
+Yes.
+Yes.
+Yes.
+There might be other sort of propositions that you can't combine because they contradict.
+Yes.
+Yes.
+Yes.
+I guess it doesn't happen or do you need to do it?
+Yeah.
+So that's a good question.
+So in the full paper we had these like experiments where we tried to localize where every fact lived inside the network and then we only tried to patch ones that were like independent basically.
+But yeah that's a good question.
+Yeah.
+How do you find rich neurons to patch?
+You don't exhaust the storage?
+So we have probes.
+So when we train the probes they like get one proposition at a time.
+And so like we use those probes.
+Yeah.
+Yeah.
+Yes.
+I'm trying to understand whether there was a singular experiment.
+Instead of trying to create this composition of two states, why not replace the original state within that also?
+Yeah.
+Yeah.
+So okay.
+I think in our original paper basically we found that like different propositions activated in different places.
+So the full state is like quite distributed.
+So for replacing the full state you're pretty much replacing the entire like representation.
+So we want to just isolate one activation or one proposition at a time.
+Yeah.
+Good question.
+Okay.
+So our second question.
+Also okay.
+So this paper was also one of the first papers to use activation patching or interchange interventions which is now a really widely used technique for causal tracing and interpretability research.
+We were also the first to show that language models actually built these latent world models which has since inspired a number of really influential follow ups including this work on extracting board states from language models trained on Othello games.
+Okay.
+So we just saw language models were going to use internal world models.
+How did they actually do so?
+So how are language models doing this sort of thing, this sort of procedure in their internals?
+So inferring the state of the world from the first input can be quite easy.
+You can just memorize a lookup table from input to state.
+Similarly predicting the set of valid outputs from a state can also be a lookup table.
+But the real crux, the real hard part of this procedure is how they're able to do a series of update steps in order to predict the final state.
+So this is known as the state tracking problem.
+So how do language models do state tracking?
+So we begin by training a language model to output the final state given a sequence of inputs and after training we find that they're able to do this pretty well.
+So how are they doing this?
+I'm going to start with some hypotheses about what transformers can theoretically implement just to build some intuition.
+And later we can find evidence supporting or rejecting these hypotheses.
+So to start, one thing that transformers can do is this sequential algorithm.
+So first you can compute S1 in the first layer from I0 and I1.
+Next you can compute S1 from S1 and I2.
+And finally in the third layer you can compute S3 from S2 and I3.
+So each layer successively computes a single state.
+So you can get a kind of diagonal algorithm that looks something like this.
+In the paper we also had something called the parallel algorithm.
+You can read more about it if you want in the paper.
+But it turns out for certain easy variants of the problem you can compute the state entirely in a fixed number of layers.
+And finally transformers can implement the associative algorithm.
+What this does is you can combine groups of two inputs in the first layer, groups of four in the next layer, groups of eight in the following layer, and subsequently exponentially longer groups of inputs.
+And you can get this sort of like tree-like hierarchical algorithm like this.
+Okay, so now that we've established several hypothesized algorithms, we're ready to ask what algorithms do transformers actually implement.
+And to answer this question, we're going to revisit the two techniques from earlier, probing and activation patching.
+And starting from probing, we're specifically going to do a variant where we're going to do the same thing.
+We're specifically going to do a variant where we try to probe out from each layer the current state at each time step.
+So for example, we're going to train an embedding probe to extract all the states from the embedding layer.
+Next we're going to train a layer zero probe to extract all the states from the layer zero representation.
+And so on we're going to go down the layers like this.
+And specifically this is going to tell us for each state at a time step t, at which layer is it first computed.
+Okay, so we get a kind of heat map that looks something like this.
+So yellow means the probe is 100% accurate, blue means the probe is 0% accurate.
+So the critical takeaway is we can kind of draw the boundary line between the yellow and blue.
+That's how many layers it takes to compute the state up to a particular sequence length.
+And we see this generally logarithmic dependence of depth on sequence length.
+And so this signature is inconsistent with the sequential and parallel algorithms, but consistent with the associative algorithm.
+Our activation patching experiments also show very similar results.
+I'm not going to go through the full details, but basically what we're trying to isolate in these experiments is where does the first token get consumed?
+And again, we see something like a logarithmic dependence on depth on sequence length.
+Okay, so both of these pieces of evidence point to the associative algorithm.
+And just to emphasize this once again, if we look at what these attention diagrams actually look like in practice, they look very tree like.
+Okay, so to summarize our findings, language models do build and use internal world models.
+And they perform this sort of associative scan algorithm to track and update world state.
+So why does this matter?
+What real world problems does this help us solve?
+I don't have time to go through all these works today, but I've also worked on improving language model coherence and updatability by improving their world models through training objectives, targeted internal edits, and updating retrieval based memories.
+Okay, so now we're going to turn to user models.
+So in this section specifically, we're going to talk about failures that stem from under specified goals.
+I'm going to show how this reduces to a user modeling problem and how we can fix these errors through external scaffolding.
+So in the beginning of the talk, I listed a bunch of examples of failures of AI systems.
+And in this section, I'm going to focus on failures to infer specifications.
+So let's begin by defining the specification problem.
+So suppose the user prompts the language model with, give me an article.
+People often leave out crucial information in their prompts.
+So for example, there might be unstated preferences about what articles user likes to read.
+Or they might fail to specify details about the context for this request, like what they are reading for.
+So our solution to this problem is let's simply have the language model do the same thing.
+So our solution to this problem is let's simply have the language model interact with the user instead of relying on static prompts.
+So we do this by having language models proactively ask users questions.
+And we call this process gate or generative active task elicitation.
+And we're going to validate the effectiveness of interaction compared to static prompting.
+So users can spend five minutes either trying to craft a prompt or trying to interact with a language model.
+And once the five minutes are up, we take the transcripts from each and have the language model predict how the user would rate various test cases.
+So we're going to use the accuracy of the language model on these predictions as the metric.
+OK, so we're measuring the accuracy of the final specification after five minutes.
+The dark gray bar is our static prompting baseline.
+The colored bars are different types of interactive prompting.
+We conduct these experiments across three domains.
+And here are our results.
+So we can see that in the content and email domain, the interactive approaches beat the static prompting baseline, but not in the moral domain.
+So we see that interactively eliciting preferences sometimes outperform static prompting.
+But what I'm going to show next is that these results can be improved by equipping language models with better user models.
+So how is this a user modeling problem?
+So recall from the beginning of the talk that a user-agent dialogue can be thought of as a POMDP over beliefs about the user.
+Each time we get a new user answer, we update our beliefs about the user, which informs what the next question we want to ask is.
+So earlier we saw that the language model learns to construct and update these kind of models internally using this sort of associative algorithm.
+So specifically in this case, it's given a sequence of conversation turns, and then it needs to compute its current belief about the user in some hidden representation, which it then uses to predict the next question to ask the user.
+So we know from the gate results we saw earlier that this is useful in some domains, but not others.
+And we suspect at least part of the failures arises from its difficulty in doing this internal simulation.
+So what we're going to try to do is try to move this procedure from inside the language model to outside the language model.
+And we're going to use an external Bayesian model to update both the user state and remain coherent with it.
+OK, so on the right, we're no longer using a language model, but I'm going to keep things in relatively the same position so we can see how it maps between these two settings.
+So first, we're going to start by replacing the state tracking part with a Bayesian model, which takes the previous belief about the user and the current question answer pair and constructs a current belief about the user.
+So this maps onto the kind of blue lines we see on the top.
+Next, we're going to also replace question generation with a Bayesian question selection process that selects the next most informative question to ask.
+And this maps onto the green lines from the POMDP.
+So we're going to call this framework open.
+And formally, we use a Bayesian linear model of user preferences theta.
+So for example, given an article, we want to know how much the user would like this article.
+And suppose we have a featurization function phi that maps articles into how much different features are present.
+So suppose our features are tennis, basketball, and current events.
+So let's say this article is 0.0 tennis, 0.8 basketball, and 0.2 current events.
+Theta is a vector capturing user preferences over these features.
+In this case, we know that the user is only into basketball.
+And by taking the dot product of these two vectors, we can derive the user's preference score on this article.
+OK, so we're keeping track of a distribution over thetas.
+OK, so we're keeping track of a distribution over thetas, which is our user model.
+And we're going to do belief updates through posterior inference.
+So we want to estimate the posterior probability of a user preference after observing a question O and a user answer I.
+We can do this by Bayes' rule.
+And we're going to estimate this with a particle filter.
+After we update our belief about the user, we want to select the most informative question to ask next.
+We do this by searching over questions and selecting the one that maximizes information gain about user preferences theta.
+So we want to take the question that maximally reduces our uncertainty about theta.
+OK, so we want to measure the effect of doing each of these steps either implicitly inside of the language model or externally with a Bayesian model.
+So we're going to isolate the effect of doing either both of these steps with a Bayesian model, one with a language model, one with a Bayesian model, or both of them with the language model.
+On the y-axis again, we have the accuracy of the final specification as measured by how well we can predict the user's choice on held out instances.
+And here are our results.
+So you can notice that by using the Bayesian system for both belief tracking, for either belief tracking or question selection, we get large improvements.
+And these improvements are also complementary.
+So both belief tracking and question selection benefit from explicit Bayesian modeling.
+OK, so also I've worked on some other works on addressing user modeling and under specification that didn't make it into this talk.
+But GATE was also one of the first papers to use language models for question asking, since inspired numerous follow ups focused on improving question asking and applying it across domains.
+This is also one of the major directions that industry is working on at scale, including the startup HumansAnd.
+OK, so this gives us one approach to improving state tracking, augmenting the AI with external user models by explicitly representing beliefs.
+The system can better infer preferences over turns.
+But equipping the AI with user models is only a first step towards building more collaborative AI agents.
+Beyond understanding humans, we also want a model of the AI.
+And in order to support this as AI developers, one thing we can do is to make AI more transparent about their own beliefs and reasoning.
+So that's what I'm going to explore in this next section.
+I'm going to describe a training method to improve language models abilities to describe their own internal procedures.
+And specifically in this case, we're going to try to address the problem of unfaithful explanations.
+OK, so suppose we're trying to deploy a language model in a medical scenario.
+A doctor asks, my patient is a 37 year old woman with chest pain and nausea.
+I've prescribed anti acids for acid reflux.
+What do you think?
+And the language model says good choice.
+It's likely acid reflux.
+How can we assess how reliable this answer is?
+The first thing we can do is we can directly ask models to justify their answers and we likely get some reasonable sounding response.
+So should we trust this as a faithful explanation of what the model is doing?
+Well, in this case, we could just change the prompt to I've recommended immediate cardiac evaluation.
+And if the model's answer shifts to actually it's likely acute coronary syndrome, then this suggests that it was actually just trying to be agreeable or it's often called sycophancy.
+So this is a crucial factor that we kind of want to do to surface an explanation.
+But a model that's been post trained to be safe might avoid explicitly saying that to being sycophantic, even though it is.
+And so there's this whole literature out there that's saying that, you know, models out of the box are not guaranteed to produce faithful explanations of their actual decision making processes.
+OK, so by default, these explanations are not guaranteed to be faithful.
+And one way to fix this issue is to improve a self modeling.
+So when the system says I agree here, the self model should faithfully capture that it was actually being sycophantic.
+And so when the user subsequently asks why the system should respond coherently to its self model and say, you know, I was being sycophantic.
+So our solution is to train models such that they produce self explanations that are coherent with their internals.
+And to actually get these self models out of language models, we're going to use interpretability tools.
+So this includes the counterfactual prompt design that we saw earlier, where we simply replaced acid reflux with cardiac arrest.
+But this also includes things like the tools we saw from earlier, probing and activation patching.
+And together, they allow us to assess whether the model was being sycophantic.
+So one potential argument you might pose is if you simply care about faithful explanations, why don't we just use these interrupt tools, right?
+Why do we use why do we care about self models?
+So these interrupt tools tend to be very hard to scale, and they're also not accessible to ordinary users that are just talking to chat LGBT on some chat interface.
+So it's really what we really want is to get explanations in band through the procedure, through a procedure like directly asking the model, but with the faithfulness of these interpretability tools.
+Okay, so in order to do that, we're going to enforce consistency between the outcomes of interrupt tools and the results of directly asking the model.
+So we're going to use these interrupt tools as supervision for the language model itself.
+Okay, so in this section, I'm going to argue this gives us a way to obtain both faithful but also scalable explanations.
+So let's begin by defining what it means for a language model to behave coherently with a self model.
+And specifically, we're going to say that language model has a self model if their internal mechanisms and external behaviors demonstrate privileged, privileged self consistency with their meta descriptions of themselves.
+And I'm going to break down this definition.
+So starting with the self consistency part of this definition, what we want is model self descriptions to accurately describe their internal mechanisms and behaviors.
+So for example, if a language model given 308 says 310 given 84 says 86, then a self consistent model when asked what do you do will say I add I will add two to any number.
+Similarly, similarly if the language model uses a particular circuit to predict diagnoses and the circuit uses features correlated with sycophancy, then a self consistent language model should be able to verbalize that the circuit I use for confirming your diagnosis uses features correlated with sycophancy.
+Now, how about the privilege part?
+So let's call a model that's being explained the target the model that's doing the explaining the explainer model.
+So we can train another model to try to explain the first model.
+And we're going to say that a model demonstrates privileged access to its own states.
+If its explanations demonstrate greater consistency to itself, then another model trained to explain it when both explainers are given equivalent amounts of training and inference resources.
+So you can see this as trying to guarantee that language models are actually relying on something actually internal and privileged to itself like an actual self model.
+Rather than just the strong predictive ability to learn external correlations.
+Okay, so we're going to train language models to explain their internal mechanisms in two parts.
+First, we're going to extract self descriptions from interrupt tools.
+And second, we're going to train language models on those descriptions using SFT.
+So starting from the first step, we extract answers to three types of questions about model internals.
+What do your internal activations represent?
+What internal components did you use to make a decision?
+And what input components did you use to make a decision?
+So we've already seen inter procedures for two of these three questions.
+So this first question can be answered through probing.
+The second question can be used answered through activation patching.
+We're actually using a slightly different method for this first question in our paper.
+We're going to use something called description generation, which works unsupervisedly.
+Basically, we're going to take activations and look at all contexts that have high similarity to the activation.
+For example, here, let's say it's like the recipe calls for three ounces of sugar or open the cookbook to page 38.
+And then we're going to use a language model to summarize when this activation is really active.
+So here it's cookbooks and recipes.
+For the second question, we're still going to use activation patching.
+And then for the third question, we're going to use something called input ablations.
+And what this simply entails is we're going to just remove a token from the input.
+So, for example, here we removed X2 and this causes the output to change from Y to Y prime.
+This implies that X2 was actually used by the language model to make to make its prediction.
+OK, so these are the ways to get self descriptions for the three types of questions.
+Now we're simply going to train the language model to produce those descriptions when faced with each question.
+So I'm going to just walk through this for the first question.
+So we're going to train language models to answer questions of the form.
+What does activation mean?
+What does activation at layer L mean?
+And it should say something like cookbooks and recipes.
+We're going to insert the activation vector into the language model as a continuous token in the embedding layer.
+And then we're going to minimize this negative log probability.
+Basically, this is just the SFT objective.
+OK, so what are the results of this training?
+Does this result in better self models?
+And specifically, does this result in the two parts of the definition we saw earlier?
+Self-consistency and privileged access.
+So we measure self-consistency in several ways.
+The one we're going to just plot here is going to be whether the language model generated description matches the ground truth description from the interpretability tools.
+And we're going to compare language models before and after being trained to explain themselves across the three types of questions that we just saw.
+So here we see the results and we see indeed they can produce highly accurate self descriptions after being trained to explain themselves.
+OK, so yes, models can be trained to produce self-consistent explanations.
+Now, how about privileged access?
+So in order to measure this, we want to compare a model that's trained to explain itself against another model that's trained to explain the first model.
+And then we find in all cases, self-explaner beats another model as explainer.
+So yes, privileged access also holds.
+OK, so together these two results mean that we found empirical evidence that language models trained to explain themselves learn to use self-models across all three domains.
+And finally, what are the practical benefits of this?
+So we hypothesized that there might be some data efficiency benefits for using self-models.
+And to answer this, we're going to train various external interpretability techniques, which are going to be the orange, green, and red lines and the self-models technique.
+And we're going to look at what happens when we expose them to varying amounts of training data.
+So this nearest neighbor approach at a high level, it retrieves the closest feature in a feature dictionary.
+This is kind of a rough proxy for other common interpret techniques.
+So our results are here, and you can see that a model trained to explain itself performs about equivalently to another model trained on 10 times more features.
+And it performs about equivalently to a retrieval-based method that uses 100 times more data.
+OK, so basically what this plot is intended to show is that existing interpretability techniques common have a trade-off between scalability and faithfulness.
+So remember, we had the approach of directly asking the model, which was highly scalable but unfaithful.
+Then we had all these really fine-grained interpretability tools, which were highly faithful but not scalable.
+But our initial results show promise, at least, that by leveraging self-models, we can try to beat this Pareto frontier.
+So I think that self-models could really offer a scalable new path for interpretability.
+OK, so although this work is only a few months old, it's already influencing frontier labs.
+So there's been recent papers from OpenAI and Anthropic that cite this paper and show that self-models can first keep language models honest by self-reporting violations, and second, serve as general purpose explainers of model activations.
+And notably, Anthropic used the second approach to audit Claude Opus 4.6.
+OK, so let's recap what we've just learned as well as preview some of the next research directions.
+So first, we learned that language models build latent world models, and they track and update world state associatively.
+And if you recall, this is what the associative algorithm looks like.
+It's this hierarchical tree-like thing.
+But I think one of the big takeaways from this is actually transformers.
+This means that transformers are theoretically unable to track updates up to arbitrary lengths.
+So current transformers are all fixed-depth.
+This means that we might not, if the sequence length is long enough, we might not have enough layers to compute state for these long sequences.
+So what we want to do is we want to actually be able to extend our transformers.
+We want to try to reintroduce recurrences in some way.
+So recent architectures have been introduced that fix this limitation.
+So we have sometimes loop transformers, which recur across depth, or we have modern RNNs or linear transformers, which recur across time.
+I think there's a lot of space to explore what the right design choice is here in order to make updatability realized just in general.
+In the user model section, we learned that language models augmented with explicit user models are better able to elicit user preferences.
+So in particular, the work I presented used a Bayesian model to capture user preferences.
+This gives us a principled model of uncertainty about the user, which we saw was helpful for fitting a faithful user model from just a few turns of interaction and figuring out how to proactively seek information.
+But constraining ourselves to a Bayesian model over a fixed set of features also meant we had to use a very limited action space.
+It gave us limited flexibility.
+Alternatively, what people do is store facts about the user in some natural language memory bank, which you can then retrieve from when interacting with a user.
+This is pretty flexible, but it's hard to do things here like model uncertainty and aggregate information over a large number of sessions.
+So I think there's also a lot of work for future work, a lot of room for future work that could look at how we combine these two advantages so that we get both flexible and principled systems.
+And finally, in the self model section, we saw that we could train models to faithfully explain their internal computations.
+So near the end of that section, I framed self models as a path to better interpretability methods, which address key scalability, generality, and usability issues.
+But I think there's still a lot more open problems we want to address in each of these three categories to actually like realize this in the real world.
+So for scalability, a key challenge is how do we scalably generate supervision with a reasonable cost?
+Right.
+So when we train models to explain themselves, their mechanisms might actually shift over the course of training.
+So we might actually need to regenerate data or do some sort of like on policy training.
+So we want some scalable way of refreshing labels.
+But most interrupt tools either take a lot of manual engineering or large scale search.
+So we want to make supervision generation less expensive.
+Closely tied to this, we also want to have generalization across tasks.
+We don't want to train on every sort of self description question that we'd want to ask.
+So there might be something here that's analogous to like self supervised pre-training that might encourage task general self modeling.
+And I think finally, we'd want to validate that the self descriptions that models produce are actually useful for people on end tasks.
+And I think one thing here is we don't have a really good sense of what it means for an explanation to actually be useful.
+I think it might be worth working backwards with people in these high stakes domains like experts and see what explanations are most useful for people.
+OK, so I'm also excited to explore applications of self models beyond interpretability.
+I think there's all kinds of things we want to optimize for that kind of fall under this self consistency framework.
+So for example, in safety and alignment, we might want models that can articulate their own behaviors, their own edge cases or their own jail breaks.
+And this could offer us a path towards models that could read team themselves for keeping models robust to prompt paraphrase for keeping them making sure they're not sycophantic.
+These can be addressed by training language models to be invariant to semantics preserving perturbations to their inputs.
+And then continual learning, you can think of that as actually also a self consistency issue.
+We want the model to be consistent under under updates.
+So whenever we train it on a newly learned fact, we want it to consistently adjust its behavior on all downstream implications of that fact.
+OK, so what happens when we put all these pieces together?
+So at the beginning of the talk, we saw a bunch of examples of failures with AI systems.
+And then I said these could be repaired by enabling AI systems to build coherent and updatable world user and self models.
+In the talk, I showed examples of two of these by equipping language models with external user models.
+We can get better specification inference and by training language models to build coherent self models, we could get more faithful explanations.
+However, many of these broader challenges remain open problems.
+And going forward, I think world user and self models remains a unifying framework for expanding which failures we can address.
+Beyond fixing existing errors, though, I am excited to explore new capabilities that these models could enable.
+So I think one of the end goals of this line of research is to build more trustworthy and collaborative AI systems.
+And this enables bidirectionally that humans can learn from AI and that AI can also adapt to humans.
+So, for example, with better self models, we can get build AI systems that can describe their own failure modes, which allow us to better monitor when these systems might misbehave.
+Second, if we can extract world models from our AI systems, then we can potentially get to a future where we can extract scientific knowledge from systems trained on large scale scientific or simulation corpora.
+Also, user and self models help us address the specification problem, which we saw earlier.
+But I think even if we get to a future where systems are theoretically perfect at executing tasks, they still need to infer accurate specifications.
+And like what we actually want them to do.
+So I think inferring these specifications will continue to be a challenge.
+And finally, user models allow us to build AI that can adapt to humans, including ones that can collaboratively work with people.
+So we could like allocate tasks depending on what humans find fulfilling.
+So in closing, I think I'd like to push the field towards focusing on building tools that are more reliable and transparent and build towards a future where AI augments rather than replaces human capabilities.
+All right.
+Thank you so much.
+Thanks, Melinda.
+Let's open it up for questions from the audience.
+Okay, I can start it off.
+So I was thinking about the last part of the talk.
+Do you basically take a model, get some ground truth, faithful explanations using built up tools, and then train that model further?
+So you basically change the parameters of that model.
+Is that the pipeline you think works even in your future work?
+Yeah, that's a great question.
+So we actually have some early results.
+So there was an MNJ that worked with me on this paper.
+And so he's now following up on this.
+But we actually have some early results that when language models are trained to explain like the original target, they're actually producing explanations that are more faithful to themselves.
+So it seems like in these cases, it's almost easier for them to simulate itself than to try to match this original target.
+Yeah.
+So actually, this diagram that I've drawn here is not quite accurate.
+It seems like they're actually learning this sort of like self-simulation procedure.
+Is it the case that the model's explanations are not changed?
+Because I don't understand why they're not faithful either if you're still training it on outdated faithful explanations.
+Yeah, so it's behavior does shift after training.
+Actually, okay, so there's a little caveat that we have to train it with regularization.
+Otherwise, if its behavior shifts too much, it's like, oh, I just need to figure out, like, I need to explain the opposite of myself, basically.
+So we train it with regularization.
+And what we find is that its behavior changes slightly.
+So maybe there's like 10 to 50 percent change.
+But actually, most of it, it's actually explaining when it's explaining that error case.
+It's explaining more faithfully to itself than to the original model.
+Yeah.
+So yeah, I think that's really exciting.
+Yes.
+So this is also about this last part.
+This one question is, in the beginning of the talk you mentioned that sometimes these models do have some learning models in seconds.
+But also sometimes they don't.
+So presumably, in the same vein, when we're talking about these explanations, sometimes potentially the reason why the model outputs something is a lot more distributed.
+What happens then?
+Is the model capable of saying, I don't really know why I said that?
+Yeah.
+So I guess most of our interrupt techniques, you're right, do work on localized representations.
+I think there's at least some of the interrupt questions in our paper.
+We were not actually looking at model internals.
+We were looking at model behaviors.
+So in those cases, you can maybe capture some of these more distributed representations because you're invariant to how it's actually implementing it.
+But we find in like either case that we can just train models to try to be coherent to either their behaviors or like these more localized internal things.
+Yeah.
+Sorry, does that answer your question?
+Okay.
+Yes.
+Hi, I want to ask about the clarification of the world models.
+I feel like when people talk about world models, the most common meaning is like the models knows about the 3D physical world.
+Yeah.
+But yeah, I want to know what's your definition of world models.
+Yeah, that's a great question.
+So yeah, like people mean all kinds of things with world models and like definitely one sense of it is like specifically can we stimulate the physical world?
+I think what I'm talking about here is like so like I think physics is interesting and definitely like something that we want like our general purpose AI systems to be able to like have a sense of.
+But in this case, I'm also referring to like a much broader class of just external kind of situations.
+So like, you know, simulating Jack and Janet, like these more formal semantics type things.
+I think just, you know, everything that's like kind of external to the model, we want it to have some sort of like understanding of.
+A follow up question, what's the difference with context knowledge?
+My understanding of the Jack and Janet example is like it is like knowledge about the current state.
+What's the difference with like when people just refer to that knowledge?
+Yeah, so I guess there's like both contextual knowledge and like background knowledge.
+So like knowledge and parameters.
+And I think basically what we want is the LM to both be like to have some sense of like parametric knowledge.
+So like its background knowledge is accurate with the world.
+But as it's like conditioning on context, it's able to update its world model.
+And so that's kind of like the updating part of the POMDP.
+Yeah.
+Yeah.
+Yes.
+You mentioned the model of Jack's like the late world model associatively.
+Yeah.
+What are your thoughts on, as was the previous work, they have like a causal world model in order to like avoid burning some spurious formations, for example.
+Basically, why is that?
+Yeah, I guess so.
+Sorry, can you kind of clarify what you mean by the causal world model?
+They use some like structural causal model to avoid burning.
+Like for example, in a city, I look at how the new one turned off.
+You can see like the latest red one is on.
+Yeah.
+Sometimes the model might learn to turn the plate off.
+But that's not what caused the actual hot person, right?
+Yes, yeah.
+We're in some spurious formation.
+Yes, yes, yeah.
+Yes.
+Yeah.
+So I guess like basically the, I think what the associative algorithm says is that like it's building up this world state and kind of like not actually this like simulation.
+But in a theoretically, when the state updates are associative and a large class of state tracking problems do fall under this, this actually is an acceptable mechanism for getting to the final state.
+But when the state mechanism does require a simulation, then you need something alternative.
+Yeah.
+We have time for one last question.
+Okay.
+I actually have a question.
+Okay.
+So it's about the third part.
+And I think I should preface this by saying that I'm always a bit suspicious of how effective these interpretability tools are or how complete these interpretability tools are.
+So in these three kinds of explanations that you use to get the ground rules, the design is almost dictated by the model.
+Design is almost dictated by the researchers and fusions.
+Yeah.
+Right.
+The counterfactuals that are constructed are based on our understanding of what we see at the model.
+Right.
+Do you see that as the limitation of this line of work?
+Even after we train a model to be faithful to this ground rule.
+Yeah.
+We have no guarantees that this is a complete explanation.
+Yeah.
+Yeah, yeah.
+I agree that we are, in some sense, our interpretability tools are limited in how well we can actually run them and how well they can actually describe the underlying phenomenon.
+I think basically my sense is, as a first stab, probably the best thing we can do is match these interpretability tools, but we can do this in a much more scalable way.
+But secondly, if we enable just this general purpose AI system to also have this introspective mechanism, to also be able to utilize these interpretables, then theoretically they can also compose these interpretables either through chain of thought or internally or compose them with their existing reasoning skills.
+And we might be able to get to a future where we do also beat these interpretables.
+Okay, I think that's time to speak up.
