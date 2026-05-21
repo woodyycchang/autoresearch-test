@@ -1,0 +1,2 @@
+# R857 Future Stub
+Looking 18 months out: LLM architectural search for operad-theory mechanisms that slot into S07-modification space. Specifically: can Operad sparsity constraint provide a distinguishable architectural variant whose S07 modification is at the algebraic-structure level?

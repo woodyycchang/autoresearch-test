@@ -1,0 +1,2 @@
+# R866 Future Stub
+Looking 18 months out: LLM architectural search for elimination-theory mechanisms that slot into S16-modification space. Specifically: can Bezout-resultant token routing provide a distinguishable architectural variant whose S16 modification is at the algebraic-structure level?

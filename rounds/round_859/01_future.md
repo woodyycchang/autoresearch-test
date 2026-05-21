@@ -1,0 +1,2 @@
+# R859 Future Stub
+Looking 18 months out: LLM architectural search for operad-theory mechanisms that slot into S09-modification space. Specifically: can Operadic module insertion provide a distinguishable architectural variant whose S09 modification is at the algebraic-structure level?

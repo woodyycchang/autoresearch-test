@@ -1,0 +1,2 @@
+# R853 Future Stub
+Looking 18 months out: LLM architectural search for modular-forms mechanisms that slot into S03-modification space. Specifically: can Modular-form gating provide a distinguishable architectural variant whose S03 modification is at the algebraic-structure level?

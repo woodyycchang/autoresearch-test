@@ -1,0 +1,2 @@
+# R865 Future Stub
+Looking 18 months out: LLM architectural search for analytic-number mechanisms that slot into S14-modification space. Specifically: can Mahler-measure training objective provide a distinguishable architectural variant whose S14 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R852 Future Stub
+Looking 18 months out: LLM architectural search for info-geometry mechanisms that slot into S02-modification space. Specifically: can Post-LayerNorm bias-injection provide a distinguishable architectural variant whose S02 modification is at the algebraic-structure level?

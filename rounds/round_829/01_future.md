@@ -1,0 +1,2 @@
+# R829 Future Stub
+Looking 18 months out: LLM architectural search for info-geometry mechanisms that slot into S10-modification space. Specifically: can Confidence-threshold early-exit depth provide a distinguishable architectural variant whose S10 modification is at the algebraic-structure level?

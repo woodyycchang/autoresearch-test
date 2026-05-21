@@ -1,0 +1,2 @@
+# R837 Future Stub
+Looking 18 months out: LLM architectural search for hyperbolic-geometry mechanisms that slot into S03-modification space. Specifically: can Hyperbolic-distance gating provide a distinguishable architectural variant whose S03 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R826 Future Stub
+Looking 18 months out: LLM architectural search for convex-analysis mechanisms that slot into S02-modification space. Specifically: can Pre-LayerNorm bottleneck with bias-cap provide a distinguishable architectural variant whose S02 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R831 Future Stub
+Looking 18 months out: LLM architectural search for harmonic-analysis mechanisms that slot into S18-modification space. Specifically: can Hierarchical Bessel-head specialization provide a distinguishable architectural variant whose S18 modification is at the algebraic-structure level?

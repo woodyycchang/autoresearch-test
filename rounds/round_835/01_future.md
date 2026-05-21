@@ -1,0 +1,2 @@
+# R835 Future Stub
+Looking 18 months out: LLM architectural search for combinatorics mechanisms that slot into S16-modification space. Specifically: can Capsule routing via permutation-equivariant module provide a distinguishable architectural variant whose S16 modification is at the algebraic-structure level?

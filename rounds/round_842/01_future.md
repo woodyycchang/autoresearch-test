@@ -1,0 +1,2 @@
+# R842 Future Stub
+Looking 18 months out: LLM architectural search for Lie-groups mechanisms that slot into S19-modification space. Specifically: can Kac-Moody equivariance constraint provide a distinguishable architectural variant whose S19 modification is at the algebraic-structure level?

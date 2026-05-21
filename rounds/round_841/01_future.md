@@ -1,0 +1,2 @@
+# R841 Future Stub
+Looking 18 months out: LLM architectural search for rep-theory mechanisms that slot into S17-modification space. Specifically: can q-Schur recurrence cell provide a distinguishable architectural variant whose S17 modification is at the algebraic-structure level?

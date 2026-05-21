@@ -1,0 +1,2 @@
+# R864 Future Stub
+Looking 18 months out: LLM architectural search for buildings mechanisms that slot into S13-modification space. Specifically: can Bruhat-Tits external memory provide a distinguishable architectural variant whose S13 modification is at the algebraic-structure level?

@@ -1,0 +1,2 @@
+# R834 Future Stub
+Looking 18 months out: LLM architectural search for category-theory mechanisms that slot into S15-modification space. Specifically: can Bayes-categorical-posterior conformal critic head provide a distinguishable architectural variant whose S15 modification is at the algebraic-structure level?

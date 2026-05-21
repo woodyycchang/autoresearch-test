@@ -1,0 +1,2 @@
+# R827 Future Stub
+Looking 18 months out: LLM architectural search for convex-analysis mechanisms that slot into S15-modification space. Specifically: can Bregman-divergence reservoir-attention discriminator provide a distinguishable architectural variant whose S15 modification is at the algebraic-structure level?
