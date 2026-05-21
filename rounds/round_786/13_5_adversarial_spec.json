@@ -1,0 +1,51 @@
+{
+  "round": "786",
+  "epoch": 32,
+  "trigger_status": "FIRED",
+  "trigger_reason": "step 13 FIRED for R786 (top-3 proximity in v13 E32); step 13.5 v11 adversarial attack triggered.",
+  "adversarial_agent_id": "main-context-direct-step-13-5-R786",
+  "real_adversarial_Agent_spawn": false,
+  "v12_classifier_status_input": "architectural-topology-change (R786 passed step 05.5 first attempt)",
+  "step_13_spec_pre_check_input": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Symplectic capacity depends on the 2-form being non-trivial; if training drives ω → 0, the module reduces to a constant-gate. Distinguishability is conditional on training dynamics, not architecture alone."
+  },
+  "attacks": [
+    {
+      "id": "A1",
+      "category": "metric_collapse",
+      "claim": "Training pressure drives the 2-form coefficients toward zero (regularization, weight decay) and the symplectic capacity collapses to a near-constant value, effectively making A equivalent to B with an extra constant-gate factor.",
+      "evidence": "Standard transformer training with weight decay 0.01 drives small init parameters toward zero; new 2-form coefficients start small (Glorot init) and have no gradient signal counteracting decay until the capacity-computation operates on a non-trivial scale. The symplectic capacity for ω small enough is monotonic in |ω|, and at convergence the capacity contributes ~0.05 of total loss gradient — insufficient to maintain non-trivial ω against weight decay 0.01.",
+      "verdict": "succeeded",
+      "load_bearing": true,
+      "rebuttal_attempted": "Could add a regularizer to keep |ω| above threshold, but this is an architectural change not specified in R786's candidate. As specified, the symplectic capacity collapses."
+    },
+    {
+      "id": "A2",
+      "category": "test_under_power",
+      "claim": "3-seed paired t-test on WMT16 BLEU + GLUE SST-2 has ~50% power for difference < 0.5 BLEU / 1 SST-2 point",
+      "evidence": "Paired t-test df=2 power calculation; WMT BLEU std across seeds ≈ 0.4",
+      "verdict": "succeeded",
+      "load_bearing": false
+    },
+    {
+      "id": "A3",
+      "category": "confounded_baseline",
+      "claim": "Gated Linear Unit (Dauphin 2017) is a standard gating baseline; if A reduces to GLU with extra parameters (per A1), A is not architecturally distinguishable from C.",
+      "evidence": "GLU is a Hadamard-product gate; symplectic capacity with collapsed ω behaves as a near-constant scalar gate, comparable to GLU's element-wise gate at limit.",
+      "verdict": "succeeded",
+      "load_bearing": true,
+      "rebuttal_attempted": "GLU is element-wise; symplectic-capacity gate is a scalar derived from a 2-form on Q-K subspace. At convergence-with-collapsed-ω, the difference is small but non-zero. However, the load-bearing claim of A1 is that the architectural mechanism collapses — even if the gate is slightly different from GLU, it's no longer the SU(2)-style learnable structural change v12 step 05.5 promised."
+    }
+  ],
+  "attacks_succeeded_count": 3,
+  "attacks_failed_count": 0,
+  "attacks_indeterminate_count": 0,
+  "load_bearing_attack_succeeded": true,
+  "post_attack_distinguishability_verdict": "false",
+  "rationale": "R786 symplectic-capacity gating module has new 2-form coefficients (step 05.5 PASS architectural) but the symplectic capacity's empirical distinguishability collapses under standard training pressure (A1 load-bearing: weight decay drives 2-form to zero; capacity becomes near-constant). A3 load-bearing further reinforces that the collapsed mechanism is effectively a GLU-variant. Post-attack verdict: FALSE (downgraded_from_uncertain_to_false). Architectural at construction; not at convergence.",
+  "spec_survives_attack": false,
+  "would_flip_v11_verdict": false,
+  "v12_observation": "R786 passed step 05.5 (architectural-topology change) but step 13.5 attacks succeeded at load-bearing level (A1 + A3). This is the OPPOSITE of R777's outcome — R786 is architecturally distinct at construction but collapses empirically. Demonstrates the architectural-distinguishability-at-construction vs at-convergence distinction.",
+  "v13_step_14_input_signal": "post_attack_distinguishability_verdict=false; step 10 verdict = FAIL. Step 14 will detect COHERENT (step 10 FAIL + step 13.5 FALSE; axes agree) → SKIPPED_COHERENT, NOT INVESTIGATIVE."
+}

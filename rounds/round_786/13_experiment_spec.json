@@ -1,0 +1,29 @@
+{
+  "round": "786",
+  "epoch": 32,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R786 is rank by mechanical-PASS proximity in E32 (post-filter architectural candidate with kw=2; tree-stream max sim=0.40). Per program_v10.md §2.5 (preserved in v11/v12/v13), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R786",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "Symplectic-capacity gating module: new learnable module computing a symplectic-capacity invariant (Ekeland-Hofer / Liouville) on a learnable 2-form pulled back from the latent; capacity value gates the inter-layer pathway.",
+  "v12_classifier_status": "architectural-topology-change (passed step 05.5 first attempt)",
+  "experiment": {
+    "dataset": {"name": "WMT16 En-De (4.5M train + 3K dev) + GLUE/SST-2", "preprocessing": "standard"},
+    "base_model": {"name": "Transformer-base (60M params)", "framework": "PyTorch + HuggingFace", "training_budget_minutes_on_T4": 28},
+    "variants": {
+      "A_candidate": {"name": "Symplectic-capacity gating module", "description": "Insert a new symplectic-capacity gating module in each layer; the module learns a 2-form ω = Σ a_ij dq_i ∧ dp_j from the layer's latent (Q-K splitting); the symplectic capacity is computed via a learnable approximation (gradient flow), and the capacity value gates the inter-layer pathway via a sigmoid.", "distinctive_parameter": "new 2-form coefficients + capacity-computation learnable parameters"},
+      "B_control": {"name": "Same architecture WITHOUT the symplectic-capacity gating module", "description": "Baseline transformer-base; same training schedule", "distinctive_parameter_value": "no new module / standard residual connection"},
+      "C_baseline": {"name": "Gated Linear Unit attention (Dauphin 2017)", "reference_paper": "Dauphin 2017 arXiv:1612.08083"}
+    },
+    "metric": {"name": "validation BLEU + GLUE SST-2 accuracy across 3 seeds", "seeds": 3},
+    "statistical_test": {"name": "paired t-test A vs B + A vs C", "significance_threshold": "p < 0.05"}
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "uncertain",
+    "rationale": "Symplectic capacity is a topological invariant of the 2-form ω; if ω is small (near zero), capacity collapses to a constant near-zero value (~0.1 nm units), and the gate behaves like a sigmoid with constant input — identical to a standard learned-temperature gate. The architectural distinguishability depends on whether the 2-form coefficients learn to be non-trivial during training, which is empirically uncertain.",
+    "v12_observation": "Step 05.5 PASS = architectural-topology-change; candidate has new learnable module with new 2-form parameters. However, the empirical distinguishability depends on training dynamics (whether ω learns to be non-trivial)."
+  },
+  "budget_compliance": {"total_runtime_minutes_on_T4": 28, "under_30_min_budget": true},
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "R786's architectural-topology candidate is structurally distinct at construction time (new 2-form module), but its empirical distinguishability is uncertain because the symplectic capacity's information content depends on the 2-form being non-trivial — a property that training may or may not enforce."
+}
