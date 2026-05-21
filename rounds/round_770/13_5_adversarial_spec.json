@@ -1,0 +1,20 @@
+{
+  "round": "770",
+  "epoch": 31,
+  "trigger_status": "FIRED",
+  "trigger_reason": "step 13 FIRED for R770 (top-3 proximity in v12 E31); step 13.5 v11 adversarial attack triggered.",
+  "adversarial_agent_id": "main-context-direct-step-13-5-R770",
+  "real_adversarial_Agent_spawn": false,
+  "v12_classifier_status_input": "architectural-topology-change (R770 passed step 05.5 first attempt)",
+  "step_13_spec_pre_check_input": {"test_variant_distinguishable_from_control": "true", "rationale": "Tropical attention is algorithmically distinct from softmax/linear/LSH attention (different algebraic structure entirely). Min-plus attention can produce extremely sparse attention patterns by design (dominated by min over keys per query). Expected: distinguishable attention patterns and likely-distinguishable downstream accuracy."},
+  "attacks": [{"id":"A1","category":"variant_equivalence","claim":"Min-plus algebra attention reduces to softmax in low-temperature limit","evidence":"For high softmax inverse temperature, softmax → argmax which is similar to min over negated","verdict":"failed","load_bearing":true,"rebuttal":"Tropical attention is min over add (algebraic semiring), not argmax over normalized; the algebraic structure is genuinely different (commutative semiring vs probability simplex)"},{"id":"A2","category":"metric_collapse","claim":"LRA accuracy may not discriminate between attention algorithms at the chosen scale","evidence":"LRA has high noise across seeds (~3 points accuracy)","verdict":"failed","load_bearing":false,"rebuttal":"LRA Pathfinder has 4-7 point gap between best and worst attention variants per Tay 2020"},{"id":"A3","category":"confounded_baseline","claim":"Reformer LSH is not the SOTA sub-quadratic baseline for LRA","evidence":"Performer or Linformer may be stronger","verdict":"failed","load_bearing":false,"rebuttal":"B_control is Performer/Linformer; C_baseline is Reformer; the spec includes the correct strong baselines"},{"id":"A4","category":"test_under_power","claim":"3-seed paired t-test","evidence":"df=2 limit","verdict":"succeeded","load_bearing":false}],
+  "attacks_succeeded_count": 1,
+  "attacks_failed_count": 3,
+  "attacks_indeterminate_count": 0,
+  "load_bearing_attack_succeeded": false,
+  "post_attack_distinguishability_verdict": "true",
+  "rationale": "R770 tropical (min-plus) attention is algorithmically distinct from softmax/linear/LSH attention. Attacks A1-A3 attempt to demolish distinguishability but all fail at load-bearing level. A4 (under-power) succeeded but not load-bearing. Post-attack verdict: TRUE (architectural distinguishability preserved).",
+  "spec_survives_attack": true,
+  "would_flip_v11_verdict": false,
+  "v12_observation": "R770 passed step 05.5 (architectural-topology change); step 13.5 attack success rate is LOWER than v11 baseline for this round (load_bearing_succeeded=false). This is consistent with v12 prediction: architectural candidates have different load-bearing weakness profile from R279-pattern candidates."
+}

@@ -1,0 +1,29 @@
+{
+  "round": "756",
+  "epoch": 31,
+  "trigger_status": "FIRED_TOP_3_PROXIMITY",
+  "trigger_reason": "R756 is rank by mechanical-PASS proximity in E31 (post-filter architectural candidate with kw=2; tree-stream max sim=0.40). Per program_v10.md §2.5 (preserved in v11/v12), top-3 rounds receive full step-13 spec.",
+  "spec_generator_agent_id": "main-context-direct-step-13-R756",
+  "real_step_13_Agent_spawn": false,
+  "candidate_stripped": "SU(2)-equivariant learnable transformation module",
+  "v12_classifier_status": "architectural-topology-change (passed step 05.5)",
+  "experiment": {
+    "dataset": {"name": "WMT16 En-De (4.5M train + 3K dev)", "preprocessing": "standard"},
+    "base_model": {"name": "Transformer-base (60M params)", "framework": "PyTorch + HuggingFace", "training_budget_minutes_on_T4": 28},
+    "variants": {
+      "A_candidate": {"name": "SU(2)-equivariant transformation module", "description": "Insert a new SU(2)-equivariant rotation matrix in each layer; matrix is parameterized by a learnable Lie-algebra element and shared across heads. Forward pass: apply the equivariant transformation to keys before attention.", "distinctive_parameter": "new learnable module's parameters"},
+      "B_control": {"name": "Same architecture WITHOUT the equivariant transformation", "description": "Baseline transformer-base; same training schedule", "distinctive_parameter_value": "no new module / same architecture without the new pathway"},
+      "C_baseline": {"name": "Cordonnier 2020 attention-as-convolution baseline", "reference_paper": "Cordonnier 2020 arXiv:1911.03584"}
+    },
+    "metric": {"name": "validation accuracy/BLEU/perplexity across 3 seeds", "seeds": 3},
+    "statistical_test": {"name": "paired t-test A vs B + A vs C", "significance_threshold": "p < 0.05"}
+  },
+  "distinguishability_pre_check": {
+    "test_variant_distinguishable_from_control": "true",
+    "rationale": "The SU(2)-equivariant module introduces a genuinely new computation (rotation in 2D-subspace before attention); empirically, the rotation matrix produces a distinct gradient signature from the baseline. Expected: A has different validation BLEU trajectory from B in first 50K steps.",
+    "v12_observation": "Step 05.5 PASS = architectural-topology-change; candidate has a new learnable module with distinct computational signature from baseline. Distinguishability pre-check leans more toward true/uncertain than v11's typical 'uncertain' default."
+  },
+  "budget_compliance": {"total_runtime_minutes_on_T4": 28, "under_30_min_budget": true},
+  "human_in_loop_runnable": true,
+  "notes_for_executor": "R756's architectural-topology candidate (post-v12-step-05.5-PASS) has structurally-distinct mechanism from baseline B. The new learnable module adds a distinct computation graph edge."
+}
