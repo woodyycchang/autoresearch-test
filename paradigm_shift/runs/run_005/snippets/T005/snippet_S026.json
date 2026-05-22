@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S026",
+  "transcript_id": "T005",
+  "start_line": 323,
+  "end_line": 336,
+  "verbatim_text": "Exactly. And we look at the choice of mu right after this. But that's a critical choice. So the difference between these rewards to go for mu gives us the advantage of this operation O measured by this LLM mu. Now, this advantage connects to the notion of advantages in RL, but the key thing to note here is that if this value is positive and high, which means that the operation O improved the chances of success for mu, so it's likely a good operation. If this is low and negative, it means it derailed the chance of success for mu, so it's a bad operation. So roughly, we have a reasonable way to identify good and bad exploratory operations through this notion of advantages measured with the right choice of mu. Now, the only thing left to figure out is what is this value of mu? And we can take some different approaches here. The first approach is asking, can we take this algorithm that generated the trace as itself a choice of mu? That would be the obvious thing to do, and it connects to a notion of value functions in RL. And while it's reasonable, what really happens is on many hard problems, no matter which state you are in, this algorithm that sampled the original trace is really weak. So you can sample a bunch of completions, but all of those completions end with terminal reward zero, and you look at the reward to go, that zero will take the difference. That's zero.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1388
+}

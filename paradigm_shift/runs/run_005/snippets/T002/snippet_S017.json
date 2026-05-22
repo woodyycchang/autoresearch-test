@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S017",
+  "transcript_id": "T002",
+  "start_line": 209,
+  "end_line": 222,
+  "verbatim_text": "So let me give a, you know, one minute primer on self-attention. So, you know, transformers are a core building block of self-attention and which stores the embedding of every word in a growing list. For those of you who are familiar with the literature, the list is called a KV cache, key value cache. And let's do a simple example. So suppose you have, you know, the first five words of the lecture notes, and your goal is to process all of them into, you know, each word into this embedding, this feature embedding. So suppose we've already processed two words. Now, for the third word, we first have this initial embedding over here. Then we need to compare it, right, this same, with each of the previous embeddings before in order to use the previous words as context, right? Now you have to then collect back all the comparisons in order to get the process embedding of this new word. Okay, so you do that, it costs three units of compute. And then for the next word, you do this because, you know, the list has gotten longer, right, and now costs more compute. And as the list goes on and on, right, grows longer and longer, each token just gets more expensive. So the cost per word, right, to be concrete grows linearly with longer context, and that's the bottom. So here, you know, 128,000 is roughly the length of a big code base.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=So let me give a, you know, on",
+  "sentence_count": 14,
+  "char_count": 1341
+}

@@ -1,0 +1,223 @@
+{
+  "_meta": {
+    "cache_version": "v2_run_005",
+    "created_at": "2026-05-22",
+    "note": "Pre-built map of well-known papers/essays for each speaker in the Run 5 corpus, plus Weijia Shi (forward-looking entry for the next run). Used by market_verifier v2 to detect when a paradigm-shift candidate's atoms are restating the speaker's own published prior art (i.e., 'CAND_X just paraphrases what Karpathy already wrote in Software 2.0'). The cache is intentionally narrow: it covers the speaker's flagship paradigm-shift-shaped pieces, not their full publication record. False negatives (a candidate paraphrases an uncached paper) are accepted; false positives (a candidate happens to share vocab with a flagship paper but is structurally different) are scored conservatively by requiring >=3 content-word overlap.",
+    "scoring_rule": "A candidate atom's verbatim_quote is 'self-publish-paraphrased' iff the speaker_id matches AND the lowercased atom quote shares >=3 content-words (length >=4, not in stopwords) with the cached title+snippet. Used as an EXCLUSION signal: candidates whose load-bearing atom is self-publish-paraphrased are downgraded but not auto-rejected.",
+    "limitations": [
+      "Cache built from Claude's training knowledge of public papers; web_search is preferred when available but unavailable in this sandbox session.",
+      "Naval Ravikant entries are essay/tweet titles, not arXiv IDs; the matching rule is the same.",
+      "Sam Altman has no canonical paradigm-shift paper from before the 2014 lecture date; we include 'Moore's Law for Everything' (2021) as a forward-looking self-publish for any post-2021 atom.",
+      "Weijia Shi entry is forward-looking; this corpus does not contain her transcript (she was mentioned in the Run 5 prompt but no transcript file was committed)."
+    ]
+  },
+  "speakers": {
+    "karpathy": {
+      "speaker": "Andrej Karpathy",
+      "self_published": [
+        {
+          "id": "karpathy_software_2_0",
+          "title": "Software 2.0",
+          "url": "https://karpathy.medium.com/software-2-0-a64152b37c35",
+          "year": 2017,
+          "snippet": "Software 1.0 is code we write. Software 2.0 is code written by the optimization based on an evaluation criterion. Neural networks are not just another classifier, they represent the beginning of a fundamental shift in how we develop software.",
+          "kind": "essay",
+          "venue": "Medium"
+        },
+        {
+          "id": "karpathy_software_3_0",
+          "title": "Software 3.0: programming in English with LLMs",
+          "url": "https://www.youtube.com/watch?v=LCEmiRjPEtQ",
+          "year": 2025,
+          "snippet": "Software 3.0 is the era where the LLM is the new operating system and English is the programming language. Software 1.0 is hand-written code; Software 2.0 is neural-network weights; Software 3.0 is prompts.",
+          "kind": "talk",
+          "venue": "YC AI Startup School"
+        },
+        {
+          "id": "karpathy_intro_to_llms",
+          "title": "Intro to Large Language Models (the busy person's guide)",
+          "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+          "year": 2023,
+          "snippet": "A large language model is just two files: parameters and the code that runs them. Pretraining is about compression of a chunk of the internet. Inference is a kind of dream of internet documents.",
+          "kind": "talk",
+          "venue": "self-published"
+        }
+      ]
+    },
+    "sutton": {
+      "speaker": "Richard Sutton",
+      "self_published": [
+        {
+          "id": "sutton_bitter_lesson",
+          "title": "The Bitter Lesson",
+          "url": "http://incompleteideas.net/IncIdeas/BitterLesson.html",
+          "year": 2019,
+          "snippet": "The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin. The two methods that scale arbitrarily are search and learning.",
+          "kind": "essay",
+          "venue": "Incomplete Ideas"
+        },
+        {
+          "id": "sutton_reinforcement_learning_book",
+          "title": "Reinforcement Learning: An Introduction",
+          "url": "http://incompleteideas.net/book/the-book.html",
+          "year": 2018,
+          "snippet": "Reinforcement learning is learning what to do — how to map situations to actions — so as to maximize a numerical reward signal. The learner is not told which actions to take but must discover which actions yield the most reward by trying them.",
+          "kind": "textbook",
+          "venue": "MIT Press"
+        }
+      ]
+    },
+    "altman": {
+      "speaker": "Sam Altman",
+      "self_published": [
+        {
+          "id": "altman_moores_law_for_everything",
+          "title": "Moore's Law for Everything",
+          "url": "https://moores.samaltman.com/",
+          "year": 2021,
+          "snippet": "In the next five years, computer programs that can think will read legal documents and give medical advice. The price of labor will fall toward zero as AI takes over more tasks. We should tax capital and land to redistribute the wealth.",
+          "kind": "essay",
+          "venue": "samaltman.com"
+        },
+        {
+          "id": "altman_planning_for_agi",
+          "title": "Planning for AGI and beyond",
+          "url": "https://openai.com/index/planning-for-agi-and-beyond/",
+          "year": 2023,
+          "snippet": "We want AGI to empower humanity to maximally flourish. Our mission is to ensure that artificial general intelligence benefits all of humanity. We want successive deployments and short iteration cycles.",
+          "kind": "blog post",
+          "venue": "OpenAI"
+        }
+      ]
+    },
+    "hinton": {
+      "speaker": "Geoffrey Hinton",
+      "self_published": [
+        {
+          "id": "hinton_forward_forward",
+          "title": "The Forward-Forward Algorithm: Some Preliminary Investigations",
+          "url": "https://arxiv.org/abs/2212.13345",
+          "arxiv_id": "2212.13345",
+          "year": 2022,
+          "snippet": "The aim of this paper is to introduce a new learning procedure for neural networks. The Forward-Forward algorithm replaces the forward and backward passes of backpropagation by two forward passes that operate on different data and with opposite objectives.",
+          "kind": "arxiv",
+          "venue": "arXiv"
+        },
+        {
+          "id": "hinton_capsule_networks",
+          "title": "Dynamic Routing Between Capsules",
+          "url": "https://arxiv.org/abs/1710.09829",
+          "arxiv_id": "1710.09829",
+          "year": 2017,
+          "snippet": "A capsule is a group of neurons whose activity vector represents the instantiation parameters of a specific type of entity. We use the length of the activity vector to represent the probability that the entity exists and its orientation to represent the instantiation parameters.",
+          "kind": "arxiv",
+          "venue": "NeurIPS"
+        },
+        {
+          "id": "hinton_distillation",
+          "title": "Distilling the Knowledge in a Neural Network",
+          "url": "https://arxiv.org/abs/1503.02531",
+          "arxiv_id": "1503.02531",
+          "year": 2015,
+          "snippet": "A very simple way to improve the performance of almost any machine learning algorithm is to train many different models on the same data and then to average their predictions. Knowledge distillation transfers this ensemble to a single small model.",
+          "kind": "arxiv",
+          "venue": "NIPS workshop"
+        }
+      ]
+    },
+    "lecun": {
+      "speaker": "Yann LeCun",
+      "self_published": [
+        {
+          "id": "lecun_path_towards_autonomous",
+          "title": "A Path Towards Autonomous Machine Intelligence",
+          "url": "https://openreview.net/forum?id=BZ5a1r-kVsf",
+          "year": 2022,
+          "snippet": "I propose an architecture and training paradigm for constructing autonomous intelligent agents. The architecture is composed of a configurator, a perception module, a world model, a cost module, an actor, and a short-term memory. The model is trained with self-supervised learning using a joint embedding predictive architecture.",
+          "kind": "position paper",
+          "venue": "OpenReview"
+        },
+        {
+          "id": "lecun_image_jepa",
+          "title": "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture (I-JEPA)",
+          "url": "https://arxiv.org/abs/2301.08243",
+          "arxiv_id": "2301.08243",
+          "year": 2023,
+          "snippet": "I-JEPA predicts representations of various target blocks in the same image from a single context block. JEPA learns highly semantic image representations without relying on hand-crafted data augmentations.",
+          "kind": "arxiv",
+          "venue": "CVPR"
+        },
+        {
+          "id": "lecun_video_jepa",
+          "title": "V-JEPA: Latent Video Prediction for Visual Representation Learning",
+          "url": "https://arxiv.org/abs/2404.08471",
+          "arxiv_id": "2404.08471",
+          "year": 2024,
+          "snippet": "V-JEPA is a video joint-embedding predictive architecture that learns by predicting masked parts of a video in latent space. The model produces strong action and motion representations without supervision.",
+          "kind": "arxiv",
+          "venue": "Meta AI"
+        }
+      ]
+    },
+    "naval": {
+      "speaker": "Naval Ravikant",
+      "self_published": [
+        {
+          "id": "naval_how_to_get_rich",
+          "title": "How to Get Rich (without getting lucky)",
+          "url": "https://nav.al/rich",
+          "year": 2018,
+          "snippet": "Seek wealth, not money or status. Wealth is having assets that earn while you sleep. You will get rich by giving society what it wants but does not yet know how to get, at scale. Specific knowledge is found by pursuing your genuine curiosity. Code and media are permissionless leverage. Build judgment.",
+          "kind": "tweetstorm",
+          "venue": "Twitter"
+        }
+      ]
+    },
+    "weijia_shi": {
+      "speaker": "Weijia Shi",
+      "note_to_reader": "Forward-looking entry. The Run 5 task prompt expected a Weijia Shi transcript in the corpus, but no transcript file was committed. The papers below are cached for the next run.",
+      "self_published": [
+        {
+          "id": "weijia_in_context_pretraining",
+          "title": "In-Context Pretraining: Language Modeling Beyond Document Boundaries",
+          "url": "https://arxiv.org/abs/2310.10638",
+          "arxiv_id": "2310.10638",
+          "year": 2023,
+          "snippet": "In-context pretraining sorts the pretraining documents so that related documents are adjacent in the sequence, which provides a stronger in-context learning signal to the language model without changing the architecture.",
+          "kind": "arxiv",
+          "venue": "ICLR"
+        },
+        {
+          "id": "weijia_flexolmo",
+          "title": "FlexOlmo: Modular Pretraining for Data Sovereignty",
+          "url": "https://arxiv.org/abs/2402.09858",
+          "arxiv_id": "2402.09858",
+          "year": 2024,
+          "snippet": "FlexOlmo is a modular pretraining framework that allows data owners to contribute their data to a shared model without giving up control. Modules are trained independently and merged via routing.",
+          "kind": "arxiv",
+          "venue": "Allen AI"
+        },
+        {
+          "id": "weijia_sketchpad",
+          "title": "Visual Sketchpad: Sketching as a Visual Chain of Thought for Multimodal Language Models",
+          "url": "https://arxiv.org/abs/2406.09403",
+          "arxiv_id": "2406.09403",
+          "year": 2024,
+          "snippet": "Visual Sketchpad gives multimodal LLMs the ability to draw on a sketchpad during reasoning. By drawing diagrams, the model improves at math and visual reasoning tasks.",
+          "kind": "arxiv",
+          "venue": "NeurIPS"
+        },
+        {
+          "id": "weijia_replug",
+          "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+          "url": "https://arxiv.org/abs/2301.12652",
+          "arxiv_id": "2301.12652",
+          "year": 2023,
+          "snippet": "REPLUG treats the language model as a black box and prepends retrieved documents to the input. The retriever is tuned by minimizing the LM's perplexity on the augmented input, without back-propagating through the LM.",
+          "kind": "arxiv",
+          "venue": "NAACL"
+        }
+      ]
+    }
+  }
+}

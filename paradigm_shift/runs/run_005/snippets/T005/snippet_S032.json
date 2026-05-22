@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S032",
+  "transcript_id": "T005",
+  "start_line": 392,
+  "end_line": 405,
+  "verbatim_text": "OK, so this ends kind of the first part where we were looking at the notion of rewards. And to summarize, we said that the right notion of reward for a trace is the one that measures progress by advantages of a complementary LLM mu. The second part is sample, which is how do you sample a trace? And here, if you recall, in standard RL, we have a very simple sampler. How do you sample a trace? You feed a problem to the LLM, and that decodes a bunch of tokens. We call those traces online traces because they're sampled directly from the LLM. And that's our sampler. Now, the main issue here with the sampler is one of exploration on hard problems. There are some problems in our training data wherein no matter how many online traces you generate for this particular problem, all of them end with a terminal reward of zero. And not just that. Even if you try to measure the surrogate rewards at these intermediate operations, even those evaluate to be close to zero. So really, this particular problem provides no learning signal. It's as good as dropping it from the data set.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1079
+}

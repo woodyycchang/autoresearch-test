@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S032",
+  "transcript_id": "T011",
+  "start_line": 1641,
+  "end_line": 1694,
+  "verbatim_text": "There's another type\nof method called distillation,\nand those have been\nconsiderably more successful. Those are sort of like\nregularized methods also,\nalthough the main issue is\nthat we don't really\nunderstand why they work,\nalthough there is some\ntheoretical work. So basically\nyou take a, you take an input,\nyou transform or corrupt it,\nyou get a different version of\nit. You run this through an\nencoder producer\nrepresentation, run this\nthrough an encoder with the\nsame architecture, but\nslightly different weights,\nthen run through a predictor\nand then minimize his\nprediction error. But you\ndon't back propagate gradient\nthrough this encoder because\nyou're not going to trend\nthis. The weights of this\nencoder through gradient\ndescent, the weight of this\nencoder are going to be\nessentially the weights of\nthat encoder, except you're\ngoing to accept those, those\nweights. This weight vector is\ngoing to be a running average\nof the weight vectors of that\nencoder over time. Okay? Take\nthe past several values of the\nweight vector and average them\nand that gives you the weight\nof this encoder. Basically\nthis encoder, the weight of\nthis encoder cannot move as\nquickly as the weight of that\nankle. This guy gets gradient\nback propagated and updates\nits weight and then it\nbasically updates the weight\nof this guy, which kind of is\na pass filtered version of the\nprevious weight. Somehow this\nworks, somehow this doesn't\ncollapse. Why? I don't know,\nit's kind of mysterious.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1476
+}

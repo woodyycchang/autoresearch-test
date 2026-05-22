@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S012",
+  "transcript_id": "T011",
+  "start_line": 611,
+  "end_line": 661,
+  "verbatim_text": "So it's a big\nvector with of numbers between\nzero and one. That's up to\nwhat, and you might, you know,\npick, always pick the, the\ntoken with the highest\nvariability and just generate\nthe sequence this way. Or you\nmight, you know, sample from\nthis distribution. Whatever\nyou do, there is might be some\nprobability that at any point\nthe token that's generated\ntakes you outside of the set\nof sequences of tokens that\nwill be correct answers,\nright? So the set of all\npossible se sequences of\ntokens is a tree, okay? Represented by this blue disc,\nessentially, where each leaf\nis kind of the terminal symbol\nin a tree. They don't have all\nthe same length, but it's a\ntree. Within this tree there\nis a SubT tree, which, which\ncorresponds to all the correct\nanswers corresponding to a\nparticular point. And there's,\nthere may be some probability\nso that every, at every token\nyou produce, the token takes\nyou outside of the sub, the\ncorrect SubT tree. Because\nit's a tree, there's no way to\ncome back, right? You're out,\nyou're out. So if you make a,\nthe hypothesis, which of\ncourse is most likely wrong,\nthat this, you know,\nprobability is the same for\nregardless of where you are in\nthe sequence and the errors\nare independent, then the\npriority that a sequence of n\nsymbols would be correct\ndecreases exponentially like\none minus the error rate to\nthe power n and its number of\ntokens. Okay? This, this is\none way at LMS hallucinate.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1431
+}
