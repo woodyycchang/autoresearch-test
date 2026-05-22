@@ -1,0 +1,1755 @@
+I'm seeing a pink elephant
+notice the words pink and
+elephant refer to things in
+the world so what's actually
+happening is I'd like to tell
+you what's going on inside my
+head hi I'm Craig Smith and
+this is I on AI Jeffrey Hinton
+a Pioneer in neural networks
+and the man who coined the
+term deep learning has been
+driven throughout his career
+to understand the brain while
+his application of the back
+propagation of eror algorithm
+to deep networks set off a
+revolution in artificial
+intelligence he doesn't
+believe that it explains how
+the brain processes
+information late last year he
+introduced a new learning
+algorithm which he calls the
+forward forward algorithm that
+he believes is a more
+plausible model for how the
+cerebral cortex might learn a
+lot has been written about the
+forward forward algorithm in
+recent weeks but here Jeff
+gives us a deep dive into the
+algorithm and the journey that
+led him to it the conversation
+is Technical and assumes a lot
+of knowledge on the part of
+listeners but but my advice
+for those that don't have that
+knowledge is to let the
+technical stuff wash over you
+and listen instead for Jeff's
+insights before we begin I'd
+like to mention our sponsor
+clear ml an OP Source endtoend
+ml Ops solution you can try it
+for free at clear. ml that's
+CLE a. ml tell them I on AI
+sent you now here's Jeff I
+hope you find the conversation
+as fascinating as I did I
+wanted to have you explain to
+listeners forward forward
+networks and why you're
+looking for something Beyond
+back propagation despite its
+tremendous success let me
+start with explaining why I
+don't believe the brain is
+doing back propagation one
+thing about back propagation
+is you need to have a perfect
+model of the forward system
+that is in back propagation
+it's easiest to think about
+for a layered net but it also
+works for our current nets for
+a layed net you do a forward
+pass where the input comes in
+at the bottom and goes through
+these layers so the input
+might be pixels and what comes
+out the top might be a
+classification of is it a cat
+for a dog you go forwards
+through the layers and then
+you look at the error in the
+output if it says cat when it
+should say dog that's wrong
+and you'd like to figure out
+how to change all the weights
+in the forward pass so that
+next time it's more likely to
+say the right category rather
+than the wrong one so you have
+to figure out how a change in
+a weight would affect the how
+much it gives the right answer
+and then you want to go off
+and change all the weights in
+proportion to how much they
+help in getting the right
+answer and back propagation is
+a way of figuring out that
+gradient a way of figuring out
+how much a change in the
+weight would make the system
+have less error and then you
+change the weight in
+proportion to how much it
+helps and obviously if it
+hurts you change it in the
+opposite direction now back
+propagation looks like the
+forward pass but it goes
+backwards it has to use the
+same connectivity pattern with
+the same weights but in the
+backwards Direction and it has
+to go backwards through the
+nonlinearity of the neuron
+there's no evidence that the
+brain is doing that and
+there's lots of evidence it's
+not doing that so the worst
+case is if you're doing back
+propagation in a recurrent net
+because then you run the
+recurrent net forwards in time
+and it outputs an answer at
+the end of running forwards in
+time and then you have to run
+it backwards through time in
+order to get all these
+derivatives so I had to change
+the weights and that's
+particularly problematic if
+for example you're trying to
+process video you can't stop
+and go backwards in time so
+combined with the fact that
+there's no evidence the brain
+does it well no good evidence
+there's the problem that just
+for technology it's a mess it
+interrupts the pipelining of
+stuff through so you'd really
+like something like video you
+there to be multiple stages of
+processing and you'd like to
+just pipeline the input
+through those multiple stages
+and just keep pipelining it
+through and so the idea of the
+Ford algorithm is that if you
+can divide the learning the
+process of getting the
+gradients you need into two
+separate phases you can do one
+of them online and one of them
+offline and the one you do
+online can be very simple and
+will allow you to just
+pipeline stuff through so the
+online phase which is meant to
+correspond to wake you put
+input into the network and
+let's take your recurrent
+version input keeps coming
+into the network and what
+you're trying to do for each
+lay at each time step you're
+trying to make the lay have
+high activity or rather high
+enough activity so that it can
+figure out that this is real
+data so the underlying idea is
+for Real data you want every
+layer to have high activity
+and for fake data comes High
+we get that later you'd like
+every layer to have low
+activity and the task of the
+network or the thing it's
+trying to achieve is not to
+give the correct label as in
+back propriation it's trying
+to achieve this property by
+being able to tell the
+difference between real data
+and fake data at every layer
+by each layer having high
+activity for real data and low
+activity for fake data so each
+layer has its own objective
+function in fact to be more
+precise we take the sum of the
+squares of the activities of
+the units in a lay we subtract
+off some threshold and then we
+feed that to a logistic
+function that simply decides
+what's the probability that
+this is a is real data as
+opposed to fake data and if
+the listic function gets a lot
+of input it'll say it's
+definitely real data and so
+there's no need to change
+anything if it's getting lots
+of input it won't learn on
+that example because it's
+already getting it right and
+that explains how you can run
+lots of positive examples
+without running any negative
+examples which are fake data
+because it'll just saturate on
+positive examples that's
+getting right so that's what
+it does in the positive phase
+it tries to get high sum of
+squared activities in every
+layer so that it can tell high
+enough so it can tell that
+it's real data in the negative
+phase which is run Offline
+that is during sleep the
+network needs to generate its
+own data and try and get given
+its own data as input it wants
+to have low activity in every
+layer so the network has to
+learn a generative model and
+what it's trying to do is
+discriminate between real data
+and fake data produced by its
+generative model obviously if
+it can't discriminate at all
+then what's going to happen is
+the derivatives that it gets
+for real data and the
+derivatives it get for fake
+data will be equal and
+opposite so it won learn
+anything learning will have
+finished then if it can't tell
+the difference between what it
+generates and real data this
+is very like a gan if you know
+about gen generative
+adversarial networks except
+that the discriminative net
+that's trying to tell the
+difference between real and
+fake and the generative model
+that's trying to generate fake
+data use the same hidden units
+and so they use the same
+hidden representations that
+overcomes a lot of the
+problems that a gan has on the
+other hand and because it's
+not doing back propagation to
+learn the generative model
+it's harder to learn a good
+generative model that's a
+rough overview of the
+algorithm let me ask one a
+couple of questions on the
+awake and sleep cycle are you
+cycling quickly between them
+okay so most of the research
+what I would do is the
+preliminary research cycle
+quickly between because that's
+the obvious thing to do and
+later on I discovered I've
+known for some time that with
+contrastive learning you can
+separate the phases and later
+on I discovered it worked
+pretty well to separate the
+phases recent experiments I've
+done with predicting
+characters you can predict you
+can have it predict about a
+quarter of a million
+characters so it's running on
+real data trying to predict
+the next character is making
+predictions is running with
+mini batches so after making
+quite a large number
+predictions it updates the
+weights and then it sees more
+positive examples and updates
+the weights again so in all
+those phases it's just trying
+to get higher activity in the
+hidden layers but only if it's
+not already got high activity
+and you can predict like
+quarter of a million
+characters in the positive
+phase and then switch to the
+negative phase where the
+Network's generating its own
+string of characters and it
+you're now trying to get low
+activity in the hidden layers
+for the characters it's
+predicting it's looking at
+little window of characters
+and then you run for quarter
+of a million characters like
+that and it doesn't actually
+have to be the same number
+anymore with bolone machines
+it's very important to have
+the same number of things in
+the positive phase and
+negative phase but with this
+it isn't and what's remarkable
+is that up to a few hundred,
+predictions it works almost as
+well if you separate the
+phases as opposed to inle and
+that's quite surprising in
+human learning certainly there
+wake and sleep for complicated
+Concepts that you're learning
+but there's learning going on
+all the time that doesn't
+require a sleep phase there is
+in this too if you're just
+running on positive examples
+it's changing the weights for
+all the examples where it's
+not completely obvious that
+this is a positive data so it
+will do a lot of it does a lot
+of learning in the positive
+phase but if you go on too
+long it fails catastrophically
+and people seem to be the same
+if I deprive you of sleep for
+a week you'll go completely
+psychotic and you'll have
+hallucinations and you may
+never recover can you explain
+I think one thing that people
+are having trouble non
+practitioners are having
+trouble understanding is the
+concept of negative data I've
+seen a few articles where they
+just put it in quotation marks
+out of your paper which
+indicates that they don't
+understand it okay what I mean
+by negative data is data that
+you give to the system when
+it's running in the negative
+phase that is when it's trying
+to get low activity in all the
+hidden layers and there are
+many ways of generating
+negative data in the end you'd
+like the model itself to
+generate the negative data so
+this is just like it was in
+balsman machines the data that
+the model itself generates is
+negative data and real data is
+what you're trying to model
+and once you got a really good
+model the negative data looks
+just like the real data so no
+learning takes place but
+negative data doesn't have to
+be produced by the model so
+for example you can train it
+to do supervised learning by
+inputting both an image and
+the label so now the label's
+part of the input not part of
+the output and what you're
+asking it to do is when I
+input an image with the
+correct label that's going to
+be the positive data you want
+to have high activity when I
+input an image with the
+incorrect label which I just
+put in by hand as the
+incorrect as an incorrect
+label that's negative data now
+it works best if you get the
+model to predict the label and
+you put in the best of the
+models predictions it's not
+correct because then you're
+giving it the things it's most
+the mistakes it's most likely
+to make as negative data but
+you can put in negative data
+by hand and it works fine and
+the the reconciliation then at
+the end is is it as in
+boltzman machines where you're
+subtracting the negative data
+from the positive data Li bols
+machines what you do is you
+give it positive data real
+data and you let it settle to
+equilibrium which you don't
+have to do with the forward
+forward algorithm well not
+exactly anyway and once it's
+settled to equilibrium you
+measure the pairwise
+statistics that is how often
+two units that are connected
+did are on together and then
+in the negative phase you do
+the same thing with stuff you
+just let the model settle as
+producing data itself and you
+measure the same statistics
+and you take the difference of
+those pairwise statistics and
+that is the correct learning
+signal for a b machine but the
+problem is you have to let the
+model Settle yeah and there
+just isn't time for that also
+you have to have all sorts of
+other conditions like the
+connections have to be
+symmetric there's no evidence
+con Connections in the brain
+is symmetric can you give a
+concrete example of of
+positive and negative data in
+a very simple learning
+exercise you were working on
+digits simplest example I
+think is if you're predicting
+a string of characters the
+positive data you'd see a
+little window of characters
+and should have some hidden
+layers and because that's a
+positive window of characters
+you try and make the activity
+high in all the hidden layers
+but also from those hidden
+layers from the activity in
+those hidden layers you would
+try to predict the next
+character that's a very simple
+generative model but notice
+the generative model isn't
+having to learn its own
+representations the
+representations are learned
+just to make positive strings
+of characters give you high
+activity in all the hidden LS
+that's the objective of the
+learning the objective isn't
+to predict the next character
+but H having done that
+learning and got the right
+representations for these
+strings of characters these
+windows of characters you also
+learn to predict the next
+character and that's what
+you're doing in the positive
+phase seeing Windows of
+characters you're changing the
+weight so that all the hidden
+layers have high activity for
+those windows of characters
+but you're also changing top
+down weights that are trying
+to predict the next character
+from the activity in the
+hidden LS that's what
+sometimes called a linear
+classifier so that's a
+positive phase in the negative
+phase you as input you use
+characters that have been
+predicted already so you've
+got this window and you're
+going along and just
+predicting the next character
+and then moving the window a
+long one to include the next
+character you predicted and to
+drop off the oldest character
+you just keep going like that
+and for each of those frames
+you try and get low activity
+in the hidden because it's
+negative data and I think you
+can see that if your
+predictions were perfect and
+you start from a string a real
+string then the what's
+happening in the negative
+phase will'll be exactly like
+what's happening in the
+positive phase right and so
+the two will cancel out but if
+there's a difference then
+you'll be learning to make
+things more like the posit
+phas and less like the
+negative phas and so it'll get
+better and better at
+predicting as I under stood
+back propagation on static
+data there are inputs there's
+an output and you calculate
+the error and then you run
+backward through the network
+and correct the weights and
+then do it again and that's
+not a good model for the brain
+because there's no evidence of
+information flowing backward
+through the neurons it's not
+that's not exactly the right
+what you said there's no no
+good evidence of derivative
+information throwing back this
+that is these error gradients
+flowing backwards okay
+obviously the brain has top
+down connections if you look
+at the perceptual system
+there's a kind of forward
+direction that goes from the
+thalamus up to infr temp
+cortex where you recognize
+things and the thalamus is are
+sort of where the input comes
+in from the eyes and there's
+Connections in the backward
+Direction but the connections
+in the backward Direction
+don't look at all like what
+you'd need for back
+propagation for example in two
+cortical areas the connections
+coming back don't go to the
+same cells as connections
+going forward come from it's
+not reciprocal in that sense
+yeah there's a loop between
+the cortical areas but
+information in one cortical
+area goes through about six
+different neurons before it
+gets back to where it started
+and so it's a loop it's not
+it's not like a miror system
+okay but my question is you
+talk about turning the static
+image into a boring video that
+allows you to have top down
+effects that's right yeah so
+you have to think of there
+being a forward Direction
+which is going from lower
+layers to higher layers and
+then orthogonal to that was
+the time dimension and so if I
+have a video even if it's a
+video of just a single thing
+that stays still I can be
+going up and down through the
+layers as I go forwards in
+time and that's what's
+allowing you to have top down
+effects okay I understood that
+yeah each layer can receive
+inputs from a higher layer in
+the previous timer exactly
+yeah so what a layer is doing
+it's receiving input from
+higher layers and lower layers
+at the previous time step and
+from itself at the previous
+time step and if you've got
+static input that whole
+process over time looks like a
+network settling down that's a
+bit more like a boltzman
+machine settling down and the
+idea is that the time that
+you're using for that is the
+same as the time you're using
+for posting video and because
+of that if I give you fast
+input that's changing too fast
+you can never settle down to
+interpret it so I discovered
+this nice phenomenon if you
+take an irregularly shaped
+object like a potato for
+example a nice irregularly
+shaped potato and you throw it
+up in the air rotating slowly
+at one or two revolutions per
+second you cannot see what
+shape it is you just can't see
+the shape of it you don't have
+time to settle on a 3D
+interpretation because it's
+the very same time steps that
+you're using for posting vide
+you're using for settling with
+a static image and what I
+found fascinating about in
+maybe this is something that
+that is already in the
+literature but this idea of
+going up and down in the
+layers As you move through
+time that's been around but
+it's that's always been in
+recurrent Nets so to begin
+with recurrent Nets would just
+have one hidden layer so
+typical lstms and so on would
+have one hidden layer and then
+Alex Graves ped the idea of
+having multiple hidden layers
+and showed that it was a
+winner so that idea has been
+around but it's always been
+paired with back propagation
+as the learning algorithm and
+in that case it was back
+propagation through time which
+was completely unrealistic B
+and the Brain real life is not
+static so you're not
+perceiving in a truly static
+fashion how much of this grew
+out of sim clear's contrastive
+learning or grabs activity
+differences couple of years
+ago I got very excited because
+I was trying to make a more
+biologically plausible version
+of things like simair there's
+a whole bunch of things like
+simair simair wasn't the first
+of them in fact something a
+bit like Sim clear that Sue
+Becker and I published in
+about 198 1992 in nature but
+we didn't use negative
+examples we tried to
+analytically compute the
+negative phase and that wasn't
+there was a mistake it just
+that would never work once you
+start using negative examples
+then you get things like Sim
+clear and I discovered that
+you could separate the phases
+that you didn't and that got
+me very excited a few years
+ago because it seemed like
+finally had an explanation for
+what sleep was for one big
+difference simply as taking
+two different Patches from the
+same image and if they're from
+the same image trying to make
+them have a similar
+representation if they're from
+different images it's trying
+to make them have different
+representations sufficiently
+different once they're
+different it doesn't try and
+make them more different and
+let me think how to say this
+Sim clear involves looking at
+two representations and seeing
+how similar they are and
+that's one way to measure
+agreement and in fact if you
+think about the square
+difference between two vectors
+that D composes into three
+terms there's something to do
+with the square of the first
+Vector there's something to do
+with the square of the second
+vector and then there's the
+scalar product of the two
+vectors and the scalar product
+of the two vectors is the only
+kind is the only interacting
+term and so it turns out that
+squar difference is very like
+a scalar product a big squar
+difference is like a small
+scaler product now there's a
+different way to measure
+agreement which is to take the
+things you'd like to agree and
+feed them into one set of
+neurons and now if two sources
+coming into that set of
+neurons agree your get high
+activity in those neurons it's
+like positive interference
+between light waves and if
+they disagree you'll get low
+activity and if you measure
+agreement just by the activity
+in a layer of neurons you're
+measuring agreement between
+the inputs then you don't have
+to have two things you can
+have as many things as you
+like you don't have to divide
+the input into two patches and
+say to the representations of
+these two patches agree you
+can just say I've got a hidden
+layer does this hidden lay get
+highly active and it seems to
+me that's a better way to
+measure agreement it's easier
+for the brain to do and it's
+particularly interesting if
+you have spiking neurons
+because what I'm using at
+present doesn't use spiking
+neurons it just says a hidden
+layer is really asking are my
+inputs agreeing with each
+other in which case I'll be
+highly active or are they
+disagreeing in which case I
+won't but if the inputs are a
+specific times very precise
+times like spikes do then you
+can ask not just are the St
+neurons being stimulated but
+are they being stimulated at
+exactly the same time and
+that's a much sharper way to
+measure agreement so spiking
+neurons seem particularly good
+for measuring agreement which
+is what I need that's the
+objective function to get
+agreement in the positive
+phase and not in the negative
+phase and I'm thinking about
+ways of trying to imp trying
+to use spiking neurons to make
+this work better but that's
+one big difference from Simply
+that you're not taking two
+things and saying do they
+agree you're just taking all
+the inputs coming into a lay
+and saying all those inputs
+agree when you talk about the
+ACT activity is that similar
+to what you were doing with
+end grads where you're
+comparing top- down
+predictions and bottom up
+predictions okay okay this
+when you do the recurrent
+version of the forward forward
+algorithm at each time step
+neurons in a lar getting top
+down input and bottom up input
+right and they'd like them to
+agree and if your objective
+function is to have high
+activity they' like to make
+things highly active there's
+another version of the forward
+forward algorithm where the
+objective is to have low
+activity and then you want the
+top down to to cancel out the
+bottom up and then it looks
+much more like predictive
+coding it's not quite the same
+but it's very similar but
+let's stick with the version
+where you're going for high
+activity you want the top down
+and bottom up to agree and
+give you high activity but
+notice that it's not like the
+top down is a derivative so in
+attempts to implement backrop
+in your nets you try and have
+top down things which you like
+derivatives and bottom up
+things which are like
+activities and you try and use
+temporal differences to give
+you the derivatives and that's
+somewhat different here
+everything's activities you're
+never propagating derivatives
+and this algorithm also does
+away with the idea of dynamic
+routing that you talked about
+with stacked capsule encoders
+yeah yes so with capsules I
+moved on from the dynamic
+routing to having what I
+called Universal capsules
+capsule would be a small
+collection of neurons and in
+the original capsules models
+that collection of neurons
+would only be able to
+represent one type of thing
+like a nose and a different
+kind of capsule would
+represent a mouth in Universal
+capsules what you'd have is
+that each capsule could
+represent any type of thing so
+it would have different
+activity patterns to represent
+the different kinds of thing
+that might be there the
+capsule would be dedicated to
+a location in the image so a
+capsule will be representing
+what kind of thing you have at
+that location at a particular
+level of part hole hierarchy
+so it might be representing
+that at the part level you
+have a nose and then at a
+higher level you'd have other
+capsules that representing the
+the object level you have a
+face or something but when you
+get rid of the dedication of a
+bunch of neurons to a
+particular type of thing you
+don't need to do rooting
+anymore and in the forward
+forward algorithm I'm not
+doing rooting and one of the
+diagrams in the paper from the
+p algor is actually taken from
+my paper on part hole
+hierarchies my last paper on
+capsule models so I had a
+system called glom an
+imaginary system and the
+problem with it was I never
+had a plausible learning out
+and the Ford algorithm is a
+plausible learning algorithm
+for glom it's something that's
+neurally reasonable what was
+fascinating to me at least
+about capsules is that they
+captured the 3D nature of
+reality right lots of neural
+Nets are now doing that so
+Nerf models neural Radiance
+field models now giving you
+very good 3D models in neural
+Nets so you can see something
+from a few different
+viewpoints and then produce an
+image of what it would look
+like from a new Viewpoint
+that's very good for example
+making smooth videos from
+frames that are taken at quite
+long time intervals but in the
+forward forward algorithm what
+what's your intuition that
+that this is the if indeed
+everything works out that this
+is a model for information
+processing in the cerebral
+cortex and that perception of
+depth and the 3D nature of
+reality would emerge or is
+that's the Hope yes yeah in in
+particular if I'm showing you
+a video and the Viewpoint is
+changing during the video then
+what you'd want is that the
+hidden layers should represent
+3D structure that's all Pie in
+the Sky pres to that stage but
+yeah but with capsules because
+I think you you referred to
+pixels having depth so that if
+one object moved in front of
+another the system understood
+that the that it was behind
+the thing in front of it do
+you capture that with forward
+you would want it to learn to
+deal with that yes yeah I
+wouldn't wire that in but it's
+an obvious feature of video
+that it should learn about
+with babies they learn in just
+a few days to get structure
+from motion that is if I take
+a static scene and I move the
+Observer or if I take keep the
+Observer stationary and the
+experiments were done with a
+piece of paper fold it into a
+w and if you see it the wrong
+way around it looks weird and
+so experiments done by
+Elizabeth spy and other people
+use the idea that you can tell
+a lot about the perception of
+a baby by seeing what they're
+interested in because they're
+interested in things that look
+odd so they'll pay more
+attention to things that look
+odd and within a few days they
+learn to deal with how 3D
+structure ought to be related
+to motion and if you make it
+related wrong they think it's
+weird so they learn that very
+fast whereas it takes them
+like at least six months I
+think to learn to do stereo
+get it from the two eyes it's
+just much easier to get from
+video than from stereo but
+from evolutionary point of
+view if something's really
+easy to learn there's not much
+Point wiring it in you've been
+working in mat lab famously
+now now on toy problems are
+you starting to scale are you
+still refining I'm doing a bit
+of scaling I'm using a GPU to
+make things go A bit faster
+but I'm still at the stage
+where there's very basic
+properties of the algorithm
+I'm exploring in particular
+how to generate negative data
+effectively from the model and
+until I've got the sort of
+basic stuff working nicely I
+think it's silly to scale it
+up as soon as you scale it up
+it's slower to investigate
+changes in the basic algorithm
+and I'm still at the stage
+where there's lots and lots of
+different things I want to
+investigate for example here's
+just one little thing that I
+haven't had time to
+investigate yet you can use as
+your objective function to
+have high activity in the
+positive phase and low
+activity in the negative phase
+and if you do that it'll find
+nice features in the hidden
+units all you can have as your
+objective function to have low
+activity in the positive phase
+if you do that it'll find nice
+constraints if you think about
+what physicists do they try
+and understand Nature by
+finding apparently different
+things that add up to zero
+another way saying is that
+they're equal and opposite but
+if you take force and you
+subtract mass times
+acceleration you get zero but
+that's a constraint okay so if
+you have two sources of
+information one of which is
+force the other which is mass
+times acceleration you'd like
+to have hidden units that see
+both those inputs and that say
+zero no activity and then when
+they see things that don't fit
+the physics they'll have high
+activity that'll be the
+negative data so that's called
+a constraint and so if you
+make your objective function B
+have low activity for real
+things and high activity for
+things that aren't real you'll
+find constraints in the data
+as opposed to Features so
+features are things that have
+high variance and constraints
+are things that have low
+variance a feature is
+something that's got higher
+variance than it should and
+constraint has lower variance
+than it should now there's no
+reason why you shouldn't have
+two types of neurons one's
+looking for features and one's
+looking for constraints and we
+know with just linear models
+that a method like principal
+components analysis looks for
+the directions in the space
+that have the highest variants
+they're like features and it's
+very stable there's other
+methods like mining components
+analysis that look for
+directions in the space that
+have the lowest variance
+they're looking for
+constraints they're less
+numerically stable but we know
+that it pays to have both and
+so that for example is
+direction that might make
+things work better but there's
+lots there's about 20 things
+like that I need to
+investigate and my feeling is
+until I've got a good recipe
+for whether you should use
+features or constraints or
+both what's the most effective
+way to generate negative data
+and so on is premature to
+investigate really big systems
+with regard to really big
+systems one of the things you
+talk about is the need for a
+new kind of computer and I've
+seen confusion about this too
+in the Press I've seen people
+talk about how you talk about
+getting rid of un Norman yeah
+you obviously want computers
+where the hardware and
+software are separate yeah and
+you want them to do things
+like keep track of your bank
+account this is for things
+that where we want computers
+to be like people to process
+natural language to process
+Vision all those things that
+some years ago Bill Gates said
+computers couldn't do like
+they're blind and deaf they're
+not blind and deaf anymore but
+for processing natural
+language or doing motor
+control or doing Common Sense
+reasoning we probably want a
+different kind of computer if
+we want to do it very low
+energy we need to make much
+better use of all the
+properties of the hardware
+your interest is understanding
+the brain but I have a side
+interest in getting low energy
+computation going and the
+point about the forward
+forward is it works when you
+don't have a good model of the
+hardware so if for example I
+take a a neural net and I
+insert a black box so I have a
+layer that's just a black box
+I have no idea how it works it
+does stochastic things I don't
+know what's going on the
+question is can the whole
+system learn with that black
+box in there and it has
+absolutely no problem you
+learn something different
+because the black box is
+changing what happens on the
+forward pass but the point is
+it's changing it in exactly
+the same way the both forward
+passes so it all cancels out
+whereas in back propagation
+you're completely sunk if
+this's a black box the best
+you can do is try and learn a
+differentiable model of the
+black box and that's not going
+to be very good if the black
+box is wandering in its
+Behavior so the Ford algorithm
+doesn't need to have a perfect
+model of the forward system it
+needs to have a good enough
+model of what one urine is
+doing so that it can change
+the incoming weights of that
+neuron to make it more active
+or less active but that's all
+it needs it doesn't need to be
+able to invert the forward
+pass and you're not talking
+about replacing back
+propagation which has
+obviously had enormous success
+there's plenty of compute
+plenty of power then back
+propop is fine but and this is
+speculative I understand where
+you are in the research but
+can you imagine if you had low
+power computer architecture
+that that could handle Ford
+algorithms and you scaled them
+imagine that it would be great
+I've actually been talking to
+someone called Jack Kendall
+who works for a company called
+rain who is very insightful
+about what you can do with
+analog Hardware using
+properties of the circuits
+using what for circuit
+properties of the electrical
+circuits natural properties of
+electrical circuits initially
+that was very interesting for
+doing a form of boltzman
+machine learning but it's also
+going to be very interesting
+for the forward for algorithm
+so I can imagine it's scaling
+up very well but there's a lot
+of work to be done to make
+that happen and if it did
+scale up very well to the
+degree that large language
+models have been successful do
+you think that its abilities
+would Eclipse those of models
+based on back propagation I'm
+not at all sure I think they
+may not so I think back
+propagation might be a better
+algorithm in the sense that a
+given number of connections
+you can get more knowledge
+into those connections using
+back appropriation than you
+can with a for algorithm so
+the networks with Ford work
+better if they're somewhat
+bigger than the bests siiz
+networks for back propriation
+it's not good at squeezing a
+lot of information into a few
+connections back propagation
+will squeeze lots of
+information into a few
+connections if you force it to
+it work it's much more happy
+not having to do that but
+it'll do it if you force it to
+and the for algorithm isn't
+good at that so if you take
+these large language models
+they take something with a
+trillion connections which is
+about the largest language
+model that kind of size that's
+about a cubic centimeter of
+Cortex and our cortex is like
+we got a thousand times that
+much cortex so these large
+language models that actually
+know a lot more facts than you
+or I do because they've read
+everything on the web not
+everything but an awful lot
+yeah the sense in which they
+know them is a bit dodgy but
+if you had a sort of general
+knowledge quiz I think gpt3
+even would beat me at a
+general knowledge quiz there
+would be all sorts of people
+it knows about and when they
+were born and what they did
+that I don't know about and it
+all fits in a cubic centimeter
+cortex if you measure by
+connections so it's got much
+more knowledge than me and
+much less brain so I think
+backrop is much better at
+squeezing information but
+that's not the brain's main
+problem for our brains we've
+got plenty of synapses the
+question is how do you
+effectively get information
+into them how do you make good
+use of experience David schmer
+talked about the possibility
+of Consciousness and you're
+certainly interested in the
+possibility if you understand
+how the brain works and you
+can replicate it this kind of
+a model let's imagine that it
+scales beautifully do you see
+the potential for reasoning
+and oh I see the potential for
+reasoning sure but
+Consciousness is a different
+kind of question so I think
+people I'm amazed that anybody
+thinks they understand what
+they're talking about when
+they talk about they talk
+about as if we can Define it
+and it's really a jumble of a
+whole bunch of different
+concepts yeah and they're all
+mixed together into this
+attempt to explain a really
+complicated mechanism in terms
+of an Essence yeah so we've
+seen that before like hundred
+years ago if you asked
+philosophers what makes
+something alive or even if you
+ask biologists what makes
+something alive they say it
+has vital force if you say
+what is vital force and could
+we make machines have vital
+force they can't really Define
+vital force other than saying
+it's what makes people alive
+and as soon as you start
+understanding biochemistry you
+give up on the notion of vital
+force you understand about
+biochemical processes that are
+stable and things breaking
+down and so it's not that we
+cease to have vital force we
+got as much vital force as we
+had before it's just that it's
+not a useful concept because
+it's an attempt to EXP explain
+something complicated in terms
+of some simple Essence so
+another model like that is so
+sports cars have oomph and
+some have a lot of oomph like
+an Aston Martin with big noisy
+exhausts and lots of
+acceleration and bucket seats
+has lots of o and is an
+intuitive concept you can ask
+doesn't Aston Martin have more
+than Mota Cora and it
+definitely has a lot more
+oomph so we really need to
+find out what umph is because
+umph is what's what it's all
+about if you're interested in
+cars or fast cars anyway but
+the concept of umph it's a
+perfectly good concept but it
+doesn't really explain much
+but if you want to know why is
+it that when I press the
+accelerate it goes very fast
+the concept of O isn't going
+to help you you need to get
+into the mechanics of it how
+it actually works and that
+that's a good analogy because
+what I was going to say is it
+doesn't really matter what
+Consciousness is it matters
+whether we as humans perceive
+something as having
+Consciousness and I think
+there's a lot to I think
+there's a lot to be said for
+that yes yeah so if the if
+this forward in a large model
+that scaled relatively low
+power consumption if it can
+reason there'll always be
+philosophers that say yeah but
+it's not conscious but it
+doesn't really matter if you
+can't tell the difference it
+matters to the philosophers I
+think it would be nice to show
+them the way out of the Trap
+they made for themselves which
+is I think most people have a
+radical misunderstanding of
+how terms about perception and
+experience and sensation and
+feelings actually work of how
+the language works if for
+example I say I'm seeing a
+pink elephant notice the words
+pink and elephant refer to
+things in the world world so
+what's actually happening is
+I'd like to tell you what's
+going on inside my head yeah
+but telling you what the
+neurons are doing won't do you
+much good particularly since
+all our brains are wired
+slightly differently it's just
+no use to you to tell you what
+the neurons are doing but I
+can tell you that whatever it
+is my neurons are doing it's
+the kind of thing that's
+normally caused by Pink
+Elephant being out there if I
+was doing veridical perception
+the cause of my brain would be
+a pink elephant I can tell you
+that that doesn't mean a pink
+elephant exists in some spooky
+thing inside my head or it's
+just a mental thing what it
+really tells you is I'm giving
+you a counterfactual I'm
+saying the world doesn't
+really contain a pink elephant
+but if it did contain a pink
+elephant that would explain my
+brain state that plus normal
+perceptual causation would
+explain my brain state so when
+I say I'm having the
+experience of a pink elephant
+the word experience many
+people think experience refers
+to some funny internal goings
+on it's an experience it's
+some internal no what I'm
+denoting when I use the word
+experience is that it's not
+real I'm talk I'm giving you a
+hypothetical statement but if
+this hypothetical thing were
+out there in the world that
+would explain this brain State
+and so I'm giving you insight
+into my brain state by talking
+about a hypothetical world
+what's not real about
+experience is that it's a
+hypothetical I'm giving you
+it's not that it lives in some
+other Spooky World and it's
+the same for feelings if I say
+I feel like hitting you what
+I'm doing is I'm giving you a
+sense of what's going on in my
+head via what it would
+normally cause so perception
+it's the world causing a
+perceptual state with feelings
+it's the internal state
+causing an action and I'm
+giving you insight into my
+internal state by telling you
+what kind of action it would
+cause now I might feel like
+hitting you or anybody else or
+kicking the cat or whatever in
+which case I instead of giving
+you any one of those actions I
+just use a term like angry but
+really that's shorthand for
+all those angry actions so I'm
+giving you I'm giving you a
+way of seeing what's going on
+in my head via describing
+actions I might do but they're
+just hypothetical actions and
+that's what the word feel
+means when I say I feel
+typically if I say I feel and
+then say I feel like blah it's
+not that there's some special
+internal Essence that's
+feeling and computers don't
+have it computers are just
+transistors they don't have
+feeling you have to have a
+soul to have feeling or
+something no I'm describing my
+internal State via the actions
+it would cause if I were to
+disinhibit it from another
+human's point of view if you
+were a machine and you were
+saying things like that I
+would perceive it as you
+having feelings right so let's
+take the perception case
+because it's slightly simpler
+I think suppose we make a big
+complicated neural network
+that can do perception and can
+also produce language we have
+those now yeah and so you can
+show them an image and they
+can give you a description of
+what's there and suppose we
+now take one of those networks
+and we say I want you to just
+imagine something and okay so
+it imagines something and then
+it tells you what it's
+imagining so it says I'm
+experiencing a pink elephant
+that's experiencing the Pink
+Elephant just as much as a
+person is when they say
+they're experiencing a pink
+elephant it's got an internal
+perceptual state that would
+normally be caused by a pink
+elephant but in this case is
+not caused by a pink elephant
+and so it uses the word
+experience to denote that
+there you go I think it's got
+just as much perceptual
+Sensations as we have although
+at the current state of large
+language models don't exhibit
+that kind of cohesive internal
+logic you no they will they
+will you you think they will
+oh yeah yeah I don't think I
+don't think Consciousness is
+people treat it like it's like
+the sound barrier that you're
+either below the speed of
+sound or you're above the
+speed of sound you've either
+got a model that hasn't yet
+got Consciousness or you got
+there it's not like that at
+all I think a lot of people
+were impressed by you talking
+about using mat lab I'm not
+sure impressed is the right
+word they were interested they
+were surprised but what is
+your day-to-day work like you
+have other responsibilities
+but you spend more time on
+conceptualizing and that could
+happen while taking a walk or
+taking a shower or do you
+spend more time on
+experimenting like on mat lab
+or do you spend more time on
+running large experiments okay
+it varies a lot over time so
+I'll often spend a long time
+like when I wrote that paper
+about glom I spent a long time
+thinking about how to organize
+a perceptual system that was
+more neurally realistic and
+could deal with part hole
+hierarchies without having to
+do Dynamic setting up of
+connections and so I spent
+many months just thinking
+about how to do that and
+writing a paper about that I
+spent a lot of time trying to
+think about more biologically
+plausible learning algorithms
+and then programming little
+systems in mat lab and
+discovering why they don't
+work so the point about most
+original ideas is they're
+wrong and mat laabs very
+convenient for quickly showing
+that they're wrong and very
+small toy problem like
+recognizing handwritten digits
+I'm very familiar with that
+task I can very quickly test
+out an idea to see if it works
+and I've got I've probably got
+on my computer thousands of
+programs that didn't work well
+that I programmed in an
+afternoon and an afternoon was
+sufficient to decide that okay
+that's not going to work
+probably that's probably not
+going to work you never know
+for sure because there might
+be some little trick you
+didn't think of and then there
+will be periods when I think
+I've got under something that
+does work and I'll spend
+several weeks programming and
+running things and seeing if
+it works yeah I've been doing
+that recently with the Ford
+for let me say why I use bat
+laab I learned lots of
+languages when I was young I
+learned pop two which was an
+edal language UCSD Pascal a
+lisp common lisp scheme all
+sorts of lisps and then I
+learn mat lab which is ugly in
+some ways but if you're
+dealing with vectors and
+matrices it's what you want it
+makes it convenient and I
+became fluent in mat lab and I
+should have learned Python and
+I should have learned all
+sorts of other things but when
+you're old you're much slower
+learning language and I'd
+learned plenty of them and I
+figured since I'm fluent in
+mat lab and I can test out
+little ideas in mat lab and
+then other people can test out
+running them on big system I
+would just stick with testing
+out things on that lab there's
+a lot of things about it that
+irritate me but it's also very
+convenient and you talk a lot
+about learning in toddlers and
+is that knowledge base
+something you accumulated
+years ago or are you
+continuing to read and talk to
+people in different fields I
+talk to a lot of people and I
+learn most things from talking
+to people I'm not very good at
+reading I read very slowly and
+when I come to equations they
+slow me up a lot so I I learn
+most of what I know from
+talking to people and I've
+lucky that I got lots of good
+people to talk to like I talk
+to Terry sinoski and he tells
+me about all sorts of
+Neuroscience things I talked
+to Josh Tenon bang he tells me
+about all sorts of cognitive
+science things I talked to J
+mland he tells me lots of con
+science psychology things so I
+get most of my knowledge just
+from talking to people your
+talk at nurbs you mentioned
+Yen he corrected my
+pronunciation of his name Lan
+why did you reference him in
+that talk oh because for many
+years he was pushing
+convolutional neural networks
+oh okay and the vision
+Community said okay they're
+fine for little things like
+handwritten digits but they'll
+never work for real images and
+there was a famous Pap
+submitted to a conference
+where him and co-workers where
+he actually did better than
+any other system on a
+particular Benchmark I think
+it was segmenting pedestrians
+but I'm not quite sure it was
+something like that and the
+paper got rejected even though
+it had the best results and
+one of the referees said the
+reason they were rejecting the
+paper was because the system
+learned everything so it
+taught us nothing about vision
+and this is a wonderful
+example of a paradigm and the
+Paradigm for computer division
+was you study the task that
+has to be performed the
+computation that has to be
+performed you figure out an
+algorithm that'll do that
+computation and then you
+figure out how to implement it
+efficiently and so the
+knowledge is all explicit the
+knowledge that it's using to
+do the vision is explicit you
+had to sort it out
+mathematically and then
+implement it and sitting there
+in the program and they just
+assumed that's the way that
+computer vision is going to
+work and because computer
+vision has to work that way if
+someone comes along and just
+learns everything they're no
+use to you because they
+haven't said what the
+knowledge is what is theistic
+you're using and so it's okay
+maybe it works but that's just
+good luck in the end we're
+bound to work better than that
+because we're using real
+knowledge and we understand
+what's going on so they
+completely failed to get the
+main message which was that it
+learned every not quite
+everything because he wir in
+convolution but the machine
+Learning Community they
+respected him because he's
+obviously a smart guy but they
+thought he was on completely
+the wrong path and they
+dismissed his work for years
+and years and then when fa Lee
+and her collaborators produced
+the imet competition finally
+we had a big enough data set
+to show that neural networks
+would really work well and Yan
+actually tried to get several
+different students to make a
+serious attempt to do the
+image net with convolutional
+Nets but he couldn't find a
+student who was interested in
+doing it at the same time Ila
+became very interested in
+doing it and I was interested
+in doing it and Alex fvy was a
+superb programmer who put a
+lot of hard work with Ila into
+making it work really well so
+it was very unfortunate for
+Yan that it wasn't his group
+that finally convinced it's a
+computer vision Community
+actually this stuff works much
+better than what you're doing
+you've now put this paper out
+there are you hoping to ignite
+sort of an army of yeah of
+people I'm I'm gonna put some
+simple mat lab code out there
+too yeah because there's a
+bunch of little things you
+have to do otherwise it won't
+work and the code needs to be
+out there it's more picky than
+backr with back propagation
+you just show people the
+equations and anybody can go
+and implement it and it
+doesn't need a lot of tricks
+for it to work quite well to
+work really well it needs lots
+of Tricks but it's work quite
+well it's fine with the
+forward forward you need a few
+tricks for it to work at all
+the tricks are quite
+reasonable tricks but once you
+put them in there then it
+works and I want to put that
+matlb code out there so other
+people can get it to work but
+I don't want to put my very
+primitive matlb code out there
+cuz it's disgusting that's it
+for this week's podcast I want
+to thank Jeff for his time I
+also want to thank clear ml
+for their support we're
+looking for more sponsors so
+if you are interested in
+supporting the podcast please
+email me at Craig C AIG I on
+AI That's e yeyen n. AI as
+always you can find a
+transcript of this episode on
+our website eyen n. AI I
+encourage you to read the
+transcript if you're serious
+about understanding the
+forward forward algorithm in
+the meantime remember the
+singularity may not be near
+but AI is about to change your
+world so pay attention
