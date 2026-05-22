@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S027",
+  "transcript_id": "T005",
+  "start_line": 337,
+  "end_line": 350,
+  "verbatim_text": "So the advantage is not really helpful in figuring out what is a good and bad operation, but this choice of mu is really ineffective. Now, you can ask, what if we use a very strong LLM? Let's even take the oracle. It's a very strong LLM mu, but now we're into this opposite problem, wherein no matter which state you are in, the reward to go for that really strong LLM is one. Think about the LLM mu that ignores the state that this algorithm generated and just completes optimally from there on. So in that case, reward to go is always one at any given state, which means that the advantage of any operation evaluates to be zero once again. So this choice of mu is also not a good one. As it turns out, the right choice of mu is something that's complementary to the algorithm that generated the original trace. Intuitively, what this means is that this mu is sensitive to the state that the algorithm generated or the operations that the algorithm generated. Roughly, you can look at some notion of mutual information between the generated state and the completions for mu. But formally, what we track is this notion of variance of advantages. So we know advantage of mu can distinguish good and bad operations. So roughly, if this variance of advantage is high, that is a reasonably complementary choice of this LLM mu as compared to this algorithm that generated the original trace. So you can think about, if this variance is high, some operations have very high advantage, some operations have very low advantage.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1519
+}

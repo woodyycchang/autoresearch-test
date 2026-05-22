@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S043",
+  "transcript_id": "T001",
+  "start_line": 467,
+  "end_line": 479,
+  "verbatim_text": "So what we want to do is we want to actually be able to extend our transformers. We want to try to reintroduce recurrences in some way. So recent architectures have been introduced that fix this limitation. So we have sometimes loop transformers, which recur across depth, or we have modern RNNs or linear transformers, which recur across time. I think there's a lot of space to explore what the right design choice is here in order to make updatability realized just in general. In the user model section, we learned that language models augmented with explicit user models are better able to elicit user preferences. So in particular, the work I presented used a Bayesian model to capture user preferences. This gives us a principled model of uncertainty about the user, which we saw was helpful for fitting a faithful user model from just a few turns of interaction and figuring out how to proactively seek information. But constraining ourselves to a Bayesian model over a fixed set of features also meant we had to use a very limited action space. It gave us limited flexibility. Alternatively, what people do is store facts about the user in some natural language memory bank, which you can then retrieve from when interacting with a user. This is pretty flexible, but it's hard to do things here like model uncertainty and aggregate information over a large number of sessions. So I think there's also a lot of work for future work, a lot of room for future work that could look at how we combine these two advantages so that we get both flexible and principled systems.",
+  "boundary_justification": "reason=target_reached_next_sentence_is_topic_shift; sentence_count=13; topic_shift_markers=none",
+  "sentence_count": 13,
+  "char_count": 1577
+}
