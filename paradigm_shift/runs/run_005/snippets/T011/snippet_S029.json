@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S029",
+  "transcript_id": "T011",
+  "start_line": 1470,
+  "end_line": 1523,
+  "verbatim_text": "How do I train a parametrized\nfunction that produces a\nscaler output to gimme low\noutput for things I trained it\non, but higher output for\nthings I don't train it on? There's two methods and, and\nbasically a big issue there is\nto prevent collapse. So if I\njust train a system like this\nto just minimize the\nprediction error, I just show\nit pairs of X and y just\nminimize the prediction error,\nit will collapse, basically it\nwill ignore X and y, it will\nproduce SX and XY that are\nconstant and then the\nprediction problem becomes\ntrivial. And so the prediction\nerror is zero, it's going to\nbe zero for everything. Okay? Not a good way to capture the\ndependency between X and Y. So\nI need to have a way of making\nsure that their energy is\nlarge for things that the\nsystem is not trained on. And\nthe advantage of representing\na a, a a dependency between\nvariables as an implicit\nfunction of this type is that\nI, I can represent\ndependencies between X and Y\nthat are not functions, okay? There's no function that maps\nX to Y here because there can\nbe multiple Ys for a given X. And so using an energy\nfunction is basically an\nimplicit function that\nrepresents dependency between\nthe two. Okay? So this energy\nfunction can collapse if I, if\nI merely train it to minimize\nthe energy of those training\nsamples, which are those blue\nbeads. Let's say this is X and\nthis is YI might end up with a\nenergy surface that is\ncompletely flat. So the way to\nprevent this from happening\nis, there's two methods that I\nknow about.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1511
+}

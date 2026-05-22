@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S031",
+  "transcript_id": "T011",
+  "start_line": 1580,
+  "end_line": 1641,
+  "verbatim_text": "And\nso you don't need to deal with\nthis, just deal with the\nenergy directly. I made a list\nof various methods that people\nhave proposed over the decades\nas to they can be interpreted\nin this framework in terms of\nwhether they're contrastive\nor, or regularized. I'm not\ngoing to go through the list,\nbut it's interesting to go\nthrough that exercise. So how\nare we going to use this self\nsupervised learning, perhaps\nlet's say contrastive to start\nwith, to train the system, for\nexample, to represent images\nso that we can do image\nrecognition, for example. So\nthe, the process is that we're\ngoing to train this joint\nembedding architecture in some\nway, and then once it's\ntrained, we chop off the\npredictor. We just use the\nencoder, the encoder to\nproduce a representation. And\nthen we train a very simple\nclassifier on top of it using\na supervised learning to do,\nfor example, image recognition\nor a depth estimation or\nsomething like this. Contrastive methods are very\nsimple eist in showing pairs\nof images that are basically d\ndifferent version of the same,\nthe same content using\ndistortion or or corruption of\nsome kind. And then training\nthe system to produce a\nrepresentation of the original\nimage from, from the distorted\nor corrupted one. And then you\nhave to have contrastive\nsamples, which are pairs of\nimages that you know are\ndifferent. And then you push\nthe predicted representation\nand the actual representation\naway from each other. Okay? So\nyou have some loss function\nthat is going to pull those\ntwo guys together is going to\npush those together away. And\nthis kind of works, but it\nnever produces representations\nthat fill spaces that are more\nthan about 200 dimensions when\nyou trend them on things like\nImageNet.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1733
+}

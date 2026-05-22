@@ -49,9 +49,12 @@ from first_principles_stress import (  # noqa: E402
 )
 from market_verifier import verify_all, synthesized_market_search  # noqa: E402
 from impact_label_logger import build_label_prompt  # noqa: E402
+from atom_quality_filter import filter_atoms_dir  # noqa: E402
+from speaker_self_publish import load_cache as load_self_publish_cache, check_atoms_dir as check_self_publish_atoms  # noqa: E402
 
 
 STAGES = ["manifest", "snippets", "atoms_tari", "atoms_paradigm",
+          "atom_quality_filter", "self_publish_audit",
           "candidates", "audit", "scored", "stress", "market",
           "label", "summary"]
 
@@ -91,6 +94,19 @@ def build_paths(run_dir: Path) -> RunPaths:
         search_cache_path=run_dir / "_search_cache.json",
         framing_cache_path=run_dir / "_framing_cache.json",
     )
+
+
+def _speaker_maps_from_manifest(manifest: dict):
+    """Extract (sid_map, cls_map) from a v2 manifest. Returns empty dicts on v1."""
+    sid_map: Dict[str, str] = {}
+    cls_map: Dict[str, str] = {}
+    for t in manifest.get("transcripts", []):
+        if t.get("speaker_id"):
+            sid_map[t["id"]] = t["speaker_id"]
+    for cls, sids in (manifest.get("speakers") or {}).items():
+        for sid in sids:
+            cls_map[sid] = cls
+    return sid_map, cls_map
 
 
 def write_manifest(manifest_in_path: Path, manifest_out_path: Path):
@@ -201,6 +217,37 @@ def write_summary(paths: RunPaths, manifest: dict, run_id: str):
             lines.append(f"- TARI atoms (kept for cross-reference): {idx.get('n_atoms', 0)}")
             lines.append("")
 
+    # Quality filter (Run 5+)
+    qf_path = paths.atoms_paradigm_dir / "_quality_filter.json"
+    if qf_path.exists():
+        with qf_path.open("r", encoding="utf-8") as f:
+            qf = json.load(f)
+        lines.append("## Atom quality filter (Run 5+)")
+        lines.append("")
+        lines.append(f"- Input atoms: {qf['n_input']}")
+        lines.append(f"- Kept: {qf['n_kept']}")
+        lines.append(f"- Rejected: {qf['n_rejected']}")
+        lines.append(f"- Kept by paradigm_type: {qf['by_paradigm_type_kept']}")
+        lines.append(f"- Kept by transcript: {qf['by_transcript_kept']}")
+        lines.append(f"- Kept by reason: {qf['kept_by_reason']}")
+        lines.append("")
+
+    # Self-publish audit (Run 5+)
+    sp_path = paths.run_dir / "_self_publish_audit.json"
+    if sp_path.exists():
+        with sp_path.open("r", encoding="utf-8") as f:
+            sp = json.load(f)
+        lines.append("## Speaker self-publish audit (Run 5+)")
+        lines.append("")
+        lines.append(f"- Atoms checked: {sp['n_atoms_checked']}")
+        lines.append(f"- Self-publish hits: {sp['n_self_publish_hits']} (hit rate {sp['hit_rate']:.3f})")
+        lines.append("- By speaker:")
+        for sid, stats in sorted(sp.get("by_speaker", {}).items()):
+            entries = stats.get("matched_entries", {})
+            lines.append(f"  - {sid}: {stats['n_hits']}/{stats['n_atoms']} hits, "
+                         f"matched entries: {dict(entries)}")
+        lines.append("")
+
     # Candidates
     if paths.candidates_dir.exists():
         idx_c = paths.candidates_dir / "_index.json"
@@ -212,6 +259,13 @@ def write_summary(paths: RunPaths, manifest: dict, run_id: str):
             lines.append(f"- Total: {idx['n_candidates']}")
             lines.append(f"- By operator: {idx['operator_distribution']}")
             lines.append(f"- By type pair: {idx['type_pair_distribution']}")
+            if "speaker_class_pair_distribution" in idx:
+                lines.append(f"- By speaker_class pair: {idx['speaker_class_pair_distribution']}")
+            if "speaker_diversity_distribution" in idx:
+                lines.append(f"- By speaker_diversity: {idx['speaker_diversity_distribution']}")
+            if idx.get("require_cross_leader"):
+                lines.append(f"- require_cross_leader: True (dropped "
+                             f"{idx.get('n_pairs_dropped_for_same_speaker', 0)} same-speaker pairs)")
             lines.append("")
 
     # Audit
@@ -289,7 +343,8 @@ def write_summary(paths: RunPaths, manifest: dict, run_id: str):
     lines.append("## Final paradigm-shift candidates")
     lines.append("")
     if not final_ids:
-        lines.append("None. (Run 1 expectation: 0 survivors on academic transcripts.)")
+        lines.append(f"None. ({run_id}: stress and market layers reject when the "
+                     f"search cache is empty — see `_search_cache.json`.)")
         lines.append("")
         lines.append("This is mechanism validation only. See `design/paradigm_shift_finder_v1.md` §8 MV-1..MV-5.")
     else:
@@ -327,6 +382,8 @@ def run(
     resume_from: Optional[str] = None,
     max_per_operator: int = 5,
     require_cross_transcript: bool = True,
+    require_cross_leader: bool = False,
+    cross_leader_bias: bool = False,
     label_top_k: int = 3,
 ):
     paths = build_paths(run_dir)
@@ -375,6 +432,26 @@ def run(
         date_map = {t["id"]: t.get("approx_date") for t in manifest.get("transcripts", [])}
         extract_all_paradigm_atoms(flat_snippets, paths.atoms_paradigm_dir, transcript_date_map=date_map)
 
+    # ---- Stage: atom_quality_filter (Run 5+) ----
+    qf_marker = paths.atoms_paradigm_dir / "_quality_filter.json"
+    if resume_idx <= STAGES.index("atom_quality_filter") and not qf_marker.exists():
+        print(f"[STAGE atom_quality_filter] re-scoring atoms in {paths.atoms_paradigm_dir}")
+        report = filter_atoms_dir(paths.atoms_paradigm_dir, out_dir=None)
+        print(f"  kept {report['n_kept']}/{report['n_input']} atoms")
+
+    # ---- Stage: self_publish_audit (Run 5+) ----
+    sp_path = paths.run_dir / "_self_publish_audit.json"
+    sid_map, cls_map = _speaker_maps_from_manifest(manifest)
+    if resume_idx <= STAGES.index("self_publish_audit") and not sp_path.exists():
+        cache_path = THIS_DIR / "speaker_self_publish_cache.json"
+        if cache_path.exists() and sid_map:
+            print(f"[STAGE self_publish_audit] auditing atoms against {cache_path.name}")
+            cache = load_self_publish_cache(cache_path)
+            check_self_publish_atoms(paths.atoms_paradigm_dir, sid_map, cache,
+                                      out_path=sp_path)
+        else:
+            print("[STAGE self_publish_audit] skipped (no cache or no speaker map in manifest)")
+
     # ---- Stage: candidates ----
     if resume_idx <= STAGES.index("candidates") and not stage_complete(paths.candidates_dir):
         print(f"[STAGE candidates] running typed-combinator brainstorm into {paths.candidates_dir}")
@@ -383,6 +460,10 @@ def run(
             run_id=run_id,
             max_per_operator=max_per_operator,
             require_cross_transcript=require_cross_transcript,
+            require_cross_leader=require_cross_leader,
+            speaker_id_by_transcript=sid_map,
+            speaker_class_by_id=cls_map,
+            cross_leader_bias=cross_leader_bias,
         )
 
     # ---- Stage: audit ----
@@ -427,6 +508,29 @@ def run(
             return cache.get(q, [])
         verify_all(paths.stress_dir, paths.market_dir, search_fn=search_fn)
 
+        # v2: post-pass enrich each candidate JSON with a self_publish_check field.
+        sp_cache_path = THIS_DIR / "speaker_self_publish_cache.json"
+        if sp_cache_path.exists() and sid_map:
+            from speaker_self_publish import check_candidate as sp_check_candidate
+            sp_cache = load_self_publish_cache(sp_cache_path)
+            for cp in sorted(paths.market_dir.glob("CAND_*.json")):
+                with cp.open("r", encoding="utf-8") as f:
+                    cand = json.load(f)
+                check = sp_check_candidate(cand, sid_map, sp_cache,
+                                            atoms_dir=paths.atoms_paradigm_dir)
+                cand["self_publish_check"] = check
+                # Downgrade verdict if all atoms self-publish-paraphrase
+                if check.get("all_atoms_are_self_publish"):
+                    mv = cand.get("market_verdict") or {}
+                    if mv.get("verdict") == "SURVIVES_MARKET_CHECK":
+                        mv["verdict"] = "DOWNGRADED_SELF_PUBLISH"
+                        mv["self_publish_downgrade_reason"] = (
+                            "All cited atoms paraphrase the speaker's own self-published work."
+                        )
+                        cand["market_verdict"] = mv
+                with cp.open("w", encoding="utf-8") as f:
+                    json.dump(cand, f, indent=2, ensure_ascii=False)
+
     # ---- Stage: label ----
     if resume_idx <= STAGES.index("label") and not paths.label_prompt_path.exists():
         print(f"[STAGE label] writing labeling prompt to {paths.label_prompt_path}")
@@ -463,6 +567,10 @@ def main():
                     help="Skip stages before this one (assumes their outputs exist).")
     ap.add_argument("--max_per_operator", type=int, default=5)
     ap.add_argument("--allow_intra_transcript", action="store_true")
+    ap.add_argument("--require_cross_leader", action="store_true",
+                    help="Run 5+: require atom pair come from >=2 distinct speaker_ids.")
+    ap.add_argument("--cross_leader_bias", action="store_true",
+                    help="Run 5+: bias the pair sampler to prefer cross-class pairs.")
     ap.add_argument("--label_top_k", type=int, default=3)
     args = ap.parse_args()
 
@@ -473,6 +581,8 @@ def main():
         resume_from=args.resume_from,
         max_per_operator=args.max_per_operator,
         require_cross_transcript=not args.allow_intra_transcript,
+        require_cross_leader=args.require_cross_leader,
+        cross_leader_bias=args.cross_leader_bias,
         label_top_k=args.label_top_k,
     )
 
