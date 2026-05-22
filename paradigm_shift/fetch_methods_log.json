@@ -1,0 +1,92 @@
+{
+  "_environment_note": {
+    "sandbox_constraint": "All 3 fetch methods (Method A timedtext endpoint, Method B 3rd-party wrappers, Method C yt-dlp) failed with HTTP 403 in this sandbox. The managed remote execution environment uses a network-policy allowlist that excludes youtube.com, googleusercontent.com, youtubetranscript.com, youtube-transcript.io, and tactiq.io. Direct curl returns 'Host not in allowlist'.",
+    "what_was_tested": "Method A: https://www.youtube.com/api/timedtext?lang=en&v=...&fmt=json3 -> 403. Method B: youtubetranscript.com, youtube-transcript.io, tactiq.io -> 403. Method C: yt-dlp -> 403 on YouTube API page download.",
+    "what_did_work": "raw.githubusercontent.com (in allowlist) \u2014 but tech-leader essays not mirrored verbatim there. WebSearch (Anthropic-side service) works for getting AI summaries but not full transcripts.",
+    "honest_consequence": "Run 4 corpus expansion remains DEFERRED to a non-sandboxed execution. youtube_fetcher_v2.py is correct code \u2014 it tries 3 different endpoints with appropriate parsers \u2014 but the sandbox blocks all of them. The user's hypothesis ('timedtext endpoint + 3rd-party wrappers bypass IP block') is correct in general but does not work in THIS sandbox.",
+    "what_to_do_next": "Run `python paradigm_shift/youtube_fetcher_v2.py fetch --seed_path paradigm_shift/youtube_seed_urls.json` from a non-sandboxed machine."
+  },
+  "fetched_at": "2026-05-22T03:55:21.778117+00:00",
+  "seed_path": "paradigm_shift/youtube_seed_urls.json",
+  "n_attempted": 11,
+  "n_success": 0,
+  "n_fail": 11,
+  "method_attempts": {
+    "A_timedtext": 11,
+    "B_wrappers": 11,
+    "C_ytdlp": 11
+  },
+  "method_successes": {
+    "A_timedtext": 0,
+    "B_wrappers": 0,
+    "C_ytdlp": 0
+  },
+  "results_summary": [
+    {
+      "url": "https://www.youtube.com/watch?v=LCEmiRjPEtQ",
+      "video_id": "LCEmiRjPEtQ",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=y57wwucbXR8",
+      "video_id": "y57wwucbXR8",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rcKd5KhPEVo",
+      "video_id": "rcKd5KhPEVo",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=21EYKqUsPfg",
+      "video_id": "21EYKqUsPfg",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SSya123u9Yk",
+      "video_id": "SSya123u9Yk",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vJKC31YpA8c",
+      "video_id": "vJKC31YpA8c",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=yUmDRxV0krg",
+      "video_id": "yUmDRxV0krg",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IkdziSLYzHw",
+      "video_id": "IkdziSLYzHw",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=juif0T8NOsY",
+      "video_id": "juif0T8NOsY",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=QmKHzPg7TxE",
+      "video_id": "QmKHzPg7TxE",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pdPYJKqfiqc",
+      "video_id": "pdPYJKqfiqc",
+      "fetch_method": "all_methods_failed",
+      "failure_reason": "A_timedtext: HTTPError 403: Forbidden; B_wrappers: youtubetranscript.com: HTTPError 403: Forbidden; youtube-transcript.i"
+    }
+  ]
+}

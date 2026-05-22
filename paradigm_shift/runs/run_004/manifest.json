@@ -1,0 +1,82 @@
+{
+  "manifest_version": "paradigm_shift_v1",
+  "run_id": "run_004",
+  "created_at": "2026-05-22",
+  "notes": "Paradigm-Shift Finder Run 4. Atom quality filter applied between atom_typer and analogy_engine. Layer 6 v2 retained. Still on 5 academic transcripts (auto-fetch sandbox-blocked across 3 fallback methods).",
+  "input_distribution": "academic_colloquium (corpus expansion sandbox-blocked)",
+  "corpus_expansion_status": "deferred_to_non_sandbox_run",
+  "new_in_run_2": [
+    "_search_cache.json wired with real web_search per sub-claim (Layer 5 RAG no longer trivially rejects)",
+    "_framing_cache.json wired with 3-framing answers per candidate (Layer 5 self-consistency now substantive)",
+    "Market verifier search cache also wired with real web_search per candidate primary phrase"
+  ],
+  "transcripts": [
+    {
+      "id": "T001",
+      "path": "tari/inputs/belinda_li_self_models_canonical.txt",
+      "speaker": "Belinda Li",
+      "speaker_affiliation": "MIT EECS (PhD student, advisor Jacob Andreas)",
+      "topic": "Building AI systems with coherent and updatable models of the world, user, and themselves",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-06-01",
+      "claude_cutoff_relationship": "Talk timing overlaps Claude knowledge cutoff (Jan 2026)."
+    },
+    {
+      "id": "T002",
+      "path": "tari/inputs/transcript_002_yu_sun_canonical.txt",
+      "speaker": "Yu Sun",
+      "speaker_affiliation": "Stanford (faculty)",
+      "topic": "Test-time training and adaptive computation at inference",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-06-01",
+      "claude_cutoff_relationship": "Overlaps cutoff."
+    },
+    {
+      "id": "T003",
+      "path": "tari/inputs/transcript_003_nicholas_roberts_canonical.txt",
+      "speaker": "Nicholas Roberts",
+      "speaker_affiliation": "University of Wisconsin",
+      "topic": "Science of foundation models for science",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-06-01",
+      "claude_cutoff_relationship": "Overlaps cutoff."
+    },
+    {
+      "id": "T004",
+      "path": "tari/inputs/transcript_004_valerie_chen_canonical.txt",
+      "speaker": "Valerie Chen",
+      "speaker_affiliation": "CMU ML department",
+      "topic": "Human-AI collaboration",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-06-01",
+      "claude_cutoff_relationship": "Overlaps cutoff. Sparse atom yield expected."
+    },
+    {
+      "id": "T005",
+      "path": "tari/inputs/transcript_005_amrith_setlur_canonical.txt",
+      "speaker": "Amrith Setlur",
+      "speaker_affiliation": "CMU (PhD student)",
+      "topic": "Training models to adapt at test time via reinforcement learning",
+      "talk_format": "Colloquium",
+      "approx_date": "2025-06-01",
+      "claude_cutoff_relationship": "Overlaps cutoff."
+    }
+  ],
+  "expected_run_2_findings": [
+    "Layer 5 RAG with real cache: NOT 100% FAIL_RAG_UNGROUNDED anymore. Many sub-claims will find supporting docs because they restate well-published academic topics (probing, test-time training, etc).",
+    "Layer 5 self-consistency with 3 framings: previously degenerated (same hypothesis 3 times = trivially intersects); now needs actual intersection across distinct paraphrases.",
+    "Layer 6 market verifier with real cache: candidates that survive Layer 5 will likely FAIL_MARKET_EXISTS because all their content corresponds to existing academic literature, not unaddressed startup space.",
+    "Net result: at least 1 candidate is expected to survive Layer 5 (vs 0 in Run 1) but very few are expected to survive Layer 6 (because the input distribution is wrong \u2014 same Run 1 finding)."
+  ],
+  "new_in_run_3": [
+    "Layer 6 v2 with TF-IDF semantic similarity replacing 3-word overlap",
+    "Speaker self-publish check (NEW): web_search by speaker name",
+    "Recent paper weight: 2x for last 12 months, 1.5x for 13-24 months",
+    "Cross-LLM verify queue for top-3 survivors"
+  ],
+  "new_in_run_4": [
+    "paradigm_shift/atom_quality_filter.py (5 positive features, 5 negative features)",
+    "orchestrator: atoms_filtered stage between atoms_paradigm and candidates",
+    "youtube_fetcher_v2.py with 3 fallback methods (sandbox blocks all 3)"
+  ]
+}

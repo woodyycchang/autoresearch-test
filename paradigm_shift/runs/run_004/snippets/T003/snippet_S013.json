@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S013",
+  "transcript_id": "T003",
+  "start_line": 137,
+  "end_line": 150,
+  "verbatim_text": "And this is going to be true of our flux agent example as well. We're going to need reasoning for flux agent, right? And we need some way of accounting for reasoning in our pre-training scaling. Okay, so one way to account for reasoning that doesn't directly require pre-training scaling is to look at inference time scaling. And so here's a very common example that people use that's called passive k-scaling. Basically what you do is you take some fixed base model or post-trained model and you sample outputs repeatedly, k different times. And then you somehow have maybe, if you're doing code, you have test cases that you run these different outputs against, and then you pick the right one to deliver to a user. And you can model how the pass rate or accuracy under this passive k-scaling evolves using this kind of function here. So you have k different samples and p here is just the likelihood of the actual solution under your model. And our scaling law, t-squared scaling, combines both of these ideas. We jointly optimize the number of parameters, the number of tokens, and the number of repeated samples during test time. And we get very different looking scaling law results. And I want to dive a bit into some of the technical details of how this actually works. So here's the equation for pre-training scaling that you would see for chinchilla.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1360
+}

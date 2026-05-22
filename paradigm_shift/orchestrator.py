@@ -42,6 +42,7 @@ from atom_extractor import extract_all  # noqa: E402  (TARI atom extractor)
 from self_model_audit import audit_all  # noqa: E402
 
 from atom_typer import extract_all_paradigm_atoms  # noqa: E402
+from atom_quality_filter import filter_atoms_dir  # noqa: E402
 from analogy_engine import brainstorm_paradigm_candidates  # noqa: E402
 from impact_filter import score_all_candidates  # noqa: E402
 from first_principles_stress import (  # noqa: E402
@@ -52,8 +53,8 @@ from impact_label_logger import build_label_prompt  # noqa: E402
 
 
 STAGES = ["manifest", "snippets", "atoms_tari", "atoms_paradigm",
-          "candidates", "audit", "scored", "stress", "market",
-          "label", "summary"]
+          "atoms_filtered", "candidates", "audit", "scored", "stress",
+          "market", "label", "summary"]
 
 
 @dataclass
@@ -63,6 +64,8 @@ class RunPaths:
     snippets_root: Path
     atoms_tari_dir: Path
     atoms_paradigm_dir: Path
+    atoms_filtered_dir: Path
+    atoms_filter_report_path: Path
     candidates_dir: Path
     audit_path: Path
     scored_dir: Path
@@ -81,6 +84,8 @@ def build_paths(run_dir: Path) -> RunPaths:
         snippets_root=run_dir / "snippets",
         atoms_tari_dir=run_dir / "atoms_tari",
         atoms_paradigm_dir=run_dir / "atoms",
+        atoms_filtered_dir=run_dir / "atoms_filtered",
+        atoms_filter_report_path=run_dir / "atoms_filter_report.json",
         candidates_dir=run_dir / "candidates",
         audit_path=run_dir / "audit" / "self_model_audit.json",
         scored_dir=run_dir / "scored",
@@ -375,11 +380,23 @@ def run(
         date_map = {t["id"]: t.get("approx_date") for t in manifest.get("transcripts", [])}
         extract_all_paradigm_atoms(flat_snippets, paths.atoms_paradigm_dir, transcript_date_map=date_map)
 
+    # ---- Stage: atoms_filtered (atom quality filter) ----
+    if resume_idx <= STAGES.index("atoms_filtered") and not stage_complete(paths.atoms_filtered_dir):
+        print(f"[STAGE atoms_filtered] filtering paradigm atoms -> {paths.atoms_filtered_dir}")
+        n_pass, n_reject, _ = filter_atoms_dir(
+            paths.atoms_paradigm_dir,
+            paths.atoms_filtered_dir,
+            report_path=paths.atoms_filter_report_path,
+        )
+        print(f"  passed {n_pass}, rejected {n_reject}")
+
     # ---- Stage: candidates ----
     if resume_idx <= STAGES.index("candidates") and not stage_complete(paths.candidates_dir):
         print(f"[STAGE candidates] running typed-combinator brainstorm into {paths.candidates_dir}")
+        # Use filtered atoms if available, else fall back to unfiltered.
+        atoms_src = paths.atoms_filtered_dir if stage_complete(paths.atoms_filtered_dir) else paths.atoms_paradigm_dir
         brainstorm_paradigm_candidates(
-            paths.atoms_paradigm_dir, paths.candidates_dir,
+            atoms_src, paths.candidates_dir,
             run_id=run_id,
             max_per_operator=max_per_operator,
             require_cross_transcript=require_cross_transcript,
@@ -398,7 +415,8 @@ def run(
 
         # Build per-transcript-id path dict for multi-transcript audit
         tpath_map = {t["id"]: Path(t["path"]) for t in manifest.get("transcripts", [])}
-        sma.audit_all(paths.candidates_dir, paths.atoms_paradigm_dir,
+        atoms_for_audit = paths.atoms_filtered_dir if stage_complete(paths.atoms_filtered_dir) else paths.atoms_paradigm_dir
+        sma.audit_all(paths.candidates_dir, atoms_for_audit,
                       tpath_map, paths.audit_path)
 
     # ---- Stage: scored ----
