@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S031",
+  "transcript_id": "T005",
+  "start_line": 381,
+  "end_line": 391,
+  "verbatim_text": "The second part, for the right choice of mu, would tell you what are the good and bad exploratory operations. And that can be a way for you to define your training objective. So what happens when you train with these surrogate rewards as the reward that you're optimizing in RL? What we notice is that if you didn't have the surrogate reward, which is only the terminal reward that you use in standard RL, you train an LLM. But at test time, as you get it to sample more tokens, the performance barely improves. You can also try to use some notion of value functions, which is prior work on some process rewards or intermediate rewards. Once again, like we saw, there are some issues with using value functions. You see some improvement in accuracy, but the performance really plateaus. Now, if you use the right choice of this complementary LLM mu, then what we see is that when you train with our surrogate rewards, you get an LLM that at test time, as you get it to scale the number of test time operations, the performance gain is much higher. So roughly what that means is that if you use the right training rewards, the right surrogate rewards, then you can effectively learn an algorithm that can scale the number of operations at test time and improve performance. And this is, in fact, like one of the first results to show that RL with the right process rewards can really help you learn algorithms that can scale test time operations and improve performance.",
+  "boundary_justification": "reason=target_reached_next_sentence_is_topic_shift; sentence_count=11; topic_shift_markers=none",
+  "sentence_count": 11,
+  "char_count": 1469
+}
