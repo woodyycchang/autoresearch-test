@@ -1,0 +1,48 @@
+{
+  "run_id": "run_010",
+  "started_at": "2026-05-23T18:15:00+00:00",
+  "completed_at": "2026-05-23T18:25:00+00:00",
+  "summary": "Persistent knowledge accumulation + arXiv synthetic atom injection + recursive multi-epoch. 0 substantive niche across 4 epochs but 3 new root causes (RC_006/007/008) + 1 terminal constraint (RC_009) documented in persistent_knowledge_base.json. arXiv injection ESCAPED RC_002 NARROW_INPUT_POOL at the raw level (15 vs 0 survivors at L8 epoch 1).",
+  "phases": [
+    "phase_0: persistent_knowledge_base.json initialized with 5 Run-9 RCs + 6 counter-papers + 5 fixes",
+    "phase_1: arxiv_atom_injector.py built; 30 hot-topic atoms across 10 ML frontier topics (15 web_search calls)",
+    "phase_2_epoch_1: arXiv hot injection; 15 L8 survivors; ALL saturated (4 saturation web_search)",
+    "phase_R_epoch_2: cold-topic injection (6 new atoms); 19 L8 survivors with 4 cold-bearing; ALL saturated (4 web_search)",
+    "phase_R_epoch_3: cross-disciplinary injection (6 new atoms); 19 L8 survivors, 0 cross-disc due to RC_008 vocab bias (3 web_search)",
+    "phase_R_epoch_4: mechanism vocab expansion (+7 cross-disc axes); 32 L8 survivors with 3 cross-disc + 9 cold-bearing; ALL saturated (4 web_search). Max epoch terminal.",
+    "phase_3_audit: Belinda 3Q audit on top 3 candidates by diversity score. All PASS mechanically.",
+    "phase_4_compare: output/run_009_vs_run_010.md",
+    "phase_5_cross_llm: 4 entries queued for cross-LLM novelty re-check"
+  ],
+  "persistent_kb": {
+    "root_causes_total": 9,
+    "new_in_run_010": ["RC_006_HOT_TOPIC_ARXIV_SATURATION", "RC_007_META_SATURATION_COLD_TOPICS", "RC_008_MECHANISM_VOCAB_ML_BIAS", "TERMINAL_CONSTRAINT_RC_009"],
+    "counter_papers_total": 18,
+    "new_in_run_010": 12,
+    "fixes_total": 8,
+    "new_in_run_010": ["FIX_006_cold_topic_injection", "FIX_007_cross_disciplinary_injection", "FIX_008_mechanism_vocab_expansion"]
+  },
+  "arxiv_atom_yield": {
+    "total_atoms": 42,
+    "hot_topics_10": 30,
+    "cold_topics_6": 6,
+    "cross_disciplinary_6": 6
+  },
+  "epoch_results": {
+    "epoch_1": {"L8_survivors": 15, "saturation_kills": 15, "substantive_niche": 0},
+    "epoch_2": {"L8_survivors": 19, "saturation_kills": 19, "substantive_niche": 0, "cold_bearing": 4},
+    "epoch_3": {"L8_survivors": 19, "saturation_kills": 19, "substantive_niche": 0, "cross_disc_bearing": 0, "rc_008_identified": true},
+    "epoch_4": {"L8_survivors": 32, "saturation_kills": 32, "substantive_niche": 0, "cross_disc_bearing": 3, "cold_bearing": 9, "max_epoch_terminal": true}
+  },
+  "binding_constraint_verdict": "RC_002 NARROW_INPUT_POOL escaped at raw level; literature density (RC_006/007/008/009) is the new terminal binding.",
+  "tool_audit": {
+    "WebSearch_total": 22,
+    "Read_total": 8,
+    "Write_total": 14,
+    "Edit_total": 4,
+    "Bash_python_total": 12
+  },
+  "final_survivors": [],
+  "robust_niche_across_epochs": [],
+  "cross_llm_queue_count": 4
+}
