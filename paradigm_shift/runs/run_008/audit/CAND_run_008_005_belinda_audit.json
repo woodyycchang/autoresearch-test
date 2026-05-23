@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND_run_008_005",
+  "claim": "Prediction in atom ATOM_T012_S003_PRE_01 (\"So the network has to learn a generative model and what it's trying to do is ...\") holds if and only if the first-principle constraint in atom ATOM_T007_S009_FIR_01 (\"So we really want an assistant model instead and the way you obtain these ass...\") is binding.",
+  "Q1_atoms": [
+    {
+      "atom_id": "ATOM_T012_S003_PRE_01",
+      "atom_type": "PREDICTION",
+      "paradigm_type": "prediction",
+      "transcript_id": "T012",
+      "snippet_id": "S003",
+      "verbatim_quote": "So the network has to learn a generative model and what it's trying to do is discriminate between real data and fake data produced by its generative model obviously if it can't discriminate at all then what's going to happen is the derivatives that it gets for real data and. The derivatives it get for fake data will be equal and opposite.",
+      "line_span": [
+        29,
+        43
+      ],
+      "exists_in_atoms_dir": true
+    },
+    {
+      "atom_id": "ATOM_T007_S009_FIR_01",
+      "atom_type": "FIRST_PRINCIPLE",
+      "paradigm_type": "first_principle",
+      "transcript_id": "T007",
+      "snippet_id": "S009",
+      "verbatim_quote": "So we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. So the training will be the same it's just the next word prediction task.",
+      "line_span": [
+        114,
+        129
+      ],
+      "exists_in_atoms_dir": true
+    }
+  ],
+  "Q2_operators": {
+    "combination_operator": "PREDICTION_GROUNDED_IN_PRINCIPLE",
+    "atom_pairings": [
+      {
+        "position": "A",
+        "atom_id": "ATOM_T012_S003_PRE_01",
+        "paradigm_type": "prediction"
+      },
+      {
+        "position": "B",
+        "atom_id": "ATOM_T007_S009_FIR_01",
+        "paradigm_type": "first_principle"
+      }
+    ]
+  },
+  "Q3_lines": [
+    {
+      "atom_id": "ATOM_T012_S003_PRE_01",
+      "transcript_id": "T012",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T012_purified.txt",
+      "line_start": 29,
+      "line_end": 43,
+      "verbatim_text": "So the network has to learn a generative model and what it's trying to do is discriminate between real data and fake data produced by its generative model obviously if it can't discriminate at all then what's going to happen is the derivatives that it gets for real data and. The derivatives it get for fake data will be equal and opposite.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 15,
+        "span_text_preview": "So that it can figure out that this is real data.\nSo the underlying idea is for Real data you want every layer to have high activity and for fake data comes High we get that later you'd like every layer to have low activity and.\nThe task of",
+        "quote_normalized_preview": "so the network has to learn a generative model and what it's trying to do is discriminate between real data and fake data produced by its generative model obviously if it can't discriminate at all then what's going to happen is the derivati"
+      }
+    },
+    {
+      "atom_id": "ATOM_T007_S009_FIR_01",
+      "transcript_id": "T007",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T007_purified.txt",
+      "line_start": 114,
+      "line_end": 129,
+      "verbatim_text": "So we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. So the training will be the same it's just the next word prediction task.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 16,
+        "span_text_preview": "This is where we obtain what we call an assistant model because we don't actually really just want a document generators that's not very helpful for many tasks we want to give questions to something.\nand we want it to generate answers based",
+        "quote_normalized_preview": "so we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. so the training will be the same it's just the next word"
+      }
+    }
+  ],
+  "mechanical_check_all_pass": true,
+  "verdict": "PASS"
+}

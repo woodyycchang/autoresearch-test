@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND_run_007_011",
+  "claim": "Prediction in atom ATOM_T002_S046_PRE_01 (\"I think that's a reasonable prediction, given the plots we have seen so far. ...\") holds if and only if the first-principle constraint in atom ATOM_T007_S004_FIR_01 (\"Fundamentally the problem that the neural network is performing and this you ...\") is binding.",
+  "Q1_atoms": [
+    {
+      "atom_id": "ATOM_T002_S046_PRE_01",
+      "atom_type": "PREDICTION",
+      "paradigm_type": "prediction",
+      "transcript_id": "T002",
+      "snippet_id": "S046",
+      "verbatim_quote": "I think that's a reasonable prediction, given the plots we have seen so far. But, like, it could as well be that, you know, the policy discovers a crazy solution that's, let's say, based on something that's all the way over here, right?",
+      "line_span": [
+        570,
+        581
+      ],
+      "exists_in_atoms_dir": true
+    },
+    {
+      "atom_id": "ATOM_T007_S004_FIR_01",
+      "atom_type": "FIRST_PRINCIPLE",
+      "paradigm_type": "first_principle",
+      "transcript_id": "T007",
+      "snippet_id": "S004",
+      "verbatim_quote": "Fundamentally the problem that the neural network is performing and this you can show mathematically that there's a very close relationship between prediction and.",
+      "line_span": [
+        45,
+        60
+      ],
+      "exists_in_atoms_dir": true
+    }
+  ],
+  "Q2_operators": {
+    "combination_operator": "PREDICTION_GROUNDED_IN_PRINCIPLE",
+    "atom_pairings": [
+      {
+        "position": "A",
+        "atom_id": "ATOM_T002_S046_PRE_01",
+        "paradigm_type": "prediction"
+      },
+      {
+        "position": "B",
+        "atom_id": "ATOM_T007_S004_FIR_01",
+        "paradigm_type": "first_principle"
+      }
+    ]
+  },
+  "Q3_lines": [
+    {
+      "atom_id": "ATOM_T002_S046_PRE_01",
+      "transcript_id": "T002",
+      "transcript_path": "/home/user/autoresearch-test/tari/inputs/transcript_002_yu_sun_canonical.txt",
+      "line_start": 570,
+      "line_end": 581,
+      "verbatim_text": "I think that's a reasonable prediction, given the plots we have seen so far. But, like, it could as well be that, you know, the policy discovers a crazy solution that's, let's say, based on something that's all the way over here, right?",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 12,
+        "span_text_preview": "Sorry, theta 200 and more are going to go more and more to the right, and you're going to stretch the distribution more thin.\nSo the probability of finding kind of the higher, the faster solutions is going to become dropped dramatically.\nI ",
+        "quote_normalized_preview": "i think that's a reasonable prediction, given the plots we have seen so far. but, like, it could as well be that, you know, the policy discovers a crazy solution that's, let's say, based on something that's all the way over here, right?"
+      }
+    },
+    {
+      "atom_id": "ATOM_T007_S004_FIR_01",
+      "transcript_id": "T007",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T007_purified.txt",
+      "line_start": 45,
+      "line_end": 60,
+      "verbatim_text": "Fundamentally the problem that the neural network is performing and this you can show mathematically that there's a very close relationship between prediction and.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 16,
+        "span_text_preview": "You would run this for about 12 days to get a llama 270b and.\nThis would cost you about $2 million and what this is doing is.\nBasically it is compressing this large chunk of text into what you can think of as a a zip file.\nSo these paramete",
+        "quote_normalized_preview": "fundamentally the problem that the neural network is performing and this you can show mathematically that there's a very close relationship between prediction and."
+      }
+    }
+  ],
+  "mechanical_check_all_pass": true,
+  "verdict": "PASS"
+}
