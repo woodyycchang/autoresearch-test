@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND_run_007_012",
+  "claim": "Prediction in atom ATOM_T013_S002_PRE_01 (\"I think like at the time neural nets were seen as like just a different class...\") holds if and only if the first-principle constraint in atom ATOM_T007_S009_FIR_01 (\"So we really want an assistant model instead and the way you obtain these ass...\") is binding.",
+  "Q1_atoms": [
+    {
+      "atom_id": "ATOM_T013_S002_PRE_01",
+      "atom_type": "PREDICTION",
+      "paradigm_type": "prediction",
+      "transcript_id": "T013",
+      "snippet_id": "S002",
+      "verbatim_quote": "I think like at the time neural nets were seen as like just a different classifier like a decision tree or something like that. I think it was like.",
+      "line_span": [
+        15,
+        29
+      ],
+      "exists_in_atoms_dir": true
+    },
+    {
+      "atom_id": "ATOM_T007_S009_FIR_01",
+      "atom_type": "FIRST_PRINCIPLE",
+      "paradigm_type": "first_principle",
+      "transcript_id": "T007",
+      "snippet_id": "S009",
+      "verbatim_quote": "So we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. So the training will be the same it's just the next word prediction task.",
+      "line_span": [
+        114,
+        129
+      ],
+      "exists_in_atoms_dir": true
+    }
+  ],
+  "Q2_operators": {
+    "combination_operator": "PREDICTION_GROUNDED_IN_PRINCIPLE",
+    "atom_pairings": [
+      {
+        "position": "A",
+        "atom_id": "ATOM_T013_S002_PRE_01",
+        "paradigm_type": "prediction"
+      },
+      {
+        "position": "B",
+        "atom_id": "ATOM_T007_S009_FIR_01",
+        "paradigm_type": "first_principle"
+      }
+    ]
+  },
+  "Q3_lines": [
+    {
+      "atom_id": "ATOM_T013_S002_PRE_01",
+      "transcript_id": "T013",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T013_purified.txt",
+      "line_start": 15,
+      "line_end": 29,
+      "verbatim_text": "I think like at the time neural nets were seen as like just a different classifier like a decision tree or something like that. I think it was like.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 15,
+        "span_text_preview": "So let's take a look at maybe the realm of software.\nSo if we think of this as like the map of software this is a really cool tool called map of GitHub.\nThis is like all the software that's written.\nThese are instructions to the computer fo",
+        "quote_normalized_preview": "i think like at the time neural nets were seen as like just a different classifier like a decision tree or something like that. i think it was like."
+      }
+    },
+    {
+      "atom_id": "ATOM_T007_S009_FIR_01",
+      "transcript_id": "T007",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T007_purified.txt",
+      "line_start": 114,
+      "line_end": 129,
+      "verbatim_text": "So we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. So the training will be the same it's just the next word prediction task.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 16,
+        "span_text_preview": "This is where we obtain what we call an assistant model because we don't actually really just want a document generators that's not very helpful for many tasks we want to give questions to something.\nand we want it to generate answers based",
+        "quote_normalized_preview": "so we really want an assistant model instead and the way you obtain these assistant models is fundamentally through the following process we basically keep the optimization identical. so the training will be the same it's just the next word"
+      }
+    }
+  ],
+  "mechanical_check_all_pass": true,
+  "verdict": "PASS"
+}

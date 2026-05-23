@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND_run_007_051",
+  "claim": "The prediction in atom ATOM_T003_S022_PRE_01 (\"Additionally, most other scientific data for these other agents we're going t...\") is the resolution of the blocker in atom ATOM_T005_S032_BLO_01 (\"Now, the main issue here with the sampler is one of exploration on hard probl...\").",
+  "Q1_atoms": [
+    {
+      "atom_id": "ATOM_T003_S022_PRE_01",
+      "atom_type": "PREDICTION",
+      "paradigm_type": "prediction",
+      "transcript_id": "T003",
+      "snippet_id": "S022",
+      "verbatim_quote": "Additionally, most other scientific data for these other agents we're going to create is also going to be quite scarce. And finally, zooming out back to language, we're just going to run out of human text data in general.",
+      "line_span": [
+        259,
+        272
+      ],
+      "exists_in_atoms_dir": true
+    },
+    {
+      "atom_id": "ATOM_T005_S032_BLO_01",
+      "atom_type": "BLOCKER",
+      "paradigm_type": "blocker",
+      "transcript_id": "T005",
+      "snippet_id": "S032",
+      "verbatim_quote": "Now, the main issue here with the sampler is one of exploration on hard problems. There are some problems in our training data wherein no matter how many online traces you generate for this particular problem, all of them end with a terminal reward of zero.",
+      "line_span": [
+        392,
+        405
+      ],
+      "exists_in_atoms_dir": true
+    }
+  ],
+  "Q2_operators": {
+    "combination_operator": "PREDICTION_RESOLVES_BLOCKER",
+    "atom_pairings": [
+      {
+        "position": "A",
+        "atom_id": "ATOM_T003_S022_PRE_01",
+        "paradigm_type": "prediction"
+      },
+      {
+        "position": "B",
+        "atom_id": "ATOM_T005_S032_BLO_01",
+        "paradigm_type": "blocker"
+      }
+    ]
+  },
+  "Q3_lines": [
+    {
+      "atom_id": "ATOM_T003_S022_PRE_01",
+      "transcript_id": "T003",
+      "transcript_path": "/home/user/autoresearch-test/tari/inputs/transcript_003_nicholas_roberts_canonical.txt",
+      "line_start": 259,
+      "line_end": 272,
+      "verbatim_text": "Additionally, most other scientific data for these other agents we're going to create is also going to be quite scarce. And finally, zooming out back to language, we're just going to run out of human text data in general.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 14,
+        "span_text_preview": "Additionally, most other scientific data for these other agents we're going to create is also going to be quite scarce.\nAnd finally, zooming out back to language, we're just going to run out of human text data in general.\nSo no matter how y",
+        "quote_normalized_preview": "additionally, most other scientific data for these other agents we're going to create is also going to be quite scarce. and finally, zooming out back to language, we're just going to run out of human text data in general."
+      }
+    },
+    {
+      "atom_id": "ATOM_T005_S032_BLO_01",
+      "transcript_id": "T005",
+      "transcript_path": "/home/user/autoresearch-test/tari/inputs/transcript_005_amrith_setlur_canonical.txt",
+      "line_start": 392,
+      "line_end": 405,
+      "verbatim_text": "Now, the main issue here with the sampler is one of exploration on hard problems. There are some problems in our training data wherein no matter how many online traces you generate for this particular problem, all of them end with a terminal reward of zero.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 14,
+        "span_text_preview": "OK, so this ends kind of the first part where we were looking at the notion of rewards.\nAnd to summarize, we said that the right notion of reward for a trace is the one that measures progress by advantages of a complementary LLM mu.\nThe sec",
+        "quote_normalized_preview": "now, the main issue here with the sampler is one of exploration on hard problems. there are some problems in our training data wherein no matter how many online traces you generate for this particular problem, all of them end with a termina"
+      }
+    }
+  ],
+  "mechanical_check_all_pass": true,
+  "verdict": "PASS"
+}

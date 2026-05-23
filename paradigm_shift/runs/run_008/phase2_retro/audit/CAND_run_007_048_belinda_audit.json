@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND_run_007_048",
+  "claim": "The prediction in atom ATOM_T013_S010_PRE_01 (\"But I think some people are trying. And it turns out that Mac minis, for exam...\") is the resolution of the blocker in atom ATOM_T002_S020_BLO_01 (\"And this problem, this long context, really arises because we're trying to fi...\").",
+  "Q1_atoms": [
+    {
+      "atom_id": "ATOM_T013_S010_PRE_01",
+      "atom_type": "PREDICTION",
+      "paradigm_type": "prediction",
+      "transcript_id": "T013",
+      "snippet_id": "S010",
+      "verbatim_quote": "But I think some people are trying. And it turns out that Mac minis, for example, are a very good fit for some of the LLMs because it's all if you're doing batch one inference, this is all super memory bound.",
+      "line_span": [
+        132,
+        145
+      ],
+      "exists_in_atoms_dir": true
+    },
+    {
+      "atom_id": "ATOM_T002_S020_BLO_01",
+      "atom_type": "BLOCKER",
+      "paradigm_type": "blocker",
+      "transcript_id": "T002",
+      "snippet_id": "S020",
+      "verbatim_quote": "And this problem, this long context, really arises because we're trying to find the workarounds, which in turn is because the old rules of machine learning dictate that we can't change the model ways at test time. So, I mean, I guess the simple idea is, you know, what if we also do gradient descent on the model at test time?",
+      "line_span": [
+        241,
+        254
+      ],
+      "exists_in_atoms_dir": true
+    }
+  ],
+  "Q2_operators": {
+    "combination_operator": "PREDICTION_RESOLVES_BLOCKER",
+    "atom_pairings": [
+      {
+        "position": "A",
+        "atom_id": "ATOM_T013_S010_PRE_01",
+        "paradigm_type": "prediction"
+      },
+      {
+        "position": "B",
+        "atom_id": "ATOM_T002_S020_BLO_01",
+        "paradigm_type": "blocker"
+      }
+    ]
+  },
+  "Q3_lines": [
+    {
+      "atom_id": "ATOM_T013_S010_PRE_01",
+      "transcript_id": "T013",
+      "transcript_path": "/home/user/autoresearch-test/paradigm_shift/runs/run_006/full_purified/purified/T013_purified.txt",
+      "line_start": 132,
+      "line_end": 145,
+      "verbatim_text": "But I think some people are trying. And it turns out that Mac minis, for example, are a very good fit for some of the LLMs because it's all if you're doing batch one inference, this is all super memory bound.",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 14,
+        "span_text_preview": "You know a dimension of the batch when they're running the computer in the cloud.\nAnd this is very much what computers used to look like at during this time.\nThe operating systems were in the cloud.\nEverything was streamed around and there ",
+        "quote_normalized_preview": "but i think some people are trying. and it turns out that mac minis, for example, are a very good fit for some of the llms because it's all if you're doing batch one inference, this is all super memory bound."
+      }
+    },
+    {
+      "atom_id": "ATOM_T002_S020_BLO_01",
+      "transcript_id": "T002",
+      "transcript_path": "/home/user/autoresearch-test/tari/inputs/transcript_002_yu_sun_canonical.txt",
+      "line_start": 241,
+      "line_end": 254,
+      "verbatim_text": "And this problem, this long context, really arises because we're trying to find the workarounds, which in turn is because the old rules of machine learning dictate that we can't change the model ways at test time. So, I mean, I guess the simple idea is, you know, what if we also do gradient descent on the model at test time?",
+      "line_in_file_check": {
+        "ok": true,
+        "span_n_lines": 14,
+        "span_text_preview": "So let me go on.\nNow, the holy grail of long context modeling is how to be flat in both patterns.\nThis is important for scaling to longer context.\nAnd they're having many attempts, probably hundreds if not thousands of papers, you know, in ",
+        "quote_normalized_preview": "and this problem, this long context, really arises because we're trying to find the workarounds, which in turn is because the old rules of machine learning dictate that we can't change the model ways at test time. so, i mean, i guess the si"
+      }
+    }
+  ],
+  "mechanical_check_all_pass": true,
+  "verdict": "PASS"
+}
