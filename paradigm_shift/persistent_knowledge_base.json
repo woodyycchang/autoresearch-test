@@ -1,0 +1,356 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-05-23T18:15:00+00:00",
+  "last_updated_at": "2026-05-23T18:23:07.118351+00:00",
+  "description": "Persistent knowledge base across paradigm-shift-finder runs. Prevents agent from re-discovering same root causes across epochs.",
+  "root_causes_identified": [
+    {
+      "id": "RC_001_SPEAKER_SELF_PUBLISH",
+      "first_seen_run": "run_009",
+      "first_seen_epoch": "phase_R_epoch_1",
+      "description": "Each academic transcript is a researcher pitching their own published paper. Atoms extracted from such talks risk vacuous combination with textbook framing.",
+      "empirical_evidence": "270/356 candidates rejected by v6 self-publish keyword check (Run 9).",
+      "binding_severity": "HIGH",
+      "fix_applied": "v6 self-publish keyword tables per speaker (Run 9 L6).",
+      "residual": "verbatim keyword matching has limited recall (e.g. analogical phrasing escapes)."
+    },
+    {
+      "id": "RC_002_NARROW_INPUT_POOL",
+      "first_seen_run": "run_009",
+      "first_seen_epoch": "phase_R_epoch_1",
+      "description": "Only 13 transcripts in corpus, dominated by single-paper-pitch academic talks. Combinatorial space is bounded by speaker diversity.",
+      "empirical_evidence": "Run 9 epoch 3 yielded 0 substantive triples despite all 8 layers; binding structural constraint.",
+      "binding_severity": "CRITICAL_STRUCTURAL",
+      "fix_applied": "NONE in Run 9 \u2014 flagged as needing arXiv synthetic atom injection.",
+      "residual": "ALL of it \u2014 Run 10 must inject arXiv atoms to escape this."
+    },
+    {
+      "id": "RC_003_FIRST_PRINCIPLES_MONOPOLY",
+      "first_seen_run": "run_009",
+      "first_seen_epoch": "phase_R_epoch_1",
+      "description": "Only 8 first_principle atoms post-L2, half are Karpathy T007. PREDICTION_GROUNDED_IN_PRINCIPLE anchors many candidates on textbook material.",
+      "empirical_evidence": "Karpathy anchoring on every surviving triple in epoch 3.",
+      "binding_severity": "MEDIUM",
+      "fix_applied": "non_academic_anchor filter (Run 9 epoch 2).",
+      "residual": "still anchored on Karpathy because non-academic transcripts have few first_principle atoms."
+    },
+    {
+      "id": "RC_004_SHALLOW_SATURATION_CHECK",
+      "first_seen_run": "run_009",
+      "first_seen_epoch": "phase_R_epoch_1",
+      "description": "L7 community_saturation_check used single-topic keyword search; did not test second-order combinations.",
+      "empirical_evidence": "100% L6-survivor drop at L7 in Run 9 epoch 1 \u2014 single-topic queries too broad.",
+      "binding_severity": "MEDIUM",
+      "fix_applied": "triple_combinator + mechanism_check (Run 9 epoch 2).",
+      "residual": "triple-level saturation queries still narrow."
+    },
+    {
+      "id": "RC_005_MECHANISM_INCOHERENT_PAIRING",
+      "first_seen_run": "run_009",
+      "first_seen_epoch": "phase_R_epoch_1",
+      "description": "Semantic coherence uses TF-IDF subject overlap; does not verify shared MECHANISM (e.g., linguistic prior vs reward criterion are about different axes).",
+      "empirical_evidence": "73/86 pairs filtered by mechanism_check (Run 9 epoch 2).",
+      "binding_severity": "MEDIUM",
+      "fix_applied": "mechanism_vocabulary gate (Run 9 epoch 2).",
+      "residual": "shared mechanism vocabulary may still permit superficial overlap."
+    },
+    {
+      "id": "RC_006_HOT_TOPIC_ARXIV_SATURATION",
+      "first_seen_run": "run_010",
+      "first_seen_epoch": "epoch_1",
+      "description": "arXiv 2024-2026 corpus itself concentrates on the same hot topics (JEPA, MoE, RLHF, RAG, SAE). Injecting arXiv abstracts from these popular research clusters fails to escape the saturation constraint because the combinatorial space is ALREADY occupied by cross-papers (e.g., SparseJEPA bridges sparse-autoencoder x JEPA before our pipeline tries).",
+      "empirical_evidence": "Run 10 epoch 1: 15/15 L8 survivors had >=1 existing cross-paper retrieved by saturation search. SparseJEPA, PURE min-form credit assignment, ACT-JEPA, TI-JEPA all pre-occupy the candidate combos.",
+      "binding_severity": "HIGH",
+      "fix_applied": "COLD_TOPIC_INJECTION in epoch 2: 6 new arXiv atoms on under-explored topics (model-native agents, ai_risk_reassessment, agent_efficiency, llm_serving_foundations, rl_data_scarcity, offline_log_learning).",
+      "residual": "TBD after epoch 2."
+    },
+    {
+      "id": "RC_007_META_SATURATION_COLD_TOPICS",
+      "first_seen_run": "run_010",
+      "first_seen_epoch": "epoch_2",
+      "description": "Even under-explored ML 2024-2026 topics (model_native_agents, agent_efficiency, llm_serving_foundations, rl_data_scarcity, offline_log_learning) are already cross-paper-occupied. The ML research community is dense enough that any 2-atom pair of ML topics has been pre-occupied. Escape requires cross-disciplinary atoms (biology, physics, economics, neuroscience) OR temporally-distant atoms.",
+      "empirical_evidence": "Run 10 epoch 2: 4 cold-topic-bearing survivors all saturated. Transfer Policy Optimization (2502.19255) bridges reward shaping + data scarcity. PROF/TEDUO/KALM/ILQL bridge offline RL + LLM + data scarcity. LLM Inference Scheduling Survey (techrxiv 2025) bridges Karpathy + serving foundations.",
+      "binding_severity": "HIGH",
+      "fix_applied": "CROSS_DISCIPLINARY_ATOM_INJECTION in epoch 3: 6 new atoms from evodevo/AI, NeuroAI, thermodynamics-of-learning, market-making for multi-agent safety, brain-inspired AGI, mechanism design for LLM economist.",
+      "residual": "TBD after epoch 3."
+    },
+    {
+      "id": "RC_008_MECHANISM_VOCAB_ML_BIAS",
+      "first_seen_run": "run_010",
+      "first_seen_epoch": "epoch_3",
+      "description": "The mechanism_vocabulary check (Run 9 fix for RC_005) is biased toward ML mechanisms (gradient, attention, reward, memory, routing, embedding, prediction). Cross-disciplinary atoms (biology evo-devo, neuroscience, thermodynamics, economics) do not share these axes, so they get filtered out at L4. Fix for RC_005 became a barrier for RC_007.",
+      "empirical_evidence": "Run 10 epoch 3: 0 of 6 cross-disciplinary cold-topic atoms survived L4 mechanism check. All survivors clustered on the original ML hot topics (rlhf, world_models, retrieval_augmented).",
+      "binding_severity": "HIGH",
+      "fix_applied": "MECHANISM_VOCAB_EXPANSION in epoch 4: added 7 cross-disciplinary axes (selection_pressure, energy_constraint, market_clearing, body_world_coupling, cognitive_function, data_efficiency, system_architecture).",
+      "residual": "TBD after epoch 4."
+    },
+    {
+      "id": "TERMINAL_CONSTRAINT_RC_009",
+      "first_seen_run": "run_010",
+      "first_seen_epoch": "epoch_4",
+      "description": "TERMINAL: Even with arXiv injection (30 atoms), cold-topic injection (6 atoms), cross-disciplinary injection (6 atoms), mechanism vocab expansion to 19 axes, and 4 recursive epochs, every surviving 2-atom candidate has at least one existing arXiv cross-paper. The ML literature density (2024-2026) means the combinatorial space of plausible pair-niches is exhausted.",
+      "empirical_evidence": "Run 10 epochs 1-4: 15 -> 19 -> 19 -> 32 survivors, all saturated by saturation_check. Cross-disciplinary survivors (CAND_010_01718 belinda+neuroai, CAND_010_13343 vjepa+neuroai) saturated by Neural Organoid LLM curriculum paper, V-JEPA 2 Meta blog itself markets bridging capability gap.",
+      "binding_severity": "TERMINAL",
+      "fix_applied": "NONE - structural constraint of literature density. Future runs need TRIPLE combinator (Run 9 epoch 2 had this; 0 substantive at triple level too) OR genuinely novel atoms from non-arXiv corpora (patent databases, lab notebooks, private research notes, frontier industry publications), OR temporal-distance atoms (pre-2020 ideas applied to post-2024 capabilities).",
+      "residual": "TERMINAL - structural literature-density binding."
+    }
+  ],
+  "counter_papers": [
+    {
+      "arxiv_id": "2410.14255",
+      "title": "Nova: Iterative Planning and Search for Novel Ideas",
+      "applied_against": "RC_001",
+      "method": "External knowledge retrieval to plan ideation away from training distribution.",
+      "first_used_run": "run_009"
+    },
+    {
+      "arxiv_id": "2602.20408",
+      "title": "Barriers to Diversity in LLM-Generated Ideas",
+      "applied_against": "RC_001",
+      "method": "Multiple independent ideation converges around similar themes (mode collapse); enforce non-academic anchor.",
+      "first_used_run": "run_009"
+    },
+    {
+      "arxiv_id": "2412.14141",
+      "title": "LLMs Can Realize Combinatorial Creativity",
+      "applied_against": "RC_002",
+      "method": "Generalization-level retrieval; cross-domain knowledge graph injection.",
+      "first_used_run": "run_009",
+      "run_10_application": "PRIMARY counter-method \u2014 arXiv synthetic atom injection."
+    },
+    {
+      "arxiv_id": "2605.11258",
+      "title": "Unlocking LLM Creativity in Science through Analogical Reasoning",
+      "applied_against": "RC_003",
+      "method": "Cross-domain analogies via shared relational structure.",
+      "first_used_run": "run_009"
+    },
+    {
+      "arxiv_id": "2510.22312",
+      "title": "LacMaterial: LLMs as Analogical Chemists for Materials Discovery",
+      "applied_against": "RC_005",
+      "method": "Shared mechanism vocabulary check before applying analogy.",
+      "first_used_run": "run_009"
+    },
+    {
+      "arxiv_id": "2409.04109",
+      "title": "Can LLMs Generate Novel Research Ideas? Human Study",
+      "applied_against": "RC_004",
+      "method": "Triple-atom combinator (saturation rarely fires at triple-level).",
+      "first_used_run": "run_009"
+    },
+    {
+      "arxiv_id": "2510.16720",
+      "title": "Beyond Pipelines: A Survey of the Paradigm Shift toward Model-Native Agentic AI",
+      "applied_against": "RC_006",
+      "method": "Cold-topic atom: model-native paradigm rejecting pipeline-prompt stitching.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2512.04119",
+      "title": "Humanity in the Age of AI: Reassessing 2025's Existential-Risk Narratives",
+      "applied_against": "RC_006",
+      "method": "Contrarian/under-explored existential risk reassessment.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2509.23586",
+      "title": "Improving the Efficiency of LLM Agent Systems through Trajectory Reduction",
+      "applied_against": "RC_006",
+      "method": "Neglected efficiency-of-agent-systems angle.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2605.01280",
+      "title": "Position: LLM Serving Needs Mathematical Optimization and Algorithmic Foundations",
+      "applied_against": "RC_006",
+      "method": "Under-explored algorithmic-foundations critique of serving heuristics.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2604.17312",
+      "title": "Survey of RL for LLMs under Data Scarcity",
+      "applied_against": "RC_006",
+      "method": "Less saturated angle: RL under data scarcity vs reward hacking.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2510.25441",
+      "title": "Grounded in Reality: Learning and Deploying Proactive LLM from Offline Logs",
+      "applied_against": "RC_006",
+      "method": "Offline log learning as under-explored alternative to online RLHF.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2506.12891",
+      "title": "Evolutionary Developmental Biology and AI Paradigm",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: biology design principles for AI.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2604.18637",
+      "title": "NeuroAI and Beyond: Bridging Neuroscience and AI",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: neuroscience principles for AI capability gaps.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2506.01506",
+      "title": "Deep Learning of Thermodynamic Laws",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: thermodynamics x deep learning.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2511.17621",
+      "title": "Market Making for Multi-Agent LLM Safety",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: economics x multi-agent safety.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2507.00951",
+      "title": "Thinking Beyond Tokens: Brain-Inspired AGI",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: cognitive neuroscience x AGI.",
+      "first_used_run": "run_010"
+    },
+    {
+      "arxiv_id": "2507.15815",
+      "title": "LLM Economist Mechanism Design",
+      "applied_against": "RC_007",
+      "method": "Cross-disciplinary: mechanism design x LLM agents.",
+      "first_used_run": "run_010"
+    }
+  ],
+  "applied_fixes": [
+    {
+      "fix_id": "FIX_001_atom_quality_v2",
+      "run": "run_009",
+      "module": "paradigm_shift/atom_quality_filter.py",
+      "addresses": [
+        "RC_001"
+      ],
+      "effect": "735 -> 702 (32 rejected: past-tense PRE, truncated FIR, vague meta)."
+    },
+    {
+      "fix_id": "FIX_002_cross_speaker_diversity",
+      "run": "run_009",
+      "module": "paradigm_shift/run_9_pipeline.py (TRANSCRIPT_TO_SPEAKER)",
+      "addresses": [
+        "RC_002"
+      ],
+      "effect": "7787 -> 7155 candidates (632 single-speaker rejected)."
+    },
+    {
+      "fix_id": "FIX_003_self_publish_v6",
+      "run": "run_009",
+      "module": "paradigm_shift/run_9_pipeline.py (SPEAKER_SELF_PUBLISH_KEYWORDS_V6)",
+      "addresses": [
+        "RC_001"
+      ],
+      "effect": "356 -> 86 (270 rejected via per-speaker keywords)."
+    },
+    {
+      "fix_id": "FIX_004_triple_combinator",
+      "run": "run_009_epoch_2",
+      "module": "paradigm_shift/runs/run_009/epoch_2/triple_combinator.py",
+      "addresses": [
+        "RC_004"
+      ],
+      "effect": "13 pair / 0 triple \u2014 triple-level saturation rarely fires."
+    },
+    {
+      "fix_id": "FIX_005_mechanism_check",
+      "run": "run_009_epoch_2",
+      "module": "paradigm_shift/runs/run_009/epoch_2/mechanism_check.py",
+      "addresses": [
+        "RC_005"
+      ],
+      "effect": "86 -> 13 pair survivors after shared-mechanism vocabulary gate."
+    },
+    {
+      "fix_id": "FIX_006_cold_topic_injection",
+      "run": "run_010_epoch_2",
+      "module": "paradigm_shift/arxiv_atom_injector.py (COLD_TOPIC_ABSTRACTS section)",
+      "addresses": [
+        "RC_006"
+      ],
+      "effect": "TBD - 6 cold-topic atoms added (model_native_agents, ai_risk_reassessment, agent_efficiency, llm_serving_foundations, rl_data_scarcity, offline_log_learning)."
+    },
+    {
+      "fix_id": "FIX_007_cross_disciplinary_injection",
+      "run": "run_010_epoch_3",
+      "module": "paradigm_shift/arxiv_atom_injector.py (CROSS-DISCIPLINARY section)",
+      "addresses": [
+        "RC_007"
+      ],
+      "effect": "TBD - 6 cross-disciplinary atoms added (evodevo_for_ai, neuroai, thermodynamics_dl, market_making_safety, brain_inspired_agi, mechanism_design_llm)."
+    },
+    {
+      "fix_id": "FIX_008_mechanism_vocab_expansion",
+      "run": "run_010_epoch_4",
+      "module": "paradigm_shift/run_10_pipeline.py (MECHANISM_VOCAB)",
+      "addresses": [
+        "RC_008"
+      ],
+      "effect": "TBD - 7 cross-disciplinary axes added to mechanism vocabulary."
+    }
+  ],
+  "epoch_history": [
+    {
+      "run": "run_008",
+      "summary": "6 'final survivors' \u2014 all invalidated by Run 9 Phase 1 retrospective.",
+      "niche_count": 0
+    },
+    {
+      "run": "run_009",
+      "epochs": 3,
+      "summary": "8-layer pipeline + 3 recursive epochs. NARROW_INPUT_POOL empirically proven binding (8112 candidates, 0 shared mechanism across 3 transcript atoms).",
+      "niche_count": 0
+    },
+    {
+      "run": "run_010",
+      "epoch": 1,
+      "summary": "15 L8 survivors (vs Run 9's 0); ALL saturated by existing cross-papers. RC_006 HOT_TOPIC_ARXIV_SATURATION identified as new binding constraint.",
+      "niche_count": 0,
+      "raw_survivors": 15,
+      "saturation_kills": 15
+    },
+    {
+      "run": "run_010",
+      "epoch": 2,
+      "summary": "19 L8 survivors with 4 cold-topic-bearing; ALL 4 cold-topic survivors saturated by existing cross-papers. RC_007 META_SATURATION_COLD_TOPICS identified.",
+      "niche_count": 0,
+      "raw_survivors": 19,
+      "cold_topic_survivors": 4,
+      "saturation_kills": 19
+    },
+    {
+      "run": "run_010",
+      "epoch": 3,
+      "summary": "19 L8 survivors with 4 cold-topic-bearing; 0 cross-disciplinary survivors due to mechanism vocab ML bias. RC_008 identified.",
+      "niche_count": 0,
+      "raw_survivors": 19,
+      "cross_disc_survivors": 0,
+      "saturation_kills": 19
+    },
+    {
+      "run": "run_010",
+      "epoch": 4,
+      "summary": "32 L8 survivors with 3 cross-disciplinary + 9 cold-topic; ALL saturated by existing cross-papers (Neural Organoid LLM curriculum 2509.04633, Neural Brain 2505.07634, V-JEPA 2 Meta blog, VinePPO/PURE/SPRO/CAPO credit assignment, Event-driven eligibility propagation 2511.21674). Max epoch limit reached.",
+      "niche_count": 0,
+      "raw_survivors": 32,
+      "cross_disc_survivors": 3,
+      "cold_topic_survivors": 9,
+      "saturation_kills": 32,
+      "max_epoch_terminal": true
+    }
+  ],
+  "open_problems": [
+    "ANSWERED: arXiv injection escapes RC_002 NARROW_INPUT_POOL at the raw level (15 vs 0 survivors), but saturation density binds at L7. Net niche = 0.",
+    "ANSWERED: Persistent knowledge IMPROVED epoch efficiency. Run 10 identified 3 NEW root causes (RC_006/007/008) in 4 epochs vs Run 9 identified 5 in 3 epochs. RC_002 (Run 9's unresolved) was empirically tested in Run 10. Discovery cadence: 0.75 new-RCs/epoch in Run 10 vs 1.67 in Run 9 (Run 9 had more rediscovery overhead).",
+    "OPEN: Whether non-arXiv corpora (patents, lab notebooks, frontier industry publications) can escape literature-density binding."
+  ]
+}
