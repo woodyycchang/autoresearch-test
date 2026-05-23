@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S002",
+  "transcript_id": "T012",
+  "start_line": 15,
+  "end_line": 28,
+  "verbatim_text": "Then you change the weight in proportion to how much it helps and obviously if it hurts you change it in the opposite direction now back propagation looks like the forward pass. But it goes backwards it has to use the same connectivity pattern with the same weights but in the backwards Direction and. It has to go backwards through the nonlinearity of the neuron there's no evidence that the brain is doing that and. There's lots of evidence it's not doing that. So the worst case is if you're doing back propagation in a recurrent net because. Then you run the recurrent net forwards in time and it outputs an answer at the end of running forwards in time and. Then you have to run it backwards through time in order to get all these derivatives. So I had to change the weights and that's particularly problematic if. For example you're trying to process video you can't stop and go backwards in time so combined with the fact that there's no evidence the brain does it well no good evidence there's the problem that just for technology it's a mess it interrupts the pipelining of stuff through. So you'd really like something like video you there to be multiple stages of processing and you'd like to just pipeline the input through those multiple stages and just keep pipelining it through and. So the idea of the Ford algorithm is that if you can divide the learning the process of getting the gradients you need into two separate phases you can do one of them online and one of them offline and. The one you do online can be very simple and will allow you to just pipeline stuff through. So the online phase which is meant to correspond to wake you put input into the network and let's take your recurrent version input keeps coming into the network and. What you're trying to do for each lay at each time step you're trying to make the lay have high activity or rather high enough activity.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1897
+}

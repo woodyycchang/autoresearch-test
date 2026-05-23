@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S032",
+  "transcript_id": "T011",
+  "start_line": 426,
+  "end_line": 439,
+  "verbatim_text": "I made a list of various methods that people have proposed over the decades as to they can be interpreted in this framework in terms of whether they're contrastive or, or regularized. I'm not going to go through the list, but it's interesting to go through that exercise. So how are we going to use this self supervised learning, perhaps let's say contrastive to start with, to train the system, for example, to represent images. So that we can do image recognition, for example. So the, the process is that we're going to train this joint embedding architecture in some way, and then once it's trained, we chop off the predictor. We just use the encoder, the encoder to produce a representation. Then we train a very simple classifier on top of it using a supervised learning to do, for example, image recognition or a depth estimation or something like this. Contrastive methods are very simple eist in showing pairs of images that are basically d different version of the same, the same content using distortion or or corruption of some kind. And then training the system to produce a representation of the original image from, from the distorted or corrupted one. Then you have to have contrastive samples, which are pairs of images that you know are different. Then you push the predicted representation and the actual representation away from each other. So you have some loss function that is going to pull those two guys together is going to push those together away. And this works, but it never produces representations that fill spaces that are more than about 200 dimensions when you trend them on things like ImageNet. There's another type of method called distillation, and those have been considerably more successful.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1733
+}
