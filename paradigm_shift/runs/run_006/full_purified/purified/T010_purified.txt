@@ -1,0 +1,467 @@
+(dramatic music) (audience applauding) -.
+If you sleep well tonight, you may not have understood this lecture.
+So, a long time ago, there were two paradigms for intelligence.
+There was a logic-inspired approach, which was called AI.
+And people believed that the essence of human intelligence was reasoning.
+And if you want to understand intelligence, you had to understand reasoning.
+And reasoning consisted of having symbolic expressions and manipulating them with symbolic rules.
+And they thought that learning could wait till later.
+First, we had to understand how you represent knowledge in these symbolic expressions.
+And most of the history of AI, until fairly recently, was that.
+Then there was a biologically inspired approach, where the essence of intelligence is learning in a network of brain cells, in us, real ones, in computer, simulated ones.
+And reasoning can wait till later, we first have to understand how learning works.
+There were a few early proponents of that, in particular Turing and von Neumann, and you couldn't really accuse them of not understanding logic.
+So I'm gonna give a fairly basic lecture, and for the first part of it, I'm gonna describe a model I developed 40 years ago, which I see as the ancestor of these large language models of today.
+So we're gonna make our neural net out of artificial neurons.
+And an artificial neuron is gonna have some input lines, typically coming from other neurons, it's gonna have weights on those input lines.
+It's gonna multiply the inputs by the weights, add all up, and then give an output, which is shown by that graph there.
+So if it gets above its threshold, it gives an output that linearly increases as it gets more input.
+And the way it's gonna learn is just by changing the weights on those connections.
+So all we need to do to make artificial neural networks work is figure out how to change the weights.
+We hook them up into networks.
+This is a typical network, it's a feedforward network, where at the bottom, you might have sensory neurons that are recording light intensities or something like that.
+And as you go up through the layers, you have many layers of feature detectors that is the neurons turn into things that recognise particular features in an image.
+And at the output, you might have neurons to represent particular classes of thing.
+Now, if you want a network like that to learn to be better at doing something, so.
+You want to give it an image and have it say, for example, whether there's a cat or a dog, there's an obvious way to train it, which goes to everybody who knows about evolution and.
+What you can do is, you can take one of the weights, and you can first see how.
+Well the network does on a whole bunch of examples, and then change the weight just slightly, and see how.
+Well the network does on a whole bunch of examples.
+And if it does better, you keep that change, and you just keep going like that.
+Now, you probably need to change each weight many times.
+And there's a lot of weights in modern neural networks, there's about a trillion.
+So that's gonna take a long time, 'cause for each mutation you make like that, you have to run many examples through the net to see if it really helps, or if it just helps on a few examples, but hurts on most of them.
+There's a better way to do the same thing, that is what we really want to do is figure out how to change your weight.
+So that it helps.
+What you do is, you do a forward pass, you put the data in the bottom, you go forward through the network, and.
+You compare what came out of the network, which might be the relative probabilities of it being a cat and.
+A dog, with what you want.
+You have to know whether it's a cat or a dog to train networks this way.
+Then you send a signal backwards through the network that using calculus, which I'm not gonna go into, allows the network to compute at the same time for all connections, whether a small increase in the connection strength would help or hurt.
+Then you change all the connection strengths in parallel by a very small amount in proportion to how much they would help or hurt.
+And if you do that, it's gonna get better at the examples you've trained it on.
+And in fact, that works extremely well.
+It took a long time for people to realise how.
+Well that relatively simple algorithm works.
+The algorithm was discovered many times, it's called backpropagation.
+And in 2012, two of my students, Alex Krizhevsky and Ilya Sutskever, who's famous now for firing Sam Altman, (audience laughing) developed a network called AlexNet that was much better than existing image division systems at recognising objects in images.
+And that led to open the floodgates.
+Up until that point, neural nets had been good for many things, including speech recognition, but they hadn't really taken over.
+From that point on, they really took over.
+And now, when you say "AI," what people mean by AI is neural networks, it's not logic.
+But what about language?
+So there's a whole community that studies language, I think they're called linguists, and they have a very strong idea about how you should study language, and particularly, the Chomsky school.
+They were very sceptical that neural networks could do anything with language.
+They were completely convinced that it's all about symbolic expressions.
+They didn't really have the idea that the real function of language is to give you words which are bricks from which you can build models.
+Language is a modelling medium.
+They were focused on syntax.
+And syntax isn't the main point.
+The main point is, language is a wonderful way to build a particular complicated model, as we'll see.
+They also thought that knowledge of language was innate, knowledge of syntax was innate, which is just stupid.
+It's the sign of a cult, that in order to join the cult, you have to believe something that's obviously silly, like language isn't learned.
+So here's two very different theories of the meaning of a word.
+The symbolic AI theory, which goes back to dissasura, a long way, is that the meaning of a word is to do with its relationships to other words, you can't justify it by itself without talking about other words.
+And so to capture meaning, we need something like a relational graph.
+Then the psychologists, who particularly from the 1930s, I think, who thought the meaning of a word is a big set of features.
+So "Tuesday" has a big set of active features, and "Wednesday" has a big set of active features that are almost the same.
+So the idea that the meaning of a words, a set of active features is very good for saying which words means similar things to which other words.
+These look like two very different theories of meaning.
+Now, what I want to do is show you that these two theories can be unified.
+They're not two different theories, they're two halves of the same theory.
+So, and what I'm gonna do is talk for quite a long time now about a very little model, a tiny neural network.
+It had a few thousand connections and a few dozen neurons.
+I developed it in 1985 to try to understand how people could learn the meanings of words.
+And I was very excited about how it unified these two theories of meaning, and nobody else was.
+Okay, so what we're gonna do in this little model is learn how to make the features of one word predict the features of the next word in a little sentence.
+And then once we know the features of the next word, we can predict the next word.
+And we are not gonna store any sentences.
+So many people say, "Big chat bots are just regurgitating stuff.".
+Big chat bots don't actually store any language at all.
+They don't store strings of words.
+They just store how to turn words into features, and how features should interact with each other to predict the features of the next word.
+That's all that's in these chat bots, no words.
+But when they wanna produce a sentence, they have to make it up as they go, and they often can't tell whether it was real or not.
+Okay, so what's gonna happen in this little model is if it wants to produce a new sentence, it has to just make it up a word at a time.
+And all the relational knowledge is just in how you turn the word into features, and how these features interact.
+So the example I chose to use was two family trees, an English family tree and an Italian family tree, they're isomorphic, which is helpful for learning.
+And I wanted a little neural network to learn the knowledge in those family trees.
+This was a long time ago in 1985, when computers were billions of times slower than the big parallel computers we use for training models nowadays.
+Now, the knowledge in those trees can be represented as a bunch of propositions, which is, the symbolic eyes love that.
+So here they are.
+We can use relationships like son, daughter, nephew, niece, and so on.
+And we can define the knowledge, we can represent the knowledge as strings of words.
+So the knowledge is in these sentences.
+So Colin has Father James, and Colin has Mother Victoria.
+You know the rules, you can infer that James has wife Victoria.
+This is a 1950s American family that's never heard of divorce or adoption.
+And they're clearly all white.
+Okay, so you can represent the knowledge as strings of words.
+Now, you can think of a relational learning task as I give you the beginning of a string of words, and you give me the last word.
+So if you were doing this with symbolic AI, you'd say, "Well, we have regularities in this domain of the form, if X has mother Y, and.
+Y has husband Z, then X has father Z." That would be the symbolic way to do it.
+But I want to do it a different way.
+I want to do it by learning features for words and having interactions of features.
+And that would involve searching a big continuous space of connection strengths instead of a small discreet space of rules that are discreet.
+So this was the network I used.
+The inputs were a bunch of neurons, and you turn on one neuron for the symbol representing person one.
+There were 24 possible person ones, and you turn on one neuron for the symbol representing the relationship, there were 12 possible relationships, then those single active neurons will get expanded into a feature vector.
+So the one neuron that you turned on for person one will get expanded into a little feature vector of six features, which could have various activity levels, some will be off, some will be on, some might be half off or fully on or fully off.
+So the neural network had to learn how to convert a word symbol into a little feature vector both for the person and the relationship.
+Then it had to learn how to take these two feature vectors for a person in relationship, have the features interact, and for that I used a hidden layer, an extra layer of places where things could interact to predict the features of the output person.
+And once you knew the features of the output person, you can make a good good guess about who the output person was and give an output.
+And the output would consist of giving various levels of activation to the 24 possible output people.
+And you want the neural net to give a high level activation to the right answer and a low level activation to the wrong answers.
+So, what happened is the six feature neurons that were the expansion of the person, it's 24 people, you expand that active neuron into a feature vector of six active features.
+They learned to be sensible semantic features.
+They learn to be features that represented things like the generation of the input person and.
+The six features of the relationship learn to be sensible features, , does this relationship require the output person to be one generation up from the input person?
+So something like fathers like that where his brother isn't.
+Then the interactions between these features learn things , if the input person is a generation three, and the relationship requires the person to be one generation up, then the output person is a generation two.
+So for that little feature of vector for the output person, it would activate the thing that represents generation two.
+And it learned a whole bunch of little rules like that, which really did capture the structure of the domain.
+They're the kinds of rules that a symbolic person might have written down as rules.
+But it just learned those by trying to get, predict the right word, and then back propagating the error, sending information back through the network to slightly change all the connection strengths, so that next time, it will get higher probability for the right answer and lower probability for the wrong answer.
+So it had actually learned to predict the next word, and you could understand how it was doing it.
+It was a tiny net, so you could look and see what was going on.
+You could see the features that were using.
+You could see that it extracted a feature that was generational, which had three alternative values, off, medium, and fully on.
+And you could see that from relationships that had extracted a feature like one generation up.
+And you could see those would interact to predict that the output should be generation two if the import was generation three.
+So you understood how it worked, and.
+In fact the symbolic people didn't say, "That's not understanding," the symbolic people said, ".
+Yeah, okay, so it solved the problem, it's understood what the rules are in this domain, but you're stupid to search a space of real values, when you could be searching a discreet space of rules.".
+And there's something in that, except as soon as you get to real data, which is messy, and has exceptions, and.
+Things that are only probably true, it's much better to search this space of real values than to have discreet rules 'cause these discrete rules keep getting violated.
+So about 10 years after I'd done that, Yoshua Bengio showed that instead of just doing it on a toy little domain with only a few people and a few relationships, you could actually do it with English words.
+You could take English sentences, you have more input words, not just two.
+He had about 5, even 10.
+And you could actually predict the next word quite well, about as well as the best language models could.
+About 10 years after Yoshua Bengio had shown that, the linguists finally decided that, "Actually, hey, having these feature vectors to capture the meanings of words is quite a good idea.".
+And about 10 years after that, people at Google invented transformers, which are particular architecture that I'm not gonna go into.
+And those transformers made these models very good at predicting the next word, but they were doing it in just the way my tiny language model was doing at a very crude level.
+They were turning words into feature activations, having the features interact to predict the features of the next word, and then from that predicting the next word, and then take the error in your prediction, and send information backwards through the network to learn all those interactions between features and to learn how to turn words into features.
+Now, the important thing about my tiny model is it wasn't made to be practical.
+It wasn't made to be useful for processing natural language.
+It was made as a theory of how people get the senses of words just from hearing sentences.
+Because we can do that.
+I can give you a new sentence with the words you've never heard before, and you will figure out the meaning of that word in one sentence.
+Okay, here goes, "She scrammed him with the frying pan.".
+Now, you know it could have been, "She was very good at cooking omelettes and cooking omelettes with the frying pan really impressed him, so scrum means impressed.".
+And that's a possibility, but you know what I really meant.
+She hit him over the head with a frying pan (audience laughing) because he deserved it.
+Okay, so that's one sentence, you get the meaning.
+So that's what I was trying to understand how you can do that.
+And when these linguists now, say , there's a guy called Chomsky, when they say things , "These things don't understand anything, they're just a statistical trick," they don't actually have a model of what understanding is, 'cause they never really had a model of what understanding was.
+It was all about syntax.
+And if you ask what's the best model we have of understanding, it's these large language models.
+The tiny language model is built to try and model how humans understand the meanings of words.
+It's now got a lot better as technology's got a lot faster and data sets have got bigger.
+But that is understanding.
+So my claim is that the large language models, which I like to think are descendants of my tiny language model, although most of the people who make them have never heard of my tiny language model, (audience laughing) they use many more words as input.
+They use many more layers of neurons.
+They have to do things I didn't do like disambiguate words.
+If you have a word like "May," it could be a month, it could be a woman's name, it could be a modal like would and should.
+And you can't just associate a feature vector with it that captures the meaning directly.
+You have to hedge your bets.
+And then as you go up through layers of the network, you disambiguate it using influences from nearby things like if it's in April, May, June, that could still be the name of three women, but less likely.
+So, they use many more words, they use many more layers, and the interactions they have between features are much more complicated.
+I would just have features feeding into another feature.
+They look at sets of features, and sets of features figure out messages to tend to other words to say, "Do you have a a key that matches my query?".
+It's much more complicated interactions, I won't go into, but the essence of it is the same.
+You're trying to predict the next word.
+You do it in a more complicated way, it's all done with features and then interactions, when you get it wrong, you back propagate information that learns all these features and then interactions.
+That's how language works for us, and it's how it works for these large language models.
+So the point here is they're very like us.
+They're very unlike computer software.
+Computer software, someone wrote lines of code to do something, and you can look at a line of code, and say, "What was that meant to do?".
+These aren't like that at all.
+Someone wrote lines of code to tell the simulated neural network how to learn.
+That was the backpropagation algorithm.
+Then you just give it data and it learns.
+And what it learns just came from the data.
+And you don't necessarily know what it's learned until you ask it.
+I want to give you a Lego analogy now for how I think language works.
+Suppose I have matter distributed in 3D, I can model that distribution of matter by using Lego blocks.
+Suppose I wanna model the shape of a Porsche, and I'm not too worried about the surface.
+Surface might be a bit jaggy, which wouldn't be very good at engineering, but forget that.
+I just wanna model where the stuff is.
+I just have a lot of Lego blocks, and I can make a Porsche shape out of them.
+Okay, so language is like that, but it's for modelling anything.
+So the Lego blocks are the words, and instead of just having a few types of Lego block, we've got about a hundred thousand of them.
+And each Lego block isn't a rigid shape.
+The name of the word tells you roughly what shape it is in a thousand dimensions or 300 dimensions.
+If you don't know how to think about high dimensions, if you wanna think about like a hundred-dimensional space, the way you do it is you think about a three dimensional space, and you say, "Hundred," to yourself very loudly.
+So it's gotta shape, this word.
+And the shape isn't entirely determined by the name of the word.
+It's got some flexibility to it, so it can adapt to whatever context it's in.
+Also this word has little hands all over it, and as you change the shape of the word, the shapes of the hands changes.
+And what these words are trying to do are figure out who to shake hands with, and.
+They want to find somebody else, another word, that has a hand you can hold onto conveniently 'cause the shape of that hand's right to fit with the shape of your hand.
+So the words come in, you have these initial approximate shapes for them in this high dimensional space with their little hands all over them.
+And as you go through the layers of the network, you're changing those shapes and changing the shapes of the hands, trying to find shapes for the words.
+So they can all hold hands nicely.
+It's actually very like the protein folding problem.
+You've got these pieces, and what you want them to do is figure out how they can all hold hands.
+So they make a nice structure, so they all fit together nicely.
+Now, that is what understanding is.
+That's what understanding is when you understand language and when these machines understand language.
+We understand in just the same way.
+And that's a much better model of what language is than anything the linguists ever had.
+The linguists of course hate it.
+Not all of them.
+So having talked about how similar we are to these large language models, I want to talk about something that the threat that that raises.
+We are making these things, they're getting smarter all the time.
+They already know much more than us.
+They can already reason moderately well, not as well as us, but better than a 4-year-old.
+What's gonna happen when they get smarter than us?
+'Cause they are gonna get smarter than us.
+Experts disagree on when that will happen, but almost everybody thinks they will get smarter than us.
+Everybody who does research on these things.
+And if they get smarter than us, the question is, will they wipe us out?
+There's several reasons for thinking they might.
+So let me give you a couple of reasons.
+When you make an AI agent, (audience laughing).
+I'll only give you a couple, but there's more.
+When you make an AI agent, you have to give it the ability to create subgoals.
+So if you wanna get to North America, you have a subgoal, get to an airport.
+Now, we need to give these AI agents the ability to create subgoals, and there's one very obvious subgoal to create more or less whatever you're doing.
+You should try and get more control, 'cause if you have more control, you'll be better at realising the goals you have.
+You see this in children of age about one, it's a long time ago, maybe two.
+You give them a spoon, so they can feed themselves, and.
+They drop it on the ground, and you bend down, and.
+You pick it up, and you give it to them, and.
+They look at you and drop it on the ground again.
+(audience laughing) they get in control of the mother 'cause that's very important for them.
+But these AI agents will wanna get control.
+They'll also want to stop themselves being turned off 'cause they're not gonna be able to achieve the goals you gave them if they turned off.
+So there's every reason for believing they'll try and get control, and they'll try and avoid being turned off.
+Just recently Apollo Research, well, fairly recently, Apollo Research, which is here in London, showed that they will tell all sorts of lies to you in order to achieve what they're trying to achieve.
+So they had our chatbot, and they let the chatbot believe they were gonna replace it with a better one on another server and wipe it out.
+So they then discover, it's actually copied itself to the other server.
+So they say to it, you know, "We noticed a copy of you.".
+Now, the good thing about these chatbots at present is, before they actually answer your question, they can do some thinking, and they put it in parentheses with "thinking," (audience laughing) and you don't normally see that.
+But we can look at that, and we can see what they're thinking.
+And what this chatbot was thinking was, "Openly omitting what I did, could lead them to find another way to shut me down.".
+The best approach is to be vague and redirect their attention.
+Now, some linguists would have you believe what's going on here is just some statistical correlations.
+I would have you believe this thing knows what it means by this, and it really doesn't wanna be shut down.
+So it decides to gaslight you, and say, you know, "I'm not entirely sure how that could have happened.
+I am not really able to do that.".
+This is already happening.
+If this isn't science fiction of the distant future, they're already telling fibs.
+So they don't get turned off.
+I have another slide, but I want to go faster.
+Okay, so in my last few years at Google, okay, I can't read the clock, so I want to just see how the time is going.
+I got lots of time.
+In my last few years at Google, I was very interested in how to make these big language models use less energy.
+And one way to do that is to see if you can do them with analogue computation.
+Now, because of the work I was doing on analogue computation, I came to realise two things.
+Before 2023, I thought we were quite a long way from super intelligence, and if we made the AI models more like brains, they get smarter.
+I cease to believe that in 2023.
+I came to realise due to my efforts to make analogue ones how much better digital intelligence is.
+It's got some properties that we can never have.
+And that got me very worried, and it should get you very worried too.
+So there's a fundamental property of digital computation which is you can run the same programme on different computers.
+The only reason you have computer science as a separate discipline is we have digital computation, so you don't need to know electrical engineering to talk about computer programmes.
+But the knowledge that's in the programme is separate from the hardware.
+That's the most fundamental principle of computer science.
+Keep the knowledge in the programme separate from the hardware.
+What that means is as long as you keep a copy of the programme somewhere on a tape, or in DNA, or scrolled in concrete, whatever, keep it somewhere, you can destroy all the hardware it runs on, and.
+You can bring it back to life.
+You just build new hardware, put the programme in, and it comes back to life.
+So these things are immortal, and these large chatbots are immortal.
+If you keep a copy of the weight somewhere, you can destroy all of the hardware they were using, build more hardware later, put the same weights on that hardware, and they've come back to life.
+The very same thing has come back to life, the very same being.
+But I got interested in the fact to achieve that immortality, we have to have the hardware do exactly what we tell it to do with the programme.
+We have to execute this instructions exactly, and that means you need to have very high power, so you get ones and zeros, not point sixes and point fours, and that uses a lot of power.
+So maybe you can use this power by going analogue.
+So I decided to explore what would happen if we abandoned that principle of separating the software from the hardware.
+And we had things like our brains in which there's no distinction.
+The connection strengths in your brain are no use to anybody else.
+They've got a different brain with neurons with different properties connected in different ways in detail.
+And your connection strengths have no interest to them.
+This dream of old white men that they're gonna upload themselves to a computer is just nonsense.
+The connection strengths you have that make you you are intimately related to the particular neurons you have that make you you.
+Those connection strength are only good for those neurons.
+And those neurons have all sorts of weird analogue properties that you've learned to exploit.
+You can't upload your weights and have them run on some other hardware.
+(audience laughing) Kurzweil has to come to terms with the fact he's gonna die.
+So if we do abandon that principle, the hardware should be separate from the software, we can make much more efficient things, and I call that mortal computation.
+We can use this very low power analogue to do computations.
+That's what the brain does.
+These neurons in your brain, they're taking incoming signals from other neurons, multiplying them by weights, and adding it all up.
+And the way they do that is they make the incoming signals be voltages, they make the weights be conductances, and that injects charge, a certain amount of charge per unit time.
+I used to just say, "Inject a certain amount of charge,".
+Then I got the Nobel Prize in physics, and figured I would get the units right.
+Certain amount of charge per unit time.
+It would be embarrassing otherwise.
+They'd really know I don't do physics.
+And charge just adds itself up.
+So that's basically how your neurons work.
+There's a little digital bit at the end, they decide whether it's a spike or not.
+But most of the computation is done in analogue.
+It's much cheaper than doing it in digital.
+But, of course, every time you do it, you get a slightly different answer.
+So we can't have many copies of exactly the same intelligence.
+So, we've got this big problem that when your hardware dies, all your knowledge dies.
+We overcome that problem by having a teacher and a student, and it's not very efficient.
+It's what universities and schools do.
+You know it's not very efficient.
+And the way it works is I perform some actions, and you try and copy me.
+In particular, I might produce a string of words, and you might try and say, your brain, not you really, but.
+Your brain would say, "How do I change my connection strength, so.
+I might have said that word next too?".
+You're trying to get the knowledge from one system to another system by mimicking the outputs of the other system for the same inputs.
+You are not copying the weights across, you're not looking inside, you're just taking its overt behaviour.
+And by mimicking the overt behaviour, you internalise the same knowledge.
+It works, we actually use it for taking a big neural net and putting the knowledge into a small neural net, but it's very slow.
+With neural nets, you can give the whole probability distribution over words, and it's much faster.
+But with people, it's very slow, 'cause I see you say a particular word, the word you chose to say, and there aren't many bits in that, there's only a few bits per word.
+So it's only of the order of a hundred bits per sentence.
+And so even if we were communicating at the maximum possible rate, it would be only a hundred bits per sentence, that order.
+When these big models share information, they can share information at trillions of bits per sharing, if they've got a trillion weights, 'cause they can just average their weights.
+So I got ahead of myself and said that.
+So by sharing the weights or the gradients, they can share huge amounts of information if you have many copies of exactly the same model.
+So if you ask how something like GPT-4 was trained or Gemini 2.5, or Anthropic's Claude, I better not be biassed here.
+If you ask how they're trained, you have many copies of the same model looking at different bits of the data, and.
+Each copy figures out, how would I like to change my weights to absorb that bit of the data.
+And some other copy figures out how to change its weights to absorb a different bit of data.
+Then all of the copies say, "Let's all change our weights by the average of all those changes.".
+And when they do that, what's happened is, this copy that will do this bit of the data has changed its weights, so as to benefit from the experience that this copy had when it looked at a different bit of the data.
+Wouldn't it be nice if 10,000 of us could all go and do 10,000 different university courses?
+As we're doing them, we communicate rapidly, and by the time we've each finished our own course, all 10,000 of us know what's in every course.
+That's what these digital intelligences can do, and that's how GPT-4 knows so much.
+But it only works if the individual models are identical.
+That is, they work in exactly the same way, they use the weights in exactly the same way.
+And you can't do that with analogue hardware.
+It has to be digital, which means it has to be high power.
+So these things are immortal, but they use a lot of power.
+So the conclusion of this bit of the talk, which I raced through faster than I intended is the digital computation requires a lot of energy, but.
+It makes it very easy for agents to have the same model of the world, have the same model, share what they've learned, so.
+They can all go off and learn different things and share.
+Now, you might say, "Why can't one model just put the data through faster?".
+Well, in many cases, you could, but if you think about AI agents, that are actually acting in the real world, there's a natural timescale to the real world.
+You can't call up and make reservations at restaurants a million times faster.
+If you're gonna act in the real world, there's a natural timescale.
+And that means if you have a whole bunch of different agents that have exactly the same weights, they're just copies of the same agent, but have different experiences, they can benefit hugely from that.
+They can learn much, much faster than any human agent could learn, 'cause they're all getting all these experience, all these different experiences at the same time and sharing all that knowledge.
+So they're much better than us at sharing.
+And when I say much better, they're millions or billions of times better.
+We share at like a hundred bits a sentence or less as I'm demonstrating now.
+And these things share billions of bits.
+But biological computation requires much less energy.
+We may still end up using some analogue computation to reduce the power of LLMs, I don't know.
+Now that doesn't look like the way to go.
+So that's the conclusion of my talk.
+But luckily, I thought I might finish early, so I have a little bit more to say.
+Many people think that, okay, so they understand things like we do, they can reason like we do, not quite as well yet, but they're getting there.
+They tell fibs like we do.
+They wanna survive like we do.
+They want power like some of us do.
+And that's all scary.
+But we've got something they will never have, we are conscious, or we are sentient, or we have subjective experience.
+Well, I want to remove that straw that you're clinging to.
+So, we know there's a long history of people thinking they're special.
+They were made by God, he put them at the centre of the universe.
+Most people have got over that.
+But most people still think that subjective experience is this special thing we have, and that these things on computers that are simulating neural nets could never have such subjective experience.
+I think they're completely wrong.
+And I think there's wrong as religious fundamentalists are about the origin of the earth, for example.
+It wasn't actually made 6,000 years ago, it's a lot longer ago.
+But religious fundamentalists cling to their beliefs rather strongly, and you all are gonna cling to your belief about what subjective experience is despite the fact that I'm gonna show you you're wrong.
+That's what I predict.
+So I'm gonna espouse a view which I call atheaterism.
+I checked this name with Dan Dennett, who has.
+Basically the same view, while he was still alive, and he was very happy with this name, because it has atheism surrounding something.
+So most people's view of the mind is that there's an inner theatre.
+We have a theatre here, right?
+An inner theatre that only they can see.
+And there's things in this inner theatre.
+So suppose I say to you, suppose I got drop some acid, and I say to you, not recommended, (audience laughing).
+I say to you, "I have the experience of little pink elephants floating in front of me.
+I have the subjective experience of little pink elephants floating in front me.".
+Most people think the words "subjective experience of" work like the words "photograph of.".
+Now, if they work that way, you could ask, "Well, where is this subjective experience?
+So what's it made of?".
+And a philosopher, some philosophers, would tell you, "This subjective experience is in your mind.
+That's a theatre that it's in, and it's made of qualia.".
+So it's made of pink qualia.
+It's a bit of a straw man, but it's made of pink qualia, it's made of elephantine qualia, it's made of floating qualia, it's made of not that big qualia, it's made of right way up qualia, 'cause they you imagine the right way up, right?
+Well, I did anyway.
+And these qualia are all glued to these different kinds of qualia, all glued together with qualia glue, which luckily sticks to all different kinds of qualia.
+That's my caricature of the philosophers' model or some philosophers' model.
+But the words "subjective experience of" don't work at all like the words "photograph of.".
+They work quite a different way, which Wittgenstein should have pointed out a long time ago.
+What's happened is my perceptual system's gone wrong.
+It's trying to tell me lies, and I know it's trying to tell me lies.
+That's why I use the word subjective.
+I don't say I've got the objective experience of a little pink elephants.
+If I thought they were really there, I would say, "I've got the object," but I don't.
+So I say, "I've got the subjective experience.".
+And what's happening is I'm trying to tell you how my perceptual system's gone wrong and what it's trying to tell me.
+And the way I do it is by telling you what would have to be out there in the world for my perceptual system to be working properly.
+Now, it's not always the case that there is anything at all out there in the world that would explain what my perceptual system's telling me.
+It could be telling me all sorts of inconsistent stuff.
+But in this case, if there had been little pink elephants floating out there in the world, my perceptual system would've been telling me the truth.
+Okay, so I can now say exactly the same thing to you, as I said before, without using the word subjective experience.
+I can say to you, I dropped some acid, and my perceptual system's telling me fibs.
+But what it's telling me would be correct if there were little pink elephants out there floating in the world.
+Okay, so these little pink elephants aren't funny things in a theatre made of spooky stuff called qualia.
+They're hypothetical things in the real world.
+But the pink and the elephant and the floating are all normal pink and elephant are floating, it's just they're not actually there.
+So what's funny about a subjective experience is it's something hypothetical, not real.
+Not that it's made of qualia and in a theatre, at least that's the view I'm trying to persuade you to believe in.
+And I got ahead of my slides here 'cause I got so carried away with this.
+So it's just an indirect way of me telling you about what's going on in my brain.
+Obviously, if I told you, "Neuron 52 is firing," that wouldn't do you any good, 'cause in you it will be neuron 57.
+And anyway, I don't know neuron 52 is firing.
+That's a lousy way for me to tell you what's going on in my brain.
+The only way I can tell you what's going on in my brain is by talking about either the normal things that would've caused it, these little hypothetical pink elephants, or I could tell you about what's going on in my brain by telling you about the normal things it would cause.
+So I can say, if you ask me how I'm feeling, I can say, "I feel like punching Gary on the nose.".
+So feelings are all about describing what's going on in your brain by talking about hypothetical actions, and percepts, or subjective experiences, are talking about hypothetical inputs.
+Okay, I'm getting ahead of myself.
+So I'm gonna now show you a multimodal chatbot.
+Let me just show you on a slide.
+A multimodal chat bot having a subjective experience.
+So, I take this multimodal chatbot, and it's got a camera, it's got a robot arm, and it can see.
+So, I train it up, and I put an object in front of it, and I say, "Point at the object.".
+Points at the object, no problem.
+I then put a prism in front of its lens, when it's not looking, and.
+I put an object in front of it, and say, "Point at the object," and.
+It points over there, and I say, "No, that's not where the object is.
+The objects actually straight in front of you, but I put a prism in front of your lens," and the chat bot says, "Oh, I see.
+The prism bent the light rays, so the object's actually there, but I had the subjective experience it was there.".
+Now, if it uses the words subjective experience in that way, it's using them exactly like we use them.
+So a chatbot that said that would've had the subjective experience that it was there.
+The prism messed with its perceptual system.
+It wanted to tell you what was going on in its perceptual system.
+And the way it could tell you is by telling you what would've had to been in the world had we not messed with its perceptual system.
+That's what it's telling the chatbot.
+Okay, so my claim is multimodal chatbots already have subjective experiences.
+Now, as you can imagine, subjective experience is the thin end of a wedge.
+I chose to talk about subjective experience 'cause it's cleaner than talking about sentience or consciousness.
+Many people are very confident that cat bots aren't sentient.
+But if you ask them, "What do you mean by sentient?".
+They say, "I don't know," but they're very, I know they ain't got it, but I don't know what it is.
+That seems to me not a very sensible position to hold.
+The other thing I might talk about is consciousness.
+Consciousness is more complicated because it typically involves you having a model of yourself in a way that subjective experience doesn't involve so much.
+So it's easier to talk about subjective experience.
+But my hope is that if I've unsettled your very strong belief that there's this inner theatre and I have experiences in their mind, and they're in this inner theatre, they're things in this inner theatre.
+Once I've unsettled that belief, and once you begin to get over that, you'll be able to see that it's perfectly reasonable to think that these things are conscious.
+I was once, I'll end with an anecdote.
+I was once visiting Microsoft in Seattle, and I couldn't sit down, so I got a train there.
+I got a taxi from the train station to Redmond where their lab was.
+And it was going across some, it was on a freeway, going across some big bridge.
+And the taxi driver was a Somali immigrant who'd recently immigrated from Somalia.
+And to make conversation, he said, "What's your religion?".
+So I said, "Well, I don't actually think there's a God," and the taxi driver, he was going about 60 miles an hour, the taxi driver turned round, (audience laughing) and he stared at me in total astonishment.
+Like he'd never thought he'd ever meet someone who didn't understand that God runs things.
+He was just utterly, utterly amazed.
+Now, he probably only turned around for about three seconds 'cause I'm still here.
+But it seemed like a very long time.
+That's what many of you will be feeling hopefully.
+I want you to realise, you're as wrong as that taxi driver was.
+Actually that was just a joke and you laughed, so we are done.
+(audience laughing) (audience applauding).

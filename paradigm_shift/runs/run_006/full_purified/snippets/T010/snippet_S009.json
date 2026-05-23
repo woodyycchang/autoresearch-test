@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S009",
+  "transcript_id": "T010",
+  "start_line": 99,
+  "end_line": 112,
+  "verbatim_text": "Okay, so you can represent the knowledge as strings of words. Now, you can think of a relational learning task as I give you the beginning of a string of words, and you give me the last word. So if you were doing this with symbolic AI, you'd say, \"Well, we have regularities in this domain of the form, if X has mother Y, and. Y has husband Z, then X has father Z.\" That would be the symbolic way to do it. But I want to do it a different way. I want to do it by learning features for words and having interactions of features. And that would involve searching a big continuous space of connection strengths instead of a small discreet space of rules that are discreet. So this was the network I used. The inputs were a bunch of neurons, and you turn on one neuron for the symbol representing person one. There were 24 possible person ones, and you turn on one neuron for the symbol representing the relationship, there were 12 possible relationships, then those single active neurons will get expanded into a feature vector. So the one neuron that you turned on for person one will get expanded into a little feature vector of six features, which could have various activity levels, some will be off, some will be on, some might be half off or fully on or fully off. So the neural network had to learn how to convert a word symbol into a little feature vector both for the person and the relationship. Then it had to learn how to take these two feature vectors for a person in relationship, have the features interact, and for that I used a hidden layer, an extra layer of places where things could interact to predict the features of the output person. And once you knew the features of the output person, you can make a good good guess about who the output person was and give an output.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1790
+}

@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S016",
+  "transcript_id": "T005",
+  "start_line": 199,
+  "end_line": 212,
+  "verbatim_text": "So what this tells us is that perhaps standard RL is not the best approach if you want to learn effective algorithms that can adapt at test time, or models that can adapt at test time. In fact, if you try to look at some of the state of the art LLMs, there was this first proof challenge. It was a collection of about 10 research math problems curated by experts in the field, and they also solved these problems. Now, the Gemini team at Google found that even after days and days of computation of the Gemini model, it still couldn't solve some of these problems that experts had already solved. And presumably, the Gemini model is trained with a lot more than standard RL. So it turns out that state of the art LLMs are not the best algorithms yet. So going back to our learning framework, we took our first stab at this, which is try to maximize total rewards and do that with standard RL to learn algorithms. That's not the best approach. Now, to see what can be better, we first have to rethink our perspective on learning algorithms. And here I'll describe a key insight that my work develops and tries to use throughout various works. OK, so let's go back to the setting where we saw standard RL greedy algorithm failed. This was that family of two problems where K is equal to four had a very different proof technique. Now, what would be an algorithm that would generalize is one that does a form of intelligent search over probable proofs before committing to the right one. So as long as you're searching over reasonable options and that's the behavior you're learning during training at test time, even if you have a very different proof technique to solve it, as long as you're searching over probable ones and you're covering the correct proof, then you're likely to find that and dominate that.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1809
+}

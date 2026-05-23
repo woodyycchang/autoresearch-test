@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S018",
+  "transcript_id": "T011",
+  "start_line": 233,
+  "end_line": 246,
+  "verbatim_text": "So what that, what that means is, is that we need to parameterize a distribution over a high dimensional continuous space like the space of all possible video frames. And that's just mathematically intractable. The best way we can represent distributions is by, we can do, we can do it the same way physicists do it. You write down an energy function and. Then you do ETO is energy function and normalize most of the time that normalization term, which is a big integral, which intractable at least for interesting distributions. So here's a proposal. The proposal is just don't predict at the pixel level, predict at the representation level, okay? So we're going to build this architecture, which I call jpa, that means joint embedding predictive architecture. And basically instead of predicting all the pixels, we're going to predict a representation of the pixels. So we're going to run the video through an encoder and this partially mass video through an encoder, maybe the same encoder and simultaneously with the encoder train a predictor to minimize this prediction error. But the prediction is going to take place in representation space. In the representation space. It's an abstract representation. It may not contain all the details about the world that are just not predictable.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1293
+}

@@ -1,0 +1,10 @@
+{
+  "snippet_id": "S013",
+  "transcript_id": "T011",
+  "start_line": 163,
+  "end_line": 176,
+  "verbatim_text": "So it's a big vector with of numbers between zero and one. That's up to what, and you might, you know, pick, always pick the, the token with the highest variability and just generate the sequence this way. Or you might, you know, sample from this distribution. Whatever you do, there is might be some probability that at any point the token that's generated takes you outside of the set of sequences of tokens that will be correct answers, right? So the set of all possible se sequences of tokens is a tree, okay? Represented by this blue disc, essentially, where each leaf is the terminal symbol in a tree. They don't have all the same length, but it's a tree. Within this tree there is a SubT tree, which, which corresponds to all the correct answers corresponding to a particular point. And there's, there may be some probability. So that every, at every token you produce, the token takes you outside of the sub, the correct SubT tree. Because it's a tree, there's no way to come back, right? You're out, you're out. So if you make a, the hypothesis, which of course is most likely wrong, that this, you know, probability is the same for regardless of where you are in the sequence and. The errors are independent, then the priority that a sequence of n symbols would be correct decreases exponentially like one minus the error rate to the power n and.",
+  "boundary_justification": "reason=max_sentences_reached; sentence_count=14; topic_shift_markers=none",
+  "sentence_count": 14,
+  "char_count": 1356
+}
