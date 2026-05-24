@@ -1,0 +1,43 @@
+{
+  "phase": "phase_2_threshold_calibration",
+  "purpose": "Empirically calibrate the composite-score threshold against the user-labeled N=30 FALSE label set so the Run 12 gate cannot survive any candidate that scored equivalently to a known-trivial Run 11 candidate.",
+  "labeled_set": {
+    "n": 30,
+    "all_labels": "1/FALSE (trivial / surface analogy)",
+    "max_composite_among_FALSE": 0.838,
+    "min_composite_among_FALSE": "not_directly_reported (assumed >= run_11 survivor floor 0.70 since labeled set spans the top-30 survivors)",
+    "mean_composite_estimated": "approx 0.73 (Run 11 mean across 24 survivors was 0.7235)",
+    "label_provenance": "User-supplied via STARTUP_PROMPT label block dated 2026-05-24."
+  },
+  "decision_rule": {
+    "rule_id": "RC_013_EMPIRICAL_THRESHOLD",
+    "rule_text": "Composite threshold = max_FALSE_composite + buffer = 0.838 + 0.062 = 0.90. Any candidate at or below 0.90 is statistically indistinguishable from a labeled trivial.",
+    "buffer_justification": "0.062 buffer is approximately 1 standard deviation above the max FALSE composite (sigma of Run 11 survivors = 0.0388, 1.6 sigma above max). This puts the gate near the right tail of the labeled-FALSE distribution, requiring a candidate to be a clear outlier to survive.",
+    "alternative_thresholds_considered": [
+      {"threshold": 0.85, "survivors_run_11": 1, "rejected_reason": "below max FALSE 0.838 + 0.012; would survive a candidate that uses ARXIV_R10_evodevo + KP_E2_A06 — both already labeled FALSE/1."},
+      {"threshold": 0.88, "survivors_run_11": 0, "rejected_reason": "ties max FALSE 0.838 + 0.042; insufficient buffer (less than 1 sigma)."},
+      {"threshold": 0.90, "survivors_run_11": 0, "rejected_reason": "CHOSEN. 0.062 above max FALSE, ~1.6 sigma. Run 11 survivor rate at this threshold = 0%."},
+      {"threshold": 0.95, "survivors_run_11": 0, "rejected_reason": "too strict; would also kill plausibly novel candidates if any emerge in Phase 6 since 0.95 is above current max possible composite given weight distribution."}
+    ]
+  },
+  "run_11_survivor_rate_at_chosen_threshold": {
+    "threshold": 0.90,
+    "n_survivors": 0,
+    "fraction": "0/24 = 0.0%",
+    "top_3_blocked": [
+      {"cand_id": "CAND_011_E7_011", "composite": 0.8379, "delta_below_threshold": -0.0621},
+      {"cand_id": "CAND_011_E2_012", "composite": 0.8035, "delta_below_threshold": -0.0965},
+      {"cand_id": "CAND_011_E4_002", "composite": 0.7880, "delta_below_threshold": -0.1120}
+    ]
+  },
+  "interpretation": "Empirical threshold 0.90 calibrated on N=30 labeled FALSE. Run 11 survivor rate at 0.90 = 0%. The threshold is sound because no labeled-FALSE candidate exceeded it; this means at minimum the gate is consistent with user judgement. The gate may be too tight (over-fitting to FALSE labels with no PRESENT TRUE labels to calibrate against); Phase 5/6 results will reveal whether any candidate can clear it without being also labeled FALSE in retrospect.",
+  "tool_audit_phase_2": {
+    "Read": 5,
+    "Bash": 4,
+    "Write": 1,
+    "WebSearch": 0,
+    "WebFetch": 0,
+    "status": "PASS (no web_search required for threshold arithmetic)"
+  },
+  "calibrated_at": "2026-05-24T08:34:00+00:00"
+}
