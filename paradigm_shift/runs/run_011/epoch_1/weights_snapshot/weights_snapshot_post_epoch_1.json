@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-05-23T23:30:00+00:00",
+  "last_updated_at": "2026-05-23T23:37:49.112087+00:00",
+  "description": "RLHF mimick weights across 10 candidate-scoring parameters. Initial uniform; updated after each epoch by rlhf_weight_updater.py via simple gradient on score(survivor) - score(rejected). Weights sum to 1.0 to keep composite_score in [0,1].",
+  "version": 1,
+  "epoch_origin": "run_011_epoch_1",
+  "learning_rate": 0.05,
+  "weights": {
+    "atom_quality_score": 0.09997519572673305,
+    "novelty_score": 0.08666708165198313,
+    "cross_source_diversity": 0.1121217148337193,
+    "mechanism_coherence": 0.10558128146841901,
+    "saturation_distance": 0.08836592650332503,
+    "speaker_self_publish_risk": 0.09343476236143276,
+    "arxiv_grounding": 0.11492475770456229,
+    "belinda_audit_pass": 0.09343476236143276,
+    "community_density": 0.08870106443660189,
+    "cross_disciplinary_bonus": 0.11679345295179094
+  },
+  "parameter_descriptions": {
+    "atom_quality_score": "Technical mechanism present, no filler words (0-1).",
+    "novelty_score": "Inverse of arXiv hit count in 24 months on the candidate's joint topic (0-1).",
+    "cross_source_diversity": "1.0 if atom A and atom B are from different SOURCE types (essay vs blog vs transcript vs arXiv).",
+    "mechanism_coherence": "Vocabulary overlap on mechanism words across the atoms (0-1).",
+    "saturation_distance": "Semantic distance from cluster centroid of known niches (RLHF, JEPA, MoE, RAG, SAE etc.) (0-1).",
+    "speaker_self_publish_risk": "1.0 - self_publish_keyword_overlap; high is GOOD (low risk).",
+    "arxiv_grounding": "Count of arXiv citations supporting the candidate's sub-claims, normalized.",
+    "belinda_audit_pass": "1.0 if mechanical 3Q check passes, 0 otherwise.",
+    "community_density": "1.0 - normalized recent paper count on the joint topic; high is GOOD.",
+    "cross_disciplinary_bonus": "1.0 if atoms span ML + non-ML domain; 0 otherwise."
+  },
+  "weight_history": [
+    {
+      "epoch_label": "run_011_epoch_1",
+      "updated_at": "2026-05-23T23:37:49.112067+00:00",
+      "version_before": 0,
+      "version_after": 1,
+      "n_survivors": 2,
+      "n_rejected": 10,
+      "fallback_pseudo_split": false,
+      "delta": {
+        "atom_quality_score": 0.007,
+        "novelty_score": -0.00724,
+        "cross_source_diversity": 0.02,
+        "mechanism_coherence": 0.013,
+        "saturation_distance": -0.00543,
+        "speaker_self_publish_risk": 0.0,
+        "arxiv_grounding": 0.023,
+        "belinda_audit_pass": 0.0,
+        "community_density": -0.00507,
+        "cross_disciplinary_bonus": 0.025
+      },
+      "weights_after": {
+        "atom_quality_score": 0.09998,
+        "novelty_score": 0.08667,
+        "cross_source_diversity": 0.11212,
+        "mechanism_coherence": 0.10558,
+        "saturation_distance": 0.08837,
+        "speaker_self_publish_risk": 0.09343,
+        "arxiv_grounding": 0.11492,
+        "belinda_audit_pass": 0.09343,
+        "community_density": 0.0887,
+        "cross_disciplinary_bonus": 0.11679
+      },
+      "survivor_mean_params": {
+        "atom_quality_score": 0.8,
+        "novelty_score": 0.508,
+        "cross_source_diversity": 1.0,
+        "mechanism_coherence": 0.4,
+        "saturation_distance": 0.75,
+        "speaker_self_publish_risk": 1.0,
+        "arxiv_grounding": 0.6,
+        "belinda_audit_pass": 1.0,
+        "community_density": 0.4192,
+        "cross_disciplinary_bonus": 0.75
+      },
+      "rejected_mean_params": {
+        "atom_quality_score": 0.66,
+        "novelty_score": 0.6529,
+        "cross_source_diversity": 0.6,
+        "mechanism_coherence": 0.14,
+        "saturation_distance": 0.8585,
+        "speaker_self_publish_risk": 1.0,
+        "arxiv_grounding": 0.14,
+        "belinda_audit_pass": 1.0,
+        "community_density": 0.5205,
+        "cross_disciplinary_bonus": 0.25
+      }
+    }
+  ]
+}

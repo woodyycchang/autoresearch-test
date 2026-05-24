@@ -1,0 +1,39 @@
+{
+  "epoch": 1,
+  "source_url": "https://paulgraham.com/articles.html",
+  "fetch_status": "WebFetch_403_firewalled; fallback chain (substack, spicytakes, aaronsw rss, ycombinator, news.ycombinator HN item) all returned 403. Final fallback: WebSearch summary excerpts. WebSearch retrieved enough text to extract 12 atoms across 5 essays (Writes-and-Write-Nots, Founder Mode, Superlinear Returns, The Right Kind of Stubborn, How to Start Google).",
+  "atoms_extracted": 12,
+  "candidates_generated": 12,
+  "composite_distribution": {
+    "max": 0.7298,
+    "min": 0.4956,
+    "mean": 0.6072,
+    "median": 0.6143
+  },
+  "survivors_composite_ge_0_7": [
+    {"cand_id": "CAND_011_E1_008", "composite_score": 0.7298, "joint_topic": "adolescent_taste_acquisition_as_evodevo_pretraining_curriculum",
+     "bridging_papers": ["arxiv:2506.12891", "arxiv:2603.14664", "arxiv:2603.07360"],
+     "novel_path": "PG_E1_A09 (adolescent taste-for-broken cultivation) -> evodevo selection_pressure mechanism -> LLM pretraining curriculum design"},
+    {"cand_id": "CAND_011_E1_005", "composite_score": 0.7157, "joint_topic": "writing_offload_thermodynamic_cognitive_entropy_increase",
+     "bridging_papers": ["arxiv:2506.08872 (Your Brain on ChatGPT)", "arxiv:2507.00181 (lazy thinkers)", "arxiv:2504.05328 (Watts-per-Intelligence)", "PMC12883739 (cognitive entropy externalization)"],
+     "novel_path": "PG_E1_A10 (writing offload to AI) -> free energy / entropy externalization -> thermodynamic prediction of collective cognitive entropy at population scale"}
+  ],
+  "saturation_pre_post_revision": {
+    "pre_deep_search": {"CAND_008": 0.95, "CAND_005": 0.85},
+    "post_deep_search": {"CAND_008": 0.55, "CAND_005": 0.45},
+    "delta_composite": {"CAND_008": -0.058, "CAND_005": -0.014},
+    "comment": "Both putative survivors retained composite >= 0.7 because cross_source_diversity, cross_disciplinary_bonus, mechanism_coherence, atom_quality, arxiv_grounding, belinda_pass all stayed >= 0.4. This is the Run 11 design intention: multi-parameter soft scoring escapes Run 10's strict L7 binary saturation kill."
+  },
+  "root_cause_observed": "RC_010_SOFT_THRESHOLD_OVERRIDES_BINARY_SATURATION_KILL",
+  "rc_010_description": "Run 10's L7 saturation_check was a binary gate: any cross-paper kills the candidate. Run 11's multi-parameter composite is a weighted sum; lowering saturation_cluster_distance from 0.95 to 0.55 only reduces composite by ~0.05 because cross_source_diversity, cross_disciplinary_bonus, and arxiv_grounding compensate. Whether this is a genuine escape or just a softer rubber stamp depends on the Belinda 3Q audit (Phase 4) and the cross-LLM novelty re-check (Phase 6).",
+  "tool_audit_epoch_1": {
+    "WebFetch_attempts": 6,
+    "WebFetch_successes": 0,
+    "WebSearch_calls": 8,
+    "WebSearch_successes": 8,
+    "Read": 1,
+    "Write": 4,
+    "Bash_python": 2,
+    "Edit": 1
+  }
+}
