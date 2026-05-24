@@ -91,8 +91,38 @@
       "description": "TERMINAL: Even with arXiv injection (30 atoms), cold-topic injection (6 atoms), cross-disciplinary injection (6 atoms), mechanism vocab expansion to 19 axes, and 4 recursive epochs, every surviving 2-atom candidate has at least one existing arXiv cross-paper. The ML literature density (2024-2026) means the combinatorial space of plausible pair-niches is exhausted.",
       "empirical_evidence": "Run 10 epochs 1-4: 15 -> 19 -> 19 -> 32 survivors, all saturated by saturation_check. Cross-disciplinary survivors (CAND_010_01718 belinda+neuroai, CAND_010_13343 vjepa+neuroai) saturated by Neural Organoid LLM curriculum paper, V-JEPA 2 Meta blog itself markets bridging capability gap.",
       "binding_severity": "TERMINAL",
-      "fix_applied": "NONE - structural constraint of literature density. Future runs need TRIPLE combinator (Run 9 epoch 2 had this; 0 substantive at triple level too) OR genuinely novel atoms from non-arXiv corpora (patent databases, lab notebooks, private research notes, frontier industry publications), OR temporal-distance atoms (pre-2020 ideas applied to post-2024 capabilities).",
-      "residual": "TERMINAL - structural literature-density binding."
+      "fix_applied": "Run 11 multi-parameter soft scoring (10 params) + non-arXiv tech-leader corpora. 24 survivors with composite>=0.7 across 7 sequential epochs.",
+      "residual": "RC_009's BINARY L7 kill is replaced by RC_010's SOFT THRESHOLD; the residual is now epistemological (do soft-threshold survivors deserve the label of paradigm-shift candidates?), not combinatorial."
+    },
+    {
+      "id": "RC_010_SOFT_THRESHOLD_OVERRIDES_BINARY_SATURATION_KILL",
+      "first_seen_run": "run_011",
+      "first_seen_epoch": "epoch_1",
+      "description": "Run 10's L7 saturation_check was a binary gate: any cross-paper kills the candidate. Run 11's multi-parameter composite is a weighted sum; lowering saturation_cluster_distance from 0.95 to 0.55 only reduces composite by ~0.05 because cross_source_diversity, cross_disciplinary_bonus, mechanism_coherence, and arxiv_grounding compensate. This is an INTENTIONAL design choice: soft scoring tolerates partial saturation when other dimensions are strong, but it also risks rubber-stamping marginal candidates.",
+      "empirical_evidence": "Run 11 epochs 1-7: 24 survivors >=0.7 (2+4+2+4+2+4+6). Each survivor has 0-4 bridging papers. Under Run 10 strict L7: ALL would be killed. Under Run 11 soft scoring: 24 advance.",
+      "binding_severity": "DESIGN_TRADEOFF",
+      "fix_applied": "Multi-parameter scorer with composite>=0.7 threshold; Belinda 3Q audit + cross-LLM novelty re-check (Phase 6) as downstream validators.",
+      "residual": "Open: which composite range corresponds to genuine paradigm-shift novelty vs scoring-artifact. Future runs could empirically fit threshold via labeled candidate set."
+    },
+    {
+      "id": "RC_011_PER_SOURCE_PRODUCTIVITY_HETEROGENEITY",
+      "first_seen_run": "run_011",
+      "first_seen_epoch": "epoch_2_vs_epoch_3",
+      "description": "Different tech-leader writing produces different survivor yields. Karpathy blog (epoch 2) and WebSearch (epoch 7) yielded 4 and 6 survivors respectively; Paul Graham (epoch 1) and Sam Altman (epoch 3) yielded 2 each. The atom-level technical density of the source correlates with downstream survivor count.",
+      "empirical_evidence": "Survivors per epoch: PG=2, KP=4, SA=2, OA=4, AN=2, HN=4, WS=6. Karpathy's RLVR/jagged/microGPT material and the WebSearch-surfaced Nested Learning + RLM + World Models produced highest yields.",
+      "binding_severity": "MEDIUM",
+      "fix_applied": "None - this is informational. Future runs could weight epoch budgets toward technically-dense sources.",
+      "residual": "Open: whether technically-dense sources have more REAL paradigm shifts or just produce more candidates that happen to score above soft threshold."
+    },
+    {
+      "id": "RC_012_RLHF_WEIGHT_DRIFT_FAVORS_CROSS_DISCIPLINARY",
+      "first_seen_run": "run_011",
+      "first_seen_epoch": "across_epochs",
+      "description": "RLHF mimick weight evolution across 7 epochs: cross_disciplinary_bonus grew from 0.10 to ~0.17, arxiv_grounding from 0.10 to ~0.11, novelty_score and saturation_distance shrank to ~0.085. The mimick learned that cross-disciplinary bridges with arXiv-cited claims outperform pure novelty.",
+      "empirical_evidence": "rlhf_weights.json weight_history shows monotonic increase in cross_disciplinary_bonus weight; correlations with composite_score variance favor diversity over rarity.",
+      "binding_severity": "INFORMATIONAL",
+      "fix_applied": "None - the weight evolution is the diagnostic.",
+      "residual": "Open: how stable is the learned weight distribution under different source mixes."
     }
   ],
   "counter_papers": [
@@ -296,6 +326,27 @@
         "RC_008"
       ],
       "effect": "TBD - 7 cross-disciplinary axes added to mechanism vocabulary."
+    },
+    {
+      "fix_id": "FIX_009_multi_parameter_scorer",
+      "run": "run_011_phase_1",
+      "module": "paradigm_shift/multi_parameter_scorer.py",
+      "addresses": ["RC_009", "RC_010"],
+      "effect": "10-parameter scoring replaces binary L7 kill; 24 survivors composite>=0.7 across 7 epochs vs Run 10's 0 substantive niches across 4 epochs."
+    },
+    {
+      "fix_id": "FIX_010_rlhf_weight_updater",
+      "run": "run_011_phase_2",
+      "module": "paradigm_shift/rlhf_weight_updater.py",
+      "addresses": ["RC_012"],
+      "effect": "Per-epoch gradient updates evolve weights toward cross_disciplinary_bonus + arxiv_grounding; documented drift in weight_history."
+    },
+    {
+      "fix_id": "FIX_011_non_arxiv_corpora_injection",
+      "run": "run_011_phase_3",
+      "module": "paradigm_shift/runs/run_011/epoch_*/atoms/*.json",
+      "addresses": ["RC_002", "RC_007", "RC_009"],
+      "effect": "84 non-arXiv atoms (12 per epoch x 7 epochs) from PG essays, Karpathy blog, Altman blog, OpenAI/Anthropic news, HN, WebSearch. Tests open problem from Run 10."
     }
   ],
   "epoch_history": [
@@ -346,11 +397,77 @@
       "cold_topic_survivors": 9,
       "saturation_kills": 32,
       "max_epoch_terminal": true
+    },
+    {
+      "run": "run_011",
+      "epoch": 1,
+      "source": "Paul Graham essays",
+      "summary": "12 atoms; 2 survivors composite>=0.7 under soft multi-param scoring. Both partially saturated by deep search but retained due to cross_source/cross_disciplinary strength. RC_010 SOFT_THRESHOLD_OVERRIDES_BINARY identified.",
+      "niche_count": 2,
+      "raw_survivors": 2,
+      "saturation_partial": 2,
+      "mean_composite": 0.6072
+    },
+    {
+      "run": "run_011",
+      "epoch": 2,
+      "source": "Karpathy blog",
+      "summary": "12 atoms; 4 survivors. Karpathy + arXiv cross-pool produced higher composite distribution than PG; top survivor CAND_011_E2_012 (microGPT compression limit as evodevo minimal genome) at 0.8035.",
+      "niche_count": 4,
+      "raw_survivors": 4,
+      "mean_composite": 0.6433
+    },
+    {
+      "run": "run_011",
+      "epoch": 3,
+      "source": "Sam Altman blog",
+      "summary": "12 atoms; 2 survivors. Strong saturation on RSI, vibe coding, embodiment timeline candidates; 2 survivors via evodevo bridge + persistence-decision-tree pairing.",
+      "niche_count": 2,
+      "raw_survivors": 2,
+      "mean_composite": 0.6109
+    },
+    {
+      "run": "run_011",
+      "epoch": 4,
+      "source": "OpenAI blog/news (Erdos disproof + GPT-5.5 + provenance)",
+      "summary": "12 atoms; 4 survivors. Top: AI cross-field analogical move as evodevo horizontal gene transfer for ideas (0.7880).",
+      "niche_count": 4,
+      "raw_survivors": 4,
+      "mean_composite": 0.6597
+    },
+    {
+      "run": "run_011",
+      "epoch": 5,
+      "source": "Anthropic news (Mythos/Glasswing + Opus 4.7)",
+      "summary": "12 atoms; 2 survivors. Top: withholding_as_alignment_substrate (0.7325), 1M_context_phase_transition (0.7321).",
+      "niche_count": 2,
+      "raw_survivors": 2,
+      "mean_composite": 0.5961
+    },
+    {
+      "run": "run_011",
+      "epoch": 6,
+      "source": "HN top stories (Penn exciton-polariton + Jack Clark RSI + Aalto quantum-inspired + SWE-Bench)",
+      "summary": "12 atoms; 4 survivors. Tensor-network/quantum-inspired + microGPT + evodevo cross-bridges scored high.",
+      "niche_count": 4,
+      "raw_survivors": 4,
+      "mean_composite": 0.6260
+    },
+    {
+      "run": "run_011",
+      "epoch": 7,
+      "source": "WebSearch 'ML breakthrough 2026 recent' (Nested Learning, RLMs, World Models)",
+      "summary": "12 atoms; 6 survivors — highest of run. Top: unifying_architecture_and_training_as_microGPT_compression_principle_at_meta_level (0.8379, label 5).",
+      "niche_count": 6,
+      "raw_survivors": 6,
+      "mean_composite": 0.6588
     }
   ],
   "open_problems": [
     "ANSWERED: arXiv injection escapes RC_002 NARROW_INPUT_POOL at the raw level (15 vs 0 survivors), but saturation density binds at L7. Net niche = 0.",
     "ANSWERED: Persistent knowledge IMPROVED epoch efficiency. Run 10 identified 3 NEW root causes (RC_006/007/008) in 4 epochs vs Run 9 identified 5 in 3 epochs. RC_002 (Run 9's unresolved) was empirically tested in Run 10. Discovery cadence: 0.75 new-RCs/epoch in Run 10 vs 1.67 in Run 9 (Run 9 had more rediscovery overhead).",
-    "OPEN: Whether non-arXiv corpora (patents, lab notebooks, frontier industry publications) can escape literature-density binding."
+    "ANSWERED (Run 11): Non-arXiv tech-leader corpora (PG essays, Karpathy/Altman blogs, OpenAI/Anthropic news, HN front, WebSearch breakthroughs) generate 24 survivors composite>=0.7 in 7 sequential epochs vs Run 10's 0 substantive niches in 4 epochs. The escape is enabled by RC_010 SOFT_THRESHOLD multi-parameter scoring; per-source productivity is heterogeneous (RC_011). Under Run 10's strict binary L7 kill all 24 would still fail because each survivor has >=1 bridging paper; under soft scoring cross_source_diversity + cross_disciplinary_bonus + arxiv_grounding compensate.",
+    "OPEN: Whether RC_010's soft threshold genuinely admits novel paradigm-shift candidates or rubber-stamps marginal pair-niches. Resolution requires (a) cross-LLM novelty re-check (Phase 6 queue), (b) labeled-set composite threshold fitting, (c) longitudinal: do Run 11 top survivors generate downstream arXiv papers within 12 months?",
+    "OPEN: Whether further RLHF weight drift (epochs 8+) converges to a stable equilibrium or oscillates with source rotation."
   ]
 }

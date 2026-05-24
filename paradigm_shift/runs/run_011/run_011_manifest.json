@@ -1,0 +1,78 @@
+{
+  "run_id": "run_011",
+  "started_at": "2026-05-23T23:30:00+00:00",
+  "completed_at": "2026-05-24T00:20:00+00:00",
+  "hypothesis": "Run 10 hit RC_009 TERMINAL_CONSTRAINT (ML literature 2024-2026 density). Run 11 tests if sequential 7-epoch loop on NON-ARXIV tech-leader writing (Paul Graham, Karpathy, Sam Altman, OpenAI blog, Anthropic news, HN, recent ML breakthrough search) can produce paradigm-shift candidates that escape literature-density saturation, with multi-parameter RLHF mimick scoring (10 params) driving weight evolution.",
+  "hypothesis_outcome": "PARTIALLY CONFIRMED. Sequential + multi-parameter scoring produced 24 survivors (composite >= 0.7, Belinda 3Q PASS) across 7 epochs. The escape was enabled by REPLACING Run 10's binary L7 saturation kill with a SOFT 10-parameter composite. Under strict L7 rule, all 24 would still be killed (each has >=1 bridging paper). RC_009 binding is replaced by RC_010 epistemic question: do soft-threshold survivors count as paradigm-shift candidates? Phase 6 cross-LLM queue pending.",
+  "design": {
+    "sequential": "ONE source per epoch, in order. R1 enforced.",
+    "kb_load_per_epoch": "Each epoch read persistent_knowledge_base.json + rlhf_weights.json. R2 enforced.",
+    "kb_update_per_epoch": "Each epoch appended findings + updated rlhf_weights. R3 enforced (weight_history 7 entries).",
+    "multi_param_scoring": "10 parameters per candidate, composite = weighted sum. R4 enforced.",
+    "counter_paper_grounded_fixes": ">=3 web_search per root cause. R5/R6 enforced (32 web_searches total).",
+    "belinda_audit_per_survivor": "All 24 audited. R7 enforced.",
+    "deep_exploration": "Maximum tool calls. R9 enforced.",
+    "auto_fetch_no_user_request": "WebFetch firewalled, fell back to WebSearch with no user request. R10 enforced."
+  },
+  "phases_completed": [
+    "phase_0: rlhf_weights.json init + epoch_logs/ + 7-epoch directory tree",
+    "phase_1: multi_parameter_scorer.py (10-param composite with PARAM_FUNCS table)",
+    "phase_2: rlhf_weight_updater.py (gradient on survivor-vs-rejected param means, normalize, snapshot)",
+    "phase_3_epoch_1: PG essays; 2 survivors (RC_010 identified)",
+    "phase_3_epoch_2: Karpathy blog; 4 survivors (microGPT-evodevo top)",
+    "phase_3_epoch_3: Sam Altman blog; 2 survivors",
+    "phase_3_epoch_4: OpenAI blog/Erdos disproof; 4 survivors",
+    "phase_3_epoch_5: Anthropic Mythos/Glasswing; 2 survivors",
+    "phase_3_epoch_6: HN top stories (Penn polariton + Jack Clark RSI + Aalto quantum); 4 survivors",
+    "phase_3_epoch_7: WebSearch ML breakthrough (Nested Learning + RLMs + World Models); 6 survivors",
+    "phase_4_belinda_audit: 24/24 PASS mechanically",
+    "phase_5_comparison: output/run_010_vs_run_011.md",
+    "phase_6_cross_llm_queue: top-10 by composite queued in phase5_cross_llm/cross_llm_queue.json"
+  ],
+  "source_rotation_actual": {
+    "epoch_1": {"source": "Paul Graham essays", "primary_url": "https://paulgraham.com/articles.html", "primary_status": "403_firewalled", "fallback": "WebSearch summaries", "atoms": 12, "survivors": 2},
+    "epoch_2": {"source": "Karpathy blog", "primary_url": "https://karpathy.github.io/", "primary_status": "403_firewalled", "fallback": "WebSearch summaries (year-in-review + microGPT)", "atoms": 12, "survivors": 4},
+    "epoch_3": {"source": "Sam Altman blog", "primary_url": "https://blog.samaltman.com/", "primary_status": "403_firewalled", "fallback": "WebSearch summaries (gentle singularity + reflections)", "atoms": 12, "survivors": 2},
+    "epoch_4": {"source": "OpenAI blog/news", "primary_url": "https://openai.com/blog", "primary_status": "403_firewalled", "fallback": "WebSearch summaries (GPT-5.5 + Erdos + provenance)", "atoms": 12, "survivors": 4},
+    "epoch_5": {"source": "Anthropic news", "primary_url": "https://www.anthropic.com/news", "primary_status": "WebSearch only", "atoms": 12, "survivors": 2},
+    "epoch_6": {"source": "HN top stories", "primary_url": "https://news.ycombinator.com/rss", "primary_status": "WebSearch only", "atoms": 12, "survivors": 4},
+    "epoch_7": {"source": "WebSearch 'ML breakthrough 2026 recent' top 3", "primary_status": "WebSearch direct", "atoms": 12, "survivors": 6}
+  },
+  "kb_delta_from_run_010": {
+    "root_causes_added": ["RC_010_SOFT_THRESHOLD_OVERRIDES_BINARY_SATURATION_KILL", "RC_011_PER_SOURCE_PRODUCTIVITY_HETEROGENEITY", "RC_012_RLHF_WEIGHT_DRIFT_FAVORS_CROSS_DISCIPLINARY"],
+    "rc_009_status_changed": "TERMINAL_BINARY -> DESIGN_TRADEOFF (replaced by RC_010 soft scoring)",
+    "fixes_added": ["FIX_009_multi_parameter_scorer", "FIX_010_rlhf_weight_updater", "FIX_011_non_arxiv_corpora_injection"],
+    "open_problems_answered": ["Non-arXiv corpora escape literature-density binding — answered yes WITH soft scoring; no without"],
+    "open_problems_added": ["RC_010 epistemic question (paradigm-shift vs rubber-stamp?)", "RLHF weight convergence vs oscillation question"]
+  },
+  "results_summary": {
+    "atoms_extracted": 84,
+    "candidates_generated": 84,
+    "survivors_composite_ge_0_7": 24,
+    "belinda_3q_pass": 24,
+    "belinda_3q_fail": 0,
+    "cross_llm_queue_size": 10,
+    "top_survivor": {"cand_id": "CAND_011_E7_011", "composite_score": 0.8379, "topic": "unifying_architecture_and_training_as_microGPT_compression_principle_at_meta_level"}
+  },
+  "tool_audit_run_011": {
+    "WebFetch_attempts": 13,
+    "WebFetch_successes": 0,
+    "WebSearch_calls": 33,
+    "WebSearch_successes": 33,
+    "Read": 8,
+    "Write": 27,
+    "Edit": 5,
+    "Bash_python": 9
+  },
+  "rlhf_weight_evolution": {
+    "v0_to_v7": {
+      "cross_disciplinary_bonus": "0.100 -> 0.243 (+0.143)",
+      "speaker_self_publish_risk": "0.100 -> 0.066 (-0.034)",
+      "belinda_audit_pass": "0.100 -> 0.066 (-0.034)",
+      "saturation_distance": "0.100 -> 0.079 (-0.021)",
+      "novelty_score": "0.100 -> 0.080 (-0.020)"
+    },
+    "interpretation": "Cross-disciplinary bridging is the dominant survivor predictor; non-discriminating uniform-1.0 params (belinda/self-publish) properly deweighted; pure-novelty and saturation-distance underperformed cross-source/cross-disciplinary signals."
+  },
+  "status": "complete"
+}

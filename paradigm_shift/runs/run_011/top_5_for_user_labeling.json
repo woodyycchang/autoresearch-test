@@ -1,0 +1,82 @@
+{
+  "queue_purpose": "POST-RUN top-5 by composite_score for user labeling. Per Run 11 spec: user labels top-5 if survivors; otherwise reviews top-5 by composite for label calibration. With 24 survivors, this is the survivor case.",
+  "ranking_method": "composite_score from multi_parameter_scorer across all 7 epochs.",
+  "queue_generated_at": "2026-05-24T00:20:00+00:00",
+  "queue": [
+    {
+      "rank": 1,
+      "cand_id": "CAND_011_E7_011",
+      "composite_score": 0.8379,
+      "label_simulated": 5,
+      "atom_a": {"id": "WS_E7_A12", "source": "Google Nested Learning blog (2025-11-07)",
+                  "text": "Architecture and training rules are fundamentally the SAME thing — different levels of optimization, each with its own context flow and update rate. The duality between design-time and run-time vanishes."},
+      "atom_b": {"id": "KP_E2_A06", "source": "Karpathy microGPT blog (2026-02-12)",
+                  "text": "A full GPT (tokenizer, autograd, transformer, Adam, training loop, inference) fits in 200 lines of dependency-free Python; LLMs reduce to a small set of irreducible algorithmic components."},
+      "joint_topic": "unifying_architecture_and_training_as_microGPT_compression_principle_at_meta_level",
+      "novel_claim": "MicroGPT's compression-to-200-lines is the SAME principle that Nested Learning applies at the meta-level: irreducible algorithmic substrate. The compression principle scales from implementation to design-rule unification.",
+      "supporting_arxiv": ["arxiv:2512.24695 nested learning multi-level optimization"],
+      "label_question_for_user": "Rate 1-5: is the bridge between microGPT's empirical 200-line floor and Nested Learning's design-time/run-time unification a genuine principle or surface analogy?"
+    },
+    {
+      "rank": 2,
+      "cand_id": "CAND_011_E2_012",
+      "composite_score": 0.8035,
+      "label_simulated": 5,
+      "atom_a": {"id": "KP_E2_A12", "source": "Karpathy microGPT blog (2026-02-12)",
+                  "text": "microGPT is the culmination of a decade of simplification (micrograd, makemore, nanogpt); the 200-line ceiling reflects an algorithmic compression limit that AI-coding-agent assistance cannot push lower without crossing into mere obfuscation."},
+      "atom_b": {"id": "ARXIV_R10_evodevo", "source": "arxiv:2506.12891",
+                  "text": "Evolutionary developmental biology supplies design principles (selection_pressure) for AI architectures."},
+      "joint_topic": "microGPT_compression_limit_as_evodevo_minimal_genome_analog",
+      "novel_claim": "The empirical 200-line floor for an LLM implementation is analogous to the minimal-genome floor in synthetic biology (JCVI-syn3.0 ~473 genes). Both define an irreducible computational substrate via empirical compression under selection pressure.",
+      "supporting_arxiv": ["arxiv:2506.12891 evodevo for AI"],
+      "label_question_for_user": "Rate 1-5: does the analogy between LLM minimal implementation and biological minimal genome capture a real shared principle (selection-pressure-bounded compression floor)?"
+    },
+    {
+      "rank": 3,
+      "cand_id": "CAND_011_E4_002",
+      "composite_score": 0.7880,
+      "label_simulated": 4,
+      "atom_a": {"id": "OA_E4_A10", "source": "OpenAI Erdos disproof announcement (2026-05-20)",
+                  "text": "The Erdos disproof was the AI bringing a tool (Golod-Shafarevich theorem) from FIELD A into FIELD B; this is exactly the cross-disciplinary analogical move that human paradigm shifts historically require. Frontier AI now does this autonomously."},
+      "atom_b": {"id": "ARXIV_R10_evodevo", "source": "arxiv:2506.12891",
+                  "text": "Evolutionary developmental biology supplies design principles for AI architectures via selection_pressure."},
+      "joint_topic": "ai_cross_field_analogical_move_as_evodevo_horizontal_gene_transfer_for_ideas",
+      "novel_claim": "AI bringing a TOOL from FIELD A to FIELD B is the cognitive analog of horizontal gene transfer in evolution. The cross-field analogical move is the SAME fitness-increasing mechanism in both substrates.",
+      "supporting_arxiv": ["openai/index/model-disproves-discrete-geometry-conjecture/", "arxiv:2506.12891"],
+      "label_question_for_user": "Rate 1-5: does AI cross-field tool-borrowing constitute a real horizontal-gene-transfer analog, or is this a strained metaphor?"
+    },
+    {
+      "rank": 4,
+      "cand_id": "CAND_011_E7_004",
+      "composite_score": 0.7621,
+      "label_simulated": 4,
+      "atom_a": {"id": "WS_E7_A04", "source": "Prime Intellect RLM blog (2026-01-02)",
+                  "text": "RLMs reach effective context length about 2 orders of magnitude longer than base; 10M+ tokens on certain workloads, by trading context-window memory for code+recursion control."},
+      "atom_b": {"id": "ARXIV_R10_thermodynamics", "source": "arxiv:2506.01506",
+                  "text": "Deep learning of thermodynamic laws; energy_constraint axis."},
+      "joint_topic": "10M_token_context_as_phase_transition_in_information_thermodynamic_capacity",
+      "novel_claim": "RLM's 2-order-of-magnitude effective-context jump is an information-thermodynamic phase transition — the LLM substrate exhibits qualitatively different behaviors above a context-density threshold.",
+      "supporting_arxiv": ["arxiv:2512.24601 RLM", "arxiv:2506.01506 thermo DL"],
+      "label_question_for_user": "Rate 1-5: is the phase-transition framing for RLM context expansion a falsifiable thermodynamic claim or descriptive language?"
+    },
+    {
+      "rank": 5,
+      "cand_id": "CAND_011_E2_002",
+      "composite_score": 0.7579,
+      "label_simulated": 4,
+      "atom_a": {"id": "KP_E2_A08", "source": "Karpathy 2025 Year in Review (2025-12)",
+                  "text": "Verifiability thesis: AI is superhuman at code and fails at tasks like car-washing because the gradient of capability tracks the gradient of verifier-density; tasks with rich verifiers concentrate capability, tasks without verifiers stagnate."},
+      "atom_b": {"id": "ARXIV_R10_evodevo", "source": "arxiv:2506.12891",
+                  "text": "Evolutionary developmental biology design principles for AI via selection_pressure."},
+      "joint_topic": "verifier_density_gradient_as_selection_pressure_on_capability",
+      "novel_claim": "Verifier-density gradient acts as evolutionary selection pressure shaping LLM capability landscape; jagged intelligence is the empirical fitness-landscape signature.",
+      "supporting_arxiv": ["arxiv:2506.12891 evodevo", "arxiv:2603.07360 yerkes-dodson env pressure", "arxiv:2509.08269 LLM for evolutionary opt"],
+      "label_question_for_user": "Rate 1-5: is the selection-pressure-on-capability framing of verifier density a substantive predictive theory or repackaging of Karpathy's verifiability thesis in evolutionary language?"
+    }
+  ],
+  "user_label_protocol": {
+    "scale": "1=trivial/wrong, 2=surface analogy, 3=interesting but derivative, 4=novel synthesis worth pursuing, 5=paradigm-shift candidate worth publication",
+    "instructions": "For each entry, the user reads the novel_claim and supporting_arxiv, then assigns a 1-5 label and optional notes. The labels feed back into rlhf_weights.json's calibration in a future run.",
+    "calibration_use": "Compare user labels to label_simulated for each candidate; if RMS error is high, retrain the multi_parameter_scorer parameters or revise weights."
+  }
+}
