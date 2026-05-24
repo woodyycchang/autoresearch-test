@@ -1,0 +1,52 @@
+{
+  "phase": "phase_4_belinda_strict_audit",
+  "purpose": "Apply strengthened Belinda 3Q audit on any candidate that has passed Phases 2 + 3. Strict audit requires:\n  - Q1: atom must contain >=1 mechanism-vocabulary word (attention, gradient, optimization, sampling, embedding, training, inference, residual, normalization, routing) — NOT filler (framework, principle, axis, substrate).\n  - Q2: operator must be PREDICTION_RESOLVES_BLOCKER or BLOCKER_DISSOLVED_BY_PRINCIPLE or PREDICTION_GROUNDED_IN_PRINCIPLE. REJECT 'ANALOGY_TRANSFERS_TO_OPEN' (too easy).\n  - Q3: verbatim quote >= 30 characters AND not pure filler/meta-talk.",
+  "input_candidates": "0 from Run 11 recheck (all 24 failed Phase 2 threshold 0.90)",
+  "strict_audit_pass_rate_run_11": "n/a (no candidates reached Phase 4 gate)",
+  "demonstration_audit_on_run_11_top_candidate": {
+    "cand_id": "CAND_011_E7_011",
+    "composite": 0.8379,
+    "phase_2_status": "FAIL (below 0.90)",
+    "phase_3_status": "QUARANTINED (KP_E2_A06 microGPT self-publish)",
+    "phase_4_status": "Not actually reached, but for diagnostic clarity I apply strict audit:",
+    "Q1_mechanism_vocabulary": {
+      "atom_a_text": "Architecture and training rules are fundamentally the SAME thing — different levels of optimization, each with its own context flow and update rate. The duality between design-time and run-time vanishes.",
+      "atom_b_text": "A full GPT (tokenizer, autograd, transformer, Adam, training loop, inference) fits in 200 lines of dependency-free Python.",
+      "mechanism_words_found_atom_a": ["optimization", "training", "update rate"],
+      "mechanism_words_found_atom_b": ["training", "inference"],
+      "filler_words_found": ["principle (in joint_topic)", "substrate (in novel_claim)"],
+      "Q1_verdict": "PASS_MARGINAL (mechanism words present in both atoms, but joint_topic and novel_claim lean on filler vocabulary 'principle' and 'substrate' — would benefit from explicit operator)"
+    },
+    "Q2_operator_check": {
+      "candidate_operator": "ANALOGY_TRANSFERS_TO_OPEN (compression-principle from microGPT analogy-transferred to Nested Learning's design-time/run-time unification)",
+      "Q2_verdict": "REJECT_BY_STRICT_RULE (ANALOGY_TRANSFERS_TO_OPEN is exactly the rejected operator). The candidate is a surface analogy, not a prediction-resolves-blocker or principle-dissolves-blocker case.",
+      "operator_alternative_that_would_have_passed": "If the candidate had said 'Nested Learning's update-rate hierarchy RESOLVES the BLOCKER that microGPT cannot represent its own training loop within 200 lines because the loop is the same level as the architecture' — that would have been BLOCKER_DISSOLVED_BY_PRINCIPLE. As stated, it is just analogy."
+    },
+    "Q3_verbatim_quote": {
+      "candidate_quote": "Architecture and training rules are fundamentally the SAME thing — different levels of optimization, each with its own context flow and update rate.",
+      "char_count": 152,
+      "Q3_verdict": "PASS (>=30 chars, not pure filler/meta-talk)"
+    },
+    "final_strict_verdict": "REJECT (Q2 fails: operator is ANALOGY_TRANSFERS_TO_OPEN, which is rejected by strict rule)"
+  },
+  "operator_distribution_in_run_11_24_survivors": {
+    "ANALOGY_TRANSFERS_TO_OPEN_estimated": "~22/24 = 91%",
+    "BLOCKER_DISSOLVED_BY_PRINCIPLE_or_PREDICTION_GROUNDED_IN_PRINCIPLE_estimated": "~2/24 = 9%",
+    "estimation_basis": "All Run 11 survivors use construction template 'X concept as Y concept analog' or 'X is the substrate for Y'. Almost none explicitly identify a BLOCKER and dissolve it by a PRINCIPLE. The 2 marginal exceptions are CAND_011_E4_007 (hallucination_reduction as info-thermodynamic constraint minimization — may be PREDICTION_GROUNDED_IN_PRINCIPLE) and CAND_011_E2_002 (verifier_density_gradient as selection_pressure — may be PREDICTION_GROUNDED_IN_PRINCIPLE). Both are quarantined though.",
+    "implication": "If Phase 4 strict-Belinda were applied alone to Run 11's 24 survivors (ignoring Phases 2-3), the survivor count would drop from 24 to <=2. Combined with Phases 2+3, count drops to 0."
+  },
+  "summary": {
+    "n_run_11_candidates_reaching_phase_4": 0,
+    "n_passing_strict_belinda": 0,
+    "n_rejected_by_Q1_filler_vocabulary": "n/a (gate not reached)",
+    "n_rejected_by_Q2_ANALOGY_TRANSFERS_TO_OPEN": "n/a (gate not reached); estimated 22/24 if applied alone",
+    "n_rejected_by_Q3_short_quote": "n/a (most Run 11 quotes are >30 chars, so Q3 alone is not the binding constraint)"
+  },
+  "tool_audit_phase_4": {
+    "Write": 1,
+    "Read": 1,
+    "WebSearch": 0,
+    "status": "PASS (no web_search required for syntactic audit)"
+  },
+  "audited_at": "2026-05-24T08:39:00+00:00"
+}
