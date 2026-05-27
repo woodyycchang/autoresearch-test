@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_013",
+  "description": "File-driven hook-enforced pipeline rules. Read by paradigm_shift/hooks/pre_tool.py on every tool call.",
+  "quarantined_atoms": [
+    "ARXIV_R10_evodevo",
+    "ARXIV_R10_thermodynamics",
+    "ARXIV_R10_market_making",
+    "PG_E1_A05",
+    "KP_E2_A06"
+  ],
+  "min_web_search_per_candidate": 5,
+  "composite_threshold": 0.85,
+  "belinda_strict": {
+    "mechanism_vocab": [
+      "induces",
+      "produces",
+      "causes",
+      "transforms",
+      "catalyzes",
+      "phosphorylates",
+      "binds",
+      "cleaves",
+      "regulates",
+      "inhibits",
+      "activates",
+      "synthesizes",
+      "polymerizes",
+      "depolymerizes",
+      "oxidizes",
+      "reduces"
+    ],
+    "rejected_operators": [
+      "ANALOGY_TRANSFERS_TO_OPEN"
+    ],
+    "min_verbatim_chars": 30
+  },
+  "parent_process_check": {
+    "enabled": true,
+    "allowed_regexes": [
+      "(^|/)claude($|\\s|-)",
+      "(^|/)claude-code($|\\s)",
+      "(^|/)node($|\\s).*claude",
+      "(^|/)python[0-9.]*($|\\s).*(pre_tool\\.py|test_pre_tool\\.py)($|\\s)",
+      ".*pre_tool\\.py($|\\s|\")"
+    ]
+  },
+  "hmac_checkpoint": {
+    "enabled": true,
+    "key_path": ".claude/.checkpoint-key",
+    "key_mode": "0400",
+    "rotate_per_session": true,
+    "algorithm": "sha256"
+  },
+  "phases": [
+    "spec_load",
+    "atom_generation",
+    "atom_filter",
+    "cross_llm_verify",
+    "belinda_strict",
+    "niche_find_check"
+  ],
+  "epochs": 7,
+  "source_rotation": [
+    "arxiv",
+    "pubmed",
+    "patents",
+    "ssrn",
+    "github_papers",
+    "doe_osti",
+    "biorxiv"
+  ],
+  "logs_dir": "paradigm_shift/runs/run_013/logs",
+  "checkpoint_path": "paradigm_shift/runs/run_013/.checkpoint.json"
+}
