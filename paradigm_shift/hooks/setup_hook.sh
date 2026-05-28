@@ -16,29 +16,38 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 CLAUDE_HOME="${CLAUDE_HOME:-$HOME/.claude}"
 HOOKS_SRC="${REPO_ROOT}/paradigm_shift/hooks/pre_tool.py"
+POST_SRC="${REPO_ROOT}/paradigm_shift/hooks/post_tool.py"
 HOOKS_DEST_DIR="${CLAUDE_HOME}/hooks"
 HOOKS_DEST="${HOOKS_DEST_DIR}/pre_tool.py"
+POST_DEST="${HOOKS_DEST_DIR}/post_tool.py"
 SETTINGS_DEST="${CLAUDE_HOME}/settings.json"
 BACKUP_TS="$(date +%Y%m%dT%H%M%S)"
 
 echo "[setup_hook] repo root: ${REPO_ROOT}"
 echo "[setup_hook] target:    ${CLAUDE_HOME}"
 
-if [ ! -f "${HOOKS_SRC}" ]; then
-  echo "[setup_hook] ERROR: ${HOOKS_SRC} not found" >&2
-  exit 1
-fi
+for src in "${HOOKS_SRC}" "${POST_SRC}"; do
+  if [ ! -f "${src}" ]; then
+    echo "[setup_hook] ERROR: ${src} not found" >&2
+    exit 1
+  fi
+done
 
 mkdir -p "${HOOKS_DEST_DIR}"
 
-# 1. Install the hook (back up the old one if it differs)
-if [ -f "${HOOKS_DEST}" ] && ! diff -q "${HOOKS_SRC}" "${HOOKS_DEST}" >/dev/null 2>&1; then
-  cp "${HOOKS_DEST}" "${HOOKS_DEST}.bak.${BACKUP_TS}"
-  echo "[setup_hook] backed up existing hook to ${HOOKS_DEST}.bak.${BACKUP_TS}"
-fi
-cp "${HOOKS_SRC}" "${HOOKS_DEST}"
-chmod 0755 "${HOOKS_DEST}"
-echo "[setup_hook] installed ${HOOKS_DEST}"
+# 1. Install the hooks (back up the old ones if they differ)
+install_hook() {
+  local src="$1" dest="$2"
+  if [ -f "${dest}" ] && ! diff -q "${src}" "${dest}" >/dev/null 2>&1; then
+    cp "${dest}" "${dest}.bak.${BACKUP_TS}"
+    echo "[setup_hook] backed up existing hook to ${dest}.bak.${BACKUP_TS}"
+  fi
+  cp "${src}" "${dest}"
+  chmod 0755 "${dest}"
+  echo "[setup_hook] installed ${dest}"
+}
+install_hook "${HOOKS_SRC}" "${HOOKS_DEST}"   # PreToolUse  enforcement
+install_hook "${POST_SRC}"  "${POST_DEST}"    # PostToolUse + Stop [REPORT] injection
 
 # 2. Wire it into ~/.claude/settings.json (back up first)
 if [ -f "${SETTINGS_DEST}" ]; then
@@ -53,10 +62,22 @@ cat > "${SETTINGS_DEST}" <<JSON
       {
         "matcher": "*",
         "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ${HOOKS_DEST}"
-          }
+          { "type": "command", "command": "python3 ${HOOKS_DEST}" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "python3 ${POST_DEST}" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 ${POST_DEST}" }
         ]
       }
     ]

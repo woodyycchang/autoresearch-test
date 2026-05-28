@@ -194,3 +194,43 @@ mechanisms that *do* work:
 local terminal provides an out-of-band escape (separate terminal / kill the
 process); a cloud session does not, so a misconfigured regex there is
 unrecoverable until the container is recycled.
+
+## 10. [REPORT] injection — code-truth vs LLM-interpretation
+
+Run 13 also ships a second hook, `paradigm_shift/hooks/post_tool.py`, wired by
+`setup_hook.sh` on two events:
+
+| Event | Mechanism | Emits |
+| ----- | --------- | ----- |
+| PostToolUse | `hookSpecificOutput.additionalContext` | `[REPORT N]` + current round log, verbatim |
+| Stop / SubagentStop | `decision:"block"` + `reason` (one-shot) | `[REPORT FINAL]` + all round logs, verbatim |
+
+**Design — two-part output.**
+
+- The `[REPORT N]` / `[REPORT FINAL]` blocks are **code-injected ground
+  truth**: `post_tool.py` reads the round logs byte-for-byte and wraps them in
+  the marker. They cannot be paraphrased or hallucinated by the model.
+- The model's prose summary written *after* each block is **interpretation**:
+  it is never checked against the block, so it *can* drift or hallucinate —
+  intentionally. Comparing the two shows whether the model reads its own logs
+  accurately.
+- `report_counter` in `task_state.json` increments once per injection, so the
+  markers form a strictly increasing `[REPORT 1]`, `[REPORT 2]`, … that the
+  model sees as exact literal tokens.
+
+**Schema reality (why the code differs from the original sketch).** The sketch
+used `{"decision":"approve","additionalContext":…}`. The actual Claude Code
+contract is: PostToolUse adds context only via
+`hookSpecificOutput.additionalContext` (no `approve`), and Stop has **no**
+`additionalContext` field — the only way to inject text at Stop is
+`decision:"block"` + `reason`, which *forces one more turn*. `post_tool.py`
+therefore blocks the stop exactly once (guarded by `final_report_injected`) to
+deliver `[REPORT FINAL]`, then lets the agent stop.
+
+**Safety.** PostToolUse cannot block a tool call (the tool already ran), so it
+adds no lockout risk. The Stop hook's one-shot guard prevents an infinite
+continue loop; if `task_state.json` is not writable the hook declines to block
+rather than risk a loop. As with the enforcement hook, **activation happens on
+the local CLI via `setup_hook.sh`, never in a web/cloud session** (§9). It was
+not activated here — only verified by simulation
+(`paradigm_shift/hooks/test_post_tool.py`, 7/7 passing).
