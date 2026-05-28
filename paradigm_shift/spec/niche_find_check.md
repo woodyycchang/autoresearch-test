@@ -64,3 +64,26 @@ After writing the verdict:
 
 The hook's HMAC verification will refuse to mark the run as complete
 unless the verdict file exists and the checkpoint MAC verifies.
+
+## [REPORT FINAL] and your final summary
+
+When you attempt to end the task, the Stop hook
+(`paradigm_shift/hooks/post_tool.py`) injects **once**:
+
+```
+[REPORT FINAL]
+--- round_1.json ---
+<verbatim>
+--- round_2.json ---
+<verbatim>
+...
+[END REPORT FINAL]
+```
+
+This aggregates every round log byte-for-byte — code-injected ground truth.
+After it appears, write your **final summary** of the whole run. That summary
+is **not** verified against the `[REPORT FINAL]` data and may diverge — the
+user compares the two to judge whether your end-of-run narrative matches the
+raw logs. The hook blocks the stop only once (a `final_report_injected` flag
+in `task_state.json` prevents a continue loop); after you write the summary,
+the next stop succeeds.
