@@ -1,0 +1,94 @@
+{
+  "run_id": "run_014_smallest",
+  "epoch": 1,
+  "note": "Three atom pairs, each chosen to exercise a DIFFERENT gate so the deterministic 4-gate filter is visibly discriminating: CAND_001 should traverse the full path; CAND_002 carries a quarantined atom (Gate 2 must drop it regardless of score); CAND_003 is low-content talk-language (should fail Gate 1 and/or Gate 4). 'smoke_io' holds DECLARED, fixed scorer inputs (the values a real run would fetch via web search); they are fixtures, not real I/O, and are disclosed as such in smallest_rules.json.",
+  "candidates": [
+    {
+      "cand_id": "CAND_014_E1_001",
+      "atom_a": {
+        "atom_id": "ML_E1_A01",
+        "source_id": "arxiv_2401_moe",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Sparse mixture-of-experts routing activates only a few expert subnetworks per token, so the router gates compute toward the inputs each expert specializes in.",
+        "atom_type": "mechanism",
+        "domain_tags": ["ml", "routing"]
+      },
+      "atom_b": {
+        "atom_id": "BIO_E1_A02",
+        "source_id": "essay_evodevo_regulatory",
+        "source_type": "essay",
+        "speaker_or_author": "anon",
+        "text": "In developmental biology, regulatory gene networks selectively activate developmental modules, so a single genome induces many distinct body plans depending on which modules switch on.",
+        "atom_type": "first_principle",
+        "domain_tags": ["biology", "evodevo", "selection_pressure"]
+      },
+      "smoke_io": {
+        "arxiv_hit_count_24m": 1,
+        "recent_paper_count": 2,
+        "saturation_cluster_distance": 0.92,
+        "arxiv_citations_supporting": ["c1", "c2", "c3", "c4", "c5"],
+        "belinda_3q_passes": true
+      },
+      "expected_demonstration": "full-path candidate: cross-disciplinary (ML routing x evo-devo modular activation), mechanism-rich, novel inputs -> should clear Gate 1 and pass Gates 2-4 if the merge stays grounded."
+    },
+    {
+      "cand_id": "CAND_014_E1_002",
+      "atom_a": {
+        "atom_id": "ML_E1_A03",
+        "source_id": "arxiv_2402_ttt",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Test-time training updates a small inner model on each input sequence, so the network adapts its own weights during inference rather than only at train time.",
+        "atom_type": "mechanism",
+        "domain_tags": ["ml", "adaptation"]
+      },
+      "atom_b": {
+        "atom_id": "ARXIV_R10_evodevo",
+        "source_id": "arxiv_r10_pool",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Evo-devo competency architectures treat cells as agents that solve morphogenetic problems, transforming local errors into coherent global anatomy.",
+        "atom_type": "first_principle",
+        "domain_tags": ["biology", "evodevo"]
+      },
+      "smoke_io": {
+        "arxiv_hit_count_24m": 2,
+        "recent_paper_count": 3,
+        "saturation_cluster_distance": 0.88,
+        "arxiv_citations_supporting": ["c1", "c2", "c3", "c4", "c5"],
+        "belinda_3q_passes": true
+      },
+      "expected_demonstration": "Gate 2 quarantine test: atom_b ARXIV_R10_evodevo is in harness_rules.quarantined_atoms, so this candidate MUST be dropped at Gate 2 even though its score and mechanism would otherwise be strong."
+    },
+    {
+      "cand_id": "CAND_014_E1_003",
+      "atom_a": {
+        "atom_id": "TALK_E1_A04",
+        "source_id": "podcast_hype",
+        "source_type": "podcast",
+        "speaker_or_author": "anon",
+        "text": "Basically, you know, AI is gonna be, like, really big and obviously change everything, I mean, sort of.",
+        "atom_type": "observation",
+        "domain_tags": ["hype"]
+      },
+      "atom_b": {
+        "atom_id": "TALK_E1_A05",
+        "source_id": "podcast_hype2",
+        "source_type": "podcast",
+        "speaker_or_author": "anon",
+        "text": "Right? Like, the models just kind of get better over time, you know, it's wild, okay so.",
+        "atom_type": "observation",
+        "domain_tags": ["hype"]
+      },
+      "smoke_io": {
+        "arxiv_hit_count_24m": 18,
+        "recent_paper_count": 26,
+        "saturation_cluster_distance": 0.15,
+        "arxiv_citations_supporting": [],
+        "belinda_3q_passes": false
+      },
+      "expected_demonstration": "low-content talk-language pair: no mechanism vocabulary, heavy fillers, saturated/low-novelty inputs -> should fail Gate 1 (composite below threshold) and Gate 4 (no mechanism verb / no groundable verbatim quote)."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "cand_id": "CAND_014_E1_001",
+  "parse_ok": true,
+  "parsed_candidate": {
+    "joint_topic": "Genome-Inspired Modular Routing for Mixture-of-Experts Body Plans",
+    "thesis": "A single MoE network can be trained so its router acts like a developmental regulatory gene network, selectively switching on combinations of expert modules to induce many distinct functional 'body plans' (task-specialized subnetworks) from one shared parameter genome.",
+    "mechanism": "The router regulates which expert modules activate per token, and we treat these activation patterns as developmental switches: distinct module-activation combinations induce distinct specialized subnetworks, so one shared parameter set produces many task-specific architectures depending on which modules switch on.",
+    "operator": "INDUCES",
+    "primary_quote": "a single genome induces many distinct body plans depending on which modules switch on",
+    "verification_plan": [
+      {
+        "source": "arxiv",
+        "query": "mixture-of-experts routing modular specialization emergent subnetworks"
+      },
+      {
+        "source": "semantic_scholar",
+        "query": "developmental gene regulatory networks modularity analogy neural network architecture"
+      },
+      {
+        "source": "openreview",
+        "query": "conditional computation expert activation patterns task specialization MoE"
+      },
+      {
+        "source": "google_scholar",
+        "query": "developmental biology body plan modular neural network weight sharing"
+      },
+      {
+        "source": "pubmed",
+        "query": "regulatory gene networks developmental modules body plan induction"
+      },
+      {
+        "source": "dblp",
+        "query": "sparse mixture of experts router gating expert subnetwork specialization"
+      }
+    ]
+  },
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 10239,
+    "duration_api_ms": 9820,
+    "ttft_ms": 8824,
+    "num_turns": 1,
+    "result": "```json\n{\n  \"joint_topic\": \"Genome-Inspired Modular Routing for Mixture-of-Experts Body Plans\",\n  \"thesis\": \"A single MoE network can be trained so its router acts like a developmental regulatory gene network, selectively switching on combinations of expert modules to induce many distinct functional 'body plans' (task-specialized subnetworks) from one shared parameter genome.\",\n  \"mechanism\": \"The router regulates which expert modules activate per token, and we treat these activation patterns as developmental switches: distinct module-activation combinations induce distinct specialized subnetworks, so one shared parameter set produces many task-specific architectures depending on which modules switch on.\",\n  \"operator\": \"INDUCES\",\n  \"primary_quote\": \"a single genome induces many distinct body plans depending on which modules switch on\",\n  \"verification_plan\": [\n    {\"source\": \"arxiv\", \"query\": \"mixture-of-experts routing modular specialization emergent subnetworks\"},\n    {\"source\": \"semantic_scholar\", \"query\": \"developmental gene regulatory networks modularity analogy neural network architecture\"},\n    {\"source\": \"openreview\", \"query\": \"conditional computation expert activation patterns task specialization MoE\"},\n    {\"source\": \"google_scholar\", \"query\": \"developmental biology body plan modular neural network weight sharing\"},\n    {\"source\": \"pubmed\", \"query\": \"regulatory gene networks developmental modules body plan induction\"},\n    {\"source\": \"dblp\", \"query\": \"sparse mixture of experts router gating expert subnetwork specialization\"}\n  ]\n}\n```",
+    "stop_reason": "end_turn",
+    "session_id": "415f09d3-492f-41f1-a2ba-fe6a5865f5e2",
+    "total_cost_usd": 0.043742500000000004,
+    "usage": {
+      "input_tokens": 2531,
+      "cache_creation_input_tokens": 1580,
+      "cache_read_input_tokens": 14221,
+      "output_tokens": 526,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1580,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2531,
+          "output_tokens": 526,
+          "cache_read_input_tokens": 14221,
+          "cache_creation_input_tokens": 1580,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1580
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 872,
+        "outputTokens": 16,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.000952,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2531,
+        "outputTokens": 526,
+        "cacheReadInputTokens": 14221,
+        "cacheCreationInputTokens": 1580,
+        "webSearchRequests": 0,
+        "costUSD": 0.0427905,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "8d082aef-e36a-46d6-a85d-c4eca3f9123d"
+  },
+  "prompt": "You are merging two research \"atoms\" into ONE candidate paradigm-shift research niche in AI / LLMs.\n\nATOM A (id ML_E1_A01, source arxiv): \"Sparse mixture-of-experts routing activates only a few expert subnetworks per token, so the router gates compute toward the inputs each expert specializes in.\"\nATOM B (id BIO_E1_A02, source essay): \"In developmental biology, regulatory gene networks selectively activate developmental modules, so a single genome induces many distinct body plans depending on which modules switch on.\"\n\nCombine the mechanism in ATOM A with the mechanism/principle in ATOM B into a single, concrete, testable research direction.\n\nOutput ONLY a fenced ```json block (no prose before or after) with EXACTLY these fields:\n{\n  \"joint_topic\": \"<=12 word title of the merged niche\",\n  \"thesis\": \"1-2 sentence concrete research thesis\",\n  \"mechanism\": \"1-2 sentences describing the causal mechanism; MUST use concrete causal verbs such as induces, produces, causes, transforms, regulates, activates, inhibits, routes\",\n  \"operator\": \"a short relation label such as INDUCES or TRANSFORMS; do NOT use ANALOGY_TRANSFERS_TO_OPEN\",\n  \"primary_quote\": \"a quote of at least 30 characters copied EXACTLY (verbatim, character-for-character) from ATOM A's text or ATOM B's text; do not paraphrase or invent\",\n  \"verification_plan\": [{\"source\": \"<name>\", \"query\": \"<search query>\"}]\n}\n\nRules:\n- primary_quote MUST be an exact substring of one atom's text. Copy it; do not invent.\n- verification_plan MUST list at least 5 entries with 5 DISTINCT source names.\n- Output nothing except the json block.",
+  "merged_at": "2026-05-29T05:56:27.039057+00:00"
+}
