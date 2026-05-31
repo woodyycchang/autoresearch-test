@@ -5,10 +5,10 @@
   "parse_ok": true,
   "attempts": 1,
   "parsed": {
-    "mechanism": "Expert-choice routing dynamically selects which agent interactions to attend to per memory-synthesis head, routing diverse test-time experiences into sparse high-signal subsets that produce higher-quality synthesized memory, which in turn regulates more effective scaling.",
-    "transfer": "MoSA's expert-choice routing for dynamically selecting tokens transfers to selecting which scaled agent experiences feed memory synthesis.",
-    "open_problem": "Can expert-choice routing over agent experiences select the sparse subset that maximizes synthesized memory quality under a fixed test-time interaction budget?",
-    "niche_name": "Expert-Choice Routing of Agent Experiences for Memory Synthesis",
+    "mechanism": "MoSA's expert-choice routing dynamically selects which tokens each attention head attends to, and transferring this principle to memory-aware test-time scaling routes accumulated agent experiences to specialized memory-synthesis heads so that scaling activates only the most informative interaction traces, which in turn regulates which memories guide subsequent attention.",
+    "transfer": "Expert-choice token routing per attention head transfers from A to become experience-choice routing that selects which agent interactions feed memory synthesis in B.",
+    "open_problem": "Can learned expert-choice routing over agent experiences produce sparse, high-quality memory that improves test-time scaling more efficiently than uniform experience aggregation?",
+    "niche_name": "Expert-Choice Routing for Memory-Aware Test-Time Scaling",
     "primary_quote": "expert choice routing that dynamically selects tokens for each attention head",
     "quote_source": "atom_a"
   },
@@ -19,38 +19,38 @@
       "subtype": "success",
       "is_error": false,
       "api_error_status": null,
-      "duration_ms": 6645,
-      "duration_api_ms": 6344,
-      "ttft_ms": 2488,
+      "duration_ms": 10422,
+      "duration_api_ms": 9364,
+      "ttft_ms": 4448,
       "num_turns": 1,
-      "result": "{\"mechanism\": \"Expert-choice routing dynamically selects which agent interactions to attend to per memory-synthesis head, routing diverse test-time experiences into sparse high-signal subsets that produce higher-quality synthesized memory, which in turn regulates more effective scaling.\", \"transfer\": \"MoSA's expert-choice routing for dynamically selecting tokens transfers to selecting which scaled agent experiences feed memory synthesis.\", \"open_problem\": \"Can expert-choice routing over agent experiences select the sparse subset that maximizes synthesized memory quality under a fixed test-time interaction budget?\", \"niche_name\": \"Expert-Choice Routing of Agent Experiences for Memory Synthesis\", \"primary_quote\": \"expert choice routing that dynamically selects tokens for each attention head\", \"quote_source\": \"atom_a\"}",
+      "result": "{\"mechanism\": \"MoSA's expert-choice routing dynamically selects which tokens each attention head attends to, and transferring this principle to memory-aware test-time scaling routes accumulated agent experiences to specialized memory-synthesis heads so that scaling activates only the most informative interaction traces, which in turn regulates which memories guide subsequent attention.\", \"transfer\": \"Expert-choice token routing per attention head transfers from A to become experience-choice routing that selects which agent interactions feed memory synthesis in B.\", \"open_problem\": \"Can learned expert-choice routing over agent experiences produce sparse, high-quality memory that improves test-time scaling more efficiently than uniform experience aggregation?\", \"niche_name\": \"Expert-Choice Routing for Memory-Aware Test-Time Scaling\", \"primary_quote\": \"expert choice routing that dynamically selects tokens for each attention head\", \"quote_source\": \"atom_a\"}",
       "stop_reason": "end_turn",
-      "session_id": "83a794cb-622d-479b-9ce1-b197bde79cba",
-      "total_cost_usd": 0.03334375,
+      "session_id": "5ab6d271-7346-4195-a912-838bf8e8b0e1",
+      "total_cost_usd": 0.0354275,
       "usage": {
         "input_tokens": 1734,
-        "cache_creation_input_tokens": 1485,
+        "cache_creation_input_tokens": 1484,
         "cache_read_input_tokens": 14221,
-        "output_tokens": 296,
+        "output_tokens": 379,
         "server_tool_use": {
           "web_search_requests": 0,
           "web_fetch_requests": 0
         },
         "service_tier": "standard",
         "cache_creation": {
-          "ephemeral_1h_input_tokens": 1485,
+          "ephemeral_1h_input_tokens": 1484,
           "ephemeral_5m_input_tokens": 0
         },
         "inference_geo": "not_available",
         "iterations": [
           {
             "input_tokens": 1734,
-            "output_tokens": 296,
+            "output_tokens": 379,
             "cache_read_input_tokens": 14221,
-            "cache_creation_input_tokens": 1485,
+            "cache_creation_input_tokens": 1484,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 1485
+              "ephemeral_1h_input_tokens": 1484
             },
             "type": "message"
           }
@@ -60,21 +60,21 @@
       "modelUsage": {
         "claude-haiku-4-5-20251001": {
           "inputTokens": 797,
-          "outputTokens": 17,
+          "outputTokens": 20,
           "cacheReadInputTokens": 0,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.000882,
+          "costUSD": 0.000897,
           "contextWindow": 200000,
           "maxOutputTokens": 32000
         },
         "claude-opus-4-8": {
           "inputTokens": 1734,
-          "outputTokens": 296,
+          "outputTokens": 379,
           "cacheReadInputTokens": 14221,
-          "cacheCreationInputTokens": 1485,
+          "cacheCreationInputTokens": 1484,
           "webSearchRequests": 0,
-          "costUSD": 0.03246175,
+          "costUSD": 0.0345305,
           "contextWindow": 1000000,
           "maxOutputTokens": 64000
         }
@@ -82,7 +82,7 @@
       "permission_denials": [],
       "terminal_reason": "completed",
       "fast_mode_state": "off",
-      "uuid": "1becb351-7f8b-4aad-aac6-6e59550f6a19"
+      "uuid": "e8e76cd4-c2ac-4a84-b428-d6cbb80ef354"
     }
   ]
 }
