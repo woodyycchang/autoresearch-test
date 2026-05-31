@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_014_step2",
+  "description": "Step 2 of the smallest loop: REAL I/O, still 3 candidates, single session. Builds on the proven Step 1 loop (commit on branch claude/epic-fermat-EGVSQ). Swaps every smoke_io fixture for real, harness-issued WebSearch, and promotes Gate 3 from a structural count to an EXECUTED prior-art collision check. Scope is intentionally unchanged: 3 candidates, 1 session.",
+  "builds_on": "paradigm_shift/runs/run_014_smallest (Step 1)",
+  "inherit_gates_from": "paradigm_shift/spec/harness_rules.json",
+  "scope": {
+    "epochs": 1,
+    "candidates": 3,
+    "opus_calls_per_candidate": 1,
+    "model": "opus"
+  },
+  "opus_subprocess": {
+    "binary": "claude",
+    "args": ["-p", "--model", "opus", "--output-format", "json"],
+    "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"],
+    "run_in_nongit_tempdir": true,
+    "timeout_seconds": 240,
+    "capture": "full_envelope",
+    "note": "UNCHANGED proven Step 1 fix: the merge subprocess runs in a throwaway non-git temp dir with all tools disallowed, so it is a pure text-generation call and the host git Stop-hook bails instead of hijacking the output. Web search is NOT done by the subprocess; it is issued by the harness (this agent) so the raw results can be captured verbatim — see real_io."
+  },
+  "real_io": {
+    "issued_by": "harness (the orchestrating agent's WebSearch tool)",
+    "rationale": "multi_parameter_scorer's own docstring says the harness issues the real WebSearch calls and the scorer only does the arithmetic. Doing the searches in the harness (not the subprocess) lets us capture the raw results VERBATIM into the [REPORT] log as ground truth.",
+    "verbatim_capture": "logs/real_io/*.json hold the raw {title,url,snippet} results exactly as recorded from the WebSearch tool; the deterministic steps copy them into logs/report_log.md under [REPORT] tags and derive every number mechanically from them.",
+    "no_fixtures": "There are no smoke_io fixtures in Step 2."
+  },
+  "gate1_scorer_inputs": {
+    "novelty_score": "REAL — arxiv_hit_count = number of arxiv.org results in the real novelty search (capped at 20); scorer maps high hits -> low novelty.",
+    "community_density": "REAL — recent_paper_count = number of paper-like results in the real recent-paper search (capped at 30); scorer maps many recent papers -> low density score.",
+    "arxiv_grounding": "NEUTRAL 0.5, DEFERRED to Step 3. Out of Step-2 scope (the brief scopes exactly two real inputs: novelty + community). It is conceptually distinct from the novelty/collision search -- supporting evidence is not the same as prior-art collision -- so reusing the novelty hits for it would pull grounding directly against novelty and make Gate 1 effectively unpassable, blocking the Gate-3 demonstration. Set to the scorer's documented neutral (0.5); composite is recomputed from the patched params. Declared neutral, NOT a favorable fixture.",
+    "saturation_distance": "DETERMINISTIC — keyword-only (cluster_distance passed as null); computed from atom + joint-topic text. (Was a fixture in Step 1.)",
+    "belinda_audit_pass": "DETERMINISTIC (derived) — set to the Gate 4 Belinda-strict result for the same candidate, not a fixture.",
+    "atom_quality_score": "DETERMINISTIC from atom text (unchanged).",
+    "cross_source_diversity": "DETERMINISTIC from source_type (unchanged).",
+    "mechanism_coherence": "DETERMINISTIC from atom texts (unchanged).",
+    "speaker_self_publish_risk": "DETERMINISTIC from atom text (unchanged).",
+    "cross_disciplinary_bonus": "DETERMINISTIC from domain tags / text (unchanged)."
+  },
+  "gate3_executed_verify": {
+    "mode": "EXECUTED (not structural count)",
+    "reformulations_per_candidate": 5,
+    "applies_to": "each candidate that passed Gate 1 AND Gate 2",
+    "demonstrate_ids": ["CAND_S2_001"],
+    "demonstrate_note": "If real novelty already drops the Step-1 survivor at Gate 1 (more saturated than expected), we STILL run the executed Gate-3 machinery on it as a labeled demonstration (is_demonstration=true) so the real prior-art collision check is exercised on real data. A demonstration NEVER promotes a candidate: 'survived' still requires Gates 1+2+4 to pass, so a Gate-1 failure remains a non-survivor regardless of its Gate-3 outcome.",
+    "collision_rule": "MECHANICAL and frozen: a reformulation 'finds an existing paper' if any returned result is a paper-like source (arxiv.org / doi.org / *scholar* / semanticscholar / aclanthology / openreview / pdf / proceedings / journal) AND its title+snippet shares >= 2 frozen distinctive content_words with the candidate. A candidate is REJECTED if ANY of its 5 reformulations finds such a collision.",
+    "conservative_by_design": "The rule errs toward finding collisions (it can flag a strong single-domain paper). That is the safe direction for a saturation check: it will not over-claim novelty. A candidate that survives all 5 real reformulations under this conservative rule is a rare, genuinely-interesting signal -> verify deeper (10 more).",
+    "anti_cheat": "The agent freezes content_words BEFORE searching and the rule is applied by pure Python over the verbatim results, mirroring the repo's documented mechanical keyword-overlap rule. The agent cannot narrow content_words after seeing results."
+  },
+  "determinism_proof": "After all real I/O is frozen to files, the full gate pipeline (Gate 1+2+3) is run twice over the frozen I/O and the two verdict hashes must be byte-identical. The searches are stochastic/time-varying; the gates over frozen results are deterministic.",
+  "anti_hallucination_proof": "A final Opus call reads ONLY the raw [REPORT] log + gate results and re-states the key numbers; a pure-Python checker diffs them field-by-field against ground truth. Any divergence => HALLUCINATION_DETECTED and the run fails.",
+  "honest_verdict_policy": "collision at Gate 3 = saturation confirmed (even with real Opus reasoning, ruling out 'the mock was too weak'); survivor after 5 real reformulations = rare, must verify deeper before any novelty claim.",
+  "phases": ["merge", "gate12", "gate3", "finalize"],
+  "commit_points": ["after Phase 1 (merge + gate12)", "after finalize"]
+}

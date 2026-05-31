@@ -1,0 +1,109 @@
+{
+  "cand_id": "CAND_014_E1_002",
+  "parse_ok": true,
+  "parsed_candidate": {
+    "joint_topic": "Test-Time Weight Updates as Cellular Competency for Coherent Inference",
+    "thesis": "Treating per-token inner-model weight updates as agential cells that solve local prediction errors will produce more coherent global model behavior, where test-time training acts as a morphogenetic process that transforms local errors into globally consistent outputs.",
+    "mechanism": "Test-time training updates a small inner model on each input sequence, which transforms local prediction errors into corrective weight adjustments; treating each updated sub-model as a competent agent routes these local corrections into a coherent global representation, analogous to how cells transform local errors into coherent anatomy.",
+    "operator": "TRANSFORMS",
+    "primary_quote": "transforming local errors into coherent global anatomy",
+    "verification_plan": [
+      {
+        "source": "arxiv",
+        "query": "test-time training inner model weight update during inference"
+      },
+      {
+        "source": "semantic_scholar",
+        "query": "competency architecture morphogenesis cells as agents error correction"
+      },
+      {
+        "source": "google_scholar",
+        "query": "test-time adaptation coherent global representation local error correction"
+      },
+      {
+        "source": "openreview",
+        "query": "test-time training transformer self-adaptation per-sequence weights"
+      },
+      {
+        "source": "biorxiv",
+        "query": "evo-devo cellular competency morphogenetic problem solving collective intelligence"
+      },
+      {
+        "source": "pubmed",
+        "query": "morphogenesis cells agents anatomy local global error correction"
+      }
+    ]
+  },
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 10887,
+    "duration_api_ms": 14534,
+    "ttft_ms": 8649,
+    "num_turns": 1,
+    "result": "```json\n{\n  \"joint_topic\": \"Test-Time Weight Updates as Cellular Competency for Coherent Inference\",\n  \"thesis\": \"Treating per-token inner-model weight updates as agential cells that solve local prediction errors will produce more coherent global model behavior, where test-time training acts as a morphogenetic process that transforms local errors into globally consistent outputs.\",\n  \"mechanism\": \"Test-time training updates a small inner model on each input sequence, which transforms local prediction errors into corrective weight adjustments; treating each updated sub-model as a competent agent routes these local corrections into a coherent global representation, analogous to how cells transform local errors into coherent anatomy.\",\n  \"operator\": \"TRANSFORMS\",\n  \"primary_quote\": \"transforming local errors into coherent global anatomy\",\n  \"verification_plan\": [\n    {\"source\": \"arxiv\", \"query\": \"test-time training inner model weight update during inference\"},\n    {\"source\": \"semantic_scholar\", \"query\": \"competency architecture morphogenesis cells as agents error correction\"},\n    {\"source\": \"google_scholar\", \"query\": \"test-time adaptation coherent global representation local error correction\"},\n    {\"source\": \"openreview\", \"query\": \"test-time training transformer self-adaptation per-sequence weights\"},\n    {\"source\": \"biorxiv\", \"query\": \"evo-devo cellular competency morphogenetic problem solving collective intelligence\"},\n    {\"source\": \"pubmed\", \"query\": \"morphogenesis cells agents anatomy local global error correction\"}\n  ]\n}\n```",
+    "stop_reason": "end_turn",
+    "session_id": "b8517a6a-7fd3-496f-ac52-374a2df5e02a",
+    "total_cost_usd": 0.0434485,
+    "usage": {
+      "input_tokens": 2531,
+      "cache_creation_input_tokens": 1572,
+      "cache_read_input_tokens": 14221,
+      "output_tokens": 515,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1572,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2531,
+          "output_tokens": 515,
+          "cache_read_input_tokens": 14221,
+          "cache_creation_input_tokens": 1572,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1572
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 873,
+        "outputTokens": 22,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.000983,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2531,
+        "outputTokens": 515,
+        "cacheReadInputTokens": 14221,
+        "cacheCreationInputTokens": 1572,
+        "webSearchRequests": 0,
+        "costUSD": 0.0424655,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "d524522a-75b8-49bc-a928-5eb6b3476774"
+  },
+  "prompt": "You are merging two research \"atoms\" into ONE candidate paradigm-shift research niche in AI / LLMs.\n\nATOM A (id ML_E1_A03, source arxiv): \"Test-time training updates a small inner model on each input sequence, so the network adapts its own weights during inference rather than only at train time.\"\nATOM B (id ARXIV_R10_evodevo, source arxiv): \"Evo-devo competency architectures treat cells as agents that solve morphogenetic problems, transforming local errors into coherent global anatomy.\"\n\nCombine the mechanism in ATOM A with the mechanism/principle in ATOM B into a single, concrete, testable research direction.\n\nOutput ONLY a fenced ```json block (no prose before or after) with EXACTLY these fields:\n{\n  \"joint_topic\": \"<=12 word title of the merged niche\",\n  \"thesis\": \"1-2 sentence concrete research thesis\",\n  \"mechanism\": \"1-2 sentences describing the causal mechanism; MUST use concrete causal verbs such as induces, produces, causes, transforms, regulates, activates, inhibits, routes\",\n  \"operator\": \"a short relation label such as INDUCES or TRANSFORMS; do NOT use ANALOGY_TRANSFERS_TO_OPEN\",\n  \"primary_quote\": \"a quote of at least 30 characters copied EXACTLY (verbatim, character-for-character) from ATOM A's text or ATOM B's text; do not paraphrase or invent\",\n  \"verification_plan\": [{\"source\": \"<name>\", \"query\": \"<search query>\"}]\n}\n\nRules:\n- primary_quote MUST be an exact substring of one atom's text. Copy it; do not invent.\n- verification_plan MUST list at least 5 entries with 5 DISTINCT source names.\n- Output nothing except the json block.",
+  "merged_at": "2026-05-29T05:56:38.517685+00:00"
+}

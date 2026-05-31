@@ -1,0 +1,73 @@
+{
+  "run_id": "run_014_step2",
+  "epoch": 1,
+  "note": "SAME three atom pairs as Step 1 (run_014_smallest) so CAND_..._001 is literally the Step-1 survivor going into real prior-art verification. smoke_io is removed: Gate 1 inputs are now real (harness WebSearch) or deterministic, per step2_rules.json -> gate1_scorer_inputs.",
+  "candidates": [
+    {
+      "cand_id": "CAND_S2_001",
+      "step1_equivalent": "CAND_014_E1_001 (the Step-1 survivor)",
+      "atom_a": {
+        "atom_id": "ML_E1_A01",
+        "source_id": "arxiv_2401_moe",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Sparse mixture-of-experts routing activates only a few expert subnetworks per token, so the router gates compute toward the inputs each expert specializes in.",
+        "atom_type": "mechanism",
+        "domain_tags": ["ml", "routing"]
+      },
+      "atom_b": {
+        "atom_id": "BIO_E1_A02",
+        "source_id": "essay_evodevo_regulatory",
+        "source_type": "essay",
+        "speaker_or_author": "anon",
+        "text": "In developmental biology, regulatory gene networks selectively activate developmental modules, so a single genome induces many distinct body plans depending on which modules switch on.",
+        "atom_type": "first_principle",
+        "domain_tags": ["biology", "evodevo", "selection_pressure"]
+      }
+    },
+    {
+      "cand_id": "CAND_S2_002",
+      "step1_equivalent": "CAND_014_E1_002 (carried a quarantined atom)",
+      "atom_a": {
+        "atom_id": "ML_E1_A03",
+        "source_id": "arxiv_2402_ttt",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Test-time training updates a small inner model on each input sequence, so the network adapts its own weights during inference rather than only at train time.",
+        "atom_type": "mechanism",
+        "domain_tags": ["ml", "adaptation"]
+      },
+      "atom_b": {
+        "atom_id": "ARXIV_R10_evodevo",
+        "source_id": "arxiv_r10_pool",
+        "source_type": "arxiv",
+        "speaker_or_author": "anon",
+        "text": "Evo-devo competency architectures treat cells as agents that solve morphogenetic problems, transforming local errors into coherent global anatomy.",
+        "atom_type": "first_principle",
+        "domain_tags": ["biology", "evodevo"]
+      }
+    },
+    {
+      "cand_id": "CAND_S2_003",
+      "step1_equivalent": "CAND_014_E1_003 (low-content talk-language)",
+      "atom_a": {
+        "atom_id": "TALK_E1_A04",
+        "source_id": "podcast_hype",
+        "source_type": "podcast",
+        "speaker_or_author": "anon",
+        "text": "Basically, you know, AI is gonna be, like, really big and obviously change everything, I mean, sort of.",
+        "atom_type": "observation",
+        "domain_tags": ["hype"]
+      },
+      "atom_b": {
+        "atom_id": "TALK_E1_A05",
+        "source_id": "podcast_hype2",
+        "source_type": "podcast",
+        "speaker_or_author": "anon",
+        "text": "Right? Like, the models just kind of get better over time, you know, it's wild, okay so.",
+        "atom_type": "observation",
+        "domain_tags": ["hype"]
+      }
+    }
+  ]
+}

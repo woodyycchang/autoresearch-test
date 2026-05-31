@@ -1,0 +1,88 @@
+{
+  "cand_id": "CAND_015_001",
+  "atom_a_id": "ARXIV_R15_A01",
+  "atom_b_id": "ARXIV_R15_A02",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Expert-choice routing dynamically selects which tokens each attention head attends to, producing sparse attention gradients that act like preconditioned update directions, which in turn induces faster optimizer convergence akin to Conda's accelerated descent.",
+    "transfer": "MoSA's dynamic per-head token routing transfers as a structured sparsity prior that conditions the optimizer's update geometry to speed convergence.",
+    "open_problem": "Can routing-induced attention sparsity be coupled with a Conda-style optimizer to achieve 2-2.5x faster convergence in sparse-attention transformers?",
+    "niche_name": "Routing-Conditioned Optimizers for Sparse-Attention Convergence Acceleration",
+    "primary_quote": "achieves 2-2.5x faster convergence than AdamW on LLaMA series",
+    "quote_source": "atom_b"
+  },
+  "quote_verified_substring": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 7288,
+      "duration_api_ms": 6907,
+      "ttft_ms": 2471,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Expert-choice routing dynamically selects which tokens each attention head attends to, producing sparse attention gradients that act like preconditioned update directions, which in turn induces faster optimizer convergence akin to Conda's accelerated descent.\", \"transfer\": \"MoSA's dynamic per-head token routing transfers as a structured sparsity prior that conditions the optimizer's update geometry to speed convergence.\", \"open_problem\": \"Can routing-induced attention sparsity be coupled with a Conda-style optimizer to achieve 2-2.5x faster convergence in sparse-attention transformers?\", \"niche_name\": \"Routing-Conditioned Optimizers for Sparse-Attention Convergence Acceleration\", \"primary_quote\": \"achieves 2-2.5x faster convergence than AdamW on LLaMA series\", \"quote_source\": \"atom_b\"}",
+      "stop_reason": "end_turn",
+      "session_id": "b188c898-caf8-40d4-ade4-d77bba15ab30",
+      "total_cost_usd": 0.033499,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1474,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 305,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1474,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 305,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1474,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1474
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 801,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000881,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 305,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1474,
+          "webSearchRequests": 0,
+          "costUSD": 0.032618,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "07dceb82-d420-41ae-954b-4d570f8e7017"
+    }
+  ]
+}
