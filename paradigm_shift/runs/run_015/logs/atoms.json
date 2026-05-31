@@ -1,35 +1,35 @@
 {
   "run_id": "run_015",
   "agent": "1_sourcer",
-  "fetched_at": "2026-05-31T18:42:07Z",
-  "verbatim_note": "All text/url fields copied exactly from real WebSearch/WebFetch results. No fabrication.",
+  "fetched_at": "2026-05-31T20:51:53Z",
+  "verbatim_note": "WebFetch on arxiv.org abstract/PDF pages and on mirrors (ar5iv, export.arxiv API, HuggingFace, Semantic Scholar, alphaXiv, paperswithcode) all returned HTTP 403/failed, so no abstract page could be read directly. The title/url/text fields below are copied verbatim from real WebSearch tool result snippets (allowed_domains=arxiv.org). The 'text' field for each atom is an exact span returned by WebSearch describing that paper's mechanism. URLs are the abs pages corresponding to the arxiv IDs surfaced by WebSearch. No content was fabricated; nothing here was confirmed against a fetched abstract page.",
   "atoms": [
     {
       "atom_id": "ARXIV_R15_A01",
-      "arxiv_id": "2504.18006",
+      "arxiv_id": "2505.00315",
       "title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing",
-      "url": "https://arxiv.org/abs/2504.18006",
-      "text": "MoSA selects distinct tokens for each attention head, allowing arbitrary sparse attention patterns. By selecting $k$ tokens from a sequence of length $T$, MoSA reduces the computational complexity of each attention head from $O(T^2)$ to $O(k^2 + T)$.",
+      "url": "https://arxiv.org/abs/2505.00315",
+      "text": "MoSA is inspired by MoE with expert choice routing that dynamically selects tokens for each attention head, allowing arbitrary sparse attention patterns.",
       "source_type": "arxiv",
       "domain_tags": ["attention", "routing"]
     },
     {
       "atom_id": "ARXIV_R15_A02",
-      "arxiv_id": "2502.16982",
-      "title": "Muon is Scalable for LLM Training",
-      "url": "https://arxiv.org/abs/2502.16982",
-      "text": "We identify two crucial techniques for scaling up Muon: (1) adding weight decay and (2) carefully adjusting the per-parameter update scale.",
+      "arxiv_id": "2509.24218",
+      "title": "Conda: Column-Normalized Adam for Training Large Language Models Faster",
+      "url": "https://arxiv.org/abs/2509.24218",
+      "text": "Conda achieves 2-2.5x faster convergence than AdamW on LLaMA series, measured by both training steps and wall-clock time, with consistent gains on GPT-2.",
       "source_type": "arxiv",
       "domain_tags": ["optimization", "training"]
     },
     {
       "atom_id": "ARXIV_R15_A03",
-      "arxiv_id": "2501.19393",
-      "title": "s1: Simple test-time scaling",
-      "url": "https://arxiv.org/abs/2501.19393",
-      "text": "We propose budget forcing to control test-time compute by forcefully terminating the model's thinking process or lengthening it by appending \"Wait\" multiple times to the model's generation when it tries to end.",
+      "arxiv_id": "2509.25140",
+      "title": "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory",
+      "url": "https://arxiv.org/abs/2509.25140",
+      "text": "memory-aware test-time scaling (MaTTS), which scales up agent interactions to generate diverse experiences that provide signals for synthesizing higher-quality memory, with better memory guiding more effective scaling.",
       "source_type": "arxiv",
-      "domain_tags": ["test-time-compute", "reasoning"]
+      "domain_tags": ["memory", "test-time-compute"]
     }
   ]
 }
