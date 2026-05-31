@@ -1,0 +1,88 @@
+{
+  "cand_id": "CAND_015_001",
+  "atom_a_id": "ARXIV_R15_A01",
+  "atom_b_id": "ARXIV_R15_A02",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Expert-choice routing dynamically routes tokens to each attention head (from A), and this induced sparse, head-specialized attention structure is used to precondition the optimizer's per-parameter updates so that it produces faster, more stable convergence (\u00e0 la B's accelerated optimization).",
+    "transfer": "The expert-choice token-routing mechanism from A transfers to B as a structural prior that an optimizer exploits to accelerate convergence.",
+    "open_problem": "Can MoSA-style expert-choice attention routing be coupled with a Conda-style optimizer to causally produce 2-2.5x faster convergence on LLaMA-scale models?",
+    "niche_name": "Routing-Aware Optimizers for Sparse Expert-Choice Attention",
+    "primary_quote": "Conda achieves 2-2.5x faster convergence than AdamW on LLaMA series",
+    "quote_source": "atom_b"
+  },
+  "quote_verified_substring": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 9085,
+      "duration_api_ms": 8539,
+      "ttft_ms": 2793,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Expert-choice routing dynamically routes tokens to each attention head (from A), and this induced sparse, head-specialized attention structure is used to precondition the optimizer's per-parameter updates so that it produces faster, more stable convergence (\u00e0 la B's accelerated optimization).\", \"transfer\": \"The expert-choice token-routing mechanism from A transfers to B as a structural prior that an optimizer exploits to accelerate convergence.\", \"open_problem\": \"Can MoSA-style expert-choice attention routing be coupled with a Conda-style optimizer to causally produce 2-2.5x faster convergence on LLaMA-scale models?\", \"niche_name\": \"Routing-Aware Optimizers for Sparse Expert-Choice Attention\", \"primary_quote\": \"Conda achieves 2-2.5x faster convergence than AdamW on LLaMA series\", \"quote_source\": \"atom_b\"}",
+      "stop_reason": "end_turn",
+      "session_id": "fc92cf01-9deb-4e58-819a-8bafc557e5e1",
+      "total_cost_usd": 0.035970249999999995,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1475,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 403,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1475,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 403,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1475,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1475
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 801,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000896,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 403,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1475,
+          "webSearchRequests": 0,
+          "costUSD": 0.035074249999999994,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "330235d5-dbbb-4086-86dc-e754be44d67a"
+    }
+  ]
+}

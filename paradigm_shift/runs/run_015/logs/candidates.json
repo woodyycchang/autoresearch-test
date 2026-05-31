@@ -1,0 +1,69 @@
+{
+  "run_id": "run_015",
+  "epoch": 1,
+  "generated_at": "2026-05-31T20:58:30.797941+00:00",
+  "pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "candidates": [
+    {
+      "cand_id": "CAND_015_001",
+      "atom_a_id": "ARXIV_R15_A01",
+      "atom_b_id": "ARXIV_R15_A02",
+      "niche_name": "Routing-Aware Optimizers for Sparse Expert-Choice Attention",
+      "mechanism": "Expert-choice routing dynamically routes tokens to each attention head (from A), and this induced sparse, head-specialized attention structure is used to precondition the optimizer's per-parameter updates so that it produces faster, more stable convergence (\u00e0 la B's accelerated optimization).",
+      "transfer": "The expert-choice token-routing mechanism from A transfers to B as a structural prior that an optimizer exploits to accelerate convergence.",
+      "open_problem": "Can MoSA-style expert-choice attention routing be coupled with a Conda-style optimizer to causally produce 2-2.5x faster convergence on LLaMA-scale models?",
+      "primary_quote": "Conda achieves 2-2.5x faster convergence than AdamW on LLaMA series",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "fc92cf01-9deb-4e58-819a-8bafc557e5e1",
+      "opus_cost_usd": 0.035970249999999995
+    },
+    {
+      "cand_id": "CAND_015_002",
+      "atom_a_id": "ARXIV_R15_A02",
+      "atom_b_id": "ARXIV_R15_A03",
+      "niche_name": "Preconditioned Memory Synthesis for Faster Test-Time Scaling",
+      "mechanism": "Conda's geometry-aware preconditioning, which induces 2-2.5x faster convergence by routing gradient updates along better-conditioned directions, is transferred into MaTTS so that conditioned update steps accelerate the synthesis of higher-quality memory from scaled agent interactions.",
+      "transfer": "The fast-convergence preconditioning mechanism from A transfers to B as the optimizer that compresses noisy scaled experiences into stable memory faster.",
+      "open_problem": "Does applying Conda-style preconditioning to memory synthesis in MaTTS reduce the number of agent interactions needed to reach a target memory quality?",
+      "primary_quote": "scales up agent interactions to generate diverse experiences that provide signals for synthesizing higher-quality memory",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "ff7ad28f-1ce6-47e3-a7e8-734bf5318737",
+      "opus_cost_usd": 0.0357815
+    },
+    {
+      "cand_id": "CAND_015_003",
+      "atom_a_id": "ARXIV_R15_A01",
+      "atom_b_id": "ARXIV_R15_A03",
+      "niche_name": "Expert-Choice Routing of Agent Experiences for Memory Synthesis",
+      "mechanism": "Expert-choice routing dynamically selects which agent interactions to attend to per memory-synthesis head, routing diverse test-time experiences into sparse high-signal subsets that produce higher-quality synthesized memory, which in turn regulates more effective scaling.",
+      "transfer": "MoSA's expert-choice routing for dynamically selecting tokens transfers to selecting which scaled agent experiences feed memory synthesis.",
+      "open_problem": "Can expert-choice routing over agent experiences select the sparse subset that maximizes synthesized memory quality under a fixed test-time interaction budget?",
+      "primary_quote": "expert choice routing that dynamically selects tokens for each attention head",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "83a794cb-622d-479b-9ce1-b197bde79cba",
+      "opus_cost_usd": 0.03334375
+    }
+  ]
+}
