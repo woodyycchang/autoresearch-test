@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_015",
+  "description": "Multi-agent cross-verified niche search. Single cloud session, small scale: 3 candidates, 1 epoch. Four sequential subagents (sourcer -> merger -> verifier -> cross-checker), each commits AND pushes before the next spawns; the MAIN agent runs the deterministic 4-gate filter, [REPORT] verbatim injection, determinism + hallucination checks, and the final verdict. Builds on the proven Step 1/Step 2 loop (runs/run_014_*).",
+  "builds_on": ["paradigm_shift/runs/run_014_smallest", "paradigm_shift/runs/run_014_step2"],
+  "inherit_gates_from": "paradigm_shift/spec/harness_rules.json",
+  "branch": "claude/run-15-multiagent",
+  "scope": {"epochs": 1, "candidates": 3, "atoms": 3, "model": "opus"},
+  "agents": [
+    {"n": 1, "role": "sourcer", "tools": ["WebSearch", "Bash(git)"], "output": "logs/atoms.json",
+     "commit_msg": "Run 15 AGENT 1 (sourcer): 3 real arXiv ML atoms"},
+    {"n": 2, "role": "merger", "tools": ["Bash"], "output": "logs/candidates.json",
+     "commit_msg": "Run 15 AGENT 2 (merger): Opus subprocess merges -> candidates"},
+    {"n": 3, "role": "verifier", "tools": ["WebSearch", "Bash(git)"], "output": "logs/verify.json",
+     "commit_msg": "Run 15 AGENT 3 (verifier): 5 real prior-art reformulations/candidate"},
+    {"n": 4, "role": "cross-checker", "tools": ["WebSearch", "Bash(git)"], "output": "logs/crosscheck.json",
+     "commit_msg": "Run 15 AGENT 4 (cross-checker): independent re-verification of AGENT 3"}
+  ],
+  "merge_schema": {
+    "fields": ["mechanism", "transfer", "open_problem", "niche_name", "primary_quote", "quote_source"],
+    "primary_quote": "verbatim string >=30 chars copied EXACTLY from atom_a or atom_b source text (NOT paraphrased)",
+    "quote_source": "atom_a | atom_b"
+  },
+  "opus_subprocess": {
+    "binary": "claude",
+    "args": ["-p", "--model", "opus", "--output-format", "json"],
+    "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"],
+    "run_in_nongit_tempdir": true,
+    "timeout_seconds": 240,
+    "retry_on_parse_fail": 1,
+    "note": "PROVEN fix (R3): merge subprocess runs in a throwaway NON-GIT temp dir with all tools disallowed, so the host git Stop-hook bails (not a git repo) instead of hijacking the merge output. Force raw JSON (R4); robust parse with 1 retry."
+  },
+  "gates": {
+    "gate_1_composite_threshold": 0.90,
+    "gate_2_quarantine_from": "harness_rules.quarantined_atoms",
+    "gate_3_source": "verifier+crosschecker (collision => REJECT)",
+    "gate_4_belinda": "primary_quote is a real >=30-char substring of the named atom AND mechanism contains >=1 mechanism-vocab verb AND operator not in rejected_operators"
+  },
+  "gate1_note": "Run 15 raises the composite threshold to 0.90 (Step 2 used 0.85). With real novelty inputs this is intentionally strict; saturation is the expected outcome at this scale.",
+  "hard_rules": {
+    "R1": "spawn agents sequentially (each commits+pushes before next spawns)",
+    "R2": "commit AND push after every agent (container is ephemeral; local commit alone dies on wipe)",
+    "R3": "Opus subprocess in non-git tempdir",
+    "R4": "force raw JSON from Opus, robust parse with 1 retry",
+    "R5": "record ONLY web_search results actually seen — never fabricate URLs/IDs",
+    "R6": "[REPORT] = verbatim raw agent output (code-injected ground truth)",
+    "R7": "AGENT 4 independently re-verifies AGENT 3",
+    "R8": "do NOT activate the .claude/settings.json pre_tool hook in container",
+    "R9": "if session feels long -> commit partial + report, don't push through timeout",
+    "R10": "honest verdict: collision = saturation confirmed; survivor = re-verify with 10 more"
+  },
+  "honest_io_policy": "All web_search results are recorded verbatim, exactly as returned. Per-result snippets are recorded only if the tool provides them; otherwise the snippet field is empty (never invented). Empty/anomalous results are recorded as such. This is enforced socially in agent prompts (R5) and mechanically by AGENT 4's independent re-verification (R7).",
+  "outputs": {
+    "atoms": "logs/atoms.json", "candidates": "logs/candidates.json",
+    "verify": "logs/verify.json", "crosscheck": "logs/crosscheck.json",
+    "report_log": "logs/report_log.md", "gate_results": "logs/gate_results.json",
+    "determinism": "logs/determinism_check.json", "summary_llm": "logs/summary_llm.md",
+    "hallucination": "logs/hallucination_check.json", "verdict": "niche_find_check.json",
+    "run_report": "RUN_REPORT.md"
+  }
+}
