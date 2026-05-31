@@ -131,7 +131,7 @@ def main() -> int:
     pairs = [(0, 1), (1, 2), (0, 2)]
     candidates = []
     for idx, (i, j) in enumerate(pairs, 1):
-        cid = f"CAND_015_{idx:03d}"
+        cid = f"CAND_016_{idx:03d}"
         print(f"[merge] {cid}: {atoms[i]['atom_id']} x {atoms[j]['atom_id']} ...", flush=True)
         m = merge_pair(atoms[i], atoms[j])
         env = m["envelopes"][-1]
