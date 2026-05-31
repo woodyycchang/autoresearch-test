@@ -263,6 +263,12 @@ def run_opus(prompt: str) -> dict:
 
 
 def parse_obj(text: str) -> dict | None:
+    """Robust parse: whole text, then fenced blocks, then any balanced {...}.
+
+    The balanced-brace fallback is essential: the summary model often emits a
+    correct JSON object embedded in prose with NO code fences, which the first
+    two strategies miss.
+    """
     text = (text or "").strip()
     try:
         return json.loads(text)
@@ -273,7 +279,29 @@ def parse_obj(text: str) -> dict | None:
             return json.loads(b)
         except json.JSONDecodeError:
             continue
-    return None
+    # balanced-brace fallback: scan for TOP-LEVEL {...} objects that parse,
+    # preferring the LAST one (the model's final answer block). After a
+    # balanced object is consumed, resume scanning AFTER it so nested objects
+    # (e.g. per_candidate entries) are not mistaken for the outer answer.
+    candidates = []
+    start = text.find("{")
+    while start != -1:
+        depth = 0
+        end = None
+        for i in range(start, len(text)):
+            if text[i] == "{":
+                depth += 1
+            elif text[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    end = i
+                    try:
+                        candidates.append(json.loads(text[start:i + 1]))
+                    except json.JSONDecodeError:
+                        pass
+                    break
+        start = text.find("{", (end + 1) if end is not None else start + 1)
+    return candidates[-1] if candidates else None
 
 
 def cmd_finalize(_args) -> int:

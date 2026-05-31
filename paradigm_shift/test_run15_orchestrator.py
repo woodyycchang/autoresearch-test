@@ -152,5 +152,30 @@ class TestPaperHeuristics(unittest.TestCase):
         self.assertFalse(o.is_paper({"url": "https://example.com/blog"}))
 
 
+class TestParseObj(unittest.TestCase):
+    def test_raw_object(self):
+        self.assertEqual(o.parse_obj('{"a": 1}'), {"a": 1})
+
+    def test_fenced_block(self):
+        self.assertEqual(o.parse_obj('text\n```json\n{"a": 2}\n```'), {"a": 2})
+
+    def test_bare_object_embedded_in_prose(self):
+        # the real finalize case: prose summary followed by an unfenced JSON object
+        text = ('This run processed 3 atoms. None survived.\n\n'
+                '{"n_candidates": 3, "n_survivors": 0, "verdict": "NICHE_NOT_FOUND", '
+                '"per_candidate": [{"cand_id": "CAND_015_001", "composite": 0.45, "survived": false}]}')
+        got = o.parse_obj(text)
+        self.assertIsNotNone(got)
+        self.assertEqual(got["n_candidates"], 3)
+        self.assertEqual(got["verdict"], "NICHE_NOT_FOUND")
+
+    def test_prefers_last_object(self):
+        text = '{"draft": true} ... final answer: {"n_survivors": 0, "verdict": "X"}'
+        self.assertEqual(o.parse_obj(text)["verdict"], "X")
+
+    def test_no_json_returns_none(self):
+        self.assertIsNone(o.parse_obj("no json here"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
