@@ -257,6 +257,63 @@ def update_params(dp: dict, sq: dict) -> dict:
     }
 
 
+def nudge_from_labels(dp: dict):
+    """Nudge search-quality params from human labels whose epoch dims are embedded
+    in each labeled_example. Runs at the START of the next epoch (labels always lag
+    one epoch). Only dimensions where on_target and diverge groups DIFFER move; flat
+    dimensions (all queries 0.0) produce zero signal -> handled by bootstrap, not here."""
+    params = dict(dp["search_quality_params"])
+    on, div = [], []
+    for lab in dp.get("labeled_examples", []):
+        dims = lab.get("dims")
+        if not dims:
+            continue
+        (on if lab.get("label") == "on_target" else div).append(dims)
+
+    def mean(group, dk):
+        vals = [g[dk] for g in group if dk in g]
+        return sum(vals) / len(vals) if vals else None
+
+    nudges = {}
+    for pkey, dimkey in PARAM_TO_DIM.items():
+        m_on, m_div = mean(on, dimkey), mean(div, dimkey)
+        if m_on is None or m_div is None:
+            continue
+        signal = m_on - m_div
+        new = min(0.95, max(0.05, round(params[pkey] + LEARNING_RATE * signal, 4)))
+        if new != params[pkey]:
+            nudges[pkey] = {"old": params[pkey], "new": new,
+                            "on_mean": round(m_on, 4), "div_mean": round(m_div, 4),
+                            "signal": round(signal, 4)}
+            params[pkey] = new
+    return params, nudges
+
+
+def cmd_apply_labels(_args) -> int:
+    """Epoch-start: consume labeled_examples -> nudge params (specificity/mechanism
+    where they vary). Does NOT bump epoch or touch epoch_history (that is finalize)."""
+    dp = json.loads(DPARAMS.read_text())
+    labels = dp.get("labeled_examples", [])
+    if not labels:
+        print("[apply_labels] no labels to apply")
+        return 0
+    params, nudges = nudge_from_labels(dp)
+    dp["search_quality_params"] = params
+    dp["param_nudges_from_labels"] = nudges
+    dp.setdefault("applied_labels_log", []).append({
+        "applied_for_scored_epoch": dp.get("labels_for_scored_epoch"),
+        "n_labels": len(labels), "nudges": nudges,
+        "applied_at": datetime.now(timezone.utc).isoformat()})
+    dp["labeled_examples"] = []
+    DPARAMS.write_text(json.dumps(dp, indent=2))
+    print(f"[apply_labels] consumed {len(labels)} labels; params now: {params}")
+    for k, v in nudges.items():
+        print(f"   {k}: {v['old']} -> {v['new']} (on={v['on_mean']} div={v['div_mean']})")
+    if not nudges:
+        print("   (no param moved; flat dims handled by bootstrap instruction)")
+    return 0
+
+
 SUMMARY_PROMPT = """You are writing a strictly factual summary of a multi-agent run.
 Below is the RAW REPORT LOG (verbatim agent outputs) and the GATE RESULTS (ground truth).
 
@@ -398,10 +455,11 @@ def cmd_finalize(_args) -> int:
 
 def main(argv) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["report", "gates", "finalize"])
+    ap.add_argument("phase", choices=["apply_labels", "report", "gates", "finalize"])
     args = ap.parse_args(argv)
     LOGS.mkdir(parents=True, exist_ok=True)
-    return {"report": cmd_report, "gates": cmd_gates, "finalize": cmd_finalize}[args.phase](args)
+    return {"apply_labels": cmd_apply_labels, "report": cmd_report,
+            "gates": cmd_gates, "finalize": cmd_finalize}[args.phase](args)
 
 
 if __name__ == "__main__":

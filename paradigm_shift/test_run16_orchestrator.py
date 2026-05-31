@@ -178,5 +178,37 @@ class TestParamUpdate(unittest.TestCase):
         self.assertLessEqual(dp2["search_quality_params"]["reformulation_specificity"], 0.95)
 
 
+class TestNudgeFromLabels(unittest.TestCase):
+    def _lab(self, q, label, dims):
+        return {"search_query": q, "label": label, "dims": dims}
+
+    def test_varying_dim_nudges_up(self):
+        dp = {"search_quality_params": {"reformulation_specificity": 0.5, "mechanism_focus": 0.5,
+              "cross_domain_reach": 0.5, "atom_source_diversity": 0.5, "collision_avoidance_phrasing": 0.5},
+              "labeled_examples": [
+                self._lab("good", "on_target", {"specificity": 0.9, "mechanism_focus": 0.5,
+                          "cross_domain_reach": 0.0, "collision_avoidance": 0.0}),
+                self._lab("bad", "diverge", {"specificity": 0.1, "mechanism_focus": 0.5,
+                          "cross_domain_reach": 0.0, "collision_avoidance": 0.0})]}
+        params, nudges = o.nudge_from_labels(dp)
+        # specificity: on .9 - div .1 = .8 -> 0.5 + 0.2*0.8 = 0.66
+        self.assertAlmostEqual(params["reformulation_specificity"], 0.66, places=3)
+        self.assertIn("reformulation_specificity", nudges)
+
+    def test_flat_dim_does_not_move(self):
+        dp = {"search_quality_params": {"reformulation_specificity": 0.5, "mechanism_focus": 0.5,
+              "cross_domain_reach": 0.5, "atom_source_diversity": 0.5, "collision_avoidance_phrasing": 0.5},
+              "labeled_examples": [
+                self._lab("a", "on_target", {"specificity": 0.5, "mechanism_focus": 0.5,
+                          "cross_domain_reach": 0.0, "collision_avoidance": 0.0}),
+                self._lab("b", "diverge", {"specificity": 0.5, "mechanism_focus": 0.5,
+                          "cross_domain_reach": 0.0, "collision_avoidance": 0.0})]}
+        params, nudges = o.nudge_from_labels(dp)
+        # both groups 0.0 on flat dims -> no signal -> param stays 0.5
+        self.assertEqual(params["cross_domain_reach"], 0.5)
+        self.assertEqual(params["collision_avoidance_phrasing"], 0.5)
+        self.assertNotIn("cross_domain_reach", nudges)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
