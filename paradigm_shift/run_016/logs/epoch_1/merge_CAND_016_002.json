@@ -1,0 +1,88 @@
+{
+  "cand_id": "CAND_016_002",
+  "atom_a_id": "ARXIV_R16_A02",
+  "atom_b_id": "ARXIV_R16_A03",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.",
+    "transfer": "The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.",
+    "open_problem": "Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?",
+    "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
+    "primary_quote": "enhancing its informativeness while leaving the base optimizer entirely unchanged",
+    "quote_source": "atom_a"
+  },
+  "quote_verified_substring": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 8049,
+      "duration_api_ms": 7451,
+      "ttft_ms": 3139,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.\", \"transfer\": \"The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.\", \"open_problem\": \"Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?\", \"niche_name\": \"Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing\", \"primary_quote\": \"enhancing its informativeness while leaving the base optimizer entirely unchanged\", \"quote_source\": \"atom_a\"}",
+      "stop_reason": "end_turn",
+      "session_id": "04470e40-5bb0-40ef-a2df-488523cb4a49",
+      "total_cost_usd": 0.03514425,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1483,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 369,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1483,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 369,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1483,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1483
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 795,
+          "outputTokens": 15,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00087,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 369,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1483,
+          "webSearchRequests": 0,
+          "costUSD": 0.03427425,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "ddfbe8b1-2138-48ad-98ea-ff13980d5a90"
+    }
+  ]
+}

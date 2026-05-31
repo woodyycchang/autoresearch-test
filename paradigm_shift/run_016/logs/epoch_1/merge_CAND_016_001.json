@@ -1,0 +1,88 @@
+{
+  "cand_id": "CAND_016_001",
+  "atom_a_id": "ARXIV_R16_A01",
+  "atom_b_id": "ARXIV_R16_A02",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Expert-choice routing transforms the gradient vector by dynamically selecting and amplifying its most informative coordinates per parameter group, producing a sparsity-gated gradient signal that routes optimizer updates toward high-salience directions while leaving the base optimizer unchanged.",
+    "transfer": "The expert-choice dynamic token-selection routing from MoSA attention transfers to GradPower's elementwise gradient transformation, becoming a learned per-coordinate gradient router.",
+    "open_problem": "Can expert-choice routing applied to gradient coordinates yield an optimizer-agnostic elementwise transformation that accelerates convergence without altering the base optimizer?",
+    "niche_name": "Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification",
+    "primary_quote": "applies a simple elementwise transformation to the gradient vector",
+    "quote_source": "atom_b"
+  },
+  "quote_verified_substring": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 7814,
+      "duration_api_ms": 9303,
+      "ttft_ms": 2625,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Expert-choice routing transforms the gradient vector by dynamically selecting and amplifying its most informative coordinates per parameter group, producing a sparsity-gated gradient signal that routes optimizer updates toward high-salience directions while leaving the base optimizer unchanged.\", \"transfer\": \"The expert-choice dynamic token-selection routing from MoSA attention transfers to GradPower's elementwise gradient transformation, becoming a learned per-coordinate gradient router.\", \"open_problem\": \"Can expert-choice routing applied to gradient coordinates yield an optimizer-agnostic elementwise transformation that accelerates convergence without altering the base optimizer?\", \"niche_name\": \"Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification\", \"primary_quote\": \"applies a simple elementwise transformation to the gradient vector\", \"quote_source\": \"atom_b\"}",
+      "stop_reason": "end_turn",
+      "session_id": "1931c20c-c689-4912-a24b-03c71b14ed8a",
+      "total_cost_usd": 0.035110749999999996,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1481,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 368,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1481,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 368,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1481,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1481
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 794,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000874,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 368,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1481,
+          "webSearchRequests": 0,
+          "costUSD": 0.034236749999999996,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "e3f51460-c469-4b56-b95b-647dde11e02c"
+    }
+  ]
+}

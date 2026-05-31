@@ -1,0 +1,69 @@
+{
+  "run_id": "run_016",
+  "epoch": 1,
+  "generated_at": "2026-05-31T22:03:25.880491+00:00",
+  "pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "candidates": [
+    {
+      "cand_id": "CAND_016_001",
+      "atom_a_id": "ARXIV_R16_A01",
+      "atom_b_id": "ARXIV_R16_A02",
+      "niche_name": "Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification",
+      "mechanism": "Expert-choice routing transforms the gradient vector by dynamically selecting and amplifying its most informative coordinates per parameter group, producing a sparsity-gated gradient signal that routes optimizer updates toward high-salience directions while leaving the base optimizer unchanged.",
+      "transfer": "The expert-choice dynamic token-selection routing from MoSA attention transfers to GradPower's elementwise gradient transformation, becoming a learned per-coordinate gradient router.",
+      "open_problem": "Can expert-choice routing applied to gradient coordinates yield an optimizer-agnostic elementwise transformation that accelerates convergence without altering the base optimizer?",
+      "primary_quote": "applies a simple elementwise transformation to the gradient vector",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "1931c20c-c689-4912-a24b-03c71b14ed8a",
+      "opus_cost_usd": 0.035110749999999996
+    },
+    {
+      "cand_id": "CAND_016_002",
+      "atom_a_id": "ARXIV_R16_A02",
+      "atom_b_id": "ARXIV_R16_A03",
+      "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
+      "mechanism": "GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.",
+      "transfer": "The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.",
+      "open_problem": "Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?",
+      "primary_quote": "enhancing its informativeness while leaving the base optimizer entirely unchanged",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "04470e40-5bb0-40ef-a2df-488523cb4a49",
+      "opus_cost_usd": 0.03514425
+    },
+    {
+      "cand_id": "CAND_016_003",
+      "atom_a_id": "ARXIV_R16_A01",
+      "atom_b_id": "ARXIV_R16_A03",
+      "niche_name": "Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention",
+      "mechanism": "Expert-choice routing from MoSA dynamically selects which tokens each attention head attends to, and transferring this principle to agentic reasoning produces a router that activates retrieve, reflect, or answer actions per evidence-gap state, routing inference compute toward the most informative actions.",
+      "transfer": "MoSA's expert-choice dynamic token-to-head routing transfers to atom B as the action router that selects retrieve/reflect/answer steps over an explicit evidence-gap state.",
+      "open_problem": "Can expert-choice attention-head routing be learned jointly with an action router so that sparse attention patterns and a global evidence-gap tracker co-optimize answer quality?",
+      "primary_quote": "dynamically selects tokens for each attention head, allowing arbitrary sparse attention patterns",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "bce20d22-cca3-4870-98da-42fe8074c60d",
+      "opus_cost_usd": 0.03599725
+    }
+  ]
+}
