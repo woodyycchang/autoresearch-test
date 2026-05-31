@@ -1,245 +1,260 @@
 {
   "run_id": "run_016",
-  "epoch": 1,
+  "epoch": 2,
   "agent": "3_verifier",
-  "verified_at": "2026-05-31T22:41:00+00:00",
-  "verbatim_note": "All titles/urls verbatim from real WebSearch; snippets empty where tool gave none; no fabrication.",
+  "verified_at": "2026-05-31T23:08:58Z",
+  "verbatim_note": "All titles/urls verbatim from real WebSearch; snippets empty where none; no fabrication.",
+  "bootstrap_applied": ">=2 of 5 reformulations per candidate use prior-art-probing phrasing (collision_avoidance cold-start); cross-domain phrasing for 002/003",
   "candidates": [
     {
       "cand_id": "CAND_016_001",
-      "niche_name": "Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification",
-      "collision_found": false,
-      "collision_reason": "No paper-like source describes treating gradient coordinates as tokens routed by an expert-choice mechanism for an optimizer-agnostic update sparsifier; closest hits are gradient-informed MoE training (GRIN 2409.12136), gradient masking for localization (Gradient Routing 2410.04332), and top-k gradient sparsification for communication, none of which apply MoSA-style expert-choice routing to gradient coordinates as a base-optimizer-agnostic transformation.",
+      "niche_name": "Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads",
+      "collision_found": true,
+      "collision_reason": "Direct prior art: 'Mixture of Attention Heads: Selecting Attention Heads Per Token' (https://arxiv.org/abs/2210.05144 / https://aclanthology.org/2022.emnlp-main.278/) is exactly a learned token-choice router that selects a subset of k attention-head experts per token, the same core niche as replacing MoSA expert-choice head routing with a learned token-choice router over attention-head experts.",
       "reformulations": [
         {
           "n": 1,
-          "query": "expert-choice routing applied to gradient coordinates for optimizer update sparsification",
-          "allowed_domains": null,
+          "query": "token-choice routing over attention-head experts sparse mixture of attention",
+          "prior_art_probe": false,
+          "allowed_domains": ["arxiv.org"],
           "results": [
-            {"title": "(PDF) Gradient Sparsification for Communication-Efficient Distributed Optimization", "url": "https://www.researchgate.net/publication/320707514_Gradient_Sparsification_for_Communication-Efficient_Distributed_Optimization", "snippet": ""},
-            {"title": "Excitation: Momentum For Experts", "url": "https://arxiv.org/pdf/2602.21798", "snippet": ""},
-            {"title": "GRIN: GRadient-INformed MoE", "url": "https://arxiv.org/pdf/2409.12136", "snippet": ""},
-            {"title": "Gradient Sparsification for Communication-Efficient Distributed   Optimization", "url": "https://arxiv.org/pdf/1710.09854", "snippet": ""},
-            {"title": "Intro to Routing: Mixture-of-Experts and Expert Choice", "url": "https://www.neelsomaniblog.com/p/intro-to-routing-mixture-of-experts", "snippet": ""},
-            {"title": "Decoupling Mixture-of-experts Routing from Gradient Noise: A Framework for Structured Specialization and Soft Generalization Toward Robust and Efficient Inference - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S0957417426000424", "snippet": ""}
+            {"title": "[2505.00315] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/abs/2505.00315", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention   via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
+            {"title": "HIMOSA: Efficient Remote Sensing Image Super-Resolution with Hierarchical Mixture of Sparse Attention", "url": "https://arxiv.org/html/2512.00275", "snippet": ""},
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
+            {"title": "MISA: Mixture of Indexer Sparse Attention for Long-Context LLM Inference", "url": "https://arxiv.org/html/2605.07363", "snippet": ""},
+            {"title": "Improving Routing in Sparse Mixture of Experts with Graph of Tokens", "url": "https://arxiv.org/html/2505.00792v1", "snippet": ""},
+            {"title": "[2202.09368] Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/abs/2202.09368", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "mixture-of-experts routing gradient sparsification elementwise transformation optimizer",
-          "allowed_domains": ["arxiv.org"],
+          "query": "prior work learned token-choice router for mixture of attention heads expert-choice",
+          "prior_art_probe": true,
+          "allowed_domains": null,
           "results": [
-            {"title": "Dense Backpropagation Improves Training for Sparse Mixture-of-Experts", "url": "https://arxiv.org/pdf/2504.12463", "snippet": ""},
-            {"title": "[2504.12463] Dense Backpropagation Improves Training for Sparse Mixture-of-Experts", "url": "https://arxiv.org/abs/2504.12463", "snippet": ""},
-            {"title": "EMoE: Eigenbasis-Guided Routing for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.12137", "snippet": ""},
-            {"title": "GRIN: GRadient-INformed MoE", "url": "https://arxiv.org/pdf/2409.12136", "snippet": ""},
-            {"title": "[1806.01531] Deep Mixture of Experts via Shallow Embedding", "url": "https://ar5iv.labs.arxiv.org/html/1806.01531", "snippet": ""},
-            {"title": "Alternating Gradient Descent and Mixture-of-Experts for", "url": "https://arxiv.org/pdf/2305.06324v1", "snippet": ""},
-            {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001", "snippet": ""},
-            {"title": "ReMoE: Fully Differentiable Mixture-of-Experts with ReLU Routing", "url": "https://arxiv.org/pdf/2412.14711", "snippet": ""}
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/pdf/2202.09368", "snippet": ""},
+            {"title": "(PDF) Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://www.researchgate.net/publication/391369365_Mixture_of_Sparse_Attention_Content-Based_Learnable_Sparse_Attention_via_Expert-Choice_Routing", "snippet": ""},
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/2f00ecd787b432c1d36f3de9800728eb-Paper-Conference.pdf", "snippet": ""},
+            {"title": "[2202.09368] Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/abs/2202.09368", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
+            {"title": "Routers in Vision Mixture of Experts: An Empirical Study", "url": "https://arxiv.org/pdf/2401.15969", "snippet": ""},
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://research.google/blog/mixture-of-experts-with-expert-choice-routing/", "snippet": ""}
           ]
         },
         {
           "n": 3,
-          "query": "per-coordinate gradient router learned salience update transformation optimizer-agnostic",
-          "allowed_domains": ["arxiv.org"],
+          "query": "existing survey sparse mixture-of-attention heads token-level load balancing routing",
+          "prior_art_probe": true,
+          "allowed_domains": null,
           "results": [
-            {"title": "[2510.00236] Per-example gradients: a new frontier for understanding and improving optimizers", "url": "https://arxiv.org/abs/2510.00236", "snippet": ""},
-            {"title": "Fast adaptive optimization", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12001509", "snippet": ""},
-            {"title": "Celo2: Towards Learned Optimization Free Lunch", "url": "https://arxiv.org/pdf/2602.19142", "snippet": ""},
-            {"title": "Step-size Adaptation Using Exponentiated Gradient Updates", "url": "https://arxiv.org/pdf/2202.00145", "snippet": ""},
-            {"title": "Excitation: Momentum For Experts", "url": "https://arxiv.org/pdf/2602.21798", "snippet": ""},
-            {"title": "[1703.04813] Learned Optimizers that Scale and Generalize", "url": "https://ar5iv.labs.arxiv.org/html/1703.04813", "snippet": ""},
-            {"title": "Gradient Routing: Masking Gradients to Localize Computation in Neural Networks", "url": "https://arxiv.org/html/2410.04332v1", "snippet": ""}
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://papers.neurips.cc/paper_files/paper/2022/file/2f00ecd787b432c1d36f3de9800728eb-Paper-Conference.pdf", "snippet": ""},
+            {"title": "The Rise of Sparse Mixture-of-Experts:A Survey from Algorithmic", "url": "https://arxiv.org/pdf/2602.08019", "snippet": ""},
+            {"title": "Improving Routing in Sparse Mixture of Experts with Graph of Tokens", "url": "https://arxiv.org/html/2505.00792v1", "snippet": ""},
+            {"title": "Token-to-Expert Routing", "url": "https://www.emergentmind.com/topics/token-to-expert-routing", "snippet": ""},
+            {"title": "(PDF) Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://www.researchgate.net/publication/391369365_Mixture_of_Sparse_Attention_Content-Based_Learnable_Sparse_Attention_via_Expert-Choice_Routing", "snippet": ""},
+            {"title": "A Replicate-and-Quantize Strategy for Plug-and-Play Load Balancing of Sparse Mixture-of-Experts LLMs", "url": "https://arxiv.org/pdf/2602.19938", "snippet": ""},
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/pdf/2202.09368", "snippet": ""},
+            {"title": "Applying Mixture of Experts in LLM Architectures | NVIDIA Technical Blog", "url": "https://developer.nvidia.com/blog/applying-mixture-of-experts-in-llm-architectures/", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""}
           ]
         },
         {
           "n": 4,
-          "query": "GradPower elementwise gradient transformation accelerate convergence base optimizer unchanged",
-          "allowed_domains": null,
+          "query": "replacing expert-choice with token-choice routing attention heads as experts quality sparsity tradeoff",
+          "prior_art_probe": false,
+          "allowed_domains": ["arxiv.org"],
           "results": [
-            {"title": "GradPower: Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/html/2505.24275", "snippet": ""},
-            {"title": "[2505.24275] GradPower: Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/abs/2505.24275", "snippet": ""},
-            {"title": "GRADPOWER: POWERING GRADIENTS FOR FASTER ...", "url": "https://openreview.net/pdf/b33c6f643e5b878e02d8b9fac5b6b29f1445d62a.pdf", "snippet": ""},
-            {"title": "Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/pdf/2505.24275", "snippet": ""},
-            {"title": "1 AYLA: Amplifying Gradient Sensitivity via Loss Transformation", "url": "https://arxiv.org/pdf/2504.01875", "snippet": ""},
-            {"title": "AdaL: Adaptive Gradient Transformation Contributes to Convergences and   Generalizations", "url": "https://arxiv.org/pdf/2107.01525", "snippet": ""},
-            {"title": "A comparative evaluation of gradient-based optimization algorithms for short-term load forecasting using deep residual networks | Scientific Reports", "url": "https://www.nature.com/articles/s41598-026-45829-y", "snippet": ""}
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention   via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315", "snippet": ""},
+            {"title": "Expert-Choice Routing Enables Adaptive Computation in Diffusion Language Models", "url": "https://arxiv.org/html/2604.01622", "snippet": ""},
+            {"title": "[2505.00315] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/abs/2505.00315", "snippet": ""},
+            {"title": "Improving MoE Compute Efficiency by Composing Weight and Data Sparsity", "url": "https://arxiv.org/pdf/2601.15370", "snippet": ""},
+            {"title": "[2202.09368] Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/abs/2202.09368", "snippet": ""},
+            {"title": "Unified Sparse Mixture of Experts", "url": "https://arxiv.org/html/2503.22996", "snippet": ""}
           ]
         },
         {
           "n": 5,
-          "query": "sparsity-gated gradient signal route updates high-salience directions top-k coordinate selection",
+          "query": "Mixture of Attention Heads selecting attention heads per token learned router",
+          "prior_art_probe": false,
           "allowed_domains": null,
           "results": [
-            {"title": "Regularized Top-$k$: A Bayesian Framework for Gradient Sparsification", "url": "https://arxiv.org/pdf/2501.05633", "snippet": ""},
-            {"title": "Rethinking gradient sparsiﬁcation as total error minimization Atal Narayan Sahu", "url": "https://mcanini.github.io/papers/rethink-gs.neurips21.pdf", "snippet": ""},
-            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227", "snippet": ""},
-            {"title": "Understanding Top-k Sparsification in Distributed Deep Learning", "url": "https://arxiv.org/pdf/1911.08772", "snippet": ""},
-            {"title": "Selective Gradient Masking (SGTM) Techniques", "url": "https://www.emergentmind.com/topics/selective-gradient-masking-sgtm", "snippet": ""},
-            {"title": "meProp: Sparsified Back Propagation for Accelerated Deep Learning with   Reduced Overfitting", "url": "https://arxiv.org/pdf/1706.06197", "snippet": ""},
-            {"title": "Novel Gradient Sparsification Algorithm via Bayesian Inference", "url": "https://arxiv.org/pdf/2409.14893", "snippet": ""}
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token | DeepAI", "url": "https://deepai.org/publication/mixture-of-attention-heads-selecting-attention-heads-per-token", "snippet": ""},
+            {"title": "Paper page - Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://huggingface.co/papers/2210.05144", "snippet": ""},
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
+            {"title": "[2210.05144v1] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144v1", "snippet": ""},
+            {"title": "[2210.05144] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144", "snippet": ""},
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token - ACL Anthology", "url": "https://aclanthology.org/2022.emnlp-main.278/", "snippet": ""},
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token | Request PDF", "url": "https://www.researchgate.net/publication/364519380_Mixture_of_Attention_Heads_Selecting_Attention_Heads_Per_Token", "snippet": ""},
+            {"title": "[PDF] Mixture of Attention Heads: Selecting Attention Heads Per Token | Semantic Scholar", "url": "https://www.semanticscholar.org/paper/Mixture-of-Attention-Heads:-Selecting-Attention-Per-Zhang-Shen/3820231d31540ecb05d94c74d959a2f61d3136ea", "snippet": ""},
+            {"title": "Selecting Attention Heads Per Token", "url": "https://aclanthology.org/2022.emnlp-main.278.pdf", "snippet": ""}
           ]
         }
       ]
     },
     {
       "cand_id": "CAND_016_002",
-      "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
+      "niche_name": "Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing",
       "collision_found": false,
-      "collision_reason": "No paper-like source applies GradPower's elementwise sign-power transformation to an agent's evidence-gap/uncertainty signal to sharpen retrieve/reflect/answer routing; the source atoms appear separately (GradPower 2505.24275 for gradients, MemR3 2512.20237 for the evidence-gap router) plus generic RAG calibration work, but the cross-domain sharpening combination is absent.",
+      "collision_reason": "No direct prior art: sigmoid-gated MoE and switch-like single-expert routing exist (e.g. arxiv 2405.13997, 2602.01466, 2505.10860) but are framed around sample efficiency/convergence; no paper-like source transfers transcription-factor ultrasensitivity / sigmoidal binding cooperativity into MoE router gate-steepness for specificity, so the cross-domain niche is not directly anticipated.",
       "reformulations": [
         {
           "n": 1,
-          "query": "power transformation sharpening evidence-gap signal agentic retrieve reflect answer routing",
-          "allowed_domains": null,
+          "query": "ultrasensitive sigmoidal gating mixture-of-experts router gate steepness switch-like expert selection",
+          "prior_art_probe": false,
+          "allowed_domains": ["arxiv.org"],
           "results": [
-            {"title": "FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augmented Generation", "url": "https://arxiv.org/pdf/2510.22344", "snippet": ""},
-            {"title": "MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents", "url": "https://arxiv.org/pdf/2512.20237", "snippet": ""},
-            {"title": "Talk to Right Specialists: Iterative Routing in Multi-agent Systems for Question Answering", "url": "https://arxiv.org/pdf/2501.07813", "snippet": ""},
-            {"title": "[2601.08192] Route, Retrieve, Reflect, Repair: Self-Improving Agentic Framework for Visual Detection and Linguistic Reasoning in Medical Imaging", "url": "https://arxiv.org/abs/2601.08192", "snippet": ""},
-            {"title": "Sharpening Discovery, Surveillance, and Data Management with Agentic AI | Smarsh", "url": "https://www.smarsh.com/blog/thought-leadership/agentic-ai-sharpens-discovery-surveillance-data-management/", "snippet": ""},
-            {"title": "Route, Retrieve, Reflect, Repair: Self-Improving Agentic ...", "url": "https://arxiv.org/pdf/2601.08192", "snippet": ""},
-            {"title": "PRISM: Agentic Retrieval with LLMs for Multi-Hop Question Answering", "url": "https://arxiv.org/pdf/2510.14278", "snippet": ""}
+            {"title": "Neural Inhibition Improves Dynamic Routing and Mixture of Experts", "url": "https://arxiv.org/html/2507.03221", "snippet": ""},
+            {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in Mixture   of Experts", "url": "https://arxiv.org/pdf/2405.13997", "snippet": ""},
+            {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in Mixture of Experts", "url": "https://arxiv.org/html/2405.13997v3", "snippet": ""},
+            {"title": "On the Representation Collapse of Sparse Mixture of Experts", "url": "https://arxiv.org/pdf/2204.09179", "snippet": ""},
+            {"title": "[2602.01466] Rethinking Multinomial Logistic Mixture of Experts with Sigmoid Gating Function", "url": "https://arxiv.org/abs/2602.01466", "snippet": ""},
+            {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "elementwise sharpening operator calibrated routing retrieve reflect answer agent actions",
-          "allowed_domains": ["arxiv.org"],
+          "query": "prior work mixture-of-experts routing inspired by transcription-factor ultrasensitivity sigmoidal binding cooperativity",
+          "prior_art_probe": true,
+          "allowed_domains": null,
           "results": [
-            {"title": "MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents", "url": "https://arxiv.org/pdf/2512.20237", "snippet": ""},
-            {"title": "STeCa: Step-level Trajectory Calibration for LLM Agent Learning", "url": "https://arxiv.org/pdf/2502.14276", "snippet": ""},
-            {"title": "AI Agent Systems: Architectures, Applications, and Evaluation", "url": "https://arxiv.org/html/2601.01743v1", "snippet": ""},
-            {"title": "Evaluate-as-Action: Self-Evaluated Process Rewards for Retrieval-Augmented Agents", "url": "https://arxiv.org/pdf/2603.09203", "snippet": ""},
-            {"title": "Did You Check the Right Pocket? Cost-Sensitive Store Routing for Memory-Augmented Agents", "url": "https://arxiv.org/pdf/2603.15658", "snippet": ""},
-            {"title": "SkillRouter: Skill Routing for LLM Agents at Scale", "url": "https://arxiv.org/html/2603.22455v2", "snippet": ""}
+            {"title": "Ultrasensitive gene regulation by positive feedback loops in nucleosome modification - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2387233/", "snippet": ""},
+            {"title": "Combined multiple transcriptional repression mechanisms generate ultrasensitivity and oscillations | bioRxiv", "url": "https://www.biorxiv.org/content/10.1101/2022.01.19.476033v1.full", "snippet": ""},
+            {"title": "Quantification and potential functional relevance of binding cooperativity of adjacent transcription factors on DNA", "url": "https://www.biorxiv.org/content/10.1101/2024.11.20.624593.full.pdf", "snippet": ""},
+            {"title": "Ultrasensitivity - Wikipedia", "url": "https://en.wikipedia.org/wiki/Ultrasensitivity", "snippet": ""},
+            {"title": "[2507.09754] Explainable AI in Genomics: Transcription Factor Binding Site Prediction with Mixture of Experts", "url": "https://arxiv.org/abs/2507.09754", "snippet": ""},
+            {"title": "Multiple Layers of Cooperativity Regulate Enhanceosome-Responsive RNA Polymerase II Transcription Complex Assembly - PMC", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC84054/", "snippet": ""},
+            {"title": "Single molecule occupancy patterns of transcription factors reveal determinants of cooperative binding *in vivo*", "url": "https://www.biorxiv.org/content/10.1101/2020.06.29.167155.full.pdf", "snippet": ""},
+            {"title": "Combined multiple transcriptional repression mechanisms generate ultrasensitivity and oscillations", "url": "https://www.biorxiv.org/content/10.1101/2022.01.19.476033.full.pdf", "snippet": ""},
+            {"title": "How cells tame noise while maintaining ultrasensitive transcriptional responses", "url": "https://www.biorxiv.org/content/10.1101/2025.06.12.659288.full.pdf", "snippet": ""}
           ]
         },
         {
           "n": 3,
-          "query": "sign-power gradient transformation applied to confidence signal RAG action selection",
-          "allowed_domains": ["arxiv.org"],
+          "query": "existing related work Hill coefficient ultrasensitivity gating neural network expert routing specificity",
+          "prior_art_probe": true,
+          "allowed_domains": null,
           "results": [
-            {"title": "GradPower: Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/html/2505.24275", "snippet": ""},
-            {"title": "Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/pdf/2505.24275", "snippet": ""},
-            {"title": "[2505.24275] GradPower: Powering Gradients for Faster Language Model Pre-Training", "url": "https://arxiv.org/abs/2505.24275", "snippet": ""},
-            {"title": "What if you are not certain? A common computation underlying action selection, reaction time and confidence judgment", "url": "https://www.biorxiv.org/content/10.1101/180281.full.pdf", "snippet": ""},
-            {"title": "Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers", "url": "https://arxiv.org/html/2506.00054v1", "snippet": ""},
-            {"title": "Confidence-Based Response Abstinence: Improving LLM Trustworthiness via Activation-Based Uncertainty Estimation", "url": "https://arxiv.org/pdf/2510.13750", "snippet": ""},
-            {"title": "Causal Evidence that Language Models use Confidence to Drive Behavior", "url": "https://arxiv.org/pdf/2603.22161", "snippet": ""}
+            {"title": "Neural Inhibition Improves Dynamic Routing and Mixture of Experts", "url": "https://arxiv.org/html/2507.03221", "snippet": ""},
+            {"title": "Gating Mechanisms in Modern Neural Architectures | by Adnan Masood, PhD. | Medium", "url": "https://medium.com/@adnanmasood/gating-mechanisms-in-modern-neural-architectures-6f5268412733", "snippet": ""},
+            {"title": "Machine Learning with Expert Models: A Primer", "url": "https://mlfrontiers.substack.com/p/machine-learning-with-expert-models", "snippet": ""},
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://research.google/blog/mixture-of-experts-with-expert-choice-routing/?m=1", "snippet": ""},
+            {"title": "Understanding Mixture of Experts (MoE) Neural Networks | IntuitionLabs", "url": "https://intuitionlabs.ai/articles/mixture-of-experts-moe-models", "snippet": ""},
+            {"title": "Ultrasensitivity - Wikipedia", "url": "https://en.wikipedia.org/wiki/Ultrasensitivity", "snippet": ""},
+            {"title": "Bounds on the Ultrasensitivity of Biochemical Reaction Cascades", "url": "https://www.biorxiv.org/content/10.1101/2023.02.28.529800.full.pdf", "snippet": ""},
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/pdf/2202.09368", "snippet": ""}
           ]
         },
         {
           "n": 4,
-          "query": "global evidence-gap tracker calibration sharpening early stopping retrieval agent",
-          "allowed_domains": null,
+          "query": "already been studied steepness-controlled sigmoid gate transforming soft mixture into switch-like single-expert routing specificity tasks",
+          "prior_art_probe": true,
+          "allowed_domains": ["arxiv.org", "openreview.net"],
           "results": [
-            {"title": "MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents", "url": "https://arxiv.org/pdf/2512.20237", "snippet": ""},
-            {"title": "BEYOND RETRIEVAL: GENERATIVE EVIDENCE CALIBRATION FOR ANSWER-UTILITY SEARCH | OpenReview", "url": "https://openreview.net/forum?id=PX1EsE9Hut", "snippet": ""},
-            {"title": "EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory", "url": "https://arxiv.org/html/2604.27695v1", "snippet": ""},
-            {"title": "GitHub - VoltAgent/awesome-ai-agent-papers: A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows, and autonomous systems. · GitHub", "url": "https://github.com/VoltAgent/awesome-ai-agent-papers", "snippet": ""},
-            {"title": "Early Time Classification with Accumulated Accuracy Gap Control", "url": "https://arxiv.org/pdf/2402.00857", "snippet": ""},
-            {"title": "S2G-RAG: Structured Sufficiency and Gap Judging for Iterative Retrieval-Augmented QA", "url": "https://arxiv.org/html/2604.23783", "snippet": ""},
-            {"title": "DeepResearch-Slice: Bridging the Retrieval-Utilization Gap via Explicit Text Slicing", "url": "https://arxiv.org/pdf/2601.03261", "snippet": ""}
+            {"title": "ST-MOE: DESIGNING STABLE AND TRANSFERABLE SPARSE EXPERT MODELS Barret Zoph∗", "url": "https://arxiv.org/pdf/2202.08906", "snippet": ""},
+            {"title": "Gated Attention for Large Language Models: Non-linearity, ...", "url": "https://arxiv.org/pdf/2505.06708", "snippet": ""},
+            {"title": "Journal of Machine Learning Research 23 (2022) 1-40", "url": "https://arxiv.org/pdf/2101.03961", "snippet": ""},
+            {"title": "SMILE: Scaling Mixture-of-Experts with Efficient Bi-level Routing", "url": "https://arxiv.org/pdf/2212.05191", "snippet": ""},
+            {"title": "Switch-Hurdle: A MoE Encoder with AR Hurdle Decoder for Intermittent Demand Forecasting", "url": "https://arxiv.org/html/2602.22685", "snippet": ""},
+            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227", "snippet": ""},
+            {"title": "Revisiting Single-gated Mixtures of Experts", "url": "https://arxiv.org/pdf/2304.05497", "snippet": ""},
+            {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in Mixture   of Experts", "url": "https://arxiv.org/pdf/2405.13997", "snippet": ""},
+            {"title": "On DeepSeekMoE: Statistical Benefits of Shared Experts and Normalized Sigmoid Gating", "url": "https://arxiv.org/pdf/2505.10860", "snippet": ""}
           ]
         },
         {
           "n": 5,
-          "query": "nonlinear power scaling uncertainty signal regulate retrieve reflect answer without changing policy",
+          "query": "biology-inspired ultrasensitivity sigmoidal threshold gating deep learning mixture of experts IRF DNA transcription",
+          "prior_art_probe": false,
           "allowed_domains": null,
           "results": [
-            {"title": "On Scaling Robust Feedback Control and State Estimation Problems in   Power Networks", "url": "https://arxiv.org/pdf/2311.17836", "snippet": ""},
-            {"title": "Standard multiscale entropy reflects neural dynamics at mismatched temporal scales: What’s signal irregularity got to do with it?", "url": "https://www.biorxiv.org/content/10.1101/752808.full.pdf", "snippet": ""},
-            {"title": "Efficient estimation of the probability of small-disturbance instability of large uncertain power systems | Request PDF", "url": "https://www.researchgate.net/publication/310455607_Efficient_estimation_of_the_probability_of_small-disturbance_instability_of_large_uncertain_power_systems", "snippet": ""},
-            {"title": "[1908.03133] Demystifying the Power Scaling Law of Intelligent Reflecting Surfaces and Metasurfaces", "url": "https://arxiv.org/abs/1908.03133", "snippet": ""},
-            {"title": "Alteration of Power Law Scaling of Spontaneous Brain Activity in Schizophrenia", "url": "https://www.biorxiv.org/content/10.1101/2020.02.13.946657.full.pdf", "snippet": ""},
-            {"title": "Scaling properties of signals as origin of 1/f noise", "url": "https://arxiv.org/pdf/1402.2523", "snippet": ""},
-            {"title": "Non-linear adaptive control system and method for welding", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8963045", "snippet": ""},
-            {"title": "Monitoring of nonlinear effects", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/6128111", "snippet": ""}
+            {"title": "Ultrasensitive gene regulation by positive feedback loops in nucleosome modification - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2387233/", "snippet": ""},
+            {"title": "More Experts Than Galaxies: Conditionally-overlapping Experts With   Biologically-Inspired Fixed Routing", "url": "https://arxiv.org/pdf/2410.08003", "snippet": ""},
+            {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in Mixture   of Experts", "url": "https://arxiv.org/pdf/2405.13997", "snippet": ""},
+            {"title": "Learning Factored Representations in a Deep Mixture of Experts", "url": "https://arxiv.org/pdf/1312.4314", "snippet": ""},
+            {"title": "Rethinking Multinomial Logistic Mixture of Experts with Sigmoid Gating Function", "url": "https://arxiv.org/pdf/2602.01466", "snippet": ""}
           ]
         }
       ]
     },
     {
       "cand_id": "CAND_016_003",
-      "niche_name": "Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention",
+      "niche_name": "Expert-Choice Routing Models of Ultrasensitive Transcription-Factor Specificity",
       "collision_found": false,
-      "collision_reason": "No paper-like source jointly learns MoSA-style expert-choice attention-head token routing together with an agentic evidence-gap retrieve/reflect/answer action router; MoSA (2505.00315) and the original Expert Choice Routing (2202.09368) appear as the isolated source/precursor mechanisms, but co-optimizing sparse attention patterns with a global evidence-gap action router is not described.",
+      "collision_reason": "No direct prior art: the biology source (interferon-beta enhancer sigmoidal IRF-DNA ultrasensitivity, e.g. Schiffman et al. PNAS 2025 / biorxiv 2025.02.04.636520) uses biophysical Hill-coefficient models, and ML genomics uses attention/transformers for TFBS prediction, but no paper-like source repurposes MoSA-style expert-choice token routing to model promoter-specific ultrasensitive TF activation, so the cross-domain niche is not directly anticipated.",
       "reformulations": [
         {
           "n": 1,
-          "query": "expert-choice sparse attention head routing jointly learned with agentic action router evidence-gap",
-          "allowed_domains": ["arxiv.org"],
+          "query": "expert-choice routing model transcription-factor binding specificity ultrasensitive IRF DNA promoter prediction",
+          "prior_art_probe": false,
+          "allowed_domains": ["arxiv.org", "biorxiv.org", "ncbi.nlm.nih.gov"],
           "results": [
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention   via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315", "snippet": ""},
-            {"title": "[2505.00315] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/abs/2505.00315", "snippet": ""},
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
-            {"title": "Yuan 2.0-M32: Mixture of Experts with Attention Router", "url": "https://arxiv.org/pdf/2405.17976", "snippet": ""},
-            {"title": "Omni-Router: Sharing Routing Decisions in Sparse Mixture-of-Experts for Speech Recognition", "url": "https://arxiv.org/html/2507.05724v2", "snippet": ""}
+            {"title": "Predicting the DNA binding specificity of mutated transcription factors", "url": "https://www.biorxiv.org/content/10.1101/2024.01.24.577115v1.full.pdf", "snippet": ""},
+            {"title": "Computational prediction of transcription-factor binding site locations - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC395725/", "snippet": ""},
+            {"title": "Accurate prediction of cell type-specific transcription factor binding", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6327544/", "snippet": ""},
+            {"title": "Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10827174/", "snippet": ""},
+            {"title": "Predicting Transcription Factor Specificity with All-Atom Models", "url": "https://arxiv.org/pdf/0809.4080", "snippet": ""},
+            {"title": "DNA sequence correlations shape nonspecific transcription factor-DNA   binding affinity", "url": "https://arxiv.org/pdf/1111.2998", "snippet": ""},
+            {"title": "Quantitative integration of epigenomic variation and transcription factor binding using MAmotif toolkit identifies an important role of IRF2 as transcription activator at gene promoters", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6037672/", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "MoSA mixture of sparse attention expert choice token selection agent reasoning retrieve reflect answer",
+          "query": "prior work mixture-of-experts attention routing predict promoter-specific ultrasensitive transcription factor activation",
+          "prior_art_probe": true,
           "allowed_domains": null,
           "results": [
-            {"title": "Paper page - Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://huggingface.co/papers/2505.00315", "snippet": ""},
-            {"title": "[2505.00315] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/abs/2505.00315", "snippet": ""},
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention   via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315", "snippet": ""},
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing - Consensus", "url": "https://www.consensus.app/papers/details/71e0f79b069d5d5981e1fe2281e3c67e/", "snippet": ""},
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
-            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing | AI Research Paper Details", "url": "https://www.aimodels.fyi/papers/arxiv/mixture-sparse-attention-content-based-learnable-sparse", "snippet": ""},
-            {"title": "[Literature Review] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://www.themoonlight.io/en/review/mixture-of-sparse-attention-content-based-learnable-sparse-attention-via-expert-choice-routing", "snippet": ""},
-            {"title": "(PDF) Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://www.researchgate.net/publication/391369365_Mixture_of_Sparse_Attention_Content-Based_Learnable_Sparse_Attention_via_Expert-Choice_Routing", "snippet": ""},
-            {"title": "GitHub - piotrpiekos/MoSA: User-friendly implementation of the Mixture-of-Sparse-Attention (MoSA). MoSA selects distinct tokens for each head with expert choice routing providing a content-based sparse attention mechanism. · GitHub", "url": "https://github.com/piotrpiekos/MoSA", "snippet": ""},
-            {"title": "Daily Papers - Hugging Face", "url": "https://huggingface.co/papers?q=Mixture+of+Sparse+Attention+(MoSA)", "snippet": ""}
+            {"title": "Yuan 2.0-M32: Mixture of Experts with Attention Router", "url": "https://arxiv.org/pdf/2405.17976", "snippet": ""},
+            {"title": "Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.", "url": "https://cameronrwolfe.substack.com/p/moe-llms", "snippet": ""},
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
+            {"title": "Attention Is All You Need For Mixture-of-Depths Routing", "url": "https://arxiv.org/pdf/2412.20875", "snippet": ""},
+            {"title": "Systems and methods for routing within multitask mixture-of-experts models", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12242948", "snippet": ""},
+            {"title": "Enhancing the interpretability of transcription factor binding site prediction using attention mechanism | Scientific Reports", "url": "https://www.nature.com/articles/s41598-020-70218-4", "snippet": ""}
           ]
         },
         {
           "n": 3,
-          "query": "co-optimize sparse attention patterns and evidence-gap tracker action selection answer quality",
-          "allowed_domains": ["arxiv.org"],
+          "query": "existing models IRF NFkB cooperativity versus sigmoidal IRF-DNA binding gene-specific ultrasensitivity machine learning",
+          "prior_art_probe": true,
+          "allowed_domains": null,
           "results": [
-            {"title": "Dissociable neural mechanisms track evidence accumulation for selection of attention versus action", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6021379/", "snippet": ""},
-            {"title": "SpecAttn: Speculating Sparse Attention", "url": "https://arxiv.org/pdf/2510.27641", "snippet": ""},
-            {"title": "Sparse Attention Remapping with Clustering for Efficient LLM Decoding on PIM", "url": "https://arxiv.org/pdf/2505.05772", "snippet": ""},
-            {"title": "Less Is More: Training-Free Sparse Attention with Global Locality for Efficient Reasoning", "url": "https://arxiv.org/pdf/2508.07101", "snippet": ""},
-            {"title": "Shared attention for action selection and action monitoring in goal-directed reaching", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7040085/", "snippet": ""},
-            {"title": "Self-Tuning Sparse Attention: Multi-Fidelity Hyperparameter Optimization for Transformer Acceleration", "url": "https://arxiv.org/pdf/2603.18417", "snippet": ""},
-            {"title": "FlexPrefill: A Context-Aware Sparse Attention Mechanism for Efficient   Long-Sequence Inference", "url": "https://arxiv.org/pdf/2502.20766", "snippet": ""}
+            {"title": "Gene regulatory logic of the interferon-β enhancer is ...", "url": "https://www.signalingsystems.ucla.edu/pubs/Schiffman_et_al_PNAS_2025.pdf", "snippet": ""},
+            {"title": "Gene regulatory logic of the interferon-β enhancer is characterized by two selectively deployed modes of transcription factor synergy", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12377728/", "snippet": ""},
+            {"title": "Gene regulatory logic of the interferon-β enhancer contains multiple selectively deployed modes of transcription factor synergy", "url": "https://www.biorxiv.org/content/10.1101/2025.02.04.636520.full.pdf", "snippet": ""},
+            {"title": "Genome reading by the NF-κB transcription factors | Nucleic Acids Research | Oxford Academic", "url": "https://academic.oup.com/nar/article/47/19/9967/5566586", "snippet": ""},
+            {"title": "Bifurcation of signalling in human innate immune pathways to NF-kB and IRF family activation - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S0006295222003409", "snippet": ""},
+            {"title": "Quantification and potential functional relevance of binding cooperativity of adjacent transcription factors on DNA", "url": "https://www.biorxiv.org/content/10.1101/2024.11.20.624593.full.pdf", "snippet": ""}
           ]
         },
         {
           "n": 4,
-          "query": "routing inference compute toward informative actions sparse attention agent retrieval reasoning joint training",
-          "allowed_domains": ["arxiv.org"],
+          "query": "survey deep learning attention routing as mechanistic model gene regulatory specificity interferon enhancer transcription",
+          "prior_art_probe": true,
+          "allowed_domains": ["arxiv.org", "biorxiv.org", "pnas.org", "ncbi.nlm.nih.gov"],
           "results": [
-            {"title": "Towards Generalized Routing: Model and Agent Orchestration for Adaptive and Efficient Inference", "url": "https://arxiv.org/html/2509.07571v1", "snippet": ""},
-            {"title": "Learning to Retrieve from Agent Trajectories", "url": "https://arxiv.org/html/2604.04949v1", "snippet": ""},
-            {"title": "Parametrized Multi-Agent Routing via Deep Attention Models", "url": "https://arxiv.org/html/2507.22338v1", "snippet": ""},
-            {"title": "Learning to Route: A Rule-Driven Agent Framework for", "url": "https://arxiv.org/pdf/2510.02388", "snippet": ""},
-            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227", "snippet": ""},
-            {"title": "Learning to Route: A Rule-Driven Agent Framework for Hybrid-Source Retrieval-Augmented Generation", "url": "https://arxiv.org/html/2510.02388v1", "snippet": ""},
-            {"title": "Flux Attention: Context-Aware Hybrid Attention for Efficient LLMs Inference", "url": "https://arxiv.org/pdf/2604.07394", "snippet": ""},
-            {"title": "SeerAttention-R: Sparse Attention Adaptation for Long Reasoning", "url": "https://arxiv.org/pdf/2506.08889", "snippet": ""},
-            {"title": "Reasoning RAG via System 1 or System 2: A Survey on Reasoning Agentic Retrieval-Augmented Generation for Industry Challenges", "url": "https://arxiv.org/html/2506.10408v1", "snippet": ""}
+            {"title": "An Efficient Lightweight Hybrid Model with Attention Mechanism for Enhancer Sequence Recognition", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9855522/", "snippet": ""},
+            {"title": "Deep learning for regulatory genomics: a survey of models, challenges, and applications - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12947584/", "snippet": ""},
+            {"title": "EPInformer: a scalable deep learning framework for gene expression prediction by integrating promoter-enhancer sequences with multimodal epigenomic data - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11312614/", "snippet": ""},
+            {"title": "Learning Cell-Type-Specific Gene Regulation Mechanisms by Multi-Attention Based Deep Learning With Regulatory Latent Space", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7561362/", "snippet": ""},
+            {"title": "Modeling Enhancer-Promoter Interactions with Attention-Based Neural Networks", "url": "https://www.biorxiv.org/content/10.1101/219667.full.pdf", "snippet": ""},
+            {"title": "Attention-Guided Probabilistic Diffusion Model for Generating Cell-Type-Specific Gene Regulatory Networks from Gene Expression Profiles", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12651998/", "snippet": ""},
+            {"title": "Machine Learning Methods for Gene Regulatory Network Inference", "url": "https://arxiv.org/pdf/2504.12610", "snippet": ""}
           ]
         },
         {
           "n": 5,
-          "query": "expert-choice routing unify attention head selection and agent action selection single mechanism",
+          "query": "content-based sparse attention head token selection analogy transcription factor input selection promoter specificity",
+          "prior_art_probe": false,
           "allowed_domains": null,
           "results": [
-            {"title": "Expert-choice Routing", "url": "https://www.emergentmind.com/topics/expert-choice-routing-c8a2405f-ee5d-47d2-9cc6-b49b92c01903", "snippet": ""},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention   via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315", "snippet": ""},
             {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1", "snippet": ""},
-            {"title": "Expert Choice Routers", "url": "https://www.emergentmind.com/topics/expert-choice-routers", "snippet": ""},
-            {"title": "[2505.00315] Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/abs/2505.00315", "snippet": ""},
-            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/pdf/2202.09368", "snippet": ""},
-            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://papers.neurips.cc/paper_files/paper/2022/file/2f00ecd787b432c1d36f3de9800728eb-Paper-Conference.pdf", "snippet": ""},
-            {"title": "One Head, Many Models: Cross-Attention Routing for Cost-Aware LLM Selection", "url": "https://arxiv.org/pdf/2509.09782", "snippet": ""},
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
-            {"title": "Applying Mixture of Experts in LLM Architectures | NVIDIA Technical Blog", "url": "https://developer.nvidia.com/blog/applying-mixture-of-experts-in-llm-architectures/", "snippet": ""}
+            {"title": "Token Sparse Attention: Efficient Long-Context Inference with Interleaved Token Selection", "url": "https://arxiv.org/pdf/2602.03216", "snippet": ""},
+            {"title": "Less Is More: Training-Free Sparse Attention with Global Locality for Efficient Reasoning", "url": "https://arxiv.org/pdf/2508.07101", "snippet": ""},
+            {"title": "[2602.03216] Token Sparse Attention: Efficient Long-Context Inference with Interleaved Token Selection", "url": "https://arxiv.org/abs/2602.03216", "snippet": ""},
+            {"title": "Token Sparse Attention: Efficient Long-Context Inference with Interleaved Token Selection", "url": "https://arxiv.org/html/2602.03216v1", "snippet": ""}
           ]
         }
       ]
