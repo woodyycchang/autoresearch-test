@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_016",
+  "description": "Epoch-wise parameter-improving niche pipeline. A persistent direction_params.json encodes 'how to search/phrase well'; each epoch a human labels which search directions were on_target vs diverge, and the MAIN orchestrator nudges the params toward the on_target profile. Per-epoch success = measurable search-quality improvement (R12); niche-finding is the long-run goal. 5 sequential subagents (sourcer -> merger -> verifier -> cross-checker -> search-quality scorer) + MAIN. Builds on the proven Run 15 loop.",
+  "builds_on": ["paradigm_shift/runs/run_015"],
+  "branch": "claude/run-16",
+  "scope": {"candidates_per_epoch": 3, "atoms": 3, "epochs": "multiple (1 per session)", "model": "opus"},
+  "agents": [
+    {"n": 1, "role": "sourcer", "output": "logs/atoms.json", "records": "queries_used + 3 atoms"},
+    {"n": 2, "role": "merger", "output": "logs/candidates.json", "runs": "run16_merge.py"},
+    {"n": 3, "role": "verifier", "output": "logs/verify.json", "records": "5 reformulations/candidate"},
+    {"n": 4, "role": "cross-checker", "output": "logs/crosscheck.json", "records": "2 fresh re-searches/candidate"},
+    {"n": 5, "role": "search-quality scorer", "output": "logs/search_quality.json", "runs": "run16_scorer.py"}
+  ],
+  "merge_schema": {"fields": ["mechanism", "transfer", "open_problem", "niche_name", "primary_quote", "quote_source"],
+                   "primary_quote": "verbatim >=30-char substring of atom_a or atom_b text"},
+  "opus_subprocess": {
+    "binary": "claude",
+    "args": ["-p", "--model", "opus", "--output-format", "json"],
+    "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"],
+    "run_in_nongit_tempdir": true, "timeout_seconds": 240, "retry_on_parse_fail": 1
+  },
+  "gates": {"gate_1_composite_threshold": 0.90, "gate_3_source": "verify (collision) fused with crosscheck (mismatch)"},
+  "param_update": {
+    "learning_rate": 0.2,
+    "rule": "for each search-quality param, nudge by lr*(mean dim-score of on_target labeled queries - mean dim-score of diverge labeled queries), clamped [0.05,0.95]. No labels => no change (baseline epoch).",
+    "metric": "avg_search_quality = sum(param_k * dimension_mean_k)/sum(param_k); delta vs previous epoch is the per-epoch success signal (R12)."
+  },
+  "hard_rules": {
+    "R1": "agents sequential, each commits+pushes before next (branch claude/run-16)",
+    "R2": "push after every agent; if push fails -> STOP+report",
+    "R3": "Opus subprocess in non-git tempdir",
+    "R4": "force raw JSON, 1 retry",
+    "R5": "record ONLY web_search results actually seen",
+    "R6": "[REPORT] verbatim raw",
+    "R7": "AGENT 4 independently re-verifies AGENT 3",
+    "R8": "no .claude/settings.json activation",
+    "R9": "direction_params.json persists across epochs (read at start, write at end)",
+    "R10": "track avg_search_quality per epoch in epoch_history",
+    "R11": "if session long -> commit partial + report",
+    "R12": "per-epoch success = search_quality improvement (not niche); report delta honestly"
+  }
+}
