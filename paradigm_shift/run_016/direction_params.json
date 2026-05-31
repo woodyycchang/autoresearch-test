@@ -1,6 +1,6 @@
 {
-  "epoch": 2,
-  "scored_epoch": 1,
+  "epoch": 3,
+  "scored_epoch": 2,
   "search_quality_params": {
     "reformulation_specificity": 0.5428,
     "mechanism_focus": 0.5067,
@@ -21,54 +21,20 @@
         "atom_source_diversity": 0.5,
         "collision_avoidance_phrasing": 0.5
       }
+    },
+    {
+      "epoch": 2,
+      "avg_search_quality": 0.5967,
+      "n_labels_applied": 0,
+      "params_snapshot": {
+        "reformulation_specificity": 0.5428,
+        "mechanism_focus": 0.5067,
+        "cross_domain_reach": 0.5,
+        "atom_source_diversity": 0.5,
+        "collision_avoidance_phrasing": 0.5
+      }
     }
   ],
   "param_nudges_last_update": {},
-  "updated_at": "2026-05-31T22:14:58.061615+00:00",
-  "flat_dim_bootstrap": {
-    "note": "flat dims bootstrapped by agent-instruction, not label-nudge (cold-start fix)",
-    "for_epoch": 2,
-    "agent1_rule": ">=1 of 3 atoms MUST be from a non-ML domain (biology/physics/economics/linguistics) -> forces cross_domain_reach > 0",
-    "agent3_rule": ">=2 of 5 reformulations per candidate MUST use prior-art-probing phrasing ('has X been applied to Y','prior work combining X and Y') -> forces collision_avoidance > 0"
-  },
-  "labels_for_scored_epoch": 1,
-  "param_nudges_from_labels": {
-    "reformulation_specificity": {
-      "old": 0.5,
-      "new": 0.5428,
-      "on_mean": 0.8077,
-      "div_mean": 0.5938,
-      "signal": 0.2139
-    },
-    "mechanism_focus": {
-      "old": 0.5,
-      "new": 0.5067,
-      "on_mean": 0.8462,
-      "div_mean": 0.8125,
-      "signal": 0.0337
-    }
-  },
-  "applied_labels_log": [
-    {
-      "applied_for_scored_epoch": 1,
-      "n_labels": 21,
-      "nudges": {
-        "reformulation_specificity": {
-          "old": 0.5,
-          "new": 0.5428,
-          "on_mean": 0.8077,
-          "div_mean": 0.5938,
-          "signal": 0.2139
-        },
-        "mechanism_focus": {
-          "old": 0.5,
-          "new": 0.5067,
-          "on_mean": 0.8462,
-          "div_mean": 0.8125,
-          "signal": 0.0337
-        }
-      },
-      "applied_at": "2026-05-31T22:55:55.084536+00:00"
-    }
-  ]
+  "updated_at": "2026-05-31T23:21:13.784905+00:00"
 }

@@ -1,7 +1,7 @@
 [
   {
     "cand_id": "CAND_016_001",
-    "niche_name": "Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification",
+    "niche_name": "Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads",
     "composite": 0.45,
     "composite_params": {
       "novelty": 0.0,
@@ -19,29 +19,30 @@
       "quarantine_hits": []
     },
     "gate_3_verify": {
-      "pass": true,
+      "pass": false,
       "n_reformulations": 5,
       "required": 5,
-      "verifier_collision": false,
+      "verifier_collision": true,
       "crosscheck_overturned": false
     },
     "gate_4_belinda": {
       "pass": true,
       "mechanism_verbs": [
-        "transforms"
+        "produces"
       ],
-      "quote_len": 66,
+      "quote_len": 69,
       "quote_grounded": true,
-      "quote_source_id": "ARXIV_R16_A02"
+      "quote_source_id": "ATOM_R16E2_01"
     },
     "survived": false,
     "gates_failed": [
-      "gate_1_composite"
+      "gate_1_composite",
+      "gate_3_verify"
     ]
   },
   {
     "cand_id": "CAND_016_002",
-    "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
+    "niche_name": "Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing",
     "composite": 0.45,
     "composite_params": {
       "novelty": 0.0,
@@ -68,12 +69,13 @@
     "gate_4_belinda": {
       "pass": true,
       "mechanism_verbs": [
-        "activates",
-        "transforms"
+        "induces",
+        "produces",
+        "regulates"
       ],
-      "quote_len": 81,
+      "quote_len": 104,
       "quote_grounded": true,
-      "quote_source_id": "ARXIV_R16_A02"
+      "quote_source_id": "ATOM_R16E2_02"
     },
     "survived": false,
     "gates_failed": [
@@ -82,17 +84,17 @@
   },
   {
     "cand_id": "CAND_016_003",
-    "niche_name": "Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention",
-    "composite": 0.45,
+    "niche_name": "Expert-Choice Routing Models of Ultrasensitive Transcription-Factor Specificity",
+    "composite": 0.25,
     "composite_params": {
       "novelty": 0.0,
-      "mechanism_present": 1.0,
+      "mechanism_present": 0.0,
       "quote_grounded": 1.0,
       "cross_atom": 1.0
     },
     "gate_1_composite": {
       "pass": false,
-      "composite": 0.45,
+      "composite": 0.25,
       "threshold": 0.9
     },
     "gate_2_quarantine": {
@@ -107,18 +109,16 @@
       "crosscheck_overturned": false
     },
     "gate_4_belinda": {
-      "pass": true,
-      "mechanism_verbs": [
-        "activates",
-        "produces"
-      ],
-      "quote_len": 96,
+      "pass": false,
+      "mechanism_verbs": [],
+      "quote_len": 69,
       "quote_grounded": true,
-      "quote_source_id": "ARXIV_R16_A01"
+      "quote_source_id": "ATOM_R16E2_01"
     },
     "survived": false,
     "gates_failed": [
-      "gate_1_composite"
+      "gate_1_composite",
+      "gate_4_belinda"
     ]
   }
 ]
