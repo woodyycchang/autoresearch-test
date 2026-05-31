@@ -1,0 +1,76 @@
+{
+  "run_id": "run_015",
+  "agent": "4_crosschecker",
+  "crosschecked_at": "2026-05-31T12:07:43Z",
+  "verbatim_note": "All titles/urls are from AGENT 4's OWN real WebSearch results; independent of AGENT 3; no fabrication.",
+  "candidates": [
+    {
+      "cand_id": "CAND_015_001",
+      "agent3_collision_found": false,
+      "agent4_collision": true,
+      "mismatch_with_agent3": true,
+      "notes": "MISMATCH: my fresh searches surfaced a direct collision. 'ACCessory: password inference using accelerometers on smartphones' (Owusu et al., HotMobile '12, https://dl.acm.org/doi/10.1145/2162081.2162095) uses the same-device accelerometer (a permissionless sensor) to infer text typed on the phone's own soft keyboard via machine learning. TapLogger (https://dl.acm.org/doi/10.1145/2185448.2185465) does the same for touchscreen taps. These match the candidate's core idea, so AGENT 3's 'no collision' is wrong.",
+      "recheck_searches": [
+        {
+          "n": 1,
+          "query": "inferring smartphone touchscreen input from on-board accelerometer vibrations deep learning",
+          "allowed_domains": null,
+          "results": [
+            {"title": "TapLogger: inferring user inputs on smartphone touchscreens using on-board motion sensors", "url": "https://dl.acm.org/doi/10.1145/2185448.2185465", "snippet": ""},
+            {"title": "ACCessory: password inference using accelerometers on smartphones", "url": "https://dl.acm.org/doi/10.1145/2162081.2162095", "snippet": ""}
+          ]
+        },
+        {
+          "n": 2,
+          "query": "ACCessory password inference using accelerometers on smartphones touchscreen",
+          "allowed_domains": null,
+          "results": [
+            {"title": "ACCessory: password inference using accelerometers on smartphones", "url": "https://dl.acm.org/doi/10.1145/2162081.2162095", "snippet": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "cand_id": "CAND_015_002",
+      "agent3_collision_found": false,
+      "agent4_collision": false,
+      "mismatch_with_agent3": false,
+      "notes": "CONFIRMS AGENT 3: my two fresh searches found no paper casting crop-row localization as differentiable-renderer analysis-by-synthesis with a parametric periodic row model fit by gradient descent for label-free sub-pixel accuracy. Existing work is Hough transform, supervised segmentation, or Fourier/frequency analysis. No paper-like result with a matching title appeared.",
+      "recheck_searches": [
+        {
+          "n": 1,
+          "query": "analysis-by-synthesis differentiable renderer crop row detection self-supervised aerial imagery",
+          "allowed_domains": null,
+          "results": []
+        },
+        {
+          "n": 2,
+          "query": "parametric periodic row model gradient descent sub-pixel localization vineyard UAV without labels",
+          "allowed_domains": null,
+          "results": []
+        }
+      ]
+    },
+    {
+      "cand_id": "CAND_015_003",
+      "agent3_collision_found": false,
+      "agent4_collision": false,
+      "mismatch_with_agent3": false,
+      "notes": "CONFIRMS AGENT 3: my two fresh searches found no paper that switches quantization bit-width in response to real-time SoC/skin temperature for on-device LLM inference. Thermal-aware DVFS and adaptive/mixed-precision quantization exist but are treated separately (DVFS adjusts clock/voltage; quantization is accuracy- or layer-sensitivity-driven, not temperature-driven). No matching paper-like title appeared.",
+      "recheck_searches": [
+        {
+          "n": 1,
+          "query": "temperature-adaptive precision scaling on-device large language model inference sustained throughput throttling",
+          "allowed_domains": null,
+          "results": []
+        },
+        {
+          "n": 2,
+          "query": "thermal feedback dynamic bit-width mixed-precision neural network inference mobile SoC skin temperature control loop",
+          "allowed_domains": null,
+          "results": []
+        }
+      ]
+    }
+  ]
+}
