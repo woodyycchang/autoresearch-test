@@ -1,7 +1,7 @@
 {
   "run_id": "run_016",
-  "epoch": 1,
-  "generated_at": "2026-05-31T22:03:25.880491+00:00",
+  "epoch": 2,
+  "generated_at": "2026-05-31T23:03:49.381023+00:00",
   "pairs": [
     [
       0,
@@ -19,51 +19,51 @@
   "candidates": [
     {
       "cand_id": "CAND_016_001",
-      "atom_a_id": "ARXIV_R16_A01",
-      "atom_b_id": "ARXIV_R16_A02",
-      "niche_name": "Expert-Choice Gradient Routing for Optimizer-Agnostic Update Sparsification",
-      "mechanism": "Expert-choice routing transforms the gradient vector by dynamically selecting and amplifying its most informative coordinates per parameter group, producing a sparsity-gated gradient signal that routes optimizer updates toward high-salience directions while leaving the base optimizer unchanged.",
-      "transfer": "The expert-choice dynamic token-selection routing from MoSA attention transfers to GradPower's elementwise gradient transformation, becoming a learned per-coordinate gradient router.",
-      "open_problem": "Can expert-choice routing applied to gradient coordinates yield an optimizer-agnostic elementwise transformation that accelerates convergence without altering the base optimizer?",
-      "primary_quote": "applies a simple elementwise transformation to the gradient vector",
-      "quote_source": "atom_b",
+      "atom_a_id": "ATOM_R16E2_01",
+      "atom_b_id": "ATOM_R16E2_02",
+      "niche_name": "Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads",
+      "mechanism": "MoSA routes distinct tokens to each attention head via expert-choice routing, and a learned router computes a distribution over heads-as-experts that assigns each input token to a small subset, which produces content-based sparse attention with token-level load balancing.",
+      "transfer": "The expert-choice token-selection mechanism from A is transferred to B's learned router-over-experts framework so per-head attention experts are populated by a learned token-to-expert distribution.",
+      "open_problem": "Does replacing MoSA's expert-choice head routing with a learned token-choice router over attention-head experts improve quality-vs-sparsity trade-offs without incurring token-dropping load imbalance?",
+      "primary_quote": "MoSA selects distinct tokens for each head with expert choice routing",
+      "quote_source": "atom_a",
       "quote_verified_substring": true,
       "parse_ok": true,
       "attempts": 1,
-      "opus_session_id": "1931c20c-c689-4912-a24b-03c71b14ed8a",
-      "opus_cost_usd": 0.035110749999999996
+      "opus_session_id": "71e598cd-79aa-487f-ad25-b415c114b783",
+      "opus_cost_usd": 0.03643825
     },
     {
       "cand_id": "CAND_016_002",
-      "atom_a_id": "ARXIV_R16_A02",
-      "atom_b_id": "ARXIV_R16_A03",
-      "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
-      "mechanism": "GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.",
-      "transfer": "The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.",
-      "open_problem": "Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?",
-      "primary_quote": "enhancing its informativeness while leaving the base optimizer entirely unchanged",
+      "atom_a_id": "ATOM_R16E2_02",
+      "atom_b_id": "ATOM_R16E2_03",
+      "niche_name": "Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing",
+      "mechanism": "A learned router computes a sigmoidal (ultrasensitive) gating distribution that routes input tokens to experts, where sharp thresholding rather than cooperative expert co-activation produces input specificity. This induces a regime in which gate steepness regulates how decisively tokens are assigned, transforming soft mixtures into ultrasensitive switch-like expert selection.",
+      "transfer": "The ultrasensitivity-via-sigmoidal-binding principle from IRF\u2013DNA regulation transfers to A as a steepness-controlled routing mechanism that distinguishes sharp single-expert switching from cooperative multi-expert blending.",
+      "open_problem": "Does increasing the sigmoidal steepness of an MoE router's gating function produce ultrasensitive token-to-expert specialization that outperforms cooperative soft routing on specificity-sensitive tasks?",
+      "primary_quote": "A learned router computes a distribution over these experts, and assigns input tokens to a small subset.",
       "quote_source": "atom_a",
       "quote_verified_substring": true,
       "parse_ok": true,
       "attempts": 1,
-      "opus_session_id": "04470e40-5bb0-40ef-a2df-488523cb4a49",
-      "opus_cost_usd": 0.03514425
+      "opus_session_id": "384965ac-c452-456f-a8c9-8d5a3589c43b",
+      "opus_cost_usd": 0.038758749999999995
     },
     {
       "cand_id": "CAND_016_003",
-      "atom_a_id": "ARXIV_R16_A01",
-      "atom_b_id": "ARXIV_R16_A03",
-      "niche_name": "Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention",
-      "mechanism": "Expert-choice routing from MoSA dynamically selects which tokens each attention head attends to, and transferring this principle to agentic reasoning produces a router that activates retrieve, reflect, or answer actions per evidence-gap state, routing inference compute toward the most informative actions.",
-      "transfer": "MoSA's expert-choice dynamic token-to-head routing transfers to atom B as the action router that selects retrieve/reflect/answer steps over an explicit evidence-gap state.",
-      "open_problem": "Can expert-choice attention-head routing be learned jointly with an action router so that sparse attention patterns and a global evidence-gap tracker co-optimize answer quality?",
-      "primary_quote": "dynamically selects tokens for each attention head, allowing arbitrary sparse attention patterns",
+      "atom_a_id": "ATOM_R16E2_01",
+      "atom_b_id": "ATOM_R16E2_03",
+      "niche_name": "Expert-Choice Routing Models of Ultrasensitive Transcription-Factor Specificity",
+      "mechanism": "Content-based expert-choice routing selects distinct tokens per attention head (as in MoSA), a mechanism repurposed to model how sigmoidal IRF\u2013DNA binding routes transcriptional inputs to produce promoter-specific ultrasensitive activation rather than relying on IRF-NF\u03baB cooperativity.",
+      "transfer": "The per-head expert-choice sparse selection mechanism from A transfers to model the gene-specific input selection that ultrasensitive IRF\u2013DNA binding performs in B.",
+      "open_problem": "Can a learned expert-choice routing model predict which promoters acquire ultrasensitive specificity from sigmoidal IRF\u2013DNA binding versus cooperative IRF-NF\u03baB regulation?",
+      "primary_quote": "MoSA selects distinct tokens for each head with expert choice routing",
       "quote_source": "atom_a",
       "quote_verified_substring": true,
       "parse_ok": true,
       "attempts": 1,
-      "opus_session_id": "bce20d22-cca3-4870-98da-42fe8074c60d",
-      "opus_cost_usd": 0.03599725
+      "opus_session_id": "39d23a8e-a876-4f11-8060-4fd1f854a908",
+      "opus_cost_usd": 0.035844
     }
   ]
 }

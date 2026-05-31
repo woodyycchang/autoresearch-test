@@ -1,15 +1,15 @@
 {
   "cand_id": "CAND_016_002",
-  "atom_a_id": "ARXIV_R16_A02",
-  "atom_b_id": "ARXIV_R16_A03",
+  "atom_a_id": "ATOM_R16E2_02",
+  "atom_b_id": "ATOM_R16E2_03",
   "parse_ok": true,
   "attempts": 1,
   "parsed": {
-    "mechanism": "GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.",
-    "transfer": "The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.",
-    "open_problem": "Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?",
-    "niche_name": "Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing",
-    "primary_quote": "enhancing its informativeness while leaving the base optimizer entirely unchanged",
+    "mechanism": "A learned router computes a sigmoidal (ultrasensitive) gating distribution that routes input tokens to experts, where sharp thresholding rather than cooperative expert co-activation produces input specificity. This induces a regime in which gate steepness regulates how decisively tokens are assigned, transforming soft mixtures into ultrasensitive switch-like expert selection.",
+    "transfer": "The ultrasensitivity-via-sigmoidal-binding principle from IRF\u2013DNA regulation transfers to A as a steepness-controlled routing mechanism that distinguishes sharp single-expert switching from cooperative multi-expert blending.",
+    "open_problem": "Does increasing the sigmoidal steepness of an MoE router's gating function produce ultrasensitive token-to-expert specialization that outperforms cooperative soft routing on specificity-sensitive tasks?",
+    "niche_name": "Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing",
+    "primary_quote": "A learned router computes a distribution over these experts, and assigns input tokens to a small subset.",
     "quote_source": "atom_a"
   },
   "quote_verified_substring": true,
@@ -19,38 +19,38 @@
       "subtype": "success",
       "is_error": false,
       "api_error_status": null,
-      "duration_ms": 8049,
-      "duration_api_ms": 7451,
-      "ttft_ms": 3139,
+      "duration_ms": 10564,
+      "duration_api_ms": 10062,
+      "ttft_ms": 3797,
       "num_turns": 1,
-      "result": "{\"mechanism\": \"GradPower transforms the gradient vector via an elementwise power transformation that enhances its informativeness, and this same enhancement routes a retrieve/reflect/answer agent's evidence-gap signal to regulate which action it activates.\", \"transfer\": \"The elementwise gradient-sharpening transformation from A transfers to B as a sharpening operator applied to the evidence-gap tracker's signal that drives the router's action selection.\", \"open_problem\": \"Can an elementwise power transformation applied to a global evidence-gap signal produce sharper, better-calibrated routing among retrieve, reflect, and answer actions without altering the underlying agent policy?\", \"niche_name\": \"Gradient-Power Sharpening of Evidence-Gap Signals for Agentic Routing\", \"primary_quote\": \"enhancing its informativeness while leaving the base optimizer entirely unchanged\", \"quote_source\": \"atom_a\"}",
+      "result": "{\"mechanism\": \"A learned router computes a sigmoidal (ultrasensitive) gating distribution that routes input tokens to experts, where sharp thresholding rather than cooperative expert co-activation produces input specificity. This induces a regime in which gate steepness regulates how decisively tokens are assigned, transforming soft mixtures into ultrasensitive switch-like expert selection.\", \"transfer\": \"The ultrasensitivity-via-sigmoidal-binding principle from IRF\u2013DNA regulation transfers to A as a steepness-controlled routing mechanism that distinguishes sharp single-expert switching from cooperative multi-expert blending.\", \"open_problem\": \"Does increasing the sigmoidal steepness of an MoE router's gating function produce ultrasensitive token-to-expert specialization that outperforms cooperative soft routing on specificity-sensitive tasks?\", \"niche_name\": \"Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing\", \"primary_quote\": \"A learned router computes a distribution over these experts, and assigns input tokens to a small subset.\", \"quote_source\": \"atom_a\"}",
       "stop_reason": "end_turn",
-      "session_id": "04470e40-5bb0-40ef-a2df-488523cb4a49",
-      "total_cost_usd": 0.03514425,
+      "session_id": "384965ac-c452-456f-a8c9-8d5a3589c43b",
+      "total_cost_usd": 0.038758749999999995,
       "usage": {
         "input_tokens": 1734,
-        "cache_creation_input_tokens": 1483,
+        "cache_creation_input_tokens": 1465,
         "cache_read_input_tokens": 14221,
-        "output_tokens": 369,
+        "output_tokens": 518,
         "server_tool_use": {
           "web_search_requests": 0,
           "web_fetch_requests": 0
         },
         "service_tier": "standard",
         "cache_creation": {
-          "ephemeral_1h_input_tokens": 1483,
+          "ephemeral_1h_input_tokens": 1465,
           "ephemeral_5m_input_tokens": 0
         },
         "inference_geo": "not_available",
         "iterations": [
           {
             "input_tokens": 1734,
-            "output_tokens": 369,
+            "output_tokens": 518,
             "cache_read_input_tokens": 14221,
-            "cache_creation_input_tokens": 1483,
+            "cache_creation_input_tokens": 1465,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 1483
+              "ephemeral_1h_input_tokens": 1465
             },
             "type": "message"
           }
@@ -59,22 +59,22 @@
       },
       "modelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 795,
-          "outputTokens": 15,
+          "inputTokens": 787,
+          "outputTokens": 17,
           "cacheReadInputTokens": 0,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.00087,
+          "costUSD": 0.000872,
           "contextWindow": 200000,
           "maxOutputTokens": 32000
         },
         "claude-opus-4-8": {
           "inputTokens": 1734,
-          "outputTokens": 369,
+          "outputTokens": 518,
           "cacheReadInputTokens": 14221,
-          "cacheCreationInputTokens": 1483,
+          "cacheCreationInputTokens": 1465,
           "webSearchRequests": 0,
-          "costUSD": 0.03427425,
+          "costUSD": 0.03788675,
           "contextWindow": 1000000,
           "maxOutputTokens": 64000
         }
@@ -82,7 +82,7 @@
       "permission_denials": [],
       "terminal_reason": "completed",
       "fast_mode_state": "off",
-      "uuid": "ddfbe8b1-2138-48ad-98ea-ff13980d5a90"
+      "uuid": "945df496-5223-4467-b848-6295eee4794d"
     }
   ]
 }
