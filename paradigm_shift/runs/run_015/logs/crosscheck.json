@@ -1,31 +1,41 @@
 {
   "run_id": "run_015",
   "agent": "4_crosschecker",
-  "crosschecked_at": "2026-05-31T12:07:43Z",
+  "crosschecked_at": "2026-05-31T21:19:30Z",
   "verbatim_note": "All titles/urls are from AGENT 4's OWN real WebSearch results; independent of AGENT 3; no fabrication.",
   "candidates": [
     {
       "cand_id": "CAND_015_001",
       "agent3_collision_found": false,
-      "agent4_collision": true,
-      "mismatch_with_agent3": true,
-      "notes": "MISMATCH: my fresh searches surfaced a direct collision. 'ACCessory: password inference using accelerometers on smartphones' (Owusu et al., HotMobile '12, https://dl.acm.org/doi/10.1145/2162081.2162095) uses the same-device accelerometer (a permissionless sensor) to infer text typed on the phone's own soft keyboard via machine learning. TapLogger (https://dl.acm.org/doi/10.1145/2185448.2185465) does the same for touchscreen taps. These match the candidate's core idea, so AGENT 3's 'no collision' is wrong.",
+      "agent4_collision": false,
+      "mismatch_with_agent3": false,
+      "notes": "CONFIRMS AGENT 3. Two fresh independent searches surfaced the source papers (Conda, MoSA) plus adjacent work (Preconditioned Attention 2603.27153, Crisp Attention, Spectral Conditioning of Attention, EcoSpa coupled sparsity), but none has a title describing the specific niche of using routing-induced attention sparsity as a structured prior that conditions a preconditioned optimizer to accelerate convergence. Preconditioned Attention conditions the attention matrix itself, not the optimizer via expert-choice routing sparsity. No direct prior-art collision.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "inferring smartphone touchscreen input from on-board accelerometer vibrations deep learning",
-          "allowed_domains": null,
+          "query": "routing-induced attention sparsity as structured prior conditioning preconditioned optimizer faster transformer convergence",
+          "allowed_domains": ["arxiv.org"],
           "results": [
-            {"title": "TapLogger: inferring user inputs on smartphone touchscreens using on-board motion sensors", "url": "https://dl.acm.org/doi/10.1145/2185448.2185465", "snippet": ""},
-            {"title": "ACCessory: password inference using accelerometers on smartphones", "url": "https://dl.acm.org/doi/10.1145/2162081.2162095", "snippet": ""}
+            {"title": "[2603.27153] Preconditioned Attention: Enhancing Efficiency in Transformers", "url": "https://arxiv.org/abs/2603.27153", "snippet": ""},
+            {"title": "Preconditioned Attention: Enhancing Efficiency in Transformers", "url": "https://arxiv.org/pdf/2603.27153", "snippet": ""},
+            {"title": "Crisp Attention: Regularizing Transformers via Structured Sparsity", "url": "https://arxiv.org/pdf/2508.06016", "snippet": ""},
+            {"title": "Crisp Attention: Regularizing Transformers via Structured Sparsity", "url": "https://arxiv.org/html/2508.06016v1", "snippet": ""},
+            {"title": "Attention Condensation via Sparsity Induced Regularized Training", "url": "https://arxiv.org/html/2503.01564v1", "snippet": ""},
+            {"title": "Spectral Conditioning of Attention Improves Transformer Performance", "url": "https://arxiv.org/pdf/2603.07162", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "ACCessory password inference using accelerometers on smartphones touchscreen",
+          "query": "coupling expert-choice sparse attention gradients with column-normalized Adam optimizer speed up LLaMA pretraining",
           "allowed_domains": null,
           "results": [
-            {"title": "ACCessory: password inference using accelerometers on smartphones", "url": "https://dl.acm.org/doi/10.1145/2162081.2162095", "snippet": ""}
+            {"title": "A Minimalist Optimizer Design for LLM Pretraining", "url": "https://arxiv.org/html/2506.16659v1", "snippet": ""},
+            {"title": "Conda: Column-Normalized Adam for Training Large Language Models Faster", "url": "https://arxiv.org/html/2509.24218v2", "snippet": ""},
+            {"title": "A Minimalist Optimizer Design for LLM Pretraining", "url": "https://arxiv.org/pdf/2506.16659", "snippet": ""},
+            {"title": "[2509.24218] Conda: Column-Normalized Adam for Training Large Language Models Faster", "url": "https://arxiv.org/abs/2509.24218", "snippet": ""},
+            {"title": "EcoSpa: Efficient Transformer Training with Coupled Sparsity", "url": "https://arxiv.org/pdf/2511.11641", "snippet": ""},
+            {"title": "Grass: Compute Efficient Low-Memory LLM Training with Structured Sparse Gradients", "url": "https://arxiv.org/pdf/2406.17660", "snippet": ""},
+            {"title": "AdamS: Momentum Itself Can Be A Normalizer for LLM Pretraining and Post-training", "url": "https://arxiv.org/pdf/2505.16363", "snippet": ""}
           ]
         }
       ]
@@ -35,19 +45,32 @@
       "agent3_collision_found": false,
       "agent4_collision": false,
       "mismatch_with_agent3": false,
-      "notes": "CONFIRMS AGENT 3: my two fresh searches found no paper casting crop-row localization as differentiable-renderer analysis-by-synthesis with a parametric periodic row model fit by gradient descent for label-free sub-pixel accuracy. Existing work is Hough transform, supervised segmentation, or Fourier/frequency analysis. No paper-like result with a matching title appeared.",
+      "notes": "CONFIRMS AGENT 3. Two fresh independent searches returned the MaTTS/ReasoningBank source (2509.25140) plus generic preconditioned/subspace optimizers (SUMO 2505.24749, Memory Augmented Optimizers 2106.10708, Extreme Tensoring) and generic agent-memory work, but no paper-like title transplants an optimizer's preconditioned-convergence principle into agent memory synthesis to cut interaction rounds needed to reach a target memory quality. No direct prior-art collision.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "analysis-by-synthesis differentiable renderer crop row detection self-supervised aerial imagery",
+          "query": "preconditioned update rule applied to agent memory synthesis reduce interaction rounds reach target memory quality test-time scaling",
           "allowed_domains": null,
-          "results": []
+          "results": [
+            {"title": "AMA: Adaptive Memory via Multi-Agent Collaboration", "url": "https://arxiv.org/html/2601.20352v2", "snippet": ""},
+            {"title": "Mem^p: Exploring Agent Procedural Memory", "url": "https://arxiv.org/html/2508.06433v2", "snippet": ""},
+            {"title": "RPMS: Enhancing LLM-Based Embodied Planning through Rule-Augmented Memory Synergy", "url": "https://arxiv.org/html/2603.17831", "snippet": ""},
+            {"title": "Correcting Stochastic Update Bias in Preconditioned Language Model Optimizers", "url": "https://arxiv.org/html/2605.20756", "snippet": ""},
+            {"title": "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory", "url": "https://arxiv.org/pdf/2509.25140", "snippet": ""}
+          ]
         },
         {
           "n": 2,
-          "query": "parametric periodic row model gradient descent sub-pixel localization vineyard UAV without labels",
-          "allowed_domains": null,
-          "results": []
+          "query": "optimizer convergence acceleration transplanted into memory-aware test-time scaling MaTTS fewer agent experiences higher quality memory",
+          "allowed_domains": ["arxiv.org"],
+          "results": [
+            {"title": "Are We Scaling the Right Thing? A System Perspective on Test-Time Scaling", "url": "https://arxiv.org/html/2509.19645", "snippet": ""},
+            {"title": "FastTTS: Accelerating Test-Time Scaling for Edge LLM Reasoning", "url": "https://arxiv.org/html/2509.00195", "snippet": ""},
+            {"title": "Memory Augmented Optimizers for Deep Learning", "url": "https://arxiv.org/pdf/2106.10708", "snippet": ""},
+            {"title": "Faster and Better LLMs via Latency-Aware Test-Time Scaling", "url": "https://arxiv.org/html/2505.19634v1", "snippet": ""},
+            {"title": "SUMO: Subspace-Aware Moment-Orthogonalization for Accelerating Memory-Efficient LLM Training", "url": "https://arxiv.org/pdf/2505.24749", "snippet": ""},
+            {"title": "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory", "url": "https://arxiv.org/pdf/2509.25140", "snippet": ""}
+          ]
         }
       ]
     },
@@ -56,19 +79,32 @@
       "agent3_collision_found": false,
       "agent4_collision": false,
       "mismatch_with_agent3": false,
-      "notes": "CONFIRMS AGENT 3: my two fresh searches found no paper that switches quantization bit-width in response to real-time SoC/skin temperature for on-device LLM inference. Thermal-aware DVFS and adaptive/mixed-precision quantization exist but are treated separately (DVFS adjusts clock/voltage; quantization is accuracy- or layer-sensitivity-driven, not temperature-driven). No matching paper-like title appeared.",
+      "notes": "CONFIRMS AGENT 3. Two fresh independent searches returned the MaTTS/ReasoningBank source plus adjacent work (Decocted Experience 2604.04373, ProcMEM 2602.01869, D-MEM: Dopamine-Gated Agentic Memory via Reward Prediction Error Routing 2603.14597, Compiled Memory, MoE-gating used for memory retrieval weighting), but none has a title describing learned expert-choice/experience-choice routing that selects which agent experiences feed specialized memory-synthesis heads for more efficient test-time scaling. D-MEM gates storage by reward-prediction-error and the MoE gating is for retrieval, not experience-choice routing into synthesis heads. No direct prior-art collision.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "temperature-adaptive precision scaling on-device large language model inference sustained throughput throttling",
-          "allowed_domains": null,
-          "results": []
+          "query": "experience-choice routing select which agent interaction traces feed specialized memory-synthesis heads test-time scaling",
+          "allowed_domains": ["arxiv.org"],
+          "results": [
+            {"title": "[2509.25140] ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory", "url": "https://arxiv.org/abs/2509.25140", "snippet": ""},
+            {"title": "Decocted Experience Improves Test-Time Inference in LLM Agents", "url": "https://arxiv.org/html/2604.04373", "snippet": ""},
+            {"title": "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory", "url": "https://arxiv.org/html/2509.25140v1", "snippet": ""},
+            {"title": "Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction", "url": "https://arxiv.org/pdf/2506.07976", "snippet": ""},
+            {"title": "TMAS: Scaling Test-Time Compute via Multi-Agent Synergy", "url": "https://arxiv.org/html/2605.10344", "snippet": ""}
+          ]
         },
         {
           "n": 2,
-          "query": "thermal feedback dynamic bit-width mixed-precision neural network inference mobile SoC skin temperature control loop",
+          "query": "learned gating route accumulated agent experiences to memory heads sparse high-quality memory improve test-time scaling efficiency",
           "allowed_domains": null,
-          "results": []
+          "results": [
+            {"title": "Compiled Memory: Not More Information, but More Precise Instructions for Language Agents", "url": "https://arxiv.org/pdf/2603.15666", "snippet": ""},
+            {"title": "ProcMEM: Learning Reusable Procedural Memory from Experience via Non-Parametric PPO for LLM Agents", "url": "https://arxiv.org/pdf/2602.01869", "snippet": ""},
+            {"title": "Memory Based Trajectory-conditioned Policies for Learning from Sparse Rewards", "url": "https://arxiv.org/pdf/1907.10247", "snippet": ""},
+            {"title": "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory", "url": "https://arxiv.org/pdf/2509.25140", "snippet": ""},
+            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227", "snippet": ""},
+            {"title": "D-MEM: Dopamine-Gated Agentic Memory via Reward Prediction Error Routing", "url": "https://arxiv.org/pdf/2603.14597", "snippet": ""}
+          ]
         }
       ]
     }
