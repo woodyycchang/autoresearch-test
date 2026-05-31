@@ -1,0 +1,88 @@
+{
+  "cand_id": "CAND_015_003",
+  "atom_a_id": "ARXIV_R16_A01",
+  "atom_b_id": "ARXIV_R16_A03",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Expert-choice routing from MoSA dynamically selects which tokens each attention head attends to, and transferring this principle to agentic reasoning produces a router that activates retrieve, reflect, or answer actions per evidence-gap state, routing inference compute toward the most informative actions.",
+    "transfer": "MoSA's expert-choice dynamic token-to-head routing transfers to atom B as the action router that selects retrieve/reflect/answer steps over an explicit evidence-gap state.",
+    "open_problem": "Can expert-choice attention-head routing be learned jointly with an action router so that sparse attention patterns and a global evidence-gap tracker co-optimize answer quality?",
+    "niche_name": "Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention",
+    "primary_quote": "dynamically selects tokens for each attention head, allowing arbitrary sparse attention patterns",
+    "quote_source": "atom_a"
+  },
+  "quote_verified_substring": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 8867,
+      "duration_api_ms": 8282,
+      "ttft_ms": 3660,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Expert-choice routing from MoSA dynamically selects which tokens each attention head attends to, and transferring this principle to agentic reasoning produces a router that activates retrieve, reflect, or answer actions per evidence-gap state, routing inference compute toward the most informative actions.\", \"transfer\": \"MoSA's expert-choice dynamic token-to-head routing transfers to atom B as the action router that selects retrieve/reflect/answer steps over an explicit evidence-gap state.\", \"open_problem\": \"Can expert-choice attention-head routing be learned jointly with an action router so that sparse attention patterns and a global evidence-gap tracker co-optimize answer quality?\", \"niche_name\": \"Expert-Choice Routing for Evidence-Gap-Aware Agentic Attention\", \"primary_quote\": \"dynamically selects tokens for each attention head, allowing arbitrary sparse attention patterns\", \"quote_source\": \"atom_a\"}",
+      "stop_reason": "end_turn",
+      "session_id": "bce20d22-cca3-4870-98da-42fe8074c60d",
+      "total_cost_usd": 0.03599725,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1499,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 398,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1499,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 398,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1499,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1499
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 808,
+          "outputTokens": 18,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.000898,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 398,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1499,
+          "webSearchRequests": 0,
+          "costUSD": 0.03509925,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "1480cea7-4e6d-4fe7-a3c2-62acd4b53bc0"
+    }
+  ]
+}
