@@ -2,7 +2,7 @@
   "run_id": "run_016",
   "epoch": 2,
   "agent": "1_sourcer",
-  "fetched_at": "2026-05-31T22:58:57Z",
+  "fetched_at": "2026-05-31T23:12:00+00:00",
   "params_read": {
     "reformulation_specificity": 0.5428,
     "mechanism_focus": 0.5067,
@@ -10,47 +10,48 @@
     "atom_source_diversity": 0.5,
     "collision_avoidance_phrasing": 0.5
   },
-  "bootstrap_applied": "ATOM_R16E2_03 is from non-ML domain neuroscience (predictive coding in primary visual cortex V1 microcircuit) per flat_dim_bootstrap cross_domain rule (>=1 of 3 atoms must be non-ML).",
-  "verbatim_note": "WebFetch returned HTTP 403 Forbidden for both arxiv.org/abs/2602.08689 and biorxiv.org/content/10.1101/2025.11.01.686040v1, so all verbatim titles and mechanism sentences are taken from real WebSearch result snippets (the snippet text quoting each paper's abstract). No text/URL/id was invented; each sentence appears verbatim in a real WebSearch snippet.",
+  "bootstrap_applied": "ATOM_R16E2_03 is from non-ML domain biology (gene regulatory logic of the interferon-beta enhancer; transcription factor synergy via sigmoidal IRF-DNA binding) per flat_dim_bootstrap cross_domain rule (>=1 of 3 atoms must be non-ML).",
+  "verbatim_note": "WebFetch is a deferred tool and is known to return HTTP 403 for arxiv, so all titles/URLs/mechanism sentences were captured verbatim from real WebSearch result snippets: arxiv abstract-page snippets, the piotrpiekos/MoSA GitHub repo description (which quotes the paper one-liner), and the bioRxiv/PNAS abstract snippets. No text, source_id, or URL was invented; every recorded sentence appears verbatim in a real WebSearch snippet returned this session.",
   "queries_used": [
-    "attention routing mechanism analogy gene regulatory network transcription factor binding arxiv",
-    "mixture of experts sparse routing mechanism activates conditional computation arxiv 2025",
-    "predictive coding precision weighting prediction error neural circuit cortex mechanism arxiv biorxiv 2025",
-    "diffusion model denoising score matching iterative refinement mechanism generates samples arxiv 2025",
-    "free energy principle predictive coding precision weighting gain modulation analogy transformer attention arxiv",
-    "Modelling Predictive Coding Primary Visual Cortex Layer 2/3 Compartmentalized Spiking Neurons feedforward soma top-down apical dendrite",
-    "\"Learning to Sample from Diffusion Models via Inverse Reinforcement Learning\" abstract diffusion models generate samples iterative denoising Markov Decision Process"
+    "arxiv 2025 mixture-of-experts router load balancing analogy gene regulatory network transcription factor binding",
+    "arxiv 2025 attention sparse routing mechanism transformer activates selects tokens",
+    "biorxiv 2025 gene regulatory network transcription factor combinatorial binding regulates enhancer mechanism",
+    "\"Mixture of Sparse Attention\" expert-choice routing \"selects\" tokens attention head MoSA 2505.00315",
+    "interferon-β enhancer \"transcription factor synergy\" NFkB IRF \"regulatory logic\" biorxiv 2025.02.04.636520",
+    "\"Similarity Preserving Routers\" mixture of experts load balancing \"router\" encourages consistent expert 2506.14038",
+    "\"MoSA selects distinct tokens for each head with expert choice routing\" content-based sparse attention mechanism",
+    "interferon-β enhancer \"synergy between two adjacent IRF dimers is sufficient\" transcription factor synergy regulatory logic"
   ],
   "atoms": [
     {
       "atom_id": "ATOM_R16E2_01",
-      "source_id": "arXiv:2603.11114",
-      "title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
-      "url": "https://arxiv.org/abs/2603.11114",
-      "text": "Sparse Mixture-of-Experts (MoE) architectures enable efficient scaling of large language models through conditional computation, yet the routing mechanisms responsible for expert selection remain poorly understood.",
+      "source_id": "arXiv:2505.00315",
+      "title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing",
+      "url": "https://arxiv.org/abs/2505.00315",
+      "text": "MoSA selects distinct tokens for each head with expert choice routing providing a content-based sparse attention mechanism.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["mixture-of-experts", "conditional-computation"]
+      "domain_tags": ["sparse-attention", "expert-choice-routing"]
     },
     {
       "atom_id": "ATOM_R16E2_02",
-      "source_id": "arXiv:2602.08689",
-      "title": "Learning To Sample From Diffusion Models Via Inverse Reinforcement Learning",
-      "url": "https://arxiv.org/abs/2602.08689",
-      "text": "Diffusion models generate samples through an iterative denoising process, guided by a neural network, formulating the diffusion sampling procedure as a discrete-time finite-horizon Markov Decision Process where actions correspond to optional modifications of the sampling dynamics.",
+      "source_id": "arXiv:2506.14038",
+      "title": "Load Balancing Mixture of Experts with Similarity Preserving Routers",
+      "url": "https://arxiv.org/abs/2506.14038",
+      "text": "A learned router computes a distribution over these experts, and assigns input tokens to a small subset.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["diffusion-models", "inverse-reinforcement-learning"]
+      "domain_tags": ["mixture-of-experts", "load-balancing-routing"]
     },
     {
       "atom_id": "ATOM_R16E2_03",
-      "source_id": "bioRxiv:2025.11.01.686040",
-      "title": "Modelling Predictive Coding in the Primary Visual Cortex (V1): Layer 2/3 Circuits for Prediction Error Computation through Compartmentalized Spiking Neurons",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.11.01.686040v1",
-      "text": "Feedforward input targets the soma, whereas top-down feedback reaches the distal apical dendrite, enabling a local somato-dendritic comparison; a PE emerges whenever the balance between excitation and inhibition is selectively disrupted within one compartment, recruiting either positive-error or negative-error subpopulations of pyramidal neurons.",
+      "source_id": "bioRxiv:2025.02.04.636520",
+      "title": "Gene regulatory logic of the interferon-β enhancer contains multiple selectively deployed modes of transcription factor synergy",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.02.04.636520v1.full",
+      "text": "Specificity is generated by sigmoidal IRF–DNA binding rather than IRF-NFκB cooperativity, suggesting that the ultrasensitivity mechanism distinguishes the two regulatory modes.",
       "source_type": "biorxiv",
-      "domain": "neuroscience",
-      "domain_tags": ["predictive-coding", "cortical-microcircuit"]
+      "domain": "biology",
+      "domain_tags": ["gene-regulatory-network", "transcription-factor-synergy"]
     }
   ]
 }
