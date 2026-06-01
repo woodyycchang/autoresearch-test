@@ -122,6 +122,9 @@ def verify_polarity(text: str):
 
 
 def confirm_polarity(text: str):
+    # negated dispute ("no mismatch", "without mismatch") is a CONFIRM signal, not a dispute;
+    # neutralize it so the bare word "mismatch" does not also trip the DISPUTE list.
+    text = re.sub(r"\b(no|without|zero|0)\s+mismatch(es)?\b", " agree ", text.lower())
     conf = _has_any(text, CONFIRM)
     disp = _has_any(text, DISPUTE)
     if conf and not disp:
