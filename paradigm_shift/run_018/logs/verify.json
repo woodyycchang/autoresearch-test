@@ -1,0 +1,157 @@
+{
+  "run_id": "run_018",
+  "epoch": 1,
+  "agent": "4_verifier",
+  "verified_at": "2026-06-01T00:00:00Z",
+  "verbatim_note": "Titles/urls VERBATIM from the WebSearch Links arrays this session (25 reformulations, 5/candidate). Distinct paper-like results per reformulation are recorded (deduped within a reformulation; arxiv abs/pdf/html variants collapsed to one). snippet empty (Links carry no snippet). collision_found is my honest verdict.",
+  "key_finding": "Every candidate fuses two INDIVIDUALLY sparse sub-mechanisms (per-atom hits 2-3), yet each fused niche's 5 reformulations RE-BROADEN to the mature parent literatures (MoE routing/collapse, information geometry / Fisher-Rao, thermodynamic computing, directional statistics) -> ~20-28 paper-like hits/candidate. Slightly below Run 17's 30-38 but FAR above the <=4 needed for Gate-1 novelty. No fused-niche collision for any candidate; CAND_018_005 is the lowest-margin (2604.14500 puts the Fisher metric on routing distributions).",
+  "candidates": [
+    {"cand_id": "CAND_018_001", "niche_name": "Fisher-Rao Optimal Annealing of MoE Router Concentration Against Expert Collapse", "collision_found": false,
+     "collision_reason": "No paper fuses Fisher-Rao-optimal scheduling with Bingham-concentration annealing for expert collapse. Components are mature: temperature/dense-to-sparse annealing for collapse, GrMoE concentration control (2602.17798), Three Phases of Expert Routing (2604.04230), Representation Collapse (2204.09179), and the generic simulated-annealing schedule literature (informs OR, 1502.05313). Fisher-Rao appears for LLM merging (2603.04972), not for annealing router concentration. Unoccupied fusion; high component volume.",
+     "reformulations": [
+       {"n": 1, "query": "Fisher-Rao optimal annealing schedule mixture of experts router concentration expert collapse", "prior_art_probe": false, "results": [
+         {"title": "Grassmannian Mixture-of-Experts (SOURCE P1)", "url": "https://arxiv.org/abs/2602.17798"},
+         {"title": "Three Phases of Expert Routing", "url": "https://arxiv.org/html/2604.04230"},
+         {"title": "On the Representation Collapse of Sparse Mixture of Experts", "url": "https://arxiv.org/pdf/2204.09179"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"}]},
+       {"n": 2, "query": "information geometry cosine schedule routing entropy concentration mixture of experts prior work", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Statistical Advantages of Perturbing Cosine Router in Mixture of Experts", "url": "https://arxiv.org/pdf/2405.14131"},
+         {"title": "Modality-Guided Mixture of Graph Experts with Entropy-Triggered Routing", "url": "https://arxiv.org/html/2602.20723v1"},
+         {"title": "Geometric Routing Enables Causal Expert Control in Mixture of Experts", "url": "https://arxiv.org/html/2604.14434"}]},
+       {"n": 3, "query": "Fisher-Rao geodesic annealing gating temperature expert collapse mixture of experts", "prior_art_probe": false, "results": [
+         {"title": "On the Representation Collapse of Sparse Mixture of Experts", "url": "https://arxiv.org/pdf/2204.09179"},
+         {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in MoE", "url": "https://arxiv.org/pdf/2405.13997"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Functionality-Oriented LLM Merging on the Fisher-Rao Manifold", "url": "https://arxiv.org/pdf/2603.04972"},
+         {"title": "Is Temperature Sample Efficient for Softmax Gaussian Mixture of Experts?", "url": "https://arxiv.org/pdf/2401.13875"}]},
+       {"n": 4, "query": "optimal annealing routing concentration prevent expert collapse schedule survey", "prior_art_probe": true, "results": [
+         {"title": "Avoiding Premature Collapse: Adaptive Annealing for Entropy-Regularized Structural Inference", "url": "https://arxiv.org/pdf/2601.23039"},
+         {"title": "Cooling Schedules for Optimal Annealing (Math. of OR)", "url": "https://pubsonline.informs.org/doi/10.1287/moor.13.2.311"},
+         {"title": "Scaling and Transferability of Annealing Strategies in LLM Training", "url": "https://arxiv.org/pdf/2512.13705"},
+         {"title": "Variational Optimization of Annealing Schedules", "url": "https://arxiv.org/pdf/1502.05313"},
+         {"title": "Towards a Lower Bound for the Average Case Runtime of Simulated Annealing on TSP", "url": "https://arxiv.org/pdf/2208.11444"}]},
+       {"n": 5, "query": "Bingham concentration spectrum Fisher-Rao schedule mixture of experts routing", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/abs/2602.17798"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"},
+         {"title": "L2R: Low-Rank and Lipschitz-Controlled Routing for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.21349"}]}
+     ]},
+    {"cand_id": "CAND_018_002", "niche_name": "Thermodynamic Bingham routers with provable expert-collapse bounds", "collision_found": false,
+     "collision_reason": "Disjoint clusters, no fusion. MoE-collapse theory (Grassmannian 2602.17798, Three Phases 2604.04230, Representation Collapse 2204.09179) vs thermodynamic-computing hardware (Energy-Time-Accuracy 2601.04358, Thermodynamic Bayesian Inference 2410.01793, Extropic/Normal Computing p-bit/EBM/pMoG samplers, Bingham-sampling 2010.00137). Search 5 explicitly found no paper combining 'Bingham router' + 'thermodynamic' + 'provable expert collapse bound'. Unoccupied fusion.",
+     "reformulations": [
+       {"n": 1, "query": "thermodynamic computing hardware mixture of experts routing expert collapse bounds", "prior_art_probe": false, "results": [
+         {"title": "Three Phases of Expert Routing", "url": "https://arxiv.org/html/2604.04230"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/abs/2602.17798"},
+         {"title": "On the Representation Collapse of Sparse Mixture of Experts", "url": "https://arxiv.org/pdf/2204.09179"}]},
+       {"n": 2, "query": "physical stochastic sampling hardware mixture of experts router Bingham distribution gating", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Unbiased Gradient Estimation with Balanced Assignments for Mixtures of Experts", "url": "https://arxiv.org/pdf/2109.11817"},
+         {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/pdf/2202.09368"},
+         {"title": "Mixtures of Gaussian Process Experts with SMC^2", "url": "https://arxiv.org/pdf/2208.12830"},
+         {"title": "Efficient sampling from the Bingham distribution", "url": "https://arxiv.org/pdf/2010.00137"}]},
+       {"n": 3, "query": "thermodynamic sampler expert routing entropy production collapse bound neural network prior work", "prior_art_probe": true, "results": [
+         {"title": "Architectural Proprioception in State Space Models: Thermodynamic Training", "url": "https://arxiv.org/pdf/2603.04180"},
+         {"title": "Localizing entropy production along non-equilibrium trajectories", "url": "https://arxiv.org/pdf/2503.20427"},
+         {"title": "Learning entropy production via neural networks", "url": "https://arxiv.org/pdf/2003.04166"},
+         {"title": "Neural Entropy (OpenReview)", "url": "https://openreview.net/pdf?id=f6AYwCvynr"},
+         {"title": "Thermodynamic Neural Network (Entropy/MDPI)", "url": "https://www.mdpi.com/1099-4300/22/3/256"}]},
+       {"n": 4, "query": "energy-based hardware sampling mixture of experts gating thermodynamic computing", "prior_art_probe": false, "results": [
+         {"title": "Energy-Time-Accuracy Tradeoffs in Thermodynamic Computing (SOURCE P3)", "url": "https://arxiv.org/pdf/2601.04358"},
+         {"title": "Thermodynamic computing system for AI applications (Nature Comms)", "url": "https://www.nature.com/articles/s41467-025-59011-x"},
+         {"title": "Thermodynamic Bayesian Inference", "url": "https://arxiv.org/pdf/2410.01793"}]},
+       {"n": 5, "query": "thermodynamic Bingham router provable expert collapse bound already published", "prior_art_probe": true, "results": [
+         {"title": "Optimizing MoE Routers: Design, Implementation, and Evaluation", "url": "https://arxiv.org/html/2506.16419v1"},
+         {"title": "The Quantum Toll Framework: A Thermodynamic Model of Collapse and Coherence", "url": "https://arxiv.org/pdf/2505.06509"},
+         {"title": "Towards Understanding the Mixture-of-Experts Layer in Deep Learning (NeurIPS)", "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/91edff07232fb1b55a505a9e9f6c0ff3-Supplemental-Conference.pdf"}]}
+     ]},
+    {"cand_id": "CAND_018_003", "niche_name": "Fisher-Rao optimal scheduling of Grassmannian MoE Bingham gating", "collision_found": false,
+     "collision_reason": "GrMoE Bingham gating (2602.17798, source P1) and Fisher-Rao cosine schedule (2508.04884, source P2) appear separately; no paper applies a Fisher-Rao optimal SCHEDULE to Bingham gating. Neighbors are other geometric-routing works (Routing Manifold Alignment 2511.07419, Geometric Routing Causal Control 2604.14434, Geometric MoE Curvature 2603.22317, GraphMoRE) and MoE surveys (2407.06204, 2503.07137). Unoccupied fusion.",
+     "reformulations": [
+       {"n": 1, "query": "Fisher-Rao optimal schedule Grassmannian mixture of experts Bingham gating", "prior_art_probe": false, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/html/2602.17798v1"},
+         {"title": "A Mixture of Experts Gating Network for Enhanced Surrogate Modeling in External Aerodynamics", "url": "https://arxiv.org/abs/2508.21249"},
+         {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in MoE", "url": "https://arxiv.org/pdf/2405.13997"}]},
+       {"n": 2, "query": "information geometry schedule Matrix Bingham routing manifold mixture of experts prior work", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Routing Manifold Alignment Improves Generalization of MoE LLMs", "url": "https://arxiv.org/html/2511.07419v1"},
+         {"title": "Geometric Routing Enables Causal Expert Control in Mixture of Experts", "url": "https://arxiv.org/html/2604.14434"},
+         {"title": "Geometric Mixture-of-Experts with Curvature-Guided Adaptive Routing", "url": "https://arxiv.org/pdf/2603.22317"}]},
+       {"n": 3, "query": "Grassmannian mixture of experts gating annealing schedule Fisher-Rao geometry masked diffusion", "prior_art_probe": false, "results": [
+         {"title": "The Cosine Schedule is Fisher-Rao-Optimal (SOURCE P2)", "url": "https://arxiv.org/html/2508.04884"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/html/2602.17798v1"}]},
+       {"n": 4, "query": "directional statistics gating schedule optimal mixture of experts survey", "prior_art_probe": true, "results": [
+         {"title": "A Survey on Mixture of Experts in Large Language Models", "url": "https://arxiv.org/pdf/2407.06204"},
+         {"title": "A Survey on Inference Optimization Techniques for MoE (ACM Comp. Surveys)", "url": "https://dl.acm.org/doi/10.1145/3794845"},
+         {"title": "A Comprehensive Survey of Mixture-of-Experts: Algorithms, Theory, and Applications", "url": "https://arxiv.org/html/2503.07137v1"},
+         {"title": "Model Selection for Gaussian-gated Gaussian MoE Using Dendrograms of Mixing Measures", "url": "https://arxiv.org/pdf/2505.13052"},
+         {"title": "Convergence Rates for Gaussian Mixtures of Experts", "url": "https://arxiv.org/pdf/1907.04377"}]},
+       {"n": 5, "query": "Bingham gating Fisher-Rao schedule mixture of experts already studied", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Improving Expert Specialization in Mixture of Experts", "url": "https://arxiv.org/pdf/2302.14703"},
+         {"title": "Learning Factored Representations in a Deep Mixture of Experts", "url": "https://arxiv.org/pdf/1312.4314"},
+         {"title": "Mixtures of Gaussian Process Experts with SMC^2", "url": "https://arxiv.org/pdf/2208.12830"}]}
+     ]},
+    {"cand_id": "CAND_018_004", "niche_name": "Thermodynamic Grassmannian MoE Routing via Physical Bingham Sampling", "collision_found": false,
+     "collision_reason": "Bingham-sampling (directional statistics: Efficient sampling 2010.00137 / MLR, Hoff Matrix-Bingham-von-Mises-Fisher, rstiefel) and MoE-hardware (Dynamic hardware selection for experts, USPTO patents) and physics-inspired routing (Mixture of Raytraced Experts 2507.12419, MOESART sampling router, DirMoE) all appear, but NO paper uses a thermodynamic/physical sampler to draw Bingham routing weights for MoE. Searches 1 and 3 explicitly found no 'thermodynamic hardware'/'thermodynamic computing' connection. Unoccupied fusion.",
+     "reformulations": [
+       {"n": 1, "query": "thermodynamic hardware Grassmannian mixture of experts Bingham sampling routing", "prior_art_probe": false, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/abs/2202.09368"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"},
+         {"title": "Improving Routing in Sparse Mixture of Experts with Graph of Tokens", "url": "https://arxiv.org/pdf/2505.00792"}]},
+       {"n": 2, "query": "physical sampler Matrix Bingham distribution expert routing manifold prior work", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Efficient sampling from the Bingham distribution (MLR)", "url": "https://proceedings.mlr.press/v132/ge21a/ge21a.pdf"},
+         {"title": "Simulation of the Matrix Bingham-von Mises-Fisher Distribution (Hoff)", "url": "https://www2.stat.duke.edu/~sayan/SAMSI/lec/Hoff.pdf"},
+         {"title": "Efficient sampling from the Bingham distribution (arXiv)", "url": "https://arxiv.org/pdf/2010.00137"}]},
+       {"n": 3, "query": "thermodynamic computing directional statistics gating mixture of experts hardware", "prior_art_probe": false, "results": [
+         {"title": "Sigmoid Gating is More Sample Efficient than Softmax Gating in MoE", "url": "https://arxiv.org/pdf/2405.13997"},
+         {"title": "Dynamic hardware selection for experts in mixture-of-experts model (USPTO)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11893502"},
+         {"title": "Dendrograms of Mixing Measures for Softmax-Gated Gaussian MoE", "url": "https://arxiv.org/pdf/2510.12744"},
+         {"title": "Towards a Universal Gating Network for Mixtures of Experts", "url": "https://arxiv.org/pdf/2011.01613"}]},
+       {"n": 4, "query": "hardware Bingham sampling expert routing subspace manifold neural network", "prior_art_probe": false, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Exploring the Manifold of Neural Networks Using Diffusion Geometry", "url": "https://arxiv.org/pdf/2411.12626"},
+         {"title": "Soft Merging of Experts with Adaptive Routing", "url": "https://arxiv.org/pdf/2306.03745"},
+         {"title": "Data driven Dirichlet sampling on manifolds", "url": "https://arxiv.org/pdf/2101.00947"}]},
+       {"n": 5, "query": "thermodynamic Grassmannian routing physical Bingham sampling mixture of experts published", "prior_art_probe": true, "results": [
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"},
+         {"title": "Improving Routing in Sparse Mixture of Experts with Graph of Tokens", "url": "https://arxiv.org/pdf/2505.00792"},
+         {"title": "Selective Sinkhorn Routing for Improved Sparse Mixture of Experts", "url": "https://arxiv.org/pdf/2511.08972"}]}
+     ]},
+    {"cand_id": "CAND_018_005", "niche_name": "Fisher-Rao-optimal scheduling of continuous MoE routing entropy", "collision_found": false,
+     "collision_reason": "LOWEST MARGIN. Geometric Metrics for MoE Specialization (2604.14500) DOES put the Fisher information metric on routing distributions and proves specialization is approximate geodesic flow -- very close. But it uses Fisher-Rao for SPECIALIZATION METRICS / failure detection, NOT for an optimal ANNEALING SCHEDULE of routing entropy that transfers the cosine-schedule-optimality result. Mixture of Message Passing Experts with Routing Entropy Regularization (2502.08083) regularizes routing entropy but not via a Fisher-Rao schedule. So the specific transfer is unoccupied, but a reviewer could call it incremental over 2604.14500.",
+     "reformulations": [
+       {"n": 1, "query": "Fisher-Rao optimal schedule continuous routing entropy mixture of experts", "prior_art_probe": false, "results": [
+         {"title": "Geometric Metrics for MoE Specialization: From Fisher Information to Early Failure Detection", "url": "https://arxiv.org/html/2604.14500v1"},
+         {"title": "Rewiring Experts on the Fly: Continuous Rerouting for MoE", "url": "https://arxiv.org/pdf/2510.14853"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Variational Inference, Entropy, and Orthogonality: A Unified Theory of MoE", "url": "https://arxiv.org/pdf/2601.03577"},
+         {"title": "Routing-Free Mixture-of-Experts", "url": "https://arxiv.org/pdf/2604.00801"}]},
+       {"n": 2, "query": "information geometry annealing routing entropy temperature top-k mixture of experts prior work", "prior_art_probe": true, "results": [
+         {"title": "MoE at Scale (Preprints.org)", "url": "https://www.preprints.org/manuscript/202504.1313"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Variational Inference, Entropy, and Orthogonality: A Unified Theory of MoE", "url": "https://arxiv.org/abs/2601.03577"},
+         {"title": "Mixture-of-Experts as Soft Clustering: A Dual Jacobian-PCA Spectral Geometry Perspective", "url": "https://arxiv.org/pdf/2601.11616"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"}]},
+       {"n": 3, "query": "continuous routing entropy schedule masked diffusion Fisher-Rao mixture of experts", "prior_art_probe": false, "results": [
+         {"title": "Rewiring Experts on the Fly: Continuous Rerouting for MoE", "url": "https://arxiv.org/html/2510.14853v1"},
+         {"title": "Mixture of Message Passing Experts with Routing Entropy Regularization", "url": "https://arxiv.org/html/2502.08083v2"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "The Cosine Schedule is Fisher-Rao-Optimal (SOURCE P2)", "url": "https://arxiv.org/abs/2508.04884"}]},
+       {"n": 4, "query": "entropy-controlled mixture of experts routing annealing schedule optimal survey", "prior_art_probe": true, "results": [
+         {"title": "Three Phases of Expert Routing", "url": "https://arxiv.org/html/2604.04230"},
+         {"title": "Grassmannian MoE (SOURCE P1)", "url": "https://arxiv.org/pdf/2602.17798"},
+         {"title": "Variational Inference, Entropy, and Orthogonality: A Unified Theory of MoE", "url": "https://arxiv.org/pdf/2601.03577"},
+         {"title": "Modality-Guided Mixture of Graph Experts with Entropy-Triggered Routing", "url": "https://arxiv.org/html/2602.20723"}]},
+       {"n": 5, "query": "routing entropy Fisher-Rao cosine schedule mixture of experts already studied", "prior_art_probe": true, "results": [
+         {"title": "Geometric Metrics for MoE Specialization: From Fisher Information to Early Failure Detection", "url": "https://arxiv.org/abs/2604.14500"},
+         {"title": "Mixture of Message Passing Experts with Routing Entropy Regularization", "url": "https://arxiv.org/html/2502.08083"},
+         {"title": "Rewiring Experts on the Fly: Continuous Rerouting for MoE", "url": "https://arxiv.org/pdf/2510.14853"},
+         {"title": "ERMoE: Eigen-Reparameterized Mixture-of-Experts", "url": "https://arxiv.org/pdf/2511.10971"},
+         {"title": "DirMoE: Dirichlet-routed Mixture of Experts", "url": "https://arxiv.org/pdf/2602.09001"},
+         {"title": "Statistical Advantages of Perturbing Cosine Router in Mixture of Experts", "url": "https://arxiv.org/pdf/2405.14131"}]}
+     ]}
+  ]
+}

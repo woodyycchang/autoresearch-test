@@ -1,0 +1,167 @@
+{
+  "cand_id": "CAND_018_004",
+  "atom_a_id": "R18_P1_S2",
+  "atom_b_id": "R18_P3_S1",
+  "parse_ok": true,
+  "attempts": 2,
+  "parsed": {
+    "mechanism": "A thermodynamic-computing substrate physically samples from Matrix Bingham distributions whose concentration parameters define GrMoE gating, so the hardware's stochastic relaxation directly produces the subspace-routing weights on the Grassmannian manifold rather than a digital sampler computing them.",
+    "transfer": "The Matrix Bingham gating-distribution from A becomes the target distribution that B's stochastic hardware physically samples to perform routing.",
+    "open_problem": "Can a thermodynamic sampler whose equilibrium distribution is a Matrix Bingham over subspaces route MoE tokens with lower energy and comparable accuracy to digital Grassmannian gating?",
+    "niche_name": "Thermodynamic Grassmannian MoE Routing via Physical Bingham Sampling",
+    "primary_quote": "hardware undergoes a stochastic process in order to sample from a distribution of interest",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: MoE routing where gating weights come from concentration parameters of Matrix Bingham distributions on the Grassmannian manifold of subspaces. B: thermodynamic computing where hardware runs a stochastic process to sample from a target distribution.",
+      "reasoning": "I tried to transfer A's specific gating distribution (Matrix Bingham over subspaces) into B's role of 'distribution of interest' that hardware physically samples. I rejected the weaker transfer of merely running GrMoE on thermodynamic hardware as a generic accelerator, because that is a surface 'analog speedup' claim. The non-trivial hinge is that the Bingham distribution is exactly the kind of exponential-family-on-a-manifold distribution that thermodynamic/Langevin-style hardware is natively suited to sample, so the concentration parameters could be loaded as physical coupling fields and the equilibrium state read out as the route \u2014 making the gating computation and the hardware's relaxation the same physical event.",
+      "decision": "Settled on a thermodynamic GrMoE where physical stochastic relaxation samples the Matrix Bingham gating distribution to produce routing decisions, because it converts A's costly manifold sampling into B's free-energy minimization rather than bolting them together.",
+      "confidence": "medium - the Bingham-on-Stiefel/Grassmannian distribution plausibly maps to a physical energy function, but realizability on actual thermodynamic hardware is unproven.",
+      "could_be_wrong_if": "Matrix Bingham concentration parameters cannot be encoded as a physical coupling Hamiltonian a thermodynamic device can equilibrate to, in which case this is just 'run sampling on stochastic hardware' \u2014 a vocabulary analogy with no mechanism gain."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 17923,
+      "duration_api_ms": 16796,
+      "ttft_ms": 2695,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"A thermodynamic-computing substrate physically relaxes a stochastic process toward equilibrium to sample matrices directly from Matrix Bingham distributions, whose concentration parameters then route tokens across subspaces on the Grassmannian manifold, so that hardware sampling\u2014not arithmetic gating\u2014produces the MoE routing weights.\", \"transfer\": \"The Matrix Bingham gating distribution from A is realized as the native equilibrium sampling target of B's stochastic hardware, turning routing inference into a physical relaxation process.\", \"open_problem\": \"Can a thermodynamic sampler natively draw Matrix Bingham subspace orientations fast and accurately enough that Grassmannian MoE routing weights are produced by hardware relaxation rather than digital computation?\", \"niche_name\": \"Thermodynamic Sampling of Grassmannian MoE Routing Distributions\", \"primary_quote\": \"gating weights arise from the concentration parameters of Matrix Bingham distributions\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: MoE routing on the Grassmannian manifold of subspaces where gating weights come from concentration parameters of Matrix Bingham distributions. B: thermodynamic computing where hardware runs a stochastic process to sample from a target distribution.\", \"reasoning\": \"I transferred B's core mechanism (hardware that physically samples from an arbitrary target distribution via a stochastic relaxation process) onto A's bottleneck (its gating weights are defined by Matrix Bingham distributions on subspaces, which are notoriously expensive to sample digitally). The transfer is 'B becomes the sampler for A's distribution.' I rejected the reverse transfer (using Grassmannian routing to organize a thermodynamic computer) because A's manifold structure has no obvious role in B's hardware dynamics. The non-trivial hook: Matrix Bingham distributions over the Stiefel/Grassmann manifold are exactly the kind of high-dimensional, normalization-intractable distribution that digital MCMC struggles with, yet they are a natural fit for a continuous physical sampler that relaxes to a Boltzmann-like equilibrium\u2014so the pairing addresses A's actual computational pain point rather than reusing shared probability vocabulary.\", \"decision\": \"Settled on a thermodynamic hardware MoE router that natively samples Matrix Bingham subspace orientations, because it makes A's most expensive operation the free primitive of B's substrate.\", \"confidence\": \"medium - the conceptual fit is strong but whether current thermodynamic hardware can sample matrix-manifold distributions at routing latency is unproven\", \"could_be_wrong_if\": \"thermodynamic samplers only practically realize Gaussian/Gibbs distributions and cannot encode Matrix Bingham's orthonormality constraint, making the link a generic 'hardware samples a distribution' analogy that ignores A's manifold-specific structure.\"}",
+      "stop_reason": "end_turn",
+      "session_id": "99dc189a-e734-40c9-9543-f182d2b8e652",
+      "total_cost_usd": 0.054587000000000004,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1842,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1046,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1842,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1046,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1842,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1842
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1049,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001144,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1046,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1842,
+          "webSearchRequests": 0,
+          "costUSD": 0.053443000000000004,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "9fcdf166-1a2f-47fd-b963-ce9ba7a902ee"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 18625,
+      "duration_api_ms": 18195,
+      "ttft_ms": 4181,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"A thermodynamic-computing substrate physically samples from Matrix Bingham distributions whose concentration parameters define GrMoE gating, so the hardware's stochastic relaxation directly produces the subspace-routing weights on the Grassmannian manifold rather than a digital sampler computing them.\", \"transfer\": \"The Matrix Bingham gating-distribution from A becomes the target distribution that B's stochastic hardware physically samples to perform routing.\", \"open_problem\": \"Can a thermodynamic sampler whose equilibrium distribution is a Matrix Bingham over subspaces route MoE tokens with lower energy and comparable accuracy to digital Grassmannian gating?\", \"niche_name\": \"Thermodynamic Grassmannian MoE Routing via Physical Bingham Sampling\", \"primary_quote\": \"hardware undergoes a stochastic process in order to sample from a distribution of interest\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: MoE routing where gating weights come from concentration parameters of Matrix Bingham distributions on the Grassmannian manifold of subspaces. B: thermodynamic computing where hardware runs a stochastic process to sample from a target distribution.\", \"reasoning\": \"I tried to transfer A's specific gating distribution (Matrix Bingham over subspaces) into B's role of 'distribution of interest' that hardware physically samples. I rejected the weaker transfer of merely running GrMoE on thermodynamic hardware as a generic accelerator, because that is a surface 'analog speedup' claim. The non-trivial hinge is that the Bingham distribution is exactly the kind of exponential-family-on-a-manifold distribution that thermodynamic/Langevin-style hardware is natively suited to sample, so the concentration parameters could be loaded as physical coupling fields and the equilibrium state read out as the route \u2014 making the gating computation and the hardware's relaxation the same physical event.\", \"decision\": \"Settled on a thermodynamic GrMoE where physical stochastic relaxation samples the Matrix Bingham gating distribution to produce routing decisions, because it converts A's costly manifold sampling into B's free-energy minimization rather than bolting them together.\", \"confidence\": \"medium - the Bingham-on-Stiefel/Grassmannian distribution plausibly maps to a physical energy function, but realizability on actual thermodynamic hardware is unproven.\", \"could_be_wrong_if\": \"Matrix Bingham concentration parameters cannot be encoded as a physical coupling Hamiltonian a thermodynamic device can equilibrate to, in which case this is just 'run sampling on stochastic hardware' \u2014 a vocabulary analogy with no mechanism gain.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "8612c49a-1b5f-48fe-bef5-a08c7d4d3a36",
+      "total_cost_usd": 0.046315499999999996,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1732,
+        "cache_read_input_tokens": 16063,
+        "output_tokens": 1052,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 1732
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1052,
+            "cache_read_input_tokens": 16063,
+            "cache_creation_input_tokens": 1732,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1732,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1049,
+          "outputTokens": 20,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001149,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 2,
+          "outputTokens": 1052,
+          "cacheReadInputTokens": 16063,
+          "cacheCreationInputTokens": 1732,
+          "webSearchRequests": 0,
+          "costUSD": 0.0451665,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "9f122eaa-df32-4eaf-8050-a722169f1bd3"
+    }
+  ]
+}

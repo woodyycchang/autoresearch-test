@@ -1,0 +1,79 @@
+{
+  "hallucination_detected": false,
+  "no_hallucination": true,
+  "mismatches": [],
+  "truth": {
+    "n_candidates": 5,
+    "n_survivors": 0,
+    "verdict": "NICHE_NOT_FOUND",
+    "n_logic_breaks": 0,
+    "per_candidate": [
+      {
+        "cand_id": "CAND_018_001",
+        "composite": 0.45,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_002",
+        "composite": 0.4775,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_003",
+        "composite": 0.505,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_004",
+        "composite": 0.4775,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_005",
+        "composite": 0.45,
+        "survived": false
+      }
+    ]
+  },
+  "claimed": {
+    "n_candidates": 5,
+    "n_survivors": 0,
+    "verdict": "NICHE_NOT_FOUND",
+    "n_logic_breaks": 0,
+    "per_candidate": [
+      {
+        "cand_id": "CAND_018_001",
+        "composite": 0.45,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_002",
+        "composite": 0.4775,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_003",
+        "composite": 0.505,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_004",
+        "composite": 0.4775,
+        "survived": false
+      },
+      {
+        "cand_id": "CAND_018_005",
+        "composite": 0.45,
+        "survived": false
+      }
+    ]
+  },
+  "reasoning_trace": {
+    "step": "anti-hallucination check",
+    "inputs_seen": "compared real-Opus summary claim to truth {'n_candidates': 5, 'n_survivors': 0, 'verdict': 'NICHE_NOT_FOUND', 'n_logic_breaks': 0, 'per_candidate': [{'cand_id': 'CAND_018_001', 'composite': 0.45, 'survived': False}, {'cand_id': 'CAND_018_002', 'composite': 0.4775, 'survived': False}, {'cand_id': 'CAND_018_003', 'composite': 0.505, 'survived': False}, {'cand_id': 'CAND_018_004', 'composite': 0.4775, 'survived': False}, {'cand_id': 'CAND_018_005', 'composite': 0.45, 'survived': False}]}",
+    "reasoning": "separate Opus process; mechanical field-by-field comparison to deterministic gate truth.",
+    "decision": "NO_HALLUCINATION",
+    "confidence": "high - numeric comparison",
+    "could_be_wrong_if": "summarizer restated a number correctly by luck while misstating prose"
+  }
+}
