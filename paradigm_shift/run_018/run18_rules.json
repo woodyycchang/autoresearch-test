@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_018",
+  "title": "Run 18: sentence-level decomposition from verbatim abstracts",
+  "description": "Inherits the Run 17 transparent multi-agent loop (reasoning_trace on every decision; 4-gate deterministic filter UNCHANGED; AGENT 5 reasoning-auditor) and changes the SOURCING METHOD: atoms are extracted by decomposing the VERBATIM ABSTRACT that WebSearch returns for an arxiv paper (NOT WebFetch, which 403s) into sentence/clause-level sub-mechanisms. A new per-atom saturation step measures how many papers EACH sub-mechanism alone returns; the merger then pairs the SPARSEST sub-mechanisms (lowest combined paper-hits) to test the KEY QUESTION (R12): at sentence-level granularity, does any sub-mechanism live in sparse (<10 paper) space, and does pairing sparse atoms produce lower per-candidate paper-hits than Run 17's 30-38 (which would let Gate-1 novelty clear)?",
+  "builds_on": ["paradigm_shift/run_017", "paradigm_shift/run_016"],
+  "branch": "claude/run-18",
+  "stacked_on": "claude/run-17",
+  "scope": {"source_papers": 3, "atoms": "9-18 (sentence-level)", "candidates": 5, "epochs": 1, "session": "single", "model": "opus"},
+  "sourcing_method": {
+    "rule": "R9: source atom text by decomposing the VERBATIM abstract WebSearch returns for 'arxiv <id> <title> abstract'. WebFetch 403s on arxiv/HF/alphaxiv (verified Run 17) -- do NOT rely on it.",
+    "note": "The search subsystem renders abstracts as clean text and may convert first-person ('we propose') to third-person ('the paper proposes'); the mechanism content is recorded verbatim as seen this session. Each distinct mechanism sentence/clause becomes a SEPARATE atom.",
+    "sparse_threshold": 10
+  },
+  "reasoning_trace_schema": {
+    "required_fields": ["step", "inputs_seen", "reasoning", "decision", "confidence", "could_be_wrong_if"]
+  },
+  "agents": [
+    {"n": 1, "role": "abstract-decomposer", "tools": ["WebSearch", "Bash"], "outputs": ["logs/atoms.json", "logs/atoms_reasoning.json"], "task": "decompose 3 verbatim abstracts into sentence-level atoms; reasoning_trace per atom (which sentence, why distinct)"},
+    {"n": 2, "role": "atom-saturation-searcher", "tools": ["WebSearch", "Bash"], "outputs": ["logs/atom_search.json"], "task": "1 WebSearch per atom on that sub-mechanism alone; record verbatim paper-hit count + results; flag sparse (<10) -- R10"},
+    {"n": 3, "role": "merger", "tools": ["Bash"], "runs": "run18_merge.py", "outputs": ["logs/candidates.json"], "task": "pick top 5 CROSS-PAPER pairs by LOWEST combined paper-hits; Opus merge each (reasoning_trace per merge)"},
+    {"n": 4, "role": "verifier+crosschecker", "tools": ["WebSearch", "Bash"], "outputs": ["logs/verify.json", "logs/verify_reasoning.json", "logs/crosscheck.json"], "task": "5 reformulations/candidate + independent re-check; reasoning_trace per step (R7)"},
+    {"n": 5, "role": "reasoning-auditor", "tools": ["Bash"], "runs": "run18_audit.py", "outputs": ["logs/reasoning_audit.json"], "task": "audit ALL reasoning_traces; flag logic breaks (R10)"}
+  ],
+  "merge_schema": {
+    "fields": ["mechanism", "transfer", "open_problem", "niche_name", "primary_quote", "quote_source", "reasoning_trace"],
+    "primary_quote": "verbatim >=30-char substring of atom_a or atom_b text"
+  },
+  "pair_selection": {
+    "n_candidates": 5,
+    "rule": "eligible pairs = atoms from DIFFERENT source papers (same-paper sub-mechanisms already co-occur, so they are trivially non-novel); rank eligible pairs by combined per-atom paper-hits ASC; take the 5 lowest.",
+    "tie_break": "lower max single-atom hits, then atom_id lexicographic (deterministic)"
+  },
+  "opus_subprocess": {
+    "binary": "claude",
+    "args": ["-p", "--model", "opus", "--output-format", "json"],
+    "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"],
+    "run_in_nongit_tempdir": true, "timeout_seconds": 300, "retry_on_parse_fail": 1
+  },
+  "gates": {
+    "gate_1_composite_threshold": 0.90,
+    "gate_2": "no quarantined atoms used",
+    "gate_3_source": "verify (collision) fused with crosscheck (mismatch)",
+    "gate_4": "Belinda strict (mechanism causal verb + >=30-char verbatim quote substring)"
+  },
+  "key_analysis": {
+    "R10": "report per-atom paper-hit counts explicitly (the new data)",
+    "R12": "did pairing SPARSE sub-mechanism atoms produce LOWER per-candidate paper-hits than Run 17's 30-38? Yes => pairing sparse atoms may clear Gate 1 (NICHE_FOUND possible). No => saturation holds even at sentence-level granularity. Report honestly either way; goal is the honest answer + full transparency, not the verdict."
+  },
+  "hard_rules": {
+    "R1": "agents SEQUENTIAL, each commits+pushes before next (branch claude/run-18)",
+    "R2": "push after every agent; if push fails -> STOP+report",
+    "R3": "Opus subprocess in non-git tempdir",
+    "R4": "force raw JSON from Opus, 1 retry",
+    "R5": "record ONLY web_search results actually seen -- never fabricate",
+    "R6": "[REPORT] verbatim raw (incl reasoning_traces + per-atom search)",
+    "R7": "AGENT 4 independently re-verifies; AGENT 5 audits all reasoning logic",
+    "R8": "no .claude/settings.json activation in container",
+    "R9": "source atoms from WebSearch VERBATIM abstracts (fetch is 403 -- don't rely on it)",
+    "R10": "report per-atom paper-hit counts explicitly (the key new data)",
+    "R11": "if session long -> commit partial + report",
+    "R12": "KEY QUESTION: at sentence-level granularity, does ANY sub-mechanism live in sparse (<10 paper) space, and does pairing sparse atoms beat Gate 1? Report honestly whichever way."
+  }
+}
