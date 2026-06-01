@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_017",
+  "title": "Run 17: full reasoning-trace transparency (no black box)",
+  "description": "Inherits the proven Run 16 multi-agent loop (3 atoms -> 3 candidate merges -> verify -> cross-check -> MAIN 4-gate filter) and adds ONE thing: a REASONING_TRACE block before/around every decision, so the entire middle process is visible and verifiable. AGENT 5 is repurposed from search-quality scorer to a NEW reasoning-auditor that reads every reasoning_trace from AGENT 1-4 and flags any step where the decision does not follow from the inputs+reasoning (a logic break). The key deliverable is the REASONING_TRANSPARENCY_REPORT: a single human-readable end-to-end trace. GOAL = transparency of reasoning, NOT the niche outcome (R12).",
+  "builds_on": ["paradigm_shift/run_016", "paradigm_shift/runs/run_015"],
+  "branch": "claude/run-17",
+  "stacked_on": "claude/run-16",
+  "scope": {"candidates": 3, "atoms": 3, "epochs": 1, "session": "single", "model": "opus"},
+  "reasoning_trace_schema": {
+    "required_fields": ["step", "inputs_seen", "reasoning", "decision", "confidence", "could_be_wrong_if"],
+    "field_meaning": {
+      "step": "what step this is",
+      "inputs_seen": "the exact inputs this step received, verbatim",
+      "reasoning": "the actual reasoning: why this choice, what alternatives were considered",
+      "decision": "what was decided",
+      "confidence": "high|medium|low + why",
+      "could_be_wrong_if": "what would make this decision wrong"
+    },
+    "rule": "R9: EVERY decision (atom choice, merge, reformulation, crosscheck, every gate, hallucination, verdict) carries a reasoning_trace. No step is a black box."
+  },
+  "agents": [
+    {"n": 1, "role": "sourcer", "tools": ["WebSearch", "Bash"], "outputs": ["logs/atoms.json", "logs/atoms_reasoning.json"], "trace": "per atom: why this atom, why this domain, what the search returned verbatim, why kept vs discarded"},
+    {"n": 2, "role": "merger", "tools": ["Bash"], "runs": "run17_merge.py", "outputs": ["logs/candidates.json"], "trace": "per merge: what mechanism transfer was attempted, why, what made it non-trivial vs a surface analogy"},
+    {"n": 3, "role": "verifier", "tools": ["WebSearch", "Bash"], "outputs": ["logs/verify.json", "logs/verify_reasoning.json"], "trace": "per reformulation: why this query phrasing, what it probed, what came back verbatim, why collision/no-collision"},
+    {"n": 4, "role": "cross-checker", "tools": ["Bash", "WebSearch"], "outputs": ["logs/crosscheck.json"], "trace": "why these re-search queries, how they differ from AGENT 3's, why confirm/dispute each verdict"},
+    {"n": 5, "role": "reasoning-auditor", "tools": ["Bash"], "runs": "run17_audit.py", "outputs": ["logs/reasoning_audit.json"], "trace": "NEW ROLE: read ALL reasoning_traces from AGENT 1-4; for each, audit logical validity, decision-follows-from-inputs, gaps/leaps/unsupported claims; flag any step where reasoning != decision"}
+  ],
+  "merge_schema": {
+    "fields": ["mechanism", "transfer", "open_problem", "niche_name", "primary_quote", "quote_source", "reasoning_trace"],
+    "primary_quote": "verbatim >=30-char substring of atom_a or atom_b text",
+    "reasoning_trace": "object with the 6 reasoning_trace required_fields"
+  },
+  "opus_subprocess": {
+    "binary": "claude",
+    "args": ["-p", "--model", "opus", "--output-format", "json"],
+    "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"],
+    "run_in_nongit_tempdir": true, "timeout_seconds": 300, "retry_on_parse_fail": 1
+  },
+  "gates": {
+    "gate_1_composite_threshold": 0.90,
+    "gate_2": "no quarantined atoms used",
+    "gate_3_source": "verify (collision) XOR-fused with crosscheck (mismatch): pass = >=5 reformulations AND no verifier collision AND not overturned by crosschecker",
+    "gate_4": "Belinda strict: mechanism causal verb present AND primary_quote is a real >=30-char verbatim substring of its named atom AND not a bare 'combine'"
+  },
+  "audit_checks": {
+    "completeness": "all 6 reasoning_trace fields present and non-empty",
+    "confidence_wellformed": "confidence has a level (high|medium|low) AND a rationale",
+    "falsifiability": "could_be_wrong_if is non-empty and not a null-statement",
+    "inputs_grounding": "decision shares content vocabulary with inputs_seen+reasoning (records overlap; low overlap => possible leap)",
+    "overconfidence": "confidence=high while reasoning/could_be_wrong_if contain hedge words => flag",
+    "decision_data_consistency": "where a trace's decision restates a structured fact recorded elsewhere (collision_found, quote_verified_substring, gate pass), the trace must AGREE with the data; disagreement = LOGIC BREAK"
+  },
+  "deliverables": {
+    "key": "paradigm_shift/run_017/REASONING_TRANSPARENCY_REPORT.md",
+    "supporting": ["logs/report_log.md (verbatim [REPORT 1-5] incl reasoning_traces)", "logs/reasoning_audit.json", "logs/gate_results.json (each gate decision w/ reasoning_trace)", "logs/determinism_check.json", "logs/hallucination_check.json", "niche_find_check.json", "proof_scorecard.json"]
+  },
+  "hard_rules": {
+    "R1": "agents SEQUENTIAL, each commits+pushes before next (branch claude/run-17)",
+    "R2": "push after every agent; if push fails -> STOP+report",
+    "R3": "Opus subprocess in non-git tempdir",
+    "R4": "force raw JSON from Opus, 1 retry",
+    "R5": "record ONLY web_search results actually seen -- never fabricate",
+    "R6": "[REPORT] = verbatim raw (incl reasoning_traces)",
+    "R7": "AGENT 4 re-verifies AGENT 3; AGENT 5 audits ALL reasoning logic",
+    "R8": "no .claude/settings.json activation in container",
+    "R9": "EVERY decision has a reasoning_trace -- no step is a black box",
+    "R10": "AGENT 5 must flag any step where decision doesn't follow from reasoning",
+    "R11": "if session long -> commit partial + report",
+    "R12": "goal = transparency of reasoning, not niche outcome; report the full middle process honestly whichever way the verdict goes"
+  }
+}
