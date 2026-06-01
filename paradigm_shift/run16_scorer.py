@@ -67,6 +67,19 @@ FIELD_LEX = {
                 "oscillation", "resonance", "acoustic", "metamaterial"},
     "math": {"convex", "manifold", "topology", "spectral", "eigen", "matrix",
              "transport", "theorem", "stochastic", "bayesian"},
+    # low-ML-overlap domains (epoch-3 directive): distinctive vocab so a query that
+    # names an ML concept AND one of these registers as cross-domain (>=2 fields).
+    "geology": {"seismic", "seismology", "tectonic", "sediment", "sedimentary",
+                "erosion", "geomorphology", "magma", "stratigraphy", "lithosphere",
+                "geological", "geology", "rupture", "subduction"},
+    "linguistics": {"phonology", "phoneme", "phonological", "morpheme", "morphological",
+                    "syntax", "sonority", "prosody", "phonetic", "vowel", "consonant",
+                    "linguistic", "linguistics", "phonotactic"},
+    "materials": {"crystal", "crystalline", "dislocation", "lattice", "alloy",
+                  "nucleation", "microstructure", "ceramic", "metallurgy", "grain",
+                  "metallurgical", "crystallization"},
+    "ecology": {"ecosystem", "trophic", "predator", "prey", "biodiversity", "habitat",
+                "foraging", "ecological", "ecology", "food-web", "pollinator"},
 }
 
 
@@ -85,8 +98,13 @@ def score_query(q: str) -> dict:
     # mechanism focus
     mech = sum(1 for t in toks if t in MECH_TERMS)
     mechanism_focus = round(min(1.0, mech / 2.0), 4)
-    # cross-domain reach: distinct fields the query touches (1 field -> 0.0)
-    fields = {f for f, lex in FIELD_LEX.items() if any(t in lex for t in toks)}
+    # cross-domain reach: distinct fields the query touches (1 field -> 0.0).
+    # Split hyphenated compounds so "mixture-of-experts" also matches "experts".
+    ftoks = set(toks)
+    for t in toks:
+        if "-" in t:
+            ftoks.update(t.split("-"))
+    fields = {f for f, lex in FIELD_LEX.items() if any(t in lex for t in ftoks)}
     cross_domain_reach = round(min(1.0, max(0, len(fields) - 1) / 2.0), 4)
     # collision-avoidance phrasing: prior-art probing terms/phrases
     pa = sum(1 for t in toks if t in PRIOR_ART_TERMS) + sum(ql.count(p) for p in PRIOR_ART_PHRASES)

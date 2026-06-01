@@ -113,6 +113,13 @@ class TestScorer(unittest.TestCase):
         self.assertGreater(s.score_query("prior work existing survey of routing")["collision_avoidance"],
                            s.score_query("routing idea")["collision_avoidance"])
 
+    def test_cross_domain_reach_low_overlap_domains(self):
+        # ML + geology/linguistics terms in one query -> cross_domain_reach > 0
+        self.assertGreater(s.score_query("mixture-of-experts gating seismic fault rupture tectonic")["cross_domain_reach"], 0.0)
+        self.assertGreater(s.score_query("attention routing phoneme phonological sonority")["cross_domain_reach"], 0.0)
+        # single-domain ML query stays 0
+        self.assertEqual(s.score_query("mixture of experts attention routing optimizer")["cross_domain_reach"], 0.0)
+
     def test_cross_domain_reach(self):
         single = s.score_query("attention transformer optimizer")["cross_domain_reach"]
         multi = s.score_query("attention transformer gene regulatory dopamine")["cross_domain_reach"]
