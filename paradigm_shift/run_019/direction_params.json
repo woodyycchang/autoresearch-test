@@ -1,7 +1,7 @@
 {
   "run_id": "run_019",
-  "epoch": 2,
-  "scored_epoch": 1,
+  "epoch": 3,
+  "scored_epoch": 2,
   "params": {
     "specificity": 0.5022,
     "mechanism_focus": 0.525,
@@ -23,6 +23,19 @@
         "cross_paper_pairing": 0.5,
         "collision_avoidance_phrasing": 0.5
       }
+    },
+    {
+      "epoch": 2,
+      "avg_search_quality": 0.7981,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5293
+      },
+      "note": "researcher-style query set (param-driven) + nudged params; science held fixed to isolate param effect"
     }
   ],
   "applied_labels_log": [
@@ -69,6 +82,6 @@
       "applied_at": "2026-06-01T23:09:36.064884+00:00"
     }
   ],
-  "note": "PERSISTENT (R10). Label queries_to_label.json -> paste into labeled_examples -> run apply_labels at epoch 2 start.",
+  "note": "PERSISTENT (R10). Epoch 2 measured: search_quality FLAT (scorer/rubric misalignment on collision_avoidance, see RUN_019_EPOCH2_REPORT.md). Next: fix collision_avoidance scorer to credit semantic gap-seeking, then epoch 3.",
   "updated_at": "2026-06-01T22:44:29.470004+00:00"
 }
