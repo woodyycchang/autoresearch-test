@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_017_001",
+  "atom_a_id": "ATOM_R17_01",
+  "atom_b_id": "ATOM_R17_02",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "A concentration matrix regulates the entropy of a smooth unmasking distribution over token positions during parallel decoding, routing decode capacity toward positions whose predictions have stabilized and inhibiting premature commitment, replacing the lightweight filter's binary match/no-match gate with a continuous confidence-controlled unmasking schedule.",
+    "transfer": "The concentration-matrix entropy-control and smooth-sparsity mechanism from MoE routing transfers from A to govern which token positions get unmasked in B's parallel decoding.",
+    "open_problem": "Can the formal concentration-spectrum-to-entropy bounds from Grassmannian routing be reused to certify that no token position is unmasked before its prediction has provably converged to the final output?",
+    "niche_name": "Concentration-Controlled Unmasking for Parallel Decoding",
+    "primary_quote": "a concentration matrix that controls routing entropy",
+    "quote_source": "atom_a",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: MoE routing where a concentration matrix smoothly controls routing entropy (replacing top-k) with formal bounds linking the concentration spectrum to entropy and expert collapse. B: a lightweight filter predicting whether a token position's current prediction equals the final output, used to unmask tokens only when correctly predicted in parallel decoding.",
+      "reasoning": "I tried to transfer A's core abstraction \u2014 a continuous, spectrum-parameterized control over an entropy-of-selection distribution that replaces a hard discrete gate \u2014 onto B's unmasking decision. B currently uses a discrete binary predictor (match vs not) per position, exactly the kind of hard top-k-like gate A argues against. The structural isomorphism is: experts-over-tokens-routing maps to decode-capacity-over-positions-unmasking; expert collapse maps to premature/over-eager unmasking collapse. I considered the alternative framing of treating B's filter itself as the thing being routed (an MoE of filters), but rejected it as vocabulary dressing because it doesn't use A's distinctive contribution (the concentration spectrum and its bounds). I also considered merely renaming B's confidence threshold as 'entropy' \u2014 rejected, since that's surface analogy with no transferred math.",
+      "decision": "I settled on replacing B's binary filter with a concentration-matrix-governed smooth unmasking distribution because it imports A's actual formal apparatus (spectrum-to-entropy-to-collapse bounds) to give a provable safety schedule for unmasking, which is a testable mechanism rather than a renaming.",
+      "confidence": "medium - the structural mapping is genuine but the bounds may not survive the autoregressive-dependency structure of decoding.",
+      "could_be_wrong_if": "the concentration-spectrum bounds depend on properties of the MoE routing softmax (i.i.d. experts) that have no analog when positions are causally dependent, in which case the transfer is only a naming analogy with no portable theorem."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 21105,
+      "duration_api_ms": 20119,
+      "ttft_ms": 5559,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"A concentration matrix regulates the entropy of a smooth unmasking distribution over token positions during parallel decoding, routing decode capacity toward positions whose predictions have stabilized and inhibiting premature commitment, replacing the lightweight filter's binary match/no-match gate with a continuous confidence-controlled unmasking schedule.\", \"transfer\": \"The concentration-matrix entropy-control and smooth-sparsity mechanism from MoE routing transfers from A to govern which token positions get unmasked in B's parallel decoding.\", \"open_problem\": \"Can the formal concentration-spectrum-to-entropy bounds from Grassmannian routing be reused to certify that no token position is unmasked before its prediction has provably converged to the final output?\", \"niche_name\": \"Concentration-Controlled Unmasking for Parallel Decoding\", \"primary_quote\": \"a concentration matrix that controls routing entropy\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: MoE routing where a concentration matrix smoothly controls routing entropy (replacing top-k) with formal bounds linking the concentration spectrum to entropy and expert collapse. B: a lightweight filter predicting whether a token position's current prediction equals the final output, used to unmask tokens only when correctly predicted in parallel decoding.\", \"reasoning\": \"I tried to transfer A's core abstraction \u2014 a continuous, spectrum-parameterized control over an entropy-of-selection distribution that replaces a hard discrete gate \u2014 onto B's unmasking decision. B currently uses a discrete binary predictor (match vs not) per position, exactly the kind of hard top-k-like gate A argues against. The structural isomorphism is: experts-over-tokens-routing maps to decode-capacity-over-positions-unmasking; expert collapse maps to premature/over-eager unmasking collapse. I considered the alternative framing of treating B's filter itself as the thing being routed (an MoE of filters), but rejected it as vocabulary dressing because it doesn't use A's distinctive contribution (the concentration spectrum and its bounds). I also considered merely renaming B's confidence threshold as 'entropy' \u2014 rejected, since that's surface analogy with no transferred math.\", \"decision\": \"I settled on replacing B's binary filter with a concentration-matrix-governed smooth unmasking distribution because it imports A's actual formal apparatus (spectrum-to-entropy-to-collapse bounds) to give a provable safety schedule for unmasking, which is a testable mechanism rather than a renaming.\", \"confidence\": \"medium - the structural mapping is genuine but the bounds may not survive the autoregressive-dependency structure of decoding.\", \"could_be_wrong_if\": \"the concentration-spectrum bounds depend on properties of the MoE routing softmax (i.i.d. experts) that have no analog when positions are causally dependent, in which case the transfer is only a naming analogy with no portable theorem.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "7f535b8a-feb9-4ac2-bbc4-1c596416f699",
+      "total_cost_usd": 0.061720250000000004,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1875,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1323,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1875,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1323,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1875,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1875
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1041,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001146,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1323,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1875,
+          "webSearchRequests": 0,
+          "costUSD": 0.06057425,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "62d7e1b2-2df9-4869-bf63-ac262aa55624"
+    }
+  ]
+}

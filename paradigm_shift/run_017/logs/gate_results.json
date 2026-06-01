@@ -1,0 +1,245 @@
+[
+  {
+    "cand_id": "CAND_017_001",
+    "niche_name": "Concentration-Controlled Unmasking for Parallel Decoding",
+    "composite": 0.45,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 1.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 38,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.45,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) for CAND_017_001",
+        "inputs_seen": "composite=0.45 from params={'novelty': 0.0, 'mechanism_present': 1.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} weights={'novelty': 0.55, 'mechanism_present': 0.2, 'quote_grounded': 0.15, 'cross_atom': 0.1}; novelty=1-paper_hits/20 with paper_hits=38 (AGENT 3's real hits)",
+        "reasoning": "novelty carries weight 0.55 and is 0.0 because the verifier saw 38 paper-like hits; even maxing the other three terms (0.20+0.15+0.10=0.45) the ceiling is novelty*0.55+0.45; to clear 0.90 novelty must be >=0.8182 i.e. <= 4 paper hits.",
+        "decision": "FAIL (0.45 < 0.9)",
+        "confidence": "high - pure arithmetic over recorded counts",
+        "could_be_wrong_if": "AGENT 3 miscounted paper-like hits (is_paper misread 38 URLs) or recorded results it did not actually see (R5 violation upstream)"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) for CAND_017_001",
+        "inputs_seen": "atoms used = ['ATOM_R17_01', 'ATOM_R17_02']; quarantine set = ['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "Gate fails iff either source atom id is on the quarantine blocklist (atoms a prior run retired as known dead-ends).",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - exact set membership",
+        "could_be_wrong_if": "an atom id collides by string with a quarantined id without being the same atom"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) for CAND_017_001",
+        "inputs_seen": "n_reformulations=5 (required 5); verifier_collision=False; crosscheck_overturned=False",
+        "reasoning": "Passes only if AGENT 3 ran >=5 real reformulations AND found no collision AND AGENT 4's independent re-search did not overturn that no-collision verdict (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion of two agents' recorded verdicts",
+        "could_be_wrong_if": "both AGENT 3 and AGENT 4 missed an existing paper occupying the fused niche (shared blind spot)"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "regulates"
+      ],
+      "quote_len": 52,
+      "quote_grounded": true,
+      "quote_source_id": "ATOM_R17_01",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda strict) for CAND_017_001",
+        "inputs_seen": "mechanism causal verbs found=['regulates']; quote_len=52 (min 30); quote_grounded=True (verbatim substring of atom ATOM_R17_01)",
+        "reasoning": "Requires a concrete causal mechanism verb AND a >=30-char verbatim quote that really is a substring of its named atom -- catches surface analogies dressed in vocabulary.",
+        "decision": "PASS",
+        "confidence": "high - regex verb match + exact substring containment",
+        "could_be_wrong_if": "the mechanism is real but phrased with a causal verb outside the fixed Belinda vocab, or the quote is paraphrased (then grounding correctly fails)"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival of CAND_017_001",
+      "inputs_seen": "gate passes = {g1:False, g2:True, g3:True, g4:True}",
+      "reasoning": "a candidate survives ONLY if all four gates pass (AND); it fails at gate_1_composite (first failing gate), so later gates are moot for survival.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction of four deterministic gates",
+      "could_be_wrong_if": "any single gate's input was wrong upstream (see that gate's could_be_wrong_if)"
+    }
+  },
+  {
+    "cand_id": "CAND_017_002",
+    "niche_name": "Kinetic Proofreading for Parallel Token Decoding",
+    "composite": 0.25,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 0.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 34,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.25,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) for CAND_017_002",
+        "inputs_seen": "composite=0.25 from params={'novelty': 0.0, 'mechanism_present': 0.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} weights={'novelty': 0.55, 'mechanism_present': 0.2, 'quote_grounded': 0.15, 'cross_atom': 0.1}; novelty=1-paper_hits/20 with paper_hits=34 (AGENT 3's real hits)",
+        "reasoning": "novelty carries weight 0.55 and is 0.0 because the verifier saw 34 paper-like hits; even maxing the other three terms (0.20+0.15+0.10=0.45) the ceiling is novelty*0.55+0.45; to clear 0.90 novelty must be >=0.8182 i.e. <= 4 paper hits.",
+        "decision": "FAIL (0.25 < 0.9)",
+        "confidence": "high - pure arithmetic over recorded counts",
+        "could_be_wrong_if": "AGENT 3 miscounted paper-like hits (is_paper misread 34 URLs) or recorded results it did not actually see (R5 violation upstream)"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) for CAND_017_002",
+        "inputs_seen": "atoms used = ['ATOM_R17_02', 'ATOM_R17_03']; quarantine set = ['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "Gate fails iff either source atom id is on the quarantine blocklist (atoms a prior run retired as known dead-ends).",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - exact set membership",
+        "could_be_wrong_if": "an atom id collides by string with a quarantined id without being the same atom"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) for CAND_017_002",
+        "inputs_seen": "n_reformulations=5 (required 5); verifier_collision=False; crosscheck_overturned=False",
+        "reasoning": "Passes only if AGENT 3 ran >=5 real reformulations AND found no collision AND AGENT 4's independent re-search did not overturn that no-collision verdict (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion of two agents' recorded verdicts",
+        "could_be_wrong_if": "both AGENT 3 and AGENT 4 missed an existing paper occupying the fused niche (shared blind spot)"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": false,
+      "mechanism_verbs": [],
+      "quote_len": 100,
+      "quote_grounded": true,
+      "quote_source_id": "ATOM_R17_02",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda strict) for CAND_017_002",
+        "inputs_seen": "mechanism causal verbs found=[]; quote_len=100 (min 30); quote_grounded=True (verbatim substring of atom ATOM_R17_02)",
+        "reasoning": "Requires a concrete causal mechanism verb AND a >=30-char verbatim quote that really is a substring of its named atom -- catches surface analogies dressed in vocabulary.",
+        "decision": "FAIL",
+        "confidence": "high - regex verb match + exact substring containment",
+        "could_be_wrong_if": "the mechanism is real but phrased with a causal verb outside the fixed Belinda vocab, or the quote is paraphrased (then grounding correctly fails)"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite",
+      "gate_4_belinda"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival of CAND_017_002",
+      "inputs_seen": "gate passes = {g1:False, g2:True, g3:True, g4:False}",
+      "reasoning": "a candidate survives ONLY if all four gates pass (AND); it fails at gate_1_composite (first failing gate), so later gates are moot for survival.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction of four deterministic gates",
+      "could_be_wrong_if": "any single gate's input was wrong upstream (see that gate's could_be_wrong_if)"
+    }
+  },
+  {
+    "cand_id": "CAND_017_003",
+    "niche_name": "Kinetic-Proofreading Routers for Sub-Spectrum-Bound MoE Sparsity",
+    "composite": 0.45,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 1.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 30,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.45,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) for CAND_017_003",
+        "inputs_seen": "composite=0.45 from params={'novelty': 0.0, 'mechanism_present': 1.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} weights={'novelty': 0.55, 'mechanism_present': 0.2, 'quote_grounded': 0.15, 'cross_atom': 0.1}; novelty=1-paper_hits/20 with paper_hits=30 (AGENT 3's real hits)",
+        "reasoning": "novelty carries weight 0.55 and is 0.0 because the verifier saw 30 paper-like hits; even maxing the other three terms (0.20+0.15+0.10=0.45) the ceiling is novelty*0.55+0.45; to clear 0.90 novelty must be >=0.8182 i.e. <= 4 paper hits.",
+        "decision": "FAIL (0.45 < 0.9)",
+        "confidence": "high - pure arithmetic over recorded counts",
+        "could_be_wrong_if": "AGENT 3 miscounted paper-like hits (is_paper misread 30 URLs) or recorded results it did not actually see (R5 violation upstream)"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) for CAND_017_003",
+        "inputs_seen": "atoms used = ['ATOM_R17_01', 'ATOM_R17_03']; quarantine set = ['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "Gate fails iff either source atom id is on the quarantine blocklist (atoms a prior run retired as known dead-ends).",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - exact set membership",
+        "could_be_wrong_if": "an atom id collides by string with a quarantined id without being the same atom"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) for CAND_017_003",
+        "inputs_seen": "n_reformulations=5 (required 5); verifier_collision=False; crosscheck_overturned=False",
+        "reasoning": "Passes only if AGENT 3 ran >=5 real reformulations AND found no collision AND AGENT 4's independent re-search did not overturn that no-collision verdict (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion of two agents' recorded verdicts",
+        "could_be_wrong_if": "both AGENT 3 and AGENT 4 missed an existing paper occupying the fused niche (shared blind spot)"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "induces",
+        "regulates"
+      ],
+      "quote_len": 87,
+      "quote_grounded": true,
+      "quote_source_id": "ATOM_R17_03",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda strict) for CAND_017_003",
+        "inputs_seen": "mechanism causal verbs found=['induces', 'regulates']; quote_len=87 (min 30); quote_grounded=True (verbatim substring of atom ATOM_R17_03)",
+        "reasoning": "Requires a concrete causal mechanism verb AND a >=30-char verbatim quote that really is a substring of its named atom -- catches surface analogies dressed in vocabulary.",
+        "decision": "PASS",
+        "confidence": "high - regex verb match + exact substring containment",
+        "could_be_wrong_if": "the mechanism is real but phrased with a causal verb outside the fixed Belinda vocab, or the quote is paraphrased (then grounding correctly fails)"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival of CAND_017_003",
+      "inputs_seen": "gate passes = {g1:False, g2:True, g3:True, g4:True}",
+      "reasoning": "a candidate survives ONLY if all four gates pass (AND); it fails at gate_1_composite (first failing gate), so later gates are moot for survival.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction of four deterministic gates",
+      "could_be_wrong_if": "any single gate's input was wrong upstream (see that gate's could_be_wrong_if)"
+    }
+  }
+]
