@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_018_003",
+  "atom_a_id": "R18_P1_S2",
+  "atom_b_id": "R18_P2_S2",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Treating the Matrix Bingham gating distribution of Grassmannian MoE as a statistical manifold, the Fisher-Rao geometry induces a principled schedule over the concentration parameters that routes tokens to subspaces, transforming ad-hoc gating annealing into a geodesic-optimal trajectory whose endpoints recover known cosine-like routing temperature schedules.",
+    "transfer": "The Fisher-Rao information geometry that yields B's optimal (cosine) schedule transfers to govern how A's Matrix Bingham concentration parameters evolve during training/routing.",
+    "open_problem": "Does the Fisher-Rao-optimal schedule on the Matrix Bingham parameter manifold yield a closed-form, cosine-analogous annealing law for Grassmannian MoE gating concentrations that provably improves routing convergence over heuristic temperature schedules?",
+    "niche_name": "Fisher-Rao optimal scheduling of Grassmannian MoE Bingham gating",
+    "primary_quote": "The optimal schedule under the Fisher-Rao geometry recovers the popularly-used cosine schedule.",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: MoE routing on the Grassmannian manifold where gating weights come from Matrix Bingham concentration parameters; B: the Fisher-Rao-geometry-optimal schedule provably recovers the cosine schedule.",
+      "reasoning": "I tried to transfer B's information-geometric optimality principle (optimal scheduling derived from Fisher-Rao geometry of a parameter family) onto A's gating mechanism, because A's gating weights are literally parameterized by Matrix Bingham concentration parameters, which form a statistical manifold with its own Fisher-Rao metric. I rejected the reverse transfer (importing Grassmannian routing into diffusion scheduling) as forced, and rejected merely sharing the word 'manifold' as the link. The non-trivial part is that both atoms operate on genuinely different but compatible geometries: A's Grassmannian (geometry of subspaces) and the Fisher-Rao geometry of the Bingham parameter space are distinct objects, yet B's result suggests the schedule for the distributional parameters could be derived geodesically rather than tuned, giving a concrete unified scheduling law for routing concentration that nobody currently derives from first principles.",
+      "decision": "I settled on deriving a Fisher-Rao-optimal annealing schedule for the Matrix Bingham concentration parameters in Grassmannian MoE gating, because it converts A's heuristic gating sharpness into a principled, possibly closed-form schedule analogous to B's cosine recovery.",
+      "confidence": "medium - both use real information geometry on distinct manifolds, so the transfer is structurally plausible but the Fisher-Rao metric on the Matrix Bingham family may lack the tractability that made B's cosine recovery clean.",
+      "could_be_wrong_if": "the merge is trivial if the Matrix Bingham Fisher-Rao schedule is intractable or simply reduces to existing temperature annealing, making 'Fisher-Rao' a vocabulary relabeling rather than a new optimality result."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 22689,
+      "duration_api_ms": 21303,
+      "ttft_ms": 6622,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Treating the Matrix Bingham gating distribution of Grassmannian MoE as a statistical manifold, the Fisher-Rao geometry induces a principled schedule over the concentration parameters that routes tokens to subspaces, transforming ad-hoc gating annealing into a geodesic-optimal trajectory whose endpoints recover known cosine-like routing temperature schedules.\", \"transfer\": \"The Fisher-Rao information geometry that yields B's optimal (cosine) schedule transfers to govern how A's Matrix Bingham concentration parameters evolve during training/routing.\", \"open_problem\": \"Does the Fisher-Rao-optimal schedule on the Matrix Bingham parameter manifold yield a closed-form, cosine-analogous annealing law for Grassmannian MoE gating concentrations that provably improves routing convergence over heuristic temperature schedules?\", \"niche_name\": \"Fisher-Rao optimal scheduling of Grassmannian MoE Bingham gating\", \"primary_quote\": \"The optimal schedule under the Fisher-Rao geometry recovers the popularly-used cosine schedule.\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: MoE routing on the Grassmannian manifold where gating weights come from Matrix Bingham concentration parameters; B: the Fisher-Rao-geometry-optimal schedule provably recovers the cosine schedule.\", \"reasoning\": \"I tried to transfer B's information-geometric optimality principle (optimal scheduling derived from Fisher-Rao geometry of a parameter family) onto A's gating mechanism, because A's gating weights are literally parameterized by Matrix Bingham concentration parameters, which form a statistical manifold with its own Fisher-Rao metric. I rejected the reverse transfer (importing Grassmannian routing into diffusion scheduling) as forced, and rejected merely sharing the word 'manifold' as the link. The non-trivial part is that both atoms operate on genuinely different but compatible geometries: A's Grassmannian (geometry of subspaces) and the Fisher-Rao geometry of the Bingham parameter space are distinct objects, yet B's result suggests the schedule for the distributional parameters could be derived geodesically rather than tuned, giving a concrete unified scheduling law for routing concentration that nobody currently derives from first principles.\", \"decision\": \"I settled on deriving a Fisher-Rao-optimal annealing schedule for the Matrix Bingham concentration parameters in Grassmannian MoE gating, because it converts A's heuristic gating sharpness into a principled, possibly closed-form schedule analogous to B's cosine recovery.\", \"confidence\": \"medium - both use real information geometry on distinct manifolds, so the transfer is structurally plausible but the Fisher-Rao metric on the Matrix Bingham family may lack the tractability that made B's cosine recovery clean.\", \"could_be_wrong_if\": \"the merge is trivial if the Matrix Bingham Fisher-Rao schedule is intractable or simply reduces to existing temperature annealing, making 'Fisher-Rao' a vocabulary relabeling rather than a new optimality result.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "905cd537-4cc9-4fd3-87bb-62d2ca79826b",
+      "total_cost_usd": 0.06512225,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1835,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1469,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1835,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1469,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1835,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1835
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1043,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0011480000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1469,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1835,
+          "webSearchRequests": 0,
+          "costUSD": 0.06397425000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "3e98266f-b679-4701-9166-58d80fbb2cd1"
+    }
+  ]
+}

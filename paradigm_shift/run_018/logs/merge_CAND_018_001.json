@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_018_001",
+  "atom_a_id": "R18_P1_S5",
+  "atom_b_id": "R18_P2_S2",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Treating the MoE router's Bingham concentration spectrum as a point on a statistical manifold, the Fisher-Rao geometry induces a natural-gradient annealing schedule over routing temperature that regulates routing entropy and expected top-k mass, which in turn produces an exponential bound on expert collapse.",
+    "transfer": "The Fisher-Rao optimal-schedule principle from B transfers from learning-rate annealing to annealing A's Bingham concentration parameter, turning a static collapse bound into a provably-optimal collapse-avoiding trajectory.",
+    "open_problem": "Does the Fisher-Rao-optimal schedule over the Bingham concentration spectrum yield a closed-form routing-temperature anneal that tightens the exponential expert-collapse bound, and does it recover a cosine-like shape?",
+    "niche_name": "Fisher-Rao Optimal Annealing of MoE Router Concentration Against Expert Collapse",
+    "primary_quote": "The optimal schedule under the Fisher-Rao geometry recovers the popularly-used cosine schedule.",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: tight bounds linking the Bingham concentration spectrum to routing entropy, expected top-k mass, and an exponential expert-collapse bound. B: the Fisher-Rao-geometry-optimal schedule recovers the cosine schedule.",
+      "reasoning": "I tried to transfer B's mechanism that an optimal schedule emerges from Fisher-Rao information geometry over a parameter, applying it to A's Bingham concentration parameter rather than to a learning rate; both A's spectrum and the Bingham distribution are genuinely statistical-manifold objects, so Fisher-Rao acts on the same geometry A already quantifies. I rejected a looser merge that just reuses A's bounds as a regularizer (no schedule, no geometry) and one that swaps cosine LR scheduling into MoE training (vocabulary overlap only). Non-trivial because A's collapse bound is static in the concentration spectrum while B supplies the missing dynamics: the metric that says how to MOVE concentration over time, making the collapse bound a function of a derivable trajectory.",
+      "decision": "A Fisher-Rao-derived annealing schedule over the router's Bingham concentration spectrum that provably minimizes the exponential expert-collapse bound; chosen because both mechanisms live on the same information manifold, so the coupling is structural, not metaphorical.",
+      "confidence": "medium - the manifold match is real but whether Fisher-Rao on the Bingham spectrum admits a tractable closed-form schedule is unproven.",
+      "could_be_wrong_if": "If the Bingham concentration spectrum in A is treated as a fixed analyzed quantity with no trainable/schedulable parameter, then there is nothing for B's schedule to anneal and the link collapses to a shared-vocabulary analogy."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 23861,
+      "duration_api_ms": 22685,
+      "ttft_ms": 8692,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Treating the MoE router's Bingham concentration spectrum as a point on a statistical manifold, the Fisher-Rao geometry induces a natural-gradient annealing schedule over routing temperature that regulates routing entropy and expected top-k mass, which in turn produces an exponential bound on expert collapse.\", \"transfer\": \"The Fisher-Rao optimal-schedule principle from B transfers from learning-rate annealing to annealing A's Bingham concentration parameter, turning a static collapse bound into a provably-optimal collapse-avoiding trajectory.\", \"open_problem\": \"Does the Fisher-Rao-optimal schedule over the Bingham concentration spectrum yield a closed-form routing-temperature anneal that tightens the exponential expert-collapse bound, and does it recover a cosine-like shape?\", \"niche_name\": \"Fisher-Rao Optimal Annealing of MoE Router Concentration Against Expert Collapse\", \"primary_quote\": \"The optimal schedule under the Fisher-Rao geometry recovers the popularly-used cosine schedule.\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: tight bounds linking the Bingham concentration spectrum to routing entropy, expected top-k mass, and an exponential expert-collapse bound. B: the Fisher-Rao-geometry-optimal schedule recovers the cosine schedule.\", \"reasoning\": \"I tried to transfer B's mechanism that an optimal schedule emerges from Fisher-Rao information geometry over a parameter, applying it to A's Bingham concentration parameter rather than to a learning rate; both A's spectrum and the Bingham distribution are genuinely statistical-manifold objects, so Fisher-Rao acts on the same geometry A already quantifies. I rejected a looser merge that just reuses A's bounds as a regularizer (no schedule, no geometry) and one that swaps cosine LR scheduling into MoE training (vocabulary overlap only). Non-trivial because A's collapse bound is static in the concentration spectrum while B supplies the missing dynamics: the metric that says how to MOVE concentration over time, making the collapse bound a function of a derivable trajectory.\", \"decision\": \"A Fisher-Rao-derived annealing schedule over the router's Bingham concentration spectrum that provably minimizes the exponential expert-collapse bound; chosen because both mechanisms live on the same information manifold, so the coupling is structural, not metaphorical.\", \"confidence\": \"medium - the manifold match is real but whether Fisher-Rao on the Bingham spectrum admits a tractable closed-form schedule is unproven.\", \"could_be_wrong_if\": \"If the Bingham concentration spectrum in A is treated as a fixed analyzed quantity with no trainable/schedulable parameter, then there is nothing for B's schedule to anneal and the link collapses to a shared-vocabulary analogy.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "cf630095-c1ff-4382-9108-ba528b3d6b25",
+      "total_cost_usd": 0.06070650000000001,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1820,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1297,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1820,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1297,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1820,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1820
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1026,
+          "outputTokens": 20,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001126,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1297,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1820,
+          "webSearchRequests": 0,
+          "costUSD": 0.05958050000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "4b688c4b-fbce-416d-9212-afe8de0356f7"
+    }
+  ]
+}

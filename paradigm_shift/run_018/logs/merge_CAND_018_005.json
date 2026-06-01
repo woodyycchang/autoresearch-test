@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_018_005",
+  "atom_a_id": "R18_P1_S3",
+  "atom_b_id": "R18_P2_S2",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Treating MoE routing entropy as a point on a statistical manifold, a Fisher-Rao-optimal schedule regulates the concentration matrix over training, which transforms the static interpretable sparsity knob into a time-varying trajectory that routes tokens through a geometrically shortest-path annealing of routing entropy.",
+    "transfer": "The Fisher-Rao optimal-schedule principle from B is transferred to schedule A's continuous routing-entropy knob rather than fixing it.",
+    "open_problem": "Does a Fisher-Rao geodesic schedule over the routing concentration matrix yield a provably optimal entropy-annealing curriculum that outperforms constant or cosine-scheduled top-k routing?",
+    "niche_name": "Fisher-Rao-optimal scheduling of continuous MoE routing entropy",
+    "primary_quote": "the concentration matrix that continuously controls routing entropy",
+    "quote_source": "atom_a",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: a concentration matrix is a single continuous knob that controls routing entropy, replacing discrete top-k with smooth geometrically-principled sparsity. B: under Fisher-Rao geometry the optimal schedule recovers the cosine schedule.",
+      "reasoning": "I tried to transfer B's information-geometric optimality-of-schedules result onto A's routing knob: A gives a single continuous parameter (concentration) but says nothing about how it should evolve during training, while B is precisely a theorem about the geometrically optimal time-evolution of a scalar control parameter. I rejected merging at the vocabulary level (both mention 'geometry') because that would be a surface analogy; the non-trivial claim is that A's concentration matrix and B's schedule variable both live on a statistical manifold of distributions (routing distributions / noise distributions), so Fisher-Rao machinery applies to A's knob directly rather than by metaphor. I rejected the inverse transfer (use A's sparsity to choose a noise schedule) as weaker because schedules are scalar, not sparsity-structured.",
+      "decision": "Settled on deriving a Fisher-Rao-optimal annealing schedule for the routing concentration matrix, because it converts A's static knob into a principled curriculum and gives B's optimality result a new, testable application domain (MoE routing) with a concrete baseline (cosine).",
+      "confidence": "medium - both mechanisms genuinely sit on statistical manifolds so Fisher-Rao transfer is principled, but whether routing entropy admits a tractable Fisher-Rao geodesic is unverified.",
+      "could_be_wrong_if": "the routing concentration matrix does not parameterize a smooth statistical manifold compatible with Fisher-Rao, in which case the link is merely shared 'information-geometry' vocabulary and the schedule transfer is a surface analogy."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 24570,
+      "duration_api_ms": 23535,
+      "ttft_ms": 10343,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Treating MoE routing entropy as a point on a statistical manifold, a Fisher-Rao-optimal schedule regulates the concentration matrix over training, which transforms the static interpretable sparsity knob into a time-varying trajectory that routes tokens through a geometrically shortest-path annealing of routing entropy.\", \"transfer\": \"The Fisher-Rao optimal-schedule principle from B is transferred to schedule A's continuous routing-entropy knob rather than fixing it.\", \"open_problem\": \"Does a Fisher-Rao geodesic schedule over the routing concentration matrix yield a provably optimal entropy-annealing curriculum that outperforms constant or cosine-scheduled top-k routing?\", \"niche_name\": \"Fisher-Rao-optimal scheduling of continuous MoE routing entropy\", \"primary_quote\": \"the concentration matrix that continuously controls routing entropy\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: a concentration matrix is a single continuous knob that controls routing entropy, replacing discrete top-k with smooth geometrically-principled sparsity. B: under Fisher-Rao geometry the optimal schedule recovers the cosine schedule.\", \"reasoning\": \"I tried to transfer B's information-geometric optimality-of-schedules result onto A's routing knob: A gives a single continuous parameter (concentration) but says nothing about how it should evolve during training, while B is precisely a theorem about the geometrically optimal time-evolution of a scalar control parameter. I rejected merging at the vocabulary level (both mention 'geometry') because that would be a surface analogy; the non-trivial claim is that A's concentration matrix and B's schedule variable both live on a statistical manifold of distributions (routing distributions / noise distributions), so Fisher-Rao machinery applies to A's knob directly rather than by metaphor. I rejected the inverse transfer (use A's sparsity to choose a noise schedule) as weaker because schedules are scalar, not sparsity-structured.\", \"decision\": \"Settled on deriving a Fisher-Rao-optimal annealing schedule for the routing concentration matrix, because it converts A's static knob into a principled curriculum and gives B's optimality result a new, testable application domain (MoE routing) with a concrete baseline (cosine).\", \"confidence\": \"medium - both mechanisms genuinely sit on statistical manifolds so Fisher-Rao transfer is principled, but whether routing entropy admits a tractable Fisher-Rao geodesic is unverified.\", \"could_be_wrong_if\": \"the routing concentration matrix does not parameterize a smooth statistical manifold compatible with Fisher-Rao, in which case the link is merely shared 'information-geometry' vocabulary and the schedule transfer is a surface analogy.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "7c491ee9-42f5-42d3-bcee-06e21616899d",
+      "total_cost_usd": 0.0627895,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1832,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1377,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1832,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1377,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1832,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1832
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1034,
+          "outputTokens": 20,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001134,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1377,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1832,
+          "webSearchRequests": 0,
+          "costUSD": 0.061655499999999995,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "a1fb1450-15b7-428e-b6f5-29d68244aeb1"
+    }
+  ]
+}

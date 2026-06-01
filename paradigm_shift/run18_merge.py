@@ -136,14 +136,19 @@ def merge_pair(a, b):
 
 
 def main():
-    atoms = json.loads((LOGS / "atoms.json").read_text())["atoms"]
+    atoms_all = json.loads((LOGS / "atoms.json").read_text())["atoms"]
     asearch = json.loads((LOGS / "atom_search.json").read_text())["atoms"]
     hits = {a["atom_id"]: a["paper_hits"] for a in asearch}
-    by_id = {a["atom_id"]: a for a in atoms}
-    missing = [a["atom_id"] for a in atoms if a["atom_id"] not in hits]
+    is_mech = {a["atom_id"]: a.get("is_mechanism", True) for a in asearch}
+    by_id = {a["atom_id"]: a for a in atoms_all}
+    missing = [a["atom_id"] for a in atoms_all if a["atom_id"] not in hits]
     if missing:
         print(f"ERROR: atoms missing from atom_search: {missing}", file=sys.stderr)
         return 1
+    # pair only MECHANISM atoms (exclude problem-statement/gap context sentences)
+    atoms = [a for a in atoms_all if is_mech.get(a["atom_id"], True)]
+    excluded = [a["atom_id"] for a in atoms_all if not is_mech.get(a["atom_id"], True)]
+    print(f"[merge] {len(atoms)}/{len(atoms_all)} mechanism atoms eligible (excluded context: {excluded})")
     ranked = select_pairs(atoms, hits)
     chosen = ranked[:N_CAND]
     print(f"[merge] {len(ranked)} cross-paper pairs; taking {len(chosen)} sparsest:")

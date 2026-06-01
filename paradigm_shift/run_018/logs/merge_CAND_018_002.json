@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_018_002",
+  "atom_a_id": "R18_P1_S5",
+  "atom_b_id": "R18_P3_S1",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Routing the Bingham concentration spectrum\u2014whose tight bounds govern routing entropy, expected top-k mass, and expert collapse\u2014onto a thermodynamic computing substrate causes the hardware's native stochastic relaxation to physically sample the MoE gating distribution, so the concentration parameter directly regulates the analog noise and inhibits expert collapse without explicit softmax computation.",
+    "transfer": "The Bingham-concentration control of routing entropy and the exponential expert-collapse bound transfers from being an analytic property of a software router (A) into a physical control knob over a thermodynamic sampler's stationary distribution (B).",
+    "open_problem": "Can a thermodynamic hardware sampler be parameterized so its stochastic relaxation realizes a Bingham-distributed router whose concentration spectrum provably satisfies the same tight entropy/top-k/collapse bounds derived for digital MoE routing?",
+    "niche_name": "Thermodynamic Bingham routers with provable expert-collapse bounds",
+    "primary_quote": "hardware undergoes a stochastic process in order to sample from a distribution of interest",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: tight bounds tie a Bingham concentration spectrum to MoE routing entropy, expected top-k mass, and an exponential bound on expert collapse. B: thermodynamic computing performs sampling by letting hardware physically run a stochastic process toward a target distribution.",
+      "reasoning": "I tried to transfer A's concentration-spectrum-as-controller-of-routing-distribution mechanism onto B's physical-sampling substrate: instead of computing the router distribution digitally, let the thermodynamic hardware's stationary distribution BE the Bingham router, with concentration as the tunable physical noise scale. I rejected the looser direction (using MoE to schedule thermodynamic chips) because A's bounds are specifically about a sampling distribution's geometry, which is exactly what B's hardware materializes. The non-trivial part is that A already proves the relevant quantity (entropy, top-k mass, collapse) is a function of a Bingham concentration parameter\u2014the same parameter that a thermodynamic sampler exposes as a physical temperature/coupling\u2014so the bounds become hardware design constraints, not just an analytic curiosity.",
+      "decision": "I settled on physically realizing the MoE router as a thermodynamic Bingham sampler whose concentration spectrum is set by hardware noise, because it makes A's collapse bound an engineering specification for B's substrate.",
+      "confidence": "medium - the Bingham-thermodynamic mapping is plausible since Bingham distributions arise from quadratic energy on a sphere, matching physical relaxation, but the realizability of exact bounds on real noisy hardware is unproven.",
+      "could_be_wrong_if": "thermodynamic hardware cannot stably hold a tunable Bingham concentration, in which case 'sampling a routing distribution on a sampler' is just shared sampling vocabulary and A's bounds never bind to any physical parameter."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 23241,
+      "duration_api_ms": 22559,
+      "ttft_ms": 5902,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Routing the Bingham concentration spectrum\u2014whose tight bounds govern routing entropy, expected top-k mass, and expert collapse\u2014onto a thermodynamic computing substrate causes the hardware's native stochastic relaxation to physically sample the MoE gating distribution, so the concentration parameter directly regulates the analog noise and inhibits expert collapse without explicit softmax computation.\", \"transfer\": \"The Bingham-concentration control of routing entropy and the exponential expert-collapse bound transfers from being an analytic property of a software router (A) into a physical control knob over a thermodynamic sampler's stationary distribution (B).\", \"open_problem\": \"Can a thermodynamic hardware sampler be parameterized so its stochastic relaxation realizes a Bingham-distributed router whose concentration spectrum provably satisfies the same tight entropy/top-k/collapse bounds derived for digital MoE routing?\", \"niche_name\": \"Thermodynamic Bingham routers with provable expert-collapse bounds\", \"primary_quote\": \"hardware undergoes a stochastic process in order to sample from a distribution of interest\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: tight bounds tie a Bingham concentration spectrum to MoE routing entropy, expected top-k mass, and an exponential bound on expert collapse. B: thermodynamic computing performs sampling by letting hardware physically run a stochastic process toward a target distribution.\", \"reasoning\": \"I tried to transfer A's concentration-spectrum-as-controller-of-routing-distribution mechanism onto B's physical-sampling substrate: instead of computing the router distribution digitally, let the thermodynamic hardware's stationary distribution BE the Bingham router, with concentration as the tunable physical noise scale. I rejected the looser direction (using MoE to schedule thermodynamic chips) because A's bounds are specifically about a sampling distribution's geometry, which is exactly what B's hardware materializes. The non-trivial part is that A already proves the relevant quantity (entropy, top-k mass, collapse) is a function of a Bingham concentration parameter\u2014the same parameter that a thermodynamic sampler exposes as a physical temperature/coupling\u2014so the bounds become hardware design constraints, not just an analytic curiosity.\", \"decision\": \"I settled on physically realizing the MoE router as a thermodynamic Bingham sampler whose concentration spectrum is set by hardware noise, because it makes A's collapse bound an engineering specification for B's substrate.\", \"confidence\": \"medium - the Bingham-thermodynamic mapping is plausible since Bingham distributions arise from quadratic energy on a sphere, matching physical relaxation, but the realizability of exact bounds on real noisy hardware is unproven.\", \"could_be_wrong_if\": \"thermodynamic hardware cannot stably hold a tunable Bingham concentration, in which case 'sampling a routing distribution on a sampler' is just shared sampling vocabulary and A's bounds never bind to any physical parameter.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "50e9d687-1335-4700-9b4f-c7dee224a657",
+      "total_cost_usd": 0.062006250000000006,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1827,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1347,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1827,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1347,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1827,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1827
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1032,
+          "outputTokens": 20,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001132,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1347,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1827,
+          "webSearchRequests": 0,
+          "costUSD": 0.060874250000000005,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "e0a08182-d4bc-413e-a936-fede6a74e69d"
+    }
+  ]
+}
