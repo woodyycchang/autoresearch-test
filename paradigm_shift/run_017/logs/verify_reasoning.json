@@ -1,0 +1,151 @@
+{
+  "run_id": "run_017",
+  "agent": "3_verifier",
+  "note": "One reasoning_trace per reformulation (why this query, what it probed, what came back, why it does/doesn't show a collision) + a verdict_trace per candidate. R9: the collision verdicts are not a black box. Decisions state collision polarity explicitly so AGENT 5 can check them against verify.json's collision_found.",
+  "candidates": [
+    {
+      "cand_id": "CAND_017_001",
+      "verdict_trace": {
+        "step": "collision verdict for CAND_017_001 (Concentration-Controlled Unmasking)",
+        "inputs_seen": "5 reformulations; ~39 paper-like hits; the dense cluster Confidence-Based Decoding (2603.22248), EB-Sampler/entropy-sum, DUS (2506.19037), Swordsman (2602.04399), OSDT (2511.02077), Fast-dLLM; MoE+diffusion hits MoxE/Expert Race/Dynamic Expert Sharing.",
+        "reasoning": "Every reformulation surfaced entropy/confidence-controlled unmasking as a CROWDED area, but the candidate's distinctive content is a Grassmannian-MoE concentration MATRIX with spectrum-to-entropy bounds CERTIFYING unmasking. No hit uses that construct; existing work uses scalar entropy/confidence thresholds. So the fused niche is unoccupied, yet the components are individually mature (high volume).",
+        "decision": "no collision: the exact fused niche is unoccupied; but prior-art VOLUME on the components is high, which is what Gate-1 will penalize.",
+        "confidence": "medium - the scalar-threshold vs matrix-spectrum distinction is real but a close adjacent paper could exist under vocabulary I did not probe",
+        "could_be_wrong_if": "a paper already imports a concentration-matrix/subspace construct into diffusion unmasking under different terminology (e.g. 'Grassmannian sampling schedule') that my 5 phrasings missed."
+      },
+      "reformulation_traces": [
+        {"n": 1, "reasoning_trace": {
+          "step": "reform 1 (direct fused-niche probe)",
+          "inputs_seen": "query joined all four concepts (concentration matrix + routing entropy + unmasking + parallel decoding); returned 8 diffusion-parallel-decoding papers, none mentioning a concentration matrix.",
+          "reasoning": "I phrased the most direct possible query to catch an exact-match paper. The hits are all parallel-decoding/dependency/confidence works; the absence of any 'concentration matrix' result is the first signal the fusion is unoccupied.",
+          "decision": "no exact-match paper; continue probing",
+          "confidence": "medium - one phrasing only",
+          "could_be_wrong_if": "the exact paper indexes under a synonym for 'concentration matrix'."}},
+        {"n": 2, "reasoning_trace": {
+          "step": "reform 2 (explicit prior-art probe)",
+          "inputs_seen": "added 'prior work'; returned Confidence-Based Decoding (provably efficient), Dilated Scheduling, Adaptive Parallel Decoding, dUltra, Progress-Aware Confidence Schedules.",
+          "reasoning": "A prior-art probe to surface the densest existing scalar-threshold/entropy-schedule work. It confirms the AREA is mature (the component), establishing high volume, but still no matrix-spectrum certification.",
+          "decision": "no collision; high component volume confirmed",
+          "confidence": "high - the area is unambiguously crowded",
+          "could_be_wrong_if": "one of these (e.g. Confidence-Based Decoding) secretly contains the spectrum-bound construct in its appendix."}},
+        {"n": 3, "reasoning_trace": {
+          "step": "reform 3 (mechanism/convergence-bound probe)",
+          "inputs_seen": "probed 'smooth sparsity gate ... spectrum bound convergence'; returned token-sparse diffusion, Gated Sparse Attention, diffusion convergence-theory papers, Stopping Computation for Converged Tokens.",
+          "reasoning": "I wanted to see whether the SPECTRUM-BOUND-to-convergence idea exists for unmasking. The hits are generic diffusion convergence theory and sparse-gating, not a routing-spectrum certificate for unmasking. Nearest is 'Stopping Computation for Converged Tokens' (a convergence test, but not spectrum-bounded).",
+          "decision": "no collision; nearest neighbor is a convergence stop-rule, not the spectrum certificate",
+          "confidence": "medium",
+          "could_be_wrong_if": "'Stopping Computation for Converged Tokens' formalizes essentially the same certificate."}},
+        {"n": 4, "reasoning_trace": {
+          "step": "reform 4 (the candidate's open_problem, as a survey probe)",
+          "inputs_seen": "probed the exact open_problem (unmask only when provably converged) + 'survey'; returned OSDT, Confidence-Aware Calibration, Fast-dLLM, 'DLMs Know the Answer Before Decoding'.",
+          "reasoning": "Testing whether the open problem is already solved. These are confidence-threshold calibrations, not provable-convergence certificates. The open problem stands open.",
+          "decision": "no collision; open_problem not yet answered by a spectrum certificate",
+          "confidence": "medium",
+          "could_be_wrong_if": "'Provably Efficient' confidence decoding already gives the certificate I claim is missing."}},
+        {"n": 5, "reasoning_trace": {
+          "step": "reform 5 (cross-component bridge probe: MoE entropy -> diffusion)",
+          "inputs_seen": "bridged MoE routing-entropy and diffusion decoding; returned Expert Choice Routing, MoxE entropy-aware routing, Dynamic Expert Sharing for MoE diffusion LLMs, Expert Race.",
+          "reasoning": "The most likely place a bridge would already exist. The hits put MoE INTO diffusion architecturally (experts in a diffusion transformer) but do NOT transfer the routing-entropy bound to govern unmasking. No bridge paper.",
+          "decision": "no bridging collision",
+          "confidence": "high - the MoE+diffusion hits are architectural, not the bound transfer",
+          "could_be_wrong_if": "MoxE's entropy-aware routing is mathematically the same bound applied to unmasking."}}
+      ]
+    },
+    {
+      "cand_id": "CAND_017_002",
+      "verdict_trace": {
+        "step": "collision verdict for CAND_017_002 (Kinetic Proofreading for Parallel Token Decoding)",
+        "inputs_seen": "5 reformulations; nearest ML neighbors RemeDi (2509.23653), T2M Remask (2604.18738), SPACE (2402.11809), Block Verification (2403.10444), Think Before You Accept (2505.18629); biology side Two-proofreading-steps (PMC5137768), SPARC; search 4 summary said results lack the ML/accept-reject analogy.",
+        "reasoning": "This is the closest-to-collision candidate: multi-stage token re-checking (RemeDi, T2M) genuinely stages re-verification, and biological multi-step proofreading is well studied. But neither side FUSES them: no paper frames decoding as kinetic proofreading with the multiplicative sub-single-step error-floor claim and energy/latency cost analysis. The ML works use a single confidence signal per step, not independent multi-stage discard with a proven error-multiplication.",
+        "decision": "no collision, but LOW margin: RemeDi/T2M are near neighbors; the fused proofreading-cascade framing with the error-floor theorem is unoccupied.",
+        "confidence": "medium - the conceptual distance to RemeDi/T2M is small; a reviewer could reasonably call it incremental",
+        "could_be_wrong_if": "RemeDi's iterative remask-resample IS the multi-stage proofreading cascade under a different name, making this a re-description rather than a new niche."
+      },
+      "reformulation_traces": [
+        {"n": 1, "reasoning_trace": {
+          "step": "reform 1 (direct fused probe, names both domains)",
+          "inputs_seen": "named kinetic proofreading + token decoding error; returned the KP lesson page + Token-Guard, Think Before You Accept, Multi-Candidate Speculative Decoding, One-Token Verification, KP Wikipedia.",
+          "reasoning": "Direct bridge probe. It returns BOTH a KP source and ML token-verification works in the same result set, but no single work that IS the fusion - they coexist without bridging.",
+          "decision": "no fused paper; ML verification + KP appear separately",
+          "confidence": "medium",
+          "could_be_wrong_if": "One-Token Verification or Token-Guard already invoke proofreading framing."}},
+        {"n": 2, "reasoning_trace": {
+          "step": "reform 2 (ML prior-art probe)",
+          "inputs_seen": "'proofreading-inspired multi-pass token verification ... prior work'; returned SPACE auto-correct, Free Draft-and-Verification for diffusion LLMs, ProPD, FastMTP, Reflective Verification, Parallel Prompt Decoding.",
+          "reasoning": "Probing whether 'proofreading-inspired' is already a named ML approach. The hits are verification/auto-correct works; none adopt the kinetic-proofreading error-multiplication mechanism specifically. 'Free Draft-and-Verification' for diffusion is the closest structurally.",
+          "decision": "no collision; multi-pass verification is mature but not KP-framed",
+          "confidence": "medium",
+          "could_be_wrong_if": "'Free Draft-and-Verification' already proves the staged error reduction I claim is open."}},
+        {"n": 3, "reasoning_trace": {
+          "step": "reform 3 (the candidate's exact mechanism)",
+          "inputs_seen": "'staged re-mask reject wrong token cascade ... error below single-pass filter'; returned Remask Don't Replace (T2M), Self-Reflective Remasking (RemeDi), Stopping Computation for Converged Tokens.",
+          "reasoning": "This is the decisive probe: it found the NEAREST neighbors. RemeDi and T2M both re-mask suspicious/low-confidence tokens for re-prediction - structurally a staged reject-and-retry. They do NOT prove multiplicative error suppression below a single-pass floor, and use a single confidence signal, not independent stages. Margin is small but real.",
+          "decision": "no exact collision; nearest neighbors RemeDi/T2M are confidence-remask, not a proofreading error-floor cascade",
+          "confidence": "medium - smallest margin of any candidate",
+          "could_be_wrong_if": "RemeDi's iterative confidence-remask is mathematically equivalent to the proposed cascade."}},
+        {"n": 4, "reasoning_trace": {
+          "step": "reform 4 (the analogy itself)",
+          "inputs_seen": "'kinetic proofreading analogy machine learning inference accept reject'; returned only KP biology sources (Wikipedia, bionity, ScienceDirect, Evolution-of-error-correction, spatial gradients, allostery) and NO ML analogy paper.",
+          "reasoning": "If the KP->ML-inference analogy were published, this query would find it. It returned pure biology; the search summary itself noted the results 'don't contain specific information about its analogy to machine learning inference.' Strong evidence the bridge is unoccupied.",
+          "decision": "no collision; the explicit analogy is not in the literature",
+          "confidence": "high - the analogy query returned zero ML bridges",
+          "could_be_wrong_if": "the analogy exists in a venue not indexed by this search (e.g. a workshop/blog)."}},
+        {"n": 5, "reasoning_trace": {
+          "step": "reform 5 (cross-domain prior-art probe)",
+          "inputs_seen": "'speculative decoding ... biological proofreading error amplification published'; returned biology amplification (SPARC, Two-proofreading-steps) AND speculative-decoding verification (Block Verification, MARS, SpecPV, Traversal Verification) - two disjoint clusters.",
+          "reasoning": "Final bridge probe. Both clusters are dense but disjoint; the speculative-decoding works verify against a stronger model (not a self-staged proofreading cascade) and the biology works are pure enzymology. No paper joins them.",
+          "decision": "no bridging collision; clusters disjoint",
+          "confidence": "medium",
+          "could_be_wrong_if": "a speculative-decoding paper explicitly cites kinetic proofreading as its mechanism."}}
+      ]
+    },
+    {
+      "cand_id": "CAND_017_003",
+      "verdict_trace": {
+        "step": "collision verdict for CAND_017_003 (Kinetic-Proofreading Routers for MoE)",
+        "inputs_seen": "5 reformulations; disjoint clusters - MoE routing (StableMoE 2204.08396, Mixture of Routers 2503.23362, Expert Threshold Routing 2603.11535, re-routing 2511.02237) vs proofreading energy-cost bounds (Speed/dissipation/error PNAS, energy-cost-design 2106.01418); search 1 summary explicitly said no published work combines KP with MoE routers.",
+        "reasoning": "The cross-domain candidate. Multi-stage and re-routing MoE work exists, and proofreading energy-accuracy bounds exist, but nothing frames routing as an irreversible proofreading cascade that beats the spectrum-entropy bound. ZERO bridging papers - but, per the Run-16 lesson, zero bridges is NOT evidence of a real niche; it usually means the combination is obvious-or-implausible, while both components remain individually mature (high volume).",
+        "decision": "no collision; zero bridging papers, yet both components mature (this is saturation-by-volume, not novelty)",
+        "confidence": "high - the disjointness is clear and the search engine itself flagged the gap",
+        "could_be_wrong_if": "the 'irreversibility' requirement is incoherent for a differentiable router, making the niche not just unoccupied but ill-posed (a different kind of fail)."
+      },
+      "reformulation_traces": [
+        {"n": 1, "reasoning_trace": {
+          "step": "reform 1 (direct fused probe)",
+          "inputs_seen": "named KP + MoE router + intermediate states; returned 5 KP-biology papers (PNAS speed/dissipation/error x4, KP Wikipedia) + 2 generic MoE (Coupling Experts and Routers) + KP lesson; the summary said no combined work exists.",
+          "reasoning": "Direct bridge probe returns the two domains side by side with the search engine explicitly noting no combination - the strongest possible no-collision signal short of exhaustive search.",
+          "decision": "no fused paper; engine flags the gap",
+          "confidence": "high",
+          "could_be_wrong_if": "the combination exists under 'cascaded routing' without the KP keyword."}},
+        {"n": 2, "reasoning_trace": {
+          "step": "reform 2 (MoE prior-art probe with proofreading framing)",
+          "inputs_seen": "'proofreading-inspired routing multi-stage expert assignment ... prior work'; returned Routing by Analogy (kNN), NeKo error-correction MoE, Mixture of Routers, StableMoE, ERMoE, Expert Choice, DirMoE.",
+          "reasoning": "Tests whether multi-stage/error-correcting MoE routing is already proofreading-framed. NeKo does 'error correction' but for post-recognition tasks, not routing accuracy; StableMoE/MoR are multi-stage but for stability, not an irreversible discard cascade. None adopt KP.",
+          "decision": "no collision; multi-stage MoE exists but not as KP cascade",
+          "confidence": "high",
+          "could_be_wrong_if": "StableMoE's two-stage distillation is functionally the proofreading delay step."}},
+        {"n": 3, "reasoning_trace": {
+          "step": "reform 3 (the candidate's exact bound-beating claim, MoE-only)",
+          "inputs_seen": "'irreversible intermediate gating stages ... beat entropy bound expert collapse'; returned MoE collapse/gating explainers, Teacher-Guided Routing, MoE-RL alignment, A Minimal Bifurcation Model of Load Imbalance.",
+          "reasoning": "Probes whether anyone claims to beat the routing-entropy bound via staged gating. Hits discuss collapse dynamics and the entropy early-warning, and one notes 'argmax creates irreversible dead-router regimes' - but irreversibility there is a FAILURE mode, the opposite of KP's beneficial irreversible discard. No bound-beating cascade.",
+          "decision": "no collision; irreversibility appears only as a failure mode, not a designed proofreading step",
+          "confidence": "high - the only 'irreversible' usage is adversarial to my mechanism",
+          "could_be_wrong_if": "the bifurcation model already characterizes a multi-stage escape from collapse equivalent to my claim."}},
+        {"n": 4, "reasoning_trace": {
+          "step": "reform 4 (the biology side: energy-cost-accuracy)",
+          "inputs_seen": "'biological proofreading analogy neural network routing energy cost accuracy'; returned only biology discrimination-network energy-cost papers (2106.01418 et al.) and the summary noted they 'primarily address biological proofreading rather than ... artificial neural networks.'",
+          "reasoning": "If the energy-cost-accuracy proofreading bound had been ported to NN routing, this finds it. It returned pure biology; the engine itself flagged the absence of the NN application.",
+          "decision": "no collision; the energy-accuracy bound has not been ported to routing",
+          "confidence": "high",
+          "could_be_wrong_if": "a thermodynamics-of-computation paper already ports this bound to neural routing."}},
+        {"n": 5, "reasoning_trace": {
+          "step": "reform 5 (cross-domain prior-art probe)",
+          "inputs_seen": "'multi-stage cascade expert routing reject re-route ... nonequilibrium accuracy ... published'; returned Expert Threshold Routing, Three Phases of Expert Routing, Opportunistic (re-)routing, Graph-of-Tokens routing, Expert Race.",
+          "reasoning": "Last probe, using the proofreading term 'nonequilibrium'. Returns re-routing and threshold-routing MoE works, none nonequilibrium/thermodynamic; 'nonequilibrium accuracy' pulled no proofreading-routing bridge.",
+          "decision": "no bridging collision; re-routing exists but not as a nonequilibrium proofreading cascade",
+          "confidence": "high",
+          "could_be_wrong_if": "'Opportunistic Expert Activation' re-routing is the same multi-chance discard structure."}}
+      ]
+    }
+  ]
+}
