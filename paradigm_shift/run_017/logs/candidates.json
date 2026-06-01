@@ -1,0 +1,97 @@
+{
+  "run_id": "run_017",
+  "epoch": 1,
+  "agent": "2_merger",
+  "generated_at": "2026-06-01T20:18:14.831247+00:00",
+  "pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "candidates": [
+    {
+      "cand_id": "CAND_017_001",
+      "atom_a_id": "ATOM_R17_01",
+      "atom_b_id": "ATOM_R17_02",
+      "niche_name": "Concentration-Controlled Unmasking for Parallel Decoding",
+      "mechanism": "A concentration matrix regulates the entropy of a smooth unmasking distribution over token positions during parallel decoding, routing decode capacity toward positions whose predictions have stabilized and inhibiting premature commitment, replacing the lightweight filter's binary match/no-match gate with a continuous confidence-controlled unmasking schedule.",
+      "transfer": "The concentration-matrix entropy-control and smooth-sparsity mechanism from MoE routing transfers from A to govern which token positions get unmasked in B's parallel decoding.",
+      "open_problem": "Can the formal concentration-spectrum-to-entropy bounds from Grassmannian routing be reused to certify that no token position is unmasked before its prediction has provably converged to the final output?",
+      "primary_quote": "a concentration matrix that controls routing entropy",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: MoE routing where a concentration matrix smoothly controls routing entropy (replacing top-k) with formal bounds linking the concentration spectrum to entropy and expert collapse. B: a lightweight filter predicting whether a token position's current prediction equals the final output, used to unmask tokens only when correctly predicted in parallel decoding.",
+        "reasoning": "I tried to transfer A's core abstraction \u2014 a continuous, spectrum-parameterized control over an entropy-of-selection distribution that replaces a hard discrete gate \u2014 onto B's unmasking decision. B currently uses a discrete binary predictor (match vs not) per position, exactly the kind of hard top-k-like gate A argues against. The structural isomorphism is: experts-over-tokens-routing maps to decode-capacity-over-positions-unmasking; expert collapse maps to premature/over-eager unmasking collapse. I considered the alternative framing of treating B's filter itself as the thing being routed (an MoE of filters), but rejected it as vocabulary dressing because it doesn't use A's distinctive contribution (the concentration spectrum and its bounds). I also considered merely renaming B's confidence threshold as 'entropy' \u2014 rejected, since that's surface analogy with no transferred math.",
+        "decision": "I settled on replacing B's binary filter with a concentration-matrix-governed smooth unmasking distribution because it imports A's actual formal apparatus (spectrum-to-entropy-to-collapse bounds) to give a provable safety schedule for unmasking, which is a testable mechanism rather than a renaming.",
+        "confidence": "medium - the structural mapping is genuine but the bounds may not survive the autoregressive-dependency structure of decoding.",
+        "could_be_wrong_if": "the concentration-spectrum bounds depend on properties of the MoE routing softmax (i.i.d. experts) that have no analog when positions are causally dependent, in which case the transfer is only a naming analogy with no portable theorem."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "7f535b8a-feb9-4ac2-bbc4-1c596416f699",
+      "opus_cost_usd": 0.061720250000000004
+    },
+    {
+      "cand_id": "CAND_017_002",
+      "atom_a_id": "ATOM_R17_02",
+      "atom_b_id": "ATOM_R17_03",
+      "niche_name": "Kinetic Proofreading for Parallel Token Decoding",
+      "mechanism": "Introduces kinetic-proofreading-style intermediate states into parallel diffusion/masked decoding so that a tentatively unmasked token is routed through multiple sequential, independent verification passes by the filter model before commitment, and the delay between tentative unmasking and final commit gives the decoder repeated chances to re-mask (reject) a wrong token, multiplicatively suppressing token error below what a single-pass filter's accuracy alone would permit.",
+      "transfer": "The delay-via-intermediate-states-with-multiple-rejection-chances mechanism from enzymatic proofreading (B) transfers onto the filter model's single-shot 'unmask only when correctly predicted' decision (A), turning one commit decision into a staged, re-checkable kinetic cascade.",
+      "open_problem": "Can a multi-stage tentative-unmask/re-mask cascade with independent filter checks at each stage drive parallel-decoding token error multiplicatively below a single-pass filter's error rate at acceptable latency cost, and what is the achievable accuracy-versus-decoding-steps Pareto frontier?",
+      "primary_quote": "approximating an oracle parallel decoding strategy that unmasks tokens only when correctly predicted",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: a lightweight filter model predicts per-position whether the current prediction equals the final output, approximating an oracle that unmasks a token only when it is correct, for parallel (diffusion/masked) decoding. B: kinetic proofreading inserts intermediate enzyme-substrate states that delay product formation, granting multiple opportunities to release a wrong substrate and thus reaching error rates far below the equilibrium binding-energy limit.",
+        "reasoning": "I tried to transfer B's CORE causal trick \u2014 not 'check correctness' (A already does that) but 'insert a delay through intermediate states so a wrong selection can be rejected at multiple independent checkpoints, beating the single-step discrimination limit.' A's filter is a single discrimination step whose error floor is the filter's own accuracy, exactly analogous to an enzyme's single binding-energy discrimination floor. The proofreading insight is that staging N independent checks with a discard branch suppresses error roughly multiplicatively (at a time/energy cost), surpassing that single-step floor. I considered and rejected the surface framing 'just run the filter twice' (trivial ensembling) because plain ensembling doesn't capture the irreversible-discard/delay structure; I also rejected reframing it as ordinary confidence thresholding (A already is thresholding) and as speculative-decoding verification (that verifies against a stronger model, not a staged self-rejection cascade).",
+        "decision": "I settled on a staged tentative-unmask -> re-check -> re-mask kinetic cascade for parallel decoding, because it is the one combination that imports B's distinctive error-below-single-step-floor mechanism rather than B's vocabulary; alternatives merely re-described A.",
+        "confidence": "medium - the mechanism transfers cleanly and is testable, but whether the independent-check error multiplication actually holds (vs. correlated filter errors) is empirical.",
+        "could_be_wrong_if": "the filter's errors across re-check stages are strongly correlated (same model, same context), in which case extra stages don't multiply down error and the proposal collapses into trivial repeated thresholding \u2014 a surface analogy."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "12aaaf5e-e657-4743-a83d-da6856a98e24",
+      "opus_cost_usd": 0.06954874999999999
+    },
+    {
+      "cand_id": "CAND_017_003",
+      "atom_a_id": "ATOM_R17_01",
+      "atom_b_id": "ATOM_R17_03",
+      "niche_name": "Kinetic-Proofreading Routers for Sub-Spectrum-Bound MoE Sparsity",
+      "mechanism": "A multi-stage MoE router induces a delay between token-to-expert assignment and final dispatch by routing each token through irreversible intermediate gating states, each of which can release and re-route a mis-assigned token, so the router regulates routing error below the floor that the concentration matrix's entropy bound alone permits, at the cost of extra routing compute.",
+      "transfer": "Kinetic proofreading's delay-and-rerelease cascade of intermediate enzyme-substrate states transfers from B to become a cascade of intermediate routing states layered on A's smooth concentration-controlled gate.",
+      "open_problem": "Can adding irreversible intermediate re-routing stages to a Grassmannian/concentration-matrix router provably push routing error and expert collapse below the spectrum-entropy bound, and what is the compute (energy) cost of each proofreading stage?",
+      "primary_quote": "giving the enzyme multiple chances to release the wrong substrate after initial binding",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: a concentration matrix that smoothly controls MoE routing entropy (replacing discrete top-k), with formal bounds tying the concentration spectrum to routing entropy and expert collapse. B: kinetic proofreading, where intermediate enzyme-substrate states insert a delay between binding and product, giving repeated chances to discard wrong substrates and beating the equilibrium binding-energy-difference error floor.",
+        "reasoning": "I tried to transfer B's central trick \u2014 accuracy amplification via irreversible, energy-consuming intermediate states that allow re-selection \u2014 onto A's routing decision. The key mapping is: A's 'concentration spectrum / routing-entropy bound' plays the role of B's 'binding-energy difference' \u2014 both are the single-shot, equilibrium accuracy ceiling. Proofreading's claim is precisely that you can beat that ceiling by spending energy on delay. I considered the surface framing 'top-k = proofreading because it filters experts,' and rejected it: top-k is a single equilibrium selection with no irreversible intermediate state and no energy cost, so it cannot exceed the spectrum bound. I also considered mapping proofreading onto MoE dropout/load-balancing, but those don't have the multi-chance-rerelease structure. The non-trivial content is the proposed formal result: a multi-stage re-routing cascade should lower routing error/collapse BELOW A's spectrum-entropy bound, exactly as proofreading beats the binding-energy floor, with a quantifiable compute-per-stage cost mirroring ATP expenditure.",
+        "decision": "I settled on a 'kinetic-proofreading router' that adds irreversible intermediate gating stages to A's concentration-matrix gate, because this is the one combination where B's mechanism does real work \u2014 it attacks A's own stated formal bound \u2014 rather than redecorating top-k.",
+        "confidence": "medium - the energy/compute-cost analog and the bound-beating claim are plausible and concrete but unproven, and the mapping of 'irreversibility' onto a differentiable router is the weak link.",
+        "could_be_wrong_if": "the intermediate routing stages are differentiable and reversible (no true irreversible discard), in which case there is no entropy production and the cascade collapses to a deeper soft gate that cannot beat the spectrum bound \u2014 making this a vocabulary analogy."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "4628c5ab-9278-42e2-aeb5-77b2793ef864",
+      "opus_cost_usd": 0.07301525
+    }
+  ]
+}

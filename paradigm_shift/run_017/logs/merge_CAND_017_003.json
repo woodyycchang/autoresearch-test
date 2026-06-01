@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_017_003",
+  "atom_a_id": "ATOM_R17_01",
+  "atom_b_id": "ATOM_R17_03",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "A multi-stage MoE router induces a delay between token-to-expert assignment and final dispatch by routing each token through irreversible intermediate gating states, each of which can release and re-route a mis-assigned token, so the router regulates routing error below the floor that the concentration matrix's entropy bound alone permits, at the cost of extra routing compute.",
+    "transfer": "Kinetic proofreading's delay-and-rerelease cascade of intermediate enzyme-substrate states transfers from B to become a cascade of intermediate routing states layered on A's smooth concentration-controlled gate.",
+    "open_problem": "Can adding irreversible intermediate re-routing stages to a Grassmannian/concentration-matrix router provably push routing error and expert collapse below the spectrum-entropy bound, and what is the compute (energy) cost of each proofreading stage?",
+    "niche_name": "Kinetic-Proofreading Routers for Sub-Spectrum-Bound MoE Sparsity",
+    "primary_quote": "giving the enzyme multiple chances to release the wrong substrate after initial binding",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: a concentration matrix that smoothly controls MoE routing entropy (replacing discrete top-k), with formal bounds tying the concentration spectrum to routing entropy and expert collapse. B: kinetic proofreading, where intermediate enzyme-substrate states insert a delay between binding and product, giving repeated chances to discard wrong substrates and beating the equilibrium binding-energy-difference error floor.",
+      "reasoning": "I tried to transfer B's central trick \u2014 accuracy amplification via irreversible, energy-consuming intermediate states that allow re-selection \u2014 onto A's routing decision. The key mapping is: A's 'concentration spectrum / routing-entropy bound' plays the role of B's 'binding-energy difference' \u2014 both are the single-shot, equilibrium accuracy ceiling. Proofreading's claim is precisely that you can beat that ceiling by spending energy on delay. I considered the surface framing 'top-k = proofreading because it filters experts,' and rejected it: top-k is a single equilibrium selection with no irreversible intermediate state and no energy cost, so it cannot exceed the spectrum bound. I also considered mapping proofreading onto MoE dropout/load-balancing, but those don't have the multi-chance-rerelease structure. The non-trivial content is the proposed formal result: a multi-stage re-routing cascade should lower routing error/collapse BELOW A's spectrum-entropy bound, exactly as proofreading beats the binding-energy floor, with a quantifiable compute-per-stage cost mirroring ATP expenditure.",
+      "decision": "I settled on a 'kinetic-proofreading router' that adds irreversible intermediate gating stages to A's concentration-matrix gate, because this is the one combination where B's mechanism does real work \u2014 it attacks A's own stated formal bound \u2014 rather than redecorating top-k.",
+      "confidence": "medium - the energy/compute-cost analog and the bound-beating claim are plausible and concrete but unproven, and the mapping of 'irreversibility' onto a differentiable router is the weak link.",
+      "could_be_wrong_if": "the intermediate routing stages are differentiable and reversible (no true irreversible discard), in which case there is no entropy production and the cascade collapses to a deeper soft gate that cannot beat the spectrum bound \u2014 making this a vocabulary analogy."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 29267,
+      "duration_api_ms": 28376,
+      "ttft_ms": 10865,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"A multi-stage MoE router induces a delay between token-to-expert assignment and final dispatch by routing each token through irreversible intermediate gating states, each of which can release and re-route a mis-assigned token, so the router regulates routing error below the floor that the concentration matrix's entropy bound alone permits, at the cost of extra routing compute.\", \"transfer\": \"Kinetic proofreading's delay-and-rerelease cascade of intermediate enzyme-substrate states transfers from B to become a cascade of intermediate routing states layered on A's smooth concentration-controlled gate.\", \"open_problem\": \"Can adding irreversible intermediate re-routing stages to a Grassmannian/concentration-matrix router provably push routing error and expert collapse below the spectrum-entropy bound, and what is the compute (energy) cost of each proofreading stage?\", \"niche_name\": \"Kinetic-Proofreading Routers for Sub-Spectrum-Bound MoE Sparsity\", \"primary_quote\": \"giving the enzyme multiple chances to release the wrong substrate after initial binding\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: a concentration matrix that smoothly controls MoE routing entropy (replacing discrete top-k), with formal bounds tying the concentration spectrum to routing entropy and expert collapse. B: kinetic proofreading, where intermediate enzyme-substrate states insert a delay between binding and product, giving repeated chances to discard wrong substrates and beating the equilibrium binding-energy-difference error floor.\", \"reasoning\": \"I tried to transfer B's central trick \u2014 accuracy amplification via irreversible, energy-consuming intermediate states that allow re-selection \u2014 onto A's routing decision. The key mapping is: A's 'concentration spectrum / routing-entropy bound' plays the role of B's 'binding-energy difference' \u2014 both are the single-shot, equilibrium accuracy ceiling. Proofreading's claim is precisely that you can beat that ceiling by spending energy on delay. I considered the surface framing 'top-k = proofreading because it filters experts,' and rejected it: top-k is a single equilibrium selection with no irreversible intermediate state and no energy cost, so it cannot exceed the spectrum bound. I also considered mapping proofreading onto MoE dropout/load-balancing, but those don't have the multi-chance-rerelease structure. The non-trivial content is the proposed formal result: a multi-stage re-routing cascade should lower routing error/collapse BELOW A's spectrum-entropy bound, exactly as proofreading beats the binding-energy floor, with a quantifiable compute-per-stage cost mirroring ATP expenditure.\", \"decision\": \"I settled on a 'kinetic-proofreading router' that adds irreversible intermediate gating stages to A's concentration-matrix gate, because this is the one combination where B's mechanism does real work \u2014 it attacks A's own stated formal bound \u2014 rather than redecorating top-k.\", \"confidence\": \"medium - the energy/compute-cost analog and the bound-beating claim are plausible and concrete but unproven, and the mapping of 'irreversibility' onto a differentiable router is the weak link.\", \"could_be_wrong_if\": \"the intermediate routing stages are differentiable and reversible (no true irreversible discard), in which case there is no entropy production and the cascade collapses to a deeper soft gate that cannot beat the spectrum bound \u2014 making this a vocabulary analogy.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "4628c5ab-9278-42e2-aeb5-77b2793ef864",
+      "total_cost_usd": 0.07301525,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1911,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1765,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1911,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1765,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1911,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1911
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1061,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0011660000000000002,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1765,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1911,
+          "webSearchRequests": 0,
+          "costUSD": 0.07184925,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "9be788f5-ead0-46cc-8b0b-e7ccdffcb649"
+    }
+  ]
+}
