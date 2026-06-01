@@ -1,0 +1,423 @@
+[
+  {
+    "cand_id": "CAND_019_001",
+    "niche_name": "Fisher-Rao-Optimal Annealing Schedules for Continuous MoE Routing Sparsity",
+    "composite": 0.45,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 1.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 26,
+    "combined_atom_hits": 6,
+    "atom_a_hits": 3,
+    "atom_b_hits": 3,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.45,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) CAND_019_001",
+        "inputs_seen": "composite=0.45 params={'novelty': 0.0, 'mechanism_present': 1.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} paper_hits=26",
+        "reasoning": "novelty(0.55 wt)=0.0 from 26 hits; to clear 0.90 need <=3 hits.",
+        "decision": "FAIL (0.45 < 0.9)",
+        "confidence": "high - arithmetic",
+        "could_be_wrong_if": "AGENT 4 miscounted paper-like hits"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) CAND_019_001",
+        "inputs_seen": "atoms=['R19_P1_S3', 'R19_P2_S2'] quarantine=['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "fails iff a source atom is quarantined.",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - set membership",
+        "could_be_wrong_if": "atom id string-collides with a quarantined id"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) CAND_019_001",
+        "inputs_seen": "n_reform=5 (req 5); collision=False; overturned=False",
+        "reasoning": "pass iff >=5 reformulations, no collision, not overturned (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion",
+        "could_be_wrong_if": "both verify+crosscheck shared a blind spot"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "produces",
+        "regulates"
+      ],
+      "quote_len": 70,
+      "quote_grounded": true,
+      "quote_source_id": "R19_P1_S3",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda) CAND_019_001",
+        "inputs_seen": "verbs=['produces', 'regulates'] quote_len=70 grounded=True",
+        "reasoning": "needs a causal verb + >=30-char verbatim quote substring.",
+        "decision": "PASS",
+        "confidence": "high - regex + substring",
+        "could_be_wrong_if": "mechanism uses a verb outside the Belinda vocab"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival CAND_019_001",
+      "inputs_seen": "passes={g1:False,g2:True,g3:True,g4:True}",
+      "reasoning": "survives iff all four pass (AND); fails first at gate_1_composite.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction",
+      "could_be_wrong_if": "any gate input wrong upstream"
+    }
+  },
+  {
+    "cand_id": "CAND_019_002",
+    "niche_name": "Thermodynamic MoE Routing via Concentration-Controlled Hardware Sampling",
+    "composite": 0.45,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 1.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 20,
+    "combined_atom_hits": 6,
+    "atom_a_hits": 3,
+    "atom_b_hits": 3,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.45,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) CAND_019_002",
+        "inputs_seen": "composite=0.45 params={'novelty': 0.0, 'mechanism_present': 1.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} paper_hits=20",
+        "reasoning": "novelty(0.55 wt)=0.0 from 20 hits; to clear 0.90 need <=3 hits.",
+        "decision": "FAIL (0.45 < 0.9)",
+        "confidence": "high - arithmetic",
+        "could_be_wrong_if": "AGENT 4 miscounted paper-like hits"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) CAND_019_002",
+        "inputs_seen": "atoms=['R19_P1_S3', 'R19_P3_S1'] quarantine=['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "fails iff a source atom is quarantined.",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - set membership",
+        "could_be_wrong_if": "atom id string-collides with a quarantined id"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) CAND_019_002",
+        "inputs_seen": "n_reform=5 (req 5); collision=False; overturned=False",
+        "reasoning": "pass iff >=5 reformulations, no collision, not overturned (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion",
+        "could_be_wrong_if": "both verify+crosscheck shared a blind spot"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "regulates",
+        "transforms"
+      ],
+      "quote_len": 70,
+      "quote_grounded": true,
+      "quote_source_id": "R19_P1_S3",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda) CAND_019_002",
+        "inputs_seen": "verbs=['regulates', 'transforms'] quote_len=70 grounded=True",
+        "reasoning": "needs a causal verb + >=30-char verbatim quote substring.",
+        "decision": "PASS",
+        "confidence": "high - regex + substring",
+        "could_be_wrong_if": "mechanism uses a verb outside the Belinda vocab"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival CAND_019_002",
+      "inputs_seen": "passes={g1:False,g2:True,g3:True,g4:True}",
+      "reasoning": "survives iff all four pass (AND); fails first at gate_1_composite.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction",
+      "could_be_wrong_if": "any gate input wrong upstream"
+    }
+  },
+  {
+    "cand_id": "CAND_019_003",
+    "niche_name": "Fisher-Rao-optimal annealing schedules for thermodynamic sampling hardware",
+    "composite": 0.25,
+    "composite_params": {
+      "novelty": 0.0,
+      "mechanism_present": 0.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 24,
+    "combined_atom_hits": 6,
+    "atom_a_hits": 3,
+    "atom_b_hits": 3,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.25,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) CAND_019_003",
+        "inputs_seen": "composite=0.25 params={'novelty': 0.0, 'mechanism_present': 0.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} paper_hits=24",
+        "reasoning": "novelty(0.55 wt)=0.0 from 24 hits; to clear 0.90 need <=3 hits.",
+        "decision": "FAIL (0.25 < 0.9)",
+        "confidence": "high - arithmetic",
+        "could_be_wrong_if": "AGENT 4 miscounted paper-like hits"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) CAND_019_003",
+        "inputs_seen": "atoms=['R19_P2_S2', 'R19_P3_S1'] quarantine=['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "fails iff a source atom is quarantined.",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - set membership",
+        "could_be_wrong_if": "atom id string-collides with a quarantined id"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) CAND_019_003",
+        "inputs_seen": "n_reform=5 (req 5); collision=False; overturned=False",
+        "reasoning": "pass iff >=5 reformulations, no collision, not overturned (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion",
+        "could_be_wrong_if": "both verify+crosscheck shared a blind spot"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": false,
+      "mechanism_verbs": [],
+      "quote_len": 90,
+      "quote_grounded": true,
+      "quote_source_id": "R19_P3_S1",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda) CAND_019_003",
+        "inputs_seen": "verbs=[] quote_len=90 grounded=True",
+        "reasoning": "needs a causal verb + >=30-char verbatim quote substring.",
+        "decision": "FAIL",
+        "confidence": "high - regex + substring",
+        "could_be_wrong_if": "mechanism uses a verb outside the Belinda vocab"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite",
+      "gate_4_belinda"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival CAND_019_003",
+      "inputs_seen": "passes={g1:False,g2:True,g3:True,g4:False}",
+      "reasoning": "survives iff all four pass (AND); fails first at gate_1_composite.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction",
+      "could_be_wrong_if": "any gate input wrong upstream"
+    }
+  },
+  {
+    "cand_id": "CAND_019_004",
+    "niche_name": "Fisher-Rao-Optimal Concentration Scheduling for Grassmannian MoE Routing",
+    "composite": 0.56,
+    "composite_params": {
+      "novelty": 0.2,
+      "mechanism_present": 1.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 16,
+    "combined_atom_hits": 7,
+    "atom_a_hits": 4,
+    "atom_b_hits": 3,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.56,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) CAND_019_004",
+        "inputs_seen": "composite=0.56 params={'novelty': 0.2, 'mechanism_present': 1.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} paper_hits=16",
+        "reasoning": "novelty(0.55 wt)=0.2 from 16 hits; to clear 0.90 need <=3 hits.",
+        "decision": "FAIL (0.56 < 0.9)",
+        "confidence": "high - arithmetic",
+        "could_be_wrong_if": "AGENT 4 miscounted paper-like hits"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) CAND_019_004",
+        "inputs_seen": "atoms=['R19_P1_S2', 'R19_P2_S2'] quarantine=['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "fails iff a source atom is quarantined.",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - set membership",
+        "could_be_wrong_if": "atom id string-collides with a quarantined id"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) CAND_019_004",
+        "inputs_seen": "n_reform=5 (req 5); collision=False; overturned=False",
+        "reasoning": "pass iff >=5 reformulations, no collision, not overturned (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion",
+        "could_be_wrong_if": "both verify+crosscheck shared a blind spot"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "regulates",
+        "transforms"
+      ],
+      "quote_len": 50,
+      "quote_grounded": true,
+      "quote_source_id": "R19_P1_S2",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda) CAND_019_004",
+        "inputs_seen": "verbs=['regulates', 'transforms'] quote_len=50 grounded=True",
+        "reasoning": "needs a causal verb + >=30-char verbatim quote substring.",
+        "decision": "PASS",
+        "confidence": "high - regex + substring",
+        "could_be_wrong_if": "mechanism uses a verb outside the Belinda vocab"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival CAND_019_004",
+      "inputs_seen": "passes={g1:False,g2:True,g3:True,g4:True}",
+      "reasoning": "survives iff all four pass (AND); fails first at gate_1_composite.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction",
+      "could_be_wrong_if": "any gate input wrong upstream"
+    }
+  },
+  {
+    "cand_id": "CAND_019_005",
+    "niche_name": "Thermodynamic Sampling of Grassmannian Bingham Gates for MoE Routing",
+    "composite": 0.2775,
+    "composite_params": {
+      "novelty": 0.05,
+      "mechanism_present": 0.0,
+      "quote_grounded": 1.0,
+      "cross_atom": 1.0
+    },
+    "paper_hits_in_verify": 19,
+    "combined_atom_hits": 7,
+    "atom_a_hits": 4,
+    "atom_b_hits": 3,
+    "gate_1_composite": {
+      "pass": false,
+      "composite": 0.2775,
+      "threshold": 0.9,
+      "reasoning_trace": {
+        "step": "Gate 1 (composite>=0.90) CAND_019_005",
+        "inputs_seen": "composite=0.2775 params={'novelty': 0.05, 'mechanism_present': 0.0, 'quote_grounded': 1.0, 'cross_atom': 1.0} paper_hits=19",
+        "reasoning": "novelty(0.55 wt)=0.05 from 19 hits; to clear 0.90 need <=3 hits.",
+        "decision": "FAIL (0.2775 < 0.9)",
+        "confidence": "high - arithmetic",
+        "could_be_wrong_if": "AGENT 4 miscounted paper-like hits"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": [],
+      "reasoning_trace": {
+        "step": "Gate 2 (quarantine) CAND_019_005",
+        "inputs_seen": "atoms=['R19_P1_S2', 'R19_P3_S1'] quarantine=['ARXIV_R10_evodevo', 'ARXIV_R10_market_making', 'ARXIV_R10_thermodynamics', 'KP_E2_A06', 'PG_E1_A05']",
+        "reasoning": "fails iff a source atom is quarantined.",
+        "decision": "PASS (hits=[])",
+        "confidence": "high - set membership",
+        "could_be_wrong_if": "atom id string-collides with a quarantined id"
+      }
+    },
+    "gate_3_verify": {
+      "pass": true,
+      "n_reformulations": 5,
+      "required": 5,
+      "verifier_collision": false,
+      "crosscheck_overturned": false,
+      "reasoning_trace": {
+        "step": "Gate 3 (verify XOR crosscheck) CAND_019_005",
+        "inputs_seen": "n_reform=5 (req 5); collision=False; overturned=False",
+        "reasoning": "pass iff >=5 reformulations, no collision, not overturned (R7).",
+        "decision": "PASS",
+        "confidence": "high - boolean fusion",
+        "could_be_wrong_if": "both verify+crosscheck shared a blind spot"
+      }
+    },
+    "gate_4_belinda": {
+      "pass": false,
+      "mechanism_verbs": [],
+      "quote_len": 50,
+      "quote_grounded": true,
+      "quote_source_id": "R19_P1_S2",
+      "reasoning_trace": {
+        "step": "Gate 4 (Belinda) CAND_019_005",
+        "inputs_seen": "verbs=[] quote_len=50 grounded=True",
+        "reasoning": "needs a causal verb + >=30-char verbatim quote substring.",
+        "decision": "FAIL",
+        "confidence": "high - regex + substring",
+        "could_be_wrong_if": "mechanism uses a verb outside the Belinda vocab"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_composite",
+      "gate_4_belinda"
+    ],
+    "survival_reasoning_trace": {
+      "step": "survival CAND_019_005",
+      "inputs_seen": "passes={g1:False,g2:True,g3:True,g4:False}",
+      "reasoning": "survives iff all four pass (AND); fails first at gate_1_composite.",
+      "decision": "ELIMINATED at gate_1_composite",
+      "confidence": "high - conjunction",
+      "could_be_wrong_if": "any gate input wrong upstream"
+    }
+  }
+]
