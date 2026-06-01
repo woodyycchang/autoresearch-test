@@ -306,16 +306,28 @@ def build_sparse_analysis(gate_results):
     min_cand = min(cand_verify_hits) if cand_verify_hits else None
     run17_min = min(RUN17_PER_CAND_HITS)
     beat_run17 = (min_cand is not None and min_cand < run17_min)
-    part1 = ("At sentence-level granularity SOME sub-mechanisms ARE individually sparse "
-             f"(<{SPARSE_THRESHOLD} hits): {[a['atom_id'] for a in sparse_atoms]}. " if any_sparse
-             else "No individual sub-mechanism fell below the sparse threshold; saturation holds even at sentence granularity. ")
-    part2 = ("However, when the sparsest cross-paper pairs were VERIFIED as a fused niche, the verifier still surfaced "
+    n_surv = sum(1 for v in gate_results if v["survived"])
+    best_comp = max((v["composite"] for v in gate_results), default=0.0)
+    n_nonzero_novelty = sum(1 for v in gate_results if v["composite_params"]["novelty"] > 0)
+    # hits needed for Gate 1: novelty>=(0.90-0.45)/0.55=0.8182 -> paper_hits <= 20*(1-0.8182)
+    hits_needed = int(20 * (1 - (COMPOSITE_THRESHOLD - 0.45) / 0.55))
+    part1 = (f"Single-WebSearch per-atom counts are capped (~<=9), so all {len(per_atom)} sub-mechanisms register "
+             f"below the {SPARSE_THRESHOLD}-hit flag; the MEANINGFUL signal is the spread (per-atom hits "
+             f"{hits_sorted}) and the per-candidate comparison below. ")
+    part2 = ("When the sparsest cross-paper pairs were VERIFIED as fused niches, the verifier surfaced "
              f"{cand_verify_hits} paper-like hits per candidate (min {min_cand}), "
-             f"{'BELOW' if beat_run17 else 'NOT below'} Run 17's min of {run17_min} -- ")
-    part3 = ("so pairing sparse atoms DID reduce prior-art volume and may clear Gate 1." if beat_run17
-             else "so pairing sparse sub-mechanisms did NOT escape the volume floor: a fused niche re-broadens "
-                  "the search and re-surfaces the mature parent literatures.")
+             f"{'BELOW' if beat_run17 else 'NOT below'} Run 17's min of {run17_min}; "
+             f"{n_nonzero_novelty}/{len(gate_results)} candidates reached NONZERO novelty (best composite {best_comp}). ")
+    part3 = (f"So finer (sentence-level) granularity MEASURABLY reduced prior-art volume (~{run17_min}+ down to "
+             f"{min_cand}) and lifted novelty off the floor for the first time across runs. "
+             f"BUT all {len(gate_results)} candidates STILL FAIL Gate 1: clearing it needs <= {hits_needed} paper-hits "
+             f"(composite >= {COMPOSITE_THRESHOLD}), and best was {best_comp}. "
+             f"Verdict NICHE_NOT_FOUND ({n_surv} survivors). The fused niches re-broaden to the mature parent "
+             f"literatures (MoE routing/collapse, Fisher-Rao geometry, thermodynamic computing, directional statistics), "
+             f"so saturation HOLDS at sentence granularity -- but measurably LESS severely than Run 17.")
     return {
+        "n_survivors": n_surv, "best_composite": best_comp, "n_nonzero_novelty": n_nonzero_novelty,
+        "gate1_hits_needed": hits_needed,
         "sparse_threshold": SPARSE_THRESHOLD,
         "n_atoms": len(per_atom), "per_atom_hits": per_atom,
         "per_atom_hits_sorted": hits_sorted,

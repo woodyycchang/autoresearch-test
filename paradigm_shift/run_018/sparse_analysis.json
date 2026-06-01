@@ -1,0 +1,157 @@
+{
+  "n_survivors": 0,
+  "best_composite": 0.505,
+  "n_nonzero_novelty": 3,
+  "gate1_hits_needed": 3,
+  "sparse_threshold": 10,
+  "n_atoms": 11,
+  "per_atom_hits": [
+    {
+      "atom_id": "R18_P1_S1",
+      "sub_mechanism": "",
+      "paper_hits": 1,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P1_S2",
+      "sub_mechanism": "",
+      "paper_hits": 3,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P1_S3",
+      "sub_mechanism": "",
+      "paper_hits": 3,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P1_S4",
+      "sub_mechanism": "",
+      "paper_hits": 4,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P1_S5",
+      "sub_mechanism": "",
+      "paper_hits": 2,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P2_S1",
+      "sub_mechanism": "",
+      "paper_hits": 4,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P2_S2",
+      "sub_mechanism": "",
+      "paper_hits": 3,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P3_S1",
+      "sub_mechanism": "",
+      "paper_hits": 3,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P3_S2",
+      "sub_mechanism": "",
+      "paper_hits": 5,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P3_S3",
+      "sub_mechanism": "",
+      "paper_hits": 4,
+      "sparse": true
+    },
+    {
+      "atom_id": "R18_P3_S4",
+      "sub_mechanism": "",
+      "paper_hits": 5,
+      "sparse": true
+    }
+  ],
+  "per_atom_hits_sorted": [
+    1,
+    2,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    5,
+    5
+  ],
+  "n_sparse_atoms": 11,
+  "sparse_atom_ids": [
+    "R18_P1_S1",
+    "R18_P1_S2",
+    "R18_P1_S3",
+    "R18_P1_S4",
+    "R18_P1_S5",
+    "R18_P2_S1",
+    "R18_P2_S2",
+    "R18_P3_S1",
+    "R18_P3_S2",
+    "R18_P3_S3",
+    "R18_P3_S4"
+  ],
+  "R12_any_submechanism_sparse": true,
+  "per_candidate": [
+    {
+      "cand_id": "CAND_018_001",
+      "combined_atom_hits": 5,
+      "verify_paper_hits": 20,
+      "composite": 0.45,
+      "survived": false
+    },
+    {
+      "cand_id": "CAND_018_002",
+      "combined_atom_hits": 5,
+      "verify_paper_hits": 19,
+      "composite": 0.4775,
+      "survived": false
+    },
+    {
+      "cand_id": "CAND_018_003",
+      "combined_atom_hits": 6,
+      "verify_paper_hits": 18,
+      "composite": 0.505,
+      "survived": false
+    },
+    {
+      "cand_id": "CAND_018_004",
+      "combined_atom_hits": 6,
+      "verify_paper_hits": 19,
+      "composite": 0.4775,
+      "survived": false
+    },
+    {
+      "cand_id": "CAND_018_005",
+      "combined_atom_hits": 6,
+      "verify_paper_hits": 23,
+      "composite": 0.45,
+      "survived": false
+    }
+  ],
+  "candidate_verify_hits": [
+    20,
+    19,
+    18,
+    19,
+    23
+  ],
+  "min_candidate_verify_hits": 18,
+  "run_017_per_candidate_verify_hits": [
+    38,
+    34,
+    30
+  ],
+  "run_017_min": 30,
+  "R12_pairing_sparse_beat_run17_min": true,
+  "interpretation": "Single-WebSearch per-atom counts are capped (~<=9), so all 11 sub-mechanisms register below the 10-hit flag; the MEANINGFUL signal is the spread (per-atom hits [1, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5]) and the per-candidate comparison below. When the sparsest cross-paper pairs were VERIFIED as fused niches, the verifier surfaced [20, 19, 18, 19, 23] paper-like hits per candidate (min 18), BELOW Run 17's min of 30; 3/5 candidates reached NONZERO novelty (best composite 0.505). So finer (sentence-level) granularity MEASURABLY reduced prior-art volume (~30+ down to 18) and lifted novelty off the floor for the first time across runs. BUT all 5 candidates STILL FAIL Gate 1: clearing it needs <= 3 paper-hits (composite >= 0.9), and best was 0.505. Verdict NICHE_NOT_FOUND (0 survivors). The fused niches re-broaden to the mature parent literatures (MoE routing/collapse, Fisher-Rao geometry, thermodynamic computing, directional statistics), so saturation HOLDS at sentence granularity -- but measurably LESS severely than Run 17."
+}
