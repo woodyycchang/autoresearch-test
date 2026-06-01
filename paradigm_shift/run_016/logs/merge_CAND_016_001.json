@@ -1,15 +1,15 @@
 {
   "cand_id": "CAND_016_001",
-  "atom_a_id": "ATOM_R16E2_01",
-  "atom_b_id": "ATOM_R16E2_02",
+  "atom_a_id": "ATOM_R16E3_01",
+  "atom_b_id": "ATOM_R16E3_02",
   "parse_ok": true,
   "attempts": 1,
   "parsed": {
-    "mechanism": "MoSA routes distinct tokens to each attention head via expert-choice routing, and a learned router computes a distribution over heads-as-experts that assigns each input token to a small subset, which produces content-based sparse attention with token-level load balancing.",
-    "transfer": "The expert-choice token-selection mechanism from A is transferred to B's learned router-over-experts framework so per-head attention experts are populated by a learned token-to-expert distribution.",
-    "open_problem": "Does replacing MoSA's expert-choice head routing with a learned token-choice router over attention-head experts improve quality-vs-sparsity trade-offs without incurring token-dropping load imbalance?",
-    "niche_name": "Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads",
-    "primary_quote": "MoSA selects distinct tokens for each head with expert choice routing",
+    "mechanism": "A similarity-preserving router induces token-wise relational structure via orthogonality in its weights, which routes tokens to fast-weight experts whose hidden states are themselves models updated by self-supervised test-time training, so relational geometry regulates which expert undergoes test-time learning on each token.",
+    "transfer": "SimBal's orthogonality-based, similarity-preserving routing loss transfers from MoE load balancing to govern expert selection in a test-time-training architecture where each expert's hidden state is a self-supervised learner.",
+    "open_problem": "Does enforcing router orthogonality that preserves token similarity improve the stability and generalization of expert-wise test-time training compared to standard load-balancing losses?",
+    "niche_name": "Similarity-Preserving Routing for Test-Time-Training Mixture-of-Experts",
+    "primary_quote": "a novel load balancing auxiliary loss that maintains token-wise relational structure by softly encouraging orthogonality in the router weights",
     "quote_source": "atom_a"
   },
   "quote_verified_substring": true,
@@ -19,38 +19,38 @@
       "subtype": "success",
       "is_error": false,
       "api_error_status": null,
-      "duration_ms": 9541,
-      "duration_api_ms": 8782,
-      "ttft_ms": 4097,
+      "duration_ms": 12458,
+      "duration_api_ms": 11206,
+      "ttft_ms": 6309,
       "num_turns": 1,
-      "result": "{\"mechanism\": \"MoSA routes distinct tokens to each attention head via expert-choice routing, and a learned router computes a distribution over heads-as-experts that assigns each input token to a small subset, which produces content-based sparse attention with token-level load balancing.\", \"transfer\": \"The expert-choice token-selection mechanism from A is transferred to B's learned router-over-experts framework so per-head attention experts are populated by a learned token-to-expert distribution.\", \"open_problem\": \"Does replacing MoSA's expert-choice head routing with a learned token-choice router over attention-head experts improve quality-vs-sparsity trade-offs without incurring token-dropping load imbalance?\", \"niche_name\": \"Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads\", \"primary_quote\": \"MoSA selects distinct tokens for each head with expert choice routing\", \"quote_source\": \"atom_a\"}",
+      "result": "{\"mechanism\": \"A similarity-preserving router induces token-wise relational structure via orthogonality in its weights, which routes tokens to fast-weight experts whose hidden states are themselves models updated by self-supervised test-time training, so relational geometry regulates which expert undergoes test-time learning on each token.\", \"transfer\": \"SimBal's orthogonality-based, similarity-preserving routing loss transfers from MoE load balancing to govern expert selection in a test-time-training architecture where each expert's hidden state is a self-supervised learner.\", \"open_problem\": \"Does enforcing router orthogonality that preserves token similarity improve the stability and generalization of expert-wise test-time training compared to standard load-balancing losses?\", \"niche_name\": \"Similarity-Preserving Routing for Test-Time-Training Mixture-of-Experts\", \"primary_quote\": \"a novel load balancing auxiliary loss that maintains token-wise relational structure by softly encouraging orthogonality in the router weights\", \"quote_source\": \"atom_a\"}",
       "stop_reason": "end_turn",
-      "session_id": "71e598cd-79aa-487f-ad25-b415c114b783",
-      "total_cost_usd": 0.03643825,
+      "session_id": "3dbb1378-b845-48a2-9341-2950fa342cdd",
+      "total_cost_usd": 0.12403349999999999,
       "usage": {
         "input_tokens": 1734,
-        "cache_creation_input_tokens": 1431,
-        "cache_read_input_tokens": 14221,
-        "output_tokens": 434,
+        "cache_creation_input_tokens": 15714,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 649,
         "server_tool_use": {
           "web_search_requests": 0,
           "web_fetch_requests": 0
         },
         "service_tier": "standard",
         "cache_creation": {
-          "ephemeral_1h_input_tokens": 1431,
+          "ephemeral_1h_input_tokens": 15714,
           "ephemeral_5m_input_tokens": 0
         },
         "inference_geo": "not_available",
         "iterations": [
           {
             "input_tokens": 1734,
-            "output_tokens": 434,
-            "cache_read_input_tokens": 14221,
-            "cache_creation_input_tokens": 1431,
+            "output_tokens": 649,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 15714,
             "cache_creation": {
               "ephemeral_5m_input_tokens": 0,
-              "ephemeral_1h_input_tokens": 1431
+              "ephemeral_1h_input_tokens": 15714
             },
             "type": "message"
           }
@@ -59,22 +59,22 @@
       },
       "modelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 769,
-          "outputTokens": 19,
+          "inputTokens": 816,
+          "outputTokens": 22,
           "cacheReadInputTokens": 0,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.0008640000000000001,
+          "costUSD": 0.000926,
           "contextWindow": 200000,
           "maxOutputTokens": 32000
         },
         "claude-opus-4-8": {
           "inputTokens": 1734,
-          "outputTokens": 434,
-          "cacheReadInputTokens": 14221,
-          "cacheCreationInputTokens": 1431,
+          "outputTokens": 649,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 15714,
           "webSearchRequests": 0,
-          "costUSD": 0.03557425,
+          "costUSD": 0.1231075,
           "contextWindow": 1000000,
           "maxOutputTokens": 64000
         }
@@ -82,7 +82,7 @@
       "permission_denials": [],
       "terminal_reason": "completed",
       "fast_mode_state": "off",
-      "uuid": "a586bab3-4268-4aab-8552-326a855b580b"
+      "uuid": "99318563-5a41-45bd-9268-aa8f237ddaaf"
     }
   ]
 }
