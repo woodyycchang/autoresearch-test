@@ -1,19 +1,19 @@
 {
   "run_id": "run_016",
-  "epoch": 2,
+  "epoch": 3,
   "verdict": "NICHE_NOT_FOUND",
   "survivors": [],
   "gate_fired_counts": {
     "gate_1_composite": 3,
     "gate_2_quarantine": 0,
-    "gate_3_verify": 1,
-    "gate_4_belinda": 1
+    "gate_3_verify": 0,
+    "gate_4_belinda": 0
   },
   "candidates_scanned": 3,
   "per_candidate": [
     {
       "cand_id": "CAND_016_001",
-      "niche_name": "Learned Token-Choice Routing for Sparse Mixture-of-Attention Heads",
+      "niche_name": "Similarity-Preserving Routing for Test-Time-Training Mixture-of-Experts",
       "composite": 0.45,
       "composite_params": {
         "novelty": 0.0,
@@ -31,30 +31,70 @@
         "quarantine_hits": []
       },
       "gate_3_verify": {
-        "pass": false,
+        "pass": true,
         "n_reformulations": 5,
         "required": 5,
-        "verifier_collision": true,
+        "verifier_collision": false,
         "crosscheck_overturned": false
       },
       "gate_4_belinda": {
         "pass": true,
         "mechanism_verbs": [
-          "produces"
+          "induces",
+          "regulates"
         ],
-        "quote_len": 69,
+        "quote_len": 142,
         "quote_grounded": true,
-        "quote_source_id": "ATOM_R16E2_01"
+        "quote_source_id": "ATOM_R16E3_01"
       },
       "survived": false,
       "gates_failed": [
-        "gate_1_composite",
-        "gate_3_verify"
+        "gate_1_composite"
       ]
     },
     {
       "cand_id": "CAND_016_002",
-      "niche_name": "Ultrasensitive Sigmoidal Gating for Specific Mixture-of-Experts Routing",
+      "niche_name": "Rupture Dynamics of Test-Time-Training Hidden States",
+      "composite": 0.45,
+      "composite_params": {
+        "novelty": 0.0,
+        "mechanism_present": 1.0,
+        "quote_grounded": 1.0,
+        "cross_atom": 1.0
+      },
+      "gate_1_composite": {
+        "pass": false,
+        "composite": 0.45,
+        "threshold": 0.9
+      },
+      "gate_2_quarantine": {
+        "pass": true,
+        "quarantine_hits": []
+      },
+      "gate_3_verify": {
+        "pass": true,
+        "n_reformulations": 5,
+        "required": 5,
+        "verifier_collision": false,
+        "crosscheck_overturned": false
+      },
+      "gate_4_belinda": {
+        "pass": true,
+        "mechanism_verbs": [
+          "induces"
+        ],
+        "quote_len": 66,
+        "quote_grounded": true,
+        "quote_source_id": "ATOM_R16E3_03"
+      },
+      "survived": false,
+      "gates_failed": [
+        "gate_1_composite"
+      ]
+    },
+    {
+      "cand_id": "CAND_016_003",
+      "niche_name": "Damage-Regularized Orthogonal Routing for Stable MoE Load Balancing",
       "composite": 0.45,
       "composite_params": {
         "novelty": 0.0,
@@ -83,61 +123,23 @@
         "mechanism_verbs": [
           "induces",
           "produces",
+          "reduces",
           "regulates"
         ],
-        "quote_len": 104,
+        "quote_len": 54,
         "quote_grounded": true,
-        "quote_source_id": "ATOM_R16E2_02"
+        "quote_source_id": "ATOM_R16E3_01"
       },
       "survived": false,
       "gates_failed": [
         "gate_1_composite"
       ]
-    },
-    {
-      "cand_id": "CAND_016_003",
-      "niche_name": "Expert-Choice Routing Models of Ultrasensitive Transcription-Factor Specificity",
-      "composite": 0.25,
-      "composite_params": {
-        "novelty": 0.0,
-        "mechanism_present": 0.0,
-        "quote_grounded": 1.0,
-        "cross_atom": 1.0
-      },
-      "gate_1_composite": {
-        "pass": false,
-        "composite": 0.25,
-        "threshold": 0.9
-      },
-      "gate_2_quarantine": {
-        "pass": true,
-        "quarantine_hits": []
-      },
-      "gate_3_verify": {
-        "pass": true,
-        "n_reformulations": 5,
-        "required": 5,
-        "verifier_collision": false,
-        "crosscheck_overturned": false
-      },
-      "gate_4_belinda": {
-        "pass": false,
-        "mechanism_verbs": [],
-        "quote_len": 69,
-        "quote_grounded": true,
-        "quote_source_id": "ATOM_R16E2_01"
-      },
-      "survived": false,
-      "gates_failed": [
-        "gate_1_composite",
-        "gate_4_belinda"
-      ]
     }
   ],
-  "avg_search_quality": 0.5967,
-  "prev_avg_search_quality": 0.5119,
-  "search_quality_delta": 0.0848,
+  "avg_search_quality": 0.6024,
+  "prev_avg_search_quality": 0.5967,
+  "search_quality_delta": 0.0057,
   "search_quality_improved": true,
   "per_epoch_success_metric": "search_quality improvement vs last epoch (R12); baseline epoch has no delta",
-  "timestamp": "2026-05-31T23:20:39.280002+00:00"
+  "timestamp": "2026-06-01T02:45:23.223525+00:00"
 }
