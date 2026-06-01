@@ -1,46 +1,44 @@
 {
   "run_id": "run_016",
-  "epoch": 2,
+  "epoch": 3,
   "agent": "4_crosschecker",
-  "crosschecked_at": "2026-05-31T23:20:11Z",
+  "crosschecked_at": "2026-06-01T02:41:37Z",
   "verbatim_note": "All titles/urls from AGENT 4's OWN real WebSearch; independent; no fabrication.",
   "candidates": [
     {
       "cand_id": "CAND_016_001",
-      "agent3_collision_found": true,
-      "agent4_collision": true,
+      "agent3_collision_found": false,
+      "agent4_collision": false,
       "mismatch_with_agent3": false,
-      "notes": "INDEPENDENTLY CONFIRMED the claimed colliding paper. Using different phrasing than A3, both of my fresh searches returned 'Mixture of Attention Heads: Selecting Attention Heads Per Token' (Zhang, Shen et al., EMNLP 2022) at arxiv.org/abs/2210.05144 and aclanthology.org/2022.emnlp-main.278/. The search descriptions confirm it is exactly a LEARNED TOKEN-CHOICE router that 'dynamically selects a subset of k attention heads per token' with a router computing per-token confidences over attention-head experts. This is precisely the CAND_016_001 niche (replacing MoSA expert-choice head routing with a learned token-choice router over attention-head experts). Real collision; A3 verdict corroborated.",
+      "notes": "Two fresh searches with different wording than A3. All paper-like hits are the SIMBAL source atom (arxiv 2506.14038, 'Load Balancing Mixture of Experts with Similarity Preserving Routers') plus adjacent MoE-routing works (Self-Routing 2604.00421, Cosine-Similarity/Semantic-Anchor Routing 2509.14255, Rewiring Experts on the Fly 2510.14853, TARo token-level test-time alignment 2603.18411, Routing by Analogy 2601.02144, Layerwise Recurrent Router 2408.06793, Coupling Experts and Routers 2512.23447). None describe the FUSED niche of similarity-preserving orthogonal routing governing which fast-weight expert undergoes self-supervised test-time training per token. Search 2 explicitly notes SimBal results 'don't contain specific information about test-time training or expert hidden state learner.' No same-core-niche collision. Confirms A3.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "MoA per-token gating select subset of attention heads transformer conditional computation",
+          "query": "relational similarity router orthogonality gating self-supervised fast weight expert per-token test-time adaptation",
           "allowed_domains": null,
           "results": [
-            {"title": "[2210.05144] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144", "snippet": ""},
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token | DeepAI", "url": "https://deepai.org/publication/mixture-of-attention-heads-selecting-attention-heads-per-token", "snippet": ""},
-            {"title": "[2210.05144v1] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144v1", "snippet": ""},
-            {"title": "Paper page - Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://huggingface.co/papers/2210.05144", "snippet": ""},
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token - ACL Anthology", "url": "https://aclanthology.org/2022.emnlp-main.278/", "snippet": ""},
-            {"title": "[PDF] Mixture of Attention Heads: Selecting Attention Heads Per Token | Semantic Scholar", "url": "https://www.semanticscholar.org/paper/Mixture-of-Attention-Heads:-Selecting-Attention-Per-Zhang-Shen/3820231d31540ecb05d94c74d959a2f61d3136ea", "snippet": ""},
-            {"title": "Soft-Masking in Transformer Attention Heads", "url": "https://www.emergentmind.com/topics/soft-masking-of-attention-heads", "snippet": ""},
-            {"title": "Selecting Attention Heads Per Token", "url": "https://aclanthology.org/2022.emnlp-main.278.pdf", "snippet": ""}
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/pdf/2506.14038", "snippet": ""},
+            {"title": "Layerwise Recurrent Router for Mixture-of-Experts", "url": "https://arxiv.org/html/2408.06793v1", "snippet": ""},
+            {"title": "Rewiring Experts on the Fly:Continuous Rerouting for Better Online Adaptation in Mixture-of-Expert models", "url": "https://arxiv.org/pdf/2510.14853", "snippet": ""},
+            {"title": "TARo: Token-level Adaptive Routing for LLM Test-time Alignment", "url": "https://arxiv.org/pdf/2603.18411", "snippet": ""},
+            {"title": "Cosine-Similarity Routing with Semantic Anchors for Interpretable Mixture-of-Experts Language Models", "url": "https://arxiv.org/html/2509.14255", "snippet": ""},
+            {"title": "Self-Routing: Parameter-Free Expert Routing from Hidden States", "url": "https://arxiv.org/pdf/2604.00421", "snippet": ""},
+            {"title": "Routing by Analogy: kNN-Augmented Expert Assignment for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.02144", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "routing network chooses k attention heads each token EMNLP 2022 Zhang Shen",
-          "allowed_domains": ["arxiv.org", "aclanthology.org", "semanticscholar.org"],
+          "query": "SimBal similarity preserving router auxiliary loss combined with test-time training MoE expert hidden state learner",
+          "allowed_domains": null,
           "results": [
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144", "snippet": ""},
-            {"title": "Selecting Attention Heads Per Token", "url": "https://aclanthology.org/2022.emnlp-main.278.pdf", "snippet": ""},
-            {"title": "[2210.05144v1] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144v1", "snippet": ""},
-            {"title": "[2210.05144] Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/abs/2210.05144", "snippet": ""},
-            {"title": "[PDF] Mixture of Attention Heads: Selecting Attention Heads Per Token | Semantic Scholar", "url": "https://www.semanticscholar.org/paper/Mixture-of-Attention-Heads:-Selecting-Attention-Per-Zhang-Shen/3820231d31540ecb05d94c74d959a2f61d3136ea", "snippet": ""},
-            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token - ACL Anthology", "url": "https://aclanthology.org/2022.emnlp-main.278/", "snippet": ""},
-            {"title": "remoe: fully differentiable mixture-of- experts with relu routing", "url": "https://arxiv.org/pdf/2412.14711", "snippet": ""},
-            {"title": "MoH: Multi-Head Attention as Mixture-of-Head Attention", "url": "https://arxiv.org/html/2410.11842v1", "snippet": ""}
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/html/2506.14038v1", "snippet": ""},
+            {"title": "000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019", "url": "https://openreview.net/pdf?id=FNuvMnGAm8", "snippet": ""},
+            {"title": "(PDF) Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://www.researchgate.net/publication/392766915_Load_Balancing_Mixture_of_Experts_with_Similarity_Preserving_Routers", "snippet": ""},
+            {"title": "[2506.14038] Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/abs/2506.14038", "snippet": ""},
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/pdf/2506.14038", "snippet": ""},
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers | OpenReview", "url": "https://openreview.net/forum?id=FNuvMnGAm8", "snippet": ""},
+            {"title": "Advancing Expert Specialization for Better MoE", "url": "https://arxiv.org/html/2505.22323v3", "snippet": ""},
+            {"title": "Coupling Experts and Routers in Mixture-of-Experts via an Auxiliary Loss", "url": "https://arxiv.org/html/2512.23447v1", "snippet": ""}
           ]
         }
       ]
@@ -50,34 +48,35 @@
       "agent3_collision_found": false,
       "agent4_collision": false,
       "mismatch_with_agent3": false,
-      "notes": "Adversarially searched with different phrasing than A3; found NO direct collision. Closest hits: 'More Experts Than Galaxies: Conditionally-overlapping Experts With Biologically-Inspired Fixed Routing' (arxiv 2410.08003 / COMET) uses a FIXED biologically-inspired random projection for expert overlap, NOT a tunable sigmoidal/Hill-coefficient gate-steepness for switch-like specificity; 'Sigmoid Gating is More Sample Efficient...' is framed on sample efficiency not TF ultrasensitivity transfer; biology sources (Hill function / ultrasensitivity, PNAS 2318329121, biorxiv 2023.02.28.529800) are pure biology with no MoE transfer. No paper-like source transfers transcription-factor ultrasensitivity / sigmoidal binding cooperativity into MoE router gate-steepness for specificity. A3 verdict (FALSE) corroborated.",
+      "notes": "BRIDGING TEST (ML term + seismology term in each query). NO bridging paper found. Results split into two disjoint clusters: (1) seismology that APPLIES ML to earthquakes (Graph Neural Networks for rupture dynamics 1906.06250 / 2025JB031981, ANN/RF rupture-arrest prediction, off-fault-damage physics 1901.01771, FDEM off-fault modeling 1911.03468) -- these use ML as a tool for seismology, they do NOT transfer rupture/off-fault-damage physics into TTT/LLM hidden-state adaptation; (2) transformers applied TO seismic data (EQTransformer phase picking PMC7415159, seismic ground-response 14/15/6658, P-wave detection TransQuake, SeisBind 2601.14607). Search 2 explicitly states results 'don't appear to address the specific concept of using physics-inspired metaphors from fault dynamics and rupture propagation to explain transformer representational trajectories.' No paper occupies the fused niche of modeling TTT hidden-state adaptation as a rupture/off-fault-damage front. No bridging collision. Confirms A3.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "Hill function steep gate routing mixture of experts specialization biochemical ultrasensitivity analogy",
+          "query": "earthquake rupture dynamics off-fault damage analogy neural network hidden state test-time training adaptation front high-frequency",
           "allowed_domains": null,
           "results": [
-            {"title": "Ultrasensitivity & the Hill Function | Biocircuits for Mere Mortals", "url": "https://bc.farthergate.com/hill-functions.html", "snippet": ""},
-            {"title": "Ultrasensitivity - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/ultrasensitivity", "snippet": ""},
-            {"title": "The Hill function is the universal Hopfield barrier for sharpness of input-output responses | PNAS", "url": "https://www.pnas.org/doi/10.1073/pnas.2318329121", "snippet": ""},
-            {"title": "Bounds on the Ultrasensitivity of Biochemical Reaction Cascades | bioRxiv", "url": "https://www.biorxiv.org/content/10.1101/2023.02.28.529800v1.full", "snippet": ""},
-            {"title": "Bounds on the Ultrasensitivity of Biochemical Reaction Cascades", "url": "https://www.biorxiv.org/content/10.1101/2023.02.28.529800.full.pdf", "snippet": ""},
-            {"title": "More Experts Than Galaxies: Conditionally-overlapping Experts With Biologically-Inspired Fixed Routing", "url": "https://arxiv.org/pdf/2410.08003", "snippet": ""},
-            {"title": "Mixture of experts - Wikipedia", "url": "https://en.wikipedia.org/wiki/Mixture_of_experts", "snippet": ""},
-            {"title": "The Hill function is the universal Hopfield barrier for sharpness of input-output responses", "url": "https://www.biorxiv.org/content/10.1101/2024.03.27.587054.full.pdf", "snippet": ""}
+            {"title": "Machine Learning Approach to Earthquake Rupture Dynamics - NASA/ADS", "url": "https://ui.adsabs.harvard.edu/abs/2019arXiv190606250A/abstract", "snippet": ""},
+            {"title": "Machine Learning Approach to Earthquake Rupture Dynamics", "url": "https://arxiv.org/pdf/1906.06250", "snippet": ""},
+            {"title": "Earthquake rupture dynamics from Graph Neural Networks | Statewide California Earthquake Center", "url": "https://central.scec.org/publication/14197", "snippet": ""},
+            {"title": "Dynamics, radiation and overall energy budget of earthquake rupture with   coseismic off-fault damage", "url": "https://arxiv.org/pdf/1901.01771", "snippet": ""},
+            {"title": "Earthquake rupture dynamics from Graph Neural Networks", "url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/280083/preprint_pdf/e26820eb944818bf2375f0aabdf876b4.pdf", "snippet": ""},
+            {"title": "(PDF) Machine Learning Approach to Earthquake Rupture Dynamics", "url": "https://www.researchgate.net/publication/333815383_Machine_Learning_Approach_to_Earthquake_Rupture_Dynamics", "snippet": ""},
+            {"title": "Modeling earthquakes with off-fault damage using the combined   finite-discrete element method", "url": "https://arxiv.org/pdf/1911.03468", "snippet": ""},
+            {"title": "Earthquake Rupture Dynamics From Graph Neural Networks - Liu - 2025 - Journal of Geophysical Research: Solid Earth - Wiley Online Library", "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025JB031981?af=R", "snippet": ""},
+            {"title": "SE - Characteristics of earthquake ruptures and dynamic off-fault deformation on propagating faults", "url": "https://se.copernicus.org/articles/11/1333/2020/", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "tunable sharpness gating function expert specificity switch-like router transcription factor inspired neural network",
-          "allowed_domains": ["arxiv.org", "openreview.net", "biorxiv.org", "pmc.ncbi.nlm.nih.gov"],
+          "query": "transformer sequence model representational trajectory modeled as seismic rupture propagation fault damage radiation physics-inspired",
+          "allowed_domains": null,
           "results": [
-            {"title": "GateTS: Versatile and Efficient Forecasting via Attention-Inspired routed Mixture-of-Experts", "url": "https://arxiv.org/html/2508.17515v1", "snippet": ""},
-            {"title": "Fundamental Dynamic Units: Feedforward Networks and Adjustable Gates", "url": "https://arxiv.org/pdf/0907.2005", "snippet": ""},
-            {"title": "More Experts Than Galaxies: Conditionally-overlapping Experts With Biologically-Inspired Fixed Routing", "url": "https://arxiv.org/pdf/2410.08003", "snippet": ""},
-            {"title": "Journal of Machine Learning Research 23 (2022) 1-40", "url": "https://arxiv.org/pdf/2101.03961", "snippet": ""},
-            {"title": "A Brain-Inspired Gating Mechanism Unlocks Robust ...", "url": "https://arxiv.org/pdf/2509.03281", "snippet": ""},
-            {"title": "Published in Transactions on Machine Learning Research (04/2024)", "url": "https://arxiv.org/pdf/2401.15969", "snippet": ""}
+            {"title": "Sequence Deep Learning for Seismic Ground Response Modeling: 1D-CNN, LSTM, and Transformer Approach", "url": "https://www.mdpi.com/2076-3417/14/15/6658", "snippet": ""},
+            {"title": "SeisBind: Physics-Aware Tri-Modal Representation Binding for Seismic Data via Contrastive Learning", "url": "https://arxiv.org/pdf/2601.14607", "snippet": ""},
+            {"title": "Enforcing Reciprocity in Operator Learning for Seismic Wave Propagation", "url": "https://arxiv.org/pdf/2602.11631", "snippet": ""},
+            {"title": "Earthquake transformer—an attentive deep-learning model for simultaneous earthquake detection and phase picking - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7415159/", "snippet": ""},
+            {"title": "Full seismic waveform analysis combined with transformer neural networks improves coseismic landslide prediction | Communications Earth & Environment", "url": "https://www.nature.com/articles/s43247-024-01243-8", "snippet": ""},
+            {"title": "TransQuake: A transformer-based deep learning approach for seismic P-wave detection - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S277246702100004X", "snippet": ""}
           ]
         }
       ]
@@ -87,34 +86,39 @@
       "agent3_collision_found": false,
       "agent4_collision": false,
       "mismatch_with_agent3": false,
-      "notes": "Adversarially searched with different phrasing than A3; found NO bridging paper. The two domains appear ONLY separately: MoE/expert-choice routing papers (arxiv 2202.09368 Expert Choice Routing, 2209.01667 sparse expert review) are pure ML with no biology application; the interferon-beta enhancer / IRF-NF-kB synergy biology (biorxiv 2025.02.04.636520, PMC12377728, enhanceosome PMC3192840) is pure biology with no MoE/expert-choice modeling. Both search engines explicitly stated the results do NOT connect these two concepts. No paper-like source repurposes MoSA-style expert-choice token routing to model promoter-specific ultrasensitive TF activation. A3 verdict (FALSE) corroborated.",
+      "notes": "BRIDGING TEST (ML term + seismology term in each query). NO bridging paper found. ML-side hits are the SIMBAL source atom (2506.14038) plus adjacent MoE load-balancing/stability works (Latent Prototype Routing 2506.21328, EMoE Eigenbasis-Guided Routing 2601.12137, router z-loss instability material). Seismology-side hits are pure earthquake physics / ML-applied-to-seismology (fault-rupture ML review S0065268720300066, rupture propagation-and-arrest prediction GJI 224/3/1918, remote-triggering 2106.11616, earthquake resonance 1502.05485, free-oscillations 1010.5690) plus unrelated mechanical/Rayleigh damping. The clusters never merge. Search 1 explicitly states 'none of the sources directly connect seismic rupture velocity concepts or off-fault damage mechanics to mixture-of-experts routing algorithms' and that the seismic-metaphor MoE concept 'may not yet have a published research paper.' No paper uses off-fault-damage/rupture as a metaphor for MoE routing stability. No bridging collision. Confirms A3.",
       "recheck_searches": [
         {
           "n": 1,
-          "query": "mixture of experts token routing as model of gene regulatory input selection promoter specificity interferon enhancer",
+          "query": "mixture-of-experts router load balancing stability inspired by off-fault damage rupture velocity seismic metaphor orthogonality regularization",
           "allowed_domains": null,
           "results": [
-            {"title": "[2202.09368] Mixture-of-Experts with Expert Choice Routing", "url": "https://arxiv.org/abs/2202.09368", "snippet": ""},
-            {"title": "LD-MoLE: Learnable Dynamic Routing for Mixture of LoRA Experts", "url": "https://arxiv.org/pdf/2509.25684", "snippet": ""},
-            {"title": "MaskMoE: Boosting Token-Level Learning via Routing Mask in Mixture-of-Experts", "url": "https://arxiv.org/pdf/2407.09816", "snippet": ""},
-            {"title": "Transcriptional regulation by promoters with enhancer function - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6150634/", "snippet": ""},
-            {"title": "MoETuner: Optimized Mixture of Expert Serving with Balanced Expert Placement and Token Routing", "url": "https://arxiv.org/pdf/2502.06643", "snippet": ""},
-            {"title": "Part-Of-Speech Sensitivity of Routers in Mixture of Experts Models", "url": "https://arxiv.org/pdf/2412.16971", "snippet": ""},
-            {"title": "Routing by Analogy: kNN-Augmented Expert Assignment for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.02144", "snippet": ""}
+            {"title": "(PDF) Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://www.researchgate.net/publication/392766915_Load_Balancing_Mixture_of_Experts_with_Similarity_Preserving_Routers", "snippet": ""},
+            {"title": "LOAD BALANCING MIXTURE OF EXPERTS WITH SIMI", "url": "https://openreview.net/pdf?id=FNuvMnGAm8", "snippet": ""},
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/html/2506.14038v1", "snippet": ""},
+            {"title": "Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.", "url": "https://cameronrwolfe.substack.com/p/moe-llms", "snippet": ""},
+            {"title": "Techniques for Mitigating Router Z-Loss Instability", "url": "https://apxml.com/courses/mixture-of-experts-advanced-implementation/chapter-3-training-large-scale-moes/mitigating-router-z-loss-instability", "snippet": ""},
+            {"title": "Cameron R. Wolfe, Ph.D. on X: \"Mixture-of-Experts (MoE) LLMs are more prone to training instability than standard LLMs...\" / X", "url": "https://x.com/cwolferesearch/status/1901640632030151089", "snippet": ""},
+            {"title": "Load Balancing Mixture of Experts with Similarity Preserving Routers", "url": "https://arxiv.org/pdf/2506.14038", "snippet": ""},
+            {"title": "Latent Prototype Routing: Achieving Near-Perfect Load Balancing in Mixture-of-Experts", "url": "https://arxiv.org/pdf/2506.21328", "snippet": ""},
+            {"title": "EMoE: Eigenbasis-Guided Routing for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.12137", "snippet": ""},
+            {"title": "Machine learning and fault rupture: A review - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0065268720300066", "snippet": ""},
+            {"title": "Application of machine learning techniques to predict rupture propagation and arrest in 2-D dynamic earthquake simulations | Geophysical Journal International | Oxford Academic", "url": "https://academic.oup.com/gji/article/224/3/1918/5989698", "snippet": ""}
           ]
         },
         {
           "n": 2,
-          "query": "expert-choice sparse routing analogy IRF NF-kB enhanceosome ultrasensitive transcription factor synergy deep learning model",
-          "allowed_domains": ["arxiv.org", "biorxiv.org", "pnas.org", "ncbi.nlm.nih.gov", "nature.com"],
+          "query": "MoE routing instability damping high-frequency oscillation analogy earthquake fault damage controlled perturbation expert load",
+          "allowed_domains": null,
           "results": [
-            {"title": "Gene regulatory logic of the interferon-beta enhancer contains multiple selectively deployed modes of transcription factor synergy", "url": "https://www.biorxiv.org/content/10.1101/2025.02.04.636520.full.pdf", "snippet": ""},
-            {"title": "Gene regulatory logic of the interferon-beta enhancer contains multiple selectively deployed modes of transcription factor synergy | bioRxiv", "url": "https://www.biorxiv.org/content/10.1101/2025.02.04.636520v1.full", "snippet": ""},
-            {"title": "Gene regulatory logic of the interferon-beta enhancer is characterized by two selectively deployed modes of transcription factor synergy", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12377728/", "snippet": ""},
-            {"title": "A Review of Sparse Expert Models in Deep Learning", "url": "https://arxiv.org/pdf/2209.01667", "snippet": ""},
-            {"title": "Defining Emerging Roles for NF-kB in Antivirus Responses: Revisiting the Interferon-beta Enhanceosome Paradigm", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3192840/", "snippet": ""},
-            {"title": "[2509.10025] Exploring Expert Specialization through Unsupervised Training in Sparse Mixture of Experts", "url": "https://arxiv.org/abs/2509.10025", "snippet": ""},
-            {"title": "Enhanceosome transcription factors preferentially dimerize with high mobility group proteins", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4743414/", "snippet": ""}
+            {"title": "(PDF) The high-frequency oscillation in systems with Rayleigh damping model", "url": "https://www.researchgate.net/publication/335950537_The_high-frequency_oscillation_in_systems_with_Rayleigh_damping_model", "snippet": ""},
+            {"title": "Damping arrangement for an oscillatably mounted electrical energy transmission device", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9893506", "snippet": ""},
+            {"title": "Damped oscillations Select LEARNING OBJECTIVES:", "url": "https://boxsand.physics.oregonstate.edu/sites/boxsand.physics.oregonstate.edu/files/Media-2/cascades/ph212_f17/lecture/oscillations/Damped%20oscillations.pdf", "snippet": ""},
+            {"title": "Generic Mechanism for Remote Triggering of Earthquakes", "url": "https://arxiv.org/pdf/2106.11616", "snippet": ""},
+            {"title": "Response of a Magneto-Rheological Fluid Damper Subjected to Periodic   Forcing in a High Frequency Limit", "url": "https://arxiv.org/pdf/nlin/0610055", "snippet": ""},
+            {"title": "Free-Oscillations Coincident with Earthquakes", "url": "https://arxiv.org/pdf/1010.5690", "snippet": ""},
+            {"title": "Oscillation dampening system for a railway track", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4203546", "snippet": ""},
+            {"title": "A possible resonance mechanism of earthquakes", "url": "https://arxiv.org/pdf/1502.05485", "snippet": ""}
           ]
         }
       ]
