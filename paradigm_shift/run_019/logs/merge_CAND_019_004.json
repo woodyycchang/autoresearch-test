@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_019_004",
+  "atom_a_id": "R19_P1_S2",
+  "atom_b_id": "R19_P2_S2",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "A Fisher-Rao-optimal schedule transforms the concentration parameters of the Matrix Bingham gating distributions over training, so that GrMoE routing anneals along the natural information geometry of the Grassmannian manifold rather than via a hand-tuned heuristic, which regulates how sharply experts are selected as training progresses.",
+    "transfer": "ATOM B's principle that the information-geometric (Fisher-Rao) optimal schedule recovers a canonical annealing curve transfers to ATOM A's Matrix Bingham concentration parameters, supplying a principled schedule for routing sharpness.",
+    "open_problem": "Does the Fisher-Rao-optimal schedule on the Grassmannian of subspaces yield a closed-form (e.g. cosine-like) annealing of Matrix Bingham concentration parameters that provably improves GrMoE expert specialization and load balance?",
+    "niche_name": "Fisher-Rao-Optimal Concentration Scheduling for Grassmannian MoE Routing",
+    "primary_quote": "operates on the Grassmannian manifold of subspaces",
+    "quote_source": "atom_a",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: MoE gating where routing lives on a Grassmannian manifold and gate weights come from Matrix Bingham concentration parameters. B: under Fisher-Rao geometry, the derived optimal schedule reproduces the cosine schedule.",
+      "reasoning": "I tried transferring B's mechanism \u2014 deriving a process schedule from Fisher-Rao information geometry \u2014 onto A's free parameters, namely the Matrix Bingham concentration values that set routing sharpness. I rejected the inverse transfer (putting B's diffusion process onto a Grassmannian) as a vague vocabulary match. The non-trivial link is that both objects are genuinely Riemannian: A's gating already lives on a Grassmannian whose Fisher-Rao metric is computable, so B's 'optimal schedule = geometry-induced curve' is not metaphorical \u2014 it gives a concrete metric to optimize the concentration trajectory, potentially yielding a cosine-analogue for routing temperature.",
+      "decision": "Settle on a Fisher-Rao-derived annealing schedule for the Matrix Bingham concentration parameters in GrMoE, because both mechanisms share an actual manifold and metric, making the schedule derivable rather than analogized.",
+      "confidence": "medium - the manifolds and metrics genuinely overlap, but the closed-form recovery may not hold for the Grassmannian-Bingham case",
+      "could_be_wrong_if": "the Fisher-Rao metric on the Matrix Bingham/Grassmannian family does not admit a tractable optimal schedule, making the link a surface reuse of the word 'geometry' rather than a transferable derivation."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 19544,
+      "duration_api_ms": 19058,
+      "ttft_ms": 6606,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"A Fisher-Rao-optimal schedule transforms the concentration parameters of the Matrix Bingham gating distributions over training, so that GrMoE routing anneals along the natural information geometry of the Grassmannian manifold rather than via a hand-tuned heuristic, which regulates how sharply experts are selected as training progresses.\", \"transfer\": \"ATOM B's principle that the information-geometric (Fisher-Rao) optimal schedule recovers a canonical annealing curve transfers to ATOM A's Matrix Bingham concentration parameters, supplying a principled schedule for routing sharpness.\", \"open_problem\": \"Does the Fisher-Rao-optimal schedule on the Grassmannian of subspaces yield a closed-form (e.g. cosine-like) annealing of Matrix Bingham concentration parameters that provably improves GrMoE expert specialization and load balance?\", \"niche_name\": \"Fisher-Rao-Optimal Concentration Scheduling for Grassmannian MoE Routing\", \"primary_quote\": \"operates on the Grassmannian manifold of subspaces\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: MoE gating where routing lives on a Grassmannian manifold and gate weights come from Matrix Bingham concentration parameters. B: under Fisher-Rao geometry, the derived optimal schedule reproduces the cosine schedule.\", \"reasoning\": \"I tried transferring B's mechanism \u2014 deriving a process schedule from Fisher-Rao information geometry \u2014 onto A's free parameters, namely the Matrix Bingham concentration values that set routing sharpness. I rejected the inverse transfer (putting B's diffusion process onto a Grassmannian) as a vague vocabulary match. The non-trivial link is that both objects are genuinely Riemannian: A's gating already lives on a Grassmannian whose Fisher-Rao metric is computable, so B's 'optimal schedule = geometry-induced curve' is not metaphorical \u2014 it gives a concrete metric to optimize the concentration trajectory, potentially yielding a cosine-analogue for routing temperature.\", \"decision\": \"Settle on a Fisher-Rao-derived annealing schedule for the Matrix Bingham concentration parameters in GrMoE, because both mechanisms share an actual manifold and metric, making the schedule derivable rather than analogized.\", \"confidence\": \"medium - the manifolds and metrics genuinely overlap, but the closed-form recovery may not hold for the Grassmannian-Bingham case\", \"could_be_wrong_if\": \"the Fisher-Rao metric on the Matrix Bingham/Grassmannian family does not admit a tractable optimal schedule, making the link a surface reuse of the word 'geometry' rather than a transferable derivation.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "1cb61d3a-6c74-449b-ba4c-5bf1f49de9d6",
+      "total_cost_usd": 0.061731,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1834,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1334,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1834,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1334,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1834,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1834
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1043,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0011380000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1334,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1834,
+          "webSearchRequests": 0,
+          "costUSD": 0.060593,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "7476ba5a-77cf-4153-9051-beb308639b05"
+    }
+  ]
+}

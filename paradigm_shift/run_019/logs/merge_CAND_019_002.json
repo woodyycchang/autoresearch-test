@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_019_002",
+  "atom_a_id": "R19_P1_S3",
+  "atom_b_id": "R19_P3_S1",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "Mapping a Mixture-of-Experts concentration matrix onto a thermodynamic computer's physical temperature transforms routing-entropy control into a native hardware operation: raising the concentration parameter regulates the noise of a stochastic substrate, which then directly samples expert assignments from the induced routing distribution instead of computing a digital top-k.",
+    "transfer": "A's continuous concentration-matrix knob that controls routing entropy transfers onto B's stochastic hardware as the physical control parameter governing the sampling temperature.",
+    "open_problem": "Can a thermodynamic sampler physically realize concentration-matrix-controlled MoE routing such that entropy is tuned by hardware temperature rather than by a digital top-k operator, at fixed accuracy?",
+    "niche_name": "Thermodynamic MoE Routing via Concentration-Controlled Hardware Sampling",
+    "primary_quote": "the concentration matrix -- that continuously controls routing entropy",
+    "quote_source": "atom_a",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: a single continuous concentration-matrix knob that smoothly sets routing entropy, replacing discrete top-k expert selection with a geometric sparsity mechanism. B: thermodynamic computing where hardware behaves stochastically to physically sample from a target distribution.",
+      "reasoning": "I tried to transfer A's continuous entropy-controlling parameter (the concentration matrix) into B's role of a physical control variable that sets the distribution a stochastic substrate samples from. The natural transfer is concentration -> hardware temperature/noise scale, because both A and B already operate on distributions: A *parameterizes* a routing distribution, B *physically samples* from a distribution. I rejected the weaker analogy of merely 'adding noise to top-k' because that keeps routing digital and discrete, contradicting A's smoothness. The combination is non-trivial because top-k is a non-sampling argmax-style op that has no natural thermodynamic realization, whereas A's smooth concentration formulation makes routing an honest distribution-sampling problem that thermodynamic hardware can execute natively \u2014 the geometry of A is precisely what licenses B's sampling to be the routing mechanism rather than a post-hoc perturbation.",
+      "decision": "Settled on thermodynamic MoE routing where the concentration matrix is the physical temperature knob, because it converts A's mathematical knob into B's literal control parameter, yielding a falsifiable hardware-software co-design claim.",
+      "confidence": "medium - the conceptual mapping (distribution-parameterizer to distribution-sampler) is tight, but physical realizability on real thermodynamic hardware is unproven.",
+      "could_be_wrong_if": "thermodynamic hardware can only sample fixed energy-based distributions and cannot be conditioned on per-token concentration matrices fast enough, making the link a vocabulary analogy between 'entropy' in A and 'stochastic' in B rather than a shared sampling mechanism."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 26037,
+      "duration_api_ms": 20862,
+      "ttft_ms": 7187,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Mapping a Mixture-of-Experts concentration matrix onto a thermodynamic computer's physical temperature transforms routing-entropy control into a native hardware operation: raising the concentration parameter regulates the noise of a stochastic substrate, which then directly samples expert assignments from the induced routing distribution instead of computing a digital top-k.\", \"transfer\": \"A's continuous concentration-matrix knob that controls routing entropy transfers onto B's stochastic hardware as the physical control parameter governing the sampling temperature.\", \"open_problem\": \"Can a thermodynamic sampler physically realize concentration-matrix-controlled MoE routing such that entropy is tuned by hardware temperature rather than by a digital top-k operator, at fixed accuracy?\", \"niche_name\": \"Thermodynamic MoE Routing via Concentration-Controlled Hardware Sampling\", \"primary_quote\": \"the concentration matrix -- that continuously controls routing entropy\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: a single continuous concentration-matrix knob that smoothly sets routing entropy, replacing discrete top-k expert selection with a geometric sparsity mechanism. B: thermodynamic computing where hardware behaves stochastically to physically sample from a target distribution.\", \"reasoning\": \"I tried to transfer A's continuous entropy-controlling parameter (the concentration matrix) into B's role of a physical control variable that sets the distribution a stochastic substrate samples from. The natural transfer is concentration -> hardware temperature/noise scale, because both A and B already operate on distributions: A *parameterizes* a routing distribution, B *physically samples* from a distribution. I rejected the weaker analogy of merely 'adding noise to top-k' because that keeps routing digital and discrete, contradicting A's smoothness. The combination is non-trivial because top-k is a non-sampling argmax-style op that has no natural thermodynamic realization, whereas A's smooth concentration formulation makes routing an honest distribution-sampling problem that thermodynamic hardware can execute natively \u2014 the geometry of A is precisely what licenses B's sampling to be the routing mechanism rather than a post-hoc perturbation.\", \"decision\": \"Settled on thermodynamic MoE routing where the concentration matrix is the physical temperature knob, because it converts A's mathematical knob into B's literal control parameter, yielding a falsifiable hardware-software co-design claim.\", \"confidence\": \"medium - the conceptual mapping (distribution-parameterizer to distribution-sampler) is tight, but physical realizability on real thermodynamic hardware is unproven.\", \"could_be_wrong_if\": \"thermodynamic hardware can only sample fixed energy-based distributions and cannot be conditioned on per-token concentration matrices fast enough, making the link a vocabulary analogy between 'entropy' in A and 'stochastic' in B rather than a shared sampling mechanism.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "a985128f-7973-4c40-b5d4-c6c836046a88",
+      "total_cost_usd": 0.06623725,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1851,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1510,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1851,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1510,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1851,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1851
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1048,
+          "outputTokens": 18,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0011380000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1510,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1851,
+          "webSearchRequests": 0,
+          "costUSD": 0.06509925,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "cd4cb136-1b79-4119-b7ff-bf9577f674cf"
+    }
+  ]
+}

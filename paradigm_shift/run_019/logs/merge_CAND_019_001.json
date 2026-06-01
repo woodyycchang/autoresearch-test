@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_019_001",
+  "atom_a_id": "R19_P1_S3",
+  "atom_b_id": "R19_P2_S2",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "An information-geometric objective regulates the concentration-matrix knob so that routing entropy is annealed along a Fisher-Rao-optimal trajectory during training, transforming discrete top-k expert selection into a smoothly scheduled sparsity that produces a principled curriculum from dense to sparse routing.",
+    "transfer": "The Fisher-Rao optimal-schedule derivation from ATOM B transfers onto ATOM A's continuous routing-entropy knob to specify how sparsity should evolve over training rather than just how it is parameterized at a single step.",
+    "open_problem": "Does the Fisher-Rao-optimal schedule for annealing the concentration matrix's routing entropy admit a closed-form (e.g. cosine-like) curve, and does following it outperform fixed or heuristically-annealed top-k routing in MoE training?",
+    "niche_name": "Fisher-Rao-Optimal Annealing Schedules for Continuous MoE Routing Sparsity",
+    "primary_quote": "the concentration matrix -- that continuously controls routing entropy",
+    "quote_source": "atom_a",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: a single continuous concentration-matrix knob that geometrically controls routing entropy, replacing discrete top-k with smooth sparsity. B: under Fisher-Rao information geometry, the *optimal training schedule* provably recovers the cosine schedule.",
+      "reasoning": "A gives a continuous control variable for sparsity but says nothing about how it should change over training; B gives a geometry-derived theory of *optimal scheduling* of a control variable (noise level) but for diffusion. I tried to transfer B's 'optimal schedule under Fisher-Rao geometry' machinery onto A's concentration-matrix knob, treating routing entropy as the scheduled quantity. I rejected the reverse transfer (using A's sparsity knob inside a diffusion model) as forced. The combination is non-trivial because both already live in information geometry: A's knob induces a curve on a statistical manifold of routing distributions, so B's Fisher-Rao optimal-schedule derivation is mathematically applicable rather than metaphorical \u2014 the open question is what curve falls out, not whether the vocabularies rhyme.",
+      "decision": "Settle on deriving and testing a Fisher-Rao-optimal annealing schedule for the routing-entropy knob in MoE, because it converts A's static parameterization into a principled training curriculum using B's existing optimality result.",
+      "confidence": "medium - the geometric framing genuinely composes, but whether MoE routing's Fisher-Rao geometry yields a clean schedule is unverified.",
+      "could_be_wrong_if": "the concentration-matrix manifold's Fisher-Rao metric is degenerate or trivial, so the 'optimal schedule' is constant or arbitrary, making the merge a vocabulary analogy between two unrelated uses of 'geometry'."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 21262,
+      "duration_api_ms": 20302,
+      "ttft_ms": 7211,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"An information-geometric objective regulates the concentration-matrix knob so that routing entropy is annealed along a Fisher-Rao-optimal trajectory during training, transforming discrete top-k expert selection into a smoothly scheduled sparsity that produces a principled curriculum from dense to sparse routing.\", \"transfer\": \"The Fisher-Rao optimal-schedule derivation from ATOM B transfers onto ATOM A's continuous routing-entropy knob to specify how sparsity should evolve over training rather than just how it is parameterized at a single step.\", \"open_problem\": \"Does the Fisher-Rao-optimal schedule for annealing the concentration matrix's routing entropy admit a closed-form (e.g. cosine-like) curve, and does following it outperform fixed or heuristically-annealed top-k routing in MoE training?\", \"niche_name\": \"Fisher-Rao-Optimal Annealing Schedules for Continuous MoE Routing Sparsity\", \"primary_quote\": \"the concentration matrix -- that continuously controls routing entropy\", \"quote_source\": \"atom_a\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: a single continuous concentration-matrix knob that geometrically controls routing entropy, replacing discrete top-k with smooth sparsity. B: under Fisher-Rao information geometry, the *optimal training schedule* provably recovers the cosine schedule.\", \"reasoning\": \"A gives a continuous control variable for sparsity but says nothing about how it should change over training; B gives a geometry-derived theory of *optimal scheduling* of a control variable (noise level) but for diffusion. I tried to transfer B's 'optimal schedule under Fisher-Rao geometry' machinery onto A's concentration-matrix knob, treating routing entropy as the scheduled quantity. I rejected the reverse transfer (using A's sparsity knob inside a diffusion model) as forced. The combination is non-trivial because both already live in information geometry: A's knob induces a curve on a statistical manifold of routing distributions, so B's Fisher-Rao optimal-schedule derivation is mathematically applicable rather than metaphorical \u2014 the open question is what curve falls out, not whether the vocabularies rhyme.\", \"decision\": \"Settle on deriving and testing a Fisher-Rao-optimal annealing schedule for the routing-entropy knob in MoE, because it converts A's static parameterization into a principled training curriculum using B's existing optimality result.\", \"confidence\": \"medium - the geometric framing genuinely composes, but whether MoE routing's Fisher-Rao geometry yields a clean schedule is unverified.\", \"could_be_wrong_if\": \"the concentration-matrix manifold's Fisher-Rao metric is degenerate or trivial, so the 'optimal schedule' is constant or arbitrary, making the merge a vocabulary analogy between two unrelated uses of 'geometry'.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "078e8e71-d5f5-4dfe-a36c-401c1613a7ba",
+      "total_cost_usd": 0.1445825,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 16054,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1378,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16054,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1378,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 16054,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16054
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1035,
+          "outputTokens": 18,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001125,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1378,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 16054,
+          "webSearchRequests": 0,
+          "costUSD": 0.14345750000000002,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "9c9f0d97-85d5-421a-9722-e6fc76b0fe84"
+    }
+  ]
+}
