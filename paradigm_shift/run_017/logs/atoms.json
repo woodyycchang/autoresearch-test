@@ -1,0 +1,46 @@
+{
+  "run_id": "run_017",
+  "epoch": 1,
+  "agent": "1_sourcer",
+  "fetched_at": "2026-06-01T00:00:00+00:00",
+  "low_overlap_domain": "molecular biology / enzyme kinetics -- the low-overlap atom is ATOM_R17_03 (kinetic proofreading), domain=biology, near-zero ML vocabulary overlap",
+  "provenance_policy": "R5: record ONLY what I actually saw this session.",
+  "verbatim_note": "Titles and URLs are VERBATIM from the WebSearch `Links` arrays returned this session (3 queries below). Each atom's `text` is a mechanism sentence as rendered in the WebSearch result SUMMARY I saw this session; that summary is synthesized/paraphrased by the search subsystem from the underlying sources, so `text` is NOT guaranteed to be a character-for-character copy of the paper's abstract -- the sentence subject was lightly normalized (e.g. 'This framework' -> 'It') for standalone readability. I attempted WebFetch to retrieve verbatim abstracts and got HTTP 403 Forbidden on arxiv.org, export.arxiv.org (API), huggingface.co/papers, and alphaxiv.org this session, so verbatim abstract retrieval was not possible. No atom id, URL, title, or text was invented; downstream Gate-4 quote-grounding checks a >=30-char substring against THIS recorded `text` (internally consistent and disclosed).",
+  "queries_used": [
+    "mixture of experts router entropy collapse expert specialization mechanism arxiv 2026",
+    "diffusion large language model remasking denoising parallel decoding mechanism arxiv 2026",
+    "kinetic proofreading error correction enzyme discrimination delay mechanism molecular biology"
+  ],
+  "atoms": [
+    {
+      "atom_id": "ATOM_R17_01",
+      "source_id": "arXiv:2602.17798",
+      "title": "Grassmannian Mixture-of-Experts: Concentration-Controlled Routing on Subspace Manifolds",
+      "url": "https://arxiv.org/pdf/2602.17798",
+      "text": "The Grassmannian MoE approach introduces a concentration matrix that controls routing entropy, replacing discrete top-k selection with a smooth sparsity mechanism, with formal bounds relating the concentration spectrum to routing entropy and expert collapse.",
+      "source_type": "arxiv",
+      "domain": "ml",
+      "domain_tags": ["mixture-of-experts", "routing-entropy", "expert-collapse", "concentration-control"]
+    },
+    {
+      "atom_id": "ATOM_R17_02",
+      "source_id": "arXiv:2509.25188",
+      "title": "Learning to Parallel: Accelerating Diffusion Large Language Models via Learnable Parallel Decoding",
+      "url": "https://arxiv.org/abs/2509.25188",
+      "text": "It trains a lightweight filter model to predict whether each token position's current prediction matches the final output, approximating an oracle parallel decoding strategy that unmasks tokens only when correctly predicted.",
+      "source_type": "arxiv",
+      "domain": "ml",
+      "domain_tags": ["diffusion-language-model", "parallel-decoding", "acceptance-criterion", "oracle-unmasking"]
+    },
+    {
+      "atom_id": "ATOM_R17_03",
+      "source_id": "en.wikipedia.org/wiki/Kinetic_proofreading",
+      "title": "Kinetic proofreading",
+      "url": "https://en.wikipedia.org/wiki/Kinetic_proofreading",
+      "text": "Proofreading mechanisms operate by inducing a delay between substrate binding and product formation via intermediate states for the enzyme-substrate complex, giving the enzyme multiple chances to release the wrong substrate after initial binding and achieving far lower error rates than the binding-energy difference alone would allow.",
+      "source_type": "encyclopedia",
+      "domain": "biology",
+      "domain_tags": ["kinetic-proofreading", "error-correction", "irreversible-delay-step", "energy-dissipation"]
+    }
+  ]
+}

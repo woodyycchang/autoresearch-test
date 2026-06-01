@@ -1,0 +1,72 @@
+{
+  "run_id": "run_017",
+  "agent": "1_sourcer",
+  "note": "One reasoning_trace per atom CHOICE (and per notable DISCARD), plus an overall sourcing trace. R9: the sourcing decisions are not a black box.",
+  "overall_trace": {
+    "step": "choose 3 atoms across domains for 3 pairwise merges",
+    "inputs_seen": "3 WebSearch result sets (MoE routing-entropy; diffusion-LLM parallel decoding; kinetic proofreading). Each returned a Links array (titles+URLs, verbatim) and a synthesized prose summary.",
+    "reasoning": "I want 2 ML atoms with CRISP, different control mechanisms plus 1 genuinely cross-domain atom, so the three pairwise merges span easy (ML x ML), natural-bridge (decode-acceptance x proofreading), and a stretch (routing-entropy x proofreading). That spread is what makes the transparency/audit interesting: the merge reasoning_traces should differ in confidence and the cross-domain ones should explicitly state what would make them a surface analogy. I deliberately picked a routing-CONTROL mechanism (entropy) and an ACCEPTANCE mechanism (unmask-if-correct) rather than two routing papers, so the pair is not redundant.",
+    "decision": "ATOM_01 = Grassmannian MoE (routing-entropy control); ATOM_02 = Learning-to-Parallel (accept-token-if-correct); ATOM_03 = kinetic proofreading (delay-to-reject-wrong). Cross-domain atom is biology, near-zero ML overlap.",
+    "confidence": "high - all three are real results from this session's searches with clearly stated causal mechanisms",
+    "could_be_wrong_if": "the cross-domain atom (proofreading) is SO generic that any merge with it reads as a surface analogy; if so, the merge/verify/gate stages should expose that rather than hide it."
+  },
+  "atom_traces": [
+    {
+      "atom_id": "ATOM_R17_01",
+      "reasoning_trace": {
+        "step": "pick the MoE atom from search 1",
+        "inputs_seen": "Links incl. Grassmannian MoE (2602.17798), DirMoE (2602.09001), Bifurcation Model of Load Imbalance (2605.29121), Coupling Experts and Routers (2512.23447), EMoE (2601.12137); summary describing a concentration matrix that controls routing entropy and bounds expert collapse.",
+        "reasoning": "Among the routing papers, Grassmannian MoE states the crispest CAUSAL control knob: a concentration matrix that 'controls routing entropy' with 'formal bounds relating concentration spectrum to routing entropy and expert collapse'. That gives a real mechanism (entropy control -> collapse avoidance) to transfer, vs. the bifurcation paper (descriptive model, not a control mechanism) or the auxiliary-loss coupling paper (which overlaps heavily with Run 16's SimBal atom and is near-saturated).",
+        "decision": "keep Grassmannian MoE as ATOM_01; domain=ml",
+        "confidence": "high - explicit control mechanism, recent (2602), distinct from prior runs' MoE atom",
+        "could_be_wrong_if": "'controls routing entropy' is standard MoE practice, making any niche built on it non-novel (that would be a Gate-1 fail, which is fine to surface)."
+      }
+    },
+    {
+      "atom_id": "ATOM_R17_02",
+      "reasoning_trace": {
+        "step": "pick the diffusion-LLM atom from search 2",
+        "inputs_seen": "Links incl. Learning to Parallel (2509.25188), STaRR responsive remasking (2601.04205), Remask Don't Replace (2604.18738), CreditDecoding (2510.06133); summary: Learning-to-Parallel trains a filter to predict if a token's current prediction matches the final output and unmasks only when correctly predicted.",
+        "reasoning": "I want an ACCEPTANCE/verification mechanism, not another routing/remasking-schedule paper. Learning-to-Parallel's filter that 'unmasks tokens only when correctly predicted' is exactly an accept-if-correct gate -- structurally a decision rule about COMMITTING a token. That is mechanistically different from ATOM_01 (which decides ROUTING), so the ML x ML merge is non-redundant, and it is the natural counterpart to a proofreading reject-if-wrong rule. STaRR/Remask are about remasking schedules (when to re-hide), a weaker fit for an acceptance mechanism.",
+        "decision": "keep Learning-to-Parallel as ATOM_02; domain=ml",
+        "confidence": "high - clean accept-if-correct mechanism, complementary to ATOM_01",
+        "could_be_wrong_if": "the 'oracle unmasking' framing is specific to diffusion LLMs and does not generalize, so merges treat it too abstractly."
+      }
+    },
+    {
+      "atom_id": "ATOM_R17_03",
+      "reasoning_trace": {
+        "step": "pick the cross-domain atom from search 3",
+        "inputs_seen": "Links incl. Kinetic proofreading (Wikipedia), Speed/dissipation/error in KPR (PMC3409783), Proofreading through spatial gradients (2005.11615/bioRxiv), Allostery and Kinetic Proofreading (PMC6995354); summary: KPR induces a delay between binding and product formation, giving multiple chances to release the wrong substrate, lowering error below the binding-energy bound at an energy cost.",
+        "reasoning": "Kinetic proofreading is a canonical biology mechanism with a SHARP causal structure: an irreversible delay step that repeatedly tests substrate correctness, trading energy for accuracy. That maps suggestively onto ATOM_02's accept-if-correct decode gate (delay + recheck vs. unmask-if-correct) and far less naturally onto ATOM_01's routing entropy -- which is exactly the spread I want. I chose the canonical KPR mechanism over 'proofreading through spatial gradients' (a specific variant) because the canonical delay-step statement is the cleanest, most transferable mechanism and the most clearly verifiable.",
+        "decision": "keep canonical kinetic proofreading as ATOM_03; domain=biology",
+        "confidence": "medium - the mechanism is real and canonical, but its `text` is synthesized from the WebSearch summary (not a verbatim abstract; WebFetch 403'd), and proofreading is generic enough that a merge could be a surface analogy",
+        "could_be_wrong_if": "the proofreading-to-decoding mapping is just relabeling (delay=step, wrong substrate=wrong token) with no transferable quantitative structure -- the merger/verifier should flag this if so."
+      }
+    }
+  ],
+  "discarded_traces": [
+    {
+      "label": "bifurcation_load_imbalance_2605.29121",
+      "reasoning_trace": {
+        "step": "consider then discard A Minimal Bifurcation Model of Load Imbalance",
+        "inputs_seen": "title 'A Minimal Bifurcation Model of Load Imbalance in a Softmax Mixture-of-Experts Router' (2605.29121) from search 1",
+        "reasoning": "It DESCRIBES load-imbalance dynamics rather than providing a control MECHANISM to transfer; also load-imbalance/auxiliary-loss MoE space was already shown saturated in Run 16. Lower transfer value than Grassmannian's explicit entropy-control knob.",
+        "decision": "discard; prefer ATOM_01 (Grassmannian MoE)",
+        "confidence": "high - descriptive vs. mechanistic distinction is clear",
+        "could_be_wrong_if": "the bifurcation parameter is itself a controllable knob I underweighted."
+      }
+    },
+    {
+      "label": "starr_remasking_2601.04205",
+      "reasoning_trace": {
+        "step": "consider then discard STaRR responsive remasking",
+        "inputs_seen": "title 'STaRR: Spatial-Temporal Token-Dynamics-Aware Responsive Remasking for Diffusion Language Models' (2601.04205) from search 2",
+        "reasoning": "STaRR is about WHEN to re-mask tokens (a schedule), not an accept/reject correctness gate. ATOM_02's 'unmask only when correctly predicted' is a crisper decision rule and a better counterpart to proofreading's reject-if-wrong.",
+        "decision": "discard; prefer ATOM_02 (Learning-to-Parallel)",
+        "confidence": "high - acceptance gate is the mechanism I wanted",
+        "could_be_wrong_if": "remasking schedules ARE the more transferable mechanism and I picked the narrower one."
+      }
+    }
+  ]
+}
