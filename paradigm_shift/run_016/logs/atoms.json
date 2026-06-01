@@ -1,57 +1,57 @@
 {
   "run_id": "run_016",
-  "epoch": 2,
+  "epoch": 3,
   "agent": "1_sourcer",
-  "fetched_at": "2026-05-31T23:12:00+00:00",
+  "fetched_at": "2026-06-01T00:00:00+00:00",
   "params_read": {
-    "reformulation_specificity": 0.5428,
-    "mechanism_focus": 0.5067,
-    "cross_domain_reach": 0.5,
+    "reformulation_specificity": 0.5698,
+    "mechanism_focus": 0.594,
+    "cross_domain_reach": 0.5059,
     "atom_source_diversity": 0.5,
-    "collision_avoidance_phrasing": 0.5
+    "collision_avoidance_phrasing": 0.5147
   },
-  "bootstrap_applied": "ATOM_R16E2_03 is from non-ML domain biology (gene regulatory logic of the interferon-beta enhancer; transcription factor synergy via sigmoidal IRF-DNA binding) per flat_dim_bootstrap cross_domain rule (>=1 of 3 atoms must be non-ML).",
-  "verbatim_note": "WebFetch is a deferred tool and is known to return HTTP 403 for arxiv, so all titles/URLs/mechanism sentences were captured verbatim from real WebSearch result snippets: arxiv abstract-page snippets, the piotrpiekos/MoSA GitHub repo description (which quotes the paper one-liner), and the bioRxiv/PNAS abstract snippets. No text, source_id, or URL was invented; every recorded sentence appears verbatim in a real WebSearch snippet returned this session.",
+  "low_overlap_domain": "geology — chose seismology/fault-mechanics; the low-overlap atom is ATOM_R16E3_03 (frictional healing / induced earthquake nucleation, domain=geology)",
+  "verbatim_note": "All mechanism clauses are taken verbatim from WebSearch snippet text I actually saw this session (no WebFetch used; WebFetch is a deferred tool known to 403 on arxiv per instructions). ATOM_01 text joins two adjacent verbatim snippet sentences from the arxiv:2408.15664 search summary with the connectors 'then ... to'; the substantive clauses ('apply an expert-wise bias to the routing scores of each expert', 'dynamically updating the bias of each expert according to its recent load', 'maintain a balanced distribution of expert load') are verbatim. ATOM_02 text is a single verbatim snippet sentence about Mamba (arxiv:2312.00752). ATOM_03 text joins two adjacent verbatim snippet sentences from the Nature Communications frictional-healing summary with ', and'; clauses are verbatim. Titles and URLs are exactly as returned in the WebSearch result link lists. I did not invent any id, URL, or future-dated text.",
   "queries_used": [
-    "arxiv 2025 mixture-of-experts router load balancing analogy gene regulatory network transcription factor binding",
-    "arxiv 2025 attention sparse routing mechanism transformer activates selects tokens",
-    "biorxiv 2025 gene regulatory network transcription factor combinatorial binding regulates enhancer mechanism",
-    "\"Mixture of Sparse Attention\" expert-choice routing \"selects\" tokens attention head MoSA 2505.00315",
-    "interferon-β enhancer \"transcription factor synergy\" NFkB IRF \"regulatory logic\" biorxiv 2025.02.04.636520",
-    "\"Similarity Preserving Routers\" mixture of experts load balancing \"router\" encourages consistent expert 2506.14038",
-    "\"MoSA selects distinct tokens for each head with expert choice routing\" content-based sparse attention mechanism",
-    "interferon-β enhancer \"synergy between two adjacent IRF dimers is sufficient\" transcription factor synergy regulatory logic"
+    "mixture-of-experts gating router load balancing auxiliary loss 2025 mechanism",
+    "state space model selective scan SSM linear attention recurrence mechanism 2025",
+    "attention routing transformer AND seismic fault rupture nucleation earthquake mechanism",
+    "earthquake nucleation rate-and-state friction fault rupture propagation mechanism dynamic stress 2024",
+    "mixture-of-experts expert specialization AND seismic wave velocity heterogeneity fault zone",
+    "Auxiliary-Loss-Free Load Balancing Mixture-of-Experts bias routing scores expert load update",
+    "Mamba selective state space data-dependent parameterization input matrices function of input selective scan arxiv",
+    "\"frictional healing\" induced earthquakes conventionally stable faults fluid pressure reactivation mechanism slip"
   ],
   "atoms": [
     {
-      "atom_id": "ATOM_R16E2_01",
-      "source_id": "arXiv:2505.00315",
-      "title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing",
-      "url": "https://arxiv.org/abs/2505.00315",
-      "text": "MoSA selects distinct tokens for each head with expert choice routing providing a content-based sparse attention mechanism.",
+      "atom_id": "ATOM_R16E3_01",
+      "source_id": "arxiv:2408.15664",
+      "title": "Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts",
+      "url": "https://arxiv.org/abs/2408.15664",
+      "text": "Loss-Free Balancing will first apply an expert-wise bias to the routing scores of each expert, then dynamically update the bias of each expert according to its recent load to consistently maintain a balanced distribution of expert load.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["sparse-attention", "expert-choice-routing"]
+      "domain_tags": ["mixture-of-experts", "load-balancing", "routing", "expert-bias"]
     },
     {
-      "atom_id": "ATOM_R16E2_02",
-      "source_id": "arXiv:2506.14038",
-      "title": "Load Balancing Mixture of Experts with Similarity Preserving Routers",
-      "url": "https://arxiv.org/abs/2506.14038",
-      "text": "A learned router computes a distribution over these experts, and assigns input tokens to a small subset.",
+      "atom_id": "ATOM_R16E3_02",
+      "source_id": "arxiv:2312.00752",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752",
+      "text": "The core innovation in Mamba is that SSM parameters are functions of the input, which allows the model to selectively propagate or forget information along the sequence length dimension depending on the current token.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["mixture-of-experts", "load-balancing-routing"]
+      "domain_tags": ["state-space-model", "selective-scan", "input-dependent-parameters", "sequence-modeling"]
     },
     {
-      "atom_id": "ATOM_R16E2_03",
-      "source_id": "bioRxiv:2025.02.04.636520",
-      "title": "Gene regulatory logic of the interferon-β enhancer contains multiple selectively deployed modes of transcription factor synergy",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.02.04.636520v1.full",
-      "text": "Specificity is generated by sigmoidal IRF–DNA binding rather than IRF-NFκB cooperativity, suggesting that the ultrasensitivity mechanism distinguishes the two regulatory modes.",
-      "source_type": "biorxiv",
-      "domain": "biology",
-      "domain_tags": ["gene-regulatory-network", "transcription-factor-synergy"]
+      "atom_id": "ATOM_R16E3_03",
+      "source_id": "doi:10.1038/s41467-025-63482-3",
+      "title": "Frictional healing and induced earthquakes on conventionally stable faults",
+      "url": "https://www.nature.com/articles/s41467-025-63482-3",
+      "text": "The observed strength increase originates from the growth of grain contacts (asperities) and compaction via pressure solution as well as the development of cohesion, and the slip after fault reactivation increases with the time of inactivity, obtaining larger stress drops after a longer healing time.",
+      "source_type": "journal",
+      "domain": "geology",
+      "domain_tags": ["fault-friction", "frictional-healing", "earthquake-nucleation", "asperity-contact", "pressure-solution"]
     }
   ]
 }
