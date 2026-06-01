@@ -1,0 +1,97 @@
+{
+  "cand_id": "CAND_019_003",
+  "atom_a_id": "R19_P2_S2",
+  "atom_b_id": "R19_P3_S1",
+  "parse_ok": true,
+  "attempts": 1,
+  "parsed": {
+    "mechanism": "An information-geometric optimal schedule derived from the Fisher-Rao metric routes how thermodynamic-computing hardware anneals its noise level, transforming the abstract cosine sampling schedule into a physical relaxation trajectory that the stochastic hardware natively executes to sample from a target distribution.",
+    "transfer": "The Fisher-Rao-optimal noise schedule from A transfers as the physical annealing/relaxation control law that governs B's stochastic sampling hardware.",
+    "open_problem": "Does the Fisher-Rao-optimal (cosine) schedule coincide with the natural relaxation dynamics of thermodynamic-computing hardware, and can that hardware physically realize it without per-step software control?",
+    "niche_name": "Fisher-Rao-optimal annealing schedules for thermodynamic sampling hardware",
+    "primary_quote": "hardware undergoes a stochastic process in order to sample from a distribution of interest",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: the variance/noise schedule that is optimal under Fisher-Rao information geometry coincides with the cosine schedule used in diffusion models. B: thermodynamic computing replaces deterministic logic with hardware that physically runs a stochastic process to draw samples from a target distribution.",
+      "reasoning": "I tried to transfer A's notion of a geometrically-optimal schedule (the time-parameterization of noise that minimizes path length under the Fisher-Rao metric) onto B's physical sampling substrate, treating the hardware's annealing/relaxation timeline as the object that the schedule controls. I rejected the surface reading where 'schedule' is just a software hyperparameter bolted onto thermodynamic hardware, because that would be trivial reuse; the non-trivial claim is that the hardware's intrinsic stochastic relaxation already traces a metric on distribution space, so the Fisher-Rao optimum may either match or constrain what the physics can do, turning a software design choice into a physical-realizability question.",
+      "decision": "I settled on studying whether thermodynamic hardware can natively realize the Fisher-Rao-optimal schedule, because both A and B operate on the same underlying object \u2014 a path through a manifold of probability distributions \u2014 making the link causal rather than merely lexical.",
+      "confidence": "medium - both atoms genuinely concern trajectories over distribution manifolds, but whether hardware relaxation physically obeys the Fisher-Rao geometry is unverified.",
+      "could_be_wrong_if": "thermodynamic hardware's relaxation dynamics are governed by a fixed physical metric unrelated to Fisher-Rao, so imposing the cosine schedule is just an external software clock and the merge collapses to vocabulary overlap on the word 'distribution'."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 21046,
+      "duration_api_ms": 20643,
+      "ttft_ms": 6968,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"An information-geometric optimal schedule derived from the Fisher-Rao metric routes how thermodynamic-computing hardware anneals its noise level, transforming the abstract cosine sampling schedule into a physical relaxation trajectory that the stochastic hardware natively executes to sample from a target distribution.\", \"transfer\": \"The Fisher-Rao-optimal noise schedule from A transfers as the physical annealing/relaxation control law that governs B's stochastic sampling hardware.\", \"open_problem\": \"Does the Fisher-Rao-optimal (cosine) schedule coincide with the natural relaxation dynamics of thermodynamic-computing hardware, and can that hardware physically realize it without per-step software control?\", \"niche_name\": \"Fisher-Rao-optimal annealing schedules for thermodynamic sampling hardware\", \"primary_quote\": \"hardware undergoes a stochastic process in order to sample from a distribution of interest\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: the variance/noise schedule that is optimal under Fisher-Rao information geometry coincides with the cosine schedule used in diffusion models. B: thermodynamic computing replaces deterministic logic with hardware that physically runs a stochastic process to draw samples from a target distribution.\", \"reasoning\": \"I tried to transfer A's notion of a geometrically-optimal schedule (the time-parameterization of noise that minimizes path length under the Fisher-Rao metric) onto B's physical sampling substrate, treating the hardware's annealing/relaxation timeline as the object that the schedule controls. I rejected the surface reading where 'schedule' is just a software hyperparameter bolted onto thermodynamic hardware, because that would be trivial reuse; the non-trivial claim is that the hardware's intrinsic stochastic relaxation already traces a metric on distribution space, so the Fisher-Rao optimum may either match or constrain what the physics can do, turning a software design choice into a physical-realizability question.\", \"decision\": \"I settled on studying whether thermodynamic hardware can natively realize the Fisher-Rao-optimal schedule, because both A and B operate on the same underlying object \u2014 a path through a manifold of probability distributions \u2014 making the link causal rather than merely lexical.\", \"confidence\": \"medium - both atoms genuinely concern trajectories over distribution manifolds, but whether hardware relaxation physically obeys the Fisher-Rao geometry is unverified.\", \"could_be_wrong_if\": \"thermodynamic hardware's relaxation dynamics are governed by a fixed physical metric unrelated to Fisher-Rao, so imposing the cosine schedule is just an external software clock and the merge collapses to vocabulary overlap on the word 'distribution'.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "e20f56fb-07c1-4521-8025-741f8206c8ed",
+      "total_cost_usd": 0.06046199999999999,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1818,
+        "cache_read_input_tokens": 14221,
+        "output_tokens": 1287,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1818,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1287,
+            "cache_read_input_tokens": 14221,
+            "cache_creation_input_tokens": 1818,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1818
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1029,
+          "outputTokens": 23,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001144,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1287,
+          "cacheReadInputTokens": 14221,
+          "cacheCreationInputTokens": 1818,
+          "webSearchRequests": 0,
+          "costUSD": 0.05931799999999999,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "b1ebd195-8723-4449-ba71-11ae64edf8f9"
+    }
+  ]
+}
