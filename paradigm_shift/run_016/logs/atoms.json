@@ -10,48 +10,51 @@
     "atom_source_diversity": 0.5,
     "collision_avoidance_phrasing": 0.5147
   },
-  "low_overlap_domain": "geology — chose seismology/fault-mechanics; the low-overlap atom is ATOM_R16E3_03 (frictional healing / induced earthquake nucleation, domain=geology)",
-  "verbatim_note": "All mechanism clauses are taken verbatim from WebSearch snippet text I actually saw this session (no WebFetch used; WebFetch is a deferred tool known to 403 on arxiv per instructions). ATOM_01 text joins two adjacent verbatim snippet sentences from the arxiv:2408.15664 search summary with the connectors 'then ... to'; the substantive clauses ('apply an expert-wise bias to the routing scores of each expert', 'dynamically updating the bias of each expert according to its recent load', 'maintain a balanced distribution of expert load') are verbatim. ATOM_02 text is a single verbatim snippet sentence about Mamba (arxiv:2312.00752). ATOM_03 text joins two adjacent verbatim snippet sentences from the Nature Communications frictional-healing summary with ', and'; clauses are verbatim. Titles and URLs are exactly as returned in the WebSearch result link lists. I did not invent any id, URL, or future-dated text.",
+  "low_overlap_domain": "geology/seismology — the low-overlap atom is ATOM_R16E3_03 (3D dynamic rupture / off-fault damage simulation), domain=geology",
+  "verbatim_note": "All three 'text' values are mechanism sentences taken from the WebSearch result snippets I actually saw THIS session (the search engine renders abstract text in its summary). ATOM_01 from the arXiv:2506.14038 abstract snippet; ATOM_02 verbatim from the arXiv:2407.04620 abstract snippet ('The key idea is to make the hidden state a machine learning model itself, and the update rule a step of self-supervised learning.'); ATOM_03 from the arXiv:2503.21260 abstract snippet. Titles and URLs are exactly as returned in the WebSearch result link lists this session. No id, URL, or text invented. WebFetch not used (deferred tool, known to 403 on arXiv per instructions) — WebSearch only. NOTE: I overwrote a pre-existing atoms.json whose atoms (arxiv:2408.15664, arxiv:2312.00752, doi:10.1038/s41467-025-63482-3) I did NOT source or see this session, because R5 honesty requires recording only what I actually observed.",
   "queries_used": [
-    "mixture-of-experts gating router load balancing auxiliary loss 2025 mechanism",
-    "state space model selective scan SSM linear attention recurrence mechanism 2025",
-    "attention routing transformer AND seismic fault rupture nucleation earthquake mechanism",
-    "earthquake nucleation rate-and-state friction fault rupture propagation mechanism dynamic stress 2024",
-    "mixture-of-experts expert specialization AND seismic wave velocity heterogeneity fault zone",
-    "Auxiliary-Loss-Free Load Balancing Mixture-of-Experts bias routing scores expert load update",
-    "Mamba selective state space data-dependent parameterization input matrices function of input selective scan arxiv",
-    "\"frictional healing\" induced earthquakes conventionally stable faults fluid pressure reactivation mechanism slip"
+    "mixture-of-experts gating router load balancing auxiliary loss expert specialization arxiv 2025",
+    "state space model selective scan Mamba linear recurrence input-dependent gating arxiv 2025",
+    "graph neural network message passing earthquake seismic wave phase picking arrival time arxiv 2025",
+    "attention transformer mechanism seismic fault rupture nucleation slip propagation arxiv 2025",
+    "dynamic rupture simulation off-fault damage high-frequency radiation brittle rock 3D multi-fault arxiv 2503.21260",
+    "earthquake nucleation rate-and-state friction slow slip aseismic creep stress transfer mechanism seismology 2025",
+    "\"continuum damage breakage model\" \"off-fault\" rupture \"high-frequency\" radiation \"reduces rupture speed\" abstract",
+    "\"Load Balancing Mixture of Experts with Similarity Preserving Routers\" abstract \"load balancing loss\" preserves relational structure",
+    "\"Advancing Expert Specialization\" MoE orthogonality variance loss \"process distinct\" tokens discriminative routing abstract arxiv 2505.22323",
+    "test-time training neural network adapt hidden state self-supervised loss sequence modeling RNN expressive arxiv 2025 mechanism",
+    "\"RNNs with Expressive Hidden States\" abstract \"hidden state\" \"self-supervised\" \"update rule\" \"Test-Time Training\" TTT layers"
   ],
   "atoms": [
     {
       "atom_id": "ATOM_R16E3_01",
-      "source_id": "arxiv:2408.15664",
-      "title": "Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts",
-      "url": "https://arxiv.org/abs/2408.15664",
-      "text": "Loss-Free Balancing will first apply an expert-wise bias to the routing scores of each expert, then dynamically update the bias of each expert according to its recent load to consistently maintain a balanced distribution of expert load.",
+      "source_id": "arXiv:2506.14038",
+      "title": "Load Balancing Mixture of Experts with Similarity Preserving Routers",
+      "url": "https://arxiv.org/abs/2506.14038",
+      "text": "They call this approach similarity-preserving routers for MoE load balancing (SimBal), a novel load balancing auxiliary loss that maintains token-wise relational structure by softly encouraging orthogonality in the router weights.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["mixture-of-experts", "load-balancing", "routing", "expert-bias"]
+      "domain_tags": ["mixture-of-experts", "router-load-balancing", "auxiliary-loss", "router-orthogonality"]
     },
     {
       "atom_id": "ATOM_R16E3_02",
-      "source_id": "arxiv:2312.00752",
-      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
-      "url": "https://arxiv.org/abs/2312.00752",
-      "text": "The core innovation in Mamba is that SSM parameters are functions of the input, which allows the model to selectively propagate or forget information along the sequence length dimension depending on the current token.",
+      "source_id": "arXiv:2407.04620",
+      "title": "Learning to (Learn at Test Time): RNNs with Expressive Hidden States",
+      "url": "https://arxiv.org/abs/2407.04620",
+      "text": "The key idea is to make the hidden state a machine learning model itself, and the update rule a step of self-supervised learning, so the hidden state is updated by training even on the test sequences.",
       "source_type": "arxiv",
       "domain": "ml",
-      "domain_tags": ["state-space-model", "selective-scan", "input-dependent-parameters", "sequence-modeling"]
+      "domain_tags": ["test-time-training", "sequence-modeling", "self-supervised-update", "expressive-hidden-state"]
     },
     {
       "atom_id": "ATOM_R16E3_03",
-      "source_id": "doi:10.1038/s41467-025-63482-3",
-      "title": "Frictional healing and induced earthquakes on conventionally stable faults",
-      "url": "https://www.nature.com/articles/s41467-025-63482-3",
-      "text": "The observed strength increase originates from the growth of grain contacts (asperities) and compaction via pressure solution as well as the development of cohesion, and the slip after fault reactivation increases with the time of inactivity, obtaining larger stress drops after a longer healing time.",
-      "source_type": "journal",
+      "source_id": "arXiv:2503.21260",
+      "title": "Delayed dynamic triggering and enhanced high-frequency seismic radiation due to brittle rock damage in 3D multi-fault rupture simulations",
+      "url": "https://arxiv.org/abs/2503.21260",
+      "text": "The simulations demonstrate that off-fault damage enhances high-frequency wave radiation above 1 Hz, reduces rupture speed and alters the total kinetic energy.",
+      "source_type": "arxiv",
       "domain": "geology",
-      "domain_tags": ["fault-friction", "frictional-healing", "earthquake-nucleation", "asperity-contact", "pressure-solution"]
+      "domain_tags": ["dynamic-rupture", "off-fault-damage", "continuum-damage-breakage", "high-frequency-radiation"]
     }
   ]
 }
