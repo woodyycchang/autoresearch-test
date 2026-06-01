@@ -1,0 +1,70 @@
+{
+  "run_id": "run_018",
+  "agent": "1_abstract_decomposer",
+  "note": "One reasoning_trace per atom: which abstract sentence it is and why it is a DISTINCT sub-mechanism (not a duplicate of an adjacent sentence), plus a predicted density to be tested by AGENT 2. R9: decomposition is not a black box.",
+  "overall_trace": {
+    "step": "decompose 3 verbatim abstracts into sentence-level sub-mechanism atoms",
+    "inputs_seen": "3 verbatim abstracts from WebSearch: P1 Grassmannian MoE (5 sentences), P2 Fisher-Rao cosine schedule (2 sentences), P3 Energy-Time-Accuracy thermodynamic computing (4 sentences).",
+    "reasoning": "Run 17 sourced ONE mechanism per paper and every fused niche floored Gate 1 on prior-art VOLUME. The Run 18 hypothesis is that a paper's abstract bundles several sub-mechanisms of DIFFERENT maturity, and that an individual exotic clause (e.g. 'Matrix Bingham concentration parameters', 'energy-delay-deficiency product') may live in sparse space even when the paper's headline topic is mature. I decompose each abstract into every distinct clause that names its own mechanism/result, keeping problem-statement and gap sentences too (they should test as dense, a useful contrast).",
+    "decision": "11 atoms: P1->5, P2->2, P3->4. Each is a separate searchable sub-mechanism; AGENT 2 will measure per-atom paper-hits.",
+    "confidence": "high - the sentence boundaries are clear and each kept clause names a distinct construct",
+    "could_be_wrong_if": "some 'distinct' clauses are inseparable in the literature (always co-searched), so their individual hit-counts don't reflect a genuinely separable sub-mechanism."
+  },
+  "atom_traces": [
+    {"atom_id": "R18_P1_S1", "reasoning_trace": {
+      "step": "decompose P1 sentence 1", "inputs_seen": "the MoE/softmax-gating problem-statement sentence",
+      "reasoning": "This is the problem framing (softmax gating lacks sparsity-utilization control), not a novel mechanism; I keep it as an atom but predict it is DENSE - it is the generic MoE motivation found in hundreds of papers.",
+      "decision": "keep as atom R18_P1_S1; predict dense", "confidence": "high - clearly the generic motivation clause",
+      "could_be_wrong_if": "the exact phrasing 'tradeoff between sparsity and utilization' is rarer than the concept."}},
+    {"atom_id": "R18_P1_S2", "reasoning_trace": {
+      "step": "decompose P1 sentence 2", "inputs_seen": "the Grassmannian-manifold / Matrix-Bingham gating construction",
+      "reasoning": "Distinct from S3 (which is the resulting knob) because S2 is the GENERATIVE construct: gating weights from Matrix Bingham concentration parameters on the Grassmannian manifold. 'Matrix Bingham distribution' is an exotic directional-statistics object rarely used in ML routing - predict SPARSE.",
+      "decision": "keep as atom R18_P1_S2; predict sparse", "confidence": "high - Matrix Bingham + Grassmannian routing is an unusual construct",
+      "could_be_wrong_if": "directional-statistics gating is more common than I think (e.g. von Mises-Fisher routing), inflating hits."}},
+    {"atom_id": "R18_P1_S3", "reasoning_trace": {
+      "step": "decompose P1 sentence 3", "inputs_seen": "the concentration matrix continuously controls routing entropy, replacing top-k",
+      "reasoning": "Distinct from S2: S3 is the FUNCTION (entropy control replacing top-k), independent of the Bingham generative story. 'routing entropy control' and 'replacing top-k' are moderately studied - predict moderate/dense.",
+      "decision": "keep as atom R18_P1_S3; predict moderate", "confidence": "medium - entropy-controlled routing is an active but not saturated sub-area",
+      "could_be_wrong_if": "entropy-controlled MoE routing is denser than expected (Run 17 already saw MoxE etc.)."}},
+    {"atom_id": "R18_P1_S4", "reasoning_trace": {
+      "step": "decompose P1 sentence 4", "inputs_seen": "amortized variational inference for posterior routing distributions",
+      "reasoning": "A distinct inference mechanism (Bayesian/VI routing), separable from the geometry (S2) and the bound (S5). 'amortized variational inference' is common in VAEs but rare specifically for MoE posterior ROUTING distributions - predict sparse-to-moderate.",
+      "decision": "keep as atom R18_P1_S4; predict sparse-moderate", "confidence": "medium - VI is common, VI-for-routing is narrower",
+      "could_be_wrong_if": "'amortized variational inference' alone returns the large VAE literature, reading as dense."}},
+    {"atom_id": "R18_P1_S5", "reasoning_trace": {
+      "step": "decompose P1 sentence 5", "inputs_seen": "tight bounds: Bingham concentration spectrum -> routing entropy / top-k mass / expert collapse",
+      "reasoning": "The theoretical-result clause, distinct from the construction. Couples a Bingham spectrum to expert-collapse bounds - a very specific theorem; predict SPARSE.",
+      "decision": "keep as atom R18_P1_S5; predict sparse", "confidence": "high - a highly specific bound",
+      "could_be_wrong_if": "'expert collapse' dominates the query and pulls the (dense) collapse literature."}},
+    {"atom_id": "R18_P2_S1", "reasoning_trace": {
+      "step": "decompose P2 sentence 1", "inputs_seen": "discretisation schedule via information geometry of the induced probability path",
+      "reasoning": "P2 has only 2 sentences. S1 is the framing-as-information-geometry (probability-path geometry for diffusion schedules); distinct from S2's specific Fisher-Rao result. Predict sparse-moderate.",
+      "decision": "keep as atom R18_P2_S1; predict sparse-moderate", "confidence": "medium - information-geometry-of-diffusion is a small but real area",
+      "could_be_wrong_if": "'probability path' pulls the large flow-matching literature, reading dense."}},
+    {"atom_id": "R18_P2_S2", "reasoning_trace": {
+      "step": "decompose P2 sentence 2", "inputs_seen": "Fisher-Rao-optimal schedule recovers the cosine schedule",
+      "reasoning": "The specific result: Fisher-Rao geometry -> cosine schedule optimality for masked diffusion. 'Fisher-Rao' + 'cosine schedule' is a precise, recent pairing; predict SPARSE.",
+      "decision": "keep as atom R18_P2_S2; predict sparse", "confidence": "high - Fisher-Rao-optimal masked-diffusion schedule is a narrow result",
+      "could_be_wrong_if": "'cosine schedule' dominates and returns the broad scheduling literature."}},
+    {"atom_id": "R18_P3_S1", "reasoning_trace": {
+      "step": "decompose P3 sentence 1", "inputs_seen": "thermodynamic-computing hardware undergoes a stochastic process to sample a distribution",
+      "reasoning": "The thermodynamic-computing premise; distinct from the trade-off analysis (S3) and the EDDP bound (S4). Predict moderate - thermodynamic computing is an active niche field.",
+      "decision": "keep as atom R18_P3_S1; predict moderate", "confidence": "medium",
+      "could_be_wrong_if": "thermodynamic computing is smaller than I think (sparse) or larger via 'stochastic sampling hardware' (dense)."}},
+    {"atom_id": "R18_P3_S2", "reasoning_trace": {
+      "step": "decompose P3 sentence 2", "inputs_seen": "resource-cost characterization of thermodynamic computation is lacking (gap)",
+      "reasoning": "A gap/motivation sentence; kept for contrast. Predict moderate - it names the field but asserts a gap, so hits depend on the field's size.",
+      "decision": "keep as atom R18_P3_S2; predict moderate", "confidence": "medium - gap statements track field size",
+      "could_be_wrong_if": "phrased generically enough to pull broad energy-efficiency work (dense)."}},
+    {"atom_id": "R18_P3_S3", "reasoning_trace": {
+      "step": "decompose P3 sentence 3", "inputs_seen": "accuracy / energy-dissipation / time trade-off in thermodynamic computing",
+      "reasoning": "The trade-off triad; distinct from S4's specific EDDP metric. 'energy-accuracy-time tradeoff' is studied broadly in thermodynamics of computation; predict moderate-dense.",
+      "decision": "keep as atom R18_P3_S3; predict moderate-dense", "confidence": "medium",
+      "could_be_wrong_if": "the triad framing is itself rare even if each pairwise tradeoff is common."}},
+    {"atom_id": "R18_P3_S4", "reasoning_trace": {
+      "step": "decompose P3 sentence 4", "inputs_seen": "geometric bounds on entropy production -> energy-delay-deficiency product (EDDP)",
+      "reasoning": "The headline result: a COINED metric (EDDP) from geometric entropy-production bounds. A freshly named quantity should be the sparsest atom of all; predict SPARSE.",
+      "decision": "keep as atom R18_P3_S4; predict sparse", "confidence": "high - EDDP is a newly coined term",
+      "could_be_wrong_if": "'entropy production bounds' dominates and returns the large stochastic-thermodynamics literature."}}
+  ]
+}
