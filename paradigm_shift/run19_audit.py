@@ -63,7 +63,21 @@ EXOTIC_TERMS = ["bingham", "fisher-rao", "fisher rao", "grassmannian", "eddp", "
                 "thermodynamic", "manifold", "von mises", "geodesic", "amortized", "variational",
                 "subspace", "stiefel", "wasserstein", "directional", "information geometry", "riemannian",
                 "kinetic proofreading", "spectral", "geometric"]
-PRIOR_ART = ["prior work", "already studied", "survey", "published", "existing", "prior art", "already"]
+# collision_avoidance / gap-seeking signal.
+# epoch-3 fix (scorer<->rubric alignment): the literal list MISSED semantic gap-probes and
+# over-credited "survey" (which the research-skill rubric labels DIVERGE -- surveys re-broaden).
+# "survey" REMOVED; GAP_PATTERNS added so the scorer measures what the rubric rewards
+# (semantic gap-probing: has-X-been-applied / is-there-any / unexplored / no-work-on / ...).
+PRIOR_ART = ["prior work", "already studied", "published", "existing", "prior art", "already"]
+GAP_PATTERNS = [
+    r"has .* been applied", r"is there any (paper|work)", r"unexplored",
+    r"no (prior )?work on", r"combined with", r"applied to .*(routing|gating|expert)",
+    r"\bgap\b", r"already (been )?studied",
+]
+
+
+def gap_seeking(ql: str) -> bool:
+    return bool(_has_any(ql, PRIOR_ART)) or any(re.search(p, ql) for p in GAP_PATTERNS)
 DOMAINS = {
     "ml_routing": ["mixture of experts", "moe", "expert", "router", "routing", "gating", "load balanc", "top-k"],
     "diffusion": ["diffusion", "masked", "unmask", "decoding", "denoising", "schedule", "token"],
@@ -216,7 +230,7 @@ def score_query(q):
     sparsity_seeking = round(min(1.0, 0.5 * exo), 3) if exo else 0.1
     doms = sum(1 for d, kws in DOMAINS.items() if any(k in ql for k in kws))
     cross_paper_pairing = 1.0 if doms >= 2 else (0.5 if doms == 1 else 0.2)
-    collision_avoidance = 1.0 if _has_any(ql, PRIOR_ART) else 0.2
+    collision_avoidance = 1.0 if gap_seeking(ql) else 0.2  # epoch-3: literal prior-art OR semantic gap-probe
     return {"specificity": specificity, "mechanism_focus": mechanism_focus, "sparsity_seeking": sparsity_seeking,
             "cross_paper_pairing": cross_paper_pairing, "collision_avoidance": collision_avoidance}
 

@@ -105,6 +105,18 @@ class TestSearchQuality(unittest.TestCase):
         self.assertEqual(d["collision_avoidance"], 0.2)
         self.assertEqual(d["sparsity_seeking"], 0.1)
 
+    def test_epoch3_scorer_alignment(self):
+        # epoch-3 fix: semantic gap-probes (no literal 'prior work') now score collision_avoidance=1.0
+        for q in ["has Fisher-Rao been applied to mixture of experts routing",
+                  "is there any paper applying X to expert routing",
+                  "thermodynamic computing for expert routing unexplored",
+                  "Bingham gating combined with annealing schedule"]:
+            self.assertEqual(A.score_query(q)["collision_avoidance"], 1.0, q)
+        # 'survey' (DIVERGE per rubric) is NO LONGER credited -> 0.2
+        self.assertEqual(A.score_query("optimal schedule routing entropy masked diffusion survey")["collision_avoidance"], 0.2)
+        # literal prior-art probes still credited
+        self.assertEqual(A.score_query("MoE routing prior work")["collision_avoidance"], 1.0)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
