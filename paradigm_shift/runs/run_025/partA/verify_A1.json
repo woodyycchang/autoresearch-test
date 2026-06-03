@@ -1,0 +1,387 @@
+{
+  "agent": "A1",
+  "ids": ["C01", "C02", "C03", "C04", "C05"],
+  "candidates": [
+    {
+      "id": "C01",
+      "concept": "Triboluminescence",
+      "functional_effect": "Use asymmetry/symmetry-breaking in the representation (embedding) space to create localized differences between representation clusters that trigger discrete routing/gating events, selecting a sparse subset of expert sub-networks (mixture-of-experts conditional computation).",
+      "content_words": ["symmetry breaking", "mixture-of-experts", "gating", "expert routing", "sparse activation", "expert specialization"],
+      "reformulations": [
+        {
+          "query": "symmetry breaking in embedding space to trigger expert routing mixture-of-experts",
+          "hits": [
+            {"title": "Towards Understanding the Mixture-of-Experts Layer in Deep Learning", "url": "https://openreview.net/pdf?id=MaYzugDmQV"},
+            {"title": "EMoE: Eigenbasis-Guided Routing for Mixture-of-Experts", "url": "https://arxiv.org/pdf/2601.12137"},
+            {"title": "Routing Manifold Alignment Improves Generalization of Mixture-of-Experts LLMs", "url": "https://arxiv.org/pdf/2511.07419"},
+            {"title": "A Minimal Bifurcation Model of Load Imbalance in a Softmax Mixture-of-Experts Router", "url": "https://arxiv.org/html/2605.29121"},
+            {"title": "Geometry-Preserving Aggregation for Mixture-of-Experts Embedding Models", "url": "https://arxiv.org/pdf/2602.14039"},
+            {"title": "Decoupling Mixture-of-experts Routing from Gradient Noise", "url": "https://www.sciencedirect.com/science/article/pii/S0957417426000424"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Early in training, the system is in a symmetric phase where expert roles are not specialized, but after crossing a critical point, a symmetry-broken phase appears in which the gating network effectively partitions the input space among experts... supercritical pitchfork bifurcation: above a critical feedback strength two stable asymmetric states appear."
+        },
+        {
+          "query": "geometric asymmetry representation clusters discrete gating activation sparse",
+          "hits": [
+            {"title": "On the Role of Discrete Representation in Sparse Mixture of Experts (VQMoE)", "url": "https://arxiv.org/html/2411.19402v2"},
+            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/html/2603.02227"},
+            {"title": "Differentiable Sparsity via D-Gating: Simple and Versatile Structured Penalization", "url": "https://arxiv.org/html/2509.23898v1"},
+            {"title": "Homophilic Clustering by Locally Asymmetric Geometry", "url": "https://arxiv.org/pdf/1407.1352"},
+            {"title": "Switch Spaces: Learning Product Spaces with Sparse Gating", "url": "https://arxiv.org/abs/2102.08688v2"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Vector Quantization block facilitates the learning of a discrete representation... discrete representations can improve input routing by naturally clustering similar inputs, thereby enhancing expert specialization and utilization without relying solely on a learned gate. SMoE: only a subset of parameters is utilized to process each example."
+        },
+        {
+          "query": "phase transition symmetry breaking expert specialization gating network bifurcation",
+          "hits": [
+            {"title": "Symmetry-Breaking Transitions", "url": "https://www.emergentmind.com/topics/symmetry-breaking-phase-transitions"},
+            {"title": "A solvable model for symmetry-breaking phase transitions", "url": "https://www.nature.com/articles/s41598-023-40704-6"},
+            {"title": "A symmetry breaking transition in the edge/triangle network model", "url": "https://www.columbia.edu/~kr2002/publication_files/Radin-Ren-Sadun-arXiv16-Symmetry-Breaking.pdf"},
+            {"title": "Phase Transition and Symmetry Breaking in the Minority Game", "url": "https://www.researchgate.net/publication/11397004"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "In symmetry-breaking phase transitions, the transition is represented by a bifurcation which links symmetric and asymmetric solutions... agents differentiate into polarized roles via spontaneous symmetry breaking. (Confirms symmetry-breaking->role differentiation, generic but supports the MoE-specific hits.)"
+        },
+        {
+          "query": "potential difference between token representation clusters induce routing events transformer",
+          "hits": [
+            {"title": "The emergence of clusters in self-attention dynamics", "url": "https://arxiv.org/pdf/2305.05465"},
+            {"title": "Routing Matters in MoE: Scaling Diffusion Transformers", "url": "https://arxiv.org/pdf/2510.24711"},
+            {"title": "No Clustering, No Routing: How Transformers Actually Process Rare Tokens", "url": "https://arxiv.org/html/2509.04479v1"},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/html/2505.00315v1"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "In MoE systems, prototypes are trained to represent the shared characteristics of a cluster of semantically similar tokens. Token assignment uses cosine similarity... between tokens and prototypes. Tokens cluster toward the vertices of a convex polytope."
+        },
+        {
+          "query": "non-centrosymmetric charge separation analogy neural network sparse expert activation",
+          "hits": [
+            {"title": "Mixture of Neuron Experts", "url": "https://arxiv.org/pdf/2510.05781"},
+            {"title": "Learning Neural Networks with Sparse Activations", "url": "https://arxiv.org/abs/2406.17989"},
+            {"title": "A Theoretical View on Sparsely Activated Networks", "url": "https://arxiv.org/pdf/2208.04461"},
+            {"title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer", "url": "https://arxiv.org/abs/1701.06538"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "The literal 'charge-separation' source framing returns no ML hit, but sparse expert activation / sparsely-gated MoE is the standard functional target: only a subset of expert parameters are activated depending on input."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Towards Understanding the Mixture-of-Experts Layer in Deep Learning (symmetric->symmetry-broken expert specialization phase)", "url": "https://openreview.net/pdf?id=MaYzugDmQV"},
+        {"name": "A Minimal Bifurcation Model of Load Imbalance in a Softmax MoE Router (supercritical pitchfork -> asymmetric expert states)", "url": "https://arxiv.org/html/2605.29121"},
+        {"name": "VQMoE - On the Role of Discrete Representation in Sparse MoE (discrete clustering drives routing/specialization)", "url": "https://arxiv.org/html/2411.19402v2"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Would not surprise an MoE expert: spontaneous symmetry-breaking from a symmetric (unspecialized) phase into asymmetric, specialized experts driven by a gating network is a textbook description of MoE training dynamics (pitchfork bifurcation). The triboluminescent charge-separation dressing adds no functional content."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 4, "non_trivial": 1, "note": "Mechanism is coherent but identical to existing MoE symmetry-breaking; verifiable but already verified in the literature."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Stripped of physics vocabulary, the claim is: representation-space asymmetry/symmetry-breaking triggers discrete sparse gating among experts. This is the central, well-studied mechanism of mixture-of-experts. Two independent forced-hit searches surfaced papers explicitly describing the symmetric->symmetry-broken phase transition into specialized experts via a gating network. COLLISION on the core claim."
+    },
+    {
+      "id": "C02",
+      "concept": "Sonoluminescence",
+      "functional_effect": "Convert latent / not-yet-decoded ('virtual') token representations into committed real output tokens at a moving boundary that sweeps through the sequence, deferring commitment of uncertain positions until the boundary reaches them - i.e., controlled token-emergence gating in autoregressive/parallel generation.",
+      "content_words": ["latent token", "moving boundary", "token emergence", "autoregressive", "deferred commitment", "uncertainty resolution"],
+      "reformulations": [
+        {
+          "query": "latent token materialization moving attention boundary autoregressive generation gating",
+          "hits": [
+            {"title": "Enhancing Latent Computation in Transformers with Latent Tokens", "url": "https://arxiv.org/abs/2505.12629"},
+            {"title": "Token Maturation: Autoregressive Language Generation via Continuous Token Dynamics", "url": "https://arxiv.org/html/2601.04854v1"},
+            {"title": "Hyperspherical Latents Improve Continuous-Token Autoregressive Generation", "url": "https://arxiv.org/pdf/2509.24335"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Token maturation reformulates autoregressive language generation in which prediction and commitment are explicitly separated, allowing uncertainty to be expressed and resolved within a continuous embedding space before any discrete commitment is made. Several positions remain undecided simultaneously, enabling later context to influence when earlier positions stabilize. A learnable gate progressively shifts generation from token embeddings to hidden states."
+        },
+        {
+          "query": "converting latent virtual representations into decoded output tokens emergence transformer",
+          "hits": [
+            {"title": "Enhancing Latent Computation in Transformers with Latent Tokens", "url": "https://arxiv.org/pdf/2505.12629"},
+            {"title": "Eliciting Latent Predictions from Transformers with the Tuned Lens", "url": "https://arxiv.org/html/2303.08112v6"},
+            {"title": "Multimodal Latent Language Modeling with Next-Token Diffusion", "url": "https://arxiv.org/html/2412.08635v1"},
+            {"title": "Emergence and Effectiveness of Task Vectors in In-Context Learning", "url": "https://arxiv.org/pdf/2412.12276"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Latent tokens are dummy tokens... that steer the autoregressive decoding process of a Transformer via the attention mechanism. Latent predictions can be decoded by converting the hidden state at each intermediate layer into a distribution over the vocabulary."
+        },
+        {
+          "query": "moving frontier interface token decoding controlled emergence autoregressive LLM",
+          "hits": [
+            {"title": "The End of Manual Decoding: Towards Truly End-to-End Language Models", "url": "https://arxiv.org/pdf/2510.26697"},
+            {"title": "Decoding Large Language Diffusion Models with Foreseeing Movement", "url": "https://arxiv.org/pdf/2512.04135"},
+            {"title": "AdaDecode: Accelerating LLM Decoding with Adaptive Layer Parallelism", "url": "https://arxiv.org/pdf/2506.03700"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Instruction-based decoding control where the model adjusts predicted temperature/top-p on a token-by-token basis... steerable decoding. Diffusion LM decoding with foreseeing movement (moving decode frontier)."
+        },
+        {
+          "query": "deferred token commitment continuous embedding uncertainty resolution before discretization decoding",
+          "hits": [
+            {"title": "Projected Autoregression / Token Maturation: Autoregressive Generation in Continuous State Space", "url": "https://arxiv.org/html/2601.04854"},
+            {"title": "Deferred Commitment Decoding for Diffusion Language Models with Confidence-Aware Sliding Windows", "url": "https://arxiv.org/abs/2601.02076"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Deferred Commitment Decoding (DCD)... block-based diffusion suffers from Boundary-Induced Context Truncation (BICT): undecoded tokens near block boundaries are forced to commit without access to nearby future context. DCD maintains a certainty-aware sliding window over masked tokens, resolving low-uncertainty tokens early while deferring high-uncertainty tokens until sufficient contextual evidence becomes available. Token maturation: predict a vector, move the state toward it, project to a discrete token only when needed."
+        },
+        {
+          "query": "Unruh Hawking radiation analogy machine learning token generation physics-inspired",
+          "hits": [
+            {"title": "Analog Hawking Radiation in Transformer Neural Networks: Discrete Geometric Horizons, Information Thermodynamics, and Hallucination Suppression", "url": "https://www.opastpublishers.com/open-access-articles/analog-hawking-radiation-in-transformer-neural-networks-10196.html"},
+            {"title": "Black hole/quantum machine learning correspondence", "url": "https://arxiv.org/pdf/2506.09678"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Explicit analogy between Hawking radiation and information flow in Transformer neural networks. Interpreting attention dynamics as a discrete acoustic metric, effective horizons emerge when information flow becomes supersonic (Mach number exceeding unity)... horizons emerging naturally from attention-driven flows and generating thermal effects."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Token Maturation / Projected Autoregression (delayed discretization: latent->real token at a maturing boundary, deferring uncertain positions)", "url": "https://arxiv.org/html/2601.04854v1"},
+        {"name": "Deferred Commitment Decoding for Diffusion LMs (moving certainty-aware window converts undecided masked tokens to committed ones; explicit Boundary-Induced Context Truncation at the interface)", "url": "https://arxiv.org/abs/2601.02076"},
+        {"name": "Analog Hawking Radiation in Transformer Neural Networks (the EXACT Unruh/Hawking-horizon-in-attention exotic framing already published, applied to token information flow)", "url": "https://www.opastpublishers.com/open-access-articles/analog-hawking-radiation-in-transformer-neural-networks-10196.html"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Both the functional mechanism (latent->discrete token conversion at a moving certainty boundary, deferring uncertain positions) AND the exotic source framing (Unruh/Hawking photon-materialization at an accelerating interface, mapped onto attention) are independently already published. No surprise remains."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 3, "non_trivial": 1, "note": "The mechanism is real and implemented (DCD, Token Maturation); the physics analogy is also already taken (Analog Hawking in Transformers)."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = convert not-yet-decoded representations into committed tokens at a sweeping boundary while deferring high-uncertainty positions. This is exactly Deferred Commitment Decoding and Token Maturation, both 2026 works, with DCD even formalizing a 'boundary' (BICT) that forces commitment - the literal moving-interface conversion. Separately, the Unruh/Hawking-at-an-attention-horizon analogy is itself published. Double COLLISION."
+    },
+    {
+      "id": "C03",
+      "concept": "Spinodal decomposition",
+      "functional_effect": "Detect regions of negative curvature in the loss landscape (instability to perturbation) and deliberately exploit/follow those directions to amplify representation diversity, driving the model to separate into distinct specialized solutions/sub-networks without explicit modularity supervision.",
+      "content_words": ["negative curvature", "loss landscape", "diverse solutions", "specialization", "Hessian eigenvector", "uphill / instability amplification"],
+      "reformulations": [
+        {
+          "query": "negative curvature loss landscape exploit uphill gradient steps representation diversity training",
+          "hits": [
+            {"title": "Curvature in the Looking-Glass: Optimal Methods to Exploit Curvature of Expectation in the Loss Landscape", "url": "https://arxiv.org/abs/2411.16914"},
+            {"title": "Exploiting Negative Curvature in Conjunction with Adaptive Sampling", "url": "https://arxiv.org/pdf/2411.10378"},
+            {"title": "The instabilities of large learning rate training: a loss landscape view", "url": "https://arxiv.org/pdf/2307.11948"},
+            {"title": "Decoupling Search and Learning in Neural Net Training (diverse representational solutions)", "url": "https://arxiv.org/pdf/2509.10973"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "When perturbed in a negative curvature direction, you are no longer in the basin of attraction of a saddle point and are rolling downhill with slowly gathering speed... benefits of utilizing directions of negative curvature are substantial. Search in a tractable representation space to find diverse representational solutions whose fitness and diversity scale with compute."
+        },
+        {
+          "query": "spontaneous emergence specialized subnetworks without modularity supervision neural network",
+          "hits": [
+            {"title": "Emergence of spontaneous assembly activity in developing neural networks without afferent input (PLOS Comp Biol)", "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006421"},
+            {"title": "Emergence of multiple spontaneous coherent subnetworks from coupled oscillators (Sci Rep)", "url": "https://www.nature.com/articles/s41598-024-80510-2"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "A recurrent network with initially random weights forms neural assemblies via a simple Hebbian rule, becoming increasingly modular while driven by initially unstructured spontaneous activity. (Modularity emerges, but via Hebbian plasticity in spiking/biological nets, not loss-curvature exploitation.)"
+        },
+        {
+          "query": "saddle point negative Hessian eigenvalue escape amplify diversity deep learning training",
+          "hits": [
+            {"title": "Escaping Saddle Points for Effective Generalization on Class-Imbalanced Data (NeurIPS 2022)", "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/8f4d70db9ecec97b6723a86f1cd9cb4b-Paper-Conference.pdf"},
+            {"title": "How to Escape Saddle Points Efficiently (Jin et al.)", "url": "https://proceedings.mlr.press/v70/jin17a/jin17a.pdf"},
+            {"title": "Saddle Point Evasion via Curvature-Regularized Gradient Dynamics", "url": "https://arxiv.org/pdf/2603.15606"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "The Hessian has a strictly negative eigenvalue at strict saddle points, ensuring a direction along which the loss surface declines significantly... noise discovers the declining direction. (Standard framing: negative curvature exploited to ESCAPE saddles, not to fission into modules.)"
+        },
+        {
+          "query": "instability-driven feature decorrelation phase separation specialist experts training dynamics",
+          "hits": [
+            {"title": "Training instability in deep learning follows low-dimensional dynamical principles", "url": "https://arxiv.org/pdf/2601.13160"},
+            {"title": "Neural Collapse Dynamics: Depth, Activation, Regularisation, and Feature Norm Threshold", "url": "https://arxiv.org/pdf/2604.00230"},
+            {"title": "Motility-Induced Phase Separation (topic)", "url": "https://www.emergentmind.com/topics/motility-induced-phase-separation-mips"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Stability-performance dissociation where high-performing models can still exhibit instability under perturbations. (No fusion of instability -> deliberate specialist fission found here.)"
+        },
+        {
+          "query": "amplify initial fluctuations symmetry breaking unsupervised expert differentiation loss curvature",
+          "hits": [
+            {"title": "Statistical physics of unsupervised learning with prior knowledge in neural networks", "url": "https://arxiv.org/pdf/1911.02344"},
+            {"title": "A Loss Curvature Perspective on Training Instability in Deep Learning", "url": "https://arxiv.org/pdf/2110.04369"},
+            {"title": "Phase transitions in optimal unsupervised learning", "url": "https://arxiv.org/pdf/cond-mat/9709274"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Symmetry breaking dynamics... how initial state fluctuations are amplified in symmetry breaking processes; reverse/permutation symmetry breaking transitions in unsupervised learning. (Adjacent: amplification of fluctuations via instability is a known statistical-physics-of-learning theme.)"
+        },
+        {
+          "query": "unstable region loss landscape drive monolithic network split into modules de novo without predefined experts",
+          "hits": [
+            {"title": "Independent Modular Networks", "url": "https://arxiv.org/pdf/2306.01316"},
+            {"title": "The intriguing role of module criticality in the generalization of deep networks", "url": "https://arxiv.org/pdf/1912.00528"},
+            {"title": "Optimization on multifractal loss landscapes (instability drives trajectories out of minima)", "url": "https://www.nature.com/articles/s41467-025-58532-9"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Independent Modular Networks: representation learning using monolithic models, accommodating compositional characteristics of data generation. Instability of gradient descent drives optimization trajectories out of local minima while maintaining global confinement. (Modular split from monolithic exists, but not curvature-instability-driven.)"
+        },
+        {
+          "query": "deliberately ascend loss negative curvature direction induce representation specialization branching",
+          "hits": [
+            {"title": "Ridge Rider: Finding Diverse Solutions by Following Eigenvectors of the Hessian", "url": "https://arxiv.org/pdf/2011.06505"},
+            {"title": "From Memorization to Reasoning in the Spectrum of Loss Curvature", "url": "https://arxiv.org/abs/2510.24256"},
+            {"title": "Uncovering Branch specialization in InceptionV1 using k-sparse autoencoders", "url": "https://arxiv.org/pdf/2504.11489"},
+            {"title": "Directions of Curvature as an Explanation for Loss of Plasticity", "url": "https://arxiv.org/pdf/2312.00246"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Ridge Rider starts at saddle points and forces different replicates to follow distinct, orthogonal directions of negative curvature by iteratively following eigenvectors of the Hessian until loss can no longer be reduced, with repetition leading replicates to minima corresponding to distinct convex subspaces of parameter space. Memorized points have much sharper curvature; weight components ordered high->low curvature; specialized directions in weight space."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Ridge Rider: Finding Diverse Solutions by Following Eigenvectors of the Hessian (deliberately follows NEGATIVE-curvature Hessian eigenvector directions from saddle points to amplify diversity and separate replicates into distinct specialized subspaces - the exact functional effect)", "url": "https://arxiv.org/pdf/2011.06505"},
+        {"name": "Curvature in the Looking-Glass / Exploiting Negative Curvature (exploiting negative-curvature directions during training)", "url": "https://arxiv.org/abs/2411.16914"},
+        {"name": "From Memorization to Reasoning in the Spectrum of Loss Curvature (curvature spectrum drives functional specialization)", "url": "https://arxiv.org/abs/2510.24256"}
+      ],
+      "gate3_search_count": 7,
+      "gate4_belinda": {"pass": false, "why": "Ridge Rider is a near-perfect functional match: it explicitly uses negative-curvature (Hessian eigenvector) directions, riding them to produce DIVERSE, mutually distinct specialized solutions without supervision - precisely 'exploit instability to amplify diversity and separate into specialists'. The spinodal/Gibbs-free-energy second-derivative<0 framing maps one-to-one onto negative Hessian curvature. No surprise to an optimization researcher."},
+      "composite": {"novelty": 2, "mechanism": 3, "verifiability": 3, "non_trivial": 1, "note": "I initially flagged this as the strongest GAP candidate (the 'into specialized SUB-NETWORKS' fission framing is slightly beyond Ridge Rider, which yields diverse full networks). But the CORE functional effect - follow negative-curvature directions to amplify diversity into distinct specialists - is squarely occupied by Ridge Rider. Not a genuine gap."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Spinodal decomposition = system unstable where d2G/dx2 < 0, amplifying fluctuations (uphill diffusion) into separated phases. Functional translation = negative Hessian curvature (d2L<0) amplifying perturbations into separated/diverse representations. Searches 1,3,7 returned forced hits; search 7 surfaced Ridge Rider, which is the precise mechanism. The only residual specificity ('monolithic model fissions into named sub-networks without predefined experts') is a mild over-specification on an occupied mechanism and is itself approached by Independent Modular Networks. Under R14, an honest read is COLLISION, not GAP - the diversity-from-negative-curvature fusion is taken. R12 check (more paper-hits did NOT hide a gap here): confirmed occupied."
+    },
+    {
+      "id": "C04",
+      "concept": "Marangoni effect",
+      "functional_effect": "Make attention/information redistribute along a cross-token information-density gradient - flowing from high-information-density tokens toward low-density ones - with the strength of that flow regulated by a tunable dimensionless ratio of (information gradient) to (residual-stream 'adhesion').",
+      "content_words": ["concentration gradient", "information density", "attention routing", "gradient-driven", "interfacial flow", "surface tension ratio", "transformer"],
+      "reformulations": [
+        {
+          "query": "information density gradient drives attention flow from high to low density tokens transformer",
+          "hits": [
+            {"title": "Quantifying Attention Flow in Transformers", "url": "https://arxiv.org/pdf/2005.00928"},
+            {"title": "SympFormer: Accelerated attention blocks via Inertial Dynamics on Density Manifolds", "url": "https://arxiv.org/pdf/2603.16535"},
+            {"title": "Better Explain Transformers by Illuminating Important Information", "url": "https://arxiv.org/html/2401.09972v1"},
+            {"title": "GMAR: Gradient-Driven Multi-Head Attention Rollout", "url": "https://arxiv.org/html/2504.19414v1"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Transformers/attention blocks can be interpreted as discrete-time interacting particle dynamics where layer updates may be viewed as discretization of non-linear evolution equations in probability density spaces over high-dimensional feature spaces, with token evolution resembling gradient descent of an interaction energy functional."
+        },
+        {
+          "query": "gradient-driven attention routing dimensionless number ratio regulate information flow self-attention",
+          "hits": [
+            {"title": "GMAR: Gradient-Driven Multi-Head Attention Rollout for Vision Transformer Interpretability", "url": "https://arxiv.org/html/2504.19414v1"},
+            {"title": "GradAttn: Replacing Fixed Residual Connections with Task-Modulated Attention Pathways", "url": "https://arxiv.org/pdf/2603.26756"},
+            {"title": "Self-Attention Attribution: Interpreting Information Interactions", "url": "https://arxiv.org/pdf/2004.11207"},
+            {"title": "Quantifying Attention Flow in Transformers", "url": "https://arxiv.org/pdf/2005.00928"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Gradient-based weights capture the nuanced importance of individual attention heads; attention-controlled gradient flow replaces static residual connections with learnable gradient pathways. (These are interpretability/attribution-side gradient methods, NOT a Marangoni-style high->low density flow controlled by a dimensionless number.)"
+        },
+        {
+          "query": "attention biased toward high information content tokens entropy gradient routing mechanism",
+          "hits": [
+            {"title": "Gradient Dynamics of Attention: How Cross-Entropy Sculpts Bayesian Manifolds", "url": "https://arxiv.org/pdf/2512.22473"},
+            {"title": "Attention with Trained Embeddings Provably Selects Important Tokens", "url": "https://arxiv.org/pdf/2505.17282"},
+            {"title": "Not All Tokens Learn Alike: Attention Entropy Reveals Heterogeneous Signals", "url": "https://arxiv.org/html/2605.07660"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Advantage-based routing law for attention scores... queries route more strongly to values that are above-average for their error signal. Attention provably selects important tokens. (Attention attracted TO important/high-info tokens - opposite directionality to Marangoni high->low; not the candidate's gradient-driven outflow with a control number.)"
+        },
+        {
+          "query": "Marangoni effect surface tension analogy attention transformer information flow neural network",
+          "hits": [
+            {"title": "Marangoni effect - Wikipedia", "url": "https://en.wikipedia.org/wiki/Marangoni_effect"},
+            {"title": "Marangoni effect and cell spreading", "url": "https://arxiv.org/pdf/2111.14421"},
+            {"title": "Machine learning investigation of marangoni convection in hybrid nanofluids", "url": "https://www.nature.com/articles/s41598-025-23362-8"},
+            {"title": "Physics-informed neural network applied to surface-tension-driven liquid film flows", "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/fld.5093"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Search confirmed: no paper draws an analogy between the Marangoni effect / surface-tension gradients and attention mechanisms. ML+Marangoni results are all about USING NNs to SIMULATE Marangoni convection, not the reverse mapping. The explicit surface-tension framing is unoccupied."
+        },
+        {
+          "query": "attention as fluid flow on information density manifold tokens move along concentration gradient",
+          "hits": [
+            {"title": "SympFormer: Accelerated attention blocks via Inertial Dynamics on Density Manifolds", "url": "https://arxiv.org/pdf/2603.16535"},
+            {"title": "Towards understanding how attention mechanism works in deep learning", "url": "https://arxiv.org/html/2412.18288v1"},
+            {"title": "Perceptrons and localization of attention's mean-field landscape", "url": "https://arxiv.org/pdf/2601.21366"},
+            {"title": "Attention Sinks Induce Gradient Sinks", "url": "https://arxiv.org/pdf/2603.17771"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Attention blocks as interacting particle systems whose mean-field limits correspond to gradient flows of interaction energy functionals on probability density spaces (Wasserstein-2). A drift-diffusion process on the data manifold driven by density guidance (encourages local concentration) and diffusion. Tokens move according to forces on a density manifold, similar to particles flowing in a fluid under concentration gradients."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "SympFormer / mean-field attention-as-particle-flow on density manifolds (tokens move under density-gradient forces; 'density guidance encourages local concentration' = gradient-driven information flow)", "url": "https://arxiv.org/pdf/2603.16535"},
+        {"name": "Gradient Dynamics of Attention: How Cross-Entropy Sculpts Bayesian Manifolds (advantage/error-gradient-driven routing of attention mass)", "url": "https://arxiv.org/pdf/2512.22473"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "The FUNCTIONAL effect - attention/information redistributed along a density/concentration gradient via a gradient-flow / drift-diffusion process - is established (mean-field attention as gradient flow on density manifolds; SympFormer). The candidate's 'solutal attention number' is a renaming of an existing control (a dimensionless ratio governing flow strength) and the surface-tension directionality is a relabel; it does not create a new function."},
+      "composite": {"novelty": 2, "mechanism": 2, "verifiability": 2, "non_trivial": 2, "note": "Borderline. The named dimensionless 'solutal attention number' + explicit surface-tension framing genuinely returned zero hits, but the underlying functional effect (gradient-driven attention flow on a density manifold) is occupied, so the effect collides even though the specific label does not."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Two-part claim. Part 1 (gradient-driven attention flow along an information-density gradient) = COLLISION with the mean-field/particle-flow-on-density-manifold attention literature (SympFormer, Wasserstein gradient-flow attention, drift-diffusion 'density guidance'). Part 2 (a NAMED dimensionless control number 'solutal attention number' = info-gradient/adhesion, plus strict high->low directionality) returned ZERO hits and is genuinely unclaimed AS A LABEL. However, per the grounded-gap method a COLLISION holds when a published technique has the same functional EFFECT; defining a dimensionless ratio to scale an already-existing gradient flow is over-specification (R14: this is an arbitrary parameterization, not a new mechanism), so narrow_version_nontrivial=false. Honest note: this is the closest any of C01-C05 came to a gap, and a reviewer wanting maximal generosity could call Part-2's specific surface-tension control-number a thin GAP; I judge it non-load-bearing because it does not change what the mechanism DOES versus existing density-gradient attention flows."
+    },
+    {
+      "id": "C05",
+      "concept": "Cavitation",
+      "functional_effect": "Detect 'collapse' points during decoding where the token distribution sharply sharpens - many viable candidates implode to a single high-confidence selection (entropy/confidence spike) - and exploit those points (e.g., branch where uncertain, commit greedily where collapsed) to improve decoding.",
+      "content_words": ["entropy collapse", "confidence spike", "beam search", "decoding", "candidate collapse", "branching"],
+      "reformulations": [
+        {
+          "query": "entropy collapse confidence spike detect exploit decoding beam search candidate tokens",
+          "hits": [
+            {"title": "Entropy-Gated Branching for Efficient Test-Time Reasoning", "url": "https://arxiv.org/html/2503.21961v2"},
+            {"title": "Entropy-Aligned Decoding of LMs (EPIC)", "url": "https://www.arxiv.org/pdf/2601.01714"},
+            {"title": "CURE: Critical-Token-Guided Re-concatenation for Entropy-collapse Prevention", "url": "https://arxiv.org/html/2508.11016v1"},
+            {"title": "Towards Better Code Generation: Adaptive Decoding with Uncertainty Guidance (AdaDec)", "url": "https://arxiv.org/pdf/2506.08980"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Models are considerably more error-prone during entropy spikes... allocating extra expansion precisely at these high-entropy steps yields maximal diversity. AdaDec utilizes learned entropy thresholds to identify when the model is 'confused' and dynamically triggers lookahead to re-score candidate tokens. EPIC: combines lazy Gumbel-Max sampling with admissible entropy upper bounds to efficiently prune candidate tokens."
+        },
+        {
+          "query": "many candidate tokens collapse to single high probability selection decoding sharp transition",
+          "hits": [
+            {"title": "On the Salience of Low-Probability Tokens for AI-Generated Text Detection", "url": "https://arxiv.org/html/2606.02158"},
+            {"title": "Calibrated Speculative Decoding: Frequency-Guided Candidate Selection", "url": "https://arxiv.org/html/2604.13634v1"},
+            {"title": "Inferring from Logits: Decoding-Free Generative Candidate Selection", "url": "https://arxiv.org/pdf/2501.17338"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Collapsing each conditional distribution to a single probability score discards distributional shape. Multimodal distributions: multiple clusters of reasonable tokens separated by low-probability regions; fixed top-k can split clusters pathologically. (Sharp collapse to a single selection is an explicitly studied decoding phenomenon.)"
+        },
+        {
+          "query": "predictive entropy drop sudden confidence increase token generation uncertainty signal LLM",
+          "hits": [
+            {"title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics", "url": "https://arxiv.org/pdf/2602.01288"},
+            {"title": "Think Just Enough: Sequence-Level Entropy as a Confidence Signal", "url": "https://arxiv.org/pdf/2510.08146"},
+            {"title": "Entropy Trajectory Shape Predicts LLM Reasoning Reliability", "url": "https://arxiv.org/pdf/2603.18940"},
+            {"title": "LogitScope: Analyzing LLM Uncertainty Through Information Metrics", "url": "https://arxiv.org/pdf/2603.24929"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Models that have undergone advanced post-training show a sharp drop in entropy once they reach a correct solution... This entropy drop can be leveraged: using entropy as a confidence signal enables early stopping, reduces compute by 25-50%. Erroneous solutions exhibit burst spikes and peak-valley spikes (sharp rebounds following transient confidence)."
+        },
+        {
+          "query": "entropy-gated branching adaptive decoding allocate compute at high uncertainty steps reasoning",
+          "hits": [
+            {"title": "Entropy-Gated Branching for Efficient Test-Time Reasoning (EACL 2026)", "url": "https://aclanthology.org/2026.eacl-long.235/"},
+            {"title": "Think Twice Before You Write - Entropy-based Decoding Strategy", "url": "https://arxiv.org/html/2604.00018v1"},
+            {"title": "EAGER: Entropy-Aware GEneRation for Adaptive Inference-Time Scaling", "url": "https://arxiv.org/html/2510.11170"},
+            {"title": "Entropy-informed Decoding: Adaptive Information-Driven Branching (EDEN)", "url": "https://openreview.net/forum?id=dzmh4xA4Pq"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "EGB monitors uncertainty during decoding and only allocates extra branches at positions where the model is uncertain... improves accuracy 22.6%. EDEN estimates entropy of the output token distribution and adjusts the branching factor monotonically with entropy, expanding more candidates in high-entropy regions and following a greedier path in low-entropy regions (i.e., collapsing to a single selection when confident)."
+        },
+        {
+          "query": "cavitation collapse shock wave analogy decoding token selection momentum implosion LLM",
+          "hits": [
+            {"title": "Co-Implication: Quantum Wave Collapse, AI Token Selection, and Human Learning", "url": "https://davidboulton.com/quantum-ai/"},
+            {"title": "Jet and Shock Wave from Collapse of Two Cavitation Bubbles", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6362243/"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Co-implication model offers mechanics across systems including token generation in LLMs, with context dynamically weighting what becomes through amplitudes of co-relevancy; each collapse reconfigures the field for the next moment. (A collapse-of-candidates->selection analogy for token generation already exists, albeit non-peer-reviewed.)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Entropy-Gated Branching for Efficient Test-Time Reasoning (detect high-entropy / pre-collapse steps and exploit them by branching; commit greedily where collapsed)", "url": "https://aclanthology.org/2026.eacl-long.235/"},
+        {"name": "EDEN - Entropy-informed Decoding (branching factor scales with entropy; greedier single-selection path in low-entropy/collapsed regions)", "url": "https://openreview.net/forum?id=dzmh4xA4Pq"},
+        {"name": "EDIS / Think Just Enough (sharp entropy drop = confidence-collapse signal, exploited for early stopping and reliability diagnosis)", "url": "https://arxiv.org/pdf/2602.01288"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Detecting confidence/entropy 'collapse' points during decoding and exploiting them (branch when uncertain, collapse to a single selection when confident; use the sharp entropy drop as a signal) is a saturated 2024-2026 research area (EGB, EDEN, EAGer, AdaDec, EDIS, CURE). The cavitation pressure/temperature-spike dressing maps directly onto entropy/confidence spikes and adds nothing functional."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 4, "non_trivial": 1, "note": "Mechanism = entropy/confidence-spike-driven adaptive decoding; thoroughly implemented and benchmarked. Highly verifiable, zero novelty."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = detect sharp distribution-sharpening ('collapse') events via entropy/confidence spikes and exploit them for decoding. This is exactly entropy-gated / entropy-informed adaptive decoding, with EDEN even describing the dual behavior (expand candidates in high-entropy regions, collapse to a greedy single selection in low-entropy regions). Four of five searches produced multiple forced hits. COLLISION on the core claim. Even the exotic cavitation-collapse analogy for token selection has a prior (non-academic) instance."
+    }
+  ],
+  "search_count": 27,
+  "gaps_found": [],
+  "honesty_note": "All 27 queries were real WebSearch calls; every title/URL/snippet above was actually returned (none recalled from memory). I hunted hard for a missed gap per R12: the sparsest-12 selection did NOT obviously miss a real gap in these five less-sparse concepts - all five COLLIDE on their core functional effect. The two that most resisted collision were C03 (Spinodal) and C04 (Marangoni). C03 looked like a strong gap after 5 searches (negative curvature is usually framed as something to ESCAPE, and spontaneous modularity was only found in Hebbian/biological nets), but a 7th targeted search surfaced Ridge Rider (arXiv 2011.06505), which deliberately follows negative-curvature Hessian-eigenvector directions to amplify diversity into distinct specialized solutions - a near-exact functional match; honest verdict COLLISION, not GAP. C04's specific NAMED dimensionless control parameter ('solutal attention number' = info-gradient/adhesion) plus explicit surface-tension framing returned literally zero hits and is unclaimed as a label, but the underlying functional effect (gradient-driven attention flow on a density manifold) is occupied (SympFormer / mean-field Wasserstein gradient-flow attention), so I record COLLISION on the effect with narrow_version_nontrivial=false (the number is over-specification, not a new function). Per R14 I did not manufacture a gap from C04's labeling. Net: zero genuine non-trivial GAPs in C01-C05."
+}
