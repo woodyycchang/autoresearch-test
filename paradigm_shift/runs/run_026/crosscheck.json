@@ -1,0 +1,87 @@
+{
+  "agent": "phase4_crosscheck",
+  "run": "run_026",
+  "task": "Independent re-verification of Gate 1 (anomaly empirically REAL) and Gate 3 (genuinely UNRESOLVED / no ACCEPTED explanation) for the 5 most-open anomalies. Searches run fresh, distinct from Phase 2. R13 STRICT applied: a widely-accepted explanation => RESOLVED (fails Gate 3) even if famous.",
+  "results": [
+    {
+      "id": "ANOM_01",
+      "anomaly": "Grokking / Delayed Generalization",
+      "anomaly_real": true,
+      "independent_resolution_status": "RESOLVED",
+      "accepted_explanation_if_any": "Weight-decay / regularization-driven circuit competition: training first converges to a high-norm memorizing circuit, then weight decay selects for a lower-L2-norm generalizing circuit (e.g., reverse-engineered Fourier-multiplication circuit on modular addition); the abrupt test-accuracy jump is the cleanup/transition. Closely related, broadly endorsed framing: transition from lazy (kernel/NTK) to rich (feature-learning) dynamics. (Nanda et al. ICLR 2023 arXiv:2301.05217; Varma et al. 'Explaining grokking through circuit efficiency' openreview 7Zbg38nA0J; Kumar et al. arXiv:2310.06110.)",
+      "evidence_quote": "Weight decay selects for circuits with higher efficiency, where a circuit is more efficient if it can achieve the same predictive loss with a lower L2 parameter norm. Grokking involves competition between a memorising circuit family with poor test performance and generalising circuits. ... Research has reverse-engineered grokked transformer models for modular addition and reported that the learned algorithm is a composition of trigonometric and inverse trigonometric functions.",
+      "agree_with_phase2": true,
+      "search_queries": [
+        "grokking modular arithmetic transformers replication delayed generalization reproduced multiple papers",
+        "grokking mechanism explained weight decay norm circuit consensus understood 2024 2025",
+        "why does grokking happen still mystery open problem no agreed theory delay duration"
+      ],
+      "reasoning": "REAL: independently confirmed — grokking is reproduced across many groups and tasks (modular addition/polynomials/exponentiation, MNIST, non-neural models); not a one-off. RESOLUTION: the high-level mechanism (regularization drives a memorize->generalize circuit transition, validated by mechanistic interpretability) is broadly accepted, so per R13 this is RESOLVED and FAILS Gate 3. Caveat consistent with Phase 2: 'there's no single agreed-upon explanation' for sub-questions — the delay-duration has no quantitative theory, weight-decay necessity is disputed (grokking shown with zero weight decay), and lazy->rich / info-theoretic / norm-minimisation framings coexist. So it sits near the RESOLVED/CONTESTED boundary on MECHANISTIC DETAIL, but the CORE prediction-violation ('overfitting is a dead end') has an accepted cause. Agree with Phase 2 (RESOLVED)."
+    },
+    {
+      "id": "ANOM_02",
+      "anomaly": "Deep Double Descent: More Data (and Bigger Models) Can Hurt",
+      "anomaly_real": true,
+      "independent_resolution_status": "RESOLVED",
+      "accepted_explanation_if_any": "Fine-grained / multivariate variance decomposition: the test-error spike at the interpolation threshold is driven by variance from label noise and random-feature/weight initialization (not bias); overparameterization beyond the threshold reduces those variances (implicit low-norm interpolation), so error descends again — reconciling the phenomenon with refined statistical learning theory. (Adlam & Pennington NeurIPS 2020; 'Understanding Double Descent Requires a Fine-Grained Bias-Variance Decomposition' arXiv:2011.03321; 'Double Descent Demystified' ICLR Blogposts 2024.)",
+      "evidence_quote": "The overfitting peak at the interpolation threshold and the decay of test error upon overparameterization are due to noise and initialization variances. The benefit of ensembling and overparameterization beyond the interpolation threshold is solely due to a reduction of the noise and initialization variances. ... [yet] while some theoretical explanations have been proposed for this phenomenon in specific contexts, an accepted theory for its occurring mechanism in deep learning remains yet to be established.",
+      "agree_with_phase2": true,
+      "search_queries": [
+        "deep double descent test error non-monotonic reproduced empirically robust across architectures CIFAR ResNet",
+        "double descent explained variance decomposition interpolation threshold accepted understanding overparameterization",
+        "double descent still open question mechanism deep neural networks debated theory incomplete"
+      ],
+      "reasoning": "REAL: independently confirmed and robust — model-wise/epoch-wise/sample-wise double descent reproduced across CIFAR-10/100, CNNs, ResNet-18/34, Transformers, multiple optimizers; explicit cases where ~4-4.5x more samples worsen test error. RESOLUTION: the variance-decomposition account is widely accepted for the core phenomenon ('demystified'), so per R13 RESOLVED and FAILS Gate 3. DISAGREEMENT NUANCE (minor, does not change label): I independently surfaced STRONGER 'still open' language than Phase 2 emphasized — multiple sources state 'an accepted theory for its occurring mechanism in deep learning remains yet to be established' and 'understanding the mechanisms behind double descent in deep neural networks is an important open question,' especially for truly deep nets and epoch-wise variants. So the explanation is accepted for tractable/linear and random-feature settings but the DEEP-net mechanism carries an open-question caveat. Net: still concur RESOLVED per R13, flagging this as the weakest 'RESOLVED' of the three. Agree with Phase 2 on the label."
+    },
+    {
+      "id": "ANOM_03",
+      "anomaly": "Emergent Abilities of LLMs: Sharp Unpredicted Capability Thresholds",
+      "anomaly_real": true,
+      "independent_resolution_status": "CONTESTED",
+      "accepted_explanation_if_any": "NO field-wide consensus. Two live, competing positions: (A) Metric-artifact 'mirage' (Schaeffer, Miranda, Koyejo, NeurIPS 2023 arXiv:2304.15004): nonlinear/discontinuous metrics (exact-match accuracy) manufacture apparent sharpness; ~25 of 29 metrics show smooth/linear improvement under continuous metrics. (B) Genuine emergence tied to a pre-training-loss threshold (Du et al., 'Understanding Emergent Abilities of Language Models from the Loss Perspective', NeurIPS 2024 arXiv:2403.15796): abilities appear once pre-training loss crosses a threshold EVEN under continuous metrics, and a few capabilities (modular arithmetic, transliteration) stay sharp under partial-credit metrics. No single explanation is accepted.",
+      "evidence_quote": "the debate continues to be heated ... Skeptics argue that these sudden improvements are a mirage ... though a few breakthrough capabilities remain stubbornly emergent ... there is no clear consensus yet. [and] Models exhibit emergent abilities on certain tasks—regardless of the continuity of metrics—when pre-training loss falls below a specific threshold ... emergent abilities persist across both discontinuous and continuous metrics.",
+      "agree_with_phase2": true,
+      "search_queries": [
+        "emergent abilities large language models sharp jumps empirically observed GPT-3 BIG-bench replicated real phenomenon",
+        "are emergent abilities a mirage metric artifact Schaeffer debate resolved consensus 2024 2025 still real",
+        "emergent abilities pre-training loss threshold genuine emergence not just metric continuous Du Fu 2024"
+      ],
+      "reasoning": "REAL: independently confirmed — 100+ empirically reported emergent abilities across GPT-3, Chinchilla, PaLM, BIG-bench 'breakthroughness'; the measurement (near-random for orders of magnitude, then sharp rise) is documented. The 'realness' of the MEASUREMENT is not in dispute; what is contested is its INTERPRETATION. RESOLUTION: explicitly UNSETTLED — sources independently call the debate 'heated', 'no clear consensus yet', moving to a 'nuanced middle ground'. The mirage hypothesis is influential but directly countered by pre-training-loss-threshold evidence under continuous metrics. CONTESTED-no-consensus => PASSES Gate 3. Agree with Phase 2 (CONTESTED); this is the A3-vs-B1 question Phase 1 flagged."
+    },
+    {
+      "id": "ANOM_06",
+      "anomaly": "The Reversal Curse: Asymmetric Factual Generalization in Autoregressive LLMs",
+      "anomaly_real": true,
+      "independent_resolution_status": "RESOLVED",
+      "accepted_explanation_if_any": "Broadly accepted HIGH-LEVEL cause: the curse is a consequence of the unidirectional autoregressive (left-to-right) next-token training objective, which optimizes a single directional conditional P(B|A) and does not couple the reverse P(A|B); the gradient update on 'A is B' is myopic w.r.t. the reverse. Supporting/mechanistic accounts: asymmetry in learned weight matrices (Zhu et al. 2024 arXiv:2405.04669). Corroborated by the fact that bidirectional/diffusion-objective models do NOT exhibit the curse. (Berglund et al. ICLR 2024 arXiv:2309.12288.)",
+      "evidence_quote": "Previous research attributed the reversal curse to the autoregressive training mechanism, where the model predicts the next token sequentially from left to right ... making it challenging to establish true bidirectional knowledge associations. ... the effective weights of autoregressive models show asymmetry. ... Diffusion language models trained with a bidirectional denoising objective are able to break the reversal curse, further suggesting that the issue is closely tied to the autoregressive training paradigms.",
+      "agree_with_phase2": true,
+      "search_queries": [
+        "reversal curse LLM A is B fails B is A replicated confirmed GPT-4 Tom Cruise mother experiment",
+        "reversal curse cause explanation autoregressive next-token training accepted why models fail reverse",
+        "reversal curse solved mitigated fundamental limitation debate 2024 2025 still open mechanism"
+      ],
+      "reasoning": "REAL: independently confirmed — robust across model sizes and families, not alleviated by data augmentation; the GPT-4 Tom Cruise result (79% forward vs 33% reverse) is reproduced as stated. RESOLUTION: the high-level cause (unidirectional autoregressive next-token objective) is broadly accepted and directly explains why the violated prediction ('symmetric relations should generalize bidirectionally') is wrong; per R13 an accepted explanation => RESOLVED, so it FAILS Gate 3. Caveat (consistent with Phase 2's moderate confidence): the PRECISE mechanism is still contested (myopic-objective vs weight-asymmetry vs factual-recall-bias vs representation/binding), and there's a live dispute over 'inherent fundamental limit vs mitigatable' (Identity Bridge arXiv:2602.02470 mitigates it; 'is it a binding problem?' arXiv:2504.01928). Sits near the RESOLVED/CONTESTED boundary on mechanism, but the CAUSE is settled. Agree with Phase 2 (RESOLVED)."
+    },
+    {
+      "id": "ANOM_08",
+      "anomaly": "LLMs Know More Than They Show: Internal Truth-Encoding vs. External Hallucination",
+      "anomaly_real": true,
+      "independent_resolution_status": "CONTESTED",
+      "accepted_explanation_if_any": "NO accepted account of WHY the model emits a wrong answer while internally encoding the right one. The empirical discrepancy is reproduced (Orgad et al. 'LLMs Know More Than They Show', ICLR 2025 arXiv:2410.02707: probes on exact-answer tokens detect hallucinations; truthfulness encoding is multifaceted and probes DO NOT generalize across datasets). Its INTERPRETATION is under active 2025 dispute: (i) 'Internal States Mainly Reflect Knowledge Recall Rather Than Truthfulness' (arXiv:2510.09033) argues the signal is parametric-knowledge recall, not truth; (ii) 'LLM Knowledge is Brittle: Truthfulness Representations Rely on Superficial Resemblance' (arXiv:2510.11905) shows the signal degrades under superficial input changes; (iii) 'Two Pathways to Truthfulness' (arXiv:2601.07422) posits distinct Question-Anchored vs Answer-Anchored pathways and that detection works only when correct/hallucinated outputs come from distinct internal mechanisms.",
+      "evidence_quote": "Internal signals in LLMs primarily reflect the model's internal process of recalling parametric knowledge, rather than truthfulness itself ... challenging the idea of a 'universal truthfulness' encoding proposed in previous work. Additionally, learned truthfulness representations degrade under superficial changes in input presentation across probing methods, model families, and datasets.",
+      "agree_with_phase2": true,
+      "search_queries": [
+        "LLMs know more than they show probes hidden states detect hallucination internal correct answer replicated Orgad Belinkov",
+        "LLM internal states truthfulness encoding vs knowledge recall debate probing criticism 2025 not truth",
+        "why do LLMs hallucinate when they internally encode correct answer explanation accepted mechanism suppression"
+      ],
+      "reasoning": "REAL: independently confirmed — the discrepancy (probes recover correct-answer signal at exact-answer tokens while the model outputs a hallucination) is reproduced on TriviaQA/HotpotQA/MNLI across Mistral-7B and Llama3-8B; the originating paper is peer-reviewed (ICLR 2025). RESOLUTION: the empirical fact is solid but the EXPLANATION of why correct internal info is suppressed is openly contested by multiple 2025 papers (knowledge-recall-not-truthfulness; brittle/superficial; two-pathways), and the original paper itself concedes probes fail to generalize (encoding is 'multifaceted', not a single truth signal). No accepted mechanism for the internal/external gap => CONTESTED, PASSES Gate 3. Agree with Phase 2 (CONTESTED); young, fast-evolving topic."
+    }
+  ],
+  "gate3_passers": ["ANOM_03", "ANOM_08"],
+  "gate3_failers_resolved": ["ANOM_01", "ANOM_02", "ANOM_06"],
+  "search_count": 15,
+  "agreement_summary": "Independent re-verification AGREES with Phase 2 on all 5 anomalies for BOTH gates. Gate 1 (REAL): all 5 independently confirmed empirically real and replicated (not one-offs). Gate 3 (UNRESOLVED): same 2 pass (ANOM_03 emergent-abilities mirage-vs-genuine-threshold debate; ANOM_08 internal-truth-encoding-vs-knowledge-recall debate), same 3 fail as RESOLVED per R13 (ANOM_01 grokking, ANOM_02 double descent, ANOM_06 reversal curse). One minor independent nuance recorded, NOT a label disagreement: for ANOM_02 my searches surfaced stronger 'mechanism in deep nets remains an open question / no accepted theory yet established' language than Phase 2 stressed; the variance-decomposition explanation is nonetheless widely accepted for the core phenomenon, so RESOLVED stands under R13. ANOM_01 and ANOM_06 independently confirmed as sitting near the RESOLVED/CONTESTED boundary on MECHANISTIC DETAIL while their CORE prediction-violation has an accepted cause — same posture as Phase 2.",
+  "honesty_note": "All 15 WebSearch queries were executed with the REAL WebSearch tool; every recorded title, URL, and snippet is verbatim from actually-returned results (R5). No fabrication or recall. Phrasings were freshly authored and distinct from the Phase 2 queries. R13 applied strictly: an existing widely-accepted explanation => RESOLVED even when the anomaly is famous (grokking, double descent, reversal curse all marked RESOLVED on that basis). Phase 2 was NOT consulted to decide labels — agreement was determined only after independent searching. NOTE on indexing artifacts: several returned arXiv IDs are future-dated (e.g., 2602.xxxxx, 2605.xxxxx, 2601.xxxxx) relative to a real-world 2024-cutoff perspective; I relied on substantive consensus statements that recur across MULTIPLE independent sources rather than on any single speculative/future-dated preprint, so the gate decisions do not hinge on any one unverifiable item. For the two CONTESTED items I confirmed 'no consensus' from multiple independent sources each explicitly characterizing the debate as ongoing ('the debate continues to be heated', 'no clear consensus yet' for ANOM_03; multiple 2025 papers directly challenging the truthfulness reading for ANOM_08)."
+}
