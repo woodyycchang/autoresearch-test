@@ -299,3 +299,21 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
   coppicing, espalier, terra preta/biochar, three sisters, nixtamalization, lost-wax casting, kerf bending,
   Damascus steel, hormesis, tuned mass damper, sacrificial anode, karst, aeolian saltation, loess, thermokarst,
   suppletion, sandhi, reduplication, diglossia, cargo cult, stomatal aperture, hugelkultur, kintsugi
+
+---
+
+## Inherited from Run 25 (cumulative 98; 50 new C49-C98 + 5 PART-B family) — DO NOT repropose
+
+### Sub-gate residual leads (survive all checks but composite < 0.90; over-specifications, NOT niches)
+- C37 suppletion -> feature-subset-specificity competition with Elsewhere/blocking in decoding (0.42)
+- C57 Liesegang rings -> accumulate/threshold/deplete/refractory/geometric-spacing periodic commitment (0.45)
+
+### Run-25 deep-verified / cross-checked COLLISIONS (do not repropose)
+- C30 sacrificial anode -> honeypot/trapdoor backdoor defense (2310.18633)
+- C52 Rosensweig -> Turing/reaction-diffusion neural CA; C65 allelopathy -> stigmergy/digital pheromones
+- C69 sporulation -> conditional computation (diapause precedent); C77 rennet -> pruning/grokking phase transition
+- C84 corbel arch -> causal/autoregressive attention; C88 siphon -> ResNet skip + autoregressive self-feeding
+- C94 transhumance -> DriftSurf two-state switching; C98 wattle&daub -> hybrid sparse-dense + RepVGG
+- PART-B family (all COLLISION, niche occupied): holometabolism, transdifferentiation, cellular reprogramming, neoteny, ecdysis
+- PART-A re-collisions (C01-C48 non-sparsest 33): triboluminescence, sonoluminescence, spinodal(Ridge Rider), Marangoni, cavitation, autophagy, hematopoiesis, coppicing, espalier, terra preta, three sisters, nixtamalization, lost-wax, kerf, Damascus, hormesis, tuned-mass-damper, karst, aeolian, loess, thermokarst, suppletion(sub-gate), sandhi, reduplication, diglossia, cargo cult, annealing/nucleation/diffusion(controls), stomatal, hugelkultur, kintsugi
+- PART-C other 50 concepts: leidenfrost, thermoacoustic, photoelasticity, magnetostriction, shape-memory, capillary bridging, varve, patterned ground, turbidity current, phototropism, thigmotropism, gravitropism, abscission, nyctinasty, gastrulation, chemotaxis, affinity maturation, complement cascade, phagocytosis, biofilm, CRISPR spacer, mordant, verdigris, felting, tanning, sourdough, smoking/curing, repousse, catenary, ratchet/pawl, differential gearing, venturi, metathesis, ablaut, agglutination, calque, grimm's law, slash-and-burn, terracing, dry stone walling

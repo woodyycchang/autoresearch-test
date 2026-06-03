@@ -117,3 +117,17 @@ Format per entry:
 - Adversarial cross-check closed escape hatches on C28/C33/C20 with tighter twins (Elastic-Cache, PackNet/ExSSNeT); only residual = C41 liminality (held-dwell curriculum literally unsearched but trivial over-specification, novelty 0.34, sub-Gate-1). Reported openly per R12/R13, not pre-dismissed.
 - No domain or maturity tier escaped saturation. Conclusion is empirical (measured distribution), not inferred from a fragment.
 - Honest deviations: agents wrote batches + main committed per wave (push-race avoidance, R1/R2 intent preserved); Agent tool used for Opus subprocesses (R3 intent); WebFetch 403-firewalled, all evidence via real WebSearch.
+
+
+## Run 25 session — Deeper + wider encyclopedia experiment (paradigm_shift/runs/run_025)
+
+- Goal: finish what Run 24 left incomplete (only 12/48 deep-verified) + widen sample + mine C41. NOT stopping at niche=0 (R12); actively hunt missed gaps.
+- PART A: deep grounded-gap verified the 33 non-sparsest Run-24 concepts -> 31 COLLISION + 2 candidate gaps (C30, C37). Answer: YES sparsest-12 missed candidates.
+- PART B: C41 (liminality) = CLUSTER (holometabolism/transdiff/reprogramming/neoteny/ecdysis) but shared niche OCCUPIED (shrink-and-perturb, SGDR, grokking). No lead.
+- PART C: 50 NEW obscure-biased concepts (C49-C98). Every sonnet batch flagged its sparsest as a gap (9/9 = Pattern-D false-positive signature).
+- Cross-check (adversarial opus, 3 agents): of 11 candidate gaps, 9 FLIPPED to COLLISION (incl strongest opus lead C30 -> honeypot 2310.18633), 2 SURVIVED (C37 suppletion 0.42, C57 Liesegang 0.45), both sub-Gate-1.
+- Final audit (3rd pass + hallucination): C37+C57 CONFIRM sub-gate (over-specifications, survive 3 independent passes, neither clears 0.90). All 4 key collision citations REAL; zero hallucinations.
+- CUMULATIVE: 98 concepts, 54 deep-verified, 74 COLLISION, 0 clear all gates, 2 sub-gate residual leads. No domain/tier escapes to a Gate-1 niche.
+- Real WebSearches Run 25: 489 (171 A + 38 B + 205 C + 61 xcheck + 14 audit); cumulative ~731. 0 fabricated (R5).
+- KEY META-FINDING: gap-detection is extremely sensitive to verifier rigor (sonnet narrow self-verify 9/9 gaps; opus deep 2/33; opus adversarial cross-check 2/11). Saturation holds at gate level; literal-gap tail ~2% all sub-gate.
+- Verdict: NICHE_NOT_FOUND (0/98 clear Gate 1) with 2 honest sub-gate residual leads reported per R14.
