@@ -1,0 +1,366 @@
+{
+  "agent": "A5",
+  "ids": ["C34", "C35", "C37", "C38", "C39"],
+  "candidates": [
+    {
+      "id": "C34",
+      "concept": "Loess deposition (diagenesis)",
+      "functional_effect": "After loosely applying many small fine-tuning / adapter weight updates ('dust'), run consolidation passes that bind and compress those updates into a single stable, cohesive parameter configuration ready for deployment. In plain ML terms: merge/fold adapter or fine-tune deltas into the base weights (and/or compress via quantization) to produce one consolidated checkpoint.",
+      "content_words": ["weight merging", "adapter", "consolidation", "compression", "fine-tuning", "parameter binding"],
+      "reformulations": [
+        {
+          "query": "merging LoRA adapters into base model weights consolidation",
+          "hits": [
+            {"title": "Merging PEFT Adapters", "url": "https://apxml.com/courses/fine-tuning-adapting-large-language-models/chapter-7-optimization-deployment-considerations/merging-peft-adapters"},
+            {"title": "Merging LoRA Weights Post-Training", "url": "https://apxml.com/courses/lora-peft-efficient-llm-training/chapter-4-advanced-lora-variants/merging-lora-weights"},
+            {"title": "Merge LoRAs (Hugging Face)", "url": "https://huggingface.co/docs/diffusers/main/en/using-diffusers/merge_loras"},
+            {"title": "Merging Adapters - LoRAX Docs", "url": "https://loraexchange.ai/guides/merging_adapters/"},
+            {"title": "Merging Adapters - AdapterHub", "url": "https://docs.adapterhub.ml/merging_adapters.html"},
+            {"title": "Label-Free Cross-Task LoRA Merging with Null-Space Compression", "url": "https://arxiv.org/pdf/2603.26317"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "consolidating learned adaptations back into the base model's weights — a process known as merging — creates a single set of model weights that behaves like a traditionally fine-tuned model but incorporates the adaptations learned via PEFT. The add_weighted_adapter method provides access to more efficient merging methods such as TIES and DARE."
+        },
+        {
+          "query": "model merging weight averaging multiple fine-tuned checkpoints into single model",
+          "hits": [
+            {"title": "Parameter-Efficient Checkpoint Merging via Metrics-Weighted Averaging", "url": "https://arxiv.org/abs/2504.18580"},
+            {"title": "Model Merging: Weight Averaging, Task Arithmetic, TIES, DARE", "url": "https://mbrenndoerfer.com/writing/model-merging-weight-averaging-task-arithmetic-ties-dare"},
+            {"title": "Model Merging in the Era of Large Language Models (survey)", "url": "https://arxiv.org/html/2603.09938v1"},
+            {"title": "Merging Models with Fisher-Weighted Averaging", "url": "https://ar5iv.labs.arxiv.org/html/2111.09832"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Checkpoint merging is a technique for combining multiple model snapshots into a single superior model... Model Soups... systematically studying the aggregation of multiple fine-tuned checkpoints (uniform soup / greedy soup). Weight averaging works best when models live in the same basin of the loss landscape."
+        },
+        {
+          "query": "quantization-aware fine-tuning compress weight updates stable configuration",
+          "hits": [
+            {"title": "Configuration-Aware LoRA (CoA-LoRA)", "url": "https://arxiv.org/html/2509.25214v3"},
+            {"title": "RoSTE: Quantization-Aware Supervised Fine-Tuning", "url": "https://arxiv.org/abs/2502.09003"},
+            {"title": "QuantLRM: Quantization via Fine-Tuning Signals", "url": "https://arxiv.org/pdf/2602.02581"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "QLoRA carefully chooses quantization algorithms and the training setup so the small adapter updates meaningfully improve outputs while the base remains frozen... CoA-LoRA exhibits more stable improvements as bit-width increases."
+        },
+        {
+          "query": "post-training consolidation of incremental weight updates into compact parameters",
+          "hits": [
+            {"title": "Continuous Post-Training: Incremental Model Updates", "url": "https://mbrenndoerfer.com/writing/continuous-post-training-incremental-model-updates-dynamic-language-models"},
+            {"title": "RECAST: Reparameterized, Compact weight Adaptation for Sequential Tasks", "url": "https://arxiv.org/pdf/2411.16870"},
+            {"title": "Elastic Weight Consolidation for Full-Parameter Continual Pre-Training of Gemma2", "url": "https://arxiv.org/html/2505.05946v1"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "RECAST decomposes pretrained weights into templates and coefficients... Elastic Weight Consolidation (EWC) techniques calculate the importance of different parameters... consolidating incremental weight updates while maintaining performance."
+        },
+        {
+          "query": "LoRA adapter merging post-deposition cementation binding consolidated weights deployment",
+          "hits": [
+            {"title": "Merging LoRA Weights Post-Training", "url": "https://apxml.com/courses/lora-peft-efficient-llm-training/chapter-4-advanced-lora-variants/merging-lora-weights"},
+            {"title": "Merge LoRA Adapters with LLM", "url": "https://apxml.com/courses/introduction-to-llm-fine-tuning/chapter-5-evaluation-and-deployment/merging-peft-adapters"},
+            {"title": "Merging LoRA Weights into a Base MoE LLM Checkpoint (Nebius)", "url": "https://docs.tokenfactory.nebius.com/post-training/merge-moe-lora-weights"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "LoRA adapter merging is the process of integrating adapter weights directly into the base model weights. This computation happens offline, after training is complete... combines the two components into a single, standalone model artifact. The most straightforward way is to linearly combine each parameter as a weighted average; TIES sparsifies and uses sign-based consensus to resolve interference."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "LoRA/PEFT adapter merging (merge_and_unload, fuse_lora)", "url": "https://huggingface.co/docs/diffusers/main/en/using-diffusers/merge_loras"},
+        {"name": "Model Soups (Wortsman et al. 2022) / Metrics-Weighted Averaging", "url": "https://arxiv.org/abs/2504.18580"},
+        {"name": "TIES / DARE task-arithmetic merging", "url": "https://mbrenndoerfer.com/writing/model-merging-weight-averaging-task-arithmetic-ties-dare"},
+        {"name": "RECAST compact weight adaptation; Elastic Weight Consolidation", "url": "https://arxiv.org/pdf/2411.16870"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "A practitioner reading the candidate gets exactly 'merge your adapter/fine-tune deltas into the base weights and compress' — i.e. LoRA merging + model soups + quantization. No new actionable mechanism beyond established post-training consolidation; the geological 'diagenesis/hydration/cementation' wrapping adds no operational content."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 4, "non_trivial": 1, "score": 8},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = consolidating loosely-applied weight updates into one stable compressed checkpoint. This is verbatim standard practice (LoRA/PEFT merge, model soups, TIES/DARE, QLoRA/quantization-aware FT, RECAST, EWC). 4 of 5 reformulations produced FORCED functional hits (>=2 content words in title+snippet). No gap; even the narrow version (merge THEN quantize as a staged 'diagenesis') is just the routine deploy pipeline."
+    },
+    {
+      "id": "C35",
+      "concept": "Thermokarst",
+      "functional_effect": "When a new task imposes learning pressure, the previously learned internal representations lose integrity and collapse locally — i.e. catastrophic forgetting via gradient interference / subspace collapse. The proposal is a training schedule that keeps a stability/plasticity 'equilibrium' so old representations are preserved while learning new ones.",
+      "content_words": ["catastrophic forgetting", "continual learning", "structural collapse", "gradient", "stability", "representation preservation"],
+      "reformulations": [
+        {
+          "query": "diagenesis cementation analogy neural network weight stabilization",
+          "hits": [
+            {"title": "Prediction of carbonate diagenesis from well logs using ANN", "url": "https://www.researchgate.net/publication/339334367"},
+            {"title": "Emergent weight morphologies in deep neural networks", "url": "https://arxiv.org/pdf/2501.05550"},
+            {"title": "Neural Networks as Entropic Systems", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12889516/"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Unable to find sources discussing a direct analogy between diagenesis cementation and neural network weight stabilization. (Source-domain-laden phrasing; expected null. This is the geological wrapper, not the ML claim.)"
+        },
+        {
+          "query": "catastrophic forgetting continual learning stability gradient interference prevention",
+          "hits": [
+            {"title": "Mitigating Forgetting in Continual Learning with Selective Gradient Projection", "url": "https://arxiv.org/html/2603.26671"},
+            {"title": "Balancing Stability and Plasticity through Advanced Null Space", "url": "https://arxiv.org/pdf/2207.12061"},
+            {"title": "Continual Learning with Scaled Gradient Projection", "url": "https://arxiv.org/pdf/2302.01386"},
+            {"title": "Catastrophic interference - Wikipedia", "url": "https://en.wikipedia.org/wiki/Catastrophic_interference"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Catastrophic forgetting occurs in neural networks when gradient updates for a new task modify the model without preserving knowledge from previous tasks. The root cause lies in gradient-induced interference... causing subspace collapse in the parameter space and destabilizing learned representations. Orthogonal Gradient Descent / Gradient Projection / Null Space methods constrain updates to mitigate interference."
+        },
+        {
+          "query": "stability plasticity dilemma continual learning schedule preserve old representations",
+          "hits": [
+            {"title": "Stability-Plasticity Dilemma (EmergentMind)", "url": "https://www.emergentmind.com/topics/stability-plasticity-dilemma"},
+            {"title": "New Insights for the Stability-Plasticity Dilemma in Online Continual Learning", "url": "https://arxiv.org/abs/2302.08741"},
+            {"title": "Branch-Tuning: Balancing Stability and Plasticity", "url": "https://arxiv.org/pdf/2403.18266"},
+            {"title": "Rethinking the Stability-Plasticity Trade-off (Architectural)", "url": "https://arxiv.org/pdf/2506.03951"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "The stability-plasticity dilemma denotes the inherent trade-off between preserving previously learned knowledge (stability) and acquiring new knowledge (plasticity) as tasks arrive sequentially... new learning disrupts existing representations."
+        },
+        {
+          "query": "localized representation collapse new task learning pressure neural network",
+          "hits": [
+            {"title": "Why Do Neural Networks Forget: A Study of Collapse in Continual Learning", "url": "https://arxiv.org/pdf/2603.04580"},
+            {"title": "Feature Collapse", "url": "https://arxiv.org/pdf/2305.16162"},
+            {"title": "On the Role of Neural Collapse in Transfer Learning", "url": "https://arxiv.org/pdf/2112.15121"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "In continual learning, catastrophic forgetting occurs where performance on old tasks degrades after training on new tasks, resulting from overwriting internal representations which compresses internal features and causes representational collapse."
+        },
+        {
+          "query": "(reused) stability plasticity dilemma / null space preserve representations",
+          "hits": [
+            {"title": "Balancing Stability and Plasticity through Advanced Null Space in Continual Learning", "url": "https://arxiv.org/pdf/2207.12061"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Null-space approaches: the rank of the projected subspace directly modulates the trade-off: larger null space provides more plasticity but less stability; weighted-loss regularization and replay slow but do not halt capacity drift."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Why Do Neural Networks Forget: A Study of Collapse in Continual Learning", "url": "https://arxiv.org/pdf/2603.04580"},
+        {"name": "Stability-Plasticity dilemma literature (incl. EWC, Branch-Tuning)", "url": "https://www.emergentmind.com/topics/stability-plasticity-dilemma"},
+        {"name": "Gradient Projection / Orthogonal Gradient Descent / Null-Space CL", "url": "https://arxiv.org/pdf/2207.12061"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "The candidate is a near-verbatim restatement of one of the most-studied problems in ML (catastrophic forgetting = local collapse of old representations under new-task pressure) and its standard remedy (stability-plasticity-preserving schedules / gradient projection). A practitioner learns nothing not already in EWC/OGD/null-space CL. 'Thermal equilibrium / permafrost stabilization' adds no operational mechanism."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 4, "non_trivial": 1, "score": 8},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Despite 11 raw paper-hits (less sparse), the functional fusion is fully occupied. 4 forced functional hits incl. a paper literally titled 'A Study of Collapse in Continual Learning'. The 'gradient temperature equilibrium schedule' maps directly onto stability-plasticity / gradient-projection schedules. No gap; not even a non-trivial narrow version — the literature already frames forgetting AS local representational collapse."
+    },
+    {
+      "id": "C37",
+      "concept": "Suppletion",
+      "functional_effect": "At a decoding/output node, several candidate output items (subword units / morphemes / lexical entries) compete for the single slot; the winner is chosen by SPECIFICITY of feature-match — the item matching the largest subset of the node's contextual features wins, and a more-specific item BLOCKS a less-specific (default) one (underspecification + Subset Principle + Elsewhere/blocking). Plain ML: a generation-side selection rule where output candidates are ranked by feature-subset specificity at the terminal, with explicit blocking of less-specific defaults.",
+      "content_words": ["terminal node", "vocabulary competition", "specificity scoring", "feature bundle", "conditional token selection", "decoding"],
+      "reformulations": [
+        {
+          "query": "constrained decoding select most specific vocabulary entry context conditioned generation",
+          "hits": [
+            {"title": "Constrained Decoding Mechanism (EmergentMind)", "url": "https://www.emergentmind.com/topics/constrained-decoding-mechanism"},
+            {"title": "Constrained Decoding: Grammar-Guided Generation", "url": "https://mbrenndoerfer.com/writing/constrained-decoding-structured-llm-output"},
+            {"title": "Guiding LLMs The Right Way: Non-Invasive Constrained Generation", "url": "https://arxiv.org/pdf/2403.06988"},
+            {"title": "COLD Decoding: Energy-based Constrained Text Generation", "url": "https://arxiv.org/pdf/2202.11705"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Constrained decoding restricts output to valid tokens at each step via a grammar/logits mask; a key challenge is that LLM subword tokens do not align with syntactic constraints. (Selection is by VALIDITY/path-membership, not by specificity-of-feature-match competition among items for one slot; only 'decoding' content word present.)"
+        },
+        {
+          "query": "specificity ranking select most specific rule among competing candidates Elsewhere Condition machine learning",
+          "hits": [
+            {"title": "Ranking with learned rules (patent)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8341149"},
+            {"title": "Fast and accurate rule selection for interpretable decision sets", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11704591"},
+            {"title": "Bayes Point Rule Set Learning", "url": "https://arxiv.org/pdf/2204.05251"},
+            {"title": "Ranking and combining multiple predictors without labeled data (PNAS)", "url": "https://www.pnas.org/doi/10.1073/pnas.1219097111"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Most specific rule consistent with positive/negative examples; rule selection by highest F-measure; Learning-to-Rank selects most relevant items. (This is rule-induction / LTR by relevance or accuracy, NOT feature-subset-specificity competition with blocking at a generation terminal. No Elsewhere Condition match. 0 content words.)"
+        },
+        {
+          "query": "lexical selection neural generation blocking more specific form overrides general surface realization",
+          "hits": [
+            {"title": "Selective Generation using LSTMs with Coarse-to-Fine Alignment", "url": "https://arxiv.org/pdf/1509.00838"},
+            {"title": "Designing a Symbolic Intermediate Representation for Neural Surface Realization", "url": "https://arxiv.org/pdf/1905.10486"},
+            {"title": "Best-First Surface Realization", "url": "https://arxiv.org/pdf/cmp-lg/9605010"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Papers on content selection + surface realization and style-controlled realization, but none implement 'more specific form blocks general form' selection by feature-subset specificity. No tight functional match. 0 content words present."
+        },
+        {
+          "query": "trie constrained decoding longest most specific match candidate set generation override default token",
+          "hits": [
+            {"title": "Vectorizing the Trie: Efficient Constrained Decoding for LLM Generative Retrieval", "url": "https://arxiv.org/abs/2602.22647"},
+            {"title": "Prefix tree (trie) constrained decoding diagram", "url": "https://www.researchgate.net/figure/352506703"},
+            {"title": "Longest prefix match with trie tree", "url": "https://github.com/Lewuathe/lewuathe.github.io/blob/master/_posts/2019-02-12-longest-prefix-match-with-trie-tree.markdown"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Trie-based decoding dynamically prunes a candidate vocabulary to children of the last node, enforcing constraints by pruning invalid paths. 'Longest/most specific match' appears only for routing-table prefix matching, not for LLM token selection by feature specificity. Selection is binary path-validity, not specificity-scored competition. Only 'decoding' content word."
+        },
+        {
+          "query": "Distributed Morphology vocabulary insertion subset principle competition computational model NLP",
+          "hits": [
+            {"title": "Distributed Morphology and the Syntax/Morphology Interface", "url": "https://babel.ucsc.edu/~hank/mrg.readings/E_N_DM_SM_Interface.pdf"},
+            {"title": "Distributed morphology - Wikipedia", "url": "https://en.wikipedia.org/wiki/Distributed_morphology"},
+            {"title": "Distributed Morphology Basics: Part Two (NYU MorphLab)", "url": "https://wp.nyu.edu/morphlab/2020/10/30/distributed-morphology-basics-part-two/"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "The Subset Principle governs competition for insertion: where several vocabulary items meet conditions, the item matching the greatest number of features wins. (THIS IS THE SOURCE-DOMAIN LINGUISTIC THEORY ITSELF — i.e. the mechanism of suppletion — not an ML/LLM technique. It does not count as an ML functional collision; it confirms the candidate merely re-imports the linguistic theory verbatim.)"
+        },
+        {
+          "query": "Panini Elsewhere Condition blocking neural natural language generation specificity override default form",
+          "hits": [
+            {"title": "Default Handling in Incremental Generation", "url": "https://arxiv.org/pdf/cmp-lg/9410033"},
+            {"title": "Why is constrained neural language generation particularly challenging?", "url": "https://arxiv.org/pdf/2206.05395"},
+            {"title": "Natural Language Generation (survey)", "url": "https://arxiv.org/html/2502.14437v1"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "Default Handling in Incremental Generation discusses underspecification from insufficient input (symbolic, 1994), but does not implement specificity-based blocking competition among vocabulary items as a neural generation mechanism. No forced functional hit; the precise 'specificity competition + blocking at a terminal' selection rule is absent from neural generation literature."
+        }
+      ],
+      "verdict": "GAP",
+      "colliding_works": [],
+      "gate3_search_count": 6,
+      "gate4_belinda": {"pass": true, "why": "A practitioner CAN derive a concrete, non-obvious build: at a decoding terminal, maintain a set of candidate output items each tagged with a feature-bundle; select by feature-subset specificity (largest matching subset wins) and explicitly BLOCK less-specific defaults when a more-specific item matches — a Subset-Principle/Elsewhere selection layer for structured generation. This is operationally distinct from (a) constrained decoding (binary validity masking), (b) Learning-to-Rank (relevance ranking), and (c) plain softmax argmax (no explicit specificity/blocking semantics). The 6 ML-vocabulary reformulations surfaced none of this; the only place the mechanism appears is the linguistic source theory (Distributed Morphology), which is precisely what we strip out."},
+      "composite": {"novelty": 3, "mechanism": 3, "verifiability": 3, "non_trivial": 3, "score": 81},
+      "narrow_version_nontrivial": true,
+      "reasoning": "Across 6 standard-ML reformulations, ZERO produced a forced functional hit on an ML/LLM technique. Constrained/trie decoding selects by path-VALIDITY (binary), not by feature-subset SPECIFICITY among competitors for one slot; LTR ranks by query-relevance; surface-realization work does not implement 'more specific blocks general'. The Subset-Principle/Elsewhere blocking selection rule appears only in the linguistic source theory (Distributed Morphology) — which is exactly the source vocabulary we are required to strip — so it is NOT an ML collision. The narrow version is non-trivial: a specificity-scored, blocking-aware candidate-item selection layer for structured/conditional generation is a concrete, defensible, and apparently unoccupied mechanism. SKEPTICAL CAVEAT (R14 honesty in the other direction): the broadest reading reduces to 'feature-conditioned scoring + argmax', which is close to ordinary conditional selection; the non-triviality rests specifically on the BLOCKING / underspecification semantics (explicit suppression of less-specific defaults), which I judge genuinely distinct but of moderate (not maximal) magnitude — hence composite ~0.81, not higher. This is the candidate the sparsest-12 selection plausibly MISSED: C37 has 12 raw paper-hits (one of the highest in the set) yet an UNOCCUPIED functional fusion."
+    },
+    {
+      "id": "C38",
+      "concept": "Sandhi (tonal/rightward spreading)",
+      "functional_effect": "A learned operator that takes a feature (prosodic/semantic/sentiment) at a SOURCE position and propagates its influence DIRECTIONALLY (rightward / forward) across a contiguous SPAN of following positions, so downstream tokens inherit/are modulated by that feature. Plain ML: directional, content-conditioned feature propagation across a sequence span in attention/recurrence.",
+      "content_words": ["feature propagation", "rightward/forward", "attention head", "span", "sequential context", "prosody/sentiment"],
+      "reformulations": [
+        {
+          "query": "attention head propagate feature rightward across contiguous span language model",
+          "hits": [
+            {"title": "Adaptive Attention Span in Transformers", "url": "https://arxiv.org/pdf/1905.07799"},
+            {"title": "Self-Selected Attention Span for Accelerating LLM Inference", "url": "https://arxiv.org/pdf/2404.09336"},
+            {"title": "Attention heads of large language models (review)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11873009/"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Repeating attention mechanisms in consecutive layers allows information to flow over long distances; some models attend over spans ending at the previous position. (Generic span/info-flow; 'attention head'+'span' present.)"
+        },
+        {
+          "query": "induction head copy previous token propagate value forward transformer mechanism",
+          "hits": [
+            {"title": "Induction Head in Transformers (EmergentMind)", "url": "https://www.emergentmind.com/topics/induction-head-ih"},
+            {"title": "In-context Learning and Induction Heads (Anthropic/transformer-circuits)", "url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html"},
+            {"title": "Selective Induction Heads: How Transformers Select Causal Structures", "url": "https://arxiv.org/pdf/2509.08184"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Layer-1 previous-token head copies the value from a preceding token and places it in the current token's position; Layer-2 induction head matches the current query to previous exemplars and copies their successor's value forward. (Directional copy/propagation of a value forward in attention — functional cousin of 'rightward spreading'.)"
+        },
+        {
+          "query": "ALiBi linear bias attention penalty distance recent tokens directional",
+          "hits": [
+            {"title": "ALiBi: Attention with Linear Biases", "url": "https://arxiv.org/pdf/2108.12409"},
+            {"title": "ALiBi (labml.ai)", "url": "https://nn.labml.ai/transformers/alibi/index.html"},
+            {"title": "ALiBi explainer", "url": "https://mbrenndoerfer.com/writing/alibi-attention-linear-biases-position-encoding"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "ALiBi applies a linear, distance-dependent penalty to attention scores with head-specific slopes, biasing toward recency; content still influences the distribution. (A learned/structured DIRECTIONAL propagation profile in attention; 'attention' present, directional-decay = span influence.)"
+        },
+        {
+          "query": "sentiment propagation flow across tokens attention learned operator prosody aware language model",
+          "hits": [
+            {"title": "ProsodyLM: Emerging Prosody Processing in Speech LMs", "url": "https://arxiv.org/pdf/2507.20091"},
+            {"title": "What does BERT learn about prosody?", "url": "https://arxiv.org/pdf/2304.12706"},
+            {"title": "Improving End-to-End SLU with Prosodic Attention and Distillation", "url": "https://arxiv.org/pdf/2305.08067"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "ProsodyLM transcribes utterances then emits word-level prosody tokens; BERT-prosody work shows prosodic prominence spans across many layers; prosodic attention disambiguates sentiment/intent. ('prosody'+'attention'+'sentiment'+'span' covered — the prosody-aware-propagation framing is occupied.)"
+        },
+        {
+          "query": "feature value copy forward gating propagate across span sequence state space model",
+          "hits": [
+            {"title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces", "url": "https://arxiv.org/pdf/2312.00752"},
+            {"title": "Long Range Language Modeling via Gated State Spaces", "url": "https://arxiv.org/pdf/2206.13947"},
+            {"title": "GrootVL: Tree Topology in State Space Models", "url": "https://arxiv.org/pdf/2406.02395"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Selective SSMs (Mamba) selectively PROPAGATE or forget information along the sequence-length dimension depending on the current token, via input-dependent gates that modulate which state dimensions are preserved vs reset at each step. (Exactly a learned, directional, content-conditioned feature-propagation-across-span operator. 'feature propagation'+'span'+'sequence' covered.)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Mamba / Selective State Space Models (input-dependent directional feature propagation along sequence)", "url": "https://arxiv.org/pdf/2312.00752"},
+        {"name": "Induction heads / previous-token heads (copy value forward)", "url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html"},
+        {"name": "ALiBi (directional, distance-dependent attention bias)", "url": "https://arxiv.org/pdf/2108.12409"},
+        {"name": "ProsodyLM / BERT-prosody (prosody-feature propagation across layers/spans)", "url": "https://arxiv.org/pdf/2507.20091"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "The functional mechanism — a learned operator that directionally propagates a feature from a source position across a following span — is already realized by (1) selective SSM gating (Mamba) which propagates/forgets feature dimensions along the sequence direction conditioned on content, (2) previous-token/induction heads which copy a value forward, and (3) ALiBi's directional bias. A practitioner would just reach for Mamba-style selective gating or a directional attention head; the 'tonal/rightward-spreading' framing adds no new operational content. The prosody/sentiment-flow application is also occupied (ProsodyLM)."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 3, "non_trivial": 1, "score": 6},
+      "narrow_version_nontrivial": false,
+      "reasoning": "2 forced functional hits each on the induction-head, prosody, and SSM reformulations. Directional content-conditioned feature propagation across a span is the defining behavior of selective state-space models and of previous-token/induction-head circuits; ALiBi supplies the directional-decay variant. The narrow 'rightward single-feature spreading operator' is a special case already covered. No gap."
+    },
+    {
+      "id": "C39",
+      "concept": "Reduplication",
+      "functional_effect": "A generation-side mechanism that, to signal emphasis / iteration / plurality / scalar increase, duplicates (copies) a semantic embedding and concatenates it — i.e. an explicit copy operation whose effect is to scale or intensify the encoded meaning (copy = intensity). Plain ML: explicit copy mechanism in generation + a control knob for the intensity/degree/plurality of an attribute.",
+      "content_words": ["copy operation", "intensity", "embedding duplication", "generation", "plurality", "emphasis"],
+      "reformulations": [
+        {
+          "query": "duplicate embedding vector intensify meaning generation inductive bias plurality emphasis",
+          "hits": [
+            {"title": "Semantic properties of English nominal pluralization: word embeddings", "url": "https://arxiv.org/pdf/2203.15424"},
+            {"title": "Exploring Fine-Tuned Embeddings that Model Intensifiers for Emotion Analysis", "url": "https://arxiv.org/pdf/1904.03164"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Distributional-semantics methods often assume plural formation amounts to the ADDITION OF A FIXED PLURAL VECTOR (CosClassAvg argues this is too simplistic); separate work fine-tunes embeddings to model INTENSIFIERS (absolutely/totally) for emotion intensity. ('intensity'+'plurality'+'embedding' covered — the vector-operation-encodes-intensity/plurality idea is occupied.)"
+        },
+        {
+          "query": "CopyNet pointer-generator copy mechanism sequence generation repeat tokens",
+          "hits": [
+            {"title": "Incorporating Copying Mechanism in Sequence-to-Sequence Learning (CopyNet)", "url": "https://www.arxiv-vanity.com/papers/1603.06393/"},
+            {"title": "Get To The Point: Pointer-Generator Networks", "url": "https://nlp.stanford.edu/pubs/see2017get.pdf"},
+            {"title": "Sequential Copying Networks", "url": "https://arxiv.org/pdf/1807.02301"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "CopyNet provides a switch between generation mode and copying mode at each decoding step (copy a token from the source vs generate from vocab); pointer-generator coverage controls repetition. (Explicit COPY OPERATION in GENERATION is standard. 'copy operation'+'generation' covered.)"
+        },
+        {
+          "query": "neural model reduplication morphology iconicity intensity repetition generation",
+          "hits": [
+            {"title": "On the structure of reduplicants: Iconicity and preferred form", "url": "http://w3.erss.univ-tlse2.fr/membre/hathout/decembrettes2010/booklet/Schwaiger.pdf"},
+            {"title": "Intensity and diminution triggered by reduplicating morphology: Janus-faced iconicity", "url": "https://www.degruyterbrill.com/document/doi/10.1515/9783110911466.547/html"},
+            {"title": "Two semantic patterns of reduplication: Iconicity revisited", "url": "https://benjamins.com/catalog/sl.39.4.02roz"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Linguistics-only: reduplication conveys intensity/augmentation/iteration via 'more of the same' iconicity. No NEURAL implementation of copy=intensity. (This is the source-domain theory; 'intensity' present but it is the linguistic concept, not an ML technique.)"
+        },
+        {
+          "query": "repeat token generation emphasis intensifier LLM controllable degree of meaning",
+          "hits": [
+            {"title": "Evaluating the Smooth Control of Attribute Intensity in Text Generation with LLMs", "url": "https://arxiv.org/pdf/2406.04460"},
+            {"title": "Interpreting the Repeated Token Phenomenon in LLMs (ICML 2025)", "url": "https://arxiv.org/pdf/2503.08908"},
+            {"title": "RL with Token-level Feedback for Controllable Text Generation", "url": "https://arxiv.org/pdf/2403.11558"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Smoothly controllable text generation (SCTG): ensure the INTENSITY of an attribute can be modulated into multiple DEGREES per user preference (conciseness, emotion, formality). ('intensity'+'generation'+'degree of meaning' — the generation-side intensity-control function is occupied.)"
+        },
+        {
+          "query": "smoothly controllable text generation attribute intensity degree LLM method",
+          "hits": [
+            {"title": "Evaluating the Smooth Control of Attribute Intensity in Text Generation with LLMs (ACL 2024 Findings)", "url": "https://aclanthology.org/2024.findings-acl.258/"},
+            {"title": "Smooth Control of Attribute Intensity (arXiv abs)", "url": "https://arxiv.org/abs/2406.04460"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Two training-free methods for smooth control of LLM output intensity: (1) prompting with semantic shifters, (2) modifying internal representations (repE); metrics assess range/calibration/consistency of generated attribute intensity. (Directly occupies 'control the intensity/degree of meaning at generation time'.)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Smooth Control of Attribute Intensity in Text Generation with LLMs (ACL 2024 Findings)", "url": "https://aclanthology.org/2024.findings-acl.258/"},
+        {"name": "CopyNet / Pointer-Generator (explicit copy mechanism in generation)", "url": "https://www.arxiv-vanity.com/papers/1603.06393/"},
+        {"name": "Intensifier embeddings (1904.03164) + plural-vector-addition semantics (2203.15424)", "url": "https://arxiv.org/pdf/1904.03164"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "The functional effect splits into two already-occupied pieces: (a) an explicit COPY operation in generation = CopyNet/pointer-generator; (b) a knob for INTENSITY/DEGREE/plurality of meaning = SCTG (smoothly controllable text generation) + intensifier embeddings + plural-vector semantics. A practitioner who wants 'copy-to-intensify' gets nothing actionable beyond combining these; the iconic 'duplicate-and-concatenate the embedding' is one ad-hoc implementation of an already-solved control problem, and embedding-concatenation-for-intensity is not shown to outperform the existing additive/representation-editing approaches."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 3, "non_trivial": 1, "score": 6},
+      "narrow_version_nontrivial": false,
+      "reasoning": "4 of 5 reformulations gave forced functional hits. The effect (generation-side control of intensity/plurality/emphasis) is occupied by SCTG; the mechanism (explicit copy in generation) is occupied by CopyNet; the specific 'duplicate embedding to encode intensity/plurality' is the additive/duplicative vector-semantics baseline (2203.15424 explicitly calls fixed-plural-vector addition 'too simplistic'). The narrow 'copy=intensity concatenation' bias is an arbitrary over-specification of a solved problem, not a non-trivial gap."
+    }
+  ],
+  "search_count": 26,
+  "gaps_found": ["C37"],
+  "honesty_note": "REAL WebSearch was issued for every one of the 26 queries; all titles/URLs/snippets recorded above are from actually-returned results (June 2026 US index), not memory. Skeptical-both-ways accounting: (1) Four of five assigned candidates (C34, C35, C38, C39) are CLEAR COLLISIONS with high forced-hit counts — C34=LoRA-merge/model-soups, C35=catastrophic-forgetting/collapse, C38=selective-SSM/induction-head directional propagation, C39=SCTG intensity control + CopyNet. I did NOT manufacture gaps for them despite some having only middling paper-hits. (2) ONE genuine non-trivial GAP found: C37 (Suppletion). Critically, C37 is NOT sparse — it carries 12 raw paper-hits, among the HIGHEST in the 48-concept set — yet its FUNCTIONAL FUSION (specificity-scored, blocking-aware competition among candidate vocabulary items for insertion into a single decoding terminal, per the Subset Principle / Elsewhere Condition) is UNOCCUPIED in ML/LLM generation: across 6 standard-ML reformulations, every related technique selected by VALIDITY (constrained/trie decoding) or by query-RELEVANCE (Learning-to-Rank) or did plain argmax — none implemented specificity-of-feature-subset competition with explicit blocking of less-specific defaults. The only place that exact mechanism surfaced was the linguistic SOURCE theory (Distributed Morphology), which is precisely the source vocabulary the method strips, so it does not count as an ML collision. This directly validates the run's hypothesis: the sparsest-12 selection in Run 24 plausibly MISSED a real gap (C37) because it gated on raw paper-hit sparsity rather than functional-fusion occupancy. (3) R14 honesty in the GAP's disfavor: the BROADEST reading of C37 collapses toward 'feature-conditioned scoring + argmax', which is near-ordinary; the non-triviality rests specifically on the explicit BLOCKING/underspecification semantics (suppressing less-specific defaults). I judge that genuinely distinct but of MODERATE magnitude, hence composite 0.81 (not maximal) and narrow_version_nontrivial=true with the caveat stated. Zero forced functional ML hits were recorded for C37."
+}
