@@ -1,0 +1,82 @@
+{
+  "run_id": "run_022",
+  "agent": "4_verifier",
+  "note": "Application-gap verification: 'has <technique> been applied to <process>?' Focused (1 decisive probe/proposal, R11). gap_real=False => REJECT.",
+  "proposals": [
+    {
+      "process_id": "retting",
+      "ai_technique": "Near-infrared/short-wave-infrared hyperspectral imaging coupled with a gradient-boosted regression model (XGBoost) calibrated against pectin-content/fibre-strength reference assays",
+      "gap_real": true,
+      "already_done": false,
+      "evidence": "NO prior art on flax-retting endpoint via HSI+ML (engine: 'did not contain specific information about flax retting degree endpoint determination'); technique PROVEN on flaxseed/food quality (PMC10778999, PMC7890297) -> feasible + unexploited",
+      "verdict_trace": {
+        "step": "gap verify retting",
+        "inputs_seen": "proposed Near-infrared/short-wave-infrared hyperspectral imaging coup for retting; NO prior art on flax-retting endpoint via HSI+ML (engine: 'did not contain specific inform",
+        "reasoning": "checked whether THIS technique has been applied to THIS process; adjacent proven technique => feasible, but only counts as an opportunity if the on-target application is absent.",
+        "decision": "APPLICATION GAP REAL (feasible + unexploited)",
+        "confidence": "high - explicit engine statement of absence",
+        "could_be_wrong_if": "the application exists in non-indexed/non-English ag-engineering literature or unpublished industry practice (absence of evidence != proof of absence)"
+      }
+    },
+    {
+      "process_id": "cork_harvest",
+      "ai_technique": "real-time acoustic/vibration sensing on the axe handle classified by a lightweight 1D-CNN (acoustic-emission classification), analogous to tool-wear and material-boundary detection used in CNC machining",
+      "gap_real": true,
+      "already_done": false,
+      "evidence": "NO prior art on acoustic/vibration sensing for cork stripping/cambium separation (engine: 'do not contain specific information about tools... for detecting cork oak stripping or cambium separation'); AE-on-wood PROVEN (oak hygro-mechanical AE PMC7504467, wood crack/insect AE) -> feasible NARROW assistive aid (not the failed full automation)",
+      "verdict_trace": {
+        "step": "gap verify cork_harvest",
+        "inputs_seen": "proposed real-time acoustic/vibration sensing on the axe handle class for cork_harvest; NO prior art on acoustic/vibration sensing for cork stripping/cambium separation (engine: ",
+        "reasoning": "checked whether THIS technique has been applied to THIS process; adjacent proven technique => feasible, but only counts as an opportunity if the on-target application is absent.",
+        "decision": "APPLICATION GAP REAL (feasible + unexploited)",
+        "confidence": "high - explicit engine statement of absence",
+        "could_be_wrong_if": "the application exists in non-indexed/non-English ag-engineering literature or unpublished industry practice (absence of evidence != proof of absence)"
+      }
+    },
+    {
+      "process_id": "charcoal_kiln",
+      "ai_technique": "a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)",
+      "gap_real": true,
+      "already_done": false,
+      "evidence": "NO prior art on CNN pyrolysis-STAGE classification for TRADITIONAL earth kilns (engine: smoke CNNs are 'satellite/forest fire contexts rather than charcoal earth kiln pyrolysis stages'); CNN smoke classification + rotary-kiln burning-state recognition PROVEN -> feasible + unexploited",
+      "verdict_trace": {
+        "step": "gap verify charcoal_kiln",
+        "inputs_seen": "proposed a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tu for charcoal_kiln; NO prior art on CNN pyrolysis-STAGE classification for TRADITIONAL earth kilns (engine: sm",
+        "reasoning": "checked whether THIS technique has been applied to THIS process; adjacent proven technique => feasible, but only counts as an opportunity if the on-target application is absent.",
+        "decision": "APPLICATION GAP REAL (feasible + unexploited)",
+        "confidence": "high - explicit engine statement of absence",
+        "could_be_wrong_if": "the application exists in non-indexed/non-English ag-engineering literature or unpublished industry practice (absence of evidence != proof of absence)"
+      }
+    },
+    {
+      "process_id": "nixtamalization",
+      "ai_technique": "in-line NIR (near-infrared) spectroscopy + gradient-boosted regression (XGBoost) for soft-sensor endpoint prediction",
+      "gap_real": false,
+      "already_done": true,
+      "evidence": "COLLISION: exact prior art -- 'Predicting Moisture Content During Maize Nixtamalization Using ML with NIR Spectroscopy' (Theor. Appl. Genet. 2021, SVM rho=0.852). The proposed NIR+ML endpoint technique is already published.",
+      "verdict_trace": {
+        "step": "gap verify nixtamalization",
+        "inputs_seen": "proposed in-line NIR (near-infrared) spectroscopy + gradient-boosted  for nixtamalization; COLLISION: exact prior art -- 'Predicting Moisture Content During Maize Nixtamalization Us",
+        "reasoning": "checked whether THIS technique has been applied to THIS process; adjacent proven technique => feasible, but only counts as an opportunity if the on-target application is absent.",
+        "decision": "COLLISION / already-served -> REJECT",
+        "confidence": "high - exact prior-art match",
+        "could_be_wrong_if": "the application exists in non-indexed/non-English ag-engineering literature or unpublished industry practice (absence of evidence != proof of absence)"
+      }
+    },
+    {
+      "process_id": "sericulture_sorting",
+      "ai_technique": "Impact-acoustic emission sensing + 1D-CNN classifier (the same vibro-acoustic tap-test pipeline used for egg-crack and nut-emptiness detection)",
+      "gap_real": false,
+      "already_done": true,
+      "evidence": "COLLISION + already-penetrated process: cocoon sorting is heavily AI'd (YOLOv5 97%, real-time ML sorter IEEE 11188162, multi-sensor SVM PMC6631614). Process already served.",
+      "verdict_trace": {
+        "step": "gap verify sericulture_sorting",
+        "inputs_seen": "proposed Impact-acoustic emission sensing + 1D-CNN classifier (the sa for sericulture_sorting; COLLISION + already-penetrated process: cocoon sorting is heavily AI'd (YOLOv5 97%, real-t",
+        "reasoning": "checked whether THIS technique has been applied to THIS process; adjacent proven technique => feasible, but only counts as an opportunity if the on-target application is absent.",
+        "decision": "COLLISION / already-served -> REJECT",
+        "confidence": "high - exact prior-art match",
+        "could_be_wrong_if": "the application exists in non-indexed/non-English ag-engineering literature or unpublished industry practice (absence of evidence != proof of absence)"
+      }
+    }
+  ]
+}
