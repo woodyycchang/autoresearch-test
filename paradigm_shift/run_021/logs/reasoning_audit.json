@@ -1,0 +1,1127 @@
+{
+  "run_id": "run_021",
+  "agent": "5_reasoning_auditor",
+  "audited_at": "2026-06-03T13:56:13.341949+00:00",
+  "method": "deterministic rule-based audit over committed reasoning_traces; rules in run21_rules; auditor emits its own reasoning_trace per audited trace (not a black box).",
+  "summary": {
+    "total_traces_audited": 34,
+    "all_complete": true,
+    "n_complete": 34,
+    "n_flagged_nonfatal": 11,
+    "n_logic_breaks": 3,
+    "logic_break_trace_ids": [
+      "atomsearch.R21_E1",
+      "atomsearch.R21_G1",
+      "atomsearch.R21_N1"
+    ],
+    "by_agent": {
+      "AGENT_1_decomposer": {
+        "traces": 13,
+        "complete": 13,
+        "flagged": 9,
+        "logic_breaks": 0
+      },
+      "AGENT_2_atom_search": {
+        "traces": 6,
+        "complete": 6,
+        "flagged": 4,
+        "logic_breaks": 3
+      },
+      "AGENT_3_merger": {
+        "traces": 5,
+        "complete": 5,
+        "flagged": 1,
+        "logic_breaks": 0
+      },
+      "AGENT_4_verifier": {
+        "traces": 5,
+        "complete": 5,
+        "flagged": 0,
+        "logic_breaks": 0
+      },
+      "AGENT_4_crosschecker": {
+        "traces": 5,
+        "complete": 5,
+        "flagged": 0,
+        "logic_breaks": 0
+      }
+    },
+    "consistency_checks_fired": 21
+  },
+  "audits": [
+    {
+      "trace_id": "atoms.overall",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "source 6 encyclopedia concepts (2 tiers) and decompose into 12 mechanism atoms",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.778,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atoms.overall",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.778; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_E1",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "entropy atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_E1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_E2",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "entropy atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_E2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_G1",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "game theory atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_G1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_G2",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "game theory atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_G2",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_N1",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "natural selection atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_N1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_N3",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "natural selection atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_N3",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_R1",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "retting atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_R1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_R2",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "retting atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_R2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_W1",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "wave piloting atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_W1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_W2",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "wave piloting atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_W2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_X2",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "nixtamalization atom 1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_X2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atom.R21_X3",
+      "source_agent": "AGENT_1_decomposer",
+      "step": "nixtamalization atom 2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_1_decomposer :: atom.R21_X3",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.75; linked_data={}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_E1",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_E1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.6,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "dense",
+        "evidence": [
+          "dense",
+          "mature"
+        ],
+        "data_paper_hits": 1,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": true,
+      "flags": [
+        "LOGIC_BREAK:sparsity_label_contradicts_hit_count"
+      ],
+      "verdict": "LOGIC_BREAK",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_E1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.6; linked_data={'paper_hits': 1}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "LOGIC_BREAK",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_G1",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_G1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "dense",
+        "evidence": [
+          "dense",
+          "mature"
+        ],
+        "data_paper_hits": 6,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": true,
+      "flags": [
+        "confidence:missing_rationale",
+        "LOGIC_BREAK:sparsity_label_contradicts_hit_count"
+      ],
+      "verdict": "LOGIC_BREAK",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_G1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'paper_hits': 6}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "LOGIC_BREAK",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_N1",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_N1",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 1.0,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "dense",
+        "evidence": [
+          "mature"
+        ],
+        "data_paper_hits": 2,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": true,
+      "flags": [
+        "LOGIC_BREAK:sparsity_label_contradicts_hit_count"
+      ],
+      "verdict": "LOGIC_BREAK",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_N1",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=1.0; linked_data={'paper_hits': 2}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "LOGIC_BREAK",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_R2",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_R2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.25,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "sparse",
+        "evidence": [
+          "sparse"
+        ],
+        "data_paper_hits": 5,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_R2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.25; linked_data={'paper_hits': 5}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_W2",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_W2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.25,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "sparse",
+        "evidence": [
+          "sparse"
+        ],
+        "data_paper_hits": 3,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_W2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.25; linked_data={'paper_hits': 3}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "atomsearch.R21_X2",
+      "source_agent": "AGENT_2_atom_search",
+      "step": "saturation R21_X2",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": false,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.25,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "atom_sparsity",
+        "trace_polarity": "sparse",
+        "evidence": [
+          "sparse"
+        ],
+        "data_paper_hits": 2,
+        "sparse_threshold": 10,
+        "data_is_sparse": true
+      },
+      "logic_break": false,
+      "flags": [
+        "confidence:missing_rationale"
+      ],
+      "verdict": "FLAGGED_NONFATAL",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_2_atom_search :: atomsearch.R21_X2",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.25; linked_data={'paper_hits': 2}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "FLAGGED_NONFATAL",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "merge.CAND_021_001",
+      "source_agent": "AGENT_3_merger",
+      "step": "merge ATOM A x ATOM B",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.368,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "merge_quote_context",
+        "data_quote_verified": true,
+        "note": "merge decision is a niche (not boolean); quote grounding checked by MAIN Gate-4"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_3_merger :: merge.CAND_021_001",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.368; linked_data={'quote_verified_substring': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "merge.CAND_021_002",
+      "source_agent": "AGENT_3_merger",
+      "step": "merge ATOM A x ATOM B",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.125,
+      "overconfident": false,
+      "hedges_found": [
+        "speculative"
+      ],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "merge_quote_context",
+        "data_quote_verified": true,
+        "note": "merge decision is a niche (not boolean); quote grounding checked by MAIN Gate-4"
+      },
+      "logic_break": false,
+      "flags": [
+        "low_inputs_grounding(0.125)"
+      ],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_3_merger :: merge.CAND_021_002",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.125; linked_data={'quote_verified_substring': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "merge.CAND_021_003",
+      "source_agent": "AGENT_3_merger",
+      "step": "merge ATOM A x ATOM B",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.167,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "merge_quote_context",
+        "data_quote_verified": true,
+        "note": "merge decision is a niche (not boolean); quote grounding checked by MAIN Gate-4"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_3_merger :: merge.CAND_021_003",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.167; linked_data={'quote_verified_substring': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "merge.CAND_021_004",
+      "source_agent": "AGENT_3_merger",
+      "step": "merge ATOM A x ATOM B",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.381,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "merge_quote_context",
+        "data_quote_verified": true,
+        "note": "merge decision is a niche (not boolean); quote grounding checked by MAIN Gate-4"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_3_merger :: merge.CAND_021_004",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.381; linked_data={'quote_verified_substring': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "merge.CAND_021_005",
+      "source_agent": "AGENT_3_merger",
+      "step": "merge ATOM A x ATOM B",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "medium",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.2,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "merge_quote_context",
+        "data_quote_verified": true,
+        "note": "merge decision is a niche (not boolean); quote grounding checked by MAIN Gate-4"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_3_merger :: merge.CAND_021_005",
+        "inputs_seen": "6 fields present=True; confidence_level=medium; grounding_overlap=0.2; linked_data={'quote_verified_substring': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "verify.verdict.CAND_021_001",
+      "source_agent": "AGENT_4_verifier",
+      "step": "collision verdict CAND_021_001",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.5,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "verify_collision",
+        "trace_polarity": null,
+        "evidence": [],
+        "data_collision_found": true,
+        "note": "polarity_indeterminate (no break asserted)"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_verifier :: verify.verdict.CAND_021_001",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.5; linked_data={'collision_found': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "verify.verdict.CAND_021_002",
+      "source_agent": "AGENT_4_verifier",
+      "step": "collision verdict CAND_021_002",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.5,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "verify_collision",
+        "trace_polarity": null,
+        "evidence": [],
+        "data_collision_found": true,
+        "note": "polarity_indeterminate (no break asserted)"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_verifier :: verify.verdict.CAND_021_002",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.5; linked_data={'collision_found': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "verify.verdict.CAND_021_003",
+      "source_agent": "AGENT_4_verifier",
+      "step": "collision verdict CAND_021_003",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.5,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "verify_collision",
+        "trace_polarity": null,
+        "evidence": [],
+        "data_collision_found": true,
+        "note": "polarity_indeterminate (no break asserted)"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_verifier :: verify.verdict.CAND_021_003",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.5; linked_data={'collision_found': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "verify.verdict.CAND_021_004",
+      "source_agent": "AGENT_4_verifier",
+      "step": "collision verdict CAND_021_004",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.5,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "verify_collision",
+        "trace_polarity": null,
+        "evidence": [],
+        "data_collision_found": true,
+        "note": "polarity_indeterminate (no break asserted)"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_verifier :: verify.verdict.CAND_021_004",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.5; linked_data={'collision_found': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "verify.verdict.CAND_021_005",
+      "source_agent": "AGENT_4_verifier",
+      "step": "collision verdict CAND_021_005",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.5,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "verify_collision",
+        "trace_polarity": null,
+        "evidence": [],
+        "data_collision_found": true,
+        "note": "polarity_indeterminate (no break asserted)"
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_verifier :: verify.verdict.CAND_021_005",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.5; linked_data={'collision_found': True}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "medium - prose polarity indeterminate, so data-consistency could not fire; format checks still deterministic",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "crosscheck.CAND_021_001",
+      "source_agent": "AGENT_4_crosschecker",
+      "step": "independent re-verification CAND_021_001",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "crosscheck_confirm",
+        "trace_polarity": "confirm",
+        "evidence": [
+          "confirm",
+          "agree"
+        ],
+        "data_mismatch_with_agent3": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_crosschecker :: crosscheck.CAND_021_001",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'mismatch_with_agent3': False}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "crosscheck.CAND_021_002",
+      "source_agent": "AGENT_4_crosschecker",
+      "step": "independent re-verification CAND_021_002",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "crosscheck_confirm",
+        "trace_polarity": "confirm",
+        "evidence": [
+          "confirm",
+          "agree"
+        ],
+        "data_mismatch_with_agent3": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_crosschecker :: crosscheck.CAND_021_002",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'mismatch_with_agent3': False}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "crosscheck.CAND_021_003",
+      "source_agent": "AGENT_4_crosschecker",
+      "step": "independent re-verification CAND_021_003",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "crosscheck_confirm",
+        "trace_polarity": "confirm",
+        "evidence": [
+          "confirm",
+          "agree"
+        ],
+        "data_mismatch_with_agent3": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_crosschecker :: crosscheck.CAND_021_003",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'mismatch_with_agent3': False}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "crosscheck.CAND_021_004",
+      "source_agent": "AGENT_4_crosschecker",
+      "step": "independent re-verification CAND_021_004",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "crosscheck_confirm",
+        "trace_polarity": "confirm",
+        "evidence": [
+          "confirm",
+          "agree"
+        ],
+        "data_mismatch_with_agent3": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_crosschecker :: crosscheck.CAND_021_004",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'mismatch_with_agent3': False}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    },
+    {
+      "trace_id": "crosscheck.CAND_021_005",
+      "source_agent": "AGENT_4_crosschecker",
+      "step": "independent re-verification CAND_021_005",
+      "complete": true,
+      "missing_fields": [],
+      "confidence_level": "high",
+      "confidence_wellformed": true,
+      "falsifiable": true,
+      "inputs_grounding_overlap": 0.75,
+      "overconfident": false,
+      "hedges_found": [],
+      "decision_data_consistency": {
+        "checked": true,
+        "kind": "crosscheck_confirm",
+        "trace_polarity": "confirm",
+        "evidence": [
+          "confirm",
+          "agree"
+        ],
+        "data_mismatch_with_agent3": false
+      },
+      "logic_break": false,
+      "flags": [],
+      "verdict": "VALID",
+      "audit_reasoning_trace": {
+        "step": "audit AGENT_4_crosschecker :: crosscheck.CAND_021_005",
+        "inputs_seen": "6 fields present=True; confidence_level=high; grounding_overlap=0.75; linked_data={'mismatch_with_agent3': False}",
+        "reasoning": "Applied 6 deterministic checks (completeness, confidence rationale, falsifiability, inputs-grounding overlap, overconfidence-hedge, decision<->recorded-data consistency). LOGIC BREAK only when detected polarity contradicts data.",
+        "decision": "VALID",
+        "confidence": "high - deterministic checks over committed JSON",
+        "could_be_wrong_if": "the polarity phrase-lists miss a paraphrase (false negative) or the grounding overlap penalizes a correct but differently-worded short decision."
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "determinism_ok": true,
+  "hash_run_1": "5d6fa7ed2fb3eda65d9e74435da1c107b1f954dcb0d32672ffb5e88964e3170d",
+  "hash_run_2": "5d6fa7ed2fb3eda65d9e74435da1c107b1f954dcb0d32672ffb5e88964e3170d",
+  "runs": 2,
+  "reasoning_trace": {
+    "step": "determinism check",
+    "inputs_seen": "ran 4-gate filter twice; hash1=5d6fa7ed2fb3 hash2=5d6fa7ed2fb3",
+    "reasoning": "gate math reads only committed JSON, no RNG/time, so two runs must hash-match.",
+    "decision": "DETERMINISTIC",
+    "confidence": "high - sha256 over verdict skeleton",
+    "could_be_wrong_if": "a gate read wall-clock/order-dependent state (it does not)"
+  }
+}

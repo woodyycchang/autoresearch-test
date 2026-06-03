@@ -1,0 +1,167 @@
+{
+  "cand_id": "CAND_021_005",
+  "atom_a_id": "R21_E1",
+  "atom_b_id": "R21_R2",
+  "parse_ok": true,
+  "attempts": 2,
+  "parsed": {
+    "mechanism": "Microbial or chemical action selectively degrades the cementing compounds binding bast fibers, which causes a directed local increase in configurational entropy as a rigid, low-disorder bound state transforms into many separable arrangements; an LLM training objective can analogously induce targeted 'representational retting' that dissolves entangled superposed features by raising local entropy only at the binding sites, routing previously fused circuits into isolable monosemantic components.",
+    "transfer": "From A transfers the principle that entropy quantifies the number of accessible arrangements, applied to B's selective degradation of binding agents \u2014 reframing feature disentanglement as a locally entropy-increasing dissolution of the 'cement' that fuses polysemantic representations.",
+    "open_problem": "Can a contrastive or sparsity objective be designed to selectively raise configurational entropy only at the binding sites between superposed features, dissolving polysemantic 'cement' while leaving the fibers (monosemantic features) structurally intact and recoverable?",
+    "niche_name": "Representational Retting: Entropy-Targeted Dissolution of Polysemantic Feature Binding",
+    "primary_quote": "degradating the cementing compounds that bind the bast fibres to other plant tissues, allowing the fibers to be isolated",
+    "quote_source": "atom_b",
+    "reasoning_trace": {
+      "step": "merge ATOM A x ATOM B",
+      "inputs_seen": "A: entropy counts the number of arrangements/disorder of a system, monotonic with accessible microstates. B: retting separates fibers by microbial/chemical degradation of the cementing compounds that bind bast fibers to surrounding tissue, isolating the fibers.",
+      "reasoning": "I tried to transfer A's entropy-as-arrangement-count mechanism onto B's selective-dissolution-of-binder mechanism, treating disentanglement of superposed neural features as a retting process: the 'cement' is the correlational binding fusing polysemantic features, and breaking it is a local entropy increase that unlocks many separable configurations. I rejected the naive transfer 'maximize global entropy = better representations' (already trivial/wrong \u2014 that just adds noise) and rejected a pure vocabulary match ('disorder = randomness'). The non-trivial core is the SELECTIVITY operator: retting raises entropy ONLY at the binder, not the fiber, so the move is spatially/structurally targeted entropy injection \u2014 which maps to a concrete loss that increases configurational entropy at feature-binding sites while preserving feature integrity, a constraint absent from standard disentanglement objectives.",
+      "decision": "Settled on 'representational retting' \u2014 an entropy-targeted, binding-site-localized dissolution objective for feature disentanglement \u2014 because it gives a falsifiable training-objective design rather than a metaphor.",
+      "confidence": "medium - the selectivity reframing is concrete and testable, but operationalizing 'binding-site-local entropy' precisely is unproven.",
+      "could_be_wrong_if": "If 'raise entropy at binding sites' reduces on inspection to existing sparse-autoencoder/disentanglement regularizers (L1/total-correlation penalties), then the merge is just a vocabulary relabel of known methods rather than a new mechanism."
+    }
+  },
+  "quote_verified_substring": true,
+  "reasoning_trace_complete": true,
+  "envelopes": [
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 22982,
+      "duration_api_ms": 22078,
+      "ttft_ms": 6499,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Entropy-as-disorder regulates which inter-token bindings in an LLM's internal representation are eligible for release, and a 'retting' procedure produces a controlled microbial-style decomposition signal that degrades the low-information cementing weights binding semantic 'fibres' to surrounding noise tissue, causing isolated, high-purity concept fibers to be extracted.\", \"transfer\": \"The statistical-mechanical entropy measure transfers from A to become the selective degradation criterion that B's retting action uses to decide which cementing connections to dissolve.\", \"open_problem\": \"Can an entropy-gated 'retting' decomposition selectively degrade low-information weight couplings to isolate disentangled concept directions without collapsing the model's surrounding representational tissue?\", \"niche_name\": \"Entropy-Gated Retting for Disentangling LLM Concept Fibers\", \"primary_quote\": \"degradating the cementing compounds that bind the bast fibres to other plant tissues\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: entropy counts the number of arrangements of a system and indexes disorder, higher entropy = higher disorder. B: separation achieved by microbial/chemical action that degrades cementing compounds binding bast fibres to other plant tissues, letting fibers be isolated.\", \"reasoning\": \"I tried to transfer A's entropy-as-arrangement-count from a passive measurement into B's active selective-degradation role: in retting, an agent degrades only the cementing matrix while sparing the valued fibers, which is precisely a per-bond selectivity criterion. Entropy supplies that criterion \u2014 couplings carrying many redundant arrangements (high local entropy, low information) are the 'cementing compounds' to dissolve, while low-entropy, information-bearing couplings are the 'fibres' to preserve. I rejected the obvious surface reading where entropy = generation temperature/sampling diversity, because that is well-trodden and not a separation mechanism. I also rejected treating retting as mere pruning, since pruning lacks the matrix-vs-fiber distinction. The non-trivial element is that retting is a SELECTIVE differential-dissolution process keyed to a binding-strength threshold, and entropy gives a principled, measurable threshold for which weight couplings are 'cement' vs 'fiber' \u2014 a disentanglement objective rather than a vocabulary borrow.\", \"decision\": \"Settled on entropy-gated retting: an iterative decomposition that degrades high-entropy (low-information) weight couplings to isolate disentangled concept directions, because it operationalizes both atoms causally rather than metaphorically.\", \"confidence\": \"medium - the entropy threshold for 'cement vs fiber' is plausible but its empirical separability is unproven\", \"could_be_wrong_if\": \"It reduces to standard entropy-regularized pruning or sparse autoencoder disentanglement, in which case the retting framing adds only vocabulary and no new selective mechanism.\"}",
+      "stop_reason": "end_turn",
+      "session_id": "a3f576f5-90d7-4ca3-9b98-fb471f85c76c",
+      "total_cost_usd": 0.056174999999999996,
+      "usage": {
+        "input_tokens": 1734,
+        "cache_creation_input_tokens": 1826,
+        "cache_read_input_tokens": 14237,
+        "output_tokens": 1114,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1826,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 1734,
+            "output_tokens": 1114,
+            "cache_read_input_tokens": 14237,
+            "cache_creation_input_tokens": 1826,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1826
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1029,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001124,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 1734,
+          "outputTokens": 1114,
+          "cacheReadInputTokens": 14237,
+          "cacheCreationInputTokens": 1826,
+          "webSearchRequests": 0,
+          "costUSD": 0.055050999999999996,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "5f8feaf9-a8c0-4585-80e9-b539e4b5ef42"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "api_error_status": null,
+      "duration_ms": 19175,
+      "duration_api_ms": 18831,
+      "ttft_ms": 17724,
+      "num_turns": 1,
+      "result": "{\"mechanism\": \"Microbial or chemical action selectively degrades the cementing compounds binding bast fibers, which causes a directed local increase in configurational entropy as a rigid, low-disorder bound state transforms into many separable arrangements; an LLM training objective can analogously induce targeted 'representational retting' that dissolves entangled superposed features by raising local entropy only at the binding sites, routing previously fused circuits into isolable monosemantic components.\", \"transfer\": \"From A transfers the principle that entropy quantifies the number of accessible arrangements, applied to B's selective degradation of binding agents \u2014 reframing feature disentanglement as a locally entropy-increasing dissolution of the 'cement' that fuses polysemantic representations.\", \"open_problem\": \"Can a contrastive or sparsity objective be designed to selectively raise configurational entropy only at the binding sites between superposed features, dissolving polysemantic 'cement' while leaving the fibers (monosemantic features) structurally intact and recoverable?\", \"niche_name\": \"Representational Retting: Entropy-Targeted Dissolution of Polysemantic Feature Binding\", \"primary_quote\": \"degradating the cementing compounds that bind the bast fibres to other plant tissues, allowing the fibers to be isolated\", \"quote_source\": \"atom_b\", \"reasoning_trace\": {\"step\": \"merge ATOM A x ATOM B\", \"inputs_seen\": \"A: entropy counts the number of arrangements/disorder of a system, monotonic with accessible microstates. B: retting separates fibers by microbial/chemical degradation of the cementing compounds that bind bast fibers to surrounding tissue, isolating the fibers.\", \"reasoning\": \"I tried to transfer A's entropy-as-arrangement-count mechanism onto B's selective-dissolution-of-binder mechanism, treating disentanglement of superposed neural features as a retting process: the 'cement' is the correlational binding fusing polysemantic features, and breaking it is a local entropy increase that unlocks many separable configurations. I rejected the naive transfer 'maximize global entropy = better representations' (already trivial/wrong \u2014 that just adds noise) and rejected a pure vocabulary match ('disorder = randomness'). The non-trivial core is the SELECTIVITY operator: retting raises entropy ONLY at the binder, not the fiber, so the move is spatially/structurally targeted entropy injection \u2014 which maps to a concrete loss that increases configurational entropy at feature-binding sites while preserving feature integrity, a constraint absent from standard disentanglement objectives.\", \"decision\": \"Settled on 'representational retting' \u2014 an entropy-targeted, binding-site-localized dissolution objective for feature disentanglement \u2014 because it gives a falsifiable training-objective design rather than a metaphor.\", \"confidence\": \"medium - the selectivity reframing is concrete and testable, but operationalizing 'binding-site-local entropy' precisely is unproven.\", \"could_be_wrong_if\": \"If 'raise entropy at binding sites' reduces on inspection to existing sparse-autoencoder/disentanglement regularizers (L1/total-correlation penalties), then the merge is just a vocabulary relabel of known methods rather than a new mechanism.\"}}",
+      "stop_reason": "end_turn",
+      "session_id": "2f551dad-f251-4743-b712-5ede85498153",
+      "total_cost_usd": 0.0472955,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1732,
+        "cache_read_input_tokens": 16063,
+        "output_tokens": 1093,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 1732
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1093,
+            "cache_read_input_tokens": 16063,
+            "cache_creation_input_tokens": 1732,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1732,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1029,
+          "outputTokens": 15,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001104,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-opus-4-8": {
+          "inputTokens": 2,
+          "outputTokens": 1093,
+          "cacheReadInputTokens": 16063,
+          "cacheCreationInputTokens": 1732,
+          "webSearchRequests": 0,
+          "costUSD": 0.046191499999999996,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      },
+      "permission_denials": [],
+      "terminal_reason": "completed",
+      "fast_mode_state": "off",
+      "uuid": "0b9819f3-323b-49a3-85a2-c2bbabeb2088"
+    }
+  ]
+}
