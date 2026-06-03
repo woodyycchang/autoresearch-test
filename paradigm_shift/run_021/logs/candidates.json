@@ -1,0 +1,181 @@
+{
+  "run_id": "run_021",
+  "epoch": 1,
+  "agent": "3_merger",
+  "generated_at": "2026-06-03T13:50:32.925061+00:00",
+  "selection_rule": "eligible pairs = atoms from DIFFERENT source papers (same-paper sub-mechanisms already co-occur, so they are trivially non-novel); rank eligible pairs by combined per-atom paper-hits ASC; take the 5 lowest.",
+  "chosen_pairs": [
+    {
+      "cand_id": "CAND_021_001",
+      "atom_a": "R21_E1",
+      "atom_b": "R21_X2",
+      "combined_atom_hits": 3
+    },
+    {
+      "cand_id": "CAND_021_002",
+      "atom_a": "R21_N1",
+      "atom_b": "R21_X2",
+      "combined_atom_hits": 4
+    },
+    {
+      "cand_id": "CAND_021_003",
+      "atom_a": "R21_E1",
+      "atom_b": "R21_W2",
+      "combined_atom_hits": 4
+    },
+    {
+      "cand_id": "CAND_021_004",
+      "atom_a": "R21_N1",
+      "atom_b": "R21_W2",
+      "combined_atom_hits": 5
+    },
+    {
+      "cand_id": "CAND_021_005",
+      "atom_a": "R21_E1",
+      "atom_b": "R21_R2",
+      "combined_atom_hits": 6
+    }
+  ],
+  "candidates": [
+    {
+      "cand_id": "CAND_021_001",
+      "atom_a_id": "R21_E1",
+      "atom_b_id": "R21_X2",
+      "atom_a_hits": 1,
+      "atom_b_hits": 2,
+      "combined_atom_hits": 3,
+      "niche_name": "Nixtamalization-Style Entropy Solvent for Selective Weight-Glue Dissolution",
+      "mechanism": "Alkaline conditions dissolve hemicellulose, the glue-like binder of maize cell walls, which loosens hulls and softens otherwise rigid kernel structure; transposed to LLMs, a controlled 'solvent' signal dissolves the high-entropy glue binding redundant weight configurations, transforming a disordered high-entropy parameter ensemble into a loosened, separable structure where redundant components detach for pruning.",
+      "transfer": "The entropy-as-number-of-arrangements measure from A transfers into B's dissolution mechanism, reframing nixtamalization's selective-glue-dissolution as an entropy-targeted solvent that breaks the binder holding a high-entropy weight ensemble together.",
+      "open_problem": "Can a targeted alkalinity-analog regularizer selectively dissolve the highest-entropy 'binder' weights that glue redundant network structure together, loosening it for clean separation/pruning while leaving the load-bearing kernel intact?",
+      "primary_quote": "the major glue-like component of the maize cell walls, and loosens the hulls from the kernels",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: entropy counts the number of microscopic arrangements of a system, higher entropy meaning more disorder. B: alkalinity dissolves hemicellulose, the glue-like binder of maize cell walls, loosening hulls and softening kernels.",
+        "reasoning": "I tried to transfer A's notion of entropy as 'number of arrangements / disorder' into B's selective-dissolution mechanism, mapping the glue-like binder to the high-entropy connective structure in a network and the kernel to the irreducible load-bearing weights. I rejected the surface mapping 'entropy = randomness in data' because that is the generic ML cliche and ignores B's specific selectivity (it dissolves ONE component, the binder, not everything). The non-trivial element is selectivity coupled to a structural measure: nixtamalization does not destroy the kernel, it dissolves the binder so layers separate cleanly \u2014 analogously, the niche asks whether a regularizer can target the highest-entropy connective weights specifically, achieving structured separability rather than uniform shrinkage.",
+        "decision": "Settled on an entropy-targeted 'solvent' regularizer that selectively dissolves high-entropy binder weights to loosen redundant structure for pruning, because it preserves B's selective-dissolution-plus-softening dynamic rather than borrowing only its vocabulary.",
+        "confidence": "medium - the structural-selectivity mapping is concrete and testable, but whether high-entropy weights actually function as a separable 'binder' is an empirical assumption.",
+        "could_be_wrong_if": "high-entropy weights are not localized to a separable connective substructure, in which case 'dissolving the binder' collapses into ordinary entropy/magnitude regularization and the nixtamalization framing is just vocabulary."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "0f710f12-f28e-48e8-b5dc-cb8346dfd2c8",
+      "opus_cost_usd": 0.13687375000000002
+    },
+    {
+      "cand_id": "CAND_021_002",
+      "atom_a_id": "R21_N1",
+      "atom_b_id": "R21_X2",
+      "atom_a_hits": 2,
+      "atom_b_hits": 2,
+      "combined_atom_hits": 4,
+      "niche_name": "Alkaline-style differential dissolution as a natural-selection operator over representations",
+      "mechanism": "Differential survival and reproduction selects, from a varied population, the variants whose observable characteristics endow higher relative fitness; transplanted onto a chemical-pretreatment regime, an alkaline (high-pH) selection bath produces differential dissolution by degrading the glue-like binding component that holds heterogeneous units together, loosening and softening only the units whose structural composition resists the alkali, thereby routing which variants survive intact into the next processing generation.",
+      "transfer": "The principle of differential survival driven by an individual's own composition transfers from biological natural selection to an alkaline pretreatment that differentially dissolves and survives population units based on their cell-wall chemistry.",
+      "open_problem": "Can an iterated alkaline (or analogous chemical/loss) selection pressure act as a true natural-selection operator on a heterogeneous population of model weights or token-representations, where 'fitness' is resistance to a dissolution-style degradation that differentially strips loosely-bound components?",
+      "primary_quote": "The alkalinity helps the dissolution of hemicellulose, the major glue-like component of the maize cell walls",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: natural selection = differential survival/reproduction caused by relative fitness from an individual's own observable characteristics. B: alkalinity dissolves hemicellulose (the glue-like cell-wall binder), loosening hulls and softening maize.",
+        "reasoning": "I tried to transfer A's selection mechanism \u2014 fitness-driven differential survival determined by each individual's intrinsic composition \u2014 onto B's chemical mechanism, reframing alkaline dissolution as a *selection pressure* that differentially destroys vs. preserves units based on their own structural chemistry, rather than as mere uniform processing. I rejected the trivial reading where alkalinity treats all kernels identically (no selection there); the non-trivial move is noticing that hemicellulose dissolution is *differential* (loosens hulls but keeps kernels) i.e. composition-dependent survival, which is structurally isomorphic to fitness-based selection. Surface-analogy alternatives (e.g. 'cooking = evolution') were rejected because they lack a differential-survival-by-intrinsic-property mechanism.",
+        "decision": "Settled on treating alkaline-style differential dissolution as a concrete natural-selection operator over a population of representations/weights, where degradation strips loosely-bound (low-fitness) components \u2014 chosen because it gives a testable selection dynamic, not just shared vocabulary.",
+        "confidence": "medium - the differential-survival isomorphism is genuine but operationalizing 'glue-like component' in a model is speculative",
+        "could_be_wrong_if": "If the alkaline process is actually uniform (non-differential) or if 'selection by composition' reduces to ordinary pruning/regularization already standard in ML, the merge collapses to a surface vocabulary analogy."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "1b587198-ab8b-4d5d-99ab-d73fd99efddf",
+      "opus_cost_usd": 0.0545825
+    },
+    {
+      "cand_id": "CAND_021_003",
+      "atom_a_id": "R21_E1",
+      "atom_b_id": "R21_W2",
+      "atom_a_hits": 1,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 4,
+      "niche_name": "Entropy Wakes: Refraction-Style Early Warning of LLM Reasoning Failures",
+      "mechanism": "A shoreline-style refractor placed in an LLM's representation space induces a measurable interference pattern in token-entropy fields, so that a high-disorder 'choppy' zone produced upstream of a semantic obstacle (a contradiction, hallucination trigger, or hidden constraint) propagates back and is detectable in entropy long before the model emits the offending token.",
+      "transfer": "Entropy-as-disorder from A transfers into B's role as the felt, propagated interference signal that refraction creates around an unseen obstacle.",
+      "open_problem": "Can a localized rise in per-token entropy reliably forecast a downstream reasoning failure (the 'island') many tokens before it surfaces, the way choppy water signals an unseen shore?",
+      "primary_quote": "this interaction creates a complex interference pattern, an area of choppy confused water",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: entropy quantifies the number of arrangements / degree of disorder in a system. B: wave refraction around an island creates a back-propagating interference pattern (choppy water) felt by a navigator dozens of miles before the island is visible.",
+        "reasoning": "I tried to transfer entropy's role as a scalar disorder field from A onto B's spatial mechanism of obstacle-induced, back-propagating interference. The non-trivial move is treating an LLM's autoregressive generation as a wave medium where an unseen downstream obstacle (a contradiction or constraint the model will hit) refracts the probability field and raises entropy upstream \u2014 a remotely detectable 'wake' before the failure token. I rejected the surface reading where entropy is just 'confusion = high disorder' (a vocabulary match), because B's distinctive content is not disorder per se but spatial propagation and remote sensing of an obstacle not yet reached; that turns this into a concrete early-warning prediction claim, not a metaphor.",
+        "decision": "Settled on entropy-wake early warning: monitor per-token entropy for refraction-style upstream spikes that forecast specific downstream failures, because it is operationalizable and falsifiable on existing models.",
+        "confidence": "medium - the prediction-before-failure framing is testable but whether entropy genuinely propagates backward in a directed model is unproven.",
+        "could_be_wrong_if": "If entropy spikes only coincide with failures at the same token rather than predicting them several tokens ahead, the 'felt 20-30 miles away' propagation is decorative and the merge collapses into the trivial observation that uncertain models err."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "3f683347-4129-46b2-96bf-0d4c8cecd037",
+      "opus_cost_usd": 0.05155975
+    },
+    {
+      "cand_id": "CAND_021_004",
+      "atom_a_id": "R21_N1",
+      "atom_b_id": "R21_W2",
+      "atom_a_hits": 2,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 5,
+      "niche_name": "Wave-Piloting Expert Routing via Distal Interference Triangulation",
+      "mechanism": "An LLM ensemble routes queries by detecting an upstream interference signal: rather than selecting the single highest-fitness model on direct evaluation, a controller reads the diffuse 'reflection pattern' that distinct expert sub-models produce when their output distributions interfere far from the actual decision boundary, and uses this off-target choppiness to triangulate the location of a correct specialist before that specialist is directly queried.",
+      "transfer": "The wave-piloting principle of locating an unseen island by sensing its refracted interference pattern from far away transfers to selecting an unseen expert model by sensing the interference its competence creates in upstream prediction disagreement.",
+      "open_problem": "Can the cross-model disagreement field measured far from a query's true answer region reliably triangulate which specialist model holds the relevant competence, outperforming direct per-model fitness scoring?",
+      "primary_quote": "this interaction creates a complex interference pattern, an area of choppy confused water, that can be felt in a canoe up to 20-30 miles away from the island",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: selection acts on differential fitness conferred by an individual's observable characteristics. B: an unseen island is located not by seeing it but by feeling the interference pattern its refracted waves create up to 20-30 miles away.",
+        "reasoning": "I tried to transfer B's mechanism of distal indirect localization (sensing a target via the perturbation field it casts far away) onto A's selection-by-fitness mechanism for choosing among model variants. The naive merge is 'evolutionary model selection,' which is well-trodden, so I rejected straight fitness-as-selection. The non-trivial move is that B contradicts A's premise: A selects by directly observing the individual's own characteristics, while B's whole point is that the target's signal is read remotely and off-target, before contact. So the transfer asks: can we route to the best model WITHOUT directly evaluating its fitness on the query, by reading the interference its competence casts into the disagreement field of other models far from the answer? Alternatives rejected: simple confidence/entropy routing (that reads the model's own output, the A-style direct observation, not the distal B-style field).",
+        "decision": "I settled on distal interference triangulation for expert routing, because it forces selection to use a remote off-target signal (B) instead of direct fitness evaluation (A), which is the genuine tension between the two mechanisms rather than shared vocabulary.",
+        "confidence": "medium - the analogy is mechanistically precise but whether a measurable, exploitable cross-model interference field actually exists in practice is unverified.",
+        "could_be_wrong_if": "cross-model disagreement far from the answer region carries no information beyond what direct per-model confidence already provides, collapsing this back to ordinary fitness-based selection (plain A) dressed in wave vocabulary."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "7e0aa152-629c-432e-9ecc-8972d988c5be",
+      "opus_cost_usd": 0.05395625
+    },
+    {
+      "cand_id": "CAND_021_005",
+      "atom_a_id": "R21_E1",
+      "atom_b_id": "R21_R2",
+      "atom_a_hits": 1,
+      "atom_b_hits": 5,
+      "combined_atom_hits": 6,
+      "niche_name": "Representational Retting: Entropy-Targeted Dissolution of Polysemantic Feature Binding",
+      "mechanism": "Microbial or chemical action selectively degrades the cementing compounds binding bast fibers, which causes a directed local increase in configurational entropy as a rigid, low-disorder bound state transforms into many separable arrangements; an LLM training objective can analogously induce targeted 'representational retting' that dissolves entangled superposed features by raising local entropy only at the binding sites, routing previously fused circuits into isolable monosemantic components.",
+      "transfer": "From A transfers the principle that entropy quantifies the number of accessible arrangements, applied to B's selective degradation of binding agents \u2014 reframing feature disentanglement as a locally entropy-increasing dissolution of the 'cement' that fuses polysemantic representations.",
+      "open_problem": "Can a contrastive or sparsity objective be designed to selectively raise configurational entropy only at the binding sites between superposed features, dissolving polysemantic 'cement' while leaving the fibers (monosemantic features) structurally intact and recoverable?",
+      "primary_quote": "degradating the cementing compounds that bind the bast fibres to other plant tissues, allowing the fibers to be isolated",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: entropy counts the number of arrangements/disorder of a system, monotonic with accessible microstates. B: retting separates fibers by microbial/chemical degradation of the cementing compounds that bind bast fibers to surrounding tissue, isolating the fibers.",
+        "reasoning": "I tried to transfer A's entropy-as-arrangement-count mechanism onto B's selective-dissolution-of-binder mechanism, treating disentanglement of superposed neural features as a retting process: the 'cement' is the correlational binding fusing polysemantic features, and breaking it is a local entropy increase that unlocks many separable configurations. I rejected the naive transfer 'maximize global entropy = better representations' (already trivial/wrong \u2014 that just adds noise) and rejected a pure vocabulary match ('disorder = randomness'). The non-trivial core is the SELECTIVITY operator: retting raises entropy ONLY at the binder, not the fiber, so the move is spatially/structurally targeted entropy injection \u2014 which maps to a concrete loss that increases configurational entropy at feature-binding sites while preserving feature integrity, a constraint absent from standard disentanglement objectives.",
+        "decision": "Settled on 'representational retting' \u2014 an entropy-targeted, binding-site-localized dissolution objective for feature disentanglement \u2014 because it gives a falsifiable training-objective design rather than a metaphor.",
+        "confidence": "medium - the selectivity reframing is concrete and testable, but operationalizing 'binding-site-local entropy' precisely is unproven.",
+        "could_be_wrong_if": "If 'raise entropy at binding sites' reduces on inspection to existing sparse-autoencoder/disentanglement regularizers (L1/total-correlation penalties), then the merge is just a vocabulary relabel of known methods rather than a new mechanism."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 2,
+      "opus_session_id": "2f551dad-f251-4743-b712-5ede85498153",
+      "opus_cost_usd": 0.0472955
+    }
+  ]
+}
