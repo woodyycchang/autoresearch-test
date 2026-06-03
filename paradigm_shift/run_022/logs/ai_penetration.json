@@ -1,0 +1,27 @@
+{
+  "run_id": "run_022",
+  "agent": "2_ai_penetration_searcher",
+  "method": "WebSearch '<process> machine learning / computer vision / robotics' per process; count DISTINCT on-target AI applications (AI applied to THIS process step) vs adjacent (AI on a different step/related domain -- which proves the technique is feasible). R10: report counts. <5 on-target = genuine application white space.",
+  "KEY_FINDING_R10": "AI penetration VARIES sharply and discriminates. Two 'obvious' labor-intensive targets are ALREADY heavily AI'd (saffron: robots+NeRF+ANN+startups; sericulture: CNN disease detection + ML cocoon-sorting prototype) -> NOT white space. Three are genuinely under-served ON-TARGET (retting endpoint, cork stripping, traditional charcoal-kiln smoke monitoring) while the underlying TECHNIQUE is proven on adjacent tasks -> feasible application gaps. nixtamalization has 1 direct paper (started).",
+  "processes": [
+    {"process_id": "retting", "on_target_ai_hits": 0, "penetration": "NONE", "is_low": true,
+     "evidence": "Engine: 'didn't return papers specifically focused on flax retting endpoint detection.' Adjacent (PROVEN technique, feasible): hyperspectral+ML for flaxseed mechanical-damage (PMC10778999), cannabis drying-quality (PMC11082398), crop disease (MDPI 16/14/6064). The technique (hyperspectral/CV + ML for material-state quality) is mature; applying it to retting-degree endpoint is unexploited.",
+     "feasibility_note": "HIGH -- hyperspectral+ML material-quality assessment is established; retting endpoint = pectin-degradation state is a natural target"},
+    {"process_id": "cork_harvest", "on_target_ai_hits": 0, "penetration": "NONE on the stripping step", "is_low": true,
+     "evidence": "Engine: cork stripping 'RESISTS automation... no mechanized process; despite periodic attempts.' Existing AI is DOWNSTREAM only: cork-driller feeding (277927174), cork-surface SVM classification. The harvest/stripping step itself is AI-unpenetrated.",
+     "feasibility_note": "MIXED -- FULL robotic stripping has failed repeatedly (likely infeasible); but a NARROW improvement (CV cork-cambium-boundary / cut-depth guidance ASSISTING the human, or bark-readiness assessment) is plausible. R13: the proposal must be the narrow feasible version, not 'automate stripping'."},
+    {"process_id": "charcoal_kiln", "on_target_ai_hits": 1, "penetration": "LOW (traditional kiln); adjacent exists", "is_low": true,
+     "evidence": "On-target (traditional earth-kiln smoke-stage monitoring): engine notes 'smoke color analysis for direct process control appears limited.' Adjacent (PROVEN/feasible): rotary-kiln burning-state recognition from flame images (S0925231212004201), satellite kiln DETECTION (different task), pyrolysis-yield ML modeling.",
+     "feasibility_note": "HIGH -- image-based kiln burning-state recognition is proven on rotary kilns; transferring CV smoke-stage classification to traditional earth kilns is feasible"},
+    {"process_id": "nixtamalization", "on_target_ai_hits": 1, "penetration": "STARTED (1 direct paper)", "is_low": true,
+     "evidence": "DIRECT prior art exists: 'Predicting Moisture Content During Maize Nixtamalization Using ML with NIR Spectroscopy' (bioRxiv 2021, SVM, rho 0.852) + RSM optimization of alkaline processing. The exact 'ML + spectroscopy for nixtamalization endpoint' application is already begun.",
+     "feasibility_note": "feasible BUT application gap is largely CLOSED (direct paper) -> likely Gate-3 fail"},
+    {"process_id": "sericulture_sorting", "on_target_ai_hits": 3, "penetration": "HIGH", "is_low": false,
+     "evidence": "Already AI'd: CNN silkworm disease detection (IEEE 10441723; researchgate 384221299), ML cocoon-sorting prototype with 3 cameras + AI model to discard dead cocoons (PMC9862640). The deliberate already-AI'd contrast.",
+     "feasibility_note": "n/a -- already done"},
+    {"process_id": "saffron_harvest", "on_target_ai_hits": 6, "penetration": "HIGH", "is_low": false,
+     "evidence": "Already a hot robotics/CV area despite Wikipedia's 'mechanical harvesting is not an option': Dyno Robotics saffron robot (cameras+NeRF), Robotic Saffron startup, ANN flower detection 96-100% (S0168169919302686), multiple harvesting-device papers.",
+     "feasibility_note": "n/a -- already done"}
+  ],
+  "ranked_lowest_penetration": ["retting", "cork_harvest", "charcoal_kiln", "nixtamalization", "sericulture_sorting"]
+}
