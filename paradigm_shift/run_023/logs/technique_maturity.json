@@ -1,0 +1,35 @@
+{
+  "run_id": "run_023",
+  "agent": "2_penetration_and_maturity",
+  "part": "B_technique_maturity",
+  "R13_purpose": "The Run 23 guardrail. A RECENT technique is only an opportunity if it is USABLE NOW (public code / pretrained checkpoint a practitioner can run), not vaporware (a paper with no release). We separately rate (a) usable_now = is there runnable code/weights? and (b) deployment_maturity_tier = how battle-tested is it for the TARGET regime (HIGH/MEDIUM/LOW), which is NOT the same as availability. A technique can be HIGH-available but MEDIUM-deployment because the niche process is out-of-distribution.",
+  "techniques": [
+    {"technique_id": "TSFM", "usable_now": true, "vaporware": false, "deployment_maturity_tier": "HIGH",
+     "strongest_usable_exemplars": "Amazon Chronos-2 (Oct 2025, zero-shot beats tuned statistical models out of the box, ~300 forecasts/s/GPU), Google TimesFM (pretrained on ~100B time-points, HF google/timesfm-1.0-200m), Salesforce MOIRAI-2 (GIFT-Eval leaderboard), MOMENT (ICML'24). Unified pip packages: Samay, TimeCopilot.",
+     "evidence": "Multiple open checkpoints on HuggingFace + pip-installable wrappers; documented zero-shot SOTA. This is the MOST clearly-usable of the four.",
+     "maturity_note": "HIGH availability AND HIGH zero-shot generality. Caveat for the indigo vat: TSFM forecasts a stream well, but a vat 'crash' is a rare regime-shift event; zero-shot forecasting of rare nonstationary transitions is the genuine uncertainty (flagged for the proposal's could_be_wrong_if)."},
+    {"technique_id": "FNO", "usable_now": true, "vaporware": false, "deployment_maturity_tier": "HIGH_library_MEDIUM_deploy",
+     "strongest_usable_exemplars": "neuraloperator (official PyTorch-ecosystem library, `pip install neuraloperator`, implements FNO/TFNO/SFNO/GINO; arXiv:2412.10354). Sparse-sensor reconstruction methods: RecFNO (arXiv:2302.09808), Deep Operator Learning for flow-field reconstruction from sparse sensors (arXiv:2412.08009).",
+     "evidence": "The library is mature, maintained, in the PyTorch ecosystem. The sparse-sensor RECONSTRUCTION application is published with results but is a method-you-train, not a drop-in pretrained checkpoint.",
+     "maturity_note": "Library HIGH; the specific 'reconstruct internal kiln temperature field from 5-10 thermocouples' deployment is MEDIUM -- it needs training data (simulated kiln physics or instrumented kilns) the user must generate. Honest: more engineering than TSFM's drop-in."},
+    {"technique_id": "VLMAD", "usable_now": true, "vaporware": false, "deployment_maturity_tier": "HIGH_avail_MEDIUM_OOD",
+     "strongest_usable_exemplars": "FADE (github.com/BMVC-FADE/BMVC-FADE; 89.6% pixel-AUROC zero-shot, 95.4% 1-shot on MVTec-AD), WinCLIP (CVPR'23, code), AnomalyCLIP (ICLR'24, code). CLIP backbones are standard.",
+     "evidence": "Multiple public repos with reported zero-shot numbers on the MVTec-AD industrial benchmark.",
+     "maturity_note": "HIGH availability. MEDIUM for cork/vat because the 89.6% is on MVTec industrial objects; natural cork bark and a foaming dye-vat surface are OUT-OF-DISTRIBUTION textures -- zero-shot transfer to them is plausible but unproven (the central could_be_wrong_if)."},
+    {"technique_id": "HSIFM", "usable_now": true, "vaporware": false, "deployment_maturity_tier": "MEDIUM",
+     "strongest_usable_exemplars": "SpectralEarth (arXiv:2408.08447, releases dataset + pretrained hyperspectral foundation models), HyperFM (2604.21127), SpecAware (2510.27219).",
+     "evidence": "SpectralEarth publishes pretrained backbones + dataset -- usable. But HSI foundation models are newer and less consolidated than TSFM; pretraining is largely on REMOTE-SENSING spectra (Earth observation), not close-range material spectroscopy.",
+     "maturity_note": "MEDIUM: backbones exist and few-shot fine-tuning is the right tool for retting's no-large-dataset problem, BUT the domain gap (satellite/airborne HSI -> close-range retted-stem spectra) plus the need for a hyperspectral camera make this the least drop-in of the four. Most honest tier."}
+  ],
+  "summary": {"n": 4, "n_usable_now": 4, "n_vaporware": 0,
+    "tiers": {"TSFM": "HIGH", "FNO": "HIGH_library_MEDIUM_deploy", "VLMAD": "HIGH_avail_MEDIUM_OOD", "HSIFM": "MEDIUM"},
+    "R13_verdict": "All 4 are usable-now (code/checkpoints exist) -- NONE are vaporware. But deployment maturity is tiered: TSFM is genuinely drop-in; FNO/VLMAD need either training data or face out-of-distribution transfer; HSIFM additionally needs a hyperspectral camera + faces a remote-sensing->close-range domain gap. Gate 4 (feasible NOW) must weight these tiers, not just 'a paper exists'."},
+  "reasoning_trace": {
+    "step": "rate each recent technique's usability-now and deployment maturity for the TARGET regime",
+    "inputs_seen": "fresh maturity searches per technique (HF checkpoints, pip packages, public repos, benchmark numbers)",
+    "reasoning": "R13 says the whole point of preferring a RECENT technique is undercut if it's vaporware. I separate availability (is there code?) from deployment maturity (will it work on THIS niche, which is usually out-of-distribution). I deliberately resisted scoring all four HIGH: TSFM truly is drop-in, but FNO needs training data, VLMAD faces OOD textures, and HSIFM needs special hardware + has a domain gap. Tiering them honestly is what stops Run 23 from overselling 'recent = better'.",
+    "decision": "usable_now=true for all 4 (none vaporware); maturity tiers TSFM HIGH > FNO/VLMAD MEDIUM-with-caveat > HSIFM MEDIUM",
+    "confidence": "high on availability (repos/checkpoints verified in search); medium on the deployment tiers (judgement about out-of-distribution transfer, which only field testing settles)",
+    "could_be_wrong_if": "a checkpoint I cited is gated/non-commercial; or a technique I tiered MEDIUM actually transfers zero-shot better than expected (or a HIGH one fails on the niche)"
+  }
+}
