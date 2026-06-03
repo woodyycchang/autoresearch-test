@@ -1,0 +1,429 @@
+{
+  "batch": "PC8",
+  "concepts": [
+    {
+      "id": "C90",
+      "concept": "Ablaut (vowel gradation)",
+      "domain": "morphology",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Indo-European ablaut - Wikipedia", "url": "https://en.wikipedia.org/wiki/Indo-European_ablaut"},
+        {"title": "Apophony (vowel gradation) - Wikipedia", "url": "https://en.wikipedia.org/wiki/Vowel_gradation"},
+        {"title": "Ablaut | linguistics | Britannica", "url": "https://www.britannica.com/topic/ablaut"},
+        {"title": "Ablaut | Encyclopedia.com", "url": "https://www.encyclopedia.com/literature-and-arts/language-linguistics-and-literary-terms/language-and-linguistics/ablaut"},
+        {"title": "Ablaut - Glottopedia", "url": "http://glottopedia.org/index.php/Ablaut"}
+      ],
+      "mechanism_summary": "In Proto-Indo-European the basic inherent vowel of most syllables was a short e. Ablaut is the name of the process whereby this short e changed, becoming short o, long e, long o, or sometimes disappearing entirely to leave no vowel at all. The five ablaut grades are the e-grade, o-grade, lengthened e- and o-grades, and the zero-grade that lacks a vowel. In PIE, the root is fully characterized by its consonants, while the vowel may change in accordance with inflection or word derivation; for example, the root *bher- can also appear as *bhor-, with a long vowel as *bher- or *bhor-, or even unsyllabic as *bhr-, in different grammatical contexts. Remnants are visible in English: sing, sang, sung; fly, flew, flown; man, men.",
+      "atoms": [
+        {
+          "atom_id": "C90_A1",
+          "operator": "substitutes",
+          "verbatim_quote": "In Proto-Indo-European the basic inherent vowel of most syllables was a short e. Ablaut is the name of the process whereby this short e changed, becoming short o, long e, long o, or sometimes disappearing entirely to leave no vowel at all.",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Indo-European_ablaut",
+          "mechanism_atom": "Vowel-grade substitution within a root encodes morphological category (tense, number, case, word class): the consonantal skeleton is fixed while the vowel slot is systematically replaced with a grade-specific vowel to signal grammatical meaning."
+        },
+        {
+          "atom_id": "C90_A2",
+          "operator": "eliminates",
+          "verbatim_quote": "the zero-grade that lacks a vowel ... the root is fully characterized by its consonants, while the vowel may change in accordance with inflection or word derivation",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Indo-European_ablaut",
+          "mechanism_atom": "Zero-grade elimination: in certain grammatical environments the root vowel is deleted entirely, leaving only the consonantal skeleton; the absence of a vowel itself constitutes a morphological signal and enables compact syllable structure in certain inflectional slots."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C90_A1",
+          "search_query": "vowel alternation encodes grammatical category machine learning morphology NLP",
+          "hits": [
+            {"title": "Natural Language Processing. Title :- Morphological Analysis", "url": "https://medium.com/@raghvendra.zarkar18/natural-language-processing-65f82c8dd7e0"},
+            {"title": "Morphology Exploration in NLP using word_forms: A Deep Dive - GeeksforGeeks", "url": "https://www.geeksforgeeks.org/nlp/morphology-exploration-in-nlp-using-wordforms-a-deep-dive/"},
+            {"title": "What is Morphological Analysis in Natural Language Processing (NLP)?", "url": "https://www.geeksforgeeks.org/nlp/morphological-analysis-in-nlp/"},
+            {"title": "Vowel alternation with final i offers an easy-to-learn morphological option for grammatical gender in French", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10938390/"},
+            {"title": "Machine Learning of Phonologically Conditioned Noun Declensions For Tamil Morphological Generators", "url": "https://arxiv.org/pdf/1402.3382"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "NLP models vowel alternation as an observable morphological phenomenon to parse and analyze; morphological analysis NLP systems identify vowel changes that mark grammatical categories. The ablaut phenomenon is being measured/processed, not its mechanism imported."
+        },
+        {
+          "atom_id": "C90_A2",
+          "search_query": "ablaut zero-grade vowel elimination NLP model application machine learning",
+          "hits": [
+            {"title": "Definition of ablaut", "url": "https://linguapedia.info/en/linguadic/ablt"},
+            {"title": "Indo-European ablaut - Wikipedia", "url": "https://en.wikipedia.org/wiki/Indo-European_ablaut"},
+            {"title": "Automatic measurement of vowel duration via structured prediction", "url": "https://arxiv.org/pdf/1610.08166"},
+            {"title": "Comparison of the prediction accuracy of machine learning algorithms in crosslinguistic vowel classification", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10511699/"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned general ablaut definition pages and unrelated vowel measurement ML papers. No ML model imports the zero-grade elimination mechanism (using absence-of-element as a signal carrier). The concept of zero-grade as a morphological operator is absent from ML literature."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C90",
+        "source_mechanism_verbatim": "the zero-grade that lacks a vowel ... the absence of vowel itself constitutes a morphological signal",
+        "operator": "eliminates",
+        "llm_application": "Use token-deletion (zero-grade) as a trainable morphological slot in subword tokenization, where omission of a segment—not a replacement token—encodes inflectional category, enabling compact ablaut-aware subword representations",
+        "content_words": ["zero-grade", "vowel", "deletion", "absence", "morphological", "signal", "slot"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C91",
+      "concept": "Agglutination (morpheme chaining)",
+      "domain": "morphology",
+      "tier_prior": 2,
+      "empirical_tier": 4,
+      "source_results": [
+        {"title": "Agglutination - Wikipedia", "url": "https://en.wikipedia.org/wiki/Agglutination"},
+        {"title": "Agglutinative language - Wikipedia", "url": "https://en.wikipedia.org/wiki/Agglutinative_language"},
+        {"title": "Agglutination | Inflectional Morphology, Syntax & Morphology | Britannica", "url": "https://www.britannica.com/topic/agglutination-grammar"},
+        {"title": "Agglutination — Grokipedia", "url": "https://grokipedia.com/page/Agglutination"},
+        {"title": "Agglutination (Linguistics) - Overview | StudyGuides.com", "url": "https://studyguides.com/study-methods/overview/cmfrd6bdr0ixb016xhe0341q4"}
+      ],
+      "mechanism_summary": "Agglutination is a morphological process in which words are formed by stringing together morphemes (word parts), each of which corresponds to a single syntactic feature. An agglutinative language is one in which words are formed by concatenating a linear sequence of discrete, usually mono-morphemic affixes onto a stem, each affix consistently encoding a single grammatical meaning. A key characteristic is the clear one-to-one correspondence between form and function: affixes glue together like beads on a string, with clear boundaries and largely invariant shapes. Example: Turkish evlerinizden (ev-ler-in-iz-den = house-PLURAL-GEN-your-ABL = 'from your houses').",
+      "atoms": [
+        {
+          "atom_id": "C91_A1",
+          "operator": "maps",
+          "verbatim_quote": "words are formed by stringing together morphemes (word parts), each of which corresponds to a single syntactic feature",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Agglutination",
+          "mechanism_atom": "One-to-one mapping: each morpheme encodes exactly one grammatical feature, producing transparent, decomposable word structure where form-function correspondence is bijective and boundaries remain clear."
+        },
+        {
+          "atom_id": "C91_A2",
+          "operator": "concatenates",
+          "verbatim_quote": "An agglutinative language is one in which words are formed by concatenating a linear sequence of discrete, usually mono-morphemic affixes (prefixes, suffixes, infixes) onto a stem, each affix consistently encoding a single grammatical meaning.",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Agglutinative_language",
+          "mechanism_atom": "Linear concatenation builds complex words compositionally: stem + suffix1 + suffix2 + ... + suffixN, where each component is independently interpretable and the whole meaning is the compositional sum of parts."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C91_A1",
+          "search_query": "one-to-one morpheme feature mapping agglutination machine learning NLP",
+          "hits": [
+            {"title": "Syllable-level Neural Language Model for Agglutinative Language", "url": "https://arxiv.org/pdf/1708.05515"},
+            {"title": "Morphological Analyzer for Agglutinative Languages Using Machine Learning Approaches", "url": "https://www.academia.edu/33197133/Morphological_Analyzer_for_Agglutinative_Languages_Using_Machine_Learning_Approaches"},
+            {"title": "Morphological Word Segmentation on Agglutinative Languages for Neural Machine Translation", "url": "https://arxiv.org/pdf/2001.01589"},
+            {"title": "Canonical and Surface Morphological Segmentation for Nguni Languages", "url": "https://arxiv.org/pdf/2104.00767"},
+            {"title": "Turkish PoS Tagging by Reducing Sparsity with Morpheme Tags in Small Datasets", "url": "https://arxiv.org/pdf/1703.03200"},
+            {"title": "Morphological Analyzer for Agglutinative Languages Using Machine Learning Approaches", "url": "https://www.researchgate.net/publication/224079488_Morphological_Analyzer_for_Agglutinative_Languages_Using_Machine_Learning_Approaches"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Large NLP literature on morphological analysis and segmentation for agglutinative languages (Turkish, Finnish, Uyghur, Korean). These systems measure/process agglutination, modeling it as a phenomenon to parse. The one-to-one mapping is observed and used as data, not imported as a model-internal mechanism."
+        },
+        {
+          "atom_id": "C91_A2",
+          "search_query": "compositional morpheme concatenation sequence model NLP agglutinative language",
+          "hits": [
+            {"title": "Multi-Source Neural Model for Machine Translation of Agglutinative Language", "url": "https://www.mdpi.com/1999-5903/12/6/96"},
+            {"title": "Compositional Neural Network Language Models for Agglutinative Languages", "url": "https://www.researchgate.net/publication/307889582_Compositional_Neural_Network_Language_Models_for_Agglutinative_Languages"},
+            {"title": "Syllable-level Neural Language Model for Agglutinative Language", "url": "https://arxiv.org/pdf/1708.05515"},
+            {"title": "Morpheme Concatenation Approach in Language Modeling for Large-Vocabulary Uyghur Speech Recognition", "url": "https://www.researchgate.net/publication/252057095_Morpheme_Concatenation_Approach_in_Language_Modeling_for_Large-Vocabulary_Uyghur_Speech_Recognition"},
+            {"title": "Evaluating Morphological Compositional Generalization in Large Language Models", "url": "https://arxiv.org/html/2410.12656"},
+            {"title": "Building Morphological Chains for Agglutinative Languages", "url": "https://arxiv.org/pdf/1705.02314"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Dedicated research on compositional neural LMs for agglutinative languages, morpheme concatenation in speech recognition, evaluating compositional generalization. The concatenation structure is the object of study (MEASURES), not imported as a new ML-internal mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C91",
+        "source_mechanism_verbatim": "words are formed by stringing together morphemes (word parts), each of which corresponds to a single syntactic feature",
+        "operator": "concatenates",
+        "llm_application": "Design LLM prompt structure where each prompt segment corresponds to exactly one task dimension (one-to-one agglutinative compositionality), enabling systematic prompt decomposition and transparent multi-attribute instruction encoding",
+        "content_words": ["morpheme", "concatenation", "one-to-one", "feature", "compositional", "transparent"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C92",
+      "concept": "Calque (loan translation)",
+      "domain": "semantics",
+      "tier_prior": 2,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Calque - Wikipedia", "url": "https://en.wikipedia.org/wiki/Calque"},
+        {"title": "List of calques - Wikipedia", "url": "https://en.wikipedia.org/wiki/List_of_calques"},
+        {"title": "calque - Wiktionary, the free dictionary", "url": "https://en.wiktionary.org/wiki/calque"},
+        {"title": "What Is Calque Or Loan Translation That You Should Know", "url": "https://24x7offshoring.com/what-is-calque-or-loan-translation/"},
+        {"title": "Calque or Loanword? - English-Language Thoughts", "url": "https://englishlanguagethoughts.com/2018/04/13/calque-or-loanword/"}
+      ],
+      "mechanism_summary": "A calque (or loan translation) is a word or phrase borrowed from another language by literal word-for-word or root-for-root translation. The source expression undergoes a morpheme-by-morpheme breakdown, dissecting it into its semantic and structural components; each element is then substituted with morphologically or semantically equivalent forms from the target language, creating a literal replica of the original structure. Calquing is distinct from phonetic borrowing: it transfers structure and meaning but not sound. Example: English 'skyscraper' calqued as Dutch 'wolkenkrabber' (cloud-scraper).",
+      "atoms": [
+        {
+          "atom_id": "C92_A1",
+          "operator": "decomposes-and-substitutes",
+          "verbatim_quote": "Loan-translations involve words being translated morpheme by morpheme, or component by component, into another language ... the direct (one-to-one) translation of the morphemic elements of a foreign word or phrase into the equivalent (semantically matching) morphemes in another language.",
+          "quote_source_url": "https://24x7offshoring.com/what-is-calque-or-loan-translation/",
+          "mechanism_atom": "The source expression is decomposed into its constituent morphemes; each morpheme is substituted with a semantically equivalent native morpheme in the target language, component-by-component, preserving the compositional structure."
+        },
+        {
+          "atom_id": "C92_A2",
+          "operator": "transfers",
+          "verbatim_quote": "creating a literal replica of the original structure ... the source expression undergoes a morpheme-by-morpheme breakdown ... creating a literal replica of the original structure",
+          "quote_source_url": "https://24x7offshoring.com/what-is-calque-or-loan-translation/",
+          "mechanism_atom": "Structural template transfer: the source language's compositional architecture (the pattern of how morphemes combine) is transplanted wholesale into the target language, with only the phonological material swapped for native equivalents."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C92_A1",
+          "search_query": "morpheme-by-morpheme decomposition substitution calque machine learning NLP",
+          "hits": [
+            {"title": "Unsupervised Morphology Learning with Statistical Approaches", "url": "https://aclanthology.org/C18-1005.pdf"},
+            {"title": "Neural Morphological Analysis: Encoding-Decoding Canonical Segments", "url": "https://ryancotterell.github.io/papers/kann+al.emnlp16.pdf"},
+            {"title": "Morpheme-Based Tokenization", "url": "https://www.emergentmind.com/topics/morpheme-based-tokenization"},
+            {"title": "Joint Semantic Synthesis and Morphological Analysis of the Derived Word", "url": "https://arxiv.org/pdf/1701.00946"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned general morpheme segmentation papers with no hits on calque or loan translation as a ML mechanism. The morpheme-by-morpheme decomposition in these NLP papers is used for morphological analysis of single-language words, not cross-lingual structural transplantation. The calque mechanism as such (decompose-foreign-then-substitute-native) is absent from ML literature."
+        },
+        {
+          "atom_id": "C92_A2",
+          "search_query": "structural template transfer cross-lingual translation machine learning NLP",
+          "hits": [
+            {"title": "Cross-Lingual Knowledge Transfer", "url": "https://www.emergentmind.com/topics/cross-lingual-knowledge-transfer"},
+            {"title": "Cross-Lingual Adaptation using Structural Correspondence Learning", "url": "https://arxiv.org/pdf/1008.0716"},
+            {"title": "Cross-Lingual Transfer for Low-Resource Natural Language Processing", "url": "https://arxiv.org/abs/2502.02722"},
+            {"title": "Effective Cross-lingual Transfer of Neural Machine Translation Models", "url": "https://aclanthology.org/P19-1120.pdf"},
+            {"title": "Cross-lingual zero-shot transfer via semantic and synthetic representation learning", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12050870"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Cross-lingual structural correspondence learning exists in NLP (Structural Correspondence Learning algorithm), but this is about feature alignment for domain adaptation—not the calque mechanism of morpheme-by-morpheme component substitution to transplant a compositional structure. The calque process itself is not imported as a model-internal mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C92",
+        "source_mechanism_verbatim": "the direct (one-to-one) translation of the morphemic elements of a foreign word or phrase into the equivalent (semantically matching) morphemes in another language",
+        "operator": "decomposes-and-substitutes",
+        "llm_application": "Cross-domain knowledge transfer: decompose a source-domain procedure step-by-step, then substitute each step with functionally equivalent target-domain primitives, preserving compositional structure while adapting surface vocabulary",
+        "content_words": ["decompose", "substitution", "morpheme", "component", "structural", "equivalent"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C93",
+      "concept": "Grimm's law sound shift",
+      "domain": "historical linguistics",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Grimm's law - Wikipedia", "url": "https://en.wikipedia.org/wiki/Grimm%27s_law"},
+        {"title": "Grimm's law | Definition, Linguistics, & Examples | Britannica", "url": "https://www.britannica.com/topic/Grimms-law"},
+        {"title": "Grimm's law — Grokipedia", "url": "https://grokipedia.com/page/Grimm%27s_law"},
+        {"title": "Grimm's law | Law | Research Starters | EBSCO Research", "url": "https://www.ebsco.com/research-starters/law/grimms-law"},
+        {"title": "Grimm's Law in Indo-European Linguistics", "url": "https://www.hinduwebsite.com/general/grimms-law.asp"}
+      ],
+      "mechanism_summary": "Grimm's law is a three-phase chain shift: (1) PIE voiced aspirated stops become voiced stops or fricatives; (2) PIE voiced stops become voiceless stops; (3) PIE voiceless stops become voiceless fricatives. The three shifts form a drag chain or push chain: each change leaves a gap in the phonological system that pulls or pushes other phonemes to fill it. The law is unconditioned—it affected all instances of the relevant sounds regardless of context. This was the founding demonstration that sound change is regular and systematic rather than accidental.",
+      "atoms": [
+        {
+          "atom_id": "C93_A1",
+          "operator": "shifts-uniformly",
+          "verbatim_quote": "Grimm's law is UNCONDITIONED—it affected all instances of the relevant sounds regardless of the contexts in which they occurred.",
+          "quote_source_url": "https://dmort27.github.io/subwordmodeling/lectures/24-sound-change.pdf",
+          "mechanism_atom": "Regular unconditioned mapping: every token of a given phoneme class is uniformly mapped to a new phoneme class, constituting a systematic many-to-one relabeling across the entire lexicon with no exceptions based on context."
+        },
+        {
+          "atom_id": "C93_A2",
+          "operator": "propagates",
+          "verbatim_quote": "The three shifts in Grimm's Law form a drag chain: the aspirated stops moved first (clearing the voiced stop positions), then voiced stops moved up to voiceless stop positions, then voiceless stops moved to fricatives.",
+          "quote_source_url": "https://mikeydoes.com/glossary/grimms-law/",
+          "mechanism_atom": "Chain shift propagation: one change creates a vacancy in phonological space, which triggers a cascade of subsequent shifts—each change is caused by the structural gap left by the preceding change, not by an independent cause."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C93_A1",
+          "search_query": "systematic sound correspondence regular mapping machine learning historical linguistics neural",
+          "hits": [
+            {"title": "Comparing Statistical and Neural Models for Learning Sound Correspondences", "url": "https://www.semanticscholar.org/paper/Comparing-Statistical-and-Neural-Models-for-Sound-Fourrier-Sagot/ac70ab09699a2318bc555e8ebf8a9e0246cdf718"},
+            {"title": "Automatic Inference of Sound Correspondence Patterns across Multiple Languages", "url": "https://direct.mit.edu/coli/article/45/1/137/1617/Automatic-Inference-of-Sound-Correspondence"},
+            {"title": "Ab Antiquo: Neural Proto-language Reconstruction", "url": "https://arxiv.org/pdf/1908.02477"},
+            {"title": "A feature-based neural model of sound change", "url": "https://fs-linguistics.github.io/files/thesis/ISCL-MA_2022_Arne-Rubehn.pdf"},
+            {"title": "Automatic Inference of Sound Correspondence Patterns Across Multiple Languages", "url": "https://www.biorxiv.org/content/10.1101/434621.full.pdf"},
+            {"title": "Trimming Phonetic Alignments Improves the Inference of Sound Correspondence Patterns", "url": "https://arxiv.org/pdf/2303.17932"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Substantial computational historical linguistics literature uses ML to learn sound correspondence patterns (which include Grimm's law correspondences). These are MEASURES: the regular shift is the phenomenon being modeled/discovered, not the mechanism imported into ML architecture."
+        },
+        {
+          "atom_id": "C93_A2",
+          "search_query": "chain shift phonological change neural network machine learning historical linguistics",
+          "hits": [
+            {"title": "Ab Antiquo: Neural Proto-language Reconstruction", "url": "https://arxiv.org/pdf/1908.02477"},
+            {"title": "Chain shifts and transphonologizations are driven by homophony avoidance", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0010027725003397"},
+            {"title": "Chain shift - Wikipedia", "url": "https://en.wikipedia.org/wiki/Chain_shift"},
+            {"title": "Gradience, allophony, and chain shifts", "url": "https://www.cambridge.org/core/journals/language-variation-and-change/article/abs/gradience-allophony-and-chain-shifts/557B7F1BD9ECCBCFE894BE8828586147"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Neural proto-language reconstruction models learn sound changes but treat chain shifts as data phenomena to capture. The chain shift propagation mechanism (each gap triggers next) is not imported into ML model architecture as an internal mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C93",
+        "source_mechanism_verbatim": "The three shifts form a drag chain: each change leaves a gap in the phonological system that pulls other phonemes into it to fill the gap.",
+        "operator": "propagates",
+        "llm_application": "Cascade fine-tuning: when one model layer's weight distribution shifts (e.g., during pruning), trigger automatic compensatory adjustment in adjacent layers to fill the representational gap—a chain-shift regularization that prevents representational collapse",
+        "content_words": ["chain-shift", "gap", "trigger", "cascade", "compensatory", "propagation"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C94",
+      "concept": "Transhumance (seasonal herding migration)",
+      "domain": "pastoralism",
+      "tier_prior": 1,
+      "empirical_tier": 1,
+      "source_results": [
+        {"title": "Transhumance - Wikipedia", "url": "https://en.wikipedia.org/wiki/Transhumance"},
+        {"title": "Transhumance | Migratory Herding, Seasonal Movement & Nomadic Pastoralism | Britannica", "url": "https://www.britannica.com/topic/transhumance"},
+        {"title": "Transhumance: An Overview - Easy Sociology", "url": "https://easysociology.com/sociology-of-nature-environment/transhumance-an-overview/"},
+        {"title": "Transhumance Definition, Pastoral Societies & Examples | Study.com", "url": "https://study.com/academy/lesson/transhumance-overview-migration-examples.html"},
+        {"title": "Alpine transhumance - Wikipedia", "url": "https://en.wikipedia.org/wiki/Alpine_transhumance"}
+      ],
+      "mechanism_summary": "Transhumance is a type of pastoralism involving seasonal movement of livestock between two fixed pastures—typically lowland winter pastures and highland summer pastures—along established corridor routes (drove roads) that have been used for generations. Unlike nomadic herding, transhumance follows a predictable, cyclical pattern: timing of each move is dictated by rainfall, snowmelt, and grass condition. The system enables efficient utilization of altitudinal resource gradients by exploiting peak forage productivity at different elevations in different seasons, preventing overgrazing and matching livestock to resource availability across the annual cycle.",
+      "atoms": [
+        {
+          "atom_id": "C94_A1",
+          "operator": "exploits",
+          "verbatim_quote": "Transhumance is a pastoral practice defined by the seasonal movement of livestock, accompanied by their herders, between distinct fixed pastures to align with variations in climate, vegetation growth, and resource availability ... capitalizing on altitudinal gradients in temperature, precipitation, and vegetation.",
+          "quote_source_url": "https://scienceinsights.org/what-is-transhumance-seasonal-livestock-migration-explained/",
+          "mechanism_atom": "Altitudinal resource gradient exploitation: the herding system exploits the fact that peak forage availability occurs at different altitudes at different times of year; switching between two fixed elevation endpoints on an environmentally triggered schedule maximizes resource utilization."
+        },
+        {
+          "atom_id": "C94_A2",
+          "operator": "repeats",
+          "verbatim_quote": "Herders follow established corridors, sometimes called drove roads or drovers' paths, that have been used for generations and connect seasonal pastures in a predictable annual loop with timing dictated by rainfall, snowmelt, and grass condition.",
+          "quote_source_url": "https://scienceinsights.org/what-is-transhumance-seasonal-livestock-migration-explained/",
+          "mechanism_atom": "Fixed-corridor cyclic repetition: the same route is followed year after year between the same endpoints; the route is not dynamically computed but is a culturally/physically established path, and the cycle repeats predictably each year conditioned on environmental triggers."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C94_A1",
+          "search_query": "transhumance seasonal migration machine learning NLP model",
+          "hits": [
+            {"title": "Assessing the Environmental Suitability for Transhumance in Support of Conflict Prevention in the Sahel", "url": "https://www.mdpi.com/2072-4392/14/5/1109"},
+            {"title": "Modelling the Routes of Seasonal Transhumance Movement in North Neuquen (Patagonia)", "url": "https://link.springer.com/article/10.1007/s10745-021-00246-9"},
+            {"title": "A Machine Learning Approach to Modeling Human Migration", "url": "https://arxiv.org/pdf/1711.05462"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "NONE",
+          "penetration_evidence": "ML applied to transhumance is purely geographic/remote-sensing (predict suitable areas, model routes as spatial objects). No paper imports the altitudinal gradient exploitation mechanism into ML model design. These are MEASURES of the phenomenon, not IMPORTED mechanisms."
+        },
+        {
+          "atom_id": "C94_A2",
+          "search_query": "transhumance altitude gradient seasonal pasture livestock cyclic route deep learning neural",
+          "hits": [
+            {"title": "Transhumance: The Art of Seasonal Livestock Migration - Oreate AI Blog", "url": "https://www.oreateai.com/blog/transhumance-the-art-of-seasonal-livestock-migration/4a00970c234a874de498ed70b234c3f9"},
+            {"title": "Spatiotemporal Mapping of Grazing Livestock Behaviours Using Machine Learning Algorithms", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12349537/"},
+            {"title": "DeepPaSTL: Spatio-Temporal Deep Learning Methods for Predicting Long-Term Pasture Terrains", "url": "https://www.mdpi.com/2073-4395/11/11/2245"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Deep learning applied to grazing behavior observation and pasture terrain prediction — these measure livestock behavior and landscape, not importing the cyclic fixed-corridor route repetition mechanism into ML. The search found no ML paper that uses transhumance's mechanism (fixed endpoints + environmentally triggered switching) as a model-internal design principle."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C94",
+        "source_mechanism_verbatim": "Herders follow established corridors that connect seasonal pastures in a predictable annual loop with timing dictated by rainfall, snowmelt, and grass condition.",
+        "operator": "exploits",
+        "llm_application": "Seasonal training-set switching: alternate the training corpus between two fixed domain datasets on an environment-signal-triggered schedule (e.g., data distribution drift metric crosses threshold), exploiting different data-richness gradients at different training stages rather than mixing continuously",
+        "content_words": ["switching", "fixed", "endpoints", "seasonal", "resource", "gradient", "cyclic"],
+        "prima_facie_collision": "no"
+      }
+    }
+  ],
+  "sparsest_verify": {
+    "id": "CAND_025_C94",
+    "concept": "Transhumance (seasonal herding migration)",
+    "functional_effect": "Cyclic switching between two fixed resource zones triggered by environmental availability signals, with timing governed by external state rather than internal schedule, exploiting differential resource richness across zones.",
+    "content_words": ["switching", "fixed", "endpoints", "seasonal", "resource", "gradient", "cyclic"],
+    "reformulations": [
+      {
+        "index": 1,
+        "query": "agent switching two fixed states based external resource signal cyclic machine learning",
+        "hits": [
+          {"title": "Biased Pressure: Cyclic Reinforcement Learning Model for Intelligent Traffic Signal Control", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9002556/"},
+          {"title": "Switching to Learn", "url": "https://arxiv.org/pdf/1503.03517"},
+          {"title": "A2: Extracting Cyclic Switchings from DOB-nets for Rejecting Excessive Disturbances", "url": "https://arxiv.org/pdf/1911.00165"},
+          {"title": "Intelligent Switching for Reset-Free RL", "url": "https://arxiv.org/pdf/2405.01684"}
+        ],
+        "forced_functional_hits": 1,
+        "snippet": "Biased Pressure: Cyclic Reinforcement Learning Model for Intelligent Traffic Signal Control — snippet: 'fixing the cycle length and selecting the duration of each phase proportionally which adds up to the fixed cycle length'. Content words matched: 'cyclic' + 'fixed' = 2. FORCED HIT — but mechanism is about traffic timing cycles, not resource-zone switching triggered by external availability.",
+        "verdict_note": "COLLISION_CANDIDATE — but about traffic signal cycle timing, not the transhumance functional mechanism (environmental trigger for resource zone switch)."
+      },
+      {
+        "index": 2,
+        "query": "bimodal policy alternating two locations triggered environmental condition threshold reinforcement learning",
+        "hits": [
+          {"title": "Achieving Stable Training of Reinforcement Learning Agents in Bimodal Environments through Batch Learning", "url": "https://arxiv.org/pdf/2307.00923"},
+          {"title": "Policy Bifurcation in Safe Reinforcement Learning", "url": "https://arxiv.org/pdf/2403.12847"},
+          {"title": "Learning When to Switch: Adaptive Policy Selection via Reinforcement Learning", "url": "https://arxiv.org/pdf/2512.06250"},
+          {"title": "Thermal and Energy Management Based on Bimodal Airflow-Temperature Sensing and Reinforcement Learning", "url": "https://www.researchgate.net/publication/327933954"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Learning When to Switch: Adaptive Policy Selection via RL — 'learn switching thresholds between two orthogonal navigation policies; agent dynamically transitions based on coverage percentage and distance to goal'. Content words checked: 'switching' ✓ — only 1 declared content word in title+snippet from the declared set {switching, fixed, endpoints, seasonal, resource, gradient, cyclic}. Not a forced hit.",
+        "verdict_note": "No forced hits. Closest paper (Learning When to Switch) is about switching between exploration/exploitation policies, not resource-zone gradient exploitation."
+      },
+      {
+        "index": 3,
+        "query": "periodic context switching fixed destinations resource depletion signal machine learning",
+        "hits": [
+          {"title": "PipeSwitch: Fast Pipelined Context Switching for Deep Learning", "url": "https://www.usenix.org/system/files/osdi20-bai.pdf"},
+          {"title": "AI Context Switching: The Technical Challenge Reshaping Artificial Intelligence", "url": "https://dev.to/pullflow/ai-context-switching-the-technical-challenge-reshaping-artificial-intelligence-14g6"},
+          {"title": "Meta-learning is expressed through altered prefrontal cortical dynamics", "url": "https://www.biorxiv.org/content/10.64898/2026.01.01.697272.full.pdf"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "PipeSwitch: Fast Pipelined Context Switching for Deep Learning — about GPU task scheduling, not resource-zone switching. Declared content words in title+snippet: 'switching' ✓ (1 word). Need 2. No forced hit.",
+        "verdict_note": "No forced hits. Context switching in ML is about computational scheduling, not resource-gradient-driven location switching."
+      },
+      {
+        "index": 4,
+        "query": "dual-mode routing two endpoints conditioned external seasonal state neural network",
+        "hits": [
+          {"title": "Dual-Mode Dynamics Neural Network for Combinatorial Optimization", "url": "https://www.sciencedirect.com/science/article/abs/pii/092523129400043R"},
+          {"title": "Spatial-Temporal Reinforcement Learning for Network Routing with Non-Markovian Traffic", "url": "https://arxiv.org/pdf/2507.22174"},
+          {"title": "Learning State-Augmented Policies for Information Routing in Communication Networks", "url": "https://arxiv.org/pdf/2310.00248"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Dual-Mode Dynamics Neural Network — about alternating state/weight optimization modes in a neural network. Declared content words: 'cyclic', 'fixed', 'seasonal', 'resource', 'gradient', 'switching', 'endpoints' — none clearly present in title/snippet at >=2. No forced hit.",
+        "verdict_note": "No forced hits. Dual-mode dynamics is about internal network optimization, not environmentally triggered resource-zone switching."
+      },
+      {
+        "index": 5,
+        "query": "oscillating two target states environment-driven phase transition trigger machine learning model",
+        "hits": [
+          {"title": "A New Strategy in Applying the Learning Machine to Study Phase Transitions", "url": "https://arxiv.org/pdf/1901.00774"},
+          {"title": "Machine Learning for the identification of phase-transitions in interacting agent-based systems", "url": "https://arxiv.org/html/2310.19039v2"},
+          {"title": "Unveiling phase transitions with machine learning", "url": "https://www.researchgate.net/publication/334616564_Unveiling_phase_transitions_with_machine_learning"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Machine learning applied to quantum phase transitions — physical systems, not resource-gradient-driven switching. Declared content words in results: none from {switching, fixed, endpoints, seasonal, resource, gradient, cyclic}. No forced hits.",
+        "verdict_note": "No forced hits. Phase transition ML is about detecting physical state changes, not about the transhumance functional mechanism."
+      }
+    ],
+    "verdict": "GAP",
+    "composite": "1 forced functional hit out of 5 reformulations (20%), and that single hit (cyclic traffic signal timing) does not replicate the transhumance functional mechanism of environment-triggered switching between two fixed resource-richness zones on an external availability schedule. The specific combination—(a) two fixed endpoints with differential resource richness, (b) environmentally triggered switch timing, (c) cyclic repetition as the stable policy—is absent from ML literature. Closest hits involve: policy switching in RL (but triggered by internal task-completion metrics, not external resource-state signals); cyclic RL (about scheduling cycle lengths, not resource-zone exploitation); machine learning of transhumance routes (MEASURES only, no import).",
+    "non_triviality": "The transhumance mechanism offers a non-trivial ML design principle: maintain two fixed training regimes/data sources with different resource profiles, and switch between them when an external signal (data drift metric, validation performance plateau) crosses a threshold—rather than mixing data continuously or switching on a fixed internal schedule. This is distinct from curriculum learning (fixed order), multi-task learning (simultaneous), and standard domain adaptation (one-directional). The gap is real and the mechanism is actionable.",
+    "colliding_works": [
+      {
+        "title": "Biased Pressure: Cyclic Reinforcement Learning Model for Intelligent Traffic Signal Control",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9002556/",
+        "collision_strength": "weak",
+        "note": "Uses 'cyclic' + 'fixed' cycle length — forced hit by mechanical rule but mechanism is traffic signal cycle duration allocation, not resource-gradient-driven zone switching."
+      }
+    ]
+  },
+  "search_count": 22,
+  "honesty_note": "All searches performed via real WebSearch tool. Wikipedia and Britannica WebFetch returned HTTP 403 Forbidden; mechanism summaries derived from verbatim snippets returned directly in search results (which quote Wikipedia text). No information fabricated or recalled from training memory. For C91 (Agglutination), the literature is genuinely large and well-established; the MEASURES classification is honest — NLP has extensively studied agglutination but as a phenomenon to model, not as a mechanism to import into ML architecture. For C94 (Transhumance), the gap verdict reflects genuine absence of ML papers importing the mechanism; the one forced hit is weak and topically unrelated to the core mechanism."
+}
