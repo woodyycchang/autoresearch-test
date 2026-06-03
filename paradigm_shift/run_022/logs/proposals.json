@@ -1,0 +1,132 @@
+{
+  "run_id": "run_022",
+  "agent": "3_proposer",
+  "generated_at": "2026-06-03T15:50:17.331813+00:00",
+  "proposals": [
+    {
+      "process_id": "retting",
+      "on_target_ai_hits": 0,
+      "penetration": "NONE",
+      "is_low": true,
+      "process": "id retting: separating bast fibre by microbial/chemical degradation of pectin binding the fibres",
+      "current_inefficiency": "Retting endpoint is judged by feel/experience, so under-retting leaves fibres bound while over-retting weakens and dirties them, with quality and timing varying widely by method and conditions",
+      "ai_technique": "Near-infrared/short-wave-infrared hyperspectral imaging coupled with a gradient-boosted regression model (XGBoost) calibrated against pectin-content/fibre-strength reference assays",
+      "how_it_improves": "Inputs: line-scan NIR-SWIR hyperspectral cubes (~900-1700 nm) of retting straw sampled periodically (or in-line on a conveyor), where pectin, cellulose and lignin have characteristic absorption features. Model: an XGBoost regressor trained on spectra labelled with lab-measured residual pectin (uronic-acid assay) and tensile fibre strength, outputting a continuous 'retting degree' index per sample. Actionable output: a calibrated endpoint alarm that flags the optimal harvest window (pectin sufficiently degraded, cellulose not yet attacked) and a spatial map of uneven retting across a field/pond batch. Efficiency gain: replaces subjective feel-testing with an objective, repeatable pectin-state readout, cutting both under- and over-retting losses, tightening fibre-strength variance, and standardising timing across pond/stream/field methods.",
+      "why_not_done_before": "Hyperspectral+ML is mature for grain and forage quality but retting is a low-tech, smallholder/heritage process with no instrumentation budget and no public spectral library labelled against pectin-degradation reference assays; building that calibration set (destructive uronic-acid + tensile testing across retting stages) is the unglamorous bottleneck nobody has funded for flax/hemp retting specifically",
+      "primary_quote": "Retting endpoint is judged by feel/experience",
+      "quote_source": "inefficiency",
+      "reasoning_trace": {
+        "step": "propose improvement for retting",
+        "inputs_seen": "the process + its inefficiency",
+        "reasoning": "The inefficiency is fundamentally a hidden-state estimation problem: the operator cannot directly see residual pectin, the very compound whose degradation defines the endpoint. NIR-SWIR hyperspectral imaging directly senses the molecular bonds of pectin/cellulose, and gradient-boosted regression is a well-proven, sample-efficient way to map noisy spectra to a continuous chemical target without huge deep-learning datasets. This is concretely buildable: spectrometers, XGBoost, and uronic-acid assays all exist today; an engineer needs only to collect labelled retting-stage spectra. I rejected a YOLO/CNN visual classifier because surface colour/texture (what 'feel and experience' already approximate) is a weak, confounded proxy for internal pectin state, whereas SWIR sees the chemistry directly.",
+        "decision": "Use NIR-SWIR hyperspectral imaging + XGBoost regression calibrated to residual pectin and fibre strength to give an objective retting-endpoint index",
+        "confidence": "high - the sensing physics and the ML method are both established; the only real work is assembling the labelled calibration set",
+        "could_be_wrong_if": "field moisture, soil/microbial contamination, or straw geometry dominate the SWIR signal enough that pectin features can't be reliably isolated, or if a proprietary industrial flax processor has already deployed exactly this calibration and not published it"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "f245ea56-727e-4d79-b26c-61cce2911688"
+    },
+    {
+      "process_id": "cork_harvest",
+      "on_target_ai_hits": 0,
+      "penetration": "NONE on the stripping step",
+      "is_low": true,
+      "process": "manual cork-oak bark stripping with a hand axe (machado)",
+      "current_inefficiency": "success depends entirely on the harvester's skill; cutting too deep severs the cambium and harms the tree, while larger intact sheets are worth more, so depth and split-avoidance must be judged by feel in real time",
+      "ai_technique": "real-time acoustic/vibration sensing on the axe handle classified by a lightweight 1D-CNN (acoustic-emission classification), analogous to tool-wear and material-boundary detection used in CNC machining",
+      "how_it_improves": "a contact accelerometer/piezo mic on the machado streams vibration as the edge is twisted between cork and cambium -> a 1D-CNN trained on labeled strokes (good pry vs. cambium-contact vs. cork-tearing) infers in <50 ms which layer the edge is engaging -> a haptic buzz or LED on the handle warns the moment the signal shifts toward cambium-cutting or sheet-splitting -> harvester eases off before damaging the tree or fracturing the sheet, raising intact-sheet yield and reducing tree injury without replacing the human",
+      "why_not_done_before": "acoustic-emission boundary sensing is mature in metal/wood CNC but nobody has collected the niche labeled dataset of cork-vs-cambium stroke signatures; the harvest is seasonal, decentralized among traditional artisans, low-margin, and outsiders assumed the only AI play was full robotic stripping (which failed), so the narrow handle-sensor assist was overlooked",
+      "primary_quote": "success depends entirely on the harvester's skill",
+      "quote_source": "inefficiency",
+      "reasoning_trace": {
+        "step": "propose improvement for cork_harvest",
+        "inputs_seen": "the process + its inefficiency",
+        "reasoning": "The core skill is a tactile/auditory judgment of when the edge has reached the cambium boundary and when the sheet is about to split \u2014 exactly the signal that acoustic-emission/vibration sensing captures in CNC tool-material monitoring. A handle-mounted accelerometer is cheap, robust to the bark dust and outdoor conditions that would foul a vision system buried under the lifting sheet, and gives the millisecond-latency feedback a swinging axe needs. I rejected hyperspectral/CV cork-cambium imaging because during the pry the boundary is occluded by the lifting cork and the worker's hands, so a camera can't see the cut plane; vibration travels straight up the tool from the cut. The narrow assist (warn the human) respects R13 rather than automating stripping.",
+        "decision": "instrument the machado with a vibration sensor + 1D-CNN that classifies the cutting layer in real time and gives haptic warning before cambium damage or sheet splitting",
+        "confidence": "medium - the sensing modality is proven in CNC, but feasibility hinges on whether cork-vs-cambium strokes produce separable vibration signatures, which is unverified for this material",
+        "could_be_wrong_if": "cork's softness damps the edge-engagement vibrations below the noise of the swing/twist so the signatures aren't separable, or expert harvesters are already accurate enough that the marginal yield gain doesn't justify instrumenting the tool"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "7b1513b9-1d13-44ae-93f9-b4f60db0b822"
+    },
+    {
+      "process_id": "charcoal_kiln",
+      "on_target_ai_hits": 1,
+      "penetration": "LOW (traditional kiln); adjacent exists",
+      "is_low": true,
+      "process": "traditional earth-mound kiln charcoal pyrolysis monitored by smoke color",
+      "current_inefficiency": "workers run 24/7 manual smoke-color watching as the only pyrolysis-stage indicator, and yields stay at only ~15-25% with 70-80% of wood energy lost",
+      "ai_technique": "a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)",
+      "how_it_improves": "A weatherproof camera streams chimney-plume frames -> a lightweight CNN classifies the plume into pyrolysis stages (dense white = drying/water vapor, yellow-grey = active carbonization, thin blue/clear = carbonization complete) and estimates color/opacity transition timing -> the edge device raises an alarm (SMS/buzzer) and recommends vent-closing/sealing the moment plume turns blue-clear, replacing continuous human vigilance. Acting precisely at the white->blue transition stops over-burn that consumes already-formed charcoal, tightening the kill-point and raising/stabilizing yield while freeing workers from 24/7 watch.",
+      "why_not_done_before": "Earth-mound kilns are built by low-capital, often off-grid rural/informal producers with no instrumentation budget; the CV smoke-stage models that exist were developed and validated on industrial rotary kilns with fixed cameras and power, and nobody has packaged that into a cheap, ruggedized, offline edge kit and collected the labeled earth-kiln smoke dataset needed to retrain it.",
+      "primary_quote": "tracking smoke-color changes as the key indicator of pyrolysis stage",
+      "quote_source": "inefficiency",
+      "reasoning_trace": {
+        "step": "propose improvement for charcoal_kiln",
+        "inputs_seen": "the process + its inefficiency",
+        "reasoning": "The inefficiency is literally a human visual-classification task (smoke white->blue) done 24/7 -- a direct match for a smoke-plume CNN classifier, and the prompt itself notes image-based kiln burning-state recognition is proven on rotary kilns, so transfer is feasible. Feasibility rests on cheap edge hardware (Pi/Jetson + solar) and small fine-tuned models that run offline, plus that the target signal (plume color/opacity) is exactly what existing smoke-classification CNNs already detect. I rejected hyperspectral imaging + gradient-boosted regression as the primary pick because hyperspectral sensors are far too costly for off-grid artisanal producers, defeating the deployment realism.",
+        "decision": "deploy a fine-tuned CNN smoke-plume stage classifier on a low-cost solar edge camera to automate the white->blue carbonization-endpoint call and alert workers",
+        "confidence": "high - the underlying CV task is proven on industrial kilns and the only gap is cheap ruggedized edge packaging plus an earth-kiln smoke dataset",
+        "could_be_wrong_if": "earth-mound plumes are too diffuse/wind-dispersed or vary too much by wood/moisture/weather for a vision model to reliably distinguish stages, or an NGO/ag-tech project has already fielded such a smoke-CNN kit for artisanal kilns"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "e076f875-17af-4188-a77d-c9bc0d1f4e08"
+    },
+    {
+      "process_id": "nixtamalization",
+      "on_target_ai_hits": 1,
+      "penetration": "STARTED (1 direct paper)",
+      "is_low": true,
+      "process": "alkaline nixtamalization of maize",
+      "current_inefficiency": "cook time, steep duration and lime alkalinity set empirically; over/under-cooking shifts texture, niacin release and dough quality, with manual experiential control",
+      "ai_technique": "in-line NIR (near-infrared) spectroscopy + gradient-boosted regression (XGBoost) for soft-sensor endpoint prediction",
+      "how_it_improves": "A fiber-optic NIR probe immersed in the steep tank streams 900-1700 nm absorbance spectra of the cooking maize/nejayote every few seconds; an XGBoost regressor trained on spectra labeled with offline lab measurements (degree of gelatinization/DSC, pericarp removal %, moisture, bound niacin) predicts these quality variables in real time. The model outputs a live 'cook-doneness' index and predicted minutes-to-endpoint, which drives a controller to cut heat and start the wash exactly at target -> eliminates over/under-cooking batch variance, cuts energy and steep time, and stabilizes downstream masa quality without destructive sampling.",
+      "why_not_done_before": "Nixtamalization is dominated by small/artisanal and mid-size tortilla producers with thin R&D budgets; building the labeled spectral-to-quality calibration dataset requires pairing an industrial NIR rig with DSC/HPLC niacin assays across maize varieties, and the caustic, hot, particulate-laden lime steep is a hostile probe environment, so no one has fused process-NIR with boosted-tree soft sensors here.",
+      "primary_quote": "Cooking time and steeping (minutes to ~a day) and alkalinity are set empirically",
+      "quote_source": "inefficiency",
+      "reasoning_trace": {
+        "step": "propose improvement for nixtamalization",
+        "inputs_seen": "the process + its inefficiency",
+        "reasoning": "The core inefficiency is an unmeasured, empirically-set endpoint for an opaque chemical cook. NIR is a mature, food-industry-proven probe for moisture/starch/protein state and works through slurries; XGBoost soft sensors are standard in process industries for spectra->property mapping. Fusing them as an in-line endpoint predictor is concrete and buildable. I rejected pure computer-vision hull-detection (only sees surface, misses gelatinization/niacin chemistry) and generic 'IoT temperature control' (alkalinity/starch state, not temperature, is the missing signal).",
+        "decision": "in-line NIR spectroscopy with XGBoost soft-sensor predicting gelatinization, hull removal and niacin to control cook/steep endpoint",
+        "confidence": "medium - NIR+boosted-tree soft sensors are proven elsewhere, but the calibration dataset and caustic-probe ruggedization are real lift",
+        "could_be_wrong_if": "the single existing direct paper already applies spectroscopy+ML to nixtamalization endpoint control, or NIR cannot resolve bound-niacin release through the turbid nejayote, closing or invalidating the gap"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "c3471ebb-a3d5-4677-8c09-d4017b72bce2"
+    },
+    {
+      "process_id": "sericulture_sorting",
+      "on_target_ai_hits": 3,
+      "penetration": "HIGH",
+      "is_low": false,
+      "process": "Cocoon sorting before industrial silk reeling",
+      "current_inefficiency": "Sorting is the most labor-intensive reeling step, and RGB-vision sorters only judge the cocoon's external shell \u2014 they cannot see internal state (live vs. dead pupa, double pupae, or Uzi-fly larva/exit damage hidden under intact silk)",
+      "ai_technique": "Impact-acoustic emission sensing + 1D-CNN classifier (the same vibro-acoustic tap-test pipeline used for egg-crack and nut-emptiness detection)",
+      "how_it_improves": "A singulation rig drops each cocoon onto/past a light tapper while a contact piezo or MEMS microphone records the impact ringdown (a few ms waveform). The waveform (or its spectrogram) is fed to a 1D-CNN/spectrogram-CNN trained on labeled cocoons; resonant frequency and damping encode internal mass and cavity \u2014 empty/Uzi-exited shells ring higher/longer, double-pupa cocoons are heavier/lower, dead-pupa (disease) cocoons damp differently. Output is a per-cocoon class that drives a pneumatic diverter, catching internal defects vision misses and cutting manual back-checking",
+      "why_not_done_before": "Sericulture vision research has converged almost entirely on RGB/CNN external grading; acoustic tap-testing needs a custom mechanical singulation+tapper rig and a hand-labeled acoustic dataset (requiring destructive ground-truth dissection of pupae), which is rarely built for a low-margin crop concentrated in regions with cheap manual labor",
+      "primary_quote": "automatization is mandatory to reduce silk costs",
+      "quote_source": "inefficiency",
+      "reasoning_trace": {
+        "step": "propose improvement for sericulture_sorting",
+        "inputs_seen": "the process + its inefficiency",
+        "reasoning": "AI penetration here is HIGH but it is almost all RGB computer vision, which is fundamentally blind to what is inside an intact, opaque silk shell \u2014 exactly where double-pupae, dead/diseased pupae, and Uzi-fly internal damage live. Impact-acoustic + 1D-CNN is a mature, proven technique for non-destructive internal-state inspection (egg cracks, hollow nuts, fruit firmness), so it is feasible off-the-shelf and attacks the dimension vision cannot reach. I rejected hyperspectral/NIR (penetrates only mm of silk, weaker at deep internal mass differences and far costlier per lane) in favor of cheap piezo/MEMS acoustics that directly sense mass and cavity resonance",
+        "decision": "Use impact-acoustic ringdown + 1D-CNN to classify each singulated cocoon by internal state and divert defects vision-based sorters miss",
+        "confidence": "medium - the ML and sensors are off-the-shelf, but reliable singulation throughput and acoustic ground-truth labeling are real engineering risks",
+        "could_be_wrong_if": "the silk shell's heavy acoustic damping flattens the resonant differences between live, dead, and Uzi-exited pupae below detectable SNR, or a vendor has already shipped acoustic/weight-based internal cocoon sorting that I'm unaware of"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "b4412c6b-e51a-41a8-a712-7abbebb579d7"
+    }
+  ]
+}

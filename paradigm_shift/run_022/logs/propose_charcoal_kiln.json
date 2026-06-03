@@ -1,0 +1,90 @@
+{
+  "process_id": "charcoal_kiln",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 20240,
+    "duration_api_ms": 19489,
+    "ttft_ms": 2010,
+    "num_turns": 1,
+    "result": "{\"process\": \"traditional earth-mound kiln charcoal pyrolysis monitored by smoke color\", \"current_inefficiency\": \"workers run 24/7 manual smoke-color watching as the only pyrolysis-stage indicator, and yields stay at only ~15-25% with 70-80% of wood energy lost\", \"ai_technique\": \"a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)\", \"how_it_improves\": \"A weatherproof camera streams chimney-plume frames -> a lightweight CNN classifies the plume into pyrolysis stages (dense white = drying/water vapor, yellow-grey = active carbonization, thin blue/clear = carbonization complete) and estimates color/opacity transition timing -> the edge device raises an alarm (SMS/buzzer) and recommends vent-closing/sealing the moment plume turns blue-clear, replacing continuous human vigilance. Acting precisely at the white->blue transition stops over-burn that consumes already-formed charcoal, tightening the kill-point and raising/stabilizing yield while freeing workers from 24/7 watch.\", \"why_not_done_before\": \"Earth-mound kilns are built by low-capital, often off-grid rural/informal producers with no instrumentation budget; the CV smoke-stage models that exist were developed and validated on industrial rotary kilns with fixed cameras and power, and nobody has packaged that into a cheap, ruggedized, offline edge kit and collected the labeled earth-kiln smoke dataset needed to retrain it.\", \"primary_quote\": \"tracking smoke-color changes as the key indicator of pyrolysis stage\", \"quote_source\": \"inefficiency\", \"reasoning_trace\": {\"step\": \"propose improvement for charcoal_kiln\", \"inputs_seen\": \"the process + its inefficiency\", \"reasoning\": \"The inefficiency is literally a human visual-classification task (smoke white->blue) done 24/7 -- a direct match for a smoke-plume CNN classifier, and the prompt itself notes image-based kiln burning-state recognition is proven on rotary kilns, so transfer is feasible. Feasibility rests on cheap edge hardware (Pi/Jetson + solar) and small fine-tuned models that run offline, plus that the target signal (plume color/opacity) is exactly what existing smoke-classification CNNs already detect. I rejected hyperspectral imaging + gradient-boosted regression as the primary pick because hyperspectral sensors are far too costly for off-grid artisanal producers, defeating the deployment realism.\", \"decision\": \"deploy a fine-tuned CNN smoke-plume stage classifier on a low-cost solar edge camera to automate the white->blue carbonization-endpoint call and alert workers\", \"confidence\": \"high - the underlying CV task is proven on industrial kilns and the only gap is cheap ruggedized edge packaging plus an earth-kiln smoke dataset\", \"could_be_wrong_if\": \"earth-mound plumes are too diffuse/wind-dispersed or vary too much by wood/moisture/weather for a vision model to reliably distinguish stages, or an NGO/ag-tech project has already fielded such a smoke-CNN kit for artisanal kilns\"}}",
+    "stop_reason": "end_turn",
+    "session_id": "e076f875-17af-4188-a77d-c9bc0d1f4e08",
+    "total_cost_usd": 0.0584855,
+    "usage": {
+      "input_tokens": 1734,
+      "cache_creation_input_tokens": 1992,
+      "cache_read_input_tokens": 14237,
+      "output_tokens": 1162,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1992,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 1734,
+          "output_tokens": 1162,
+          "cache_read_input_tokens": 14237,
+          "cache_creation_input_tokens": 1992,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1992
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1102,
+        "outputTokens": 19,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001197,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 1734,
+        "outputTokens": 1162,
+        "cacheReadInputTokens": 14237,
+        "cacheCreationInputTokens": 1992,
+        "webSearchRequests": 0,
+        "costUSD": 0.057288500000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "c52b455b-1a5e-46f7-ba97-000c50c9c27d"
+  },
+  "parsed": {
+    "process": "traditional earth-mound kiln charcoal pyrolysis monitored by smoke color",
+    "current_inefficiency": "workers run 24/7 manual smoke-color watching as the only pyrolysis-stage indicator, and yields stay at only ~15-25% with 70-80% of wood energy lost",
+    "ai_technique": "a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)",
+    "how_it_improves": "A weatherproof camera streams chimney-plume frames -> a lightweight CNN classifies the plume into pyrolysis stages (dense white = drying/water vapor, yellow-grey = active carbonization, thin blue/clear = carbonization complete) and estimates color/opacity transition timing -> the edge device raises an alarm (SMS/buzzer) and recommends vent-closing/sealing the moment plume turns blue-clear, replacing continuous human vigilance. Acting precisely at the white->blue transition stops over-burn that consumes already-formed charcoal, tightening the kill-point and raising/stabilizing yield while freeing workers from 24/7 watch.",
+    "why_not_done_before": "Earth-mound kilns are built by low-capital, often off-grid rural/informal producers with no instrumentation budget; the CV smoke-stage models that exist were developed and validated on industrial rotary kilns with fixed cameras and power, and nobody has packaged that into a cheap, ruggedized, offline edge kit and collected the labeled earth-kiln smoke dataset needed to retrain it.",
+    "primary_quote": "tracking smoke-color changes as the key indicator of pyrolysis stage",
+    "quote_source": "inefficiency",
+    "reasoning_trace": {
+      "step": "propose improvement for charcoal_kiln",
+      "inputs_seen": "the process + its inefficiency",
+      "reasoning": "The inefficiency is literally a human visual-classification task (smoke white->blue) done 24/7 -- a direct match for a smoke-plume CNN classifier, and the prompt itself notes image-based kiln burning-state recognition is proven on rotary kilns, so transfer is feasible. Feasibility rests on cheap edge hardware (Pi/Jetson + solar) and small fine-tuned models that run offline, plus that the target signal (plume color/opacity) is exactly what existing smoke-classification CNNs already detect. I rejected hyperspectral imaging + gradient-boosted regression as the primary pick because hyperspectral sensors are far too costly for off-grid artisanal producers, defeating the deployment realism.",
+      "decision": "deploy a fine-tuned CNN smoke-plume stage classifier on a low-cost solar edge camera to automate the white->blue carbonization-endpoint call and alert workers",
+      "confidence": "high - the underlying CV task is proven on industrial kilns and the only gap is cheap ruggedized edge packaging plus an earth-kiln smoke dataset",
+      "could_be_wrong_if": "earth-mound plumes are too diffuse/wind-dispersed or vary too much by wood/moisture/weather for a vision model to reliably distinguish stages, or an NGO/ag-tech project has already fielded such a smoke-CNN kit for artisanal kilns"
+    }
+  }
+}
