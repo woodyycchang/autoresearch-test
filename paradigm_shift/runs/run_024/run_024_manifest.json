@@ -34,5 +34,22 @@
     "R12": "No early-stop-by-inference. Conclude corpus-wide saturation only if the 48-sample shows it."
   },
   "deviation_note": "R1/R2 require each batch to commit+push. 8 agents pushing concurrently to one branch would race and fail (which R2 treats as STOP). Engineering resolution: agents WRITE batch files + return RAW search evidence; main context inspects then commits+pushes each WAVE immediately (cloud-wipe-safe, R1/R2 intent preserved). Documented honestly per the project's HONEST DEVIATION POLICY precedent.",
-  "status": "IN_PROGRESS"
+  "status": "COMPLETE",
+  "completed_at": "2026-06-03T00:00:00Z",
+  "result": {
+    "verdict": "NICHE_NOT_FOUND",
+    "concepts_tested": 48,
+    "real_websearches": 242,
+    "fabricated_results": 0,
+    "deep_verified_sparsest": 12,
+    "deep_verified_COLLISION": 12,
+    "deep_verified_GAP": 0,
+    "cleared_gate_1": 0,
+    "survivors_all_gates": 0,
+    "prima_facie_no_collision": "45/48 (93.8%) -> collapses to 0/12 survivors under grounded-gap verification",
+    "positive_controls_IMPORTED": "3/3",
+    "residual_leads_sub_gate1": ["C41 liminality (steelman novelty 0.34, assessed trivial)"],
+    "headline": "Saturation is corpus-wide and EMPIRICAL across 48 stratified concepts (vs Run 21's inference from 6). No domain/tier escaped. One honestly-reported trivial residual.",
+    "artifacts": ["concepts.json", "batch_1..8/batch_N.json", "aggregate.json", "final_table.json", "final_per_concept_table.md", "verify/verify_{A,B,C}.json", "audit/{crosscheck,audit,hallucination_check}.json", "niche_find_check.json", "report/run_024_report.md"]
+  }
 }

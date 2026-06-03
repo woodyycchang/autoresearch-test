@@ -1,0 +1,35 @@
+{
+  "verdict": "NICHE_NOT_FOUND",
+  "run_id": "run_024",
+  "survivors": [],
+  "composite_threshold": 0.90,
+  "concepts_tested": 48,
+  "deep_grounded_gap_verified": 12,
+  "drop_counts": {
+    "gate_1_threshold": 12,
+    "gate_2_quarantine": 0,
+    "gate_3_cross_llm_collision": 12,
+    "gate_4_belinda": 8
+  },
+  "distribution": {
+    "atom_penetration_NONE": 28,
+    "atom_penetration_MEASURES": 18,
+    "atom_penetration_IMPORTED": 2,
+    "prima_facie_no_collision": 45,
+    "deep_verified_COLLISION": 12,
+    "deep_verified_GAP": 0,
+    "cleared_gate_1": 0,
+    "survivors_all_gates": 0,
+    "max_composite_deep_verified": 0.10,
+    "max_composite_incl_adversarial_steelman": 0.34,
+    "positive_controls_IMPORTED": "3/3"
+  },
+  "rounds_scanned": 8,
+  "real_websearches_total": 242,
+  "fabricated_results": 0,
+  "residual_leads_sub_gate1": [
+    {"id": "C41", "concept": "Liminality", "steelman_novelty": 0.34, "assessment": "literal dissolve->held-liminal->reconstitute 3-stage curriculum is unsearched, but the held-dwell is arbitrary over-specification of published forget-and-relearn; no mechanism/evidence of benefit; far below Gate 1. Reported per R12/R13, not pre-dismissed."}
+  ],
+  "notes": "No atom passed all four gates. The 12 sparsest (lowest-ML-penetration, most novelty-likely) candidates were grounded-gap functionally verified across diverse domains (entomology, botany, textile craft x2, fiber processing, immunology, metallurgy, neurology, social insects, geology, physiology, anthropology) and ALL collided with published LLM/ML techniques (Gate 3), at composites 0.02-0.10. Belinda Gate 4 failed for 8/12 (operator=ANALOGY_TRANSFERS_TO_OPEN) and structurally passed for 4/12 but at ~0 novelty (well-formedness != novelty). 3 positive controls (annealing, nucleation, diffusion) correctly registered IMPORTED, calibrating the detector. Hallucination audit confirmed 7/7 cited collisions real. Adversarial pro-novelty steelman closed the escape hatches on the 4 highest-composite candidates (Elastic-Cache, PackNet/ExSSNeT) and found only one trivial residual (C41). Saturation is corpus-wide and EMPIRICAL across this 48-concept sample, not inferred from a fragment as in Run 21.",
+  "timestamp": "2026-06-03T00:00:00Z"
+}

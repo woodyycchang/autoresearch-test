@@ -103,3 +103,17 @@ Format per entry:
   - 2 borderline PASS rounds (R119 crystallography twin domains, R124 rheology Bingham plastic) flagged for human review under L4 (functional-equivalence) detection layer; pending Phase-1-style functional audit, both will likely be reclassified as Pattern D / Pattern E false positives.
   - Cumulative confirmed-substantive PASS count across 263 rounds: 0. Saturation hypothesis remains supported.
   - Comparison report at output/epoch5_comparison.md; stats at output/stats_round_125.json; diff at output/v4_to_v5_diff.md; evasion hierarchy at output/detector_evasion_hierarchy.md.
+
+
+## Run 24 session — Large-scale encyclopedia traversal (paradigm_shift/runs/run_024)
+
+- Goal: correct Run 21's inference-from-6-concepts by MEASURING the saturation distribution on a large stratified sample.
+- Concepts processed: 48 (target >=40), 8 batches x 6, all OUTSIDE candidate_pool exhausted list; 3 positive controls.
+- Real WebSearches: ~242 (139 sourcing + 60 verify + 26 adversarial crosscheck + 11 audit + ~6 main). 0 fabricated (R5).
+- Pipeline per concept: wikipedia source -> mechanism atoms (verbatim >=30c) -> per-atom ML-penetration (NONE/MEASURES/IMPORTED) -> sparsest candidate. 12 sparsest deep grounded-gap verified (5 reformulations each, mechanical anti-narrowing).
+- Result: VERDICT NICHE_NOT_FOUND. Atom penetration NONE=28/MEASURES=18/IMPORTED=2. Prima-facie no-collision 45/48 (93.8%) COLLAPSES to 0/12 survivors under functional grounded-gap verify. 12/12 deep-verified COLLISION, 0 GAP, max composite 0.10 (0.34 under adversarial steelman), 0 cleared Gate 1, 0 survivors.
+- Positive controls (annealing, nucleation, diffusion) 3/3 correctly IMPORTED -> detector calibrated; NONE calls on obscure concepts credible.
+- Audit: 7/7 cited collisions confirmed real (incl. suspect CDSP-MoE 2512.20291); no hallucinated citations; all 4 logic-break verdicts hold; C28 disclosed as weakest collision; C06/C10 grounded-gap robust.
+- Adversarial cross-check closed escape hatches on C28/C33/C20 with tighter twins (Elastic-Cache, PackNet/ExSSNeT); only residual = C41 liminality (held-dwell curriculum literally unsearched but trivial over-specification, novelty 0.34, sub-Gate-1). Reported openly per R12/R13, not pre-dismissed.
+- No domain or maturity tier escaped saturation. Conclusion is empirical (measured distribution), not inferred from a fragment.
+- Honest deviations: agents wrote batches + main committed per wave (push-race avoidance, R1/R2 intent preserved); Agent tool used for Opus subprocesses (R3 intent); WebFetch 403-firewalled, all evidence via real WebSearch.

@@ -270,3 +270,32 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
 - Round 298 | domain: stinging-nettle-trichome | mechanism: single-turn bundled multi-component defense cocktail discharge upon classifier trigger | verdict: FAIL | form: feedback-attenuation
 - Round 299 | domain: bowerbird-bower-signal | mechanism: confidence-scaled costly-signal decoder (inverted verbosity-compensation) | verdict: FAIL | form: evaluation-diagnostic
 - Round 300 | domain: australian-magpie-carol-signature | mechanism: per-instance subtle frequency-bias provenance fingerprint (direct LLM-watermarking collision) | verdict: FAIL | form: evaluation-diagnostic
+
+---
+
+## Inherited from Run 24 (encyclopedia traversal, 48 concepts, all FAIL/COLLISION) — DO NOT repropose
+
+### Deep grounded-gap verified COLLISION (sparsest tail, 12)
+- entomology: diapause -> conditional computation/dynamic depth
+- botany: vernalization -> EWC/synaptic intelligence/Fusi cascade
+- fiber processing: retting -> spurious-correlation disentanglement (RE-SORT)
+- immunology: diapedesis -> retrieve-then-rerank/two-stage retrieval
+- metallurgy: Widmanstatten -> CDSP-MoE gradient-conflict subspace pruning
+- neurology: referred pain -> active-dormant attention heads/latent-feature activation
+- social insects: trophallaxis -> A2A/MCP agent protocol metadata bundling
+- anthropology: liminality -> fortuitous forgetting/forget-and-relearn (residual held-dwell trivial)
+- geology: inselberg -> layer-wise/structured weight decay
+- textile craft: nalbinding -> vanilla self-attention; ikat -> gradient routing/PackNet/ExSSNeT
+- physiology: eustachian tube -> StreamingLLM attention sinks/Elastic-Cache
+
+### Source-level IMPORTED/collision (do not repropose)
+- physiology: countercurrent exchange -> Counter-Current Learning (NeurIPS 2024, 2409.19841)
+- structural eng: tensegrity -> GNN tensegrity-robot dynamics
+- political science: sortition -> Sortition-Weighted RLHF (2602.05113)
+- positive controls (mainstream): annealing->simulated annealing; nucleation->DNA-tile nucleation computing; diffusion->diffusion models
+
+### Other Run-24 concepts sourced (MEASURES/sparse, lower priority, treat as tested)
+- triboluminescence, sonoluminescence, spinodal decomposition, Marangoni, cavitation, autophagy, hematopoiesis,
+  coppicing, espalier, terra preta/biochar, three sisters, nixtamalization, lost-wax casting, kerf bending,
+  Damascus steel, hormesis, tuned mass damper, sacrificial anode, karst, aeolian saltation, loess, thermokarst,
+  suppletion, sandhi, reduplication, diglossia, cargo cult, stomatal aperture, hugelkultur, kintsugi

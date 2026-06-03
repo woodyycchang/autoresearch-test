@@ -24,6 +24,17 @@ for vf in sorted(glob.glob(os.path.join(ROOT, "verify", "verify_*.json"))):
             "colliding": (c.get("colliding_works") or [{}])[0].get("title", "") if c.get("colliding_works") else "",
         }
 
+# Merge adversarial crosscheck (steelman re-verification of the 4 highest-composite)
+crosscheck = {}
+ccf = os.path.join(ROOT, "audit", "crosscheck.json")
+if os.path.exists(ccf):
+    for c in json.load(open(ccf)).get("candidates", []):
+        crosscheck[c["id"]] = {
+            "steelman_verdict": c.get("verdict"),
+            "steelman_novelty": c.get("novelty"),
+            "narrow_nontrivial": c.get("narrow_version_nontrivial"),
+        }
+
 def gate_outcome(cid, r):
     v = verify.get(cid)
     quarantined = (r.get("candidate_id") in QUARANTINE)
@@ -38,14 +49,23 @@ def gate_outcome(cid, r):
             "survives_all_gates": False,  # not deep-verified -> cannot claim survivor
             "note": "prima_facie collision=%s, penetration=%s (not deep grounded-gap verified)" % (r["prima_facie_collision"], r["min_penetration"]),
         }
-    g1 = (v["composite"] is not None and v["composite"] >= COMPOSITE_THRESHOLD)
-    g3 = (v["verdict"] == "GAP" and v["gate3_searches"] >= 5)
+    cc = crosscheck.get(cid)
+    # best-case composite = max(verify composite, steelman novelty) — most generous to novelty
+    best_composite = v["composite"] or 0
+    if cc and cc.get("steelman_novelty") is not None:
+        best_composite = max(best_composite, cc["steelman_novelty"])
+    g1 = best_composite >= COMPOSITE_THRESHOLD
+    # G3 passes (no-collision) only if BOTH verify and (if present) crosscheck say GAP with a non-trivial narrow version
+    verify_gap = (v["verdict"] == "GAP" and v["gate3_searches"] >= 5)
+    cc_real_gap = bool(cc and cc.get("steelman_verdict") == "GAP" and cc.get("narrow_nontrivial"))
+    g3 = verify_gap or cc_real_gap
     g4 = bool(v["gate4_belinda"])
     survives = g1 and (not quarantined) and g3 and g4
-    return {
+    out = {
         "deep_verified": True,
         "verdict": v["verdict"],
         "composite": v["composite"],
+        "best_composite_incl_steelman": round(best_composite, 3),
         "forced_hits": v["forced_hits"],
         "g1_composite_ge_090": g1,
         "g2_not_quarantined": not quarantined,
@@ -54,6 +74,9 @@ def gate_outcome(cid, r):
         "survives_all_gates": survives,
         "colliding_work": v["colliding"],
     }
+    if cc:
+        out["crosscheck"] = cc
+    return out
 
 final_rows = []
 for cid in sorted(rows):
@@ -71,8 +94,18 @@ n_cleared_g1 = sum(1 for fr in deep if fr["gate"].get("g1_composite_ge_090"))
 n_survivors = sum(1 for fr in final_rows if fr["gate"].get("survives_all_gates"))
 prima_no_collision = sum(1 for fr in final_rows if not fr["prima_facie_collision"])
 none_pen = sum(1 for fr in final_rows if fr["min_penetration"] == "NONE")
-pos_controls = [fr for fr in final_rows if fr["id"] in ("C43", "C44", "C45")]
-pos_imported = sum(1 for fr in pos_controls if fr["min_penetration"] == "IMPORTED" or fr["prima_facie_collision"])
+# Positive-control validation uses ANY-atom IMPORTED (max penetration), not min
+def any_imported(cid):
+    for bf in glob.glob(os.path.join(ROOT, "batch_*", "batch_*.json")):
+        for c in json.load(open(bf))["concepts"]:
+            if c["id"] == cid:
+                return any(p.get("penetration_type") == "IMPORTED" for p in c.get("penetration", []))
+    return False
+pos_imported = sum(1 for cid in ("C43", "C44", "C45") if any_imported(cid))
+# Residual leads: deep-verified candidates whose adversarial steelman found a narrow GAP
+residual_leads = [fr["id"] for fr in final_rows
+                  if fr["gate"].get("deep_verified")
+                  and "GAP" in (fr["gate"].get("crosscheck", {}).get("steelman_verdict") or "")]
 
 dist = {
     "N_concepts": N,
@@ -90,6 +123,8 @@ dist = {
     "survivors_all_4_gates": n_survivors,
     "positive_controls_correctly_IMPORTED": "%d/3" % pos_imported,
     "max_composite_among_deep_verified": max((fr["gate"].get("composite") or 0) for fr in deep) if deep else None,
+    "max_composite_incl_adversarial_steelman": max((fr["gate"].get("best_composite_incl_steelman") or 0) for fr in deep) if deep else None,
+    "residual_narrow_GAP_leads_sub_gate1": residual_leads,
 }
 
 verdict = "NICHE_FOUND" if n_survivors >= 1 else "NICHE_NOT_FOUND"
