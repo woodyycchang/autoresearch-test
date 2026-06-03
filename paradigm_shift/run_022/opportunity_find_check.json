@@ -1,0 +1,65 @@
+{
+  "run_id": "run_022",
+  "verdict": "OPPORTUNITY_FOUND",
+  "n_opportunities": 3,
+  "opportunities": [
+    {
+      "process": "retting",
+      "ai_technique": "Near-infrared/short-wave-infrared hyperspectral imaging coupled with a gradient-boosted regression model (XGBoost) calibrated against pectin-content/fibre-strength reference assays",
+      "ai_penetration_hits": 0
+    },
+    {
+      "process": "cork_harvest",
+      "ai_technique": "real-time acoustic/vibration sensing on the axe handle classified by a lightweight 1D-CNN (acoustic-emission classification), analogous to tool-wear and material-boundary detection used in CNC machining",
+      "ai_penetration_hits": 0
+    },
+    {
+      "process": "charcoal_kiln",
+      "ai_technique": "a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)",
+      "ai_penetration_hits": 1
+    }
+  ],
+  "per_process": [
+    {
+      "process_id": "retting",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "process_id": "cork_harvest",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "process_id": "charcoal_kiln",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "process_id": "nixtamalization",
+      "survived": false,
+      "gates_failed": [
+        "gate_3_application_gap_real",
+        "gate_4_concrete_feasible"
+      ]
+    },
+    {
+      "process_id": "sericulture_sorting",
+      "survived": false,
+      "gates_failed": [
+        "gate_3_application_gap_real",
+        "gate_4_concrete_feasible"
+      ]
+    }
+  ],
+  "determinism_ok": true,
+  "audit": {
+    "n": 5,
+    "all_complete": true,
+    "n_concrete": 5,
+    "n_logic_breaks": 0,
+    "n_flagged": 2
+  },
+  "timestamp": "2026-06-03T15:54:42.232655+00:00",
+  "R13_caveat": "Opportunities are CONCRETE + FEASIBLE-ON-PROVEN-TECHNIQUE + no-found-prior-art -- i.e. worth-pursuing hypotheses, NOT validated wins. 'Unexploited' = absence of evidence in these searches, not proof of absence; field deployment has lab-vs-field unknowns."
+}

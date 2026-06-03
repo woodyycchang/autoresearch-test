@@ -1,0 +1,293 @@
+[
+  {
+    "process_id": "retting",
+    "on_target_ai_hits": 0,
+    "ai_technique": "Near-infrared/short-wave-infrared hyperspectral imaging coupled with a gradient-boosted regression model (XGBoost) calibrated against pectin-content/fibre-strength reference assays",
+    "gate_1_ai_penetration_low": {
+      "pass": true,
+      "hits": 0,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 retting",
+        "inputs_seen": "on_target_ai_hits=0 (threshold <5)",
+        "reasoning": "process is genuinely under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - count from real searches",
+        "could_be_wrong_if": "an on-target paper exists in non-indexed literature"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 retting",
+        "inputs_seen": "no quarantined processes",
+        "reasoning": "n/a here.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 retting",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior <technique>-applied-to-<process> AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible": {
+      "pass": true,
+      "concrete": true,
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 retting",
+        "inputs_seen": "concrete=True, quote_grounded=True, premise_confirmed=True",
+        "reasoning": "passes iff a specific existing technique + concrete mechanism (not hand-wavy) + grounded quote + premise confirmed; the technique must be PROVEN on adjacent tasks (feasibility).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text",
+        "could_be_wrong_if": "concrete-on-paper but infeasible in the field (lab-vs-field)"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "process_id": "cork_harvest",
+    "on_target_ai_hits": 0,
+    "ai_technique": "real-time acoustic/vibration sensing on the axe handle classified by a lightweight 1D-CNN (acoustic-emission classification), analogous to tool-wear and material-boundary detection used in CNC machining",
+    "gate_1_ai_penetration_low": {
+      "pass": true,
+      "hits": 0,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 cork_harvest",
+        "inputs_seen": "on_target_ai_hits=0 (threshold <5)",
+        "reasoning": "process is genuinely under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - count from real searches",
+        "could_be_wrong_if": "an on-target paper exists in non-indexed literature"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 cork_harvest",
+        "inputs_seen": "no quarantined processes",
+        "reasoning": "n/a here.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 cork_harvest",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior <technique>-applied-to-<process> AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible": {
+      "pass": true,
+      "concrete": true,
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 cork_harvest",
+        "inputs_seen": "concrete=True, quote_grounded=True, premise_confirmed=True",
+        "reasoning": "passes iff a specific existing technique + concrete mechanism (not hand-wavy) + grounded quote + premise confirmed; the technique must be PROVEN on adjacent tasks (feasibility).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text",
+        "could_be_wrong_if": "concrete-on-paper but infeasible in the field (lab-vs-field)"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "process_id": "charcoal_kiln",
+    "on_target_ai_hits": 1,
+    "ai_technique": "a CNN smoke-plume image classifier (e.g. MobileNetV3 fine-tuned on smoke-color/opacity frames) deployed on a solar-powered edge camera (Raspberry Pi / Jetson Nano)",
+    "gate_1_ai_penetration_low": {
+      "pass": true,
+      "hits": 1,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 charcoal_kiln",
+        "inputs_seen": "on_target_ai_hits=1 (threshold <5)",
+        "reasoning": "process is genuinely under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - count from real searches",
+        "could_be_wrong_if": "an on-target paper exists in non-indexed literature"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 charcoal_kiln",
+        "inputs_seen": "no quarantined processes",
+        "reasoning": "n/a here.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 charcoal_kiln",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior <technique>-applied-to-<process> AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible": {
+      "pass": true,
+      "concrete": true,
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 charcoal_kiln",
+        "inputs_seen": "concrete=True, quote_grounded=True, premise_confirmed=True",
+        "reasoning": "passes iff a specific existing technique + concrete mechanism (not hand-wavy) + grounded quote + premise confirmed; the technique must be PROVEN on adjacent tasks (feasibility).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text",
+        "could_be_wrong_if": "concrete-on-paper but infeasible in the field (lab-vs-field)"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "process_id": "nixtamalization",
+    "on_target_ai_hits": 1,
+    "ai_technique": "in-line NIR (near-infrared) spectroscopy + gradient-boosted regression (XGBoost) for soft-sensor endpoint prediction",
+    "gate_1_ai_penetration_low": {
+      "pass": true,
+      "hits": 1,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 nixtamalization",
+        "inputs_seen": "on_target_ai_hits=1 (threshold <5)",
+        "reasoning": "process is genuinely under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - count from real searches",
+        "could_be_wrong_if": "an on-target paper exists in non-indexed literature"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 nixtamalization",
+        "inputs_seen": "no quarantined processes",
+        "reasoning": "n/a here.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": false,
+      "gap_real": false,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 nixtamalization",
+        "inputs_seen": "gap_real=False, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior <technique>-applied-to-<process> AND crosscheck did not overturn.",
+        "decision": "FAIL",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible": {
+      "pass": false,
+      "concrete": true,
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 nixtamalization",
+        "inputs_seen": "concrete=True, quote_grounded=True, premise_confirmed=False",
+        "reasoning": "passes iff a specific existing technique + concrete mechanism (not hand-wavy) + grounded quote + premise confirmed; the technique must be PROVEN on adjacent tasks (feasibility).",
+        "decision": "FAIL",
+        "confidence": "high - heuristic over committed text",
+        "could_be_wrong_if": "concrete-on-paper but infeasible in the field (lab-vs-field)"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_3_application_gap_real",
+      "gate_4_concrete_feasible"
+    ]
+  },
+  {
+    "process_id": "sericulture_sorting",
+    "on_target_ai_hits": 3,
+    "ai_technique": "Impact-acoustic emission sensing + 1D-CNN classifier (the same vibro-acoustic tap-test pipeline used for egg-crack and nut-emptiness detection)",
+    "gate_1_ai_penetration_low": {
+      "pass": true,
+      "hits": 3,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 sericulture_sorting",
+        "inputs_seen": "on_target_ai_hits=3 (threshold <5)",
+        "reasoning": "process is genuinely under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - count from real searches",
+        "could_be_wrong_if": "an on-target paper exists in non-indexed literature"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 sericulture_sorting",
+        "inputs_seen": "no quarantined processes",
+        "reasoning": "n/a here.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": false,
+      "gap_real": false,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 sericulture_sorting",
+        "inputs_seen": "gap_real=False, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior <technique>-applied-to-<process> AND crosscheck did not overturn.",
+        "decision": "FAIL",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible": {
+      "pass": false,
+      "concrete": true,
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 sericulture_sorting",
+        "inputs_seen": "concrete=True, quote_grounded=True, premise_confirmed=False",
+        "reasoning": "passes iff a specific existing technique + concrete mechanism (not hand-wavy) + grounded quote + premise confirmed; the technique must be PROVEN on adjacent tasks (feasibility).",
+        "decision": "FAIL",
+        "confidence": "high - heuristic over committed text",
+        "could_be_wrong_if": "concrete-on-paper but infeasible in the field (lab-vs-field)"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_3_application_gap_real",
+      "gate_4_concrete_feasible"
+    ]
+  }
+]
