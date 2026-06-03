@@ -1,0 +1,120 @@
+{
+  "agent": "phase5_audit",
+  "run": "run_026",
+  "phase": 5,
+  "task": "Audit the Run-026 conclusion ('ANOMALY_NICHE_NOT_FOUND': 9 anomalies all REAL; only ANOM_03 & ANOM_08 pass Gate 3; 0/5 proposed mechanisms novel -> 0 clear all 4 gates) for logic errors and hallucinated citations. Every check via REAL WebSearch (R5). Did not run git.",
+  "task1_citation_checks": [
+    {
+      "work": "The Law of Knowledge Overshadowing: Towards Understanding, Predicting, and Preventing LLM Hallucination (Zhang et al.)",
+      "arxiv": "2502.16143",
+      "for_anomaly": "ANOM_08",
+      "exists": true,
+      "functional_match": true,
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2025-02-22; ACL 2025 Findings; aclanthology 2025.findings-acl.1199). 'the log-linear law predicts that the rate of factual hallucination increases linearly with the logarithmic scale of (1) Knowledge Popularity, (2) Knowledge Length, and (3) Model Size'; 'a model's dominant knowledge can obscure less prominent knowledge during generation, causing the model to fabricate.' Functionally matches VERIFY's claim that the frequency/popularity-prior-suppresses-rare-correct-knowledge mechanism (candidate's alpha*log p_pretrain term) is already published as a quantitative law. Match holds."
+    },
+    {
+      "work": "Sources of Hallucination by Large Language Models on Inference Tasks (McKenna et al., Edinburgh)",
+      "arxiv": "2305.14552",
+      "for_anomaly": "ANOM_08",
+      "exists": true,
+      "functional_match": true,
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2023-05; Univ. Edinburgh). 'LLMs back off to a simple corpus-based heuristic using term-frequency... LLaMA-65B, GPT-3.5, PaLM-540B are 1.5/1.7/2.0x more likely to wrongly predict a false positive if the hypothesis has higher relative frequency than the premise.' Functionally matches VERIFY's claim that a corpus-frequency gap PREDICTS WHICH factual errors occur. Match holds."
+    },
+    {
+      "work": "Learning from Emergence: A Study on Proactively Inhibiting the Monosemantic Neurons of Artificial Neural Networks (Wang, Di, Chen, Ng)",
+      "arxiv": "2312.11560",
+      "for_anomaly": "ANOM_03",
+      "exists": true,
+      "functional_match": "partial",
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2023-12-17; KDD '24, Barcelona). Title differs from VERIFY's loose label but same ID/paper. 'the reduction of monosemantic neurons that can only form one-to-one correlations with specific features is a key factor that promotes performance during the increase of scale'; introduces a method to PROACTIVELY suppress monosemantic neurons (causal manipulation). PARTIAL functional match: it genuinely ties the poly<->mono (superposition) transition to scale-driven performance gains and does a causal intervention -- so the de-superposition-promotes-scaling MECHANISM is on record. CAVEAT: it does NOT specifically study emergent-ability SHARP THRESHOLDS nor a per-feature SAE SNR-crossing-AT-the-accuracy-threshold; that sharper instrument is the candidate's residual. So as a 'the underlying mechanism exists' citation it is valid, but it is NOT a verbatim kill of the candidate's specific falsifiable instrument. (Companion citation 2512.13568 below supplies the SAE-order-parameter-for-the-sharp-transition half and is real.) Net: collision at mechanism level is supported, with a noted gap on the exact sharp-threshold instrument."
+    },
+    {
+      "work": "Is the Reversal Curse a Binding Problem? Uncovering Limitations of Transformers from a Basic Generalization Failure (Wang & Sun, OSU)",
+      "arxiv": "2504.01928",
+      "for_anomaly": "ANOM_06",
+      "exists": true,
+      "functional_match": "partial",
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2025-04-02; ICLR 2026; OSU-NLP-Group). 'the Reversal Curse... is a manifestation of the binding problem... two primary causes: the inconsistency and entanglements of concept representations'; fix is a JEPA concept-level architecture. PARTIAL functional match: the paper localizes the curse to a subject<->object ROLE/binding failure (supports VERIFY's 'role-gated' framing), but its thesis is concept-representation entanglement + a JEPA cure, NOT specifically the 'MLP key/value addressing keyed by subject-role, no key(B-as-subject) written' associative-memory mechanism VERIFY attributed to it. The MLP-key-value half of VERIFY's collision is actually carried by OTHER cited works (2311.07468 'key = avg of subject last token'; 2604.04943 'forward/reverse stored as distinct entries'; key-value-memories lineage), which an independent search re-confirmed ('key-value storage method might partially explain the reversal curse'; 'roles being bound to specific positions rather than being role-agnostic'). So the COLLISION as a whole is sound (mechanism is already proposed across the cited set), but 2504.01928 alone does not state the precise key-addressing claim -- a slight over-attribution by VERIFY, not a hallucination."
+    },
+    {
+      "work": "Explaining grokking through circuit efficiency (Varma, Shah et al., DeepMind)",
+      "arxiv": "2309.02390",
+      "for_anomaly": "ANOM_01",
+      "exists": true,
+      "functional_match": true,
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2023-09-05; DeepMind; Varma & Shah). 'memorising circuits become more inefficient with larger training datasets while generalising circuits do not... a critical dataset size at which memorisation and generalisation are equally efficient'; introduces ungrokking & semi-grokking. Functionally matches VERIFY's claim that the data-controls-the-memorize/generalize-crossover (hence the delay) mechanism is already published. Match holds."
+    },
+    {
+      "work": "Least Squares Regression Can Exhibit Under-Parameterized Double Descent (Li & Sonthalia)",
+      "arxiv": "2305.14689",
+      "for_anomaly": "ANOM_02",
+      "exists": true,
+      "functional_match": true,
+      "suspect_future_dated": false,
+      "snippet": "CONFIRMED REAL (arXiv 2023-05-24, rev 2024-10-24; Xinyue Li & Rishi Sonthalia). 'the location of the peak depends on the technical properties of both the spectrum as well as the eigenvectors of the sample covariance.' Functionally matches VERIFY's claim that the peak's location/severity is governed by target-vs-eigenvector alignment and can be moved by changing it -- i.e., the candidate's controllability mechanism is already stated. Match holds. (Note: this is the STRONGEST collision; Phase 3 itself self-rated ANOM_02 novelty 0.4.)"
+    }
+  ],
+  "task2_logic_break": [
+    {
+      "gate": "Gate 1 (all anomalies empirically REAL)",
+      "verdict_holds": true,
+      "reasoning": "All 9 anomalies were independently reconfirmed across Phase 2, Phase 4 VERIFY, and Phase 4 CROSSCHECK, each with verbatim quotes from real, well-known sources (grokking 2201.02177, double descent 1912.02292, emergent abilities 2206.07682, reversal curse 2309.12288, know>show 2410.02707, etc.). My TASK-1 and TASK-4 searches re-surfaced the core empirical claims (log-linear overshadowing law; term-frequency NLI heuristic; 9%-of-questions hidden-knowledge gap; grokking critical-dataset-size; under-parameterized double descent). No anomaly is a one-off or fabricated. Gate-1 'all REAL' STANDS."
+    },
+    {
+      "gate": "Gate 3 (only ANOM_03 & ANOM_08 lack an accepted explanation; ANOM_01/02/06 genuinely RESOLVED, not merely under-cited)",
+      "verdict_holds": true,
+      "reasoning": "CORRECT. ANOM_03 (emergent abilities) and ANOM_08 (know>show) are genuinely CONTESTED: independent 2026-vintage search confirms the emergence debate is explicitly ongoing with 'no consensus on definition' and live mirage-vs-genuine-threshold positions, and the know>show interpretation is actively disputed (knowledge-recall-not-truthfulness 2510.09033; brittleness 2510.11905; multifaceted/non-generalizing probes in the original 2410.02707). These pass Gate 3. The other three are RESOLVED at the level of the CORE prediction-violation, not merely under-cited: ANOM_01 grokking has a broadly-accepted memorize->low-norm-generalizing-circuit transition (Nanda 2301.05217; Varma 2309.02390 -- re-confirmed real); ANOM_02 double descent has the widely-accepted variance-decomposition account (Adlam-Pennington / 2011.03321); ANOM_06 reversal curse has the broadly-accepted unidirectional-autoregressive-objective cause (Berglund 2309.12288). Under R13 (a widely-accepted explanation => RESOLVED even if famous), all three correctly FAIL Gate 3. NUANCE (does not flip any label): all three sit near the RESOLVED/CONTESTED boundary on MECHANISTIC DETAIL (grokking delay-duration; deep-net double-descent mechanism; reversal-curse precise mechanism + fundamental-vs-mitigatable) -- but their core violated prediction has an accepted cause, so RESOLVED is the right call. Gate-3 split STANDS."
+    },
+    {
+      "gate": "Gate 4 (all 5 proposed mechanisms ALREADY_PROPOSED; no collision was a stretch that wrongly killed a novel mechanism)",
+      "verdict_holds": true,
+      "reasoning": "HOLDS, with two over-attributions flagged that do NOT change the outcome. The five collisions are real and largely robust: ANOM_08 frequency-prior-override -- INDEPENDENTLY STRENGTHENED beyond VERIFY's citations: my search surfaced 'Identifying and Mitigating the Influence of the Prior Distribution in LLMs' (2504.12585): 'the implicit prior learned by LLMs results in incorrect responses even though the model has internal representations that are sufficient to solve the problem' -- a near-verbatim match to the candidate's decodable-but-unrouted-answer-overridden-by-a-learned-prior mechanism; plus Knowledge Overshadowing (2502.16143) and Sources-of-Hallucination (2305.14552) both confirmed. Solid collision. ANOM_02 -- strongest collision, 2305.14689 confirmed states the controllability claim; solid. ANOM_01 -- 2309.02390 confirmed; data/critical-size-controls-the-crossover is published; solid (the candidate's algebraic-coverage-redundancy variable is a refinement, not a new mechanism). ANOM_03 & ANOM_06 -- collisions are SOUND at the mechanism level (re-confirmed independently) but VERIFY slightly OVER-ATTRIBUTED specific claims to single papers: 2312.11560 supports de-superposition-at-scale but not the exact sharp-SNR-threshold instrument (that half is 2512.13568, confirmed real); 2504.01928 supports role-binding but not the exact MLP-key-addressing claim (that half is 2311.07468/2604.04943, re-confirmed). These are citation-precision quibbles, not hallucinations and not wrongly-killed novel mechanisms, because (a) the underlying mechanisms ARE already in the literature across the cited set, and (b) ANOM_03's mechanism attaches to a Gate-3-PASSING anomaly, so even if its specific instrument (per-feature SNR crossing at the accuracy threshold + width-reservation causal test) were judged a genuine novel refinement, it is a sharpening of an existing mechanism rather than a new dark-matter mechanism, and Phase 3 itself rated it 0.5. No mechanism that is BOTH novel AND attached to a Gate-3-passing unresolved anomaly was wrongly killed. Gate-4 verdict STANDS."
+    }
+  ],
+  "task3_testability": [
+    {
+      "id": "ANOM_03",
+      "testable": true,
+      "why": "The candidate's testable_prediction is a concrete, falsifiable experiment: track per-feature SAE SNR = margin/interference vs scale; predict the accuracy-50%-crossing coincides with the SNR~1 crossing and is sharp under a CONTINUOUS metric (which also discriminates it from the metric-artifact 'mirage' account); causal arms -- widen only the host layer / add a reserved-subspace auxiliary loss to advance the threshold without changing aggregate CE, and conversely inject interference to delay it; explicit falsification ('FALSIFIED if accuracy emerges at a scale unrelated to the feature SNR crossing, or if forcing a reserved subspace does not advance the threshold'). Measurable order parameter + intervention + falsifier all present. Genuinely testable."
+    },
+    {
+      "id": "ANOM_08",
+      "testable": true,
+      "why": "Concrete and falsifiable: per item compute (i) probe-recovered correct-answer signal at the best layer and (ii) pretraining/n-gram log-frequency of true vs emitted token; predict known-but-wrong rate rises monotonically with the distractor's frequency advantage and ~0 when the true token is more frequent (Prediction 1); causal arm -- estimate alpha_hat by regressing logit residuals on log-frequency, subtract alpha_hat*log p_pretrain, and check 'frequency-debiased decoding' selectively recovers the correct answer on >50% of exactly the high-gap cases WITHOUT a probe label and NOT on low-gap cases (Prediction 2); explicit falsifier ('FALSIFIED if known-but-wrong rate is independent of the frequency gap, or if frequency-debiased decoding fails to selectively fix the high-gap cases'). Label-free predictor + causal edit + falsifier all present. Genuinely testable. (Note: testability is moot for niche purposes since Gate 4 = ALREADY_PROPOSED; the question asked was whether they ARE concrete, and they are.)"
+    }
+  ],
+  "task4_unresolved_vs_undercited": [
+    {
+      "id": "ANOM_03",
+      "genuinely_unresolved": true,
+      "note": "GENUINELY UNRESOLVED (field lacks consensus), not merely under-cited. Independent search (2026 vantage) returned the 2025 survey (2503.05788) and commentary stating 'there remains a lack of consensus on the precise definition of emergent abilities... the scientific debate centers on whether emergent abilities are truly emergent or simply depend on external factors (training dynamics, problem type, metric).' Both positions are well-cited and famous (Schaeffer mirage NeurIPS 2023; Du et al. loss-threshold NeurIPS 2024) -- so this is a substantive scientific standoff between visible camps, NOT an obscure/under-cited explanation that the pipeline missed. CONTESTED status is real."
+    },
+    {
+      "id": "ANOM_08",
+      "genuinely_unresolved": true,
+      "note": "GENUINELY UNRESOLVED on the WHY (why an internally-decodable correct answer is suppressed at output), not merely under-cited. Independent search re-confirmed the empirical effect is solid and striking ('in 9% of questions the internal scoring ranks the ground-truth answer above every incorrect candidate despite the model never generating it across 1,000 attempts' -- Inside-Out 2503.15299) while the INTERPRETATION is openly disputed by multiple visible 2025 papers (2510.09033 knowledge-recall-not-truthfulness; 2510.11905 brittle/superficial) and the original ICLR-2025 paper concedes probes do not generalize across datasets ('multifaceted'). The competing explanations are well-cited, so the contest is genuine, not an artifact of under-citation. CAVEAT: note that a specific proposed MECHANISM for the gap (frequency/prior-override) IS already proposed (2502.16143, 2504.12585) -- so the gap has a candidate mechanism in the literature even though the field has not converged on WHY; the anomaly is 'no accepted account', which is correctly CONTESTED, and the proposed mechanism is correctly ALREADY_PROPOSED. Both calls are consistent."
+    }
+  ],
+  "suspect_citations": [
+    {
+      "note": "NONE of the 6 TASK-1 collision anchors are hallucinated or future-suspect. All six resolved to real arXiv pages with matching titles/authors/venues and 2023-2025 dates (2502.16143 ACL'25; 2305.14552 Edinburgh'23; 2312.11560 KDD'24; 2504.01928 ICLR'26 submitted 2025-04; 2309.02390 DeepMind'23; 2305.14689 '23). suspect_future_dated=false for all six."
+    },
+    {
+      "note": "WATCH-LIST (not used as primary kill evidence, dates plausible from a 2026 vantage but flagged per rules): VERIFY/CROSSCHECK lean on several 2026-dated arXiv IDs as 'the idea exists' corroboration -- 2602.19533, 2603.01968 (grokking algebra), 2604.04943 (reversal curse distinct-entries), 2602.01045 (superposition power-law), 2605.09724 (grokking capacity), 2605.25891, 2601.07422, 2602.02470, 2603.13331, 2510.23650, 2601.22439, 2606.* (Causal Tongue-Tie 2605.25891). I did NOT independently verify each of these; the search environment reports 'current month June 2026', so 2602-2605 IDs are date-plausible, but mid/late-2026 IDs remain SUSPECT under R5 and several were not directly confirmed. CRITICALLY, none of the four GATE DECISIONS hinges on any single 2026 ID: Gate 1 rests on canonical 2019-2025 sources; Gate 3 RESOLVED calls rest on Nanda 2301.05217 / Adlam 2011.03321 / Berglund 2309.12288; Gate 4 collisions each have at least one independently-confirmed pre-2026 anchor (2502.16143/2504.12585 for ANOM_08; 2305.14689 for ANOM_02; 2309.02390 for ANOM_01; 2312.11560 for ANOM_03; 2311.07468 for ANOM_06). So the watch-listed future IDs are corroborative-only, consistent with how Phases 3-4 said they used them."
+    },
+    {
+      "note": "TITLE-DRIFT (minor, not hallucination): VERIFY labeled 2312.11560 'Learning from Emergence / monosemanticity' -- real title is 'Learning from Emergence: A Study on Proactively Inhibiting the Monosemantic Neurons...'. Same paper/ID. And 2502.16143 was loosely paraphrased but is exact. No fabricated titles found."
+    }
+  ],
+  "any_wrongly_killed_lead": "NO LEAD WAS WRONGLY KILLED (R14 checked LOUDLY and in BOTH directions). For a niche to have been wrongly killed, a mechanism would need to be (a) genuinely novel AND testable AND (b) attached to a Gate-3-PASSING (unresolved) anomaly. The only two Gate-3 passers are ANOM_03 and ANOM_08, and BOTH their mechanisms are robustly ALREADY_PROPOSED: ANOM_08's frequency/prior-override is INDEPENDENTLY confirmed prior art beyond VERIFY's own citations (2504.12585: 'implicit prior... results in incorrect responses even though the model has internal representations sufficient to solve the problem' + 2502.16143 log-linear overshadowing law); ANOM_03's de-superposition-as-emergence is on record (2312.11560 causal monosemanticity manipulation tied to scale-performance + 2512.13568 SAE feature-count as the order parameter for the sharp grokking-style transition, both confirmed real). The three anomalies whose mechanisms might arguably retain a sliver of novelty (ANOM_01 algebraic-coverage-redundancy 0.6; ANOM_06 meta-learned reverse-key-transfer 0.55) are attached to RESOLVED anomalies (fail Gate 3), so they cannot clear all four gates regardless of novelty -- they are not 'wrongly killed niches'. The two slight over-attributions I flagged (2312.11560 for the exact SNR instrument; 2504.01928 for the exact key-addressing) do NOT rescue a novel mechanism: the underlying mechanisms are independently confirmed as already-proposed across the cited set, so the candidates remain sharpenings of existing accounts, not new dark-matter mechanisms. No loud alarm warranted."
+  ],
+  "overall_audit_verdict": "CONCLUSION UPHELD. 'ANOMALY_NICHE_NOT_FOUND -- 0 candidates clear all 4 gates' STANDS. (1) Gate 1: all 9 anomalies independently REAL -- confirmed. (2) Gate 3: exactly ANOM_03 and ANOM_08 are genuinely CONTESTED (independently verified as live, well-cited scientific standoffs, not under-citation artifacts); ANOM_01/02/06 are correctly RESOLVED under R13 on their core prediction-violation. (3) Gate 4: all 5 proposed mechanisms are ALREADY_PROPOSED; the two Gate-3-passing anomalies' mechanisms are the most robustly collided (ANOM_08 strengthened by independently-found prior art 2504.12585; ANOM_03 covered by 2312.11560 + 2512.13568). No mechanism is simultaneously novel and attached to an unresolved anomaly, so none clears all four gates. Citation integrity: all 6 audited collision anchors are REAL and functionally on-point (two with minor over-attribution of a specific sub-claim to a single paper, neither a hallucination nor outcome-changing); no fabricated or future-suspect anchors among them; a watch-list of corroborative-only 2026 IDs is flagged but no gate depends on them. The pipeline's own honesty notes (Phase 3 calibrated all five below 0.6; Phase 4 logged the same caveats) are consistent with my independent findings. Audit verdict: SOUND."
+  ,
+  "search_count": 11,
+  "honesty_note": "All 11 queries were executed with the REAL WebSearch tool (R5); every title/URL/snippet recorded is from actually-returned results -- nothing recalled or fabricated. Breakdown: 6 TASK-1 citation-existence/functional-match checks (one per collision anchor) + 4 second-batch (TASK-4 emergent-abilities consensus; TASK-4 know>show consensus; ANOM_03 companion anchor 2512.13568; ANOM_08 mechanism-prior-art probe) + 1 ANOM_06 mechanism-prior-art probe. I did NOT run git (R-no-git honored). Today treated as 2026-06-03; the search environment self-reports 'current month June 2026', so 2025/early-2026 arXiv IDs are date-plausible while mid/late-2026 IDs remain SUSPECT -- I confirmed all 6 primary anchors are pre-2026 (2023-2025) and real, and I flagged but did NOT independently verify the corroborative 2026 IDs that Phases 3-4 used only to avoid restating existing ideas. Rigorous in both directions per R14: I actively hunted for a wrongly-killed novel-and-testable mechanism on a Gate-3-passing anomaly and found none -- and in the process I independently surfaced ADDITIONAL prior art (2504.12585) that makes the ANOM_08 collision stronger, not weaker. Two honest deductions against VERIFY's precision (not its conclusion): it over-attributed (a) the exact per-feature-SNR-threshold instrument to 2312.11560 and (b) the exact MLP-key-addressing claim to 2504.01928; in both cases the mechanism is genuinely already-proposed but via the OTHER works in VERIFY's own cited set, which I re-confirmed. These do not change any gate outcome."
+}
