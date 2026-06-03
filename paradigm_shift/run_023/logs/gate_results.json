@@ -1,0 +1,321 @@
+[
+  {
+    "pair_id": "retting_x_HSIFM",
+    "process_id": "retting",
+    "technique_id": "HSIFM",
+    "on_target_ai_hits": 0,
+    "recent_technique": "Hyperspectral foundation models (self-supervised, few-shot fine-tuning) -- e.g. SpectralEarth-pretrained backbone, HyperFM, SpecAware",
+    "gate_1_penetration_low": {
+      "pass": true,
+      "hits": 0,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 retting_x_HSIFM",
+        "inputs_seen": "on_target_ai_hits=0 (PHASE-4 corrected; threshold <5)",
+        "reasoning": "process under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - real counts, PHASE-4 corrected",
+        "could_be_wrong_if": "non-indexed on-target deployment exists"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 retting_x_HSIFM",
+        "inputs_seen": "no quarantined pairs",
+        "reasoning": "n/a.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": false,
+      "gap_real": false,
+      "crosscheck_mismatch": true,
+      "reasoning_trace": {
+        "step": "Gate3 retting_x_HSIFM",
+        "inputs_seen": "gap_real=False, crosscheck_mismatch=True",
+        "reasoning": "passes iff no prior on-target application (incl. by a SIMPLER method) AND crosscheck did not overturn.",
+        "decision": "FAIL",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible_now": {
+      "pass": true,
+      "concrete": true,
+      "usable_now": true,
+      "vaporware": false,
+      "feasibility_honest": true,
+      "maturity_tier": "MEDIUM",
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 retting_x_HSIFM",
+        "inputs_seen": "concrete=True, usable_now=True, vaporware=False, feas_honest=True, quote=True",
+        "reasoning": "passes iff specific recent technique + concrete mechanism (not hand-wavy) + grounded quote + technique USABLE NOW (not vaporware) + feasibility_now HONESTLY names its limit (no false drop-in claim).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text + maturity evidence",
+        "could_be_wrong_if": "usable-now but infeasible in the FIELD (lab-vs-field); usable != validated"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_3_application_gap_real"
+    ]
+  },
+  {
+    "pair_id": "charcoal_x_FNO",
+    "process_id": "charcoal_kiln",
+    "technique_id": "FNO",
+    "on_target_ai_hits": 1,
+    "recent_technique": "Fourier Neural Operator (FNO) for sparse-sensor field reconstruction (RecFNO / neuraloperator)",
+    "gate_1_penetration_low": {
+      "pass": true,
+      "hits": 1,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 charcoal_x_FNO",
+        "inputs_seen": "on_target_ai_hits=1 (PHASE-4 corrected; threshold <5)",
+        "reasoning": "process under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - real counts, PHASE-4 corrected",
+        "could_be_wrong_if": "non-indexed on-target deployment exists"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 charcoal_x_FNO",
+        "inputs_seen": "no quarantined pairs",
+        "reasoning": "n/a.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 charcoal_x_FNO",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior on-target application (incl. by a SIMPLER method) AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible_now": {
+      "pass": true,
+      "concrete": true,
+      "usable_now": true,
+      "vaporware": false,
+      "feasibility_honest": true,
+      "maturity_tier": "HIGH_library_MEDIUM_deploy",
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 charcoal_x_FNO",
+        "inputs_seen": "concrete=True, usable_now=True, vaporware=False, feas_honest=True, quote=True",
+        "reasoning": "passes iff specific recent technique + concrete mechanism (not hand-wavy) + grounded quote + technique USABLE NOW (not vaporware) + feasibility_now HONESTLY names its limit (no false drop-in claim).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text + maturity evidence",
+        "could_be_wrong_if": "usable-now but infeasible in the FIELD (lab-vs-field); usable != validated"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "pair_id": "indigo_x_TSFM",
+    "process_id": "indigo_vat",
+    "technique_id": "TSFM",
+    "on_target_ai_hits": 1,
+    "recent_technique": "Zero-shot time-series foundation model (TSFM) for forecasting (Reverso / Mamba4Cast / WindFM / Aurora)",
+    "gate_1_penetration_low": {
+      "pass": true,
+      "hits": 1,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 indigo_x_TSFM",
+        "inputs_seen": "on_target_ai_hits=1 (PHASE-4 corrected; threshold <5)",
+        "reasoning": "process under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - real counts, PHASE-4 corrected",
+        "could_be_wrong_if": "non-indexed on-target deployment exists"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 indigo_x_TSFM",
+        "inputs_seen": "no quarantined pairs",
+        "reasoning": "n/a.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 indigo_x_TSFM",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior on-target application (incl. by a SIMPLER method) AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible_now": {
+      "pass": true,
+      "concrete": true,
+      "usable_now": true,
+      "vaporware": false,
+      "feasibility_honest": true,
+      "maturity_tier": "HIGH",
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 indigo_x_TSFM",
+        "inputs_seen": "concrete=True, usable_now=True, vaporware=False, feas_honest=True, quote=True",
+        "reasoning": "passes iff specific recent technique + concrete mechanism (not hand-wavy) + grounded quote + technique USABLE NOW (not vaporware) + feasibility_now HONESTLY names its limit (no false drop-in claim).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text + maturity evidence",
+        "could_be_wrong_if": "usable-now but infeasible in the FIELD (lab-vs-field); usable != validated"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "pair_id": "cork_x_VLMAD",
+    "process_id": "cork_harvest",
+    "technique_id": "VLMAD",
+    "on_target_ai_hits": 0,
+    "recent_technique": "Vision-language model zero-shot / few-shot anomaly detection (FADE / IADGPT / VMAD, CLIP-based prompting + in-context learning)",
+    "gate_1_penetration_low": {
+      "pass": true,
+      "hits": 0,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 cork_x_VLMAD",
+        "inputs_seen": "on_target_ai_hits=0 (PHASE-4 corrected; threshold <5)",
+        "reasoning": "process under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - real counts, PHASE-4 corrected",
+        "could_be_wrong_if": "non-indexed on-target deployment exists"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 cork_x_VLMAD",
+        "inputs_seen": "no quarantined pairs",
+        "reasoning": "n/a.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": true,
+      "gap_real": true,
+      "crosscheck_mismatch": false,
+      "reasoning_trace": {
+        "step": "Gate3 cork_x_VLMAD",
+        "inputs_seen": "gap_real=True, crosscheck_mismatch=False",
+        "reasoning": "passes iff no prior on-target application (incl. by a SIMPLER method) AND crosscheck did not overturn.",
+        "decision": "PASS",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible_now": {
+      "pass": true,
+      "concrete": true,
+      "usable_now": true,
+      "vaporware": false,
+      "feasibility_honest": true,
+      "maturity_tier": "HIGH_avail_MEDIUM_OOD",
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 cork_x_VLMAD",
+        "inputs_seen": "concrete=True, usable_now=True, vaporware=False, feas_honest=True, quote=True",
+        "reasoning": "passes iff specific recent technique + concrete mechanism (not hand-wavy) + grounded quote + technique USABLE NOW (not vaporware) + feasibility_now HONESTLY names its limit (no false drop-in claim).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text + maturity evidence",
+        "could_be_wrong_if": "usable-now but infeasible in the FIELD (lab-vs-field); usable != validated"
+      }
+    },
+    "survived": true,
+    "gates_failed": []
+  },
+  {
+    "pair_id": "indigo_x_VLMAD",
+    "process_id": "indigo_vat",
+    "technique_id": "VLMAD",
+    "on_target_ai_hits": 1,
+    "recent_technique": "Vision-language model zero-shot/few-shot visual anomaly detection (CLIP-based prompting / in-context learning, e.g. FADE, IADGPT, VMAD)",
+    "gate_1_penetration_low": {
+      "pass": true,
+      "hits": 1,
+      "threshold": 5,
+      "reasoning_trace": {
+        "step": "Gate1 indigo_x_VLMAD",
+        "inputs_seen": "on_target_ai_hits=1 (PHASE-4 corrected; threshold <5)",
+        "reasoning": "process under-served by AI iff on-target applications < 5.",
+        "decision": "PASS",
+        "confidence": "high - real counts, PHASE-4 corrected",
+        "could_be_wrong_if": "non-indexed on-target deployment exists"
+      }
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "reasoning_trace": {
+        "step": "Gate2 indigo_x_VLMAD",
+        "inputs_seen": "no quarantined pairs",
+        "reasoning": "n/a.",
+        "decision": "PASS",
+        "confidence": "high",
+        "could_be_wrong_if": "n/a"
+      }
+    },
+    "gate_3_application_gap_real": {
+      "pass": false,
+      "gap_real": false,
+      "crosscheck_mismatch": true,
+      "reasoning_trace": {
+        "step": "Gate3 indigo_x_VLMAD",
+        "inputs_seen": "gap_real=False, crosscheck_mismatch=True",
+        "reasoning": "passes iff no prior on-target application (incl. by a SIMPLER method) AND crosscheck did not overturn.",
+        "decision": "FAIL",
+        "confidence": "high - verify+crosscheck agree",
+        "could_be_wrong_if": "non-indexed prior art exists"
+      }
+    },
+    "gate_4_concrete_feasible_now": {
+      "pass": true,
+      "concrete": true,
+      "usable_now": true,
+      "vaporware": false,
+      "feasibility_honest": true,
+      "maturity_tier": "HIGH_avail_MEDIUM_OOD",
+      "quote_grounded": true,
+      "reasoning_trace": {
+        "step": "Gate4 indigo_x_VLMAD",
+        "inputs_seen": "concrete=True, usable_now=True, vaporware=False, feas_honest=True, quote=True",
+        "reasoning": "passes iff specific recent technique + concrete mechanism (not hand-wavy) + grounded quote + technique USABLE NOW (not vaporware) + feasibility_now HONESTLY names its limit (no false drop-in claim).",
+        "decision": "PASS",
+        "confidence": "high - heuristic over committed text + maturity evidence",
+        "could_be_wrong_if": "usable-now but infeasible in the FIELD (lab-vs-field); usable != validated"
+      }
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_3_application_gap_real"
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "run_id": "run_023",
+  "verdict": "OPPORTUNITY_FOUND",
+  "n_opportunities": 3,
+  "opportunities": [
+    {
+      "pair": "charcoal_x_FNO",
+      "process": "charcoal_kiln",
+      "recent_technique": "Fourier Neural Operator (FNO) for sparse-sensor field reconstruction (RecFNO / neuraloperator)",
+      "on_target_ai_hits": 1,
+      "maturity_tier": "HIGH_library_MEDIUM_deploy"
+    },
+    {
+      "pair": "indigo_x_TSFM",
+      "process": "indigo_vat",
+      "recent_technique": "Zero-shot time-series foundation model (TSFM) for forecasting (Reverso / Mamba4Cast / WindFM / Aurora)",
+      "on_target_ai_hits": 1,
+      "maturity_tier": "HIGH"
+    },
+    {
+      "pair": "cork_x_VLMAD",
+      "process": "cork_harvest",
+      "recent_technique": "Vision-language model zero-shot / few-shot anomaly detection (FADE / IADGPT / VMAD, CLIP-based prompting + in-context learning)",
+      "on_target_ai_hits": 0,
+      "maturity_tier": "HIGH_avail_MEDIUM_OOD"
+    }
+  ],
+  "rejects": [
+    {
+      "pair": "retting_x_HSIFM",
+      "gates_failed": [
+        "gate_3_application_gap_real"
+      ]
+    },
+    {
+      "pair": "indigo_x_VLMAD",
+      "gates_failed": [
+        "gate_3_application_gap_real"
+      ]
+    }
+  ],
+  "per_pair": [
+    {
+      "pair_id": "retting_x_HSIFM",
+      "survived": false,
+      "gates_failed": [
+        "gate_3_application_gap_real"
+      ]
+    },
+    {
+      "pair_id": "charcoal_x_FNO",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "pair_id": "indigo_x_TSFM",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "pair_id": "cork_x_VLMAD",
+      "survived": true,
+      "gates_failed": []
+    },
+    {
+      "pair_id": "indigo_x_VLMAD",
+      "survived": false,
+      "gates_failed": [
+        "gate_3_application_gap_real"
+      ]
+    }
+  ],
+  "determinism_ok": true,
+  "report": {
+    "all_quotes_verbatim_substring": true,
+    "all_techniques_grounded_in_sourceB": true,
+    "all_traces_complete": true,
+    "prior_art_independently_searched": true,
+    "note": "Hallucination proxy: every proposal's quote is a verified >=30char substring of the process text; every named technique resolves to a SOURCE-B technique with cited usable exemplars; PHASE-4 ran independent prior-art searches (so 'unexploited' is grounded in real negative results, and 2 false-opportunity claims were caught)."
+  },
+  "audit": {
+    "n": 5,
+    "all_complete": true,
+    "n_concrete": 5,
+    "n_usable_now": 5,
+    "n_vaporware": 0,
+    "n_feasibility_honest": 5,
+    "n_logic_breaks": 0,
+    "n_flagged": 0
+  },
+  "timestamp": "2026-06-03T19:06:30.425198+00:00",
+  "R13_caveat": "Survivors are CONCRETE + USABLE-NOW-TECHNIQUE + no-found-prior-art -- worth-pursuing hypotheses, NOT validated wins. 'Usable now' = the technique has public code/checkpoints, NOT that field deployment is solved (each survivor names its own real limit: charcoal_FNO needs training data; indigo_TSFM is hardware-gated + rare-event; cork_VLMAD is OOD/unvalidatable pilot). 'Unexploited' = absence of evidence in these searches.",
+  "R_run23_answer": "Do RECENT techniques find MORE/better opportunities than mature ones (Run 22)? NUANCED NO. 2 of 5 recent-technique pairings were OUTCLASSED/PREEMPTED by a SIMPLER existing method (retting: 4-wavelength colour sensor; indigo-visual: 2024 RGB machine vision). Recent/fancier != better. The 3 survivors win precisely because the recent technique enables a capability NO method (simple or fancy) provides -- sparse-sensor field reconstruction, future-state forecasting, zero-shot anomaly with no labeled set -- not because they are newer."
+}
