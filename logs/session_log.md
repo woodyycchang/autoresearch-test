@@ -131,3 +131,16 @@ Format per entry:
 - Real WebSearches Run 25: 489 (171 A + 38 B + 205 C + 61 xcheck + 14 audit); cumulative ~731. 0 fabricated (R5).
 - KEY META-FINDING: gap-detection is extremely sensitive to verifier rigor (sonnet narrow self-verify 9/9 gaps; opus deep 2/33; opus adversarial cross-check 2/11). Saturation holds at gate level; literal-gap tail ~2% all sub-gate.
 - Verdict: NICHE_NOT_FOUND (0/98 clear Gate 1) with 2 honest sub-gate residual leads reported per R14.
+
+
+## Run 26 session — Anomaly-driven niche hunting (paradigm_shift/runs/run_026)
+
+- REFRAME: from combination-mining (Runs 16-25, saturated) to ANOMALY hunting (measurement != prediction, the Vera-Rubin path). An unresolved anomaly is novel by definition.
+- Pipeline (7 sequential agents): source anomalies -> resolution status -> propose mechanisms (opus) -> verify+crosscheck -> audit. ~117 real WebSearches, 0 fabricated (R5).
+- PHASE 1: 9 real ML/LLM anomalies sourced (grokking, double descent, emergent abilities, sharp-minima, Adam surge, reversal curse, inverse scaling, LLMs-know-more, RLHF calibration).
+- PHASE 2 (R13 strict): RESOLVED 7, CONTESTED 2, UNRESOLVED 0. No clean Vera-Rubin signature - every famous anomaly has >=1 real literature explanation.
+- PHASE 3: opus proposed 5 explanatory mechanisms + testable predictions (self-novelty 0.4-0.6, honestly calibrated down).
+- PHASE 4: all 5 proposed mechanisms ALREADY_PROPOSED (forced-hits 6-9); crosscheck confirmed Gate-1 all-real + Gate-3 only ANOM_03/ANOM_08.
+- PHASE 5 audit: conclusion UPHELD; 6/6 collision anchors real (zero hallucinations); no wrongly-killed lead.
+- GATES: G1 real 9/9; G3 unresolved 2/9; G4 novel-mechanism 0/5 -> 0 clear all gates. VERDICT: ANOMALY_NICHE_NOT_FOUND.
+- KEY FINDING: anomaly-hunting does NOT escape combination-saturation. Famous anomalies attract a dense thicket of explanations -> explanation space saturated too. A real anomaly niche needs a freshly-reported, not-yet-famous discrepancy (hard to surface by search, which ranks the famous).

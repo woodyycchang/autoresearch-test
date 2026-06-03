@@ -1,0 +1,23 @@
+{
+  "verdict": "ANOMALY_NICHE_NOT_FOUND",
+  "run_id": "run_026",
+  "method": "anomaly hunting (measurement != prediction), the Vera-Rubin path, vs combination-mining of Runs 16-25",
+  "anomalies_sourced": 9,
+  "real_websearches": 117,
+  "fabricated_results": 0,
+  "gate_results": {
+    "gate_1_real": "9/9 (all empirically reported + replicated, independently reconfirmed)",
+    "gate_2_quarantine": "0 quarantined",
+    "gate_3_unresolved": "2/9 pass (ANOM_03 emergent abilities, ANOM_08 LLMs-know-more; both CONTESTED no-consensus). 7/9 RESOLVED (accepted explanation exists despite fame), R13-strict.",
+    "gate_4_novel_testable_mechanism": "0/5 (all proposed mechanisms ALREADY PROPOSED in the literature; forced-hit counts 6-9)"
+  },
+  "survivors_all_gates": [],
+  "closest_to_lead": [
+    {"id": "ANOM_03", "anomaly": "Emergent abilities", "why_not": "Gate 3 passes (mirage-vs-real contested) but proposed de-superposition/SNR mechanism already published (2312.11560, 2512.13568) -> Gate 4 fail"},
+    {"id": "ANOM_08", "anomaly": "LLMs know more than they show", "why_not": "Gate 3 passes (truth-vs-knowledge-recall disputed) but frequency-prior-override mechanism already published (2502.16143, 2504.12585) -> Gate 4 fail"}
+  ],
+  "key_finding": "Anomaly hunting did NOT escape combination-saturation. Famous anomalies attract a dense thicket of explanation attempts, so their explanation space is saturated too: 7/9 already explained (fail Gate 3), the 2 genuinely contested ones have crowded competing proposals where any new mechanism collides (fail Gate 4). The Vera-Rubin signature (real AND unexplained AND no-mechanism-yet-proposed) requires a freshly-reported, not-yet-famous discrepancy, which is structurally hard to surface by search (search ranks the famous).",
+  "hallucination_check": "all 6 audited collision anchors confirmed REAL + functionally matching; audit found a stronger ANOM_08 collision (2504.12585). Zero hallucinated citations.",
+  "audit_verdict": "SOUND - conclusion UPHELD; no logic break; no wrongly-killed lead.",
+  "timestamp": "2026-06-03T00:00:00Z"
+}
