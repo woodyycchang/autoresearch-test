@@ -1,0 +1,94 @@
+{
+  "pair_id": "indigo_x_TSFM",
+  "process_id": "indigo_vat",
+  "technique_id": "TSFM",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 30249,
+    "duration_api_ms": 30286,
+    "ttft_ms": 2521,
+    "num_turns": 1,
+    "result": "{\"process\": \"Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)\", \"process_problem\": \"The vat is a constantly-changing natural system that can 'die' unpredictably; there is no instrument that reports its health/state, no labeled time-series of vat trajectories, and the craftsperson must rely solely on intuition and the five senses honed over many years.\", \"recent_technique\": \"Zero-shot time-series foundation model (TSFM) for forecasting (Reverso / Mamba4Cast / WindFM / Aurora)\", \"technique_year\": \"2025-2026\", \"how_it_improves\": \"Clip a few cheap continuous probes onto the vat (pH, oxidation-reduction potential/ORP, temperature, and optionally a colorimetric sensor on the bloom/'flower' or surface redox), logging a multivariate stream every few minutes. A pretrained TSFM ingests the recent window and emits a rolling short-horizon forecast (e.g. next 6-24h) of ORP/pH out of the box, with prediction intervals. The actionable output is an early-warning signal: when the live stream diverges from the forecast band, or the forecast trend slides toward the 'dead' redox/pH regime, the craftsperson is prompted to intervene (feed wheat-bran/lye, warm, stir, rest) days before the five senses would register the decline -- turning intuition into an instrumented, anticipatory alarm and converting silent vat deaths into recoverable saves.\", \"why_recent_technique_beats_mature_approach\": \"A mature supervised forecaster (LSTM/ARIMA/gradient-boosting) needs a labeled per-vat training history -- many recorded crash-and-recovery trajectories -- to learn this specific vat's dynamics. That data simply does not exist here: vats are few, slow, idiosyncratic per workshop, and 'no labeled time-series of vat trajectories' has ever been collected, so the mature method cannot even be trained. The NEW capability of a TSFM is zero-shot forecasting: pretrained on billions of generic time points, it forecasts a never-before-seen sensor stream with no task-specific training set, so it produces a usable baseline-and-deviation signal from day one of logging while a per-vat dataset is slowly accumulated for later few-shot fine-tuning.\", \"feasibility_now\": \"Partly drop-in, partly hardware-gated and honestly uncertain. The TSFM itself is high-maturity and runs zero-shot (small models like Reverso ~2.6M params run on a Raspberry Pi), so the forecasting layer needs no training data. The real costs: (1) low-cost ORP/pH/temperature probes in a hot alkaline (~pH 11) caustic vat are a real instrumentation/fouling/calibration challenge, not free; (2) the highest-value event -- a vat 'crash' -- is a rare nonstationary regime shift, and zero-shot forecasting of rare out-of-distribution transitions is exactly where TSFMs are weakest, so v1 realistically delivers reliable trend/anomaly early-warning (deviation from forecast band) rather than precise crash prediction until enough real crashes are logged for few-shot adaptation. Not a guaranteed crash-predictor on day one; a credible label-free monitoring scaffold that improves as data accrues.\", \"primary_quote\": \"there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories\", \"quote_source\": \"open_problem\", \"reasoning_trace\": {\"step\": \"propose indigo_vat x TSFM\", \"inputs_seen\": \"the process + its open problem + the recent technique's new capability + its maturity tier\", \"reasoning\": \"The open problem is explicitly a no-data, no-instrument, intuition-only monitoring gap. Any mature supervised time-series model is blocked because it requires a per-vat labeled history that has never been collected ('no labeled time-series of vat trajectories'). A zero-shot TSFM removes precisely that blocker: it forecasts an unseen sensor stream with no task-specific training, giving an immediate forecast-vs-actual deviation alarm while data is accumulated. Feasibility is realistic, not optimistic, because the forecasting maturity is HIGH but the value-event (crash) is a rare regime shift where zero-shot transfer is genuinely weak, and the sensors are nontrivial to deploy in a caustic vat -- so I scope v1 to early-warning/anomaly rather than precise crash prediction.\", \"decision\": \"Pair a zero-shot TSFM with cheap multivariate vat probes to provide an instrumented, anticipatory early-warning system for vat health, label-free from day one and few-shot-improvable as crash data accrues.\", \"confidence\": \"medium - HIGH-tier zero-shot forecasting makes the monitoring layer credible now, but rare-crash regime-shift prediction sits in the technique's weakest zone, capping confidence.\", \"could_be_wrong_if\": \"the proxy sensors (pH/ORP/color) do not actually carry the signal that precedes a vat death, OR the crash is too abrupt and out-of-distribution for zero-shot forecasting to anticipate (only flagging after onset), OR cheap probes cannot survive the hot caustic alkaline vat reliably enough to feed clean data, OR a textile-conservation group has already piloted ORP/pH vat logging, making this non-novel.\"}",
+    "stop_reason": "end_turn",
+    "session_id": "81171591-e4a0-415d-9580-1abd1b5f0f88",
+    "total_cost_usd": 0.06745649999999999,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1732,
+      "cache_read_input_tokens": 16955,
+      "output_tokens": 1856,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 1732
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1856,
+          "cache_read_input_tokens": 16955,
+          "cache_creation_input_tokens": 1732,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 1732,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1639,
+        "outputTokens": 21,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001744,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2,
+        "outputTokens": 1856,
+        "cacheReadInputTokens": 16955,
+        "cacheCreationInputTokens": 1732,
+        "webSearchRequests": 0,
+        "costUSD": 0.0657125,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "b98bb825-4bf5-4706-a767-4782433b85aa"
+  },
+  "parsed": {
+    "process": "Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)",
+    "process_problem": "The vat is a constantly-changing natural system that can 'die' unpredictably; there is no instrument that reports its health/state, no labeled time-series of vat trajectories, and the craftsperson must rely solely on intuition and the five senses honed over many years.",
+    "recent_technique": "Zero-shot time-series foundation model (TSFM) for forecasting (Reverso / Mamba4Cast / WindFM / Aurora)",
+    "technique_year": "2025-2026",
+    "how_it_improves": "Clip a few cheap continuous probes onto the vat (pH, oxidation-reduction potential/ORP, temperature, and optionally a colorimetric sensor on the bloom/'flower' or surface redox), logging a multivariate stream every few minutes. A pretrained TSFM ingests the recent window and emits a rolling short-horizon forecast (e.g. next 6-24h) of ORP/pH out of the box, with prediction intervals. The actionable output is an early-warning signal: when the live stream diverges from the forecast band, or the forecast trend slides toward the 'dead' redox/pH regime, the craftsperson is prompted to intervene (feed wheat-bran/lye, warm, stir, rest) days before the five senses would register the decline -- turning intuition into an instrumented, anticipatory alarm and converting silent vat deaths into recoverable saves.",
+    "why_recent_technique_beats_mature_approach": "A mature supervised forecaster (LSTM/ARIMA/gradient-boosting) needs a labeled per-vat training history -- many recorded crash-and-recovery trajectories -- to learn this specific vat's dynamics. That data simply does not exist here: vats are few, slow, idiosyncratic per workshop, and 'no labeled time-series of vat trajectories' has ever been collected, so the mature method cannot even be trained. The NEW capability of a TSFM is zero-shot forecasting: pretrained on billions of generic time points, it forecasts a never-before-seen sensor stream with no task-specific training set, so it produces a usable baseline-and-deviation signal from day one of logging while a per-vat dataset is slowly accumulated for later few-shot fine-tuning.",
+    "feasibility_now": "Partly drop-in, partly hardware-gated and honestly uncertain. The TSFM itself is high-maturity and runs zero-shot (small models like Reverso ~2.6M params run on a Raspberry Pi), so the forecasting layer needs no training data. The real costs: (1) low-cost ORP/pH/temperature probes in a hot alkaline (~pH 11) caustic vat are a real instrumentation/fouling/calibration challenge, not free; (2) the highest-value event -- a vat 'crash' -- is a rare nonstationary regime shift, and zero-shot forecasting of rare out-of-distribution transitions is exactly where TSFMs are weakest, so v1 realistically delivers reliable trend/anomaly early-warning (deviation from forecast band) rather than precise crash prediction until enough real crashes are logged for few-shot adaptation. Not a guaranteed crash-predictor on day one; a credible label-free monitoring scaffold that improves as data accrues.",
+    "primary_quote": "there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories",
+    "quote_source": "open_problem",
+    "reasoning_trace": {
+      "step": "propose indigo_vat x TSFM",
+      "inputs_seen": "the process + its open problem + the recent technique's new capability + its maturity tier",
+      "reasoning": "The open problem is explicitly a no-data, no-instrument, intuition-only monitoring gap. Any mature supervised time-series model is blocked because it requires a per-vat labeled history that has never been collected ('no labeled time-series of vat trajectories'). A zero-shot TSFM removes precisely that blocker: it forecasts an unseen sensor stream with no task-specific training, giving an immediate forecast-vs-actual deviation alarm while data is accumulated. Feasibility is realistic, not optimistic, because the forecasting maturity is HIGH but the value-event (crash) is a rare regime shift where zero-shot transfer is genuinely weak, and the sensors are nontrivial to deploy in a caustic vat -- so I scope v1 to early-warning/anomaly rather than precise crash prediction.",
+      "decision": "Pair a zero-shot TSFM with cheap multivariate vat probes to provide an instrumented, anticipatory early-warning system for vat health, label-free from day one and few-shot-improvable as crash data accrues.",
+      "confidence": "medium - HIGH-tier zero-shot forecasting makes the monitoring layer credible now, but rare-crash regime-shift prediction sits in the technique's weakest zone, capping confidence.",
+      "could_be_wrong_if": "the proxy sensors (pH/ORP/color) do not actually carry the signal that precedes a vat death, OR the crash is too abrupt and out-of-distribution for zero-shot forecasting to anticipate (only flagging after onset), OR cheap probes cannot survive the hot caustic alkaline vat reliably enough to feed clean data, OR a textile-conservation group has already piloted ORP/pH vat logging, making this non-novel."
+    }
+  }
+}
