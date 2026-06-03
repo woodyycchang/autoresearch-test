@@ -1,0 +1,80 @@
+{
+  "C30": {
+    "concept": "Sacrificial anode (cathodic protection)",
+    "functional_effect": "A dedicated, deliberately EXPENDABLE/replaceable module (adapter) that PREFERENTIALLY ATTRACTS AND ABSORBS adversarial perturbation / harmful gradient / distributional corruption at inference, becoming degraded ITSELF so the primary (frozen) model weights are spared. In plain ML terms: a low-importance replaceable adapter that soaks up / diverts adversarial damage away from the protected backbone -- damage diversion, not robustness conferral and not mere detection.",
+    "composite": {
+      "novelty": 3,
+      "mechanism": 3,
+      "verifiability": 3,
+      "non_trivial": 3,
+      "score": 81
+    },
+    "source": "partA-opus"
+  },
+  "C37": {
+    "concept": "Suppletion",
+    "functional_effect": "At a decoding/output node, several candidate output items (subword units / morphemes / lexical entries) compete for the single slot; the winner is chosen by SPECIFICITY of feature-match \u2014 the item matching the largest subset of the node's contextual features wins, and a more-specific item BLOCKS a less-specific (default) one (underspecification + Subset Principle + Elsewhere/blocking). Plain ML: a generation-side selection rule where output candidates are ranked by feature-subset specificity at the terminal, with explicit blocking of less-specific defaults.",
+    "composite": {
+      "novelty": 3,
+      "mechanism": 3,
+      "verifiability": 3,
+      "non_trivial": 3,
+      "score": 81
+    },
+    "source": "partA-opus"
+  },
+  "C84": {
+    "concept": "Corbel arch",
+    "functional_effect": "Each successive element in a sequence projects incrementally further than the previous one; each element's stability is ensured by compressive mass already committed behind it (not by a resolving apex element); the gap between two advancing sequences is closed from both sides simultaneously; the structure tolerates residual bending rather than resolving all forces into pure axial compression.",
+    "llm_application": "Bilateral incremental span closure: successive token representations from both ends of a context window incrementally project inward\u2014each step anchored by the weight of already-processed representations behind it\u2014until the gap between endpoints is bridged without a central keystone token",
+    "source": "partC-sonnet"
+  },
+  "C77": {
+    "concept": "Rennet casein coagulation",
+    "functional_effect": "Enzymatic removal of a surface-displayed inhibitory stabilizer at a critical fraction-threshold causes an abrupt, irreversible phase transition in a colloidal dispersion from stable particles to a cross-linked gel network mediated by divalent-ion bridging.",
+    "llm_application": "Training curriculum where a threshold fraction of inhibitory regularizers (e.g., dropout masks, attention-head suppression) must be removed before a latent cluster structure becomes stable enough to persist \u2014 threshold-gated phase transition from diffuse to collapsed representation",
+    "source": "partC-sonnet"
+  },
+  "C88": {
+    "concept": "Siphon",
+    "functional_effect": "Once primed (one-time initialization), flow past an elevated barrier is self-sustaining indefinitely, driven solely by the potential difference between two separated endpoints, requiring no ongoing external energy input \u2014 the downstream pull continuously regenerates the upstream suction",
+    "llm_application": "One-time priming of a cross-layer residual shortcut that, once initialized, sustains gradient flow past a high-loss barrier through downstream reward-pull, enabling training of otherwise-stalled deep architectures without per-step external forcing",
+    "source": "partC-sonnet"
+  },
+  "C69": {
+    "concept": "Sporulation (bacterial endospore dormancy)",
+    "functional_effect": "An ordered, checkpoint-gated sequential program commits a system to irreversible dormancy under resource exhaustion, then reactivates precisely when a specific signal is detected.",
+    "llm_application": "Sigma-factor checkpoint cascade as a model for ordered curriculum training: each training phase unlocks the next only after a gating criterion is met, with irreversible commitment to a compressed dormant checkpoint when loss plateaus under resource exhaustion",
+    "source": "partC-sonnet"
+  },
+  "C94": {
+    "concept": "Transhumance (seasonal herding migration)",
+    "functional_effect": "Cyclic switching between two fixed resource zones triggered by environmental availability signals, with timing governed by external state rather than internal schedule, exploiting differential resource richness across zones.",
+    "llm_application": "Seasonal training-set switching: alternate the training corpus between two fixed domain datasets on an environment-signal-triggered schedule (e.g., data distribution drift metric crosses threshold), exploiting different data-richness gradients at different training stages rather than mixing continuously",
+    "source": "partC-sonnet"
+  },
+  "C65": {
+    "concept": "Allelopathy",
+    "functional_effect": "An active unit continuously releases an inhibitory substance into a shared medium; the substance persists and accumulates, reducing the functional capacity (growth, output activation) of neighboring competing units in proportion to local concentration\u2014without requiring direct contact, operating via passive diffusion through a shared substrate.",
+    "llm_application": "A model continuously emits inhibitory interference signals into a shared representation space, degrading competitor models' internal growth structures over training time",
+    "source": "partC-sonnet"
+  },
+  "C57": {
+    "concept": "Liesegang rings (periodic precipitation)",
+    "functional_effect": "A local quantity accumulates until it crosses a nucleation threshold; the commitment event immediately depletes the surrounding region, creating a refractory exclusion zone; the depleted zone must refill (via slow diffusion) before the next commitment event can occur at a more distant location; this iterates to produce geometrically spaced, periodic commitment events propagating outward through the medium.",
+    "llm_application": "Iterative token commitment under depletion: at each generation step, locally accumulated evidence exceeds a threshold triggering a hard token commitment; this commitment depletes the surrounding probability mass, creating a refractory gap that prevents near-identical tokens from being selected in subsequent positions \u2014 producing geometrically spaced, periodic diversity patterns in sampled sequences.",
+    "source": "partC-sonnet"
+  },
+  "C98": {
+    "concept": "Wattle and daub (woven lattice + clay)",
+    "functional_effect": "A pliable fill material is pressed into an open-mesh scaffold from both sides simultaneously; on hardening the fill locks the scaffold into a single rigid composite through geometric interlock and surface roughness, without chemical adhesive.",
+    "llm_application": "Dual-sided fill encoder: a sparse scaffold of key-vector anchors (the 'wattle') is surrounded by a dense learned fill (the 'daub') injected from both input and output ends of a block; the fill hardens via a contrastive drying loss into a unified latent mass, preventing the scaffold from deforming under lateral distributional shift.",
+    "source": "partC-sonnet"
+  },
+  "C52": {
+    "concept": "Ferrofluid Rosensweig instability",
+    "functional_effect": "An external driving force exceeds a critical threshold set by two opposing restoring forces, causing a previously uniform surface to spontaneously break symmetry into a spatially periodic peaked structure whose characteristic wavelength is determined by the balance of all three forces at a new free-energy minimum.",
+    "llm_application": "Attention head specialization: external task-signal (magnetic force analog) exceeds entropy-regularization threshold (surface tension + gravity analog), causing uniform-softmax to break into a structured peaked attention distribution whose characteristic scale is set by the competing regularizers",
+    "source": "partC-sonnet"
+  }
+}
