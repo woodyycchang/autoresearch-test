@@ -1,0 +1,90 @@
+{
+  "process_id": "nixtamalization",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 20540,
+    "duration_api_ms": 19847,
+    "ttft_ms": 18728,
+    "num_turns": 1,
+    "result": "{\"process\": \"alkaline nixtamalization of maize\", \"current_inefficiency\": \"cook time, steep duration and lime alkalinity set empirically; over/under-cooking shifts texture, niacin release and dough quality, with manual experiential control\", \"ai_technique\": \"in-line NIR (near-infrared) spectroscopy + gradient-boosted regression (XGBoost) for soft-sensor endpoint prediction\", \"how_it_improves\": \"A fiber-optic NIR probe immersed in the steep tank streams 900-1700 nm absorbance spectra of the cooking maize/nejayote every few seconds; an XGBoost regressor trained on spectra labeled with offline lab measurements (degree of gelatinization/DSC, pericarp removal %, moisture, bound niacin) predicts these quality variables in real time. The model outputs a live 'cook-doneness' index and predicted minutes-to-endpoint, which drives a controller to cut heat and start the wash exactly at target -> eliminates over/under-cooking batch variance, cuts energy and steep time, and stabilizes downstream masa quality without destructive sampling.\", \"why_not_done_before\": \"Nixtamalization is dominated by small/artisanal and mid-size tortilla producers with thin R&D budgets; building the labeled spectral-to-quality calibration dataset requires pairing an industrial NIR rig with DSC/HPLC niacin assays across maize varieties, and the caustic, hot, particulate-laden lime steep is a hostile probe environment, so no one has fused process-NIR with boosted-tree soft sensors here.\", \"primary_quote\": \"Cooking time and steeping (minutes to ~a day) and alkalinity are set empirically\", \"quote_source\": \"inefficiency\", \"reasoning_trace\": {\"step\": \"propose improvement for nixtamalization\", \"inputs_seen\": \"the process + its inefficiency\", \"reasoning\": \"The core inefficiency is an unmeasured, empirically-set endpoint for an opaque chemical cook. NIR is a mature, food-industry-proven probe for moisture/starch/protein state and works through slurries; XGBoost soft sensors are standard in process industries for spectra->property mapping. Fusing them as an in-line endpoint predictor is concrete and buildable. I rejected pure computer-vision hull-detection (only sees surface, misses gelatinization/niacin chemistry) and generic 'IoT temperature control' (alkalinity/starch state, not temperature, is the missing signal).\", \"decision\": \"in-line NIR spectroscopy with XGBoost soft-sensor predicting gelatinization, hull removal and niacin to control cook/steep endpoint\", \"confidence\": \"medium - NIR+boosted-tree soft sensors are proven elsewhere, but the calibration dataset and caustic-probe ruggedization are real lift\", \"could_be_wrong_if\": \"the single existing direct paper already applies spectroscopy+ML to nixtamalization endpoint control, or NIR cannot resolve bound-niacin release through the turbid nejayote, closing or invalidating the gap\"}}",
+    "stop_reason": "end_turn",
+    "session_id": "c3471ebb-a3d5-4677-8c09-d4017b72bce2",
+    "total_cost_usd": 0.05519425,
+    "usage": {
+      "input_tokens": 1734,
+      "cache_creation_input_tokens": 1943,
+      "cache_read_input_tokens": 14237,
+      "output_tokens": 1043,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1943,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 1734,
+          "output_tokens": 1043,
+          "cache_read_input_tokens": 14237,
+          "cache_creation_input_tokens": 1943,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1943
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1077,
+        "outputTokens": 22,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0011870000000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 1734,
+        "outputTokens": 1043,
+        "cacheReadInputTokens": 14237,
+        "cacheCreationInputTokens": 1943,
+        "webSearchRequests": 0,
+        "costUSD": 0.05400725,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "885dae10-a26a-4e87-924c-4866642c931f"
+  },
+  "parsed": {
+    "process": "alkaline nixtamalization of maize",
+    "current_inefficiency": "cook time, steep duration and lime alkalinity set empirically; over/under-cooking shifts texture, niacin release and dough quality, with manual experiential control",
+    "ai_technique": "in-line NIR (near-infrared) spectroscopy + gradient-boosted regression (XGBoost) for soft-sensor endpoint prediction",
+    "how_it_improves": "A fiber-optic NIR probe immersed in the steep tank streams 900-1700 nm absorbance spectra of the cooking maize/nejayote every few seconds; an XGBoost regressor trained on spectra labeled with offline lab measurements (degree of gelatinization/DSC, pericarp removal %, moisture, bound niacin) predicts these quality variables in real time. The model outputs a live 'cook-doneness' index and predicted minutes-to-endpoint, which drives a controller to cut heat and start the wash exactly at target -> eliminates over/under-cooking batch variance, cuts energy and steep time, and stabilizes downstream masa quality without destructive sampling.",
+    "why_not_done_before": "Nixtamalization is dominated by small/artisanal and mid-size tortilla producers with thin R&D budgets; building the labeled spectral-to-quality calibration dataset requires pairing an industrial NIR rig with DSC/HPLC niacin assays across maize varieties, and the caustic, hot, particulate-laden lime steep is a hostile probe environment, so no one has fused process-NIR with boosted-tree soft sensors here.",
+    "primary_quote": "Cooking time and steeping (minutes to ~a day) and alkalinity are set empirically",
+    "quote_source": "inefficiency",
+    "reasoning_trace": {
+      "step": "propose improvement for nixtamalization",
+      "inputs_seen": "the process + its inefficiency",
+      "reasoning": "The core inefficiency is an unmeasured, empirically-set endpoint for an opaque chemical cook. NIR is a mature, food-industry-proven probe for moisture/starch/protein state and works through slurries; XGBoost soft sensors are standard in process industries for spectra->property mapping. Fusing them as an in-line endpoint predictor is concrete and buildable. I rejected pure computer-vision hull-detection (only sees surface, misses gelatinization/niacin chemistry) and generic 'IoT temperature control' (alkalinity/starch state, not temperature, is the missing signal).",
+      "decision": "in-line NIR spectroscopy with XGBoost soft-sensor predicting gelatinization, hull removal and niacin to control cook/steep endpoint",
+      "confidence": "medium - NIR+boosted-tree soft sensors are proven elsewhere, but the calibration dataset and caustic-probe ruggedization are real lift",
+      "could_be_wrong_if": "the single existing direct paper already applies spectroscopy+ML to nixtamalization endpoint control, or NIR cannot resolve bound-niacin release through the turbid nejayote, closing or invalidating the gap"
+    }
+  }
+}
