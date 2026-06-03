@@ -1,0 +1,608 @@
+{
+  "batch": "PC1",
+  "concepts": [
+    {
+      "id": "C49",
+      "concept": "Leidenfrost effect",
+      "domain": "thermal/fluid",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Leidenfrost effect - Wikipedia", "url": "https://en.wikipedia.org/wiki/Leidenfrost_effect"},
+        {"title": "Johann Gottlob Leidenfrost - Wikipedia", "url": "https://en.wikipedia.org/wiki/Johann_Gottlob_Leidenfrost"},
+        {"title": "Leidenfrost Effect - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/engineering/leidenfrost-effect"},
+        {"title": "Leidenfrost effect", "url": "https://www.engineersedge.com/physics/leidenfrost_effect_13089.htm"},
+        {"title": "The Leidenfrost Effect - Environment, Health, and Safety", "url": "https://ehs.lbl.gov/service/chemical-lab-safety/the-leidenfrost-effect/"}
+      ],
+      "mechanism_summary": "When a liquid droplet contacts a solid surface significantly hotter than the liquid's boiling point, a vapor cushion forms by evaporation underneath the droplet. This insulating vapor layer keeps the liquid from boiling rapidly. The vapor layer acts as a poor conductor of heat, opposing direct contact and slowing heat transfer. The pressure from the continuously escaping vapor supports the weight of the droplet, allowing it to float above the surface: 'the drop weight is balanced by the pressure in the vapor cushion squeezed by the slowly, steadily evaporating liquid.' Heat transfer occurs through conduction and radiation across the vapor rather than direct contact.",
+      "atoms": [
+        {
+          "atom_id": "C49_A1",
+          "operator": "insulates",
+          "verbatim_quote": "a vapor cushion forms by evaporation underneath the droplet; this insulating vapor layer keeps the liquid from boiling rapidly and the vapor acts as a poor conductor of heat",
+          "quote_source_url": "https://www.sciencedirect.com/topics/engineering/leidenfrost-effect",
+          "mechanism_atom": "Self-generated vapor layer thermally insulates liquid from hot surface, reducing heat-transfer rate drastically"
+        },
+        {
+          "atom_id": "C49_A2",
+          "operator": "levitates",
+          "verbatim_quote": "the drop weight is balanced by the pressure in the vapor cushion squeezed by the slowly, steadily evaporating liquid",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8256046/",
+          "mechanism_atom": "Pressure from escaping vapor supports droplet weight, keeping liquid mechanically decoupled from hot solid"
+        },
+        {
+          "atom_id": "C49_A3",
+          "operator": "reduces",
+          "verbatim_quote": "heat transfer is slowed considerably, occurring through conduction and radiation across the vapor instead of direct contact",
+          "quote_source_url": "https://www.vaia.com/en-us/explanations/engineering/mechanical-engineering/leidenfrost-effect/",
+          "mechanism_atom": "Switching from direct-contact conduction to vapor-mediated conduction+radiation cuts heat-transfer rate"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C49_A1",
+          "search_query": "Leidenfrost vapor cushion insulation machine learning neural network",
+          "hits": [
+            {"title": "Prediction of the minimum film boiling temperature using artificial neural network", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931020304932"},
+            {"title": "Chapter 7 LEIDENFROST DROPS", "url": "https://orbi.uliege.be/bitstream/2268/183302/1/chap7.pdf"},
+            {"title": "Leidenfrost Effect: Definition & Temperature | Vaia", "url": "https://www.vaia.com/en-us/explanations/engineering/mechanical-engineering/leidenfrost-effect/"},
+            {"title": "Dynamics of Vapor Layer Under a Leidenfrost Drop", "url": "https://arxiv.org/pdf/1401.4424"},
+            {"title": "Leidenfrost droplet trampolining", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7979863/"},
+            {"title": "The Leidenfrost effect as a directed percolation phase transition", "url": "https://arxiv.org/pdf/2106.06283"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Random forest (RF) and multi-layer perceptron (MLP) models have been employed for minimum film boiling temperature prediction schemes and have shown excellent training and prediction performances."
+        },
+        {
+          "atom_id": "C49_A2",
+          "search_query": "Leidenfrost droplet levitation pressure balance machine learning LLM",
+          "hits": [
+            {"title": "Small Leidenfrost droplet dynamics", "url": "https://arxiv.org/html/2409.17853v1"},
+            {"title": "Leidenfrost levitation: beyond droplets", "url": "https://www.academia.edu/76451478/Leidenfrost_levitation_beyond_droplets"},
+            {"title": "Inverse Leidenfrost Effect: Levitating Drops on Liquid Nitrogen", "url": "https://ora.ox.ac.uk/objects/uuid:51c91fda-2686-4330-8cdd-0b9a9fa9c15a/files/m6631a2f5958e3f2ea13743f73bc471ee"},
+            {"title": "Geometry of the vapor layer under a Leidenfrost hydrogel sphere", "url": "https://arxiv.org/pdf/2507.04982"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned physics papers on Leidenfrost levitation but no machine learning or LLM papers specifically addressing this atom."
+        },
+        {
+          "atom_id": "C49_A3",
+          "search_query": "Leidenfrost vapor cushion insulation machine learning neural network",
+          "hits": [
+            {"title": "Prediction of the minimum film boiling temperature using artificial neural network", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931020304932"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML used to predict film-boiling temperatures (system-level). No papers import the insulation-by-vapor-separation mechanism into ML architecture."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C49",
+        "source_mechanism_verbatim": "the drop weight is balanced by the pressure in the vapor cushion squeezed by the slowly, steadily evaporating liquid",
+        "operator": "levitates",
+        "llm_application": "Decoder layers use intermediate-representation pressure (activation magnitude) to prevent token collapse onto surface modes—mechanically decoupling top-layer outputs from raw embedding geometry via a vapor-analog buffer",
+        "content_words": ["vapor", "cushion", "pressure", "balance", "levitation", "insulation"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C50",
+      "concept": "Thermoacoustic engine",
+      "domain": "acoustics/thermodynamics",
+      "tier_prior": 1,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Thermoacoustics - Wikipedia", "url": "https://en.wikipedia.org/wiki/Thermoacoustics"},
+        {"title": "Thermoacoustic heat engine - Wikipedia", "url": "https://en.wikipedia.org/wiki/Thermoacoustic_heat_engine"},
+        {"title": "Thermoacoustic heat engine — Grokipedia", "url": "https://grokipedia.com/page/Thermoacoustic_heat_engine"},
+        {"title": "Engineering Acoustics/Thermoacoustics - Wikibooks", "url": "https://en.wikibooks.org/wiki/Engineering_Acoustics/Thermoacoustics"},
+        {"title": "Machine Learning for Thermoacoustics | Springer Nature Link", "url": "https://link.springer.com/chapter/10.1007/978-3-031-16248-0_11"}
+      ],
+      "mechanism_summary": "A thermoacoustic engine converts heat into acoustic work via gas parcel oscillation in a porous stack maintained between hot and cold heat exchangers. 'Acoustic power input causes the gas to oscillate along a temperature gradient established across a stack or regenerator.' Gas parcels periodically compress and expand adiabatically in the sound wave, causing simultaneous pressure and temperature changes. Near the solid stack walls, the temperature fluctuations of oscillating gas parcels and the fixed temperature gradient lead to irreversible heat pumping: gas absorbs heat from the cold side during expansion and rejects it to the hot side during compression, amplifying the acoustic wave if thermoacoustic driving exceeds dissipation.",
+      "atoms": [
+        {
+          "atom_id": "C50_A1",
+          "operator": "oscillates",
+          "verbatim_quote": "gas parcels alternatively compress and expand adiabatically, and pressure and temperature change simultaneously; when pressure reaches a maximum or minimum, so does the temperature",
+          "quote_source_url": "https://grokipedia.com/page/Thermoacoustic_heat_engine",
+          "mechanism_atom": "Acoustic pressure waves drive periodic adiabatic compression/expansion of gas, coupling pressure and temperature oscillations"
+        },
+        {
+          "atom_id": "C50_A2",
+          "operator": "amplifies",
+          "verbatim_quote": "if moments of heat release rate coincide with moments of pressure, more work is done during the expansion phase than compression phase; if thermoacoustic driving work exceeds dissipated work, the system becomes thermoacoustically unstable",
+          "quote_source_url": "https://pubs.aip.org/aip/pof/article-abstract/37/2/024114/3335572/Hybrid-modeling-of-thermoacoustic-oscillations",
+          "mechanism_atom": "When heat addition synchronizes with high-pressure moments, net acoustic work is positive and oscillations grow (Rayleigh criterion)"
+        },
+        {
+          "atom_id": "C50_A3",
+          "operator": "pumps",
+          "verbatim_quote": "viscous and thermal interactions between the gas parcels and the solid structure lead to heat absorption from the cold side during expansion and rejection to the hot side during compression, effectively driving heat flow against the gradient",
+          "quote_source_url": "https://en.wikibooks.org/wiki/Engineering_Acoustics/Thermoacoustics",
+          "mechanism_atom": "Stack walls exchange heat with oscillating gas parcels in phase-dependent manner, net-transporting heat from cold to hot end"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C50_A1",
+          "search_query": "thermoacoustic stack gas parcels temperature gradient machine learning neural network",
+          "hits": [
+            {"title": "Enhancing Thermo-Acoustic Waste Heat Recovery through Machine Learning", "url": "https://www.mdpi.com/2673-2688/5/1/13"},
+            {"title": "Machine Learning for Thermoacoustics | Springer Nature Link", "url": "https://link.springer.com/chapter/10.1007/978-3-031-16248-0_11"},
+            {"title": "Temperature-Based Long-Term Stabilization of Photoacoustic Gas Sensors Using Machine Learning", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11644085/"},
+            {"title": "Study on heat transfer law of moving temperature variable gas in thermoacoustic plate stack", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11045748/"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "A multi-layer feed-forward neural network with back propagation has been proposed for predicting temperature difference across thermoacoustic refrigerator stacks. Bayesian Neural Network Ensembles determine how far each system is from instability."
+        },
+        {
+          "atom_id": "C50_A2",
+          "search_query": "thermoacoustic pressure oscillation acoustic work machine learning LLM neural network",
+          "hits": [
+            {"title": "Machine Learning for Thermoacoustics | Springer Nature Link", "url": "https://link.springer.com/chapter/10.1007/978-3-031-16248-0_11"},
+            {"title": "Hybrid modeling of thermoacoustic oscillations", "url": "https://pubs.aip.org/aip/pof/article-abstract/37/2/024114/3335572/Hybrid-modeling-of-thermoacoustic-oscillations"},
+            {"title": "Controlling thermoacoustic instability of a laminar premixed flame with deep reinforcement learning", "url": "https://www.sciencedirect.com/science/article/abs/pii/S1540748924000336"},
+            {"title": "Learning thermoacoustic interactions in combustors using a physics-informed neural network", "url": "https://arxiv.org/html/2401.00061"},
+            {"title": "Neural ODE to model and prognose thermoacoustic instability", "url": "https://arxiv.org/pdf/2106.12758"},
+            {"title": "Precursor detection of thermoacoustic instability using statistical complexity and artificial neural network", "url": "https://www.researchgate.net/publication/372529919"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "PINN performs well in generating the acoustic field and estimating model parameters. Neural ODE framework models the thermoacoustic system using time series of heat release rate and pressure fluctuations. Deep reinforcement learning applied to control thermoacoustic instability."
+        },
+        {
+          "atom_id": "C50_A3",
+          "search_query": "thermoacoustic stack gas parcels temperature gradient machine learning neural network",
+          "hits": [
+            {"title": "Enhancing Thermo-Acoustic Waste Heat Recovery through Machine Learning", "url": "https://www.mdpi.com/2673-2688/5/1/13"},
+            {"title": "Machine Learning for Thermoacoustics | Springer Nature Link", "url": "https://link.springer.com/chapter/10.1007/978-3-031-16248-0_11"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML applied to thermoacoustic system optimization and prediction, treating stack heat-pumping as a measurable outcome."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C50",
+        "source_mechanism_verbatim": "viscous and thermal interactions between the gas parcels and the solid structure lead to heat absorption from the cold side during expansion and rejection to the hot side during compression",
+        "operator": "pumps",
+        "llm_application": "Gradient-synchronous update schedule: parameter updates absorb information when representation 'expands' (high uncertainty/entropy), reject stale gradients during 'compression' (low uncertainty) to net-transport knowledge up-gradient against initial distribution",
+        "content_words": ["stack", "heat-pumping", "synchrony", "oscillation", "gradient", "phase-dependent"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C51",
+      "concept": "Photoelasticity",
+      "domain": "optics/mechanics",
+      "tier_prior": 1,
+      "empirical_tier": 4,
+      "source_results": [
+        {"title": "Photoelasticity - Wikipedia", "url": "https://en.wikipedia.org/wiki/Photoelasticity"},
+        {"title": "Photoelasticity — Grokipedia", "url": "https://grokipedia.com/page/Photoelasticity"},
+        {"title": "Photoelasticity - WikiVisually", "url": "https://wikivisually.com/wiki/Photoelasticity"},
+        {"title": "photoelasticity - Wiktionary", "url": "https://en.wiktionary.org/wiki/photoelasticity"},
+        {"title": "PhotoElasticity", "url": "https://photoelasticity.net/"}
+      ],
+      "mechanism_summary": "Photoelasticity exploits stress-induced birefringence: mechanical stress in a transparent material creates optical anisotropy proportional to the principal stress difference. 'The applied stress causes alignment of the random chains and the inherent uniaxial anisotropy of the chain structure leads to stress-induced birefringence.' Polarized light passing through the stressed material splits into two orthogonally polarized rays traveling at different speeds, producing a phase difference upon emergence. The stress-optic (Brewster) law states birefringence is directly proportional to principal stress difference, making visible fringe patterns (isochromatics and isoclinics) encodings of internal stress distributions.",
+      "atoms": [
+        {
+          "atom_id": "C51_A1",
+          "operator": "encodes",
+          "verbatim_quote": "birefringence occurs when a material causes polarized light to split into two rays with orthogonal polarizations that propagate at different speeds, resulting in a phase difference upon emergence",
+          "quote_source_url": "https://www.academicblock.com/technology/image-based-measurements/photoelasticity",
+          "mechanism_atom": "Stress-induced refractive-index anisotropy encodes stress magnitude/direction as measurable phase retardation between polarization components"
+        },
+        {
+          "atom_id": "C51_A2",
+          "operator": "maps",
+          "verbatim_quote": "the induced birefringence is directly proportional to the difference between the principal stresses in the material, creating principal stress directions that modify the refractive indices along those axes",
+          "quote_source_url": "https://www.academicblock.com/technology/image-based-measurements/photoelasticity",
+          "mechanism_atom": "Stress-optic law linearly maps principal stress difference to optical path difference, yielding countable fringe orders"
+        },
+        {
+          "atom_id": "C51_A3",
+          "operator": "recovers",
+          "verbatim_quote": "recovering the stress field from photoelastic fringe patterns can be regarded as an inverse problem solving process",
+          "quote_source_url": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2022.818112/full",
+          "mechanism_atom": "Inverse optical-to-mechanical inference: fringe image decoded back to full stress-field distribution"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C51_A1",
+          "search_query": "photoelasticity stress birefringence fringe pattern machine learning neural network",
+          "hits": [
+            {"title": "Photoelastic Stress Field Recovery Using Deep Convolutional Neural Network", "url": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2022.818112/full"},
+            {"title": "Photoelastic Stress Field Recovery Using Deep Convolutional Neural Network - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8978563/"},
+            {"title": "Deep learning as a powerful tool in digital photoelasticity", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143816624002537"},
+            {"title": "Photoelastic Stress Field Recovery Using Deep Convolutional Neural Network - PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/35387296/"},
+            {"title": "Fringe pattern analysis to evaluate light sources and sensors in digital photoelasticity", "url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-62-10-2560"},
+            {"title": "Photoelastic Fringe Pattern Analysis by Image Processing", "url": "https://www.academia.edu/72082912/Photoelastic_Fringe_Pattern_Analysis_by_Image_Processing"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "A deep convolutional neural network based on encoder-decoder structure can accurately decode stress distribution information from complex photoelastic fringe images. FringeNet (U-Net) specifically designed for photoelastic applications."
+        },
+        {
+          "atom_id": "C51_A2",
+          "search_query": "photoelasticity principal stress difference optical path machine learning deep learning",
+          "hits": [
+            {"title": "Photoelastic Stress Field Recovery Using Deep Convolutional Neural Network - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8978563/"},
+            {"title": "Deep learning as a powerful tool in digital photoelasticity", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143816624002537"},
+            {"title": "Reconstruction of three-dimensional fluid stress field via photoelasticity using physics-informed convolutional encoder-decoder", "url": "https://arxiv.org/html/2504.15952v1"},
+            {"title": "PhotoelastNet: a deep convolutional neural network for evaluating the stress field by using a single color photoelasticity image", "url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-61-7-D50"},
+            {"title": "Photoelasticity as a Tool for Stress Analysis of Re-Entrant Auxetic Structures", "url": "https://www.mdpi.com/2076-3417/15/3/1250"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Existing neural network-based methods in photoelasticity are limited to computing only the difference between the principal stresses. PhotoelastNet evaluates stress field from single color photoelasticity image."
+        },
+        {
+          "atom_id": "C51_A3",
+          "search_query": "photoelasticity stress birefringence fringe pattern machine learning neural network",
+          "hits": [
+            {"title": "Photoelastic Stress Field Recovery Using Deep Convolutional Neural Network", "url": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2022.818112/full"},
+            {"title": "Deep learning as a powerful tool in digital photoelasticity", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143816624002537"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Recovering the stress field from photoelastic fringe patterns as inverse problem is directly solved by deep CNNs."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C51",
+        "source_mechanism_verbatim": "recovering the stress field from photoelastic fringe patterns can be regarded as an inverse problem solving process",
+        "operator": "recovers",
+        "llm_application": "Attention pattern as fringe: read off directional information flow (which heads attend to which positions) as birefringent fringe order, then invert to reconstruct underlying query-key stress field without direct access to weights",
+        "content_words": ["fringe", "birefringence", "inverse", "stress-field", "optical-anisotropy", "phase-retardation"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C52",
+      "concept": "Ferrofluid Rosensweig instability",
+      "domain": "magnetofluid",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Ferrofluid - Wikipedia", "url": "https://en.wikipedia.org/wiki/Ferrofluid"},
+        {"title": "The wave nature of Rosensweig instability", "url": "https://www.researchgate.net/publication/376449045_The_wave_nature_of_Rosensweig_instability"},
+        {"title": "Observing the Rosensweig instability of a quantum ferrofluid | Nature", "url": "https://www.nature.com/articles/nature16485"},
+        {"title": "Effect of Rosensweig instability in a ferrofluid layer on reflection loss | AIP Advances", "url": "https://pubs.aip.org/aip/adv/article/12/4/045221/2819268/Effect-of-Rosensweig-instability-in-a-ferrofluid"},
+        {"title": "Rosensweig instability in ferrofluids", "url": "https://www.researchgate.net/publication/258072240_Rosensweig_instability_in_ferrofluids"}
+      ],
+      "mechanism_summary": "When a vertical magnetic field is applied to a ferrofluid, the flat surface becomes unstable above a critical field strength and erupts into a regular hexagonal array of peaks (the Rosensweig or normal-field instability). The mechanism is an energy competition: 'Magnetic force produces perturbations in a ferrofluid surface, while surface tension and gravitational forces have a stabilizing effect. If the magnetic force exceeds the stabilizing forces, a hexagonal array of peaks occurs.' Peaks grow because they concentrate magnetic field lines, lowering magnetic energy more than the increase in gravitational and surface-energy costs. The system settles at a new free-energy minimum with a characteristic wave-number determined by the balance of all three forces.",
+      "atoms": [
+        {
+          "atom_id": "C52_A1",
+          "operator": "destabilizes",
+          "verbatim_quote": "magnetic force produces perturbations in a ferrofluid surface, while surface tension and gravitational forces have a stabilizing effect; if the magnetic force exceeds the stabilizing forces, a hexagonal array of peaks occurs",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Ferrofluid",
+          "mechanism_atom": "External field exceeds threshold where destabilizing force overcomes restoring forces, triggering flat-to-structured transition"
+        },
+        {
+          "atom_id": "C52_A2",
+          "operator": "minimizes",
+          "verbatim_quote": "the hydrostatic and surface energy increase when the interface profile deviates from flat, whereas the magnetic energy decreases; spikes ride field lines out until there is a balance of the forces involved",
+          "quote_source_url": "https://mlhonke.github.io/projects/2020-06-15-Ferrofluid-Simulation/",
+          "mechanism_atom": "Peak pattern is the new free-energy minimum where magnetic-energy reduction exactly offsets gravity+surface-tension cost"
+        },
+        {
+          "atom_id": "C52_A3",
+          "operator": "selects",
+          "verbatim_quote": "the peak state is a static interfacial pattern selected by the balance of gravity, capillarity, and field-induced stresses",
+          "quote_source_url": "https://arxiv.org/pdf/2003.12324",
+          "mechanism_atom": "Characteristic spatial wavelength/wavenumber of peaks is selected by the three-force balance, not arbitrary"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C52_A1",
+          "search_query": "Rosensweig instability ferrofluid magnetic surface pattern machine learning neural network",
+          "hits": [
+            {"title": "Surface Instabilities of Ferrofluids | Springer Nature Link", "url": "https://link.springer.com/chapter/10.1007/978-3-540-85387-9_3"},
+            {"title": "Rosensweig instability in ferrofluids - ADS", "url": "https://ui.adsabs.harvard.edu/abs/2011LTP....37..812K"},
+            {"title": "Localised Radial Patterns on the Free Surface of a Ferrofluid", "url": "https://arxiv.org/pdf/2003.12324"},
+            {"title": "Active Rosensweig Patterns", "url": "https://arxiv.org/pdf/2510.09099"},
+            {"title": "Ferrofluid Simulation - Michael's R&D Journal", "url": "https://mlhonke.github.io/projects/2020-06-15-Ferrofluid-Simulation/"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned only ferrofluid physics papers. No machine learning or neural network papers specifically addressing Rosensweig instability pattern mechanism found."
+        },
+        {
+          "atom_id": "C52_A2",
+          "search_query": "ferrofluid magnetic energy competing forces peak pattern machine learning deep learning",
+          "hits": [
+            {"title": "Ferrofluid bend channel flows for multi-parameter tunable heat transfer Part 2 Deep Learning and Neural Network Modeling", "url": "https://arxiv.org/pdf/2602.17704"},
+            {"title": "A comparison between artificial neural network and random forest on predicting ferrofluids viscosity under magnetic field application", "url": "https://link.springer.com/article/10.1007/s10409-025-24944-x"},
+            {"title": "Ferrofluid - Wikipedia", "url": "https://en.wikipedia.org/wiki/Ferrofluid"},
+            {"title": "Pattern and wavenumber selection in ferrofluids", "url": "https://arxiv.org/pdf/nlin/0102004"},
+            {"title": "Active Rosensweig Patterns", "url": "https://arxiv.org/pdf/2510.09099"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Neural networks model ferrofluid viscosity under magnetic field and heat transfer in ferrofluid channel flows, but not the Rosensweig instability energy-minimization mechanism itself. The one ML hit concerns channel-flow surrogate modeling, not peak-pattern formation."
+        },
+        {
+          "atom_id": "C52_A3",
+          "search_query": "threshold-driven surface symmetry breaking competing stabilizing destabilizing forces ordered pattern formation machine learning",
+          "hits": [
+            {"title": "Surface-Induced Symmetry Breaking", "url": "https://www.emergentmind.com/topics/surface-induced-symmetry-breaking"},
+            {"title": "Symmetry-breaking instabilities on a fluid surface - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/0167278983900167"},
+            {"title": "Competing Bifurcations Determine Symmetry Breaking During Droplet Snaps on Smooth Patterned Surfaces", "url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.4c02908"},
+            {"title": "Symmetry Breaking in Chemical Systems: Engineering Complexity Through Self-Organisation and Marangoni Flows", "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202515672"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "No machine learning papers found connecting threshold-driven symmetry breaking with competing force balance to ML architecture. Results were all physics/fluid dynamics."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C52",
+        "source_mechanism_verbatim": "magnetic force produces perturbations in a ferrofluid surface, while surface tension and gravitational forces have a stabilizing effect; if the magnetic force exceeds the stabilizing forces, a hexagonal array of peaks occurs",
+        "operator": "destabilizes",
+        "llm_application": "Attention head specialization: external task-signal (magnetic force analog) exceeds entropy-regularization threshold (surface tension + gravity analog), causing uniform-softmax to break into a structured peaked attention distribution whose characteristic scale is set by the competing regularizers",
+        "content_words": ["threshold", "destabilizing-force", "restoring-force", "peak-pattern", "wavenumber-selection", "energy-minimization"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C53",
+      "concept": "Electrowetting",
+      "domain": "surface physics",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Electrowetting - Wikipedia", "url": "https://en.wikipedia.org/wiki/Electrowetting"},
+        {"title": "Optoelectrowetting - Wikipedia", "url": "https://en.wikipedia.org/wiki/Optoelectrowetting"},
+        {"title": "Electrowetting - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/electrowetting"},
+        {"title": "Electrowetting mechanism for fluid-application device (USPTO)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8602532"},
+        {"title": "Deep Learning-Based Droplet Menisci Recognition for Digital Microfluidic Devices | IEEE", "url": "https://ieeexplore.ieee.org/document/10324903/"}
+      ],
+      "mechanism_summary": "Electrowetting modifies surface wettability via applied electric field. 'The applied electric field causes a change in the contact angle of the liquid droplet, and in turn changes the surface tensions across the droplet.' The Young-Lippmann equation governs this: cos(theta) - cos(theta_0) = CV^2 / (2*gamma_LG). Physically, surface charges create a Maxwell stress pulling the liquid-vapor interface, balanced by Laplace pressure near the contact line, manifesting as a reduced macroscopic contact angle. In EWOD (on dielectric), precise droplet actuation (create, split, merge, transport) is achieved by patterned voltage application.",
+      "atoms": [
+        {
+          "atom_id": "C53_A1",
+          "operator": "modifies",
+          "verbatim_quote": "the applied electric field causes a change in the contact angle of the liquid droplet, and in turn changes the surface tensions across the droplet; precise manipulation of the electric field allows control of the droplets",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Electrowetting",
+          "mechanism_atom": "Voltage directly controls contact angle via Young-Lippmann relation, enabling programmatic wettability modulation"
+        },
+        {
+          "atom_id": "C53_A2",
+          "operator": "drives",
+          "verbatim_quote": "a droplet is manipulated by applying a voltage difference across it, resulting in asymmetric contact angles that create a driving force for movement",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Electrowetting",
+          "mechanism_atom": "Spatial voltage asymmetry creates contact-angle gradient which generates directed droplet motion"
+        },
+        {
+          "atom_id": "C53_A3",
+          "operator": "saturates",
+          "verbatim_quote": "the contact angle observed in experiments continues to decrease slowly when sufficient voltage is applied and eventually keeps constant when voltage reaches a saturation threshold",
+          "quote_source_url": "https://cpb.iphy.ac.cn/article/2016/1831/cpb_25_6_066801.html",
+          "mechanism_atom": "Contact angle exhibits saturation non-linearity: response diminishes at high voltage beyond Young-Lippmann prediction"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C53_A1",
+          "search_query": "electrowetting contact angle voltage tuning machine learning neural network LLM",
+          "hits": [
+            {"title": "Contact Angle Saturation in Electrowetting | ResearchGate", "url": "https://www.researchgate.net/publication/6933553_Contact_Angle_Saturation_in_Electrowetting"},
+            {"title": "Machine learning for optimal electrode wettability in lithium ion batteries", "url": "https://www.researchgate.net/publication/369481253_Machine_learning_for_optimal_electrode_wettability_in_lithium_ion_batteries"},
+            {"title": "A Model of Electrowetting, Reversed Electrowetting and Contact Angle Saturation", "url": "https://arxiv.org/pdf/1102.0791"},
+            {"title": "Electrowetting: A convenient way to switchable wettability patterns", "url": "https://www.researchgate.net/publication/230923235"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML applied to electrode wettability in lithium batteries (adjacent domain), not electrowetting mechanism itself. No direct LLM or neural-architecture import found."
+        },
+        {
+          "atom_id": "C53_A2",
+          "search_query": "electrowetting on dielectric EWOD droplet manipulation machine learning deep learning",
+          "hits": [
+            {"title": "Deep Learning-Based Droplet Menisci Recognition for Digital Microfluidic Devices | IEEE", "url": "https://ieeexplore.ieee.org/document/10324903/"},
+            {"title": "Droplet menisci recognition by deep learning for digital microfluidics applications", "url": "https://onlinelibrary.wiley.com/doi/10.1002/dro2.151"},
+            {"title": "Artificial intelligence-enabled multipurpose smart detection in active-matrix EWOD digital microfluidics", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11427566/"},
+            {"title": "The Electrowetting-on-Dielectric (EWOD) Properties and Applications of Amorphous Fluoropolymers", "url": "https://chromistechnologies.com/blog/the-electrowetting-on-dielectric-ewod-properties-and-applications-of-amorphous-fluoropolymers/"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Deep learning (U-Net, YOLOv8) used to recognize droplet menisci and monitor EWOD splitting in digital microfluidics. ML studies EWOD outputs; does not import the contact-angle modulation mechanism into neural architecture."
+        },
+        {
+          "atom_id": "C53_A3",
+          "search_query": "electrowetting contact angle voltage tuning machine learning neural network LLM",
+          "hits": [
+            {"title": "Contact Angle Saturation in Electrowetting", "url": "https://www.researchgate.net/publication/6933553_Contact_Angle_Saturation_in_Electrowetting"},
+            {"title": "A Model of Electrowetting, Reversed Electrowetting and Contact Angle Saturation", "url": "https://arxiv.org/pdf/1102.0791"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Saturation atom: no ML papers found discussing electrowetting saturation as a mechanism to import into ML. The saturation phenomenon is studied physically but not as an architecture ingredient."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C53",
+        "source_mechanism_verbatim": "a droplet is manipulated by applying a voltage difference across it, resulting in asymmetric contact angles that create a driving force for movement",
+        "operator": "drives",
+        "llm_application": "Asymmetric positional-bias injection across attention heads: applying differential scalar to Q vs K projections creates asymmetric affinity gradients that steer token-flow routing analogously to how EWOD voltage asymmetry steers droplet motion",
+        "content_words": ["voltage-asymmetry", "contact-angle", "wettability", "directional-flow", "gradient-driven", "routing"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C54",
+      "concept": "Magnetostriction",
+      "domain": "materials",
+      "tier_prior": 1,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Magnetostriction - Wikipedia", "url": "https://en.wikipedia.org/wiki/Magnetostriction"},
+        {"title": "Magnetostriction: A Property of Magnetic Materials | Electrical4U", "url": "https://www.electrical4u.com/magnetostriction/"},
+        {"title": "Magnetostriction — Grokipedia", "url": "https://grokipedia.com/page/Magnetostriction"},
+        {"title": "Inverse magnetostrictive effect - Wikipedia", "url": "https://en.wikipedia.org/wiki/Inverse_magnetostrictive_effect"},
+        {"title": "Magnetostriction - Engineering LibreTexts", "url": "https://eng.libretexts.org/Bookshelves/Materials_Science/Supplemental_Modules_(Materials_Science)/Magnetic_Properties/Magnetostriction"}
+      ],
+      "mechanism_summary": "Magnetostriction is the shape-change of ferromagnetic materials under applied magnetic field. 'The magnetostrictive effect is caused by the rearrangement of the atomic magnetic moments within the material's magnetic domains. When an external magnetic field is applied, the magnetic moments within the domains tend to align themselves with the field, causing the material to change shape or dimensions.' Fundamentally, spin-orbit coupling links electron spins to the crystal lattice: 'the spin of the electron couples to its orbital angular momentum, and this orbit interacts with the ionic core of the constituent atoms of the ferromagnet and hence with the lattice as a whole.' Domain rotation converts magnetic energy to elastic strain energy. The reciprocal Villari effect (strain changes magnetic susceptibility) completes the bidirectional coupling.",
+      "atoms": [
+        {
+          "atom_id": "C54_A1",
+          "operator": "couples",
+          "verbatim_quote": "the spin of the electron couples to its orbital angular momentum, and this orbit interacts with the ionic core of the constituent atoms of the ferromagnet and hence with the lattice as a whole",
+          "quote_source_url": "http://large.stanford.edu/courses/2007/ph210/degreve2/",
+          "mechanism_atom": "Spin-orbit coupling transmits magnetic alignment to lattice geometry, converting magnetic energy to elastic strain"
+        },
+        {
+          "atom_id": "C54_A2",
+          "operator": "deforms",
+          "verbatim_quote": "in micron scale, the change of strain is associated with rotation of domains as the magnetization saturates; in atomic scale, the lattices lower its energy by increasing the ferromagnetic exchange interaction and slightly varying the dimensions",
+          "quote_source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0925838821039682",
+          "mechanism_atom": "Domain-rotation under external field produces macroscopic dimensional change by coherent lattice distortion"
+        },
+        {
+          "atom_id": "C54_A3",
+          "operator": "reciprocates",
+          "verbatim_quote": "the reciprocal effect, the change of the magnetic susceptibility of a material when subjected to a mechanical stress, is called the Villari effect",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Magnetostriction",
+          "mechanism_atom": "Bidirectional coupling: mechanical strain alters magnetic response (Villari effect), closing the magneto-elastic feedback loop"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C54_A1",
+          "search_query": "magnetostriction domain rotation spin-orbit coupling machine learning LLM AI",
+          "hits": [
+            {"title": "An unsupervised machine learning based approach to identify efficient spin-orbit torque materials | npj Computational Materials", "url": "https://www.nature.com/articles/s41524-025-01626-1"},
+            {"title": "Machine learning system utilizing magnetization susceptibility adjustments (USPTO)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11593636"},
+            {"title": "Machine learning nonequilibrium electron forces for adiabatic spin dynamics", "url": "https://arxiv.org/pdf/2112.12124"},
+            {"title": "Domain Switching-Based Nonlinear Coupling Response for Giant Magnetostrictive Materials", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10381512/"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML used to identify spin-orbit torque materials and for spin dynamics simulation. Does not import magnetostriction mechanism as neural architecture."
+        },
+        {
+          "atom_id": "C54_A2",
+          "search_query": "magnetostriction strain dimensional change magnetic field machine learning neural network",
+          "hits": [
+            {"title": "Identification and testing of an efficient hopfield neural network magnetostriction model", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304885303000660"},
+            {"title": "Machine learning aided multiscale magnetostatics", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167663623001722"},
+            {"title": "Utilizing neural networks in magnetic media modeling and field computation: A review", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4293914/"},
+            {"title": "Physics-informed neural networks for solving parametric magnetostatic problems", "url": "https://arxiv.org/pdf/2202.04041"},
+            {"title": "Machine learning methods for the prediction of micromagnetic magnetization dynamics", "url": "https://arxiv.org/pdf/2103.09079"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Hopfield neural network used to model magnetostriction strain. Physics-augmented neural networks for multiscale magneto-elasticity. ML MEASURES magnetostriction but does not IMPORT the mechanism."
+        },
+        {
+          "atom_id": "C54_A3",
+          "search_query": "magnetostriction domain rotation spin-orbit coupling machine learning LLM AI",
+          "hits": [
+            {"title": "Machine learning system utilizing magnetization susceptibility adjustments (USPTO)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11593636"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Patent on ML system using magnetization susceptibility adjustments found; no papers importing Villari-effect bidirectionality into neural architecture found."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C54",
+        "source_mechanism_verbatim": "the reciprocal effect, the change of the magnetic susceptibility of a material when subjected to a mechanical stress, is called the Villari effect",
+        "operator": "reciprocates",
+        "llm_application": "Bidirectional adapter tuning: gradient signal from task loss (stress analog) modulates the effective learning-rate sensitivity (susceptibility analog) of each parameter block, closing a feedback loop where the adapted weights then alter gradient flow—mirroring magnetostriction/Villari bidirectionality",
+        "content_words": ["spin-orbit", "domain-rotation", "strain", "susceptibility", "bidirectional", "magneto-elastic"],
+        "prima_facie_collision": "no"
+      }
+    }
+  ],
+  "sparsest_verify": {
+    "id": "CAND_025_C52",
+    "concept": "Ferrofluid Rosensweig instability",
+    "rationale_for_sparsest": "C52 had 0 ML hits on two of three atom searches, and only 1 tangential hit (ferrofluid viscosity/channel-flow surrogate, not peak-pattern formation) on the third. Penetration types: NONE, MEASURES(1 hit, non-mechanism), NONE. Total ML-relevant hits across all atoms: 1, vs C54(7), C53(4), C50(11), C51(15), C49(2).",
+    "functional_effect": "An external driving force exceeds a critical threshold set by two opposing restoring forces, causing a previously uniform surface to spontaneously break symmetry into a spatially periodic peaked structure whose characteristic wavelength is determined by the balance of all three forces at a new free-energy minimum.",
+    "content_words": ["threshold", "destabilizing-force", "restoring-forces", "symmetry-breaking", "periodic-peaks", "wavenumber-selection"],
+    "reformulations": [
+      {
+        "index": 1,
+        "query": "threshold-driven surface symmetry breaking competing stabilizing destabilizing forces ordered pattern formation machine learning",
+        "hits": [
+          {"title": "Surface-Induced Symmetry Breaking", "url": "https://www.emergentmind.com/topics/surface-induced-symmetry-breaking"},
+          {"title": "Symmetry-breaking instabilities on a fluid surface - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/0167278983900167"},
+          {"title": "Competing Bifurcations Determine Symmetry Breaking During Droplet Snaps on Smooth Patterned Surfaces | Langmuir", "url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.4c02908"},
+          {"title": "Symmetry Breaking in Chemical Systems: Engineering Complexity Through Self-Organisation and Marangoni Flows", "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202515672"},
+          {"title": "Heterogeneity-stabilized homogeneous states in driven media", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8302733/"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "No result title or snippet contains >=2 of {threshold, destabilizing-force, restoring-forces, symmetry-breaking, periodic-peaks, wavenumber-selection} in ML context. All results are physics/fluid papers.",
+        "verdict": "GAP"
+      },
+      {
+        "index": 2,
+        "query": "field-driven bifurcation energy minimization hexagonal spatial pattern neural network architecture",
+        "hits": [
+          {"title": "Noise-driven bifurcations in a neural field system modelling networks of grid cells - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9515060/"},
+          {"title": "Noise-driven bifurcations in a nonlinear Fokker-Planck system describing stochastic neural fields", "url": "https://arxiv.org/pdf/2205.11968"},
+          {"title": "Resonance-Dependent Pattern Dynamics in a Neural Field for Spatial Coding", "url": "https://www.mdpi.com/2313-7673/11/4/224"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Results concern neural field models of grid cells (neuroscience, not ML architecture design). 'Hexagonal pattern' appears in neural field theory but as a biological spatial coding phenomenon, not as an architectural idea for LLMs. Content words {threshold, destabilizing-force, restoring-forces, periodic-peaks, wavenumber-selection} absent from ML-architecture papers.",
+        "verdict": "GAP"
+      },
+      {
+        "index": 3,
+        "query": "critical threshold exceeded repulsive versus attractive interactions self-organized periodic structure machine learning LLM",
+        "hits": [
+          {"title": "Repulsive Interaction - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/engineering/repulsive-interaction"},
+          {"title": "An extension of the Ising-Curie-Weiss model of self-organized criticality with a threshold on the interaction range", "url": "https://arxiv.org/pdf/2110.07949"},
+          {"title": "Self-organized sorting limits behavioral variability in swarms | Scientific Reports", "url": "https://www.nature.com/articles/srep31808"},
+          {"title": "Self-organized criticality (PDF)", "url": "https://www.academia.edu/9893973/Self_organized_criticality"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Self-organized criticality literature returned; no ML/LLM papers. Content words from functional effect not found in ML-architecture context.",
+        "verdict": "GAP"
+      },
+      {
+        "index": 4,
+        "query": "energy-lowering perturbation overcomes restoring force periodic equilibrium structure neural network representation learning",
+        "hits": [
+          {"title": "Neural Network Perturbation Theory (NNPT): Learning Residual Corrections from Exact Solutions", "url": "https://arxiv.org/html/2512.01558v1"},
+          {"title": "Neural Thermodynamics: Entropic Forces in Deep and Universal Representation Learning", "url": "https://arxiv.org/pdf/2505.12387"},
+          {"title": "Data-driven forced response analysis with min-max representations of nonlinear restoring forces", "url": "https://arxiv.org/pdf/2603.16746"},
+          {"title": "Equilibrium Propagation Without Limits", "url": "https://arxiv.org/pdf/2511.22024"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Nearest miss: 'Neural Thermodynamics' uses 'entropic forces' metaphor and 'Equilibrium Propagation' uses energy-minimization framing — but neither paper addresses the three-force threshold + wavenumber-selection mechanism. 'Restoring forces' in 'Data-driven forced response' is structural dynamics, not ML architecture. No paper has >=2 content words in ML-architecture context.",
+        "verdict": "GAP"
+      },
+      {
+        "index": 5,
+        "query": "external-field-induced instability flat-to-structured transition gravity surface tension balance machine learning",
+        "hits": [
+          {"title": "Symmetry Breaking in Chemical Systems: Engineering Complexity through Self-Organization and Marangoni Flows", "url": "https://arxiv.org/html/2406.18006"},
+          {"title": "Electric field Induced Patterns in Soft Visco-elastic films", "url": "https://arxiv.org/pdf/0906.0479"},
+          {"title": "Universal machine learning for the response of atomistic systems to external fields", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10570356/"},
+          {"title": "Long-Wavelength Instability in Surface-Tension-Driven Benard Convection", "url": "https://arxiv.org/pdf/patt-sol/9507001"},
+          {"title": "RIIST, resonance induced instability for surface tension measurement | npj Microgravity", "url": "https://www.nature.com/articles/s41526-026-00585-1"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Universal ML for external-field response (atomistic) found but concerns MD potential energy surfaces, not neural architecture design. No paper uses the threshold/wavenumber-selection mechanism as an LLM design principle. Content words {periodic-peaks, wavenumber-selection, restoring-forces, threshold, symmetry-breaking} not co-occurring in ML-architecture literature.",
+        "verdict": "GAP"
+      }
+    ],
+    "mechanical_rule": ">=2 declared content words {threshold, destabilizing-force, restoring-forces, symmetry-breaking, periodic-peaks, wavenumber-selection} in a hit's title+snippet = forced hit",
+    "forced_hits_total": 0,
+    "verdict": "GAP",
+    "non_triviality_assessment": "The gap is non-trivial. The Rosensweig mechanism has three simultaneous moving parts that are ALL required: (1) a threshold condition (onset field), (2) competing force triplet whose balance selects a unique spatial scale, and (3) energy-minimum peak pattern with specific wavelength. Machine learning has energy minimization in abundance, and symmetry-breaking concepts exist in representation learning, but the specific combination of threshold-onset + multi-force restoring competition + wavenumber selection of resulting structure does not appear in any ML architecture paper found across 5 reformulations. The hexagonal-pattern ML literature concerns neuroscience grid cells (biological), not architecture design. The nearest miss (Neural Thermodynamics / Equilibrium Propagation) addresses energy balance but not threshold-driven structured-output selection with multi-force competition.",
+    "composite": "5/5 reformulation searches returned GAP (0 forced hits). Total ML-relevant hits across all C52 atom searches + verify searches: 1 tangential (ferrofluid viscosity surrogate). Composite confidence of GAP: HIGH. Assessed non-trivial because mechanism combines threshold, triplet-force balance, and wavenumber-selection simultaneously.",
+    "colliding_works": "None found. Nearest: noise-driven bifurcations in neural field models of grid cells (neuroscience context, not LLM architecture design)."
+  },
+  "search_count": 22,
+  "honesty_note": "All searches real and returned above. Wikipedia pages returned HTTP 403 for WebFetch; verbatim quotes sourced from search-result snippets, grokipedia, wikibooks, and open-access papers. No quotes fabricated. Where searches returned no ML hits, NONE is recorded honestly. The thermoacoustic domain has substantial ML penetration (MEASURES); photoelasticity is heavily MEASURED by CNNs; magnetostriction is modeled by neural networks. Only Rosensweig instability shows genuine near-zero ML penetration of its core mechanism."
+}
