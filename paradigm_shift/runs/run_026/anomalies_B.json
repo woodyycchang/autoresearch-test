@@ -1,0 +1,99 @@
+{
+  "agent": "sourcing_B",
+  "run": 26,
+  "focus_area": "LLM capabilities, emergence, in-context learning, interpretability, and alignment",
+  "anomalies": [
+    {
+      "id": "ANOM_B1",
+      "anomaly_name": "Emergent Abilities as Metric Artifact (Mirage)",
+      "measurement": "When linear/continuous metrics (e.g., token edit distance) are used, LLM performance improves smoothly and predictably with scale; the apparent sharp phase transitions disappear entirely.",
+      "prediction": "Scaling law theory and prior empirical reports predicted that LLMs develop qualitatively new capabilities in sharp, unpredictable jumps at certain model scales — genuine emergent phase transitions analogous to physical phase changes.",
+      "discrepancy": "What appeared as sharp emergent phase transitions are not present when measured with linear metrics, meaning the 'emergence' is induced by the researcher's choice of nonlinear/discontinuous metric rather than reflecting a real change in the model's underlying per-token error rate.",
+      "primary_quote": "emergent abilities are a mirage caused primarily by the researcher choosing a metric that nonlinearly or discontinuously deforms per-token error rates",
+      "quote_source_url": "https://arxiv.org/abs/2304.15004",
+      "trigger_phrase_found": "mirage; nonlinearly or discontinuously; smooth, continuous predictable",
+      "domain": "LLM scaling / emergence",
+      "search_queries_used": [
+        "emergent abilities LLM mirage metric artifact contrary evidence",
+        "emergent abilities mirage Schaeffer 2023 sharp and unpredictable metric nonlinear discontinuous verbatim",
+        "emergent abilities caused primarily by the researcher nonlinearly or discontinuously per-token error rates smooth continuous Schaeffer 2023",
+        "emergent abilities metric that nonlinearly per-token error rates smooth continuous Schaeffer 2023"
+      ],
+      "paper_ref": "Schaeffer, Miranda, Koyejo. 'Are Emergent Abilities of Large Language Models a Mirage?' NeurIPS 2023. arXiv:2304.15004"
+    },
+    {
+      "id": "ANOM_B2",
+      "anomaly_name": "The Reversal Curse: Asymmetric Factual Generalization in Autoregressive LLMs",
+      "measurement": "LLMs trained on 'A is B' facts fail to answer 'B is A' queries: GPT-4 answers 'Who is Tom Cruise's mother?' 79% correctly but only 33% for the reverse ('Who is Mary Lee Pfeiffer's son?'); the correct reversed answer scores no higher than a random baseline name.",
+      "prediction": "Standard generalization theory predicts that a model learning a symmetric factual relation (e.g., 'X is the parent of Y') should generalize bidirectionally; basic logical deduction expects 'A is B' training to imply availability of 'B is A'.",
+      "discrepancy": "Models trained on 'A is B' achieve near-zero generalization to 'B is A' (performance no better than chance on reversed queries), despite demonstrating that they can perform this logical deduction when 'A is B' appears in context rather than training data.",
+      "primary_quote": "a surprising failure of generalization in auto-regressive large language models (LLMs). If a model is trained on a sentence of the form \"A is B\", it will not automatically generalize to the reverse direction \"B is A\"",
+      "quote_source_url": "https://arxiv.org/abs/2309.12288",
+      "trigger_phrase_found": "surprising failure of generalization; will not automatically generalize",
+      "domain": "LLM knowledge / generalization",
+      "search_queries_used": [
+        "reversal curse LLM unexplained A is B B is A failure",
+        "reversal curse paper 2309.12288 fails to generalize surprising LLM auto-regressive",
+        "reversal curse surprising failure of generalization auto-regressive will not automatically generalize verbatim quote ICLR 2024",
+        "reversal curse likelihood of the correct answer will not be higher than random name"
+      ],
+      "paper_ref": "Berglund et al. 'The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\".' ICLR 2024. arXiv:2309.12288"
+    },
+    {
+      "id": "ANOM_B3",
+      "anomaly_name": "Inverse Scaling: Larger LLMs Perform Worse on Specific Tasks",
+      "measurement": "Across 11 empirically identified benchmark tasks, increasing model size from small to 280B+ parameters consistently degrades performance; 10 of these tasks later showed 'U-shaped' scaling when tested up to 540B parameters, meaning performance first drops then recovers only at extreme scale.",
+      "prediction": "The dominant scaling law framework (Kaplan et al., Chinchilla) predicts monotonically improving performance with model size across tasks; larger models were expected to be uniformly better.",
+      "discrepancy": "On identified tasks, larger models are measurably worse than smaller models — a direct violation of the standard scaling law prediction — with causes including preference to imitate undesirable training data patterns and sensitivity to misleading few-shot demonstrations that increase with scale.",
+      "primary_quote": "LMs may show inverse scaling, or worse task performance with increased scale, e.g., due to flaws in the training objective and data",
+      "quote_source_url": "https://arxiv.org/abs/2306.09479",
+      "trigger_phrase_found": "inverse scaling; worse task performance with increased scale; counterintuitive",
+      "domain": "LLM scaling laws",
+      "search_queries_used": [
+        "inverse scaling U-shaped LLM counterintuitive larger models worse performance",
+        "inverse scaling prize getting worse with scale specific tasks NLP contrary scaling law",
+        "inverse scaling prize LMs may show inverse scaling worse task performance increased scale verbatim McKenzie 2023"
+      ],
+      "paper_ref": "McKenzie et al. 'Inverse Scaling: When Bigger Isn't Better.' TMLR 2023. arXiv:2306.09479"
+    },
+    {
+      "id": "ANOM_B4",
+      "anomaly_name": "LLMs Know More Than They Show: Internal Truth-Encoding vs. External Hallucination",
+      "measurement": "Linear probes trained on LLMs' internal hidden-state representations can accurately predict whether an output is a hallucination, with truthfulness signals concentrated at specific answer tokens — yet the models still externally generate those incorrect outputs despite internally encoding the correct answer.",
+      "prediction": "The standard model of LLM hallucination assumes that erroneous outputs arise from an absence of correct information in the model's representations; if a model 'knows' the answer, it should output it.",
+      "discrepancy": "A measurable discrepancy exists between LLMs' internal encoding and external behavior: probes recover correct-answer signals from internal states even when the model's output is a hallucination, meaning the model encodes the right answer but still generates a wrong one.",
+      "primary_quote": "discrepancy between LLMs' internal encoding and external behavior: they may encode the correct answer, yet consistently generate an incorrect one",
+      "quote_source_url": "https://arxiv.org/abs/2410.02707",
+      "trigger_phrase_found": "discrepancy; encode the correct answer, yet consistently generate an incorrect one",
+      "domain": "LLM interpretability / hallucination",
+      "search_queries_used": [
+        "LLM knows more than it says internal representations truthful probing mismatch sycophancy",
+        "LLMs know more than they show internal states encode yet consistently generate hallucination discrepancy",
+        "LLMs know more than they show encode the correct answer generate an incorrect verbatim 2024",
+        "discrepancy between LLMs internal encoding and external behavior encode the correct answer yet consistently Orgad Belinkov 2024"
+      ],
+      "paper_ref": "Orgad, Toker, Gekhman, Reichart, Szpektor, Kotek, Belinkov. 'LLMs Know More Than They Show: On the Intrinsic Representation of LLM Hallucinations.' ICLR 2025. arXiv:2410.02707"
+    },
+    {
+      "id": "ANOM_B5",
+      "anomaly_name": "RLHF Fine-Tuning Degrades Calibration: Aligned Models Are Less Calibrated Than Their Pretrained Bases",
+      "measurement": "RLHF-aligned models (ChatGPT, GPT-4, Claude) exhibit poorly calibrated conditional probabilities and express verbalized overconfidence significantly greater than their unaligned pretrained counterparts; calibration error increases after RLHF even as instruction-following improves.",
+      "prediction": "Standard training theory predicts that additional fine-tuning on human-preferred outputs, which tends to select for correct and helpful answers, should maintain or improve probability calibration relative to the pretrained base.",
+      "discrepancy": "RLHF fine-tuning, despite improving instruction-following and user-rated quality, measurably worsens calibration: models sacrifice well-calibrated probability estimates to better satisfy the reinforcement learning objective of allocating mass to the single most preferred answer rather than matching true answer frequencies.",
+      "primary_quote": "RLHF-LMs may sacrifice well-calibrated predictions for the sake of closer adherence to user instructions in dialogue",
+      "quote_source_url": "https://arxiv.org/abs/2305.14975",
+      "trigger_phrase_found": "sacrifice well-calibrated predictions; RLHF leads to notable degradation in calibration; overconfidence",
+      "domain": "LLM calibration / RLHF alignment",
+      "search_queries_used": [
+        "LLM calibration overconfident larger models worse calibrated unexpected finding",
+        "RLHF instruction tuning hurts calibration overconfident well-calibrated unexpected finding paper 2022 2023",
+        "RLHF finetuning overconfident well-calibrated pretrained hurts calibration LLMs verbatim quote 2023",
+        "Tian 2023 just ask for calibration RLHF-LMs overconfidence sacrifice well-calibrated verbatim quote",
+        "RLHF-LMs may sacrifice well-calibrated predictions closer adherence to user instructions Tian 2023"
+      ],
+      "paper_ref": "Tian et al. 'Just Ask for Calibration: Strategies for Eliciting Calibrated Confidence Scores from Language Models Fine-Tuned with Human Feedback.' EMNLP 2023. arXiv:2305.14975"
+    }
+  ],
+  "search_count": 18,
+  "honesty_note": "All 5 anomalies are grounded in real search results returned during this session. Verbatim quotes are taken from text returned in WebSearch snippets (not fabricated from memory). WebFetch was attempted on 20+ URLs but consistently returned HTTP 403 Forbidden; all quotes therefore derive from search-result snippet text. The quote for ANOM_B1 ('emergent abilities are a mirage caused primarily by the researcher choosing a metric that nonlinearly or discontinuously deforms per-token error rates') was returned verbatim in multiple search snippets citing arXiv:2304.15004. The quote for ANOM_B2 was returned in multiple search snippets citing arXiv:2309.12288. The quote for ANOM_B3 was returned from snippets citing arXiv:2306.09479. The quote for ANOM_B4 ('discrepancy between LLMs internal encoding and external behavior: they may encode the correct answer, yet consistently generate an incorrect one') was returned in snippets citing arXiv:2410.02707. The quote for ANOM_B5 ('RLHF-LMs may sacrifice well-calibrated predictions for the sake of closer adherence to user instructions in dialogue') was returned in snippets citing arXiv:2305.14975."
+}
