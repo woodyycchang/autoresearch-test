@@ -1,0 +1,34 @@
+{
+  "run_id": "run_023",
+  "agent": "4_crosschecker",
+  "stance": "Independent/adversarial second pass (R1 spirit). For each proposal I try to OVERTURN the verifier: for CANDIDATES I hunt harder for prior art; for REJECTS I check the rejection is not over-eager. mismatch_with_agent3 = TRUE when the final assessment contradicts the proposer's optimistic 'unexploited' premise (a second way to fail Gate 3).",
+  "proposals": [
+    {"pair_id": "retting_x_HSIFM", "process_id": "retting", "technique_id": "HSIFM",
+     "independent_check": "Tried to rescue the opportunity: is HSIFM meaningfully better than the 4-wavelength colour sensor? No evidence -- the 2026 paper explicitly argues 4 wavelengths SUFFICE, and a smart-farming dew-retting tool already exists. A foundation model is heavier, needs an HSI camera, and addresses an already-solved application.",
+     "gap_real_confirmed": false, "mismatch_with_agent3": true,
+     "note": "Verifier UPHELD. The proposer's premise (HSIFM unlocks retting endpoint because mature HSI needs a big labeled set) is contradicted: the application is solved WITHOUT a big labeled set, using 4 wavelengths + PCA/PLS-DA. mismatch=TRUE."},
+    {"pair_id": "charcoal_x_FNO", "process_id": "charcoal_kiln", "technique_id": "FNO",
+     "independent_check": "Hunted for any earth-kiln field reconstruction: found only composite-curing PINO, rotary-kiln ML, and generic sparse-field reconstruction -- all adjacent, none on a traditional earth charcoal mound. Could not overturn the gap.",
+     "gap_real_confirmed": true, "mismatch_with_agent3": false,
+     "note": "Verifier UPHELD (CANDIDATE). Gap real. Carry the proposer's honest feasibility flag: needs training data (simulated/instrumented kiln) -- MEDIUM deploy, not drop-in."},
+    {"pair_id": "indigo_x_TSFM", "process_id": "indigo_vat", "technique_id": "TSFM",
+     "independent_check": "Tried to close the gap with the 2024 RGB machine-vision indigo paper -- but that is present-state reduction-timing monitoring, NOT future-state forecasting of vat health. Forecasting the vat's trajectory with a TSFM remains unexploited. The gap survives, narrowed.",
+     "gap_real_confirmed": true, "mismatch_with_agent3": false,
+     "note": "Verifier UPHELD (CANDIDATE) WITH DISCLOSURE. Forecasting != monitoring. Carry feasibility flag: probes in hot caustic vat + rare-event (crash) forecasting are the genuine risks. The novelty is forecasting specifically, on the record."},
+    {"pair_id": "cork_x_VLMAD", "process_id": "cork_harvest", "technique_id": "VLMAD",
+     "independent_check": "Searched cork-stripping CV and cambium-damage detection independently: nothing on-target. Gap holds. But I reinforce the verifier's feasibility doubt: with no labeled cork-strip defect data, the detector cannot be VALIDATED pre-deployment, and cork bark is OOD for CLIP.",
+     "gap_real_confirmed": true, "mismatch_with_agent3": false,
+     "note": "Verifier UPHELD (CANDIDATE) but the FEASIBILITY caveat is the heaviest of the survivors -- pilot only, unvalidatable without field data, OOD transfer. Gate 4 must weigh this."},
+    {"pair_id": "indigo_x_VLMAD", "process_id": "indigo_vat", "technique_id": "VLMAD",
+     "independent_check": "Checked whether vat-DEATH anomaly detection is truly distinct from the 2024 RGB reduction-timing tracker. It overlaps heavily: both read the vat surface/colour to assess state, and the simpler RGB method plausibly extends to health. The core 'CV reads the indigo vat' application is taken.",
+     "gap_real_confirmed": false, "mismatch_with_agent3": true,
+     "note": "Verifier UPHELD (REJECT). Also CONFIRMS the penetration correction: indigo_vat has on-target CV prior art (2024), so PHASE-2's count of 0 was too low. mismatch=TRUE (proposer's 'no instrument reads the vat' premise is contradicted by the 2024 machine-vision system)."}
+  ],
+  "penetration_correction": {
+    "process_id": "indigo_vat", "phase2_on_target_hits": 0, "corrected_on_target_hits": 1,
+    "evidence": "Chiang & Lin 2024, real-time RGB machine-vision colour tracking of indigo reduction (J. Chinese Chem. Soc.).",
+    "impact": "indigo_vat is still LOW penetration (1 < 5) so Gate 1 is unaffected; but the correction is decisive for Gate 3 on indigo_x_VLMAD (the CV application is started) and is disclosed for indigo_x_TSFM (forecasting remains distinct). Honesty: PHASE 4 caught what PHASE 2 missed."},
+  "summary": {"n": 5, "candidates_upheld": ["charcoal_x_FNO", "indigo_x_TSFM", "cork_x_VLMAD"],
+    "rejects_upheld": ["retting_x_HSIFM", "indigo_x_VLMAD"], "n_mismatch_with_agent3": 2,
+    "verifier_overturned": 0}
+}

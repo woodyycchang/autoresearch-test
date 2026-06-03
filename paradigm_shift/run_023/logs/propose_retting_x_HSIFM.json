@@ -1,0 +1,94 @@
+{
+  "pair_id": "retting_x_HSIFM",
+  "process_id": "retting",
+  "technique_id": "HSIFM",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 23695,
+    "duration_api_ms": 23173,
+    "ttft_ms": 2577,
+    "num_turns": 1,
+    "result": "{\"process\": \"id retting: separating bast fibre from non-fibrous plant material by microbial/chemical degradation of pectin, then mechanical breaking and scutching\", \"process_problem\": \"Retting endpoint is judged by feel/experience; under-retting leaves fibres bound, over-retting weakens/dirties them; quality/timing vary by method and conditions, and no labeled per-batch endpoint dataset exists.\", \"recent_technique\": \"Hyperspectral foundation models (self-supervised, few-shot fine-tuning) -- e.g. SpectralEarth-pretrained backbone, HyperFM, SpecAware\", \"technique_year\": \"2025-2026\", \"how_it_improves\": \"A close-range hyperspectral camera images retting stems/fibre bundles; reflectance cubes feed an SSL-pretrained HSI backbone fine-tuned on only a few dozen labeled stems (graded under-/optimally-/over-retted via tensile + cleanliness checks). The model learns the spectral signature of pectin/cementing-compound degradation and outputs a per-batch retting-completion score and 'harvest now' alert. This replaces feel/experience with an objective, repeatable endpoint readout, cutting both under-retting rework and over-retting fibre loss across pond/stream/field conditions.\", \"why_recent_technique_beats_mature_approach\": \"Mature hyperspectral+ML (Run-22) needs a large per-task labeled dataset to learn pectin-degradation spectra -- but the problem statement is that NO labeled per-batch endpoint dataset exists, so supervised models can't be trained. The HSI foundation model's SSL pretraining means the spectral-feature backbone is already learned; only a few labeled stems are needed to fine-tune, so label-efficient few-shot fine-tuning removes the exact no-large-dataset blocker that stops the mature method.\", \"feasibility_now\": \"Not drop-in. Requires (1) a close-range hyperspectral camera (hardware cost), (2) collecting a small labeled set of graded retted stems, and (3) bridging a real out-of-distribution gap: backbones are pretrained on satellite/airborne earth-observation HSI, not close-range wet-stem spectra, so transfer is plausible but unproven and may need domain-adaptive fine-tuning. MEDIUM maturity: the right tool, but the least drop-in of the candidates.\", \"primary_quote\": \"under-retting leaves fibres bound, over-retting weakens/dirties them\", \"quote_source\": \"open_problem\", \"reasoning_trace\": {\"step\": \"propose retting x HSIFM\", \"inputs_seen\": \"the process (pectin-degradation retting + scutching) + its open problem (subjective endpoint, no labeled per-batch dataset) + HSIFM's label-efficient few-shot capability + its MEDIUM maturity tier\", \"reasoning\": \"Retting endpoint is fundamentally a chemical-state question (how much pectin/cement remains), which has a spectral signature -- a natural hyperspectral target. The blocker for ordinary hyperspectral ML is that no labeled per-batch endpoint dataset exists, so a supervised model can't be trained. HSI foundation models invert this: SSL pretraining supplies the backbone, and few-shot fine-tuning needs only a handful of graded stems, directly matching 'no large dataset.' Feasibility is realistic-not-optimistic because the technique still demands a hyperspectral camera and faces a genuine OOD gap from satellite/airborne pretraining to close-range wet-stem spectra.\", \"decision\": \"Use an SSL-pretrained HSI foundation model, few-shot fine-tuned on a few graded retted stems, as an objective per-batch retting-endpoint detector that flags optimal harvest time.\", \"confidence\": \"medium - MEDIUM tier reflects a real domain gap (EO-pretrained -> close-range stem spectra) and a hardware requirement, even though few-shot is the correct fit for the missing-dataset problem\", \"could_be_wrong_if\": \"the satellite/airborne-pretrained backbone fails to transfer to close-range wet-stem reflectance (OOD), or pectin-degradation state has no separable spectral signature at field-usable resolution, or the hyperspectral-camera cost is prohibitive for low-margin fibre operations.\"}}",
+    "stop_reason": "end_turn",
+    "session_id": "fa8c58d0-6456-4c4b-8d2d-72d812ee6d42",
+    "total_cost_usd": 0.15281175,
+    "usage": {
+      "input_tokens": 1734,
+      "cache_creation_input_tokens": 16871,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 1481,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16871,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 1734,
+          "output_tokens": 1481,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 16871,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 16871
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1568,
+        "outputTokens": 21,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001673,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 1734,
+        "outputTokens": 1481,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 16871,
+        "webSearchRequests": 0,
+        "costUSD": 0.15113875,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "11a6394b-f84a-4d1d-85a3-efa28dd0c7b5"
+  },
+  "parsed": {
+    "process": "id retting: separating bast fibre from non-fibrous plant material by microbial/chemical degradation of pectin, then mechanical breaking and scutching",
+    "process_problem": "Retting endpoint is judged by feel/experience; under-retting leaves fibres bound, over-retting weakens/dirties them; quality/timing vary by method and conditions, and no labeled per-batch endpoint dataset exists.",
+    "recent_technique": "Hyperspectral foundation models (self-supervised, few-shot fine-tuning) -- e.g. SpectralEarth-pretrained backbone, HyperFM, SpecAware",
+    "technique_year": "2025-2026",
+    "how_it_improves": "A close-range hyperspectral camera images retting stems/fibre bundles; reflectance cubes feed an SSL-pretrained HSI backbone fine-tuned on only a few dozen labeled stems (graded under-/optimally-/over-retted via tensile + cleanliness checks). The model learns the spectral signature of pectin/cementing-compound degradation and outputs a per-batch retting-completion score and 'harvest now' alert. This replaces feel/experience with an objective, repeatable endpoint readout, cutting both under-retting rework and over-retting fibre loss across pond/stream/field conditions.",
+    "why_recent_technique_beats_mature_approach": "Mature hyperspectral+ML (Run-22) needs a large per-task labeled dataset to learn pectin-degradation spectra -- but the problem statement is that NO labeled per-batch endpoint dataset exists, so supervised models can't be trained. The HSI foundation model's SSL pretraining means the spectral-feature backbone is already learned; only a few labeled stems are needed to fine-tune, so label-efficient few-shot fine-tuning removes the exact no-large-dataset blocker that stops the mature method.",
+    "feasibility_now": "Not drop-in. Requires (1) a close-range hyperspectral camera (hardware cost), (2) collecting a small labeled set of graded retted stems, and (3) bridging a real out-of-distribution gap: backbones are pretrained on satellite/airborne earth-observation HSI, not close-range wet-stem spectra, so transfer is plausible but unproven and may need domain-adaptive fine-tuning. MEDIUM maturity: the right tool, but the least drop-in of the candidates.",
+    "primary_quote": "under-retting leaves fibres bound, over-retting weakens/dirties them",
+    "quote_source": "open_problem",
+    "reasoning_trace": {
+      "step": "propose retting x HSIFM",
+      "inputs_seen": "the process (pectin-degradation retting + scutching) + its open problem (subjective endpoint, no labeled per-batch dataset) + HSIFM's label-efficient few-shot capability + its MEDIUM maturity tier",
+      "reasoning": "Retting endpoint is fundamentally a chemical-state question (how much pectin/cement remains), which has a spectral signature -- a natural hyperspectral target. The blocker for ordinary hyperspectral ML is that no labeled per-batch endpoint dataset exists, so a supervised model can't be trained. HSI foundation models invert this: SSL pretraining supplies the backbone, and few-shot fine-tuning needs only a handful of graded stems, directly matching 'no large dataset.' Feasibility is realistic-not-optimistic because the technique still demands a hyperspectral camera and faces a genuine OOD gap from satellite/airborne pretraining to close-range wet-stem spectra.",
+      "decision": "Use an SSL-pretrained HSI foundation model, few-shot fine-tuned on a few graded retted stems, as an objective per-batch retting-endpoint detector that flags optimal harvest time.",
+      "confidence": "medium - MEDIUM tier reflects a real domain gap (EO-pretrained -> close-range stem spectra) and a hardware requirement, even though few-shot is the correct fit for the missing-dataset problem",
+      "could_be_wrong_if": "the satellite/airborne-pretrained backbone fails to transfer to close-range wet-stem reflectance (OOD), or pectin-degradation state has no separable spectral signature at field-usable resolution, or the hyperspectral-camera cost is prohibitive for low-margin fibre operations."
+    }
+  }
+}

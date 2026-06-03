@@ -1,0 +1,94 @@
+{
+  "pair_id": "indigo_x_VLMAD",
+  "process_id": "indigo_vat",
+  "technique_id": "VLMAD",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 30109,
+    "duration_api_ms": 29323,
+    "ttft_ms": 2103,
+    "num_turns": 1,
+    "result": "{\"process\": \"Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)\", \"process_problem\": \"No instrument tells the craftsperson the vat's health/state; managing the always-changing natural dye solution relies only on years of intuition via the five senses, and vats can 'die' unpredictably with no labeled time-series of trajectories\", \"recent_technique\": \"Vision-language model zero-shot/few-shot visual anomaly detection (CLIP-based prompting / in-context learning, e.g. FADE, IADGPT, VMAD)\", \"technique_year\": \"2025-2026\", \"how_it_improves\": \"Inputs: ordinary RGB or phone photos/video of the vat surface (the 'bloom'/foam pattern, color of the liquor, scum/bubble texture) plus natural-language reference prompts describing a healthy vat ('coppery bronze foam, fine even bubbles, jade-green liquor') versus failure cues ('flat grey surface, broken film, sour-smelling thin froth'). Model: a VLM anomaly detector scores and localizes how far the current surface deviates from the healthy text/visual reference, with a few craftsperson-labeled 'good day' images as in-context support. Actionable output: a continuous deviation score and a heatmap flagging where/when the surface is drifting toward a 'dying' state, days before a master might catch it -- a cheap early-warning dashboard. Gain: turns a tacit five-senses judgment into a sharable, logged signal that lets the dyer intervene (feed lye, wheat bran, warmth) before collapse, and begins accumulating the labeled trajectory dataset that does not yet exist.\", \"why_recent_technique_beats_mature_approach\": \"Mature supervised anomaly detection (a CNN classifier or autoencoder trained per object) is blocked here because the problem statement says there is NO labeled time-series of vat trajectories and vats die rarely and unpredictably -- you cannot assemble the hundreds of labeled defect/failure images per vat that classic methods require, and every vat/studio looks different. The new capability is exactly label-free, zero/few-shot detection on UNSEEN objects driven by text prompts and a handful of in-context examples, so it works with the craftsperson's verbal description of 'healthy vs sick' and a few reference photos instead of a curated defect corpus -- removing the per-task training-set blocker that made AI a non-starter for this 0-penetration craft.\", \"feasibility_now\": \"Pilot-feasible, NOT drop-in. Models are HIGH availability (open-source FADE/IADGPT/VMAD run on a phone-fed RGB stream, no special camera). The honest risk is OUT-OF-DISTRIBUTION: the ~89.6% benchmark is on MVTec industrial parts, whereas a foaming, specular, color-shifting dye-vat surface is an unproven texture for zero-shot transfer. So expect to need a short few-shot calibration with a master's labeled 'healthy/declining' images per studio and human-in-the-loop validation over a season before trusting alerts; prompt wording and reference-image curation will need iteration, and smell-only failure modes are invisible to a vision model.\", \"primary_quote\": \"there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories\", \"quote_source\": \"open_problem\", \"reasoning_trace\": {\"step\": \"propose indigo_vat x VLMAD\", \"inputs_seen\": \"the sukumo vat process + its open problem (no instrument, no labels, intuition-only) + VLMAD's label-free zero/few-shot anomaly capability + its HIGH_avail_MEDIUM_OOD maturity tier\", \"reasoning\": \"The open problem is precisely an absence of labels and instruments, which kills supervised AD; VLMAD's text-prompt + in-context, label-free localization matches a domain where the only 'ground truth' is a master's verbal/sensory description and a handful of reference images. The mature alternative (per-vat supervised model) is blocked by rare, unlabeled failure events. Feasibility is realistic-but-cautious because the foaming specular vat surface is OOD versus the industrial benchmarks, so I scope it as a few-shot-calibrated, human-in-the-loop pilot rather than a turnkey monitor.\", \"decision\": \"Use a CLIP/VLM zero-few-shot anomaly detector on phone images of the vat surface to produce an early-warning deviation score + heatmap of vat health, calibrated with a master's few reference photos and bootstrapping the missing labeled trajectory dataset.\", \"confidence\": \"medium - HIGH model availability makes a pilot easy, but MEDIUM OOD transfer to a foaming dye surface means trustworthy alerts are unproven without per-studio few-shot tuning\", \"could_be_wrong_if\": \"the vat's true health signals are dominated by smell/pH/temperature chemistry not visible on the surface, or the specular foaming texture is too far OOD for CLIP-based scoring to separate healthy from dying without so many labeled examples that it collapses back into the supervised regime the craft cannot supply\"}}",
+    "stop_reason": "end_turn",
+    "session_id": "cd1eddf7-9581-4b74-a45e-5ba3a3674824",
+    "total_cost_usd": 0.0785835,
+    "usage": {
+      "input_tokens": 1734,
+      "cache_creation_input_tokens": 2720,
+      "cache_read_input_tokens": 14237,
+      "output_tokens": 1761,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 2720,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 1734,
+          "output_tokens": 1761,
+          "cache_read_input_tokens": 14237,
+          "cache_creation_input_tokens": 2720,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2720
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1645,
+        "outputTokens": 25,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0017699999999999999,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 1734,
+        "outputTokens": 1761,
+        "cacheReadInputTokens": 14237,
+        "cacheCreationInputTokens": 2720,
+        "webSearchRequests": 0,
+        "costUSD": 0.0768135,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "94b5eb5e-a16c-441b-bf14-c0eef5f12c2b"
+  },
+  "parsed": {
+    "process": "Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)",
+    "process_problem": "No instrument tells the craftsperson the vat's health/state; managing the always-changing natural dye solution relies only on years of intuition via the five senses, and vats can 'die' unpredictably with no labeled time-series of trajectories",
+    "recent_technique": "Vision-language model zero-shot/few-shot visual anomaly detection (CLIP-based prompting / in-context learning, e.g. FADE, IADGPT, VMAD)",
+    "technique_year": "2025-2026",
+    "how_it_improves": "Inputs: ordinary RGB or phone photos/video of the vat surface (the 'bloom'/foam pattern, color of the liquor, scum/bubble texture) plus natural-language reference prompts describing a healthy vat ('coppery bronze foam, fine even bubbles, jade-green liquor') versus failure cues ('flat grey surface, broken film, sour-smelling thin froth'). Model: a VLM anomaly detector scores and localizes how far the current surface deviates from the healthy text/visual reference, with a few craftsperson-labeled 'good day' images as in-context support. Actionable output: a continuous deviation score and a heatmap flagging where/when the surface is drifting toward a 'dying' state, days before a master might catch it -- a cheap early-warning dashboard. Gain: turns a tacit five-senses judgment into a sharable, logged signal that lets the dyer intervene (feed lye, wheat bran, warmth) before collapse, and begins accumulating the labeled trajectory dataset that does not yet exist.",
+    "why_recent_technique_beats_mature_approach": "Mature supervised anomaly detection (a CNN classifier or autoencoder trained per object) is blocked here because the problem statement says there is NO labeled time-series of vat trajectories and vats die rarely and unpredictably -- you cannot assemble the hundreds of labeled defect/failure images per vat that classic methods require, and every vat/studio looks different. The new capability is exactly label-free, zero/few-shot detection on UNSEEN objects driven by text prompts and a handful of in-context examples, so it works with the craftsperson's verbal description of 'healthy vs sick' and a few reference photos instead of a curated defect corpus -- removing the per-task training-set blocker that made AI a non-starter for this 0-penetration craft.",
+    "feasibility_now": "Pilot-feasible, NOT drop-in. Models are HIGH availability (open-source FADE/IADGPT/VMAD run on a phone-fed RGB stream, no special camera). The honest risk is OUT-OF-DISTRIBUTION: the ~89.6% benchmark is on MVTec industrial parts, whereas a foaming, specular, color-shifting dye-vat surface is an unproven texture for zero-shot transfer. So expect to need a short few-shot calibration with a master's labeled 'healthy/declining' images per studio and human-in-the-loop validation over a season before trusting alerts; prompt wording and reference-image curation will need iteration, and smell-only failure modes are invisible to a vision model.",
+    "primary_quote": "there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories",
+    "quote_source": "open_problem",
+    "reasoning_trace": {
+      "step": "propose indigo_vat x VLMAD",
+      "inputs_seen": "the sukumo vat process + its open problem (no instrument, no labels, intuition-only) + VLMAD's label-free zero/few-shot anomaly capability + its HIGH_avail_MEDIUM_OOD maturity tier",
+      "reasoning": "The open problem is precisely an absence of labels and instruments, which kills supervised AD; VLMAD's text-prompt + in-context, label-free localization matches a domain where the only 'ground truth' is a master's verbal/sensory description and a handful of reference images. The mature alternative (per-vat supervised model) is blocked by rare, unlabeled failure events. Feasibility is realistic-but-cautious because the foaming specular vat surface is OOD versus the industrial benchmarks, so I scope it as a few-shot-calibrated, human-in-the-loop pilot rather than a turnkey monitor.",
+      "decision": "Use a CLIP/VLM zero-few-shot anomaly detector on phone images of the vat surface to produce an early-warning deviation score + heatmap of vat health, calibrated with a master's few reference photos and bootstrapping the missing labeled trajectory dataset.",
+      "confidence": "medium - HIGH model availability makes a pilot easy, but MEDIUM OOD transfer to a foaming dye surface means trustworthy alerts are unproven without per-studio few-shot tuning",
+      "could_be_wrong_if": "the vat's true health signals are dominated by smell/pH/temperature chemistry not visible on the surface, or the specular foaming texture is too far OOD for CLIP-based scoring to separate healthy from dying without so many labeled examples that it collapses back into the supervised regime the craft cannot supply"
+    }
+  }
+}

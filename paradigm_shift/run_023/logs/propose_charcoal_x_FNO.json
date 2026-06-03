@@ -1,0 +1,94 @@
+{
+  "pair_id": "charcoal_x_FNO",
+  "process_id": "charcoal_kiln",
+  "technique_id": "FNO",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 28997,
+    "duration_api_ms": 29573,
+    "ttft_ms": 3514,
+    "num_turns": 1,
+    "result": "{\"process\": \"Traditional earth-mound kiln pyrolysis monitored by smoke-color changes\", \"process_problem\": \"Charcoal makers run 24/7 smoke-watching because the internal kiln temperature field is unobservable from only a few surface points, and earth-mound kilns lose 70-80% of the wood's energy with ~15-25% yield\", \"recent_technique\": \"Fourier Neural Operator (FNO) for sparse-sensor field reconstruction (RecFNO / neuraloperator)\", \"technique_year\": \"2025-2026 (FNO 2021; sparse-sensor reconstruction recent)\", \"how_it_improves\": \"Inputs: 5-10 cheap thermocouples (or sheathed K-type probes) inserted at the base vents, mid-mound, and near the central chimney, plus one or two surface IR readings. Model: an FNO trained on simulated kiln pyrolysis physics (or a handful of instrumented kilns) maps those sparse point readings to the full continuous 3D internal temperature/heat field at each timestep, with resolution-invariant zero-shot super-resolution between sensors. Actionable output: a live reconstructed thermal map that flags the carbonization front, hot/cold pockets, and the moment the wood-charge has reached pyrolysis completion -- replacing subjective smoke-color reading with a quantitative stage indicator and a vent/air control signal. Gain: operators close vents and harvest at the true endpoint instead of over-burning, recovering several percentage points of yield and eliminating much of the 24/7 manual smoke watch.\", \"why_recent_technique_beats_mature_approach\": \"The mature route to a field is either dense instrumentation (you cannot pack a buried earth mound with hundreds of probes, and you certainly cannot image its interior) or classical CNN/POD reconstruction, both of which need a dense, per-kiln labeled training grid that this artisanal process never produces. FNO's new capability is reconstructing a full continuous field from only 5-10 sparse points with zero-shot super-resolution and resolution invariance -- it interpolates physically between the few probes you can actually bury, exactly where dense-sensor and CNN/POD methods fail. That removes the blocker (no dense sensors, no labeled per-kiln dataset) that has kept the interior temperature field unobservable.\", \"feasibility_now\": \"Not drop-in. The neuraloperator/RecFNO library is HIGH maturity, but this specific deployment is MEDIUM: it requires training data the user must generate -- either a finite-element/CFD pyrolysis simulation of the earth mound or a few fully instrumented reference kilns -- and the model risks out-of-distribution transfer across wood species, mound geometry, and moisture, so it needs domain-randomized simulation plus field calibration. Hardware is modest (a handful of high-temp thermocouples and a logger, no special camera), but expect real physics-modeling and validation engineering before the reconstructed field is trustworthy enough to drive harvest decisions.\", \"primary_quote\": \"The internal temperature FIELD is unobservable -- only a few surface points can be measured.\", \"quote_source\": \"open_problem\", \"reasoning_trace\": {\"step\": \"propose charcoal_kiln x FNO\", \"inputs_seen\": \"the earth-mound pyrolysis process, its open problem (unobservable internal field, ~15-25% yield, 24/7 smoke watch), FNO's sparse-sensor field-reconstruction capability, and its HIGH_library_MEDIUM_deploy maturity tier\", \"reasoning\": \"The open problem is literally a field-reconstruction problem stated as 'the internal temperature field is unobservable from only a few surface points' -- a one-to-one match for FNO's ability to recover a full continuous field from 5-10 sparse sensors. The mature alternatives (dense thermocouple grids, interior imaging, CNN/POD) are blocked because a buried earth mound cannot be densely instrumented or imaged and artisanal kilns never yield a labeled dense training set; FNO's sparse-input, resolution-invariant, super-resolution reconstruction is precisely the capability that bypasses that. Feasibility is realistic-not-optimistic because the technique still needs a simulated-physics or instrumented-kiln training set and faces OOD transfer across wood/geometry/moisture -- so it is engineering, not drop-in.\", \"decision\": \"Use an FNO to reconstruct the full internal kiln temperature field from 5-10 buried thermocouples, turning subjective smoke-color watching into a quantitative pyrolysis-endpoint and vent-control signal to raise yield\", \"confidence\": \"medium - the library is mature but this deployment requires user-generated training data and faces out-of-distribution transfer, per the MEDIUM deploy tier\", \"could_be_wrong_if\": \"no faithful kiln pyrolysis simulation can be built and no reference kilns can be instrumented (so there is no training data), or the buried probes alter/cannot survive the burn, or per-mound geometry/wood variability makes the trained operator fail to transfer to new kilns\"}}",
+    "stop_reason": "end_turn",
+    "session_id": "1e3d06c4-eb60-4049-a5db-3d8f876d791b",
+    "total_cost_usd": 0.067416,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1732,
+      "cache_read_input_tokens": 16936,
+      "output_tokens": 1856,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 1732
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1856,
+          "cache_read_input_tokens": 16936,
+          "cache_creation_input_tokens": 1732,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 1732,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1598,
+        "outputTokens": 23,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0017130000000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2,
+        "outputTokens": 1856,
+        "cacheReadInputTokens": 16936,
+        "cacheCreationInputTokens": 1732,
+        "webSearchRequests": 0,
+        "costUSD": 0.065703,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "af68ab04-4fc0-42ec-bdca-405825815a69"
+  },
+  "parsed": {
+    "process": "Traditional earth-mound kiln pyrolysis monitored by smoke-color changes",
+    "process_problem": "Charcoal makers run 24/7 smoke-watching because the internal kiln temperature field is unobservable from only a few surface points, and earth-mound kilns lose 70-80% of the wood's energy with ~15-25% yield",
+    "recent_technique": "Fourier Neural Operator (FNO) for sparse-sensor field reconstruction (RecFNO / neuraloperator)",
+    "technique_year": "2025-2026 (FNO 2021; sparse-sensor reconstruction recent)",
+    "how_it_improves": "Inputs: 5-10 cheap thermocouples (or sheathed K-type probes) inserted at the base vents, mid-mound, and near the central chimney, plus one or two surface IR readings. Model: an FNO trained on simulated kiln pyrolysis physics (or a handful of instrumented kilns) maps those sparse point readings to the full continuous 3D internal temperature/heat field at each timestep, with resolution-invariant zero-shot super-resolution between sensors. Actionable output: a live reconstructed thermal map that flags the carbonization front, hot/cold pockets, and the moment the wood-charge has reached pyrolysis completion -- replacing subjective smoke-color reading with a quantitative stage indicator and a vent/air control signal. Gain: operators close vents and harvest at the true endpoint instead of over-burning, recovering several percentage points of yield and eliminating much of the 24/7 manual smoke watch.",
+    "why_recent_technique_beats_mature_approach": "The mature route to a field is either dense instrumentation (you cannot pack a buried earth mound with hundreds of probes, and you certainly cannot image its interior) or classical CNN/POD reconstruction, both of which need a dense, per-kiln labeled training grid that this artisanal process never produces. FNO's new capability is reconstructing a full continuous field from only 5-10 sparse points with zero-shot super-resolution and resolution invariance -- it interpolates physically between the few probes you can actually bury, exactly where dense-sensor and CNN/POD methods fail. That removes the blocker (no dense sensors, no labeled per-kiln dataset) that has kept the interior temperature field unobservable.",
+    "feasibility_now": "Not drop-in. The neuraloperator/RecFNO library is HIGH maturity, but this specific deployment is MEDIUM: it requires training data the user must generate -- either a finite-element/CFD pyrolysis simulation of the earth mound or a few fully instrumented reference kilns -- and the model risks out-of-distribution transfer across wood species, mound geometry, and moisture, so it needs domain-randomized simulation plus field calibration. Hardware is modest (a handful of high-temp thermocouples and a logger, no special camera), but expect real physics-modeling and validation engineering before the reconstructed field is trustworthy enough to drive harvest decisions.",
+    "primary_quote": "The internal temperature FIELD is unobservable -- only a few surface points can be measured.",
+    "quote_source": "open_problem",
+    "reasoning_trace": {
+      "step": "propose charcoal_kiln x FNO",
+      "inputs_seen": "the earth-mound pyrolysis process, its open problem (unobservable internal field, ~15-25% yield, 24/7 smoke watch), FNO's sparse-sensor field-reconstruction capability, and its HIGH_library_MEDIUM_deploy maturity tier",
+      "reasoning": "The open problem is literally a field-reconstruction problem stated as 'the internal temperature field is unobservable from only a few surface points' -- a one-to-one match for FNO's ability to recover a full continuous field from 5-10 sparse sensors. The mature alternatives (dense thermocouple grids, interior imaging, CNN/POD) are blocked because a buried earth mound cannot be densely instrumented or imaged and artisanal kilns never yield a labeled dense training set; FNO's sparse-input, resolution-invariant, super-resolution reconstruction is precisely the capability that bypasses that. Feasibility is realistic-not-optimistic because the technique still needs a simulated-physics or instrumented-kiln training set and faces OOD transfer across wood/geometry/moisture -- so it is engineering, not drop-in.",
+      "decision": "Use an FNO to reconstruct the full internal kiln temperature field from 5-10 buried thermocouples, turning subjective smoke-color watching into a quantitative pyrolysis-endpoint and vent-control signal to raise yield",
+      "confidence": "medium - the library is mature but this deployment requires user-generated training data and faces out-of-distribution transfer, per the MEDIUM deploy tier",
+      "could_be_wrong_if": "no faithful kiln pyrolysis simulation can be built and no reference kilns can be instrumented (so there is no training data), or the buried probes alter/cannot survive the burn, or per-mound geometry/wood variability makes the trained operator fail to transfer to new kilns"
+    }
+  }
+}

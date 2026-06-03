@@ -1,0 +1,184 @@
+{
+  "run_id": "run_023",
+  "agent": "3_cross_field_proposer",
+  "generated_at": "2026-06-03T19:00:31.782682+00:00",
+  "pairs": [
+    {
+      "pair_id": "retting_x_HSIFM",
+      "process_id": "retting",
+      "technique_id": "HSIFM"
+    },
+    {
+      "pair_id": "charcoal_x_FNO",
+      "process_id": "charcoal_kiln",
+      "technique_id": "FNO"
+    },
+    {
+      "pair_id": "indigo_x_TSFM",
+      "process_id": "indigo_vat",
+      "technique_id": "TSFM"
+    },
+    {
+      "pair_id": "cork_x_VLMAD",
+      "process_id": "cork_harvest",
+      "technique_id": "VLMAD"
+    },
+    {
+      "pair_id": "indigo_x_VLMAD",
+      "process_id": "indigo_vat",
+      "technique_id": "VLMAD"
+    }
+  ],
+  "proposals": [
+    {
+      "pair_id": "retting_x_HSIFM",
+      "process_id": "retting",
+      "technique_id": "HSIFM",
+      "on_target_ai_hits": 0,
+      "process_low_penetration": true,
+      "technique_usable_now": true,
+      "technique_maturity_tier": "MEDIUM",
+      "process": "id retting: separating bast fibre from non-fibrous plant material by microbial/chemical degradation of pectin, then mechanical breaking and scutching",
+      "process_problem": "Retting endpoint is judged by feel/experience; under-retting leaves fibres bound, over-retting weakens/dirties them; quality/timing vary by method and conditions, and no labeled per-batch endpoint dataset exists.",
+      "recent_technique": "Hyperspectral foundation models (self-supervised, few-shot fine-tuning) -- e.g. SpectralEarth-pretrained backbone, HyperFM, SpecAware",
+      "technique_year": "2025-2026",
+      "how_it_improves": "A close-range hyperspectral camera images retting stems/fibre bundles; reflectance cubes feed an SSL-pretrained HSI backbone fine-tuned on only a few dozen labeled stems (graded under-/optimally-/over-retted via tensile + cleanliness checks). The model learns the spectral signature of pectin/cementing-compound degradation and outputs a per-batch retting-completion score and 'harvest now' alert. This replaces feel/experience with an objective, repeatable endpoint readout, cutting both under-retting rework and over-retting fibre loss across pond/stream/field conditions.",
+      "why_recent_technique_beats_mature_approach": "Mature hyperspectral+ML (Run-22) needs a large per-task labeled dataset to learn pectin-degradation spectra -- but the problem statement is that NO labeled per-batch endpoint dataset exists, so supervised models can't be trained. The HSI foundation model's SSL pretraining means the spectral-feature backbone is already learned; only a few labeled stems are needed to fine-tune, so label-efficient few-shot fine-tuning removes the exact no-large-dataset blocker that stops the mature method.",
+      "feasibility_now": "Not drop-in. Requires (1) a close-range hyperspectral camera (hardware cost), (2) collecting a small labeled set of graded retted stems, and (3) bridging a real out-of-distribution gap: backbones are pretrained on satellite/airborne earth-observation HSI, not close-range wet-stem spectra, so transfer is plausible but unproven and may need domain-adaptive fine-tuning. MEDIUM maturity: the right tool, but the least drop-in of the candidates.",
+      "primary_quote": "under-retting leaves fibres bound, over-retting weakens/dirties them",
+      "quote_source": "open_problem",
+      "reasoning_trace": {
+        "step": "propose retting x HSIFM",
+        "inputs_seen": "the process (pectin-degradation retting + scutching) + its open problem (subjective endpoint, no labeled per-batch dataset) + HSIFM's label-efficient few-shot capability + its MEDIUM maturity tier",
+        "reasoning": "Retting endpoint is fundamentally a chemical-state question (how much pectin/cement remains), which has a spectral signature -- a natural hyperspectral target. The blocker for ordinary hyperspectral ML is that no labeled per-batch endpoint dataset exists, so a supervised model can't be trained. HSI foundation models invert this: SSL pretraining supplies the backbone, and few-shot fine-tuning needs only a handful of graded stems, directly matching 'no large dataset.' Feasibility is realistic-not-optimistic because the technique still demands a hyperspectral camera and faces a genuine OOD gap from satellite/airborne pretraining to close-range wet-stem spectra.",
+        "decision": "Use an SSL-pretrained HSI foundation model, few-shot fine-tuned on a few graded retted stems, as an objective per-batch retting-endpoint detector that flags optimal harvest time.",
+        "confidence": "medium - MEDIUM tier reflects a real domain gap (EO-pretrained -> close-range stem spectra) and a hardware requirement, even though few-shot is the correct fit for the missing-dataset problem",
+        "could_be_wrong_if": "the satellite/airborne-pretrained backbone fails to transfer to close-range wet-stem reflectance (OOD), or pectin-degradation state has no separable spectral signature at field-usable resolution, or the hyperspectral-camera cost is prohibitive for low-margin fibre operations."
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "fa8c58d0-6456-4c4b-8d2d-72d812ee6d42"
+    },
+    {
+      "pair_id": "charcoal_x_FNO",
+      "process_id": "charcoal_kiln",
+      "technique_id": "FNO",
+      "on_target_ai_hits": 1,
+      "process_low_penetration": true,
+      "technique_usable_now": true,
+      "technique_maturity_tier": "HIGH_library_MEDIUM_deploy",
+      "process": "Traditional earth-mound kiln pyrolysis monitored by smoke-color changes",
+      "process_problem": "Charcoal makers run 24/7 smoke-watching because the internal kiln temperature field is unobservable from only a few surface points, and earth-mound kilns lose 70-80% of the wood's energy with ~15-25% yield",
+      "recent_technique": "Fourier Neural Operator (FNO) for sparse-sensor field reconstruction (RecFNO / neuraloperator)",
+      "technique_year": "2025-2026 (FNO 2021; sparse-sensor reconstruction recent)",
+      "how_it_improves": "Inputs: 5-10 cheap thermocouples (or sheathed K-type probes) inserted at the base vents, mid-mound, and near the central chimney, plus one or two surface IR readings. Model: an FNO trained on simulated kiln pyrolysis physics (or a handful of instrumented kilns) maps those sparse point readings to the full continuous 3D internal temperature/heat field at each timestep, with resolution-invariant zero-shot super-resolution between sensors. Actionable output: a live reconstructed thermal map that flags the carbonization front, hot/cold pockets, and the moment the wood-charge has reached pyrolysis completion -- replacing subjective smoke-color reading with a quantitative stage indicator and a vent/air control signal. Gain: operators close vents and harvest at the true endpoint instead of over-burning, recovering several percentage points of yield and eliminating much of the 24/7 manual smoke watch.",
+      "why_recent_technique_beats_mature_approach": "The mature route to a field is either dense instrumentation (you cannot pack a buried earth mound with hundreds of probes, and you certainly cannot image its interior) or classical CNN/POD reconstruction, both of which need a dense, per-kiln labeled training grid that this artisanal process never produces. FNO's new capability is reconstructing a full continuous field from only 5-10 sparse points with zero-shot super-resolution and resolution invariance -- it interpolates physically between the few probes you can actually bury, exactly where dense-sensor and CNN/POD methods fail. That removes the blocker (no dense sensors, no labeled per-kiln dataset) that has kept the interior temperature field unobservable.",
+      "feasibility_now": "Not drop-in. The neuraloperator/RecFNO library is HIGH maturity, but this specific deployment is MEDIUM: it requires training data the user must generate -- either a finite-element/CFD pyrolysis simulation of the earth mound or a few fully instrumented reference kilns -- and the model risks out-of-distribution transfer across wood species, mound geometry, and moisture, so it needs domain-randomized simulation plus field calibration. Hardware is modest (a handful of high-temp thermocouples and a logger, no special camera), but expect real physics-modeling and validation engineering before the reconstructed field is trustworthy enough to drive harvest decisions.",
+      "primary_quote": "The internal temperature FIELD is unobservable -- only a few surface points can be measured.",
+      "quote_source": "open_problem",
+      "reasoning_trace": {
+        "step": "propose charcoal_kiln x FNO",
+        "inputs_seen": "the earth-mound pyrolysis process, its open problem (unobservable internal field, ~15-25% yield, 24/7 smoke watch), FNO's sparse-sensor field-reconstruction capability, and its HIGH_library_MEDIUM_deploy maturity tier",
+        "reasoning": "The open problem is literally a field-reconstruction problem stated as 'the internal temperature field is unobservable from only a few surface points' -- a one-to-one match for FNO's ability to recover a full continuous field from 5-10 sparse sensors. The mature alternatives (dense thermocouple grids, interior imaging, CNN/POD) are blocked because a buried earth mound cannot be densely instrumented or imaged and artisanal kilns never yield a labeled dense training set; FNO's sparse-input, resolution-invariant, super-resolution reconstruction is precisely the capability that bypasses that. Feasibility is realistic-not-optimistic because the technique still needs a simulated-physics or instrumented-kiln training set and faces OOD transfer across wood/geometry/moisture -- so it is engineering, not drop-in.",
+        "decision": "Use an FNO to reconstruct the full internal kiln temperature field from 5-10 buried thermocouples, turning subjective smoke-color watching into a quantitative pyrolysis-endpoint and vent-control signal to raise yield",
+        "confidence": "medium - the library is mature but this deployment requires user-generated training data and faces out-of-distribution transfer, per the MEDIUM deploy tier",
+        "could_be_wrong_if": "no faithful kiln pyrolysis simulation can be built and no reference kilns can be instrumented (so there is no training data), or the buried probes alter/cannot survive the burn, or per-mound geometry/wood variability makes the trained operator fail to transfer to new kilns"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "1e3d06c4-eb60-4049-a5db-3d8f876d791b"
+    },
+    {
+      "pair_id": "indigo_x_TSFM",
+      "process_id": "indigo_vat",
+      "technique_id": "TSFM",
+      "on_target_ai_hits": 0,
+      "process_low_penetration": true,
+      "technique_usable_now": true,
+      "technique_maturity_tier": "HIGH",
+      "process": "Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)",
+      "process_problem": "The vat is a constantly-changing natural system that can 'die' unpredictably; there is no instrument that reports its health/state, no labeled time-series of vat trajectories, and the craftsperson must rely solely on intuition and the five senses honed over many years.",
+      "recent_technique": "Zero-shot time-series foundation model (TSFM) for forecasting (Reverso / Mamba4Cast / WindFM / Aurora)",
+      "technique_year": "2025-2026",
+      "how_it_improves": "Clip a few cheap continuous probes onto the vat (pH, oxidation-reduction potential/ORP, temperature, and optionally a colorimetric sensor on the bloom/'flower' or surface redox), logging a multivariate stream every few minutes. A pretrained TSFM ingests the recent window and emits a rolling short-horizon forecast (e.g. next 6-24h) of ORP/pH out of the box, with prediction intervals. The actionable output is an early-warning signal: when the live stream diverges from the forecast band, or the forecast trend slides toward the 'dead' redox/pH regime, the craftsperson is prompted to intervene (feed wheat-bran/lye, warm, stir, rest) days before the five senses would register the decline -- turning intuition into an instrumented, anticipatory alarm and converting silent vat deaths into recoverable saves.",
+      "why_recent_technique_beats_mature_approach": "A mature supervised forecaster (LSTM/ARIMA/gradient-boosting) needs a labeled per-vat training history -- many recorded crash-and-recovery trajectories -- to learn this specific vat's dynamics. That data simply does not exist here: vats are few, slow, idiosyncratic per workshop, and 'no labeled time-series of vat trajectories' has ever been collected, so the mature method cannot even be trained. The NEW capability of a TSFM is zero-shot forecasting: pretrained on billions of generic time points, it forecasts a never-before-seen sensor stream with no task-specific training set, so it produces a usable baseline-and-deviation signal from day one of logging while a per-vat dataset is slowly accumulated for later few-shot fine-tuning.",
+      "feasibility_now": "Partly drop-in, partly hardware-gated and honestly uncertain. The TSFM itself is high-maturity and runs zero-shot (small models like Reverso ~2.6M params run on a Raspberry Pi), so the forecasting layer needs no training data. The real costs: (1) low-cost ORP/pH/temperature probes in a hot alkaline (~pH 11) caustic vat are a real instrumentation/fouling/calibration challenge, not free; (2) the highest-value event -- a vat 'crash' -- is a rare nonstationary regime shift, and zero-shot forecasting of rare out-of-distribution transitions is exactly where TSFMs are weakest, so v1 realistically delivers reliable trend/anomaly early-warning (deviation from forecast band) rather than precise crash prediction until enough real crashes are logged for few-shot adaptation. Not a guaranteed crash-predictor on day one; a credible label-free monitoring scaffold that improves as data accrues.",
+      "primary_quote": "there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories",
+      "quote_source": "open_problem",
+      "reasoning_trace": {
+        "step": "propose indigo_vat x TSFM",
+        "inputs_seen": "the process + its open problem + the recent technique's new capability + its maturity tier",
+        "reasoning": "The open problem is explicitly a no-data, no-instrument, intuition-only monitoring gap. Any mature supervised time-series model is blocked because it requires a per-vat labeled history that has never been collected ('no labeled time-series of vat trajectories'). A zero-shot TSFM removes precisely that blocker: it forecasts an unseen sensor stream with no task-specific training, giving an immediate forecast-vs-actual deviation alarm while data is accumulated. Feasibility is realistic, not optimistic, because the forecasting maturity is HIGH but the value-event (crash) is a rare regime shift where zero-shot transfer is genuinely weak, and the sensors are nontrivial to deploy in a caustic vat -- so I scope v1 to early-warning/anomaly rather than precise crash prediction.",
+        "decision": "Pair a zero-shot TSFM with cheap multivariate vat probes to provide an instrumented, anticipatory early-warning system for vat health, label-free from day one and few-shot-improvable as crash data accrues.",
+        "confidence": "medium - HIGH-tier zero-shot forecasting makes the monitoring layer credible now, but rare-crash regime-shift prediction sits in the technique's weakest zone, capping confidence.",
+        "could_be_wrong_if": "the proxy sensors (pH/ORP/color) do not actually carry the signal that precedes a vat death, OR the crash is too abrupt and out-of-distribution for zero-shot forecasting to anticipate (only flagging after onset), OR cheap probes cannot survive the hot caustic alkaline vat reliably enough to feed clean data, OR a textile-conservation group has already piloted ORP/pH vat logging, making this non-novel."
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "81171591-e4a0-415d-9580-1abd1b5f0f88"
+    },
+    {
+      "pair_id": "cork_x_VLMAD",
+      "process_id": "cork_harvest",
+      "technique_id": "VLMAD",
+      "on_target_ai_hits": 0,
+      "process_low_penetration": true,
+      "technique_usable_now": true,
+      "technique_maturity_tier": "HIGH_avail_MEDIUM_OOD",
+      "process": "Manual stripping of cork-oak bark with a single hand axe (machado)",
+      "process_problem": "Success depends entirely on the harvester's skill; cutting too deep damages the cambium and harms the tree, larger intact sheets are worth more, and there is no labeled defect dataset of 'good vs cambium-damaging' strips.",
+      "recent_technique": "Vision-language model zero-shot / few-shot anomaly detection (FADE / IADGPT / VMAD, CLIP-based prompting + in-context learning)",
+      "technique_year": "2025-2026",
+      "how_it_improves": "A head-mounted or pole-cam films the exposed inner bark and the trunk surface left after each sheet is pried off. Frames go to a VLM anomaly detector prompted with text like 'exposed yellowish-pink living cambium / torn fibrous wood' vs 'clean honey-brown cork mother layer', plus 3-5 reference photos a master harvester labels in the field as good/over-cut. The model returns a localized heatmap + score flagging spots where the axe likely reached the cambium, and a coarse split/crack map on the peeled sheet. Output is a real-time 'cut depth OK / too deep here' overlay and a per-tree damage log \u2014 letting the harvester adjust pressure mid-strip and giving cooperatives an objective quality/damage grade without a per-tree trained model.",
+      "why_recent_technique_beats_mature_approach": "Mature supervised defect detection (a CNN/segmentation net) needs a large labeled dataset of cambium-damaged vs clean strips per bark type \u2014 but this open problem states no such dataset exists, and creating one means deliberately wounding protected trees on a 9-year harvest cycle, which is unacceptable. The new capability is exactly that VLM zero/few-shot detectors localize anomalies on UNSEEN objects with NO labeled defect corpus, driven by natural-language descriptions of what 'damage' looks like plus a handful of in-context reference images \u2014 removing the labeled-data blocker entirely.",
+      "feasibility_now": "NOT a clean drop-in. The technique is HIGH availability (open code: FADE, VMAD, IADGPT) and needs only commodity cameras, so no special hardware and no defect training set. BUT the 89.6% headline is on MVTec industrial parts; live cork bark and torn cambium are out-of-distribution natural textures with variable lighting, sap, and dust outdoors, so zero-shot transfer is plausible but unproven. Realistically it needs a field calibration pass: a few-shot reference set curated by expert harvesters and on-site validation before any score is trusted for real cut decisions \u2014 assistive flagging first, not autonomous control.",
+      "primary_quote": "cutting too deep damages the cambium (harming the tree)",
+      "quote_source": "open_problem",
+      "reasoning_trace": {
+        "step": "propose cork_harvest x VLMAD",
+        "inputs_seen": "the cork-stripping process + the open problem (no labeled good/damaging dataset, skill-dependent, cambium damage and sheet integrity drive value) + VLMAD's label-free zero/few-shot localization capability + its HIGH_avail_MEDIUM_OOD maturity tier",
+        "reasoning": "The open problem's defining blocker is the explicit absence of a labeled defect dataset, and building one would require harming long-lived protected trees \u2014 so any data-hungry supervised approach is structurally blocked. VLMAD's NEW capability is anomaly localization on unseen objects from text prompts plus a few in-context references, which is precisely a label-free fit. Feasibility is realistic-not-optimistic because the cited 89.6% is on industrial MVTec objects while wet, sappy, outdoor cork bark is OOD, so I scope it as assistive + needing field calibration rather than autonomous depth control.",
+        "decision": "Use a CLIP-based zero/few-shot VLM anomaly detector on head/pole-cam video of the exposed inner bark to localize and flag likely cambium over-cuts and sheet splits in near-real-time, calibrated with a small expert-curated reference set, as a harvester aid and objective damage/quality log.",
+        "confidence": "medium - HIGH tool availability and a genuine label-free fit, but MEDIUM because cork/cambium are OOD textures and the accuracy numbers come from industrial benchmarks.",
+        "could_be_wrong_if": "Zero/few-shot transfer fails to distinguish freshly exposed living cambium from normal mother-cork tone under outdoor lighting and sap, so flags are too noisy to trust; or experts already judge depth reliably enough by eye/feel that an unproven OOD detector adds no value."
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "4bf8cbab-ffac-4793-9075-ba9fe57c7bd3"
+    },
+    {
+      "pair_id": "indigo_x_VLMAD",
+      "process_id": "indigo_vat",
+      "technique_id": "VLMAD",
+      "on_target_ai_hits": 0,
+      "process_low_penetration": true,
+      "technique_usable_now": true,
+      "technique_maturity_tier": "HIGH_avail_MEDIUM_OOD",
+      "process": "Traditional sukumo fermentation indigo vat (living alkaline microbial dye culture)",
+      "process_problem": "No instrument tells the craftsperson the vat's health/state; managing the always-changing natural dye solution relies only on years of intuition via the five senses, and vats can 'die' unpredictably with no labeled time-series of trajectories",
+      "recent_technique": "Vision-language model zero-shot/few-shot visual anomaly detection (CLIP-based prompting / in-context learning, e.g. FADE, IADGPT, VMAD)",
+      "technique_year": "2025-2026",
+      "how_it_improves": "Inputs: ordinary RGB or phone photos/video of the vat surface (the 'bloom'/foam pattern, color of the liquor, scum/bubble texture) plus natural-language reference prompts describing a healthy vat ('coppery bronze foam, fine even bubbles, jade-green liquor') versus failure cues ('flat grey surface, broken film, sour-smelling thin froth'). Model: a VLM anomaly detector scores and localizes how far the current surface deviates from the healthy text/visual reference, with a few craftsperson-labeled 'good day' images as in-context support. Actionable output: a continuous deviation score and a heatmap flagging where/when the surface is drifting toward a 'dying' state, days before a master might catch it -- a cheap early-warning dashboard. Gain: turns a tacit five-senses judgment into a sharable, logged signal that lets the dyer intervene (feed lye, wheat bran, warmth) before collapse, and begins accumulating the labeled trajectory dataset that does not yet exist.",
+      "why_recent_technique_beats_mature_approach": "Mature supervised anomaly detection (a CNN classifier or autoencoder trained per object) is blocked here because the problem statement says there is NO labeled time-series of vat trajectories and vats die rarely and unpredictably -- you cannot assemble the hundreds of labeled defect/failure images per vat that classic methods require, and every vat/studio looks different. The new capability is exactly label-free, zero/few-shot detection on UNSEEN objects driven by text prompts and a handful of in-context examples, so it works with the craftsperson's verbal description of 'healthy vs sick' and a few reference photos instead of a curated defect corpus -- removing the per-task training-set blocker that made AI a non-starter for this 0-penetration craft.",
+      "feasibility_now": "Pilot-feasible, NOT drop-in. Models are HIGH availability (open-source FADE/IADGPT/VMAD run on a phone-fed RGB stream, no special camera). The honest risk is OUT-OF-DISTRIBUTION: the ~89.6% benchmark is on MVTec industrial parts, whereas a foaming, specular, color-shifting dye-vat surface is an unproven texture for zero-shot transfer. So expect to need a short few-shot calibration with a master's labeled 'healthy/declining' images per studio and human-in-the-loop validation over a season before trusting alerts; prompt wording and reference-image curation will need iteration, and smell-only failure modes are invisible to a vision model.",
+      "primary_quote": "there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories",
+      "quote_source": "open_problem",
+      "reasoning_trace": {
+        "step": "propose indigo_vat x VLMAD",
+        "inputs_seen": "the sukumo vat process + its open problem (no instrument, no labels, intuition-only) + VLMAD's label-free zero/few-shot anomaly capability + its HIGH_avail_MEDIUM_OOD maturity tier",
+        "reasoning": "The open problem is precisely an absence of labels and instruments, which kills supervised AD; VLMAD's text-prompt + in-context, label-free localization matches a domain where the only 'ground truth' is a master's verbal/sensory description and a handful of reference images. The mature alternative (per-vat supervised model) is blocked by rare, unlabeled failure events. Feasibility is realistic-but-cautious because the foaming specular vat surface is OOD versus the industrial benchmarks, so I scope it as a few-shot-calibrated, human-in-the-loop pilot rather than a turnkey monitor.",
+        "decision": "Use a CLIP/VLM zero-few-shot anomaly detector on phone images of the vat surface to produce an early-warning deviation score + heatmap of vat health, calibrated with a master's few reference photos and bootstrapping the missing labeled trajectory dataset.",
+        "confidence": "medium - HIGH model availability makes a pilot easy, but MEDIUM OOD transfer to a foaming dye surface means trustworthy alerts are unproven without per-studio few-shot tuning",
+        "could_be_wrong_if": "the vat's true health signals are dominated by smell/pH/temperature chemistry not visible on the surface, or the specular foaming texture is too far OOD for CLIP-based scoring to separate healthy from dying without so many labeled examples that it collapses back into the supervised regime the craft cannot supply"
+      },
+      "quote_verified_substring": true,
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "opus_session_id": "cd1eddf7-9581-4b74-a45e-5ba3a3674824"
+    }
+  ]
+}

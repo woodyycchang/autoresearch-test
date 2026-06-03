@@ -1,0 +1,30 @@
+{
+  "run_id": "run_023",
+  "agent": "2_penetration_and_maturity",
+  "part": "A_process_ai_penetration",
+  "method": "For each process count DISTINCT ON-TARGET AI applications (AI applied to THIS process step) vs ADJACENT (AI on a related task -- proves the technique is feasible). 3 processes reuse Run 22's real counts (unchanged corpus); indigo_vat searched fresh. <5 on-target = application white space (Gate 1).",
+  "KEY_FINDING": "indigo_vat mirrors retting: ~0 ON-TARGET (no deployed ML monitor/forecaster for the traditional indigo DYE vat) while fermentation-ML in general is mature ADJACENT work (MLOps soft sensors for fed-batch fermentation, CNN bubble-image quantification, VAE synthetic-series augmentation). The 2022 indigo-vat paper characterizes the MICROBIOTA (pH/redox measured for science) but is NOT a predictive sensor a dyer could use. All 4 processes are low-penetration.",
+  "processes": [
+    {"process_id": "retting", "on_target_ai_hits": 0, "penetration": "NONE", "is_low": true, "carried_from": "run_022",
+     "evidence": "Run 22 (unchanged): engine 'didn't return papers specifically focused on flax retting endpoint detection.' Adjacent proven: hyperspectral+ML for flaxseed damage (PMC10778999), cannabis drying-quality (PMC11082398).",
+     "feasibility_note": "HIGH -- hyperspectral material-quality assessment established; few-shot HSIFM is the recent twist (works without the large labeled dataset retting lacks)"},
+    {"process_id": "cork_harvest", "on_target_ai_hits": 0, "penetration": "NONE on stripping step", "is_low": true, "carried_from": "run_022",
+     "evidence": "Run 22 (unchanged): stripping 'RESISTS automation'; existing AI is downstream only (cork-driller feeding, cork-surface SVM). The strip step itself is AI-unpenetrated; no labeled defect dataset of cambium-damaging strips.",
+     "feasibility_note": "MIXED -- full robotic stripping failed (infeasible); the feasible recent twist is zero-shot VLMAD flagging an anomalous strip surface WITHOUT a labeled defect set. Assistive, not full automation (R13)."},
+    {"process_id": "charcoal_kiln", "on_target_ai_hits": 1, "penetration": "LOW (traditional kiln)", "is_low": true, "carried_from": "run_022",
+     "evidence": "Run 22 (unchanged): traditional earth-kiln smoke-stage monitoring 'appears limited'; adjacent proven: rotary-kiln flame-image burning-state recognition, satellite kiln detection (different task).",
+     "feasibility_note": "HIGH for monitoring; the recent twist (FNO) targets a DIFFERENT sub-problem -- reconstructing the internal temperature FIELD from sparse thermocouples, which smoke-CV cannot give."},
+    {"process_id": "indigo_vat", "on_target_ai_hits": 0, "penetration": "NONE on-target (dye-vat forecasting/monitoring)", "is_low": true, "carried_from": null,
+     "evidence": "NEW search. On-target deployed ML for the traditional indigo DYE vat = none found; the indigo-vat literature (PMC9430710, 2022) characterizes the MICROBIOTA and measures pH/redox/temperature for SCIENCE, not as a dyer-facing predictor. Adjacent PROVEN/feasible: MLOps soft sensors for industrial fed-batch fermentation (S0098135424004095), CNN bubble-image fermentation quantification (s10068-024-01744-4), VAE synthetic fermentation time-series (PMC11351132) -- all bio/industrial fermentation, none the indigo dye vat.",
+     "feasibility_note": "HIGH adjacent (fermentation-ML is mature); the recent twist is ZERO-SHOT TSFM forecasting the vat's sensor stream with NO labeled per-vat history, plus VLMAD on the surface state -- exactly the no-labeled-data regime mature soft sensors can't enter."}
+  ],
+  "ranked_lowest_penetration": ["retting", "cork_harvest", "indigo_vat", "charcoal_kiln"],
+  "reasoning_trace": {
+    "step": "count on-target AI penetration per process; confirm all 4 are application white space",
+    "inputs_seen": "Run 22 ai_penetration.json (3 carried counts) + a fresh indigo-vat AI/ML/sensor search",
+    "reasoning": "On-target vs adjacent is the crucial distinction: adjacent hits PROVE feasibility, on-target hits CLOSE the gap. indigo_vat has rich adjacent fermentation-ML (feasible) but zero on-target dye-vat deployment (open) -- the same shape as retting. I did NOT inflate: the 2022 microbiota paper measures pH/redox, so a skeptic could call it 'penetration'; I count it 0 on-target because it is a scientific characterization, not a predictive monitor, and explicitly disclose it so Gate 3/4 can re-litigate.",
+    "decision": "all 4 low (0,0,0,1); ranked retting=cork=indigo=0 < charcoal=1",
+    "confidence": "high for the 3 carried (real Run-22 searches) and high-but-disclosed for indigo (absence of evidence, with the borderline 2022 paper flagged)",
+    "could_be_wrong_if": "a non-indexed or non-English deployment exists (e.g. a Japanese sukumo-vat sensor project), or a reviewer counts the 2022 microbiota paper as on-target penetration"
+  }
+}

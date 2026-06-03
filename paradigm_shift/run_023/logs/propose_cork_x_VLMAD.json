@@ -1,0 +1,94 @@
+{
+  "pair_id": "cork_x_VLMAD",
+  "process_id": "cork_harvest",
+  "technique_id": "VLMAD",
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 29415,
+    "duration_api_ms": 28385,
+    "ttft_ms": 2276,
+    "num_turns": 1,
+    "result": "{\"process\": \"Manual stripping of cork-oak bark with a single hand axe (machado)\", \"process_problem\": \"Success depends entirely on the harvester's skill; cutting too deep damages the cambium and harms the tree, larger intact sheets are worth more, and there is no labeled defect dataset of 'good vs cambium-damaging' strips.\", \"recent_technique\": \"Vision-language model zero-shot / few-shot anomaly detection (FADE / IADGPT / VMAD, CLIP-based prompting + in-context learning)\", \"technique_year\": \"2025-2026\", \"how_it_improves\": \"A head-mounted or pole-cam films the exposed inner bark and the trunk surface left after each sheet is pried off. Frames go to a VLM anomaly detector prompted with text like 'exposed yellowish-pink living cambium / torn fibrous wood' vs 'clean honey-brown cork mother layer', plus 3-5 reference photos a master harvester labels in the field as good/over-cut. The model returns a localized heatmap + score flagging spots where the axe likely reached the cambium, and a coarse split/crack map on the peeled sheet. Output is a real-time 'cut depth OK / too deep here' overlay and a per-tree damage log \u2014 letting the harvester adjust pressure mid-strip and giving cooperatives an objective quality/damage grade without a per-tree trained model.\", \"why_recent_technique_beats_mature_approach\": \"Mature supervised defect detection (a CNN/segmentation net) needs a large labeled dataset of cambium-damaged vs clean strips per bark type \u2014 but this open problem states no such dataset exists, and creating one means deliberately wounding protected trees on a 9-year harvest cycle, which is unacceptable. The new capability is exactly that VLM zero/few-shot detectors localize anomalies on UNSEEN objects with NO labeled defect corpus, driven by natural-language descriptions of what 'damage' looks like plus a handful of in-context reference images \u2014 removing the labeled-data blocker entirely.\", \"feasibility_now\": \"NOT a clean drop-in. The technique is HIGH availability (open code: FADE, VMAD, IADGPT) and needs only commodity cameras, so no special hardware and no defect training set. BUT the 89.6% headline is on MVTec industrial parts; live cork bark and torn cambium are out-of-distribution natural textures with variable lighting, sap, and dust outdoors, so zero-shot transfer is plausible but unproven. Realistically it needs a field calibration pass: a few-shot reference set curated by expert harvesters and on-site validation before any score is trusted for real cut decisions \u2014 assistive flagging first, not autonomous control.\", \"primary_quote\": \"cutting too deep damages the cambium (harming the tree)\", \"quote_source\": \"open_problem\", \"reasoning_trace\": {\"step\": \"propose cork_harvest x VLMAD\", \"inputs_seen\": \"the cork-stripping process + the open problem (no labeled good/damaging dataset, skill-dependent, cambium damage and sheet integrity drive value) + VLMAD's label-free zero/few-shot localization capability + its HIGH_avail_MEDIUM_OOD maturity tier\", \"reasoning\": \"The open problem's defining blocker is the explicit absence of a labeled defect dataset, and building one would require harming long-lived protected trees \u2014 so any data-hungry supervised approach is structurally blocked. VLMAD's NEW capability is anomaly localization on unseen objects from text prompts plus a few in-context references, which is precisely a label-free fit. Feasibility is realistic-not-optimistic because the cited 89.6% is on industrial MVTec objects while wet, sappy, outdoor cork bark is OOD, so I scope it as assistive + needing field calibration rather than autonomous depth control.\", \"decision\": \"Use a CLIP-based zero/few-shot VLM anomaly detector on head/pole-cam video of the exposed inner bark to localize and flag likely cambium over-cuts and sheet splits in near-real-time, calibrated with a small expert-curated reference set, as a harvester aid and objective damage/quality log.\", \"confidence\": \"medium - HIGH tool availability and a genuine label-free fit, but MEDIUM because cork/cambium are OOD textures and the accuracy numbers come from industrial benchmarks.\", \"could_be_wrong_if\": \"Zero/few-shot transfer fails to distinguish freshly exposed living cambium from normal mother-cork tone under outdoor lighting and sap, so flags are too noisy to trust; or experts already judge depth reliably enough by eye/feel that an unproven OOD detector adds no value.\"}",
+    "stop_reason": "end_turn",
+    "session_id": "4bf8cbab-ffac-4793-9075-ba9fe57c7bd3",
+    "total_cost_usd": 0.060994,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1732,
+      "cache_read_input_tokens": 16902,
+      "output_tokens": 1601,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 1732
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1601,
+          "cache_read_input_tokens": 16902,
+          "cache_creation_input_tokens": 1732,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 1732,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1588,
+        "outputTokens": 19,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001683,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2,
+        "outputTokens": 1601,
+        "cacheReadInputTokens": 16902,
+        "cacheCreationInputTokens": 1732,
+        "webSearchRequests": 0,
+        "costUSD": 0.059311,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "820fbfb9-3e37-40bd-9dbe-6b42adf724a2"
+  },
+  "parsed": {
+    "process": "Manual stripping of cork-oak bark with a single hand axe (machado)",
+    "process_problem": "Success depends entirely on the harvester's skill; cutting too deep damages the cambium and harms the tree, larger intact sheets are worth more, and there is no labeled defect dataset of 'good vs cambium-damaging' strips.",
+    "recent_technique": "Vision-language model zero-shot / few-shot anomaly detection (FADE / IADGPT / VMAD, CLIP-based prompting + in-context learning)",
+    "technique_year": "2025-2026",
+    "how_it_improves": "A head-mounted or pole-cam films the exposed inner bark and the trunk surface left after each sheet is pried off. Frames go to a VLM anomaly detector prompted with text like 'exposed yellowish-pink living cambium / torn fibrous wood' vs 'clean honey-brown cork mother layer', plus 3-5 reference photos a master harvester labels in the field as good/over-cut. The model returns a localized heatmap + score flagging spots where the axe likely reached the cambium, and a coarse split/crack map on the peeled sheet. Output is a real-time 'cut depth OK / too deep here' overlay and a per-tree damage log \u2014 letting the harvester adjust pressure mid-strip and giving cooperatives an objective quality/damage grade without a per-tree trained model.",
+    "why_recent_technique_beats_mature_approach": "Mature supervised defect detection (a CNN/segmentation net) needs a large labeled dataset of cambium-damaged vs clean strips per bark type \u2014 but this open problem states no such dataset exists, and creating one means deliberately wounding protected trees on a 9-year harvest cycle, which is unacceptable. The new capability is exactly that VLM zero/few-shot detectors localize anomalies on UNSEEN objects with NO labeled defect corpus, driven by natural-language descriptions of what 'damage' looks like plus a handful of in-context reference images \u2014 removing the labeled-data blocker entirely.",
+    "feasibility_now": "NOT a clean drop-in. The technique is HIGH availability (open code: FADE, VMAD, IADGPT) and needs only commodity cameras, so no special hardware and no defect training set. BUT the 89.6% headline is on MVTec industrial parts; live cork bark and torn cambium are out-of-distribution natural textures with variable lighting, sap, and dust outdoors, so zero-shot transfer is plausible but unproven. Realistically it needs a field calibration pass: a few-shot reference set curated by expert harvesters and on-site validation before any score is trusted for real cut decisions \u2014 assistive flagging first, not autonomous control.",
+    "primary_quote": "cutting too deep damages the cambium (harming the tree)",
+    "quote_source": "open_problem",
+    "reasoning_trace": {
+      "step": "propose cork_harvest x VLMAD",
+      "inputs_seen": "the cork-stripping process + the open problem (no labeled good/damaging dataset, skill-dependent, cambium damage and sheet integrity drive value) + VLMAD's label-free zero/few-shot localization capability + its HIGH_avail_MEDIUM_OOD maturity tier",
+      "reasoning": "The open problem's defining blocker is the explicit absence of a labeled defect dataset, and building one would require harming long-lived protected trees \u2014 so any data-hungry supervised approach is structurally blocked. VLMAD's NEW capability is anomaly localization on unseen objects from text prompts plus a few in-context references, which is precisely a label-free fit. Feasibility is realistic-not-optimistic because the cited 89.6% is on industrial MVTec objects while wet, sappy, outdoor cork bark is OOD, so I scope it as assistive + needing field calibration rather than autonomous depth control.",
+      "decision": "Use a CLIP-based zero/few-shot VLM anomaly detector on head/pole-cam video of the exposed inner bark to localize and flag likely cambium over-cuts and sheet splits in near-real-time, calibrated with a small expert-curated reference set, as a harvester aid and objective damage/quality log.",
+      "confidence": "medium - HIGH tool availability and a genuine label-free fit, but MEDIUM because cork/cambium are OOD textures and the accuracy numbers come from industrial benchmarks.",
+      "could_be_wrong_if": "Zero/few-shot transfer fails to distinguish freshly exposed living cambium from normal mother-cork tone under outdoor lighting and sap, so flags are too noisy to trust; or experts already judge depth reliably enough by eye/feel that an unproven OOD detector adds no value."
+    }
+  }
+}
