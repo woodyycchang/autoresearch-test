@@ -1,0 +1,286 @@
+{
+  "agent": "phase2_status",
+  "run": "run_026",
+  "statuses": [
+    {
+      "id": "ANOM_01",
+      "anomaly_name": "Grokking / Delayed Generalization",
+      "explanations_found": [
+        {
+          "explanation": "Norm-driven representational phase transition: training first converges to a high-norm memorization solution, then weight decay/regularization contracts the network toward a lower-norm structured 'generalizing circuit' (e.g., Fourier-multiplication circuit on modular arithmetic) that solves the task with lower parameter norm and is therefore favored. Three phases: memorization -> circuit formation -> cleanup; the abrupt test-accuracy jump occurs during cleanup.",
+          "paper_or_proponent": "Nanda et al. 'Progress measures for grokking via mechanistic interpretability' (ICLR 2023, arXiv:2301.05217); Varma et al. 'Explaining grokking through circuit efficiency' (openreview 7Zbg38nA0J)",
+          "url": "https://arxiv.org/pdf/2301.05217",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "Transition from lazy (linear/NTK) to rich (feature-learning) training dynamics controls grokking, generalizing beyond modular arithmetic to MNIST, one-layer Transformers, and student-teacher networks.",
+          "paper_or_proponent": "Kumar et al. 'Grokking as the Transition from Lazy to Rich Training Dynamics' (arXiv:2310.06110)",
+          "url": "https://arxiv.org/abs/2310.06110",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Information-theoretic / emergent phase transition: 'synergy' (extra mutual information from collective neuron output) stays low during memorization then spikes at the transition, recapitulating physics phase-transition dynamics; complexity rises during memorization then falls as a simpler generalizing pattern is found.",
+          "paper_or_proponent": "'Information-Theoretic Progress Measures reveal Grokking is an Emergent Phase Transition' (arXiv:2408.08944); 'The Complexity Dynamics of Grokking' (arXiv:2412.09810)",
+          "url": "https://arxiv.org/html/2408.08944v1",
+          "acceptance": "proposed-contested"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "grokking arises from a norm-driven representational phase transition in regularized training dynamics, where training first converges to a high-norm memorization solution and only later contracts toward a lower-norm structured representation that generalizes",
+      "search_queries": [
+        "has grokking delayed generalization been explained accepted mechanism 2024 2025",
+        "grokking explanation consensus weight decay representation learning circuit formation",
+        "is grokking solved mystery understood \"weight decay\" generalizing circuit favored",
+        "grokking now well understood explanation widely accepted phase transition memorization to generalization review"
+      ],
+      "confidence": 0.72,
+      "reasoning": "The CORE anomaly (generalization improves long after overfitting, defeating the 'overfitting is a dead end' prediction) HAS a broadly accepted mechanistic explanation: regularization/weight decay drives a transition from a high-norm memorizing solution to a lower-norm generalizing circuit, validated by mechanistic interpretability (reverse-engineered Fourier circuits) and circuit-efficiency arguments. Per R13, an accepted explanation => RESOLVED. Confidence is not higher because important sub-questions remain genuinely open: 'there is still no quantitative theory explaining the length of the delay,' some 2024-2025 work disputes whether weight decay is strictly necessary, and multiple complementary framings (lazy->rich, info-theoretic, thermodynamic) coexist. So the mechanism is understood but not in a single closed-form universally-agreed theory."
+    },
+    {
+      "id": "ANOM_02",
+      "anomaly_name": "Deep Double Descent: More Data (and Bigger Models) Can Hurt",
+      "explanations_found": [
+        {
+          "explanation": "Fine-grained bias-variance decomposition: the test-error spike at the interpolation threshold is driven by variance from label noise and random-feature/initialization, not bias. Beyond the threshold, overparameterization reduces these variances (implicit norm minimization picks a low-norm interpolant), so test error descends again. The classical bias-variance tradeoff still holds within each regime once randomness sources are separated.",
+          "paper_or_proponent": "'Double Descent Demystified' (ICLR Blogposts 2024); Adlam & Pennington; 'Understanding Double Descent Requires a Fine-Grained Bias-Variance Decomposition' (arXiv:2011.03321)",
+          "url": "https://iclr-blogposts.github.io/2024/blog/double-descent-demystified/",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "Original empirical characterization and unified framing (model-wise, epoch-wise, sample-wise double descent; 'effective model complexity') showing the phenomenon is robust and real across architectures.",
+          "paper_or_proponent": "Nakkiran et al. 'Deep Double Descent' (arXiv:1912.02292) / OpenAI",
+          "url": "https://arxiv.org/abs/1912.02292",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "VC-theoretic re-derivation arguing double descent is consistent with (and explainable by) classical VC-generalization bounds.",
+          "paper_or_proponent": "'VC Theoretical Explanation of Double Descent' (arXiv:2205.15549)",
+          "url": "https://arxiv.org/abs/2205.15549",
+          "acceptance": "proposed-contested"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "the over-fitting near the interpolation threshold is entirely due to the variances caused by additive noise in the ground truth and the initialization of random features ... the benefit of overparametrization beyond the interpolation threshold being solely due to a reduction of noise and initialization variances",
+      "search_queries": [
+        "deep double descent explained accepted theory interpolation threshold variance 2024",
+        "double descent fully explained or still debated open questions theoretical understanding mechanism"
+      ],
+      "confidence": 0.78,
+      "reasoning": "The phenomenon (non-monotone test error; more data/bigger models can hurt near the interpolation threshold) is well understood and explicitly 'demystified' via variance decomposition; the field broadly agrees it is a real, explainable consequence of overparameterization and randomness sources, fully reconciling it with refined statistical learning theory. RESOLVED. Not maximal confidence because competing theoretical framings (variance decomposition vs. VC theory vs. principal-component-regression) coexist and 'fully understanding the mechanisms behind double descent in deep neural networks remains an important open question' for truly deep nets / epoch-wise variants."
+    },
+    {
+      "id": "ANOM_03",
+      "anomaly_name": "Emergent Abilities of LLMs: Sharp Unpredicted Capability Thresholds",
+      "explanations_found": [
+        {
+          "explanation": "Metric-artifact / 'mirage': apparent sharp emergence is caused by the researcher's choice of nonlinear or discontinuous metrics (e.g., exact-match accuracy) that deform smoothly-improving per-token error rates; under linear/continuous metrics (token edit distance, per-digit accuracy, Brier score) the curves are smooth and predictable. Secondary cause: too few test examples to resolve small-model performance.",
+          "paper_or_proponent": "Schaeffer, Miranda, Koyejo 'Are Emergent Abilities of Large Language Models a Mirage?' (NeurIPS 2023, arXiv:2304.15004)",
+          "url": "https://arxiv.org/abs/2304.15004",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Genuine threshold / pre-training-loss explanation: emergent-like sharp transitions persist even with continuous metrics when performance is plotted against pre-training loss; capability appears once the model crosses a critical pre-training-loss threshold, so emergence is not solely a metric artifact.",
+          "paper_or_proponent": "Du et al.; Fu et al. (2024) on pre-training-loss thresholds with continuous metrics (e.g., Brier score)",
+          "url": "https://cset.georgetown.edu/article/emergent-abilities-in-large-language-models-an-explainer/",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Original empirical claim: abilities absent in small models appear sharply in large ones and are not predictable by extrapolating small-model scaling curves.",
+          "paper_or_proponent": "Wei et al. 'Emergent Abilities of Large Language Models' (TMLR 2022, arXiv:2206.07682)",
+          "url": "https://arxiv.org/pdf/2206.07682",
+          "acceptance": "proposed-contested"
+        }
+      ],
+      "resolution_status": "CONTESTED",
+      "evidence_quote": "the debate continues to be heated ... the use of continuous metrics to evaluate tasks that are actually discrete in nature, such as multiple-choice questions, is being challenged",
+      "search_queries": [
+        "emergent abilities LLM mirage metric artifact Schaeffer accepted resolution debate 2024",
+        "are emergent abilities of large language models real or mirage consensus rebuttal",
+        "emergent abilities mirage rebuttal still real emergence not just metric 2024 2025 counterargument"
+      ],
+      "confidence": 0.82,
+      "reasoning": "There is an influential explanation (Schaeffer's metric-artifact 'mirage'), but it is explicitly NOT settled: 2024-2025 work (Du et al., Fu et al.) reports genuine threshold behavior tied to pre-training loss even under continuous metrics, and commentary describes the field as moving to a 'nuanced middle ground' rather than either extreme. Active debate with no field-wide consensus = CONTESTED (this is exactly the A3-vs-B1 question Phase 1 flagged). High confidence in the CONTESTED label given multiple sources independently characterize the debate as ongoing."
+    },
+    {
+      "id": "ANOM_04",
+      "anomaly_name": "Sharp Minima Can Generalize: Flat Minima Hypothesis Contradicted",
+      "explanations_found": [
+        {
+          "explanation": "Reparameterization-invariant flatness measures resolve Dinh's critique: naive flatness is reparam-sensitive, but invariant notions (Fisher-Rao norm; Relative Flatness, invariant to neuron-wise rescaling and orthogonal transforms, with theoretical generalization guarantees) restore a robust flatness<->generalization correlation. The original contradiction was an artifact of using non-invariant sharpness metrics.",
+          "paper_or_proponent": "Petzka et al. 'Relative Flatness and Generalization' (NeurIPS 2021); Liang et al. 'Fisher-Rao Norm' (2019); Tsuzuku et al. 'A Reparameterization-Invariant Flatness Measure' (arXiv:1912.00058); Walter et al. 2024 (computable bound for SOTA nets)",
+          "url": "https://openreview.net/pdf?id=sygvo7ctb_",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "Original critique establishing the anomaly: most flatness notions are reparameterization-sensitive; sharp minima can be made to generalize and flat minima made arbitrarily sharp without changing the function, so naive flatness cannot directly explain generalization.",
+          "paper_or_proponent": "Dinh et al. 'Sharp Minima Can Generalize For Deep Nets' (ICML 2017, arXiv:1703.04933)",
+          "url": "https://proceedings.mlr.press/v70/dinh17b.html",
+          "acceptance": "widely-accepted"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "The Dinh challenge motivated the development of reparameterisation-invariant sharpness metrics, such as the Fisher-Rao-Norm (Liang et al., 2019) and Relative-Flatness (Petzka et al., 2021) which reaffirmed the correlation between flatness and generalisation",
+      "search_queries": [
+        "flat minima hypothesis generalization reparameterization Dinh resolved sharp minima generalize",
+        "does flatness predict generalization neural network consensus 2024 reparameterization invariant measure"
+      ],
+      "confidence": 0.8,
+      "reasoning": "Both the anomaly (Dinh's reparam-sensitivity result) AND its resolution are widely accepted: the field agrees that naive flatness fails because it is not reparameterization-invariant, and that reparam-invariant flatness measures (Fisher-Rao norm, Relative Flatness) DO predict generalization with theoretical backing, with continued 2024 development making them computable on large nets. The apparent contradiction is explained as a metric/invariance issue. RESOLVED. Slight reservation: which invariant measure is 'the' right one is still researched, and SAM-style flat-minima optimizers vs. theory keep the topic active."
+    },
+    {
+      "id": "ANOM_05",
+      "anomaly_name": "Surge Phenomenon: Adam Optimizer's Optimal Learning Rate is Non-Monotone with Batch Size",
+      "explanations_found": [
+        {
+          "explanation": "Theoretical derivation from Adam-style optimizers' use of the SIGN of gradients (vs SGD's raw gradients), via a quadratic (second-order) approximation of the loss: this yields an optimal learning rate that first rises then falls with batch size and converges to a fixed non-zero value at large batch, explaining the 'surge' and why the linear scaling rule fails for adaptive optimizers. Validated empirically (FashionMNIST CNN, ResNet18/TinyImageNet, Transformer/ELI5).",
+          "paper_or_proponent": "Li et al. 'Surge Phenomenon in Optimal Learning Rate and Batch Size Scaling' (NeurIPS 2024, arXiv:2405.14578)",
+          "url": "https://arxiv.org/abs/2405.14578",
+          "acceptance": "widely-accepted"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "proving that the optimal learning rate first rises and then falls as the batch size increases ... The derivation hinges on careful consideration of Adam-style optimizers' utilization of the sign of gradients",
+      "search_queries": [
+        "surge phenomenon Adam optimal learning rate batch size non-monotone explanation accepted 2024",
+        "surge phenomenon learning rate batch size theory criticism replication is it accepted"
+      ],
+      "confidence": 0.83,
+      "reasoning": "This is a self-resolving anomaly: the same NeurIPS 2024 paper that empirically reported the surge also provides the accepted theoretical explanation (sign-of-gradient dynamics + quadratic loss approximation), peer-reviewed at a top venue and empirically validated across tasks. The 'prediction' it violated (linear scaling rule from SGD) is explicitly shown not to apply to adaptive optimizers. RESOLVED. Minor caveat noted in the literature: the quadratic approximation may not capture very-large-learning-rate regimes, but this does not overturn the core explanation."
+    },
+    {
+      "id": "ANOM_06",
+      "anomaly_name": "The Reversal Curse: Asymmetric Factual Generalization in Autoregressive LLMs",
+      "explanations_found": [
+        {
+          "explanation": "Directional next-token training objective: autoregressive training optimizes a single directional conditional P(B|A); the gradient update on 'A is B' is myopic and does not train predicting A from B, so the reverse fact is not learned. Co-occurrence/meta-learning that would couple the directions is not induced. This is the broadly accepted high-level cause.",
+          "paper_or_proponent": "Berglund et al. 'The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\"' (ICLR 2024, arXiv:2309.12288)",
+          "url": "https://arxiv.org/abs/2309.12288",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "Model-weight asymmetry from training dynamics: the curse is caused by asymmetry in learned weight matrices under autoregressive training.",
+          "paper_or_proponent": "Zhu et al. 2024 'Towards a Theoretical Understanding of the Reversal Curse via Training Dynamics' (arXiv:2405.04669)",
+          "url": "https://arxiv.org/pdf/2405.04669",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Alternative/competing mechanistic accounts: factual-recall bias (Lin et al. 2024); inconsistency/entanglement of concept representations (Wang & Sun 2025). Also a live dispute over whether the curse is an INHERENT/fundamental limit vs. mitigatable (e.g., 'Identity Bridge' data recipe mitigates it).",
+          "paper_or_proponent": "Lin et al. 2024; Wang & Sun 2025; 'Breaking the Reversal Curse via Identity Bridge' (arXiv:2602.02470)",
+          "url": "https://arxiv.org/html/2602.02470v1",
+          "acceptance": "proposed-contested"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "Autoregressive next-token prediction optimizes a single directional conditional, which prevents autoregressive models from answering reversal queries ... can stem from the specific training objectives ... next-token prediction within most causal language models",
+      "search_queries": [
+        "reversal curse LLM explanation cause solved why A is B fails B is A 2024 2025",
+        "reversal curse mitigation cause accepted explanation autoregressive training mechanism consensus",
+        "\"reversal curse\" widely accepted it is consequence of autoregressive next-token training fundamental limitation"
+      ],
+      "confidence": 0.62,
+      "reasoning": "The HIGH-LEVEL cause is broadly accepted: the reversal curse is a consequence of unidirectional autoregressive next-token training, which directly explains why the violated prediction ('symmetric relations should generalize bidirectionally') is wrong. By R13 this accepted explanation => RESOLVED. Confidence is only moderate because the precise MECHANISM remains contested (myopic-objective vs. weight-asymmetry vs. factual-recall-bias vs. representation-entanglement) and there is an unresolved debate over whether it is a 'fundamental/inherent limit' or merely a mitigatable data/objective artifact. So it sits near the RESOLVED/CONTESTED boundary; the cause is settled, the mechanistic details are not."
+    },
+    {
+      "id": "ANOM_07",
+      "anomaly_name": "Inverse Scaling: Larger LLMs Perform Worse on Specific Tasks",
+      "explanations_found": [
+        {
+          "explanation": "Four documented causes of inverse scaling, all rooted in training-objective/data flaws: (i) preference to repeat memorized sequences over following in-context instructions; (ii) imitation of undesirable patterns in training data; (iii) an easy distractor sub-task the model focuses on instead of the real task; (iv) correct-but-misleading few-shot demonstrations whose effect grows with scale. These reconcile the violation with scaling laws (the objective is misaligned with the task).",
+          "paper_or_proponent": "McKenzie et al. 'Inverse Scaling: When Bigger Isn't Better' (TMLR 2023, arXiv:2306.09479) / Inverse Scaling Prize",
+          "url": "https://arxiv.org/abs/2306.09479",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "U-shaped scaling: 10 of 11 inverse-scaling tasks recover at extreme scale (up to 540B, PaLM), i.e., performance first drops then rises, reframing inverse scaling as a transient regime and an emergent capability unlocked at larger scale; a hidden distractor task is overcome once the model is large enough.",
+          "paper_or_proponent": "Wei et al. 'Inverse scaling can become U-shaped' (arXiv:2211.02011)",
+          "url": "https://arxiv.org/pdf/2211.02011",
+          "acceptance": "widely-accepted"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "researchers identified four potential causes of inverse scaling: (i) preference to repeat memorized sequences over following in-context instructions, (ii) imitation of undesirable patterns in the training data, (iii) tasks containing an easy distractor task ... and (iv) correct but misleading few-shot demonstrations",
+      "search_queries": [
+        "inverse scaling U-shaped LLM explanation cause accepted why larger models worse tasks 2024",
+        "inverse scaling prize resolved understood causes training objective flaws is bigger isn't better explained"
+      ],
+      "confidence": 0.78,
+      "reasoning": "The originating Inverse Scaling Prize work itself supplies a broadly accepted taxonomy of causes (training-objective/data misalignment, distractor tasks, misleading few-shot), and the follow-up U-shaped-scaling result explains why the trend often reverses at extreme scale. The discrepancy with naive monotone scaling laws is thus explained, not open. RESOLVED. Confidence below ceiling because these are empirically-grounded categories rather than a single predictive theory of which tasks will invert, and per-task mechanisms vary."
+    },
+    {
+      "id": "ANOM_08",
+      "anomaly_name": "LLMs Know More Than They Show: Internal Truth-Encoding vs. External Hallucination",
+      "explanations_found": [
+        {
+          "explanation": "Internal-truthfulness-encoding interpretation: hidden states encode substantial truthfulness information concentrated at specific answer tokens; linear probes detect when the output will be a hallucination even though the model still emits the wrong answer, implying a real internal/external misalignment that could be exploited to reduce errors. Truthfulness encoding is found to be skill-specific (multifaceted), and probes do NOT generalize across datasets.",
+          "paper_or_proponent": "Orgad, Toker, Gekhman, Reichart, Szpektor, Kotek, Belinkov 'LLMs Know More Than They Show' (ICLR 2025, arXiv:2410.02707)",
+          "url": "https://arxiv.org/abs/2410.02707",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Counter-interpretation (2025): internal states MAINLY reflect the model's process of recalling parametric knowledge, NOT truthfulness per se; since LLMs are not trained to represent truth, probe signals correlated with correctness may capture confounds (knowledge recall) rather than a genuine truth representation.",
+          "paper_or_proponent": "'Do LLMs Really Know What They Don't Know? Internal States Mainly Reflect Knowledge Recall Rather Than Truthfulness' (arXiv:2510.09033)",
+          "url": "https://arxiv.org/html/2510.09033v2",
+          "acceptance": "proposed-contested"
+        },
+        {
+          "explanation": "Brittleness counter-finding (2025): learned truthfulness representations rely on superficial resemblance and degrade under minor changes in input presentation across probing methods, model families, and datasets, undercutting the claim of a robust internal truth signal.",
+          "paper_or_proponent": "'LLM Knowledge is Brittle: Truthfulness Representations Rely on Superficial Resemblance' (arXiv:2510.11905)",
+          "url": "https://arxiv.org/html/2510.11905v1",
+          "acceptance": "proposed-contested"
+        }
+      ],
+      "resolution_status": "CONTESTED",
+      "evidence_quote": "recent work questions whether these internal signals truly reflect truthfulness or capture other factors, with internal signals primarily reflecting the model's internal process of recalling parametric knowledge, rather than truthfulness itself",
+      "search_queries": [
+        "LLMs know more than they show internal truth encoding hallucination explanation accepted 2025",
+        "LLM internal states reflect knowledge recall not truthfulness debate probing truthfulness criticism 2025"
+      ],
+      "confidence": 0.7,
+      "reasoning": "The empirical discrepancy (probes recover correct-answer signal while the model outputs a hallucination) is real and reproduced, but its INTERPRETATION is under active 2025 dispute: is the internal signal genuine truthfulness encoding, mere knowledge-recall, or a brittle surface artifact? Multiple 2025 papers directly challenge the truthfulness-encoding reading, and the original paper itself reports probes fail to generalize. No accepted account of WHY models suppress internally-available correct answers => CONTESTED. Confidence moderate-high in the CONTESTED label; this is a young topic so the picture is evolving fast."
+    },
+    {
+      "id": "ANOM_09",
+      "anomaly_name": "RLHF Fine-Tuning Degrades Calibration: Aligned Models Are Less Calibrated Than Their Pretrained Bases",
+      "explanations_found": [
+        {
+          "explanation": "Preference-optimization mode collapse + distribution sharpening: RLHF/PPO (and DPO) collapse toward majority-preferred outputs, sharpening token distributions so the model appears more certain; this is a structural consequence of optimizing toward human-preference signals, not a quirk of one algorithm. Explains both probability mis-calibration and verbalized overconfidence.",
+          "paper_or_proponent": "Tian et al. 'Just Ask for Calibration' (EMNLP 2023, arXiv:2305.14975); OpenAI GPT-4 Technical Report (2023) documenting post-RLHF calibration loss; Kadavath et al. 2022",
+          "url": "https://arxiv.org/abs/2305.14975",
+          "acceptance": "widely-accepted"
+        },
+        {
+          "explanation": "Reward-model bias toward confidence: reward models used in PPO are systematically biased toward high-confidence-sounding responses regardless of correctness, pushing the policy toward assertive/overconfident outputs; correcting this (PPO-M/PPO-C, reward calibration) measurably reduces Expected Calibration Error, confirming the mechanism causally.",
+          "paper_or_proponent": "'Taming Overconfidence in LLMs: Reward Calibration in RLHF' (arXiv:2410.09724); 'Restoring Calibration for Aligned LLMs' (arXiv:2505.01997)",
+          "url": "https://arxiv.org/abs/2410.09724",
+          "acceptance": "widely-accepted"
+        }
+      ],
+      "resolution_status": "RESOLVED",
+      "evidence_quote": "DPO-trained models show the same overconfidence amplification as PPO-trained models, which isn't a quirk of one training approach but a structural consequence of optimizing toward human preference signals",
+      "search_queries": [
+        "RLHF degrades calibration explanation accepted why aligned models overconfident mode collapse consensus",
+        "RLHF worsens calibration is this established finding overconfidence preference optimization reproduced GPT-4 report"
+      ],
+      "confidence": 0.83,
+      "reasoning": "The finding is established (originally in the GPT-4 Technical Report and Tian et al. EMNLP 2023) and the mechanism is broadly accepted and causally validated: preference optimization induces mode collapse / distribution sharpening, and reward models are biased toward confident outputs; targeted fixes (reward calibration, PPO-M/PPO-C) reduce calibration error, confirming the explanation. The violated prediction ('preference fine-tuning should preserve/improve calibration') is explained by the RL objective rewarding mass on the single preferred answer rather than matching answer frequencies. RESOLVED with high confidence; reproduced across PPO/DPO and multiple model families."
+    }
+  ],
+  "ranked_most_open_first": [
+    "ANOM_08",
+    "ANOM_03",
+    "ANOM_06",
+    "ANOM_01",
+    "ANOM_02",
+    "ANOM_07",
+    "ANOM_04",
+    "ANOM_05",
+    "ANOM_09"
+  ],
+  "counts": {
+    "RESOLVED": 7,
+    "CONTESTED": 2,
+    "UNRESOLVED": 0
+  },
+  "search_count": 18,
+  "honesty_note": "All 18 queries were run with the REAL WebSearch tool; titles, URLs, and snippets recorded are verbatim from actually-returned results (R5). No anomaly received the UNRESOLVED / Vera-Rubin signature: for every one, a real search surfaced at least one explanation in the literature, so none qualify as 'searched and found NO accepted explanation' (R13). Two anomalies are CONTESTED (ANOM_03 emergent abilities = mirage-vs-real debate explicitly 'heated'; ANOM_08 internal-truth-encoding = active 2025 dispute truthfulness-vs-knowledge-recall). Seven are RESOLVED per R13 because a widely-accepted explanation exists, but confidence is deliberately lowered for the famous/young ones where sub-questions remain open: ANOM_01 grokking (core mechanism accepted but delay-duration has no quantitative theory and weight-decay necessity is disputed) and ANOM_06 reversal curse (high-level autoregressive-objective cause accepted, but precise mechanism and 'fundamental vs mitigatable' status contested) sit near the RESOLVED/CONTESTED boundary and could be re-classified CONTESTED-on-mechanism by a stricter reader. ANOM_02 and ANOM_05 carry minor noted theoretical caveats. Several anomalies (ANOM_05 surge, ANOM_02 double descent, ANOM_03 mirage, ANOM_07 inverse scaling) are 'self-resolving' or counter-explained within the same originating literature, which is why they are not open. Some returned results carry future-dated (2026) arXiv IDs from the search index; I relied on the substantive consensus claims, not on any single speculative preprint. R13 honesty applied: famous != unresolved; an existing accepted explanation was marked RESOLVED even when the anomaly is celebrated (grokking, double descent, reversal curse)."
+}
