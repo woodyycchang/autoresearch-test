@@ -1,0 +1,80 @@
+{
+  "run_id": "run_024",
+  "title": "Large-scale encyclopedia traversal — empirical saturation distribution",
+  "created": "2026-06-03",
+  "rationale": "Run 21 stopped at 6 concepts and INFERRED corpus-wide saturation. That is generalization-from-fragment, not measurement. Run 24 processes a stratified sample of 48 encyclopedia concepts (target >=40) with REAL web search per atom (R5), so the saturation finding (or its refutation) is empirical. All 48 are chosen to be OUTSIDE logs/candidate_pool.md's exhausted list. Maturity tier_prior is a PRIOR only; the empirical measure is actual atom paper-hits + ML-penetration from real search.",
+  "tier_legend": {
+    "1": "very obscure mechanism; near-zero prior expectation of ML/AI architectural import",
+    "2": "obscure; some ML application exists (often ML MEASURING it, not IMPORTING its mechanism)",
+    "3": "moderate ML overlap",
+    "4": "substantial ML overlap",
+    "5": "mechanism already a mainstream ML concept (positive control — MUST collide)"
+  },
+  "stratification": "29 concepts at tier_prior 1-2 (~60% obscure/low-ML-overlap); 19 at tier 3-5 (spread across maturity, incl. 3 positive controls). 8 batches x 6 concepts.",
+  "batches": {
+    "batch_1": {"domain_theme": "physical sciences / materials", "concepts": [
+      {"id": "C01", "concept": "Triboluminescence", "domain": "physics/materials", "tier_prior": 1},
+      {"id": "C02", "concept": "Sonoluminescence", "domain": "acoustics/physics", "tier_prior": 2},
+      {"id": "C03", "concept": "Spinodal decomposition", "domain": "materials science", "tier_prior": 2},
+      {"id": "C04", "concept": "Marangoni effect", "domain": "fluid physics", "tier_prior": 2},
+      {"id": "C05", "concept": "Cavitation", "domain": "fluid mechanics", "tier_prior": 3},
+      {"id": "C06", "concept": "Widmanstatten pattern", "domain": "metallurgy", "tier_prior": 1}
+    ]},
+    "batch_2": {"domain_theme": "life sciences", "concepts": [
+      {"id": "C07", "concept": "Autophagy", "domain": "cell biology", "tier_prior": 3},
+      {"id": "C08", "concept": "Hematopoiesis", "domain": "physiology", "tier_prior": 2},
+      {"id": "C09", "concept": "Diapause", "domain": "entomology", "tier_prior": 1},
+      {"id": "C10", "concept": "Vernalization", "domain": "botany", "tier_prior": 1},
+      {"id": "C11", "concept": "Trophallaxis", "domain": "social insects", "tier_prior": 1},
+      {"id": "C12", "concept": "Countercurrent exchange (rete mirabile)", "domain": "physiology", "tier_prior": 2}
+    ]},
+    "batch_3": {"domain_theme": "agriculture / folk practices", "concepts": [
+      {"id": "C13", "concept": "Coppicing", "domain": "silviculture", "tier_prior": 2},
+      {"id": "C14", "concept": "Espalier", "domain": "horticulture", "tier_prior": 1},
+      {"id": "C15", "concept": "Terra preta (biochar soil)", "domain": "soil science", "tier_prior": 2},
+      {"id": "C16", "concept": "Three Sisters companion planting", "domain": "agronomy", "tier_prior": 1},
+      {"id": "C17", "concept": "Nixtamalization", "domain": "food science", "tier_prior": 1},
+      {"id": "C18", "concept": "Retting", "domain": "fiber processing", "tier_prior": 1}
+    ]},
+    "batch_4": {"domain_theme": "crafts / trades / textiles", "concepts": [
+      {"id": "C19", "concept": "Nalbinding", "domain": "textile craft", "tier_prior": 1},
+      {"id": "C20", "concept": "Ikat resist dyeing", "domain": "textile craft", "tier_prior": 1},
+      {"id": "C21", "concept": "Lost-wax casting", "domain": "metalworking", "tier_prior": 2},
+      {"id": "C22", "concept": "Kerf bending (lattice hinge)", "domain": "fabrication/woodworking", "tier_prior": 1},
+      {"id": "C23", "concept": "Damascus steel (pattern welding)", "domain": "metallurgy", "tier_prior": 1},
+      {"id": "C24", "concept": "Tensegrity", "domain": "structural engineering", "tier_prior": 2}
+    ]},
+    "batch_5": {"domain_theme": "medicine / physiology / engineering", "concepts": [
+      {"id": "C25", "concept": "Hormesis", "domain": "toxicology/pharmacology", "tier_prior": 2},
+      {"id": "C26", "concept": "Diapedesis (leukocyte extravasation)", "domain": "immunology", "tier_prior": 1},
+      {"id": "C27", "concept": "Referred pain", "domain": "neurology", "tier_prior": 2},
+      {"id": "C28", "concept": "Eustachian tube pressure equalization", "domain": "physiology", "tier_prior": 1},
+      {"id": "C29", "concept": "Tuned mass damper", "domain": "civil engineering", "tier_prior": 3},
+      {"id": "C30", "concept": "Sacrificial anode (cathodic protection)", "domain": "corrosion engineering", "tier_prior": 2}
+    ]},
+    "batch_6": {"domain_theme": "geography / geology / governance", "concepts": [
+      {"id": "C31", "concept": "Karst weathering", "domain": "geomorphology", "tier_prior": 2},
+      {"id": "C32", "concept": "Aeolian saltation (dune migration)", "domain": "geomorphology", "tier_prior": 2},
+      {"id": "C33", "concept": "Inselberg differential erosion", "domain": "geology", "tier_prior": 1},
+      {"id": "C34", "concept": "Loess deposition", "domain": "sedimentology", "tier_prior": 1},
+      {"id": "C35", "concept": "Thermokarst", "domain": "periglacial geology", "tier_prior": 2},
+      {"id": "C36", "concept": "Sortition", "domain": "political science", "tier_prior": 2}
+    ]},
+    "batch_7": {"domain_theme": "linguistics / social / anthropology", "concepts": [
+      {"id": "C37", "concept": "Suppletion", "domain": "morphology", "tier_prior": 1},
+      {"id": "C38", "concept": "Sandhi", "domain": "phonology", "tier_prior": 1},
+      {"id": "C39", "concept": "Reduplication", "domain": "morphology", "tier_prior": 2},
+      {"id": "C40", "concept": "Diglossia", "domain": "sociolinguistics", "tier_prior": 1},
+      {"id": "C41", "concept": "Liminality", "domain": "anthropology", "tier_prior": 1},
+      {"id": "C42", "concept": "Cargo cult", "domain": "anthropology", "tier_prior": 2}
+    ]},
+    "batch_8": {"domain_theme": "positive controls (known mainstream) + extras", "concepts": [
+      {"id": "C43", "concept": "Annealing (metallurgical)", "domain": "materials/thermodynamics", "tier_prior": 5, "positive_control": true},
+      {"id": "C44", "concept": "Crystal nucleation", "domain": "physical chemistry", "tier_prior": 4, "positive_control": true},
+      {"id": "C45", "concept": "Molecular diffusion", "domain": "physics", "tier_prior": 5, "positive_control": true},
+      {"id": "C46", "concept": "Stomatal aperture regulation", "domain": "plant physiology", "tier_prior": 3},
+      {"id": "C47", "concept": "Hugelkultur", "domain": "permaculture", "tier_prior": 1},
+      {"id": "C48", "concept": "Kintsugi", "domain": "craft/repair", "tier_prior": 1}
+    ]}
+  }
+}
