@@ -1,0 +1,417 @@
+{
+  "agent": "A3",
+  "ids": ["C16", "C17", "C21", "C22", "C23"],
+  "candidates": [
+    {
+      "id": "C16",
+      "concept": "Three Sisters companion planting",
+      "functional_effect": "A small/lightweight trainable adapter module embedded with a larger (frozen) LLM that converts raw, unstructured, noisy context into structured representations the host model can directly consume. Functionally: a learned context-preprocessing/restructuring front-end that makes otherwise-inaccessible input 'bioavailable' to a frozen backbone.",
+      "content_words": ["lightweight/small adapter", "context conversion/restructuring", "structured representation", "frozen/host LLM", "raw/noisy input", "enrichment"],
+      "reformulations": [
+        {
+          "query": "lightweight adapter module preprocessing raw context into structured representation for frozen LLM",
+          "hits": [
+            {"title": "Generative Adapter: Contextualizing Language Models in Parameters with A Single Forward Pass", "url": "https://arxiv.org/pdf/2411.05877"},
+            {"title": "CROME: Cross-Modal Adapters for Efficient Multimodal LLM", "url": "https://arxiv.org/html/2408.06610v1"},
+            {"title": "ChunkLLM: A Lightweight Pluggable Framework for Accelerating LLMs Inference", "url": "https://arxiv.org/pdf/2510.02361"},
+            {"title": "LLAMA-ADAPTER (ICLR 2024)", "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/c196239c5f9481e0db2755f31fe4585f-Paper-Conference.pdf"},
+            {"title": "Adapter Modules for LLM Fine-tuning", "url": "https://apxml.com/courses/fine-tuning-adapting-large-language-models/chapter-4-parameter-efficient-fine-tuning/adapter-modules"},
+            {"title": "LLM Adapters: Modular Fine-Tuning", "url": "https://www.emergentmind.com/topics/large-language-model-adapters-llm-adapters"}
+          ],
+          "forced_functional_hits": ["Generative Adapter (lightweight + adapter + contextualizes LM with incoming-context knowledge: >=2 content words)", "CROME (lightweight adapter + unifies representations prior to LLM input, frozen LLM: >=2)", "ChunkLLM (lightweight pluggable module/adapter on transformer: >=2)"],
+          "snippet": "GenerativeAdapter presents a method for training a neural network (adapter generator) to generate adapters that contextualize pretrained LMs on-the-fly with temporary knowledge from incoming contexts. CROME's adapter unifies vision and language representations prior to LLM input ... keeping both the LLM and vision encoder frozen."
+        },
+        {
+          "query": "small auxiliary network converts unstructured input into embeddings consumable by large language model",
+          "hits": [
+            {"title": "CoLLEGe: Concept Embedding Generation for Large Language Models", "url": "https://arxiv.org/html/2403.15362v1"},
+            {"title": "Tiny Transformers Excel at Sentence Compression", "url": "https://arxiv.org/pdf/2410.23510"},
+            {"title": "LLM2Vec-Gen: Generative Embeddings from Large Language Models", "url": "https://arxiv.org/pdf/2603.10913"},
+            {"title": "EmbedLLM: Learning Compact Representations of Large Language Models", "url": "https://arxiv.org/html/2410.02223v2"},
+            {"title": "CoLLEGe Framework", "url": "https://arxiv.org/html/2403.15362v1"},
+            {"title": "Understanding Embeddings for Generative AI | Unstructured", "url": "https://unstructured.io/insights/understanding-embeddings-for-generative-ai"}
+          ],
+          "forced_functional_hits": ["CoLLEGe (small/few-shot module generating embeddings for new concepts consumable by LLM: >=2 content words)", "Tiny Transformers (small encoder compresses sentence into single-token embedding fed to core transformer: >=2)"],
+          "snippet": "CoLLEGe is a meta-learning framework capable of generating flexible embeddings for new concepts using a small number of example sentences or definitions. ... a transformer encoding sentences into single-token embeddings, feeding them into a large, core transformer."
+        },
+        {
+          "query": "context compression adapter encode retrieved documents into soft prompts for host language model",
+          "hits": [
+            {"title": "Adapting Language Models to Compress Contexts (AutoCompressors)", "url": "https://arxiv.org/pdf/2305.14788"},
+            {"title": "E2LLM: Encoder Elongated Large Language Models for Long-Context Understanding", "url": "https://arxiv.org/pdf/2409.06679"},
+            {"title": "Adapting LLMs for Efficient Context Processing through Soft Prompt Compression", "url": "https://arxiv.org/pdf/2404.04997"},
+            {"title": "Prompt Compression for Large Language Models: A Survey", "url": "https://arxiv.org/html/2410.12388v2"},
+            {"title": "xRAG: Extreme Context Compression for RAG with One Token", "url": "https://arxiv.org/pdf/2405.13792"},
+            {"title": "Awesome-LLM-Compression", "url": "https://github.com/HuangOwen/Awesome-LLM-Compression"}
+          ],
+          "forced_functional_hits": ["E2LLM (encoder-adapter compresses context chunks into soft prompts, aligns via adapter with decoder LLM: >=2 content words)", "AutoCompressors (compress context into summary vectors = structured soft prompts consumable by frozen LM: >=2)"],
+          "snippet": "E2LLM divides long contexts into chunks, compresses each into soft prompts using a pretrained text encoder, and aligns these representations with a decoder-only LLM via an adapter."
+        },
+        {
+          "query": "trainable encoder transforms noisy context into bioavailable structured tokens frozen backbone consumes",
+          "hits": [
+            {"title": "Frozen Transformer Encoder", "url": "https://www.emergentmind.com/topics/frozen-transformer-based-encoder"},
+            {"title": "Frozen-Encoder Protocol in ML", "url": "https://www.emergentmind.com/topics/frozen-encoder-protocol"},
+            {"title": "Trained Persistent Memory for Frozen Encoder-Decoder LLMs", "url": "https://arxiv.org/html/2603.16413"},
+            {"title": "Freeze-Omni: Speech-to-speech Dialogue Model with Frozen LLM", "url": "https://arxiv.org/html/2411.00774v1"},
+            {"title": "Frozen Transformers in Language Models Are Effective Visual Encoder Layers", "url": "https://arxiv.org/pdf/2310.12973"}
+          ],
+          "forced_functional_hits": ["Frozen-encoder protocol (foundation encoders map raw input into representations processed by task-specific trainable module + frozen backbone: >=2 content words)"],
+          "snippet": "Frozen-encoder protocols adopt a common architectural motif where foundation encoders map raw input into representations, which are then processed by a task- or modality-specific trainable module. ... frozen LLM blocks ... amplify informative tokens and suppress noise, acting as post-encoder filters."
+        },
+        {
+          "query": "plug-in module restructures raw retrieval context into model-readable format retrieval augmented generation",
+          "hits": [
+            {"title": "Oreo: A Plug-in Context Reconstructor to Enhance Retrieval-Augmented Generation", "url": "https://arxiv.org/pdf/2502.13019"},
+            {"title": "Refiner: Restructure Retrieval Content Efficiently to Advance QA", "url": "https://arxiv.org/pdf/2406.11357"},
+            {"title": "R^2AG: Incorporating Retrieval Information into Retrieval Augmented Generation", "url": "https://arxiv.org/pdf/2406.13249"},
+            {"title": "xRAG: Extreme Context Compression for RAG with One Token", "url": "https://arxiv.org/pdf/2405.13792"},
+            {"title": "Multi Source Context Integration through Lightweight Reconstruction for RAG", "url": "https://www.preprints.org/manuscript/202511.2224"},
+            {"title": "Retrieval-augmented generation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Retrieval-augmented_generation"}
+          ],
+          "forced_functional_hits": ["Oreo (compact pluggable module reconstructs/reorganizes raw retrieved context into structured query-specific format for generator: >=2 content words)", "R2AG / R2-Former (pluggable lightweight module between retriever and LLM transforming representations into unified features: >=2)", "Refiner (plug-and-play restructures retrieval content for downstream LLM: >=2)"],
+          "snippet": "Oreo: a compact, efficient, and pluggable module designed to refine external knowledge sources before feeding them to the generator, which reconstructs retrieved content ... reorganizing it into a concise, query-specific format. R2AG: a pluggable and lightweight model called R2-Former placed between the retriever and the LLM."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Oreo: Plug-in Context Reconstructor for RAG", "url": "https://arxiv.org/pdf/2502.13019", "why": "Pluggable module that restructures raw retrieved context into structured, model-consumable form = the 'rhizobial adapter converting raw context into bioavailable representation' verbatim."},
+        {"name": "R2AG / R2-Former", "url": "https://arxiv.org/pdf/2406.13249", "why": "Lightweight pluggable module placed between source and LLM transforming raw representations into structured features the host consumes."},
+        {"name": "Generative Adapter", "url": "https://arxiv.org/pdf/2411.05877", "why": "Lightweight adapter that contextualizes a pretrained (host) LM with knowledge from incoming raw context."},
+        {"name": "E2LLM (encoder-adapter)", "url": "https://arxiv.org/pdf/2409.06679", "why": "Encoder compresses raw context chunks into soft prompts aligned to a decoder LLM via adapter."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails Gate 4 (no defensible novelty). The functional core 'small embedded module that converts raw/unstructured context into structured representations a frozen host LLM directly consumes' is densely occupied by RAG context-reconstructors (Oreo, Refiner, R2AG), context-compression adapters (E2LLM, AutoCompressors, xRAG), and generative adapters. The N2->NH3 'fixation' framing is pure decoration; no functionally separable mechanism survives stripping the agronomy vocabulary."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "note": "mechanism/verifiability are plausibly implementable but novelty is ~0 because the exact effect is a named, mature technique cluster."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Strip 'rhizobia/nitrogen fixation/atmospheric N2': claim = lightweight embedded adapter that restructures raw context into representations the host LLM consumes. 4 of 5 reformulations returned direct, named functional equivalents with multiple forced hits (Oreo, R2AG, E2LLM, Generative Adapter, AutoCompressors, CoLLEGe). The narrow versions (RAG context reconstruction; soft-prompt context compression; frozen-encoder + trainable front-end) are each their own published subfield. No unoccupied functional fusion. This is a true collision, not over-specification."
+    },
+    {
+      "id": "C17",
+      "concept": "Nixtamalization",
+      "functional_effect": "A preprocessing/normalization pass over noisy or toxic training corpora that simultaneously (a) removes harmful content and (b) recovers/unlocks latent value from otherwise low-quality or discarded documents, improving tokenization efficiency and downstream model knowledge density. Dual claim: detoxify AND release latent nutrition.",
+      "content_words": ["data preprocessing/cleaning", "toxic/harmful removal (detoxification)", "latent value recovery", "training/pretraining corpus", "downstream quality/knowledge density", "tokenization efficiency"],
+      "reformulations": [
+        {
+          "query": "data preprocessing pipeline removes toxic content improves pretraining corpus quality language model",
+          "hits": [
+            {"title": "Blu-WERP: A Scalable Pipeline for Preprocessing Large Language Model Datasets", "url": "https://arxiv.org/pdf/2511.18054"},
+            {"title": "Detoxification for LLM: From Dataset Itself", "url": "https://arxiv.org/html/2604.19124"},
+            {"title": "PreparedLLM: effective pre-pretraining framework", "url": "https://www.tandfonline.com/doi/full/10.1080/20964471.2024.2396159"},
+            {"title": "Data Collection and Preprocessing for LLMs", "url": "https://www.labellerr.com/blog/data-collection-and-preprocessing-for-large-language-models/"},
+            {"title": "LLM Datasets and Contamination", "url": "https://medium.com/prem-blog/llm-datasets-and-contamination-bcff3ad708aa"}
+          ],
+          "forced_functional_hits": ["Detoxification for LLM: From Dataset Itself (corpus preprocessing localizes+rewrites toxic spans while preserving semantics, yields detoxified corpus improving downstream training: >=2 content words)", "Blu-WERP (preprocessing pipeline removes toxic/low-quality text improving pretraining corpus quality: >=2)"],
+          "snippet": "Fast quality filters quickly eliminate spam, boilerplate, malformed pages, and toxic or extremely low-quality text. ... corpus-level detoxification can localize and rewrite toxic spans in raw data while preserving semantics, yielding a detoxified corpus that can drop-in replace the original for fine-tuning or other training."
+        },
+        {
+          "query": "corpus detoxification filtering harmful text before LLM pretraining data quality",
+          "hits": [
+            {"title": "Detoxification for LLM: From Dataset Itself", "url": "https://arxiv.org/abs/2604.19124"},
+            {"title": "unidetox: universal detoxification of large language models", "url": "https://arxiv.org/pdf/2504.20500"},
+            {"title": "When Bad Data Leads to Good Models", "url": "https://arxiv.org/html/2505.04741v1"},
+            {"title": "DetoxLLM: A Framework for Detoxification with Explanations", "url": "https://arxiv.org/pdf/2402.15951"},
+            {"title": "Rethinking Toxic Data in LLM Pretraining (co-design)", "url": "https://www.marktechpost.com/2025/05/13/rethinking-toxic-data-in-llm-pretraining-a-co-design-approach-for-improved-steerability-and-detoxification/"},
+            {"title": "Text Detoxification: Data Efficiency, Semantic Preservation", "url": "https://arxiv.org/pdf/2507.01050"}
+          ],
+          "forced_functional_hits": ["Detoxification for LLM: From Dataset Itself (detoxify pretraining dataset, harmful removal + semantic preservation: >=2 content words)", "When Bad Data Leads to Good Models (toxic pretraining data, detoxification, downstream capability preserved = release latent value while removing harm: >=2)"],
+          "snippet": "Detoxifying the pretraining dataset can fundamentally reduce the toxicity that the model learns. ... HSPD localize and rewrite toxic spans in raw data while preserving semantics ... reduces Toxicity Probability from 0.42 to 0.18. ... models trained on toxic data achieve a better trade-off ... suggesting bad data may lead to good models."
+        },
+        {
+          "query": "data cleaning normalization unlocks latent value low quality documents improves downstream model knowledge",
+          "hits": [
+            {"title": "Four Data Cleaning Techniques to Improve LLM Performance (Intel)", "url": "https://medium.com/intel-tech/four-data-cleaning-techniques-to-improve-large-language-model-llm-performance-77bee9003625"},
+            {"title": "ENTP: Enhancing Low-Quality SFT Data via Neural-Symbolic Text Purge-Mix", "url": "https://arxiv.org/pdf/2510.23160"},
+            {"title": "Generalizable Data Cleaning of Tabular Data in Latent Space", "url": "https://www.vldb.org/pvldb/vol17/p4786-reis.pdf"},
+            {"title": "Mastering Data Cleaning for Fine-Tuning LLMs and RAG", "url": "https://thealliance.ai/blog/mastering-data-cleaning-for-fine-tuning-llms-and-r"},
+            {"title": "Can LLMs Clean Up Your Mess? A Survey of Application-Ready Data Preparation", "url": "https://arxiv.org/html/2601.17058v1"}
+          ],
+          "forced_functional_hits": ["ENTP (enhancing/recovering value from LOW-QUALITY data instead of discarding, improving downstream: >=2 content words)", "Latent-space data cleaning (latent operators shift erroneous data back to clean region = strip harm + recover usable signal: >=2)"],
+          "snippet": "Further improvements now depend on leveraging, rather than discarding, the examples that were previously filtered out. ... latent operators trained on error repair shift erroneous data in their latent representation back to a clean region."
+        },
+        {
+          "query": "text normalization preprocessing improves tokenization efficiency fewer tokens vocabulary language model",
+          "hits": [
+            {"title": "Length-MAX Tokenizer for Language Models", "url": "https://arxiv.org/pdf/2511.20849"},
+            {"title": "AraToken: Optimizing Arabic Tokenization with Normalization Pipeline", "url": "https://arxiv.org/pdf/2512.18399"},
+            {"title": "Text Preprocessing: Tokenization, Normalization & Cleaning for NLP", "url": "https://mbrenndoerfer.com/writing/text-preprocessing-nlp-tokenization-normalization"},
+            {"title": "Impact of Tokenization on Language Models: An Analysis for Turkish", "url": "https://dl.acm.org/doi/fullHtml/10.1145/3578707"},
+            {"title": "Decoding Tokenization Strategies for LLMs", "url": "https://medium.com/@sahin.samia/decoding-tokenization-strategies-for-large-language-models-llms-ffc3fa51aff6"}
+          ],
+          "forced_functional_hits": ["AraToken (normalization pipeline improving tokenization efficiency: >=2 content words)", "Text preprocessing/normalization (normalization reduces token count, improves tokenization efficiency: >=2)"],
+          "snippet": "Aggressive preprocessing reduces the total token count by 60%, improving computational efficiency ... Text normalization improves computational efficiency by reducing unnecessary text complexity ... normalization and preprocessing are foundational steps that support more efficient tokenization."
+        },
+        {
+          "query": "rewriting filtered low quality web text recover useful knowledge instead of discarding pretraining",
+          "hits": [
+            {"title": "Recycling the Web: A Method to Enhance Pre-training Data Quality and Quantity (REWIRE)", "url": "https://arxiv.org/abs/2506.04689"},
+            {"title": "RePro: Training Language Models to Faithfully Recycle the Web for Pretraining", "url": "https://arxiv.org/html/2510.10681v1"},
+            {"title": "Synthetic Rewriting as a Quality Multiplier (Portuguese continued pretraining)", "url": "https://arxiv.org/html/2603.24826"},
+            {"title": "Recycling the Web (review)", "url": "https://www.themoonlight.io/en/review/recycling-the-web-a-method-to-enhance-pre-training-data-quality-and-quantity-for-language-models"}
+          ],
+          "forced_functional_hits": ["REWIRE / Recycling the Web (recover useful knowledge from low-quality documents that would otherwise be discarded = release bound latent value: >=2 content words)", "RePro (recycle the web for pretraining, transform low-quality into useful: >=2)"],
+          "snippet": "REWIRE (REcycling the Web with guIded REwrite) is a method to enrich low-quality documents so they become useful for training. ... transform and recycle data discarded in existing filtering processes ... ~82% of mixed-in texts come from transforming lower-quality documents that would otherwise be discarded."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Detoxification for LLM: From Dataset Itself (HSPD)", "url": "https://arxiv.org/abs/2604.19124", "why": "Corpus-level preprocessing that strips/rewrites toxic spans while preserving semantic value = nixtamalization's 'remove toxins (97-100% aflatoxin) AND keep nutrition' dual claim, exactly."},
+        {"name": "REWIRE / Recycling the Web", "url": "https://arxiv.org/abs/2506.04689", "why": "Recovers latent value from low-quality otherwise-discarded documents (= releasing bound niacin) improving downstream model — the 'release latent semantic value' half of the claim."},
+        {"name": "ENTP: Neural-Symbolic Text Purge-Mix", "url": "https://arxiv.org/pdf/2510.23160", "why": "Enhances low-quality SFT data (purge harm + recover value) rather than discarding."},
+        {"name": "Blu-WERP", "url": "https://arxiv.org/pdf/2511.18054", "why": "Web preprocessing pipeline removing toxic/low-quality text to raise corpus quality."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails Gate 4. Both halves of the dual claim are occupied: 'strip toxic content from corpus' = dataset-level detoxification (HSPD/unidetox/DetoxLLM/Blu-WERP); 'release latent value from inaccessible documents' = REWIRE/RePro/ENTP (recover value from filtered-out data). Even the tokenization-efficiency sub-claim is textbook normalization. The chemistry framing (alkaline hydrolysis, bound niacin, aflatoxin) is decoration over standard data-cleaning + data-recycling pipelines."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 5, "non_trivial": 1, "note": "highly verifiable but a near-perfect match to REWIRE + corpus detoxification; novelty ~0."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Strip 'nixtamalization/alkaline/niacin/aflatoxin': claim = corpus preprocessing pass that detoxifies AND recovers latent value, improving tokenization + knowledge density. Every reformulation returned named functional equivalents with forced hits. The most defensible narrow framing (a SINGLE pass doing both detox + value-recovery) is precisely what dataset-level rewriting detox (HSPD) plus REWIRE-style recycling already deliver, and 'When Bad Data Leads to Good Models' literally argues the keep-and-transform-toxic-for-net-benefit position. No unoccupied functional niche. True collision."
+    },
+    {
+      "id": "C21",
+      "concept": "Lost-wax casting",
+      "functional_effect": "Train an auxiliary 'scaffold' sub-network that encodes fine-grained structure; then REMOVE it (during distillation/pruning/reparameterization), leaving a compressed backbone whose weights retain the FORM/function of the removed scaffold's learned representations. Core non-trivial twist: the discarded auxiliary structure shapes (as a preserved negative/cavity) what remains.",
+      "content_words": ["auxiliary/sacrificial sub-network", "removed/discarded/burned-out", "distillation/pruning/reparameterization", "retain shape/structure/function", "compressed backbone", "scaffold"],
+      "reformulations": [
+        {
+          "query": "auxiliary network discarded after training transfers structure to compressed student model distillation",
+          "hits": [
+            {"title": "Prune Your Model Before Distill It", "url": "https://arxiv.org/pdf/2109.14960"},
+            {"title": "Knowledge Transfer via Dense Cross-Layer Mutual-Distillation (DCM)", "url": "https://arxiv.org/pdf/2008.07816"},
+            {"title": "InDistill: Information flow-preserving knowledge distillation", "url": "https://arxiv.org/pdf/2205.10003"},
+            {"title": "Counterclockwise block-by-block knowledge distillation", "url": "https://www.nature.com/articles/s41598-025-91152-3"},
+            {"title": "Memory-Replay Knowledge Distillation", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8071405/"},
+            {"title": "Few Sample Knowledge Distillation for Efficient Network Compression", "url": "https://arxiv.org/pdf/1812.01839"}
+          ],
+          "forced_functional_hits": ["DCM (auxiliary classifiers discarded after training, no extra params in final compressed model, having transferred structural knowledge: >=2 content words)"],
+          "snippet": "Dense Cross-Layer Mutual-Distillation (DCM) uses auxiliary classifiers that are discarded after training, with no extra parameters introduced to final models. Auxiliary classifiers are added to hidden layers ... and are removed after training."
+        },
+        {
+          "query": "sacrificial scaffold subnetwork removed pruning leaves behind shape of learned representation",
+          "hits": [
+            {"title": "Pruning Everything, Everywhere, All at Once", "url": "https://arxiv.org/html/2506.04513v1"},
+            {"title": "The Incredible Shrinking Neural Network: Learning Representations Through Pruning", "url": "https://arxiv.org/pdf/1701.04465"},
+            {"title": "Dissecting Pruned Neural Networks", "url": "https://arxiv.org/pdf/1907.00262"},
+            {"title": "CR-SFP: Learning Consistent Representation for Soft Filter Pruning", "url": "https://arxiv.org/pdf/2312.11555"},
+            {"title": "Demystifying When Pruning Works via Representation Hierarchies", "url": "https://arxiv.org/pdf/2603.24652"},
+            {"title": "Do Sparse Subnetworks Exhibit Cognitively Aligned Attention?", "url": "https://arxiv.org/pdf/2509.21387"}
+          ],
+          "forced_functional_hits": ["Pruning Everything (iteratively generate pruned subnetworks preserving parent representation via CKA = removed structure whose form is preserved in remainder: >=2 content words)"],
+          "snippet": "Pruning iteratively generates pruned subnetworks and evaluates them to determine which better preserves the representation of the parent network, using similarity metrics like Centered Kernel Alignment (CKA). ... pruning can shape internal representations."
+        },
+        {
+          "query": "temporary over-parameterized branch trained then pruned imprints structure on remaining backbone neural network",
+          "hits": [
+            {"title": "Pruning from Scratch", "url": "https://arxiv.org/abs/1909.12579v1"},
+            {"title": "Boosting Pruned Networks with Linear Over-parameterization", "url": "https://arxiv.org/pdf/2204.11444"},
+            {"title": "Knapsack Pruning with Inner Distillation", "url": "https://arxiv.org/pdf/2002.08258"},
+            {"title": "Sparse optimization guided pruning for neural networks", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231224000511"},
+            {"title": "Lost in Pruning: Effects beyond Test Accuracy", "url": "https://arxiv.org/pdf/2103.03014"}
+          ],
+          "forced_functional_hits": ["Linear Over-parameterization (over-parameterized auxiliary structure trained then CONTRACTS BACK algebraically into compact backbone retaining learned function: >=3 content words: over-parameterized/removed/retain-function/backbone)"],
+          "snippet": "Linear over-parameterization expands each linear layer of the compact network into multiple consecutive linear layers ... This over-parameterized structure is well trained and then contracts back to the original structure algebraically at inference."
+        },
+        {
+          "query": "structural reparameterization training multi-branch network collapsed into single compact inference structure RepVGG",
+          "hits": [
+            {"title": "RepVGG: Making VGG-style ConvNets Great Again", "url": "https://arxiv.org/pdf/2101.03697"},
+            {"title": "RepVGG Backbone Architecture", "url": "https://www.emergentmind.com/topics/repvgg-backbone"},
+            {"title": "Branch-Level Network Re-Parameterization", "url": "https://openreview.net/pdf/a8624b8098c92dfe68dccc864c0c1c778193f266.pdf"},
+            {"title": "RepSR: Training Efficient VGG-style Super-Resolution with Structural Re-Parameterization", "url": "https://arxiv.org/pdf/2205.05671"},
+            {"title": "Efficient Cross-Modal Reparameterization Network (ECMRN)", "url": "https://www.techrxiv.org/users/913434/articles/1287015/master/file/data/ECMRN_TechRxiv/ECMRN_TechRxiv.pdf?inline=true"}
+          ],
+          "forced_functional_hits": ["RepVGG / structural reparameterization (auxiliary training-time branches enrich representation then COLLAPSED/removed for deployment, learned function preserved in single compact structure: >=3 content words: auxiliary/removed-collapsed/retain-shape-function/compact-backbone)"],
+          "snippet": "Structural reparameterization aims to decouple training and inference complexity by introducing auxiliary branches during training to enrich representation, which are then collapsed into simpler forms for deployment. RepVGG converts multi-branch blocks into a single 3x3 convolution post-training ... branches are algebraically merged."
+        },
+        {
+          "query": "over-parameterized auxiliary layers merged removed at inference retain learned function compact model",
+          "hits": [
+            {"title": "Boosting Pruned Networks with Linear Over-parameterization", "url": "https://arxiv.org/pdf/2204.11444"},
+            {"title": "Over-parameterized Student Model via Tensor Decomposition Boosted KD", "url": "https://arxiv.org/html/2411.06448"},
+            {"title": "Unifying and Merging Well-trained Deep Neural Networks for Inference Stage", "url": "https://arxiv.org/pdf/1805.04980"},
+            {"title": "Efficiently Editing Mixture-of-Experts with Compressed Experts", "url": "https://arxiv.org/html/2503.00634v1"},
+            {"title": "GRASP: Replace Redundant Layers with Adaptive Singular Parameters", "url": "https://arxiv.org/pdf/2501.00339"}
+          ],
+          "forced_functional_hits": ["Tensor-decomposition over-parameterized student (over-parameterized factorized structure merged back losslessly into compact model, retaining function: >=2 content words)", "Linear Over-parameterization (auxiliary structure re-parameterized back, contracts at inference: >=2)"],
+          "snippet": "Over-parameterized student models can have their factorized matrices merged to reorganize the original parameter matrix in almost lossless conditions ... over-parameterized structure contracting back algebraically at inference."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "RepVGG / Structural Reparameterization", "url": "https://arxiv.org/pdf/2101.03697", "why": "Auxiliary multi-branch 'scaffold' is built during training to enrich representation, then BURNED OUT (algebraically collapsed/removed) leaving a single compact backbone whose weights preserve the scaffold's learned function = lost-wax cavity-preserves-form verbatim."},
+        {"name": "Boosting Pruned Networks with Linear Over-parameterization", "url": "https://arxiv.org/pdf/2204.11444", "why": "Over-parameterized auxiliary structure trained then contracts back algebraically into the compact backbone, retaining the learned function."},
+        {"name": "Dense Cross-Layer Mutual-Distillation (DCM)", "url": "https://arxiv.org/pdf/2008.07816", "why": "Auxiliary classifiers added during training, discarded afterward with zero params in the final model, having shaped/transferred structural knowledge."}
+      ],
+      "gate4_belinda": {"pass": false, "why": "Fails Gate 4. The defining mechanism 'train an auxiliary structure, then remove it such that its learned FORM/function is preserved in the remaining compact model' is exactly structural reparameterization (RepVGG family) and linear over-parameterization. The wax/cavity/sprue/burnout framing maps 1:1 onto train-time branch -> algebraic collapse -> inference backbone. No residual novelty."},
+      "gate3_search_count": 5,
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "note": "The metaphor's most distinctive feature (form preserved as negative space after removal) is precisely what reparameterization delivers."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Strip 'wax/sprue/burnout/cavity/mold': claim = auxiliary sub-net trained for fine structure, then removed in distillation/pruning, leaving a compact backbone retaining its representational shape. I deliberately hunted the most-defensible narrow angle ('the REMOVED part's form is preserved as a negative in what remains'), expecting it might be a gap. It is not: structural reparameterization (RepVGG) and linear over-parameterization both train an auxiliary structure and algebraically collapse/remove it, baking its learned function into the surviving compact model. Multiple forced hits across 5 reformulations. True collision."
+    },
+    {
+      "id": "C22",
+      "concept": "Kerf bending (lattice hinge)",
+      "functional_effect": "A staggered/offset pattern of attention-mask removals across layers that yields locally compliant, flexible information-routing pathways: intact connections ('bridges') between the cuts carry cross-layer coupling, while removed connections let the attention pattern 'bend' around long-range dependencies without uniform global attention. Functionally: complementary, depth-composed sparse attention achieving full reach from staggered partial masks.",
+      "content_words": ["staggered/offset/shifted pattern", "attention sparsity/mask removal", "across/alternating layers", "flexible/compliant routing", "intact bridges/local connections", "long-range dependency / full receptive field"],
+      "reformulations": [
+        {
+          "query": "staggered attention sparsity pattern alternating across transformer layers long-range dependency efficient attention",
+          "hits": [
+            {"title": "Optimizing Native Sparse Attention with Latent Attention and Local-Global Alternating Strategies (ASA)", "url": "https://arxiv.org/html/2511.00819v1"},
+            {"title": "Generative modeling with sparse transformers (OpenAI Sparse Transformer)", "url": "https://openai.com/index/sparse-transformer/"},
+            {"title": "Sparse Attention Patterns: Local, Strided & Block-Sparse Approaches", "url": "https://mbrenndoerfer.com/writing/sparse-attention-patterns-efficient-transformers"},
+            {"title": "Sparser is Faster and Less is More: Efficient Sparse Attention for Long-Range Transformers", "url": "https://arxiv.org/pdf/2406.16747"},
+            {"title": "pi-Attention: Periodic Sparse Transformers for Efficient Long-Context Modeling", "url": "https://www.arxiv.org/pdf/2511.10696"},
+            {"title": "Efficient Long-Range Transformers: Attend More, Not at Every Layer", "url": "https://arxiv.org/pdf/2310.12442"}
+          ],
+          "forced_functional_hits": ["Alternating Sparse Attention ASA (complementary sparsity patterns alternated across layers; global connectivity emerges from composition of sparse layers; long-range: >=3 content words: alternating-staggered/across-layers/sparse-attention/long-range)", "pi-Attention (periodic = staggered sparse pattern across layers for long context: >=2)"],
+          "snippet": "ASA structures attention layers into two complementary types ... alternating ... Global connectivity emerges not from the density of individual layers, but from the composition of multiple sparse layers, and this compositionality is a core principle in efficient transformer design."
+        },
+        {
+          "query": "offset strided attention mask different layers complementary coverage sparse transformer",
+          "hits": [
+            {"title": "Sparse Attention Patterns: Local, Strided & Block-Sparse Approaches", "url": "https://mbrenndoerfer.com/writing/sparse-attention-patterns-efficient-transformers"},
+            {"title": "Attention Masking: Controlling Information Flow in Transformers", "url": "https://mbrenndoerfer.com/writing/attention-masking-transformers"},
+            {"title": "Review: Sparse Transformer (Sik-Ho Tsang)", "url": "https://sh-tsang.medium.com/review-sparse-transformer-80cbba4ebaa4"},
+            {"title": "Sparse Transformer: Stride and Fixed Factorized Attention", "url": "https://www.geeksforgeeks.org/sparse-transformer-stride-and-fixed-factorized-attention/"},
+            {"title": "SparseBERT: Rethinking the Importance Analysis in Self-attention", "url": "http://proceedings.mlr.press/v139/shi21a/shi21a.pdf"}
+          ],
+          "forced_functional_hits": ["Sparse Transformer strided+local factorized (offset strided masks across layers give complementary coverage; every position reaches every other within two layers via the cuts: >=3 content words: offset-strided/across-layers/complementary/long-range)"],
+          "snippet": "The Sparse Transformer uses local and strided attention together to cover both nearby and distant positions at a fraction of the cost of full attention ... every position can influence every other position within just two attention layers, with the first-layer strided mask being sparse."
+        },
+        {
+          "query": "layer-wise alternating local attention windows shifted bridges full receptive field sparse attention",
+          "hits": [
+            {"title": "Shifted Window Attention (Swin)", "url": "https://www.emergentmind.com/topics/shifted-window-attention"},
+            {"title": "Swin (Shifted Window Transformer) Explained", "url": "https://www.lightly.ai/blog/swin-transformer"},
+            {"title": "SCCA: Shifted Cross Chunk Attention for long contextual semantic expansion", "url": "https://arxiv.org/pdf/2312.07305"},
+            {"title": "Window-Based Self-Attention Overview", "url": "https://www.emergentmind.com/topics/window-based-self-attention"},
+            {"title": "Optimizing Native Sparse Attention (Local-Global Alternating)", "url": "https://arxiv.org/pdf/2511.00819"},
+            {"title": "Windowed Sparse Attention Transformer", "url": "https://www.emergentmind.com/topics/windowed-sparse-attention-transformer"}
+          ],
+          "forced_functional_hits": ["Swin Shifted Window Attention (alternate layers OFFSET/SHIFT window partitioning; cross-window 'bridges' straddling boundaries; full coverage without dense global attention: >=4 content words: shifted-staggered/alternating-layers/bridges-cross-window/full-receptive-field/sparse)"],
+          "snippet": "Shifted windows: alternate layers offset (shift) the window partitioning to enable cross-window connections ... By alternating regular and shifted partitioning, each token can attend to both its local window context and neighbors straddling window boundaries across successive blocks, ensuring complete spatial coverage without dense global attention."
+        },
+        {
+          "query": "flexible adaptive sparse attention connectivity routes around dependencies intact connections carry information depth",
+          "hits": [
+            {"title": "Mixture of Sparse Attention (MoSA): Content-Based Learnable Sparse Attention", "url": "https://arxiv.org/html/2505.00315v1"},
+            {"title": "SAC: Accelerating and Structuring Self-Attention via Sparse Adaptive Connection", "url": "https://arxiv.org/pdf/2003.09833"},
+            {"title": "Sparse Attention Post-Training for Mechanistic Interpretability", "url": "https://arxiv.org/pdf/2512.05865"},
+            {"title": "FlexPrefill: A Context-Aware Sparse Attention Mechanism", "url": "https://arxiv.org/pdf/2502.20766"},
+            {"title": "Sparse graphs-based dynamic attention networks", "url": "https://www.sciencedirect.com/science/article/pii/S240584402411969X"}
+          ],
+          "forced_functional_hits": ["SAC (replaces fully-connected attention with sparse graph, learns which edges to keep/cut adaptively = where bridges remain: >=2 content words: flexible-adaptive/intact-connections/sparse)", "MoSA (per-head flexible learned sparsity pattern, content-based selection of which connections survive: >=2)"],
+          "snippet": "Sparse Adaptive Connection (SAC) replaces the fully-connected structure in self-attention with a sparse graph-like structure adapted to different tasks, and learns to construct attention edges adaptively. MoSA selects tokens adaptively for each head ... each head learns its own unique sparsity pattern."
+        },
+        {
+          "query": "factorized sparse attention two layers reach any token cuts in attention matrix complementary patterns",
+          "hits": [
+            {"title": "The Illustrated Sparse Attention", "url": "https://cenrax.substack.com/p/the-illustrated-sparse-attention"},
+            {"title": "Token Sparse Attention: Efficient Long-Context Inference with Interleaved Token Selection", "url": "https://arxiv.org/abs/2602.03216"},
+            {"title": "Sparse attention cuts transformer O(n^2) complexity (PatSnap)", "url": "https://www.patsnap.com/resources/blog/articles/sparse-attention-cuts-transformer-on%C2%B2-complexity/"},
+            {"title": "HySparse: Hybrid Sparse Attention with Oracle Token Selection", "url": "https://arxiv.org/pdf/2602.03560"}
+          ],
+          "forced_functional_hits": ["Token Sparse Attention / hybrid (complementary cut patterns; any token reaches any other in few hops via small-world composition of partial masks: >=3 content words: complementary-patterns/intact-connections-hops/long-range/sparse)"],
+          "snippet": "Any token can reach any other token in just a few hops through sparse attention patterns ... a small-world network effect where hybrid sparse attention combines multiple patterns to overcome each method's weaknesses ... complementary to existing sparse attention methods."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Swin Transformer — Shifted Window Attention (SW-MSA)", "url": "https://www.lightly.ai/blog/swin-transformer", "why": "Alternate layers OFFSET the window partition so cross-window 'bridges' carry coupling while local cuts isolate windows; full coverage emerges across successive shifted layers without dense global attention = the staggered-cuts/intact-bridges/bend-around-dependencies mechanism verbatim."},
+        {"name": "Sparse Transformer (strided + local factorized attention)", "url": "https://openai.com/index/sparse-transformer/", "why": "Complementary offset masks across two layers let any token reach any other; the removed connections are 'cut' and the retained strided/local ones are the 'bridges'."},
+        {"name": "Alternating Sparse Attention (ASA)", "url": "https://arxiv.org/html/2511.00819v1", "why": "Global connectivity emerges from composing complementary sparse patterns ALTERNATED across layers — explicit statement of the depth-composed compliant routing claim."},
+        {"name": "Sparse Adaptive Connection (SAC)", "url": "https://arxiv.org/pdf/2003.09833", "why": "Learns adaptively which attention edges to keep vs cut (where the bridges are) = the 'flexible/compliant' framing."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails Gate 4. This was the candidate most likely (a priori) to harbor a missed gap (only 3 raw paper-hits, NONE penetration), so I searched it hardest. The 'torsional/compliant bending via staggered cuts with load-bearing bridges' is functionally identical to shifted-window attention (Swin) and factorized strided+local sparse attention, where complementary partial masks composed across depth recover full connectivity. The woodworking/torsion-spring vocabulary contributes no separable mechanism."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "note": "low raw-hit count was a false signal of sparsity; functional fusion is densely occupied."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Strip 'kerf/lattice hinge/torsion spring/bending': claim = staggered attention-mask cuts across layers with intact bridges that compose into full long-range connectivity flexibly. R12 caution applied: this concept had MORE apparent novelty room than its raw hit count suggested ONLY if the bending metaphor added a mechanism — it does not. Swin shifted windows is the precise analog (offset partitions across alternate layers, cross-boundary bridges, full coverage w/o global attention). Sparse Transformer factorized attention covers 'two layers reach any token via complementary cuts.' SAC/MoSA cover learned/adaptive cut placement. 5 reformulations, multiple forced hits each. The narrow version is not non-trivial; it is a re-description of established sparse-attention compositionality. True collision, not over-specification."
+    },
+    {
+      "id": "C23",
+      "concept": "Damascus steel (pattern welding)",
+      "functional_effect": "Iteratively MERGE two (or more) complementary model families (e.g., high-capacity + efficient) and re-SPLIT/re-merge their weight layers; each fold-and-weld cycle accumulates combined representational heterogeneity into a single model, enhancing both capacity and robustness. Functionally: iterative, layer-level weight merging of heterogeneous models to inherit complementary strengths in one network.",
+      "content_words": ["weight merging/fusion", "interleaving/folding layers", "heterogeneous models/families", "iterative merge (and split)", "combine capacity AND robustness", "single model inherits strengths"],
+      "reformulations": [
+        {
+          "query": "iterative weight merging interleaving two complementary neural networks into single model improves robustness capacity",
+          "hits": [
+            {"title": "MeGA: Merging Multiple Independently Trained Neural Networks Based on Genetic Algorithm", "url": "https://arxiv.org/pdf/2406.04607"},
+            {"title": "Rethinking Layer-wise Model Merging through Chain of Merges (CoM)", "url": "https://arxiv.org/pdf/2508.21421"},
+            {"title": "To See a World in a Spark of Neuron: Disentangling Multi-task Interference for Training-free Model Merging", "url": "https://arxiv.org/html/2503.05320v4"},
+            {"title": "Merging Models with Fisher-Weighted Averaging", "url": "https://www.researchgate.net/publication/401460628_Merging_Models_with_Fisher-Weighted_Averaging"},
+            {"title": "In-Model Merging for Medical Imaging Classification Robustness", "url": "https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_1015/paper.pdf"},
+            {"title": "Similarity-weighted interleaved learning (PNAS)", "url": "https://www.pnas.org/doi/10.1073/pnas.2115229119"}
+          ],
+          "forced_functional_hits": ["MeGA (merge complementary models' weights -> improved accuracy AND robustness, single model: >=3 content words: weight-merging/complementary-heterogeneous/capacity-and-robustness/single-model)", "Chain of Merges (iterative layer-wise sequential weight merging: >=2)", "In-Model Merging (iterative merging balancing feature diversity for robustness: >=2)"],
+          "snippet": "MeGA: merging multiple neural networks captures complementary features learned by individual models ... combining their weights results in improved accuracy and robustness. Chain of Merges: a layer-wise merging procedure that sequentially merges weights across layers ... produces a coherent merged model."
+        },
+        {
+          "query": "model merging fusing heterogeneous models layers combine strengths single network ensemble distillation",
+          "hits": [
+            {"title": "Training-free Heterogeneous Model Merging", "url": "https://arxiv.org/pdf/2501.00061"},
+            {"title": "Model Assembly Learning with Heterogeneous Layer Weight Merging (MAL)", "url": "https://arxiv.org/pdf/2503.21657"},
+            {"title": "Can Heterogeneous Language Models Be Fused?", "url": "https://arxiv.org/pdf/2604.01674"},
+            {"title": "Introduction to Model Merging | Flow AI", "url": "https://flow-ai.com/blog/introduction-to-model-merging"},
+            {"title": "Multimodal Model Merging", "url": "https://www.emergentmind.com/topics/multimodal-model-merging"},
+            {"title": "What is Model Merging? - MarkTechPost", "url": "https://www.marktechpost.com/2023/09/27/what-is-model-merging/"}
+          ],
+          "forced_functional_hits": ["MAL (iteratively integrates heterogeneous models' parameters, selective parameters ACROSS LAYERS, into single base model: >=4 content words: weight-merging/heterogeneous/iterative/layer-level/single-model)", "Training-free Heterogeneous Model Merging (fuse heterogeneous-architecture models' layers into one: >=3)"],
+          "snippet": "Model Assembly Learning (MAL) iteratively integrates parameters from diverse models to enhance the base model's capabilities ... allows the merging of heterogeneous architectures and selective parameters across layers. ... layer alignment harmonizes model layers ... elastic neuron zipping projects weights of varying widths onto a common space."
+        },
+        {
+          "query": "repeated merge and split model weights accumulate heterogeneity layer interleaving deep network",
+          "hits": [
+            {"title": "Training-free Heterogeneous Model Merging", "url": "https://arxiv.org/html/2501.00061v1"},
+            {"title": "Rethinking Layer-wise Model Merging through Chain of Merges", "url": "https://arxiv.org/pdf/2508.21421"},
+            {"title": "Model Assembly Learning with Heterogeneous Layer Weight Merging", "url": "https://arxiv.org/abs/2503.21657"},
+            {"title": "Model Merging in LLMs, MLLMs, and Beyond: Methods, Theories, Applications", "url": "https://arxiv.org/html/2408.07666v4"},
+            {"title": "Hetero-SplitEE: Split Learning with Early Exits for Heterogeneous Devices", "url": "https://arxiv.org/pdf/2512.09313"}
+          ],
+          "forced_functional_hits": ["MAL (iterative integration of parameters across layers from multiple models accumulating capability: >=3 content words: iterative-merge/layer-interleaving/heterogeneous)", "Chain of Merges (sequential cross-layer merging where discrepancies accumulate through depth: >=2)"],
+          "snippet": "MAL iteratively integrates parameters from diverse models, allowing merging of heterogeneous architectures and selective parameters across layers, where the base model can incorporate parameters from different layers of multiple pre-trained models. ... layer interleaving patterns exist in deep networks."
+        },
+        {
+          "query": "cyclic split-merge training repeatedly partition recombine subnetworks federated ensemble weight aggregation rounds",
+          "hits": [
+            {"title": "Fast-Convergent Federated Learning via Cyclic Aggregation", "url": "https://arxiv.org/pdf/2210.16520"},
+            {"title": "Revisiting Weighted Aggregation in Federated Learning with Neural Networks", "url": "https://arxiv.org/pdf/2302.10911"},
+            {"title": "SuperSFL: Resource-Heterogeneous Federated Split Learning with Weight-Sharing Super-Networks", "url": "https://arxiv.org/html/2601.02092"},
+            {"title": "Effective Heterogeneous Federated Learning via Hypernetwork-based Weight Generation", "url": "https://arxiv.org/html/2407.03086"},
+            {"title": "Regularized Weight Aggregation in Networked Federated Learning", "url": "https://arxiv.org/pdf/2301.12617"}
+          ],
+          "forced_functional_hits": ["Federated cyclic aggregation / SuperSFL (repeated rounds of splitting heterogeneous subnetworks and re-aggregating weights = the fold-and-re-split cycling: >=2 content words: iterative-cyclic-merge/heterogeneous/weight-aggregation)"],
+          "snippet": "Fast-convergent federated learning utilizes cyclic learning rate at the server side ... aggregating transmitted models. SuperSFL: clients train subnetworks of different depths ... aggregation mechanism that differs from approaches assuming fully symmetric models. Ensemble distillation improves the global model after weighted aggregation."
+        },
+        {
+          "query": "interleave high-capacity and efficient model weights layered fusion both accuracy robustness deep ensemble",
+          "hits": [
+            {"title": "Deep Model Fusion: A Survey", "url": "https://arxiv.org/pdf/2309.15698"},
+            {"title": "Deep Model Fusion - FusionBench", "url": "https://tanganke.github.io/fusion_bench/introduction_to_model_fusion/"},
+            {"title": "Enhancing Certifiable Robustness via a Deep Model Ensemble", "url": "https://arxiv.org/pdf/1910.14655"},
+            {"title": "Hyperparameter Ensembles for Robustness and Uncertainty Quantification", "url": "https://arxiv.org/pdf/2006.13570"},
+            {"title": "Weighted-Reward Preference Optimization for Implicit Model Fusion", "url": "https://arxiv.org/html/2412.03187v1"}
+          ],
+          "forced_functional_hits": ["Deep Model Fusion survey (fuse multiple networks into single network preserving capabilities, improving accuracy + diversity + robustness: >=3 content words: fusion-merging/combine-strengths/capacity-and-robustness/single-model)"],
+          "snippet": "Deep model fusion aims at fusing several neural networks into a single network, which preserves their original capabilities and can reduce overfitting to improve accuracy, diversity and robustness of predictions."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "MeGA: Merging Independently Trained Networks", "url": "https://arxiv.org/pdf/2406.04607", "why": "Merging complementary models' weights yields improved accuracy AND robustness in a single model = the Damascus 'combine high-carbon strength + low-carbon flexibility into one billet' dual claim verbatim."},
+        {"name": "Model Assembly Learning (MAL) — Heterogeneous Layer Weight Merging", "url": "https://arxiv.org/abs/2503.21657", "why": "Iteratively integrates heterogeneous models' parameters at the layer level into one base model = iterative fold-and-weld of layered heterogeneous weights."},
+        {"name": "Deep Model Fusion: A Survey", "url": "https://arxiv.org/pdf/2309.15698", "why": "Establishes the entire mature field of fusing several networks into one to combine strengths and improve robustness — the candidate is a re-description of this field."},
+        {"name": "Federated Cyclic Aggregation / SuperSFL", "url": "https://arxiv.org/pdf/2210.16520", "why": "Repeated split-then-aggregate cycles over heterogeneous subnetworks = the fold-and-re-split iterative twist."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails Gate 4. Every facet is occupied: iterative layer-level merging of heterogeneous models = MAL; complementary-strengths merge yielding capacity+robustness = MeGA / Deep Model Fusion survey; fold-and-re-split cycling = federated cyclic aggregation / iterative merging. No functionally separable, unoccupied fusion remains after stripping metallurgy vocabulary."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "note": "The dual 'strength + flexibility' selling point is precisely MeGA's stated accuracy+robustness outcome."},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Strip 'forge-weld/billet/twist/high-carbon/low-carbon/layering': claim = iterative layer-interleaving weight merging of complementary/heterogeneous models into one network that is both higher-capacity and more robust. I probed the most distinctive twist (fold-and-RE-SPLIT cycling, not just one-shot averaging) and it too is occupied by iterative/cyclic merging and federated cyclic split-aggregate. MeGA explicitly delivers the capacity+robustness duality; MAL delivers the iterative cross-layer heterogeneous integration. 5 reformulations, multiple forced hits each. True collision, not over-specification."
+    }
+  ],
+  "search_count": 25,
+  "gaps_found": [],
+  "honesty_note": "All 25 WebSearch calls were real and made via the WebSearch tool during this run; every recorded title/URL/snippet is copied from actually-returned results, none fabricated or recalled from memory. I applied the mechanical >=2-content-word forced-hit rule with content_words declared before searching for each candidate, and did NOT explain away any hit. Critically, per the task's R12/R14 hypothesis, I treated C22 (kerf bending) as the prime gap suspect because it has the FEWEST raw paper-hits (3) and NONE penetration among my five, and searched it hardest expecting the sparsest-12 selection might have a mirror-image blind spot in the OTHER direction. It did not yield a gap: shifted-window (Swin) and factorized strided+local sparse attention are precise functional analogs. I also hunted the single most-defensible narrow twist in each candidate (C16: single embedded raw->structured context module; C17: one pass that both detoxifies and recovers latent value; C21: removed scaffold whose FORM is preserved as a negative; C22: compliant bending via staggered cross-layer cuts with load-bearing bridges; C23: fold-and-RE-SPLIT cyclic merging) and each narrow version was itself a published technique. Result: 0 of 5 are genuine non-trivial gaps; the higher raw paper-hit counts of these less-sparse concepts (7,10,7,3,4) did NOT hide an unoccupied functional fusion. This is a negative result reported honestly: the sparsest-12 selection did not miss a real gap among C16/C17/C21/C22/C23."
+}

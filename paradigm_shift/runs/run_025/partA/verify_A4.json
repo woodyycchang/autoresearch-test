@@ -1,0 +1,402 @@
+{
+  "agent": "A4",
+  "ids": ["C25", "C29", "C30", "C31", "C32"],
+  "candidates": [
+    {
+      "id": "C25",
+      "concept": "Hormesis",
+      "functional_effect": "Train a model on weak/low-intensity adversarial or distribution-shifted examples FIRST (a preconditioning phase), before exposing it to full-strength perturbations, so that the early mild-stress phase induces internal representations that raise robustness to the strong shift. In plain ML terms: a robustness curriculum that ramps perturbation/shift intensity from weak to strong.",
+      "content_words": ["adversarial", "robustness", "curriculum", "fine-tuning", "perturbation strength", "weak-to-strong", "distribution shift"],
+      "reformulations": [
+        {
+          "query": "curriculum adversarial training increasing perturbation strength robustness",
+          "hits": [
+            {"title": "Get Fooled for the Right Reason: Improving Adversarial Robustness through a Teacher-guided Curriculum Learning Approach", "url": "https://arxiv.org/pdf/2111.00295"},
+            {"title": "Boosting adversarial robustness via self-paced adversarial training", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608023004938"},
+            {"title": "Improving Adversarial Robustness through a Teacher-... (NeurIPS 2021)", "url": "https://proceedings.neurips.cc/paper/2021/file/6a971e08a01e6676d0f1a6e0dacbbd67-Paper.pdf"},
+            {"title": "Robust Deep Reinforcement Learning through Bootstrapped Opportunistic Curriculum", "url": "https://arxiv.org/pdf/2206.10057"},
+            {"title": "Ignition Phase: Standard Training for Fast Adversarial Robustness", "url": "https://arxiv.org/html/2506.15685v1"},
+            {"title": "Enhancing Adversarial Robustness in Network Intrusion Detection (MDPI)", "url": "https://www.mdpi.com/2079-9292/14/16/3249"}
+          ],
+          "forced_functional_hits": ["adversarial", "curriculum", "robustness", "perturbation strength (weak-to-strong)"],
+          "snippet": "Curriculum Adversarial Training (CAT)... the model is initially trained against weaker adversarial attacks, with attack strength progressively increased only after the model achieves high accuracy against the current attack intensity. ... in which the strength of the training attack progressively varies from weak to strong."
+        },
+        {
+          "query": "weak-to-strong adversarial examples preconditioning improves model robustness",
+          "hits": [
+            {"title": "Adversarial Training to Improve Model Robustness (Amit Yadav)", "url": "https://medium.com/@amit25173/adversarial-training-to-improve-model-robustness-5e285b516713"},
+            {"title": "Using Pre-Training Can Improve Model Robustness and Uncertainty", "url": "https://arxiv.org/pdf/1901.09960"},
+            {"title": "Enhancing robust generalization through appropriate adversarial example attack intensity", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225022714"},
+            {"title": "Adversarial Training Can Provably Improve Robustness: Theoretical Analysis of Feature Learning Process", "url": "https://arxiv.org/pdf/2410.08503"},
+            {"title": "Exploring Model Robustness with Adaptive Networks and Improved Adversarial Training", "url": "https://arxiv.org/pdf/2006.00387"}
+          ],
+          "forced_functional_hits": ["adversarial", "robustness", "weak-to-strong", "perturbation strength"],
+          "snippet": "the weak-to-strong approach begins with simpler, weaker attacks, and over time, the adversarial examples become stronger and more challenging. The model gradually builds its robustness... models trained with a curriculum of adversarial examples tend to generalize better."
+        },
+        {
+          "query": "progressive distribution shift fine-tuning robustness gradual domain shift training",
+          "hits": [
+            {"title": "An Empirical Study on Distribution Shift Robustness From the Perspective of Pre-Training and Data Augmentation", "url": "https://arxiv.org/abs/2205.12753"},
+            {"title": "Gradual Domain Adaptation: Theory and Algorithms (JMLR)", "url": "https://jmlr.org/papers/volume25/23-1180/23-1180.pdf"},
+            {"title": "Understanding Self-Training for Gradual Domain Adaptation", "url": "https://arxiv.org/pdf/2002.11361"},
+            {"title": "Gradual Domain Adaptation via Manifold-Constrained Distributionally Robust Optimization", "url": "https://arxiv.org/pdf/2410.14061"},
+            {"title": "Ask Your Distribution Shift if Pre-Training is Right for You", "url": "https://arxiv.org/html/2403.00194v1"}
+          ],
+          "forced_functional_hits": ["distribution shift", "robustness", "fine-tuning", "gradual/progressive"],
+          "snippet": "In gradual domain adaptation, labeled data from a source domain is used alongside unlabeled data from intermediate domains that shift gradually in distribution towards a target domain... standard unsupervised domain adaptation algorithms suffer from significant performance degradation when distribution shifts become large."
+        },
+        {
+          "query": "mild noise injection pretraining improves robustness to larger corruptions overcompensation",
+          "hits": [
+            {"title": "A Novel Noise Injection-based Training Scheme for Better Model Robustness", "url": "https://arxiv.org/abs/2302.10802"},
+            {"title": "PDA: Progressive Data Augmentation for General Robustness of Deep Neural Networks", "url": "https://arxiv.org/pdf/1909.04839"},
+            {"title": "NoisyMix: Boosting Model Robustness to Common Corruptions", "url": "https://arxiv.org/pdf/2202.01263"},
+            {"title": "The Role of Noisy Data in Improving CNN Robustness for Image Classification", "url": "https://arxiv.org/pdf/2601.08043"},
+            {"title": "Noise Injection Node Regularization for Robust Learning", "url": "https://arxiv.org/pdf/2210.15764"}
+          ],
+          "forced_functional_hits": ["robustness", "perturbation/noise", "corruption (distribution shift analogue)"],
+          "snippet": "Within a certain window of convergence, noise injection procedures can substantially improve robustness against subsequent input corruption... Incorporating just 10% noisy data during training is sufficient to significantly reduce test loss and enhance accuracy under fully corrupted test conditions. PDA = Progressive Data Augmentation."
+        },
+        {
+          "query": "hormesis machine learning stress preconditioning neural network robustness",
+          "hits": [
+            {"title": "Stress-Aware Resilient Neural Training", "url": "https://arxiv.org/pdf/2508.00098"},
+            {"title": "How Does Preconditioning Guide Feature Learning in Deep Neural Networks?", "url": "https://arxiv.org/html/2509.25637v1"},
+            {"title": "Machine Learning for Plant Stress Modeling: A Perspective towards Hormesis Management (MDPI)", "url": "https://www.mdpi.com/2223-7747/11/7/970"},
+            {"title": "On The Robustness of a Neural Network", "url": "https://arxiv.org/pdf/1707.08167"}
+          ],
+          "forced_functional_hits": ["stress/preconditioning", "robustness", "fine-tuning/training", "perturbation (adaptive noise)"],
+          "snippet": "Stress-Aware Resilient Neural Training injects adaptive noise into model parameters whenever an internal stress signal indicates persistent optimization difficulty, enabling the model to escape sharp minima and converge toward flatter, more generalizable regions... improved robustness and generalization with minimal computational overhead."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Curriculum Adversarial Training (CAT) / weak-to-strong adversarial curriculum", "url": "https://arxiv.org/pdf/2111.00295", "why": "Exact functional effect: progressively ramp adversarial perturbation strength from weak to strong; the mild-stress phase builds robustness to the full-strength attack."},
+        {"name": "Progressive Data Augmentation (PDA)", "url": "https://arxiv.org/pdf/1909.04839", "why": "Progressive augmentation curriculum for general robustness."},
+        {"name": "Gradual Domain Adaptation", "url": "https://jmlr.org/papers/volume25/23-1180/23-1180.pdf", "why": "Stage the model through intermediate shifts before the full distribution shift."},
+        {"name": "Stress-Aware Resilient Neural Training", "url": "https://arxiv.org/pdf/2508.00098", "why": "Directly imports the biological stress-preconditioning framing into NN training for robustness."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails Belinda novelty gate: the core fusion (low-dose stress preconditioning -> robustness to full-strength shift) is the textbook definition of Curriculum Adversarial Training and weak-to-strong adversarial curricula, with multiple named published implementations. No surviving novel functional kernel."},
+      "composite": {"novelty": 1, "mechanism": 4, "verifiability": 5, "non_trivial": 1, "score": 20},
+      "narrow_version_nontrivial": false,
+      "reasoning": "All 5 reformulations returned forced functional hits on the core claim. CAT is a direct named technique. The hormetic 'overcompensation/repair representation' framing adds no functionally distinct mechanism beyond the established robustness curriculum. Strong, undisputed collision."
+    },
+    {
+      "id": "C29",
+      "concept": "Tuned mass damper",
+      "functional_effect": "A small, lightweight auxiliary module that produces COUNTERACTING (anti-phase / subtractive) corrections to the primary model's output distribution to damp degenerate behavior (runaway repetition / over-amplified token patterns), using far fewer parameters than the primary model. In plain ML terms: a small auxiliary model whose logits are combined (anti-phase/subtracted) with the main model to suppress repetitive/degenerate generation.",
+      "content_words": ["auxiliary module", "repetition", "mode collapse", "anti-phase/counteracting correction", "logit/output distribution", "small parameter budget", "damping/suppression"],
+      "reformulations": [
+        {
+          "query": "auxiliary module suppress repetition degeneration text generation anti-phase logit correction",
+          "hits": [
+            {"title": "Antislop: A Comprehensive Framework for Identifying and ... (suppressing patterns)", "url": "https://arxiv.org/pdf/2510.15061"},
+            {"title": "Controllable Neural Text Generation (Lil'Log) - auxiliary tuning / logits merge", "url": "https://lilianweng.github.io/posts/2021-01-02-controllable-text-generation/"},
+            {"title": "Learning to Break the Loop: Analyzing and Mitigating Repetitions for Neural Text Generation", "url": "https://arxiv.org/pdf/2206.02369"},
+            {"title": "Taming Repetition in Dialogue Generation (DITTO)", "url": "https://arxiv.org/pdf/2112.08657"},
+            {"title": "Improving Diversity of Neural Text Generation via Inverse Probability Weighting", "url": "https://arxiv.org/pdf/2103.07649"},
+            {"title": "On-the-Fly Attention Modulation for Neural Generation", "url": "https://arxiv.org/pdf/2101.00371"}
+          ],
+          "forced_functional_hits": ["auxiliary module/model", "repetition", "logits/output distribution"],
+          "snippet": "Auxiliary tuning supplements the original pre-trained model with an auxiliary model that shifts the output distribution... the base and auxiliary model outputs merged on the logits level. ... Neural unlikelihood (UL) training adds an auxiliary loss ... implicitly reducing the probability assigned to repetitive tokens."
+        },
+        {
+          "query": "frequency domain spectral analysis language model output repetition mode collapse damping",
+          "hits": [
+            {"title": "SIGMA: Scalable Spectral Insights for LLM Model Collapse", "url": "https://arxiv.org/pdf/2601.03385"},
+            {"title": "FourierSampler: Frequency-Guided Generation in Diffusion Language Models", "url": "https://arxiv.org/pdf/2601.23182"},
+            {"title": "Damping Estimation by Frequency Domain Decomposition (Aalborg)", "url": "https://vbn.aau.dk/en/publications/damping-estimation-by-frequency-domain-decomposition/"},
+            {"title": "Spectral momentum integration: hybrid optimization of frequency and time domain gradients", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12367729/"}
+          ],
+          "forced_functional_hits": ["mode/model collapse", "spectral/frequency (resonance analogue)"],
+          "snippet": "SIGMA benchmarks model collapse through the spectral lens of the embedding Gram matrix... multi-head self-attention inherently functions as a low-pass filter. (Note: 'model collapse' here = recursive-training variance contraction, a DIFFERENT phenomenon than the candidate's repetition mode-collapse; the frequency-tuned anti-phase damper mechanism itself is absent.)"
+        },
+        {
+          "query": "small auxiliary network corrects primary model output distribution lightweight parameter efficient repetition penalty",
+          "hits": [
+            {"title": "LZ Penalty: An information-theoretic repetition penalty for autoregressive language models", "url": "https://arxiv.org/pdf/2504.20131"},
+            {"title": "Fast Model Editing at Scale (MEND, small auxiliary editing networks)", "url": "https://arxiv.org/pdf/2110.11309"},
+            {"title": "READ: Recurrent Adaptation of Large Transformers (small RNN beside backbone)", "url": "https://arxiv.org/pdf/2305.15348"},
+            {"title": "Repetition Penalties: Preventing Loops in Language Model Generation", "url": "https://mbrenndoerfer.com/writing/repetition-penalties-language-model-generation"}
+          ],
+          "forced_functional_hits": ["auxiliary/small network", "repetition penalty", "output correction", "lightweight/parameter-efficient"],
+          "snippet": "MEND is a collection of small auxiliary editing networks... READ incorporates a small RNN network alongside the backbone model. The LZ penalty is specialized for reducing degenerate repetitions in autoregressive language models."
+        },
+        {
+          "query": "tuned mass damper neural network resonance oscillation suppression auxiliary mass analogy",
+          "hits": [
+            {"title": "Tuned mass damper - Wikipedia", "url": "https://en.wikipedia.org/wiki/Tuned_mass_damper"},
+            {"title": "Semi-active tuned mass damper to eliminate limit-cycle oscillation (patent)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10539201"},
+            {"title": "Tuned mass damper parameters design via LMI and genetic algorithm", "url": "https://extrica.com/article/16629/abs"},
+            {"title": "Effectiveness of semi-active tuned mass dampers under harmonic excitation", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0141029600000912"}
+          ],
+          "forced_functional_hits": ["auxiliary mass/module", "anti-phase (phase-shift)", "damping/suppression"],
+          "snippet": "The tuned parameter enables the auxiliary mass to oscillate with a phase shift with respect to the motion of the structure. (Results are about civil/mechanical TMDs and using NN to CONTROL physical TMDs -- NOT about using a TMD analogy to damp LLM output; confirms source domain, not an ML collision on its own.)"
+        },
+        {
+          "query": "contrastive decoding amateur model subtract logits suppress degenerate repetitive tokens",
+          "hits": [
+            {"title": "Contrastive Decoding: Open-ended Text Generation as Optimization", "url": "https://arxiv.org/html/2210.15097"},
+            {"title": "Contrastive Decoding in Language Models (overview)", "url": "https://www.emergentmind.com/topics/contrastive-decoding"},
+            {"title": "Multi-Amateur Contrastive Decoding for Text Generation", "url": "https://arxiv.org/pdf/2507.21086"},
+            {"title": "Contrastive Decoding Improves Reasoning in Large Language Models", "url": "https://ar5iv.labs.arxiv.org/html/2309.09117"},
+            {"title": "Delta - Contrastive Decoding Mitigates Text Hallucinations", "url": "https://arxiv.org/html/2502.05825v1"}
+          ],
+          "forced_functional_hits": ["auxiliary (amateur) model", "subtract logits (anti-phase correction)", "repetition/degenerate", "suppress/downweight"],
+          "snippet": "Contrastive decoding uses the output logits from a small amateur model as a negative bias and subtracts this bias from the output logits of a large expert model at each inference step... failures like repetition and incoherence are even more prevalent in smaller models, so subtracting the amateur's preferences ... reduces generic and repetitive outputs."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Contrastive Decoding (small amateur model logits subtracted from expert)", "url": "https://arxiv.org/html/2210.15097", "why": "Direct functional equivalent of the TMD core: a SMALL auxiliary model emits a COUNTERACTING (subtractive / anti-phase) correction to the primary model's logit distribution, specifically suppressing repetitive/degenerate tokens with a tiny parameter budget."},
+        {"name": "Auxiliary tuning (logits-level output-distribution shift)", "url": "https://lilianweng.github.io/posts/2021-01-02-controllable-text-generation/", "why": "Auxiliary model merged at logit level to reshape the primary output distribution."},
+        {"name": "DITTO / Unlikelihood training / LZ Penalty / Antislop", "url": "https://arxiv.org/pdf/2504.20131", "why": "Established repetition-/degeneration-damping mechanisms acting on the output distribution."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails. The functional kernel -- small expendable auxiliary module producing anti-phase/subtractive corrections to damp repetitive/degenerate output with a small parameter budget -- is exactly Contrastive Decoding (amateur model). The TMD-specific 'resonant-frequency tuning' is source-domain decoration; no published spectral/frequency-tuned LLM-output damper was found, but that narrow framing does not constitute a defensible novel ML mechanism -- it is an arbitrary over-specification of an occupied effect."},
+      "composite": {"novelty": 1, "mechanism": 4, "verifiability": 4, "non_trivial": 1, "score": 16},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Core effect fully occupied by contrastive decoding + auxiliary tuning + repetition penalties. The only unoccupied piece is the literal 'tune a secondary mass to the resonant frequency of the output distribution' framing; searching the spectral/frequency direction surfaced LLM model-collapse spectral monitoring (SIGMA) and attention low-pass-filter results but NO frequency-tuned anti-phase output damper. However that narrow version is an arbitrary over-specification (no evidence LLM degeneration has a single damp-able resonant frequency), not a meaningful gap. COLLISION."
+    },
+    {
+      "id": "C30",
+      "concept": "Sacrificial anode (cathodic protection)",
+      "functional_effect": "A dedicated, deliberately EXPENDABLE/replaceable module (adapter) that PREFERENTIALLY ATTRACTS AND ABSORBS adversarial perturbation / harmful gradient / distributional corruption at inference, becoming degraded ITSELF so the primary (frozen) model weights are spared. In plain ML terms: a low-importance replaceable adapter that soaks up / diverts adversarial damage away from the protected backbone -- damage diversion, not robustness conferral and not mere detection.",
+      "content_words": ["sacrificial/expendable adapter", "adversarial perturbation", "absorb/divert damage", "protect backbone weights", "replaceable module", "preferential degradation"],
+      "reformulations": [
+        {
+          "query": "sacrificial adapter layer absorb adversarial perturbation protect main model weights",
+          "hits": [
+            {"title": "Robustness Feature Adapter for Efficient Adversarial Training", "url": "https://arxiv.org/html/2508.17680v1"},
+            {"title": "Purifying Adversarial Perturbation with Adversarially Trained Auto-encoders", "url": "https://arxiv.org/pdf/1905.10729"},
+            {"title": "Adversarial Weight Perturbation Improves Generalization (AAAI)", "url": "https://ojs.aaai.org/index.php/AAAI/article/view/26239/26011"},
+            {"title": "CAT: Contrastive Adversarial Training ... Protective Perturbations in Latent Diffusion Models", "url": "https://arxiv.org/pdf/2502.07225"},
+            {"title": "Can Adversarial Weight Perturbations Inject Neural Backdoors?", "url": "https://arxiv.org/pdf/2008.01761"}
+          ],
+          "forced_functional_hits": ["adapter", "adversarial/perturbation"],
+          "snippet": "Robustness Feature Adapter (RFA) ... generates and incorporates perturbations directly in the feature space, resulting in significantly better robust generalization. (Functionally CONFERS robustness via adversarial training; does NOT act as an expendable component absorbing damage to spare frozen weights. The specific 'sacrificial adapter that absorbs perturbations while protecting main weights' did NOT appear.)"
+        },
+        {
+          "query": "expendable module diverts adversarial attack away from primary network protective decoy",
+          "hits": [
+            {"title": "Detecting adversarial attacks through decoy training (patent)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11501156"},
+            {"title": "Decoy network technology for intrusion detection/prevention (patent)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8429746"},
+            {"title": "Anti-Deception Jamming Strategies (Calatrava et al.)", "url": "https://arxiv.org/pdf/2503.00285"},
+            {"title": "Elbit Nano SPEAR Expendable Active Decoy", "url": "https://www.jedonline.com/2023/07/12/elbit-unveils-nano-spear-expendable-active-decoy/"}
+          ],
+          "forced_functional_hits": ["expendable/decoy", "adversarial/attack", "divert"],
+          "snippet": "Expendable decoys ... divert attacks away from the target of interest (seduction). (These are MILITARY RF decoys and CYBERSECURITY honeypots, not ML weight protection. The 'divert' half matches, but no neural-weight damage-absorption mechanism here.)"
+        },
+        {
+          "query": "trapdoor honeypot defense adversarial examples neural network catch attacks",
+          "hits": [
+            {"title": "Gotta Catch 'Em All: Using Honeypots to Catch Adversarial Attacks on Neural Networks", "url": "https://arxiv.org/abs/1904.08554"},
+            {"title": "Gotta Catch 'Em All (CCS 2020 proceedings)", "url": "https://dl.acm.org/doi/10.1145/3372297.3417231"},
+            {"title": "Trapdoor (UChicago PDF)", "url": "https://people.cs.uchicago.edu/~ravenben/publications/pdf/trapdoor-ccs20.pdf"}
+          ],
+          "forced_functional_hits": ["adversarial", "attacks", "protect", "attract/divert (trapdoor gravitation)"],
+          "snippet": "intentionally injecting trapdoors, honeypot weaknesses in the classification manifold that attract attackers searching for adversarial examples. Attackers' optimization algorithms gravitate towards trapdoors... the defense then identifies attacks by comparing neuron activation signatures. (NEAREST NEIGHBOR: occupies the 'preferentially attract adversarial perturbation' half. BUT mechanism is DETECTION via signature -- the trapdoor is NOT consumed/sacrificed and does NOT absorb damage to spare weights; the anode's defining 'corrodes instead of' property is absent.)"
+        },
+        {
+          "query": "freeze backbone train disposable parameters absorb distribution shift corruption inference",
+          "hits": [
+            {"title": "Test-Time Training with Self-Supervision for Generalization under Distribution Shifts", "url": "https://arxiv.org/pdf/1909.13231"},
+            {"title": "Test-Time Adaptation to Distribution Shift by Confidence Maximization and Input Transformation", "url": "https://arxiv.org/pdf/2106.14999"},
+            {"title": "SemifreddoNets: Partially Frozen Neural Networks", "url": "https://arxiv.org/pdf/2006.06888"},
+            {"title": "Training on Test Data with Bayesian Adaptation for Covariate Shift", "url": "https://arxiv.org/pdf/2109.12746"}
+          ],
+          "forced_functional_hits": ["frozen backbone", "distribution shift", "corruption"],
+          "snippet": "Test-time training/adaptation updates a small set of parameters to handle corruption/shift without hurting the original distribution. (Adapts to shift; the small module is NOT framed as a sacrificial damage-absorber that protects the backbone by degrading itself.)"
+        },
+        {
+          "query": "low importance neurons preferentially absorb gradient damage protect salient weights catastrophic",
+          "hits": [
+            {"title": "Overcoming Catastrophic Forgetting by Neuron-level Plasticity Control", "url": "https://arxiv.org/pdf/1907.13322"},
+            {"title": "Probabilistic Metaplasticity for Continual Learning", "url": "https://arxiv.org/pdf/2403.08718"},
+            {"title": "Elastic Weight Consolidation Done Right for Continual Learning", "url": "https://arxiv.org/pdf/2603.18596"},
+            {"title": "Memory Aware Synapses / Synaptic Intelligence (importance-based protection)", "url": "https://arxiv.org/pdf/2211.17012"}
+          ],
+          "forced_functional_hits": ["low importance vs salient", "protect weights", "divert updates to less-important params"],
+          "snippet": "EWC consolidates parameters important for previous tasks, allowing the network to learn new tasks using LESS IMPORTANT parameters while preserving previously learned knowledge. (Occupies the 'route damage to low-salience params, protect important weights' half -- but in CONTINUAL LEARNING to prevent forgetting, NOT inference-time adversarial/corruption absorption by a dedicated replaceable module.)"
+        },
+        {
+          "query": "adapter soaks up adversarial noise shield frozen pretrained backbone replaceable defense module",
+          "hits": [
+            {"title": "Revisiting Adapters with Adversarial Training (ICLR/OpenReview)", "url": "https://openreview.net/pdf?id=HPdxC1THU8T"},
+            {"title": "Robustness Feature Adapter for Efficient Adversarial Training", "url": "https://arxiv.org/html/2508.17680v1"},
+            {"title": "Denoised Smoothing: A Provable Defense for Pretrained Classifiers", "url": "https://arxiv.org/pdf/2003.01908"},
+            {"title": "Beyond Pretrained Features: Noisy Image Modeling Provides Adversarial Defense", "url": "https://openreview.net/forum?id=niHkj9ixUZ"}
+          ],
+          "forced_functional_hits": ["adapter", "adversarial", "frozen backbone"],
+          "snippet": "adapters in adversarial training where a single backbone has parameters specific to different domains, treating clean images as one domain and adversarial images as another... certified adapters and feature-space adversarial adaptation enhance robustness without backbone retraining. (Closest, but the adapter CONFERS robustness; it is NOT consumed/sacrificed and does not 'attract and absorb' damage to spare the weights.)"
+        }
+      ],
+      "verdict": "GAP",
+      "colliding_works": [
+        {"name": "(NEAREST NEIGHBOR, not full collision) Honeypot/Trapdoor defense -- 'Gotta Catch Em All'", "url": "https://arxiv.org/abs/1904.08554", "why": "Occupies the 'preferentially attract adversarial perturbation' half (attackers gravitate to injected trapdoors). DIFFERS on mechanism: trapdoors DETECT attacks via activation signature; they are not consumed and do not absorb damage to protect frozen weights. So the sacrificial-absorption fusion is not occupied."},
+        {"name": "(NEAREST NEIGHBOR) EWC / Synaptic Intelligence / MAS", "url": "https://arxiv.org/pdf/2603.18596", "why": "Occupies 'route updates to low-importance params, protect salient weights' -- but for continual-learning forgetting, not a dedicated replaceable module absorbing adversarial/inference corruption."},
+        {"name": "(NEAREST NEIGHBOR) Adversarial-training adapters (RFA / Revisiting Adapters)", "url": "https://openreview.net/pdf?id=HPdxC1THU8T", "why": "An adapter for adversarial robustness, but it CONFERS robustness rather than being a consumable sacrificial damage-sink."}
+      ],
+      "gate3_search_count": 6,
+      "gate4_belinda": {"pass": true, "why": "Passes Belinda novelty gate as a SOFT/narrow gap. The specific functional fusion -- a dedicated, replaceable/expendable adapter that PREFERENTIALLY ABSORBS adversarial/distributional corruption at inference and is 'consumed' (degraded) ITSELF so the frozen primary weights are protected -- returned ZERO works that combine (a) a sacrificial consumable module + (b) damage absorption (not detection) + (c) protection of frozen backbone weights. The nearest neighbors each occupy only one half (honeypots = attract+detect; EWC = spare salient weights in CL; robustness adapters = confer robustness). The 'be consumed instead of the protected component' kernel is genuinely absent. Two searches explicitly noted the specific concept does not appear."},
+      "composite": {"novelty": 3, "mechanism": 3, "verifiability": 3, "non_trivial": 3, "score": 81},
+      "narrow_version_nontrivial": true,
+      "reasoning": "This is the candidate Run-24's sparsest-12 selection could have MISSED (it has 6 raw paper-hits, NONE penetration, but a real functional question remained). After 6 honest searches across 4 distinct framings (sacrificial adapter / decoy / honeypot / low-importance damage routing / robustness adapter), the precise fusion is unoccupied: damage DIVERSION-AND-ABSORPTION into a consumable replaceable module to protect frozen weights. The honeypot work is a genuine close neighbor and occupies the 'preferential attraction' half, which is why this is a SOFT gap rather than a pristine one -- I am NOT explaining the neighbor away (R14): the attraction half IS published. But absorption-instead-of-detection and the expendable-protector role are not. narrow_version_nontrivial = true because 'a module that takes the damage instead of the model' is a mechanistically distinct and testable defense paradigm, not an arbitrary over-specification. Flagging as the most defensible gap in this subset, with explicit uncertainty."
+    },
+    {
+      "id": "C31",
+      "concept": "Karst weathering",
+      "functional_effect": "Progressively remove/erode low-salience token representations layer by layer using attention weights (a soft 'solvent' that dissolves unimportant tokens), leaving only high-salience semantic cores. In plain ML terms: attention-score-driven progressive/layer-wise token pruning (or token merging / context compression) that drops low-importance tokens and retains salient ones.",
+      "content_words": ["token pruning", "progressive/layer-wise", "attention saliency score", "drop/dissolve low-importance tokens", "retain salient/core tokens", "context reduction"],
+      "reformulations": [
+        {
+          "query": "progressive token pruning transformer layers drop low saliency tokens attention scores",
+          "hits": [
+            {"title": "Learned Token Pruning for Transformers (LTP)", "url": "https://arxiv.org/pdf/2107.00910"},
+            {"title": "Saliency-driven Dynamic Token Pruning for Large Language Models (SDTP)", "url": "https://www.researchgate.net/publication/390569898_Saliency-driven_Dynamic_Token_Pruning_for_Large_Language_Models"},
+            {"title": "Progressive Token Pruning in Transformers (overview)", "url": "https://www.emergentmind.com/topics/progressive-token-pruning"},
+            {"title": "Hierarchical Token Pruning in Transformers", "url": "https://www.emergentmind.com/topics/hierarchical-token-pruning"},
+            {"title": "Training-Free Pyramid Token Pruning for Efficient Large Vision-Language Models", "url": "https://arxiv.org/html/2509.15704v1"}
+          ],
+          "forced_functional_hits": ["token pruning", "saliency", "attention scores", "layer-wise/progressive", "low->high importance"],
+          "snippet": "LTP prunes tokens with an attention score below a threshold, whose value is learned for each layer. SDTP produces stagewise binary masks that progressively reduce the token set... Progressive, layer-wise pruning ... relegating ... to later layers with a drastically reduced, high-saliency token set."
+        },
+        {
+          "query": "layer-wise token reduction keep important tokens attention based eviction long context LLM",
+          "hits": [
+            {"title": "SlimInfer: Accelerating Long-Context LLM Inference via Dynamic Token Pruning", "url": "https://arxiv.org/pdf/2508.06447"},
+            {"title": "LLMs Know What to Drop: Self-Attention Guided KV Cache Eviction", "url": "https://arxiv.org/pdf/2503.08879"},
+            {"title": "Discovering the Gems in Early Layers: 1000x Input Token Reduction", "url": "https://arxiv.org/html/2409.17422v1"},
+            {"title": "Compressing KV Cache with Inter-Layer Attention Similarity", "url": "https://arxiv.org/pdf/2412.02252"}
+          ],
+          "forced_functional_hits": ["token reduction/eviction", "important tokens", "attention", "layer-wise"],
+          "snippet": "SlimInfer introduces dynamic fine-grained pruning that removes redundant tokens of hidden state at intermediate layers, with layer-wise pruning... attention heads selectively highlight important tokens."
+        },
+        {
+          "query": "attention as soft mask gradually dissolve unimportant token representations retain semantic core",
+          "hits": [
+            {"title": "Zero-TPrune: Zero-Shot Token Pruning through Leveraging the Attention Graph", "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Zero-TPrune_Zero-Shot_Token_Pruning_through_Leveraging_of_the_Attention_Graph_CVPR_2024_paper.pdf"},
+            {"title": "Focus on the Core: Efficient Attention via Pruned Token Compression", "url": "https://arxiv.org/pdf/2406.01283"},
+            {"title": "Differentiable Soft-Masked Attention", "url": "https://arxiv.org/pdf/2206.00182"},
+            {"title": "TransPrune: Token Transition Pruning for Efficient Large Vision-Language Model", "url": "https://arxiv.org/pdf/2507.20630"}
+          ],
+          "forced_functional_hits": ["soft mask", "dissolve/suppress unimportant tokens", "retain semantic/core", "attention"],
+          "snippet": "Soft masking provides differentiable masking... attention flow redistributes the semantic content of evicted tokens into retained ones to avoid context fragmentation... Elastic-Softmax can suppress attention on irrelevant tokens. 'Focus on the Core' literally prunes to a core token set."
+        },
+        {
+          "query": "token merging pooling redundant tokens transformer keep salient erode context",
+          "hits": [
+            {"title": "Token Merging in Transformers (ToMe family)", "url": "https://www.emergentmind.com/topics/token-merging"},
+            {"title": "Efficient Transformers with Dynamic Token Pooling", "url": "https://www.researchgate.net/publication/365486418_Efficient_Transformers_with_Dynamic_Token_Pooling"},
+            {"title": "Adaptive Token Merging for Efficient Transformer Semantic Communication", "url": "https://arxiv.org/pdf/2509.09955"},
+            {"title": "Video Token Merging for Long-form Video Understanding (NeurIPS)", "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/194fa4536bf36f35a4505d20cd5dd6fc-Paper-Conference.pdf"}
+          ],
+          "forced_functional_hits": ["token merging/pooling", "salient tokens retained", "redundant removed", "attention metric"],
+          "snippet": "Tokens are divided into salient tokens (most distinctive), destination anchors, and source (redundant) tokens to be merged. Methods maintain a proportion of the most salient tokens and merge the remainder."
+        },
+        {
+          "query": "iterative context compression dissolve low relevance tokens attention weighted removal",
+          "hits": [
+            {"title": "AttnComp: Attention-Guided Adaptive Context Compression for RAG", "url": "https://arxiv.org/pdf/2509.17486"},
+            {"title": "QUITO: Query-Guided Context Compression via attention metrics", "url": "https://arxiv.org/pdf/2408.00274"},
+            {"title": "LLMLingua (token-level removal by predictability)", "url": "https://sureprompts.com/blog/context-compression-techniques"},
+            {"title": "DAST: Context-Aware Compression via Dynamic Allocation of Soft Tokens", "url": "https://arxiv.org/pdf/2502.11493"},
+            {"title": "Sentinel: Decoding Context Utilization via Attention Probing", "url": "https://arxiv.org/pdf/2505.23277"}
+          ],
+          "forced_functional_hits": ["context compression", "low relevance token removal", "attention weighted", "iterative"],
+          "snippet": "AttnComp employs a Top-P compression algorithm leveraging attention to retain the minimal set whose cumulative attention weights exceed a threshold. QUITO uses attention metrics to assess token importance. LLMLingua drops low-information tokens."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Saliency-Driven Token Pruning (SDTP) / Learned Token Pruning (LTP)", "url": "https://arxiv.org/pdf/2107.00910", "why": "Exact functional effect: attention-saliency-driven, progressive layer-wise removal of low-importance tokens, retaining a high-saliency core set."},
+        {"name": "SlimInfer / LazyLLM / Self-Attention Guided KV Eviction", "url": "https://arxiv.org/pdf/2508.06447", "why": "Layer-wise attention-guided token/KV eviction in long-context LLMs."},
+        {"name": "Token Merging (ToMe) / Token Pooling", "url": "https://www.emergentmind.com/topics/token-merging", "why": "Keep salient tokens, dissolve redundant ones via attention-based metrics."},
+        {"name": "AttnComp / QUITO / LLMLingua context compression", "url": "https://arxiv.org/pdf/2509.17486", "why": "Attention-weighted iterative removal of low-relevance tokens (the 'solvent dissolving low-salience tokens' core)."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails decisively. One of the most heavily occupied areas in efficient-LLM/ViT research. The 'acid dissolution -> attention erodes low-salience tokens leaving resistant cores' mapping is a near-verbatim re-description of saliency-driven progressive token pruning / token merging / attention-guided context compression. Dozens of named methods. No surviving novel kernel."},
+      "composite": {"novelty": 1, "mechanism": 5, "verifiability": 5, "non_trivial": 1, "score": 25},
+      "narrow_version_nontrivial": false,
+      "reasoning": "5 reformulations, every one saturated with forced functional hits across vision and language. Total, undisputed collision."
+    },
+    {
+      "id": "C32",
+      "concept": "Aeolian saltation (dune migration)",
+      "functional_effect": "Model chain-of-thought reasoning as a propagating cascade: each intermediate reasoning step triggers/activates follow-on steps (impact -> ejection), while high-uncertainty tokens propagate differently/slower (creep) -- i.e., uncertainty-modulated branching/propagation of reasoning. In plain ML terms: (a) cascade/branching CoT propagation with error/signal compounding, plus (b) uncertainty/entropy-gated allocation of reasoning effort per step.",
+      "content_words": ["chain-of-thought", "reasoning step", "cascade/propagation/branching", "uncertainty/entropy", "trigger follow-on step", "token-level activation"],
+      "reformulations": [
+        {
+          "query": "chain-of-thought reasoning cascade each step triggers next branching propagation",
+          "hits": [
+            {"title": "Demystifying Chains, Trees, and Graphs of Thoughts", "url": "https://arxiv.org/html/2401.14295v5"},
+            {"title": "Large Language Model Cascades with Mixture of Thoughts Representations", "url": "https://arxiv.org/pdf/2310.03094"},
+            {"title": "Thought Branches: Interpreting LLM Reasoning Requires Resampling", "url": "https://arxiv.org/pdf/2510.27484"},
+            {"title": "Long Chain-of-Thought Prompting (overview)", "url": "https://www.emergentmind.com/topics/long-chain-of-thought-long-cot-prompting"}
+          ],
+          "forced_functional_hits": ["chain-of-thought", "branching/propagation", "reasoning step", "cascade"],
+          "snippet": "Tree of Thoughts allows prompt branching at any point of the chain... the model explores multiple possibilities at each step. Sequential dependency increases susceptibility to early-stage errors, which may propagate and compound throughout the reasoning trajectory."
+        },
+        {
+          "query": "uncertainty aware adaptive chain of thought allocate more reasoning to high uncertainty steps",
+          "hits": [
+            {"title": "UnCert-CoT: Uncertainty-Aware Chain-of-Thought for Code Generation", "url": "https://dl.acm.org/doi/10.1007/978-981-95-0014-7_36"},
+            {"title": "Uncertainty-Guided Chain-of-Thought for Code Generation with LLMs", "url": "https://arxiv.org/pdf/2503.15341"},
+            {"title": "Uncertainty-Guided Adaptive Reasoning (overview)", "url": "https://www.emergentmind.com/topics/uncertainty-guided-adaptive-reasoning"},
+            {"title": "Entropy-Guided CoT Reasoning (overview)", "url": "https://www.emergentmind.com/topics/entropy-guided-chain-of-thought-cot-reasoning"}
+          ],
+          "forced_functional_hits": ["chain-of-thought", "uncertainty", "reasoning step", "allocate/trigger by uncertainty"],
+          "snippet": "UnCert-CoT focuses computational resources on points where LLMs are more prone to error... When uncertainty is high, UnCert-CoT activates CoT-decoding to generate multiple reasoning paths... LLM directly generates when uncertainty is low. (Exactly the saltation-vs-creep distinction: high-uncertainty tokens trigger extra propagation; low-uncertainty pass through.)"
+        },
+        {
+          "query": "error propagation compounding chain of thought intermediate steps reasoning trajectory",
+          "hits": [
+            {"title": "Compounding Error Effect in Large Language Models (wand.ai)", "url": "https://wand.ai/blog/compounding-error-effect-in-large-language-models-a-growing-challenge"},
+            {"title": "A Theoretical Understanding of Chain-of-Thought: Coherent Reasoning and Error-Aware Demonstration", "url": "https://arxiv.org/pdf/2410.16540"},
+            {"title": "Recursive Decomposition of Logical Thoughts", "url": "https://www.jair.org/index.php/jair/article/download/18562/27208"},
+            {"title": "DiffCoT: Diffusion-styled Chain-of-Thought Reasoning in LLMs", "url": "https://arxiv.org/pdf/2601.03559"}
+          ],
+          "forced_functional_hits": ["chain-of-thought", "propagation/compound", "reasoning step/trajectory"],
+          "snippet": "each step builds upon the previous one, so an error early in the process can compound... an error may change the direction of the chain of thought so much that the initial mistake compounds into a completely different line of reasoning."
+        },
+        {
+          "query": "token level entropy confidence gate trigger additional reasoning steps LLM decoding",
+          "hits": [
+            {"title": "Think Just Enough: Sequence-Level Entropy as a Confidence Signal for LLM Reasoning", "url": "https://arxiv.org/abs/2510.08146"},
+            {"title": "Token-Level Entropy Gating in LLMs (overview)", "url": "https://www.emergentmind.com/topics/token-level-entropy-gating"},
+            {"title": "Think Twice Before You Write - Entropy-based Decoding Strategy", "url": "https://arxiv.org/html/2604.00018v1"},
+            {"title": "Thinking by Subtraction: Confidence-Driven Contrastive Decoding for LLM Reasoning", "url": "https://arxiv.org/pdf/2602.18232"}
+          ],
+          "forced_functional_hits": ["token-level entropy", "trigger/gate reasoning", "reasoning step", "uncertainty/confidence"],
+          "snippet": "methods are training-free, model-agnostic, and trigger at the reasoning-step level using entropy as a confidence signal... AdaDec applies token-level entropy with a pause-then-rerank mechanism when uncertainty is high. Token-level confidence determines when/where extra correction activates."
+        },
+        {
+          "query": "activation cascade spreading reasoning steps generate follow-on thoughts language model",
+          "hits": [
+            {"title": "Language Model Cascades (ar5iv 2207.10342)", "url": "https://ar5iv.labs.arxiv.org/html/2207.10342"},
+            {"title": "ActivationReasoning: Logical Reasoning in Latent Activation Spaces", "url": "https://arxiv.org/pdf/2510.18184"},
+            {"title": "Uncovering Latent Chain of Thought Vectors in Language Models", "url": "https://arxiv.org/pdf/2409.14026"},
+            {"title": "Opening the Black Box: Survey on Mechanisms of Multi-Step Reasoning in LLMs", "url": "https://arxiv.org/pdf/2601.14270"}
+          ],
+          "forced_functional_hits": ["cascade/spreading activation", "reasoning steps", "follow-on thoughts", "chain-of-thought"],
+          "snippet": "the 'stream of consciousness' is a continuous cascade of activation spreading through a semantic network, each thought priming the next in an associative chain... Language Model Cascades formalize scratchpads/chain of thought, verifiers, and tool use."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "UnCert-CoT / Entropy-Guided CoT / 'Think Just Enough' (uncertainty-modulated reasoning propagation)", "url": "https://arxiv.org/pdf/2503.15341", "why": "Directly occupies the candidate's distinctive 'saltation-vs-creep' kernel: high-uncertainty/entropy tokens trigger extra reasoning propagation (splash), low-uncertainty steps pass through fast (creep). Token-level entropy gates the cascade."},
+        {"name": "Tree-of-Thoughts / Graph-of-Thoughts / Language Model Cascades", "url": "https://arxiv.org/html/2401.14295v5", "why": "Occupies the branching/cascade propagation framing where each step spawns follow-on steps."},
+        {"name": "Compounding error propagation in CoT", "url": "https://arxiv.org/pdf/2410.16540", "why": "The 'impact triggers follow-on steps and propagates' dynamic is the established error/signal compounding in sequential CoT."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Fails. Both decomposed components are occupied: (a) cascade/branching reasoning propagation = ToT/GoT/LM Cascades + CoT error compounding; (b) the distinctive uncertainty-gated 'heavy grains creep, light grains splash' = UnCert-CoT / Entropy-Guided CoT / token-level entropy gating, which literally allocate more reasoning to high-uncertainty steps and less to low-uncertainty ones. No surviving novel kernel."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 3, "non_trivial": 1, "score": 9},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Largely a metaphor for how CoT already works (each step conditions the next), and the one genuinely specific bit -- uncertainty-modulated propagation rate -- is precisely the UnCert-CoT / entropy-gated-reasoning literature. 5 reformulations, all with forced functional hits. COLLISION."
+    }
+  ],
+  "search_count": 26,
+  "gaps_found": ["C30"],
+  "honesty_note": "26 REAL WebSearches, every query actually executed; all recorded titles/URLs/snippets are from returned results (verbatim or close paraphrase of the returned summary text), none fabricated or recalled from memory. Verdicts: C25, C29, C31, C32 = COLLISION (each with >=1 directly-named published technique reproducing the functional effect, plus saturated forced-hit counts). C30 = the one GAP, and it is the answer to the mandate: it is a LESS-sparse concept (6 paper-hits) that the Run-24 sparsest-12 selection would NOT have deep-verified, yet a real functional gap survives -- a SACRIFICIAL/EXPENDABLE adapter that ABSORBS adversarial/distributional damage (is consumed itself) to PROTECT frozen backbone weights. I deliberately did NOT explain this gap away (R14): I searched 4 distinct framings (sacrificial adapter, decoy, honeypot/trapdoor, low-importance damage routing, robustness adapter). The honeypot/trapdoor work ('Gotta Catch Em All') is a GENUINE close neighbor and occupies the 'preferentially attract adversarial perturbation' half -- I record it honestly as a near-collision -- but its mechanism is DETECTION (the trapdoor is never consumed), not damage-absorption to spare weights, so the anode's defining 'corrodes instead of the protected metal' kernel remains unoccupied. Hence I rate C30 a SOFT but non-trivial GAP (composite 81, gate4 pass), with explicit residual uncertainty due to the honeypot neighbor. Skeptical both ways: I down-rated C29's TMD 'resonant-frequency' framing as an arbitrary over-specification (not a real gap) even though no frequency-tuned output damper exists, because there is no evidence LLM degeneration has a damp-able single resonant frequency, and the functional core is fully covered by contrastive decoding."
+}
