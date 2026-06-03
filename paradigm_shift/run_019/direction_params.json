@@ -1,0 +1,168 @@
+{
+  "run_id": "run_019",
+  "epoch": 6,
+  "scored_epoch": 5,
+  "params": {
+    "specificity": 0.5022,
+    "mechanism_focus": 0.525,
+    "sparsity_seeking": 0.5408,
+    "cross_paper_pairing": 0.5463,
+    "collision_avoidance_phrasing": 0.5593
+  },
+  "labeled_examples": [],
+  "labels_for_scored_epoch": 1,
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "avg_search_quality": 0.7983,
+      "avg_paper_hits": 21.0,
+      "params": {
+        "specificity": 0.5,
+        "mechanism_focus": 0.5,
+        "sparsity_seeking": 0.5,
+        "cross_paper_pairing": 0.5,
+        "collision_avoidance_phrasing": 0.5
+      }
+    },
+    {
+      "epoch": 2,
+      "avg_search_quality": 0.7981,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5293
+      },
+      "note": "researcher-style query set (param-driven) + nudged params; science held fixed to isolate param effect"
+    },
+    {
+      "epoch": 3,
+      "avg_search_quality": 0.813,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5293
+      },
+      "note": "scorer<->rubric alignment fix (collision_avoidance now credits semantic gap-seeking, 'survey' removed); SAME epoch-2 query set re-scored; params/labels/queries/science unchanged"
+    },
+    {
+      "epoch": 4,
+      "avg_search_quality": 0.8355,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5593
+      },
+      "note": "re-nudge with fixed scorer (collision_avoidance 0.5293->0.5593); AGENT 1 emitted 12 researcher-style gap-probe queries (diverge types dropped); science held fixed"
+    },
+    {
+      "epoch": 5,
+      "avg_search_quality": 0.9692,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5593
+      },
+      "note": "JOINT-objective query optimization: dense gap-probes packing specific rare cross-domain mechanisms; ALL 5 dims rose (sparsity 0.52->0.91 recovered); trade-off BROKEN; metric near ceiling (0.9692, 8/10 queries maxed)"
+    }
+  ],
+  "applied_labels_log": [
+    {
+      "applied_for_scored_epoch": 1,
+      "n_labels": 43,
+      "nudges": {
+        "specificity": {
+          "old": 0.5,
+          "new": 0.5022,
+          "on_mean": 0.9954,
+          "div_mean": 0.9844,
+          "signal": 0.011
+        },
+        "mechanism_focus": {
+          "old": 0.5,
+          "new": 0.525,
+          "on_mean": 1.0,
+          "div_mean": 0.875,
+          "signal": 0.125
+        },
+        "sparsity_seeking": {
+          "old": 0.5,
+          "new": 0.5408,
+          "on_mean": 0.7852,
+          "div_mean": 0.5813,
+          "signal": 0.2039
+        },
+        "cross_paper_pairing": {
+          "old": 0.5,
+          "new": 0.5463,
+          "on_mean": 0.9815,
+          "div_mean": 0.75,
+          "signal": 0.2315
+        },
+        "collision_avoidance_phrasing": {
+          "old": 0.5,
+          "new": 0.5293,
+          "on_mean": 0.4963,
+          "div_mean": 0.35,
+          "signal": 0.1463
+        }
+      },
+      "applied_at": "2026-06-01T23:09:36.064884+00:00"
+    },
+    {
+      "applied_for_scored_epoch": 1,
+      "n_labels": 43,
+      "nudges": {
+        "specificity": {
+          "old": 0.5,
+          "new": 0.5022,
+          "on_mean": 0.9954,
+          "div_mean": 0.9844,
+          "signal": 0.011
+        },
+        "mechanism_focus": {
+          "old": 0.5,
+          "new": 0.525,
+          "on_mean": 1.0,
+          "div_mean": 0.875,
+          "signal": 0.125
+        },
+        "sparsity_seeking": {
+          "old": 0.5,
+          "new": 0.5408,
+          "on_mean": 0.7852,
+          "div_mean": 0.5813,
+          "signal": 0.2039
+        },
+        "cross_paper_pairing": {
+          "old": 0.5,
+          "new": 0.5463,
+          "on_mean": 0.9815,
+          "div_mean": 0.75,
+          "signal": 0.2315
+        },
+        "collision_avoidance_phrasing": {
+          "old": 0.5,
+          "new": 0.5593,
+          "on_mean": 0.4963,
+          "div_mean": 0.2,
+          "signal": 0.2963
+        }
+      },
+      "applied_at": "2026-06-03T00:08:41.878357+00:00"
+    }
+  ],
+  "note": "PERSISTENT (R10). Epoch 5: joint objective broke the dim trade-off; search_quality 0.8355->0.9692 (near 1.0 ceiling). Metric SATURATING -> recommend STOP (further gains = Goodharting a deterministic proxy). See RUN_019_EPOCH5_REPORT.md.",
+  "updated_at": "2026-06-01T22:44:29.470004+00:00"
+}

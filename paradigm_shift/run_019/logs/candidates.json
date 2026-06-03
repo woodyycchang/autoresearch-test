@@ -1,0 +1,180 @@
+{
+  "run_id": "run_019",
+  "epoch": 1,
+  "agent": "3_merger",
+  "generated_at": "2026-06-01T22:36:14.581187+00:00",
+  "chosen_pairs": [
+    {
+      "cand_id": "CAND_019_001",
+      "atom_a": "R19_P1_S3",
+      "atom_b": "R19_P2_S2",
+      "combined_atom_hits": 6
+    },
+    {
+      "cand_id": "CAND_019_002",
+      "atom_a": "R19_P1_S3",
+      "atom_b": "R19_P3_S1",
+      "combined_atom_hits": 6
+    },
+    {
+      "cand_id": "CAND_019_003",
+      "atom_a": "R19_P2_S2",
+      "atom_b": "R19_P3_S1",
+      "combined_atom_hits": 6
+    },
+    {
+      "cand_id": "CAND_019_004",
+      "atom_a": "R19_P1_S2",
+      "atom_b": "R19_P2_S2",
+      "combined_atom_hits": 7
+    },
+    {
+      "cand_id": "CAND_019_005",
+      "atom_a": "R19_P1_S2",
+      "atom_b": "R19_P3_S1",
+      "combined_atom_hits": 7
+    }
+  ],
+  "candidates": [
+    {
+      "cand_id": "CAND_019_001",
+      "atom_a_id": "R19_P1_S3",
+      "atom_b_id": "R19_P2_S2",
+      "atom_a_hits": 3,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 6,
+      "niche_name": "Fisher-Rao-Optimal Annealing Schedules for Continuous MoE Routing Sparsity",
+      "mechanism": "An information-geometric objective regulates the concentration-matrix knob so that routing entropy is annealed along a Fisher-Rao-optimal trajectory during training, transforming discrete top-k expert selection into a smoothly scheduled sparsity that produces a principled curriculum from dense to sparse routing.",
+      "transfer": "The Fisher-Rao optimal-schedule derivation from ATOM B transfers onto ATOM A's continuous routing-entropy knob to specify how sparsity should evolve over training rather than just how it is parameterized at a single step.",
+      "open_problem": "Does the Fisher-Rao-optimal schedule for annealing the concentration matrix's routing entropy admit a closed-form (e.g. cosine-like) curve, and does following it outperform fixed or heuristically-annealed top-k routing in MoE training?",
+      "primary_quote": "the concentration matrix -- that continuously controls routing entropy",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: a single continuous concentration-matrix knob that geometrically controls routing entropy, replacing discrete top-k with smooth sparsity. B: under Fisher-Rao information geometry, the *optimal training schedule* provably recovers the cosine schedule.",
+        "reasoning": "A gives a continuous control variable for sparsity but says nothing about how it should change over training; B gives a geometry-derived theory of *optimal scheduling* of a control variable (noise level) but for diffusion. I tried to transfer B's 'optimal schedule under Fisher-Rao geometry' machinery onto A's concentration-matrix knob, treating routing entropy as the scheduled quantity. I rejected the reverse transfer (using A's sparsity knob inside a diffusion model) as forced. The combination is non-trivial because both already live in information geometry: A's knob induces a curve on a statistical manifold of routing distributions, so B's Fisher-Rao optimal-schedule derivation is mathematically applicable rather than metaphorical \u2014 the open question is what curve falls out, not whether the vocabularies rhyme.",
+        "decision": "Settle on deriving and testing a Fisher-Rao-optimal annealing schedule for the routing-entropy knob in MoE, because it converts A's static parameterization into a principled training curriculum using B's existing optimality result.",
+        "confidence": "medium - the geometric framing genuinely composes, but whether MoE routing's Fisher-Rao geometry yields a clean schedule is unverified.",
+        "could_be_wrong_if": "the concentration-matrix manifold's Fisher-Rao metric is degenerate or trivial, so the 'optimal schedule' is constant or arbitrary, making the merge a vocabulary analogy between two unrelated uses of 'geometry'."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "078e8e71-d5f5-4dfe-a36c-401c1613a7ba",
+      "opus_cost_usd": 0.1445825
+    },
+    {
+      "cand_id": "CAND_019_002",
+      "atom_a_id": "R19_P1_S3",
+      "atom_b_id": "R19_P3_S1",
+      "atom_a_hits": 3,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 6,
+      "niche_name": "Thermodynamic MoE Routing via Concentration-Controlled Hardware Sampling",
+      "mechanism": "Mapping a Mixture-of-Experts concentration matrix onto a thermodynamic computer's physical temperature transforms routing-entropy control into a native hardware operation: raising the concentration parameter regulates the noise of a stochastic substrate, which then directly samples expert assignments from the induced routing distribution instead of computing a digital top-k.",
+      "transfer": "A's continuous concentration-matrix knob that controls routing entropy transfers onto B's stochastic hardware as the physical control parameter governing the sampling temperature.",
+      "open_problem": "Can a thermodynamic sampler physically realize concentration-matrix-controlled MoE routing such that entropy is tuned by hardware temperature rather than by a digital top-k operator, at fixed accuracy?",
+      "primary_quote": "the concentration matrix -- that continuously controls routing entropy",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: a single continuous concentration-matrix knob that smoothly sets routing entropy, replacing discrete top-k expert selection with a geometric sparsity mechanism. B: thermodynamic computing where hardware behaves stochastically to physically sample from a target distribution.",
+        "reasoning": "I tried to transfer A's continuous entropy-controlling parameter (the concentration matrix) into B's role of a physical control variable that sets the distribution a stochastic substrate samples from. The natural transfer is concentration -> hardware temperature/noise scale, because both A and B already operate on distributions: A *parameterizes* a routing distribution, B *physically samples* from a distribution. I rejected the weaker analogy of merely 'adding noise to top-k' because that keeps routing digital and discrete, contradicting A's smoothness. The combination is non-trivial because top-k is a non-sampling argmax-style op that has no natural thermodynamic realization, whereas A's smooth concentration formulation makes routing an honest distribution-sampling problem that thermodynamic hardware can execute natively \u2014 the geometry of A is precisely what licenses B's sampling to be the routing mechanism rather than a post-hoc perturbation.",
+        "decision": "Settled on thermodynamic MoE routing where the concentration matrix is the physical temperature knob, because it converts A's mathematical knob into B's literal control parameter, yielding a falsifiable hardware-software co-design claim.",
+        "confidence": "medium - the conceptual mapping (distribution-parameterizer to distribution-sampler) is tight, but physical realizability on real thermodynamic hardware is unproven.",
+        "could_be_wrong_if": "thermodynamic hardware can only sample fixed energy-based distributions and cannot be conditioned on per-token concentration matrices fast enough, making the link a vocabulary analogy between 'entropy' in A and 'stochastic' in B rather than a shared sampling mechanism."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "a985128f-7973-4c40-b5d4-c6c836046a88",
+      "opus_cost_usd": 0.06623725
+    },
+    {
+      "cand_id": "CAND_019_003",
+      "atom_a_id": "R19_P2_S2",
+      "atom_b_id": "R19_P3_S1",
+      "atom_a_hits": 3,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 6,
+      "niche_name": "Fisher-Rao-optimal annealing schedules for thermodynamic sampling hardware",
+      "mechanism": "An information-geometric optimal schedule derived from the Fisher-Rao metric routes how thermodynamic-computing hardware anneals its noise level, transforming the abstract cosine sampling schedule into a physical relaxation trajectory that the stochastic hardware natively executes to sample from a target distribution.",
+      "transfer": "The Fisher-Rao-optimal noise schedule from A transfers as the physical annealing/relaxation control law that governs B's stochastic sampling hardware.",
+      "open_problem": "Does the Fisher-Rao-optimal (cosine) schedule coincide with the natural relaxation dynamics of thermodynamic-computing hardware, and can that hardware physically realize it without per-step software control?",
+      "primary_quote": "hardware undergoes a stochastic process in order to sample from a distribution of interest",
+      "quote_source": "atom_b",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: the variance/noise schedule that is optimal under Fisher-Rao information geometry coincides with the cosine schedule used in diffusion models. B: thermodynamic computing replaces deterministic logic with hardware that physically runs a stochastic process to draw samples from a target distribution.",
+        "reasoning": "I tried to transfer A's notion of a geometrically-optimal schedule (the time-parameterization of noise that minimizes path length under the Fisher-Rao metric) onto B's physical sampling substrate, treating the hardware's annealing/relaxation timeline as the object that the schedule controls. I rejected the surface reading where 'schedule' is just a software hyperparameter bolted onto thermodynamic hardware, because that would be trivial reuse; the non-trivial claim is that the hardware's intrinsic stochastic relaxation already traces a metric on distribution space, so the Fisher-Rao optimum may either match or constrain what the physics can do, turning a software design choice into a physical-realizability question.",
+        "decision": "I settled on studying whether thermodynamic hardware can natively realize the Fisher-Rao-optimal schedule, because both A and B operate on the same underlying object \u2014 a path through a manifold of probability distributions \u2014 making the link causal rather than merely lexical.",
+        "confidence": "medium - both atoms genuinely concern trajectories over distribution manifolds, but whether hardware relaxation physically obeys the Fisher-Rao geometry is unverified.",
+        "could_be_wrong_if": "thermodynamic hardware's relaxation dynamics are governed by a fixed physical metric unrelated to Fisher-Rao, so imposing the cosine schedule is just an external software clock and the merge collapses to vocabulary overlap on the word 'distribution'."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "e20f56fb-07c1-4521-8025-741f8206c8ed",
+      "opus_cost_usd": 0.06046199999999999
+    },
+    {
+      "cand_id": "CAND_019_004",
+      "atom_a_id": "R19_P1_S2",
+      "atom_b_id": "R19_P2_S2",
+      "atom_a_hits": 4,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 7,
+      "niche_name": "Fisher-Rao-Optimal Concentration Scheduling for Grassmannian MoE Routing",
+      "mechanism": "A Fisher-Rao-optimal schedule transforms the concentration parameters of the Matrix Bingham gating distributions over training, so that GrMoE routing anneals along the natural information geometry of the Grassmannian manifold rather than via a hand-tuned heuristic, which regulates how sharply experts are selected as training progresses.",
+      "transfer": "ATOM B's principle that the information-geometric (Fisher-Rao) optimal schedule recovers a canonical annealing curve transfers to ATOM A's Matrix Bingham concentration parameters, supplying a principled schedule for routing sharpness.",
+      "open_problem": "Does the Fisher-Rao-optimal schedule on the Grassmannian of subspaces yield a closed-form (e.g. cosine-like) annealing of Matrix Bingham concentration parameters that provably improves GrMoE expert specialization and load balance?",
+      "primary_quote": "operates on the Grassmannian manifold of subspaces",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: MoE gating where routing lives on a Grassmannian manifold and gate weights come from Matrix Bingham concentration parameters. B: under Fisher-Rao geometry, the derived optimal schedule reproduces the cosine schedule.",
+        "reasoning": "I tried transferring B's mechanism \u2014 deriving a process schedule from Fisher-Rao information geometry \u2014 onto A's free parameters, namely the Matrix Bingham concentration values that set routing sharpness. I rejected the inverse transfer (putting B's diffusion process onto a Grassmannian) as a vague vocabulary match. The non-trivial link is that both objects are genuinely Riemannian: A's gating already lives on a Grassmannian whose Fisher-Rao metric is computable, so B's 'optimal schedule = geometry-induced curve' is not metaphorical \u2014 it gives a concrete metric to optimize the concentration trajectory, potentially yielding a cosine-analogue for routing temperature.",
+        "decision": "Settle on a Fisher-Rao-derived annealing schedule for the Matrix Bingham concentration parameters in GrMoE, because both mechanisms share an actual manifold and metric, making the schedule derivable rather than analogized.",
+        "confidence": "medium - the manifolds and metrics genuinely overlap, but the closed-form recovery may not hold for the Grassmannian-Bingham case",
+        "could_be_wrong_if": "the Fisher-Rao metric on the Matrix Bingham/Grassmannian family does not admit a tractable optimal schedule, making the link a surface reuse of the word 'geometry' rather than a transferable derivation."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "1cb61d3a-6c74-449b-ba4c-5bf1f49de9d6",
+      "opus_cost_usd": 0.061731
+    },
+    {
+      "cand_id": "CAND_019_005",
+      "atom_a_id": "R19_P1_S2",
+      "atom_b_id": "R19_P3_S1",
+      "atom_a_hits": 4,
+      "atom_b_hits": 3,
+      "combined_atom_hits": 7,
+      "niche_name": "Thermodynamic Sampling of Grassmannian Bingham Gates for MoE Routing",
+      "mechanism": "Thermodynamic-computing hardware undergoes a physical stochastic process that natively samples from the Matrix Bingham distribution over subspaces, which routes GrMoE expert selection on the Grassmannian manifold; the hardware's equilibrium dynamics produce gating draws directly from the concentration parameters instead of a deterministic softmax over precomputed weights.",
+      "transfer": "The principle of letting hardware physically relax to sample from a target distribution (B) transfers to GrMoE's Matrix Bingham gating (A), turning manifold-constrained routing into a hardware-sampled stochastic process.",
+      "open_problem": "Can a thermodynamic sampler physically realize draws from Matrix Bingham distributions on the Grassmannian fast and accurately enough to drive MoE routing, and does stochastic subspace gating then improve expert diversity or efficiency over deterministic argmax routing?",
+      "primary_quote": "operates on the Grassmannian manifold of subspaces",
+      "quote_source": "atom_a",
+      "quote_verified_substring": true,
+      "reasoning_trace": {
+        "step": "merge ATOM A x ATOM B",
+        "inputs_seen": "A: MoE routing where gating weights come from concentration parameters of Matrix Bingham distributions on the Grassmannian manifold of subspaces. B: thermodynamic computing where hardware behaves stochastically to sample from a distribution of interest rather than deterministically.",
+        "reasoning": "I tried to transfer B's mechanism (hardware-native stochastic sampling from a target distribution) onto A's specific 'distribution of interest', the Matrix Bingham distribution over subspaces. I rejected the reverse transfer (using Grassmannian structure to describe thermodynamic state spaces) as vaguer and the alternative of merely adding noise to softmax gates as not exploiting either mechanism. The combination is non-trivial because Matrix Bingham / matrix Langevin distributions on Stiefel-Grassmann manifolds are genuinely hard to sample on digital hardware (rejection sampling scales poorly with dimension), and thermodynamic hardware is precisely a device that relaxes to sample from intractable Gibbs/Boltzmann distributions, so the two share the concrete computational bottleneck of sampling a constrained matrix distribution rather than just sharing the word 'distribution'.",
+        "decision": "I settled on a niche where GrMoE's Matrix Bingham gating is implemented as the equilibrium sampling target of a thermodynamic sampler, because it identifies a real shared object (the Bingham distribution) that one mechanism needs sampled and the other can natively sample.",
+        "confidence": "medium - the shared sampling bottleneck is concrete, but whether thermodynamic hardware can be physically biased to the exact Bingham concentration matrix is unverified",
+        "could_be_wrong_if": "thermodynamic samplers cannot encode arbitrary Matrix Bingham concentration parameters in their physical couplings, in which case the link is just 'both involve probability distributions' \u2014 a vocabulary analogy with no transferable mechanism."
+      },
+      "reasoning_trace_complete": true,
+      "parse_ok": true,
+      "attempts": 1,
+      "opus_session_id": "5bdca9e9-7dfa-43cb-9b6b-f855d5f49681",
+      "opus_cost_usd": 0.0634265
+    }
+  ]
+}

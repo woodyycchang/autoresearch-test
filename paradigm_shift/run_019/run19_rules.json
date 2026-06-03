@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run_019",
+  "title": "Run 19: persistent param file + sentence decomposition, multi-epoch convergence",
+  "description": "Merges Run 16 (persistent direction_params.json + label-driven param nudging across epochs) with Run 18 (sentence-level decomposition of verbatim abstracts + per-atom saturation + sparsest cross-paper pairing). Inherits the Run 17 transparency layer (reasoning_trace on every decision; AGENT 5 reasoning-auditor) and the Run 16 4 gates UNCHANGED. CONVERGENCE TARGET = SEARCH QUALITY (label-driven, has ground truth), NOT 'find a niche' (degenerate reward). Both metrics (avg_search_quality delta, avg_paper_hits delta) and the niche verdict are reported SEPARATELY and honestly (R12).",
+  "builds_on": ["paradigm_shift/run_018", "paradigm_shift/run_016", "paradigm_shift/run_017"],
+  "branch": "claude/run-19",
+  "stacked_on": "claude/run-18",
+  "scope": {"source_papers": 3, "atoms": "9-18 sentence-level", "candidates": 5, "epochs": "multiple (1 per session)", "model": "opus"},
+  "persistent_file": {
+    "path": "paradigm_shift/run_019/direction_params.json",
+    "rule": "R10: READ at epoch start, WRITE at epoch end. Carries epoch number, the 5 params, lagged labeled_examples, and epoch_history.",
+    "params": ["specificity", "mechanism_focus", "sparsity_seeking", "cross_paper_pairing", "collision_avoidance_phrasing"],
+    "param_to_dim": {"specificity": "specificity", "mechanism_focus": "mechanism_focus", "sparsity_seeking": "sparsity_seeking", "cross_paper_pairing": "cross_paper_pairing", "collision_avoidance_phrasing": "collision_avoidance"}
+  },
+  "search_quality": {
+    "definition": "avg_search_quality = sum_k(param_k * mean_dim_k) / sum_k(param_k), over all real search queries this epoch. Each query is scored on 5 deterministic [0,1] dimensions (AGENT 5). This is the convergence signal; it has ground truth via human labels (on_target vs diverge) applied with a one-epoch lag.",
+    "dimensions": ["specificity", "mechanism_focus", "sparsity_seeking", "cross_paper_pairing", "collision_avoidance"]
+  },
+  "param_update": {
+    "learning_rate": 0.2,
+    "rule": "at epoch START, consume lagged labeled_examples: for each param, nudge by lr*(mean dim-score of on_target queries - mean dim-score of diverge queries), clamped [0.05,0.95]. No labels => no change (baseline epoch). Deterministic.",
+    "lag": "labels for scored epoch N are applied at the start of epoch N+1"
+  },
+  "sourcing_method": {"rule": "R9: atoms decomposed from the VERBATIM abstract WebSearch returns for 'arxiv <id> <title> abstract'. WebFetch 403s.", "sparse_threshold": 10},
+  "reasoning_trace_schema": {"required_fields": ["step", "inputs_seen", "reasoning", "decision", "confidence", "could_be_wrong_if"]},
+  "agents": [
+    {"n": 1, "role": "sourcer/decomposer", "tools": ["WebSearch", "Bash"], "outputs": ["logs/atoms.json", "logs/atoms_reasoning.json"], "reads": "direction_params.params"},
+    {"n": 2, "role": "atom-saturation", "tools": ["WebSearch", "Bash"], "outputs": ["logs/atom_search.json"]},
+    {"n": 3, "role": "merger", "tools": ["Bash"], "runs": "run19_merge.py", "outputs": ["logs/candidates.json"]},
+    {"n": 4, "role": "verifier+crosschecker", "tools": ["WebSearch", "Bash"], "outputs": ["logs/verify.json", "logs/verify_reasoning.json", "logs/crosscheck.json"]},
+    {"n": 5, "role": "auditor + search-quality scorer", "tools": ["Bash"], "runs": "run19_audit.py", "outputs": ["logs/reasoning_audit.json", "logs/search_quality.json"]}
+  ],
+  "merge_schema": {"fields": ["mechanism", "transfer", "open_problem", "niche_name", "primary_quote", "quote_source", "reasoning_trace"], "primary_quote": "verbatim >=30-char substring of atom_a or atom_b"},
+  "pair_selection": {"n_candidates": 5, "rule": "cross-paper mechanism atoms ranked by combined per-atom paper-hits ASC; take 5 lowest", "tie_break": "lower max single-atom hits, then atom_id"},
+  "opus_subprocess": {"binary": "claude", "args": ["-p", "--model", "opus", "--output-format", "json"], "disallowed_tools": ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebSearch", "WebFetch"], "run_in_nongit_tempdir": true, "timeout_seconds": 300, "retry_on_parse_fail": 1},
+  "gates": {"gate_1_composite_threshold": 0.90, "gate_2": "no quarantined atoms", "gate_3_source": "verify (collision) fused with crosscheck (mismatch)", "gate_4": "Belinda strict (mechanism causal verb + >=30-char verbatim quote)"},
+  "hard_rules": {
+    "R1": "agents SEQUENTIAL, each commits+pushes before next",
+    "R2": "push after every agent; fail -> STOP+report",
+    "R3": "Opus subprocess in non-git tempdir",
+    "R4": "force raw JSON, 1 retry",
+    "R5": "record ONLY web_search results actually seen -- never fabricate",
+    "R6": "[REPORT] verbatim raw (incl reasoning_traces, per-atom search, search_quality)",
+    "R7": "AGENT 4 re-verifies; AGENT 5 audits logic",
+    "R8": "no .claude/settings.json activation in container",
+    "R9": "atoms from WebSearch verbatim abstracts (fetch is 403)",
+    "R10": "direction_params.json PERSISTS -- read at start, write at end",
+    "R11": "if session long -> commit partial + report",
+    "R12": "converge toward search_quality (has ground truth). Report search_quality delta + paper_hits delta + niche verdict SEPARATELY. Niche likely stays 0 (saturation) -- that is honest, not failure."
+  }
+}
