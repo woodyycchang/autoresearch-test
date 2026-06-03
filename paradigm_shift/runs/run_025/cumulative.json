@@ -1,6 +1,6 @@
 {
   "run": "run_025_cumulative",
-  "verdict": "NICHE_NOT_FOUND",
+  "verdict": "LEADS_FOUND_SUBGATE",
   "distribution": {
     "total_concepts": 98,
     "by_source": {
@@ -9,13 +9,9 @@
     },
     "deep_grounded_gap_verified": 54,
     "candidate_gaps_pre_crosscheck": 11,
-    "gaps_flipped_to_collision_by_crosscheck": [],
-    "gaps_surviving_crosscheck": [],
-    "gaps_unchecked_remaining": [
+    "gaps_flipped_to_collision_by_crosscheck": [
       "C30",
-      "C37",
       "C52",
-      "C57",
       "C65",
       "C69",
       "C77",
@@ -24,8 +20,13 @@
       "C94",
       "C98"
     ],
+    "gaps_surviving_crosscheck": [
+      "C37",
+      "C57"
+    ],
+    "gaps_unchecked_remaining": [],
     "survivors_clearing_gate1_0p90": [],
-    "max_composite_among_surviving_gaps": 0.6,
+    "max_composite_among_surviving_gaps": 0.45,
     "partB_family": {
       "B1": "COLLISION",
       "B2": "COLLISION",
@@ -451,9 +452,9 @@
       "hits": 6,
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": 0.6,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.3,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C31",
@@ -549,9 +550,9 @@
       "hits": 12,
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": 0.6,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.42,
+      "crosscheck_verdict": "SURVIVES",
+      "final_verdict": "GAP-SURVIVES"
     },
     {
       "id": "C38",
@@ -759,9 +760,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.18,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C53",
@@ -829,9 +830,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.45,
+      "crosscheck_verdict": "SURVIVES",
+      "final_verdict": "GAP-SURVIVES"
     },
     {
       "id": "C58",
@@ -941,9 +942,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.16,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C66",
@@ -997,9 +998,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.2,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C70",
@@ -1109,9 +1110,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.32,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C78",
@@ -1207,9 +1208,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.19,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C85",
@@ -1263,9 +1264,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.3,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C89",
@@ -1347,9 +1348,9 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.34,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     },
     {
       "id": "C95",
@@ -1403,12 +1404,90 @@
       "source_run": "run_025_partC",
       "deep_verified": true,
       "verify_verdict": "GAP",
-      "composite": null,
-      "crosscheck_verdict": null,
-      "final_verdict": "GAP-unchecked"
+      "composite": 0.33,
+      "crosscheck_verdict": "COLLISION",
+      "final_verdict": "COLLISION"
     }
   ],
-  "crosscheck": {},
+  "crosscheck": {
+    "C30": {
+      "verdict": "COLLISION",
+      "composite": 0.3,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "COLLIDES with 'Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypots' (Tang, Sun, Idreos et al., NeurIPS 2023; arXiv:2310.18633, https://arxiv.org/pdf/2310.18633). The honeypot module is a dedicated, expendable component appended to the PLM that PREFERENTIALLY ATTRACTS AND ABSORBS the adversarial/backdoor signal ('rapidly overfits poisoned samples', 'absorb backdoor information exclusively'), becoming the locus of the corruption ITSELF, while the stem/backbone network 'focuses exclusively on the original task' and is thereby spared. Crucially it is CONSUMED then DISCARDED ('upon completion of training, the honeypot can be removed') -- this is damage diversion + sacrificial consumption, NOT mere detection and NOT robustness conferral on the backbone. This is the prior art the narrow verifier missed; it instantiates the sacrificial-anode functional effect (expendable absorber sacrificed to protect the protected element) in an LLM. Related supporting prior art: Antibody (arXiv:2603.00498) attenuating harmful gradient influence, and the 'absorb-then-block-downstream-gradients' honeypot classifier framing."
+    },
+    "C37": {
+      "verdict": "SURVIVES",
+      "composite": 0.42,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "ABSENT (literal exact-mechanism). After aggressive search across constrained decoding, maximal-munch/longest-match tokenization, lexical selection/choice in NLG, defeasible/default reasoning in LLMs, MoE/mixture-of-softmaxes, and computational Paninian/Distributed-Morphology blocking, NO published ML/LLM technique was found that selects an output-slot candidate by FEATURE-SUBSET specificity (Subset Principle) with EXPLICIT BLOCKING of a less-specific default. The closest ML technique, maximal-munch tokenization (WordPiece), selects by STRING LENGTH not feature-subset specificity and has no explicit blocked-default form. Constrained decoding blocks by validity. Defeasible 'specific-overrides-general' exists as a reasoning idea but is not realized as a decoding selection rule (search results explicitly state so). The Elsewhere/Subset Principle is the linguistic SOURCE, and its only computational instantiations are symbolic Paninian/DM modeling, not neural LLM decoding."
+    },
+    "C57": {
+      "verdict": "SURVIVES",
+      "composite": 0.45,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "ABSENT (literal exact-mechanism). Aggressive search over repetition penalty/no-repeat-ngram, DPP diverse decoding, lateral-inhibition WTA, reaction-diffusion/Turing neural nets, refractory-period SNNs, neural cellular automata, and accumulate-threshold/refractory point processes found NO published technique that, at LLM decoding time, implements the full Liesegang signature: local accumulation -> nucleation threshold -> immediate LOCAL PROBABILITY DEPLETION -> refractory exclusion zone -> slow REFILL before the next commitment can occur at a MORE DISTANT location -> GEOMETRICALLY-SPACED periodic commitment events propagating outward. DPP (closest) does global volume repulsion without refractory refill or geometric outward propagation; repetition penalties block token identity without depletion/refill/spacing dynamics; reaction-diffusion/Turing yields STATIONARY periodic patterns, not sequential token commitment. The exact assembled mechanism is not present."
+    },
+    "C52": {
+      "verdict": "COLLISION",
+      "composite": 0.18,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "COLLISION on multiple fronts. (1) The exact LLM claim -- task-signal exceeds an entropy-regularization threshold causing uniform softmax to break into a peaked, specialized attention distribution -- is the documented entropy-guided/entropy-regularized attention literature with learnable per-head thresholds (arXiv 2501.03489 'Entropy-Guided Attention for Private LLMs', openreview nFHPfn8QWJ 'Regularizing the Entropy Landscape of Self-Attention'), plus the EmergentMind 'Attention Head Specialization' topic. (2) The underlying physics framing -- threshold-driven spontaneous symmetry breaking of a uniform field into a spatially periodic peaked pattern with wavelength set by competing forces -- is directly Turing/reaction-diffusion neural-network pattern formation and Neural Cellular Automata, AND is explicitly named in ML as 'Spontaneous Symmetry Breaking in Neural Networks' (arXiv 1710.06096) including the phase transition. (3) Multi-Head Attention as a Multi-Player Game (arXiv 2602.00861) describes the competing-penalty -> block-diagonal specialization equilibrium. Every functional component is established ML."
+    },
+    "C65": {
+      "verdict": "COLLISION",
+      "composite": 0.16,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "COLLISION. The abstract mechanism -- a unit continuously emitting an inhibitory substance into a shared, persistent, diffusing medium that suppresses neighboring units at a distance in proportion to local concentration -- is the textbook definition of (a) inhibitory/repulsive STIGMERGY via digital pheromones in multi-agent RL (arXiv 1911.12504, INRIA HAL stigmergy; repellent/cautionary pheromones in Royal Society rsos.190225 and arXiv 2202.01808), with temporal decay/accumulation explicitly modeled, and (b) LATERAL INHIBITION in neural networks (activated unit suppresses neighbors across space, winner-take-all decorrelation). Gossip-with-decay (arXiv 2508.01531) supplies the persistent-shared-medium + decay primitive. The specific 'degrade competing models in a shared representation space' wrapper additionally overlaps latent-space poisoning / availability attacks (arXiv 2012.05027, 2211.15875). Note flag confirmed: stigmergy/pheromone coordination is already-known LLM/multi-agent territory."
+    },
+    "C69": {
+      "verdict": "COLLISION",
+      "composite": 0.2,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "COLLISION, and matches the Run 24 'diapause -> conditional computation' precedent. The two functional pillars both have direct prior art: (1) 'ordered checkpoint-gated sequential program where each phase unlocks the next only after a gating criterion' = staged CURRICULUM LEARNING with performance-threshold-gated phase transitions (arXiv 2104.10461; CMU-ML-21-105) plus CONDITIONAL COMPUTATION / dynamic-depth gating (arXiv 2403.07965). (2) 'irreversible commitment to a compressed dormant checkpoint... then reactivate precisely when a specific signal is detected' = DORMANT-then-REACTIVATED experts/neurons: 'dormant experts survive and reactivate when their domain returns' (arXiv 2604.00812; Compressed Experts arXiv 2503.00634) and the ReDo Dormant Neuron Phenomenon (arXiv 2302.12902) with signal-triggered reset, plus progressive layer freezing into compressed checkpoints (Egeria arXiv 2201.06227; arXiv 2508.15033). No functional component is novel."
+    },
+    "C84": {
+      "verdict": "COLLISION",
+      "composite": 0.19,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "COLLISION. C84's two functional pillars are both standard LLM mechanisms: (1) 'each step projects incrementally further, stabilized only by already-committed prior mass, no resolving apex/keystone' = CAUSAL / AUTOREGRESSIVE generation and MONOTONIC / streaming attention -- each token predicted from already-committed prior tokens, no forward keystone (decoder causal masking; Monotonic Infinite Lookback arXiv 1906.05218 advances on committed tokens). (2) 'gap closed from both sides simultaneously, bridged without a central keystone token' = FILL-IN-THE-MIDDLE / text infilling, where a span is generated under simultaneous prefix-AND-suffix (bidirectional) conditioning and must bridge surrounding committed context (FIM arXiv 2508.19532 / 2506.00204; FiLM arXiv 2310.09930; Text Infilling arXiv 1901.00158; bidirectional/diffusion infilling). The candidate is a structural-engineering re-skin of FIM + incremental autoregressive commitment."
+    },
+    "C77": {
+      "verdict": "COLLISION",
+      "composite": 0.32,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "Direct collision with the neural-network pruning phase-transition / neural-collapse literature. 'Phase Transitions in Neural Networks Pruning' (arxiv 2602.15224) shows a percolation-like transition + SHARP COLLAPSE at a critical FRACTION of remaining edges. 'Neural Collapse Dynamics: ... Feature Norm Thresholds' (arxiv 2604.00230) is literally a THRESHOLD-GATED transition from DIFFUSE to CLUSTERED representation where removing/tuning the REGULARIZER (weight decay) controls a sharp regime boundary, and explicitly notes the abrupt grokking-like character. Grokking literature supplies the abrupt/irreversible emergent phase-transition. The candidate's claimed mechanism (remove a critical fraction of inhibitory regularizers -> abrupt irreversible diffuse->collapsed-cluster transition) is the documented functional content of all three families."
+    },
+    "C88": {
+      "verdict": "COLLISION",
+      "composite": 0.3,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "The LLM-application framing collides head-on with ResNet residual/skip connections. The candidate says: a cross-layer shortcut that, once present, 'sustains gradient flow past a high-loss barrier... enabling training of otherwise-stalled deep architectures without per-step external forcing.' That is the verbatim function of skip connections, described as 'gradient highways' that 'broke through the depth barrier' and let gradients 'flow freely through shortcut paths' with an identity path guaranteeing non-vanishing gradient (norm-preservation, arxiv 1805.07477). Separately, the abstract source effect (prime once -> self-sustaining flow with no ongoing external input) is the documented behavior of autoregressive self-feeding generation loops and self-sustaining point-attractor recurrent dynamics; the 'potential-difference-driven flow' maps to energy-based latent potential-flow traversal (arxiv 2304.12944). Every component has prior ML art."
+    },
+    "C94": {
+      "verdict": "COLLISION",
+      "composite": 0.34,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "Direct collision on the functional content. DriftSurf (ICML 2021, mlr.press/v139/tahmasbi21a) is precisely a TWO-STATE regime (stable / reactive) with SWITCHING TRIGGERED BY A DRIFT-DETECTION SIGNAL rather than an internal fixed schedule - the exact 'environment-signal-triggered cyclic switching between two fixed regimes' the candidate claims. 'Alternated Training with Synthetic and Authentic Data' (arxiv 2106.08582) is cyclic alternation between two fixed data sources. Dynamic data-mixing (TiKMiX arxiv 2508.17677; BiMix; Chameleon; online actor-critic mixing) explicitly shifts the corpus mixture by training STAGE to exploit differential data influence/richness. Mid-training surveys describe stage-triggered corpus shifting. The 'exploit different data-richness at different stages, signal-triggered, two fixed domains' description has no remaining ML-native novelty."
+    },
+    "C98": {
+      "verdict": "COLLISION",
+      "composite": 0.33,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "collision": "The structural function (sparse open-mesh SCAFFOLD + pliable dense FILL that hardens into ONE RIGID COMPOSITE via interlock, no adhesive) collides with two well-established families. (1) Hybrid sparse-dense attention - HySparse (arxiv 2602.03560) interleaves dense 'scaffold' full-attention layers with sparse layers into one architecture; PHSA (arxiv 2601.02819) uses boundary-ANCHOR tokens (the 'wattle') with dual-branch dense aggregation (the 'daub'). (2) Structural reparameterization - RepVGG (arxiv 2101.03697) trains a multi-branch (sparse identity/1x1 + dense 3x3) topology then ALGEBRAICALLY MERGES/FUSES all branches into a SINGLE compact 'tightly coupled' network with NO extra cost (i.e., locked into one rigid composite without an added 'adhesive' module). There is even a literal 'Sparse-Dense Mixture of Experts Adapter' (arxiv 2603.13719) and 'Sparse adapters... building blocks of modular architectures' that are merged into the base net. The candidate's dual-sided sparse-scaffold/dense-fill-fused-into-a-rigid-mass description is squarely covered."
+    }
+  },
   "partB": {
     "B1": {
       "id": "B1",
