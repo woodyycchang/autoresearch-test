@@ -1,0 +1,30 @@
+{
+  "run_id": "run_023",
+  "agent": "1_dual_sourcer",
+  "source": "B (recent techniques)",
+  "method": "WebSearch 'arxiv 2026 <technique>' (R9, only-seen). Each: the NEW capability it enables that older methods lacked, + usability evidence (code/pretrained) for R13.",
+  "queries_used": [
+    "arxiv 2026 time series foundation model zero-shot forecasting open source github sensor",
+    "arxiv 2026 neural operator Fourier physics simulation sparse sensors open source code",
+    "arxiv 2026 hyperspectral foundation model self-supervised few-shot pretrained code github",
+    "arxiv 2026 vision language model zero-shot few-shot anomaly detection industrial inspection code"
+  ],
+  "techniques": [
+    {"technique_id": "TSFM", "name": "Time-series foundation models (zero-shot forecasting)", "year": "2025-2026",
+     "exemplars": "Reverso (arXiv:2602.17634, 2.6M params), WindFM (github.com/shiyu-coder/WindFM), Mamba4Cast (github.com/automl/Mamba4Cast), Aurora (ICLR 2026)",
+     "new_capability": "Zero-shot forecasting of an unseen time series with NO task-specific training data -- a pretrained model forecasts a new process's sensor stream out of the box. Older ML needed a labeled history per process.",
+     "usable_now": true, "usability_evidence": "multiple open-source repos + compact pretrained checkpoints (WindFM 8.1M, Reverso 2.6M, Mamba4Cast)"},
+    {"technique_id": "FNO", "name": "Fourier Neural Operator for sparse-sensor field reconstruction", "year": "2025-2026 (FNO 2021, sparse-sensor recon recent)",
+     "exemplars": "RecFNO (arXiv:2302.09808, flow/heat field from sparse observations), neuraloperator library; Spectral-Inspired Neural Operator w/ limited data (2505.21573)",
+     "new_capability": "Reconstruct a FULL continuous physical field (e.g. internal temperature/heat) from only 5-10 sparse point sensors, resolution-invariant, with zero-shot super-resolution. Older CNN/POD methods need dense imaging or fail at super-resolution.",
+     "usable_now": true, "usability_evidence": "neuraloperator is a mature open library; RecFNO method published with results"},
+    {"technique_id": "HSIFM", "name": "Hyperspectral foundation models (self-supervised, few-shot)", "year": "2025-2026",
+     "exemplars": "SpectralEarth (arXiv:2408.08447, pretrained at scale), HyperFM (2604.21127), SpecAware (2510.27219), Cross-Domain Transfer of HSI FMs (2604.26478)",
+     "new_capability": "Label-EFFICIENT hyperspectral classification: an SSL-pretrained backbone fine-tunes on a FEW labeled samples. Older hyperspectral+ML (Run-22 mature approach) needs a large labeled dataset, which doesn't exist for niche processes.",
+     "usable_now": true, "usability_evidence": "SpectralEarth releases dataset + pretrained foundation models"},
+    {"technique_id": "VLMAD", "name": "Vision-language model zero-shot / few-shot anomaly detection", "year": "2025-2026",
+     "exemplars": "FADE (arXiv:2409.00556, github.com/BMVC-FADE/BMVC-FADE), SSVP (2601.09147), IADGPT (2508.10681), VMAD (2409.20146)",
+     "new_capability": "Detect/localize anomalies on UNSEEN objects with NO labeled defect data, via CLIP-based prompting / in-context learning. Older anomaly detection needed a labeled defect dataset per object.",
+     "usable_now": true, "usability_evidence": "FADE code public on GitHub; CLIP backbones are standard"}
+  ]
+}

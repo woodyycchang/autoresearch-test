@@ -1,0 +1,19 @@
+{
+  "run_id": "run_023",
+  "agent": "1_dual_sourcer",
+  "phase": "1_dual_sourcing",
+  "design": "Two corpora, sourced independently then PAIRED in PHASE 3. SOURCE A = under-served real-world processes (this file's subject). SOURCE B = recent (2025-2026) ML techniques with NEW capabilities (techniques.json). The Run 23 hypothesis: pairing a low-AI-penetration PROCESS with a RECENT technique whose NEW capability (zero-shot / label-free / sparse-sensor) matches the process's OPEN PROBLEM yields application gaps that the MATURE-technique pairing of Run 22 could not address (because mature methods need labeled data the niche process lacks).",
+  "reasoning_trace": {
+    "step": "source 4 under-served processes, each with a concrete open problem that maps to a recent technique's new capability",
+    "inputs_seen": "Run 22 ai_penetration.json (retting=0, cork=0, charcoal=1 on-target hits = confirmed low) + a fresh WebSearch on traditional indigo fermentation vats.",
+    "reasoning": "I deliberately CARRY 3 processes verbatim from Run 22 whose low penetration is already confirmed -- this lets PHASE 2 reuse those counts and isolates the ONE variable Run 23 changes: mature->recent technique. For each carried process I re-state the OPEN PROBLEM in terms of WHY a mature method stalls and WHICH new capability unlocks it: retting lacks a large labeled HSI dataset -> few-shot HSIFM; charcoal's internal field is unobservable except at a few points -> sparse-sensor FNO; cork has no labeled defect set -> zero-shot VLMAD. I add ONE genuinely new process -- the sukumo indigo vat -- because it is the cleanest possible match for a RECENT capability: a 'living' system judged purely by a craftsperson's intuition, with no labeled history, is exactly what zero-shot time-series forecasting (TSFM) and zero-shot visual anomaly detection (VLMAD) were built for. I rejected adding more mature-AI'd processes (saffron, sericulture) -- Run 22 showed they are already saturated.",
+    "decision": "4 processes: retting, cork_harvest, charcoal_kiln (carried, confirmed-low), indigo_vat (new). Each open_problem stated verbatim-grounded; each tagged with the recent capability it maps to.",
+    "confidence": "high -- 3 penetration counts are reused from Run 22's real searches; indigo_vat is freshly sourced verbatim. The maps_to_new_capability tags are HYPOTHESES to be tested by PHASE 2 maturity + PHASE 4 gap verification, not yet claims.",
+    "could_be_wrong_if": "the indigo vat already has published ML monitoring (PHASE 2/4 will check -- a 2022 microbiota-of-indigo-vat paper exists but characterizes microbes, not a deployed sensor/forecaster); or a carried process's penetration changed since Run 22 (re-checked opportunistically in PHASE 2)."
+  },
+  "honesty_notes": [
+    "Carrying 3 processes from Run 22 is a controlled-experiment choice, NOT a shortcut to inflate results: it holds the PROCESS corpus fixed so any difference in outcome is attributable to mature-vs-recent technique. The verdict must still pass all gates independently.",
+    "indigo_vat's open_problem_quote is copied verbatim from the WebSearch summary; the full open problem (vats 'die' unpredictably, no instrument) is paraphrased from the same source and will be re-verified, not asserted as fact.",
+    "maps_to_new_capability is the proposer's hypothesis-to-test; it is NOT a claim that the application works -- PHASE 4 must confirm no prior art and PHASE 5 must confirm the recent technique is actually usable now (R13)."
+  ]
+}

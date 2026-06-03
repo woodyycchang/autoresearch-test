@@ -1,0 +1,35 @@
+{
+  "run_id": "run_023",
+  "agent": "1_dual_sourcer",
+  "source": "A (real-world processes)",
+  "reframe": "Run 22 flipped the target (apply a MATURE AI technique to an under-served process) and found 3 opportunities. Run 23 tests whether RECENT (2025-2026) techniques -- which enable NEW capabilities mature methods lacked (zero-shot, label-free, sparse-sensor) -- open DIFFERENT or BETTER application gaps. SOURCE A = real-world processes with low AI penetration + a concrete open problem (verbatim). SOURCE B (techniques.json) = recent usable techniques. PHASE 3 pairs process x recent-technique.",
+  "method": "3 processes carried VERBATIM from Run 22 (retting, cork_harvest, charcoal_kiln) -- already CONFIRMED low on-target AI penetration in Run 22 ai_penetration.json (0,0,1), so PHASE 2 reuses those counts. 1 NEW process (indigo fermentation vat) sourced fresh via WebSearch (R9 only-seen, R5 verbatim). Each process states a concrete OPEN PROBLEM that maps to a NEW capability of a recent technique.",
+  "queries_used": [
+    "wikipedia retting flax fiber (carried verbatim from Run 22)",
+    "wikipedia cork harvesting stripping (carried verbatim from Run 22)",
+    "wikipedia charcoal earth kiln pyrolysis monitoring (carried verbatim from Run 22)",
+    "wikipedia indigo dye fermentation vat sukumo living vat craftsman experience reduction natural (NEW)"
+  ],
+  "processes": [
+    {"process_id": "retting", "domain": "textiles", "carried_from": "run_022", "url": "https://en.wikipedia.org/wiki/Retting",
+     "process": "Separating bast fibre from non-fibrous plant material by microbial or chemical degradation of the cementing compounds (pectin) that bind the fibres, followed by mechanical breaking and scutching.",
+     "open_problem": "Retting endpoint is judged by feel/experience; under-retting leaves fibres bound, over-retting weakens/dirties them; quality and timing vary widely with method (pond/stream/field) and conditions. NO labeled per-batch endpoint dataset exists.",
+     "open_problem_quote": "Retting endpoint is judged by feel/experience; under-retting leaves fibres bound, over-retting weakens/dirties them",
+     "maps_to_new_capability": "A label-EFFICIENT (few-shot) hyperspectral foundation model (HSIFM) could classify pectin-degradation state from a few labeled samples -- mature hyperspectral+ML needs a large labeled dataset that doesn't exist for niche retting."},
+    {"process_id": "cork_harvest", "domain": "craft/forestry", "carried_from": "run_022", "url": "https://en.wikipedia.org/wiki/Cork_(material)",
+     "process": "Manual stripping of cork-oak bark with a single hand axe (machado): a vertical incision in the deepest fissure, axe edge twisted between layers to pry the cork off, a horizontal cut sizing the sheet, peeled carefully to avoid splitting.",
+     "open_problem": "Stripping is undertaken by specialised professionals with absolute precision; success depends entirely on the harvester's skill, and cutting too deep damages the cambium (harming the tree); the larger the intact sheet, the higher its commercial value. There is no labeled defect dataset of 'good vs cambium-damaging' strips.",
+     "open_problem_quote": "Success depends entirely on the harvester's skill.",
+     "maps_to_new_capability": "A vision-language zero-shot anomaly detector (VLMAD) could flag an anomalous (about-to-split / cambium-exposing) strip surface with NO labeled defect dataset -- older anomaly detection needed a labeled defect set per object, which does not exist for cork."},
+    {"process_id": "charcoal_kiln", "domain": "industrial/traditional", "carried_from": "run_022", "url": "https://en.wikipedia.org/wiki/Charcoal",
+     "process": "Traditional earth-mound (earth kiln) pyrolysis: logs stacked in a conical mound covered with earth, with base air vents and a central chimney; carbonization regulated and monitored by smoke-color changes from white to blue/clear.",
+     "open_problem": "Workers maintain 24/7 observation tracking smoke-color changes as the key indicator of pyrolysis stage; traditional earth-mound kilns achieve only ~15-25% yield (70-80% of the wood's energy lost as smoke/gas/heat). The internal temperature FIELD is unobservable -- only a few surface points can be measured.",
+     "open_problem_quote": "workers maintain constant vigilance through 24/7 observation to monitor the carbonization process",
+     "maps_to_new_capability": "A Fourier Neural Operator (FNO) could reconstruct the FULL internal temperature field of the mound from only 5-10 cheap thermocouples (sparse-sensor field reconstruction) -- mature CNN/POD reconstruction needs dense imaging the kiln cannot provide."},
+    {"process_id": "indigo_vat", "domain": "craft/textiles", "carried_from": null, "url": "https://en.wikipedia.org/wiki/Indigo_dye",
+     "process": "Traditional sukumo fermentation indigo vat: composted indigo leaves (Polygonum tinctorium) plus cellulose plant material feed an alkaline microbial culture; microorganisms active in the alkaline environment reduce the indigo (no chemical reducing agent). The vat is a 'living', continuously changing microbial system.",
+     "open_problem": "Managing the dye solution once it is placed in the vat is extremely difficult since it is a natural substance that is always changing depending on temperature, humidity, and climatic conditions, so one can only rely on the intuition gained from many years of experience, using one's five senses. Vats can 'die' unpredictably; there is no instrument that tells the craftsperson the vat's health/state, and no labeled time-series of vat trajectories.",
+     "open_problem_quote": "one can only rely on the intuition gained from many years of experience, using one's five senses",
+     "maps_to_new_capability": "A time-series foundation model (TSFM) could ZERO-SHOT forecast a vat's pH/redox/temperature sensor stream to predict a crash before it happens, with NO per-vat labeled history -- mature forecasting needs a labeled history per vat that doesn't exist; AND a VLM zero-shot anomaly detector could read the surface 'flower'/foam state without a labeled image set."}
+  ]
+}
