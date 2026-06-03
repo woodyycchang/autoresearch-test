@@ -1,7 +1,7 @@
 {
   "run_id": "run_019",
-  "epoch": 5,
-  "scored_epoch": 4,
+  "epoch": 6,
+  "scored_epoch": 5,
   "params": {
     "specificity": 0.5022,
     "mechanism_focus": 0.525,
@@ -62,6 +62,19 @@
         "collision_avoidance_phrasing": 0.5593
       },
       "note": "re-nudge with fixed scorer (collision_avoidance 0.5293->0.5593); AGENT 1 emitted 12 researcher-style gap-probe queries (diverge types dropped); science held fixed"
+    },
+    {
+      "epoch": 5,
+      "avg_search_quality": 0.9692,
+      "avg_paper_hits": 21.4,
+      "params": {
+        "specificity": 0.5022,
+        "mechanism_focus": 0.525,
+        "sparsity_seeking": 0.5408,
+        "cross_paper_pairing": 0.5463,
+        "collision_avoidance_phrasing": 0.5593
+      },
+      "note": "JOINT-objective query optimization: dense gap-probes packing specific rare cross-domain mechanisms; ALL 5 dims rose (sparsity 0.52->0.91 recovered); trade-off BROKEN; metric near ceiling (0.9692, 8/10 queries maxed)"
     }
   ],
   "applied_labels_log": [
@@ -150,6 +163,6 @@
       "applied_at": "2026-06-03T00:08:41.878357+00:00"
     }
   ],
-  "note": "PERSISTENT (R10). Epoch 4: collision_avoidance param strengthened + all-gap-probe query set; search_quality 0.8130->0.8355 (STILL CLIMBING). See RUN_019_EPOCH4_REPORT.md.",
+  "note": "PERSISTENT (R10). Epoch 5: joint objective broke the dim trade-off; search_quality 0.8355->0.9692 (near 1.0 ceiling). Metric SATURATING -> recommend STOP (further gains = Goodharting a deterministic proxy). See RUN_019_EPOCH5_REPORT.md.",
   "updated_at": "2026-06-01T22:44:29.470004+00:00"
 }
