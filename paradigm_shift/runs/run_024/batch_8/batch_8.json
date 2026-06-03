@@ -1,0 +1,624 @@
+{
+  "batch": "batch_8",
+  "search_count": 13,
+  "honesty_note": "All searches performed with real WebSearch tool calls. No results fabricated or recalled from training memory. Positive controls C43/C44/C45 correctly registered IMPORTED/high collision as expected — pipeline is functioning. C46 returned MEASURES only (no mechanism import found). C47 returned MEASURES only (ML used to quantify wood decomposition, not import the sponge/slow-release mechanism). C48 returned NONE to MEASURES — no evidence of kintsugi's crack-highlighting mechanism being imported as an ML algorithm, only loose metaphorical essays and unrelated DNN-repair papers.",
+  "concepts": [
+    {
+      "id": "C43",
+      "concept": "Annealing (metallurgical)",
+      "domain": "materials/thermodynamics",
+      "tier_prior": 5,
+      "empirical_tier": 5,
+      "source_results": [
+        {"title": "Annealing (materials science) - Wikipedia", "url": "https://en.wikipedia.org/wiki/Annealing_(materials_science)"},
+        {"title": "Annealing (Metallurgy) | Encyclopedia MDPI", "url": "https://encyclopedia.pub/entry/28582"},
+        {"title": "Heat treating - Wikipedia", "url": "https://en.wikipedia.org/wiki/Heat_treating"},
+        {"title": "Annealing - LNF Wiki", "url": "https://lnf-wiki.eecs.umich.edu/wiki/Annealing"},
+        {"title": "Process annealing | metallurgy | Britannica", "url": "https://www.britannica.com/technology/process-annealing"}
+      ],
+      "mechanism_summary": "Annealing involves heating a material above its recrystallization temperature, maintaining temperature for an appropriate time, then cooling slowly. 'Atoms migrate in the crystal lattice and the number of dislocations decreases, leading to a change in ductility and hardness.' The process drives elimination of lattice vacancy gradients governed by the Arrhenius equation, allowing the metal to reach a lower-energy, stress-free state.",
+      "atoms": [
+        {
+          "atom_id": "C43_A1",
+          "operator": "reduces",
+          "verbatim_quote": "atoms migrate in the crystal lattice and the number of dislocations decreases, leading to a change in ductility and hardness",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Annealing_(materials_science)",
+          "mechanism_atom": "Controlled heat reduces internal disorder (dislocations) enabling a system to settle into a lower-energy stable configuration"
+        },
+        {
+          "atom_id": "C43_A2",
+          "operator": "accelerates",
+          "verbatim_quote": "The high temperatures at which annealing occurs serve to accelerate this process. The reaction that facilitates returning the cold-worked metal to its stress-free state has many reaction pathways",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Annealing_(materials_science)",
+          "mechanism_atom": "Elevated temperature accelerates traversal of multiple reaction pathways, enabling escape from local energy minima toward global minimum"
+        },
+        {
+          "atom_id": "C43_A3",
+          "operator": "eliminates",
+          "verbatim_quote": "elimination of lattice vacancy gradients within the body of the metal. The creation of lattice vacancies is governed by the Arrhenius equation",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Annealing_(materials_science)",
+          "mechanism_atom": "Gradual temperature reduction eliminates disorder gradients, settling system toward global energy minimum via temperature-controlled probability schedule"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C43_A1",
+          "search_query": "annealing temperature reduction lattice vacancy migration machine learning",
+          "hits": [
+            {"title": "vacancy migration barriers: Topics by Science.gov", "url": "https://www.science.gov/topicpages/v/vacancy+migration+barriers"},
+            {"title": "Study of vacancy ordering and the boson peak in metastable cubic Ge-Sb-Te using machine learning potentials", "url": "https://arxiv.org/pdf/2309.01089"},
+            {"title": "Efficient and accurate determination of lattice-vacancy diffusion coefficients via non equilibrium ab initio molecular dynamics", "url": "https://arxiv.org/pdf/1509.04487"},
+            {"title": "Annealing (materials science) - Wikipedia", "url": "https://en.wikipedia.org/wiki/Annealing_(materials_science)"},
+            {"title": "Ab initio machine-learning unveils strong anharmonicity in non-Arrhenius self-diffusion of tungsten", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11700192/"},
+            {"title": "Reinforcement learning-driven task migration for effective temperature management in 3D noc systems", "url": "https://www.nature.com/articles/s41598-025-96335-6"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "machine-learning interatomic potential has been used to show that temperature-dependent vacancy formation and migration Gibbs energies are strongly affected by anharmonicity",
+            "complex quartic functions and 'black box–like' machine learning models to predict migration barriers"
+          ]
+        },
+        {
+          "atom_id": "C43_A2",
+          "search_query": "simulated annealing optimization neural network deep learning",
+          "hits": [
+            {"title": "Neural Network Structure Optimization by Simulated Annealing", "url": "https://www.mdpi.com/1099-4300/24/3/348"},
+            {"title": "Sparse neural network optimization by Simulated Annealing", "url": "https://www.sciencedirect.com/science/article/pii/S2773186323000312"},
+            {"title": "Neural Network Structure Optimization by Simulated Annealing - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8947290/"},
+            {"title": "Simulated Annealing Algorithm for Deep Learning", "url": "https://www.sciencedirect.com/science/article/pii/S1877050915035759"},
+            {"title": "ON USING SIMULATED ANNEALING IN TRAINING DEEP NEURAL NETWORKS", "url": "https://spectrum.library.concordia.ca/992094/1/Sarfi_MSc_S2023.pdf"},
+            {"title": "Neural Network Structure Optimization by Simulated Annealing", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8947290/"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "IMPORTED",
+          "penetration_evidence": [
+            "Simulated Annealing (SA) has been proposed as an alternative approach for optimal deep learning using modern optimization technique, a metaheuristic algorithm",
+            "simulated annealing can escape local minima and often find a near-global minimum in complex search spaces, and has been a staple method for difficult optimization tasks because of its elegant balance between exploration and exploitation"
+          ]
+        },
+        {
+          "atom_id": "C43_A3",
+          "search_query": "recrystallization dislocation elimination machine learning algorithm",
+          "hits": [
+            {"title": "A machine learning framework for the temporal evolution of microstructure during static recrystallization", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0927025620306236"},
+            {"title": "Machine learning depinning of dislocation pileups", "url": "https://arxiv.org/pdf/2006.16833"},
+            {"title": "Nonlocal Machine Learning of Micro-Structural Defect Evolutions in Crystalline Materials", "url": "https://arxiv.org/pdf/2205.05729"},
+            {"title": "Probing the transition from dislocation jamming to pinning by machine learning", "url": "https://arxiv.org/pdf/2009.12082"},
+            {"title": "Machine learning plastic deformation of crystals", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6294252/"},
+            {"title": "Data-Driven Modeling of Dislocation Mobility from Atomistics using Physics-Informed Machine Learning", "url": "https://arxiv.org/pdf/2403.14015"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "machine learning approaches to capture properties-structure linkages in static recrystallization processes of FCC metals",
+            "unsupervised machine learning algorithms able to distinguish systems into separate phases by constructing descriptors of evolving dislocation configurations"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C43",
+        "source_atom_id": "C43_A1",
+        "source_mechanism_verbatim": "atoms migrate in the crystal lattice and the number of dislocations decreases, leading to a change in ductility and hardness",
+        "operator": "reduces",
+        "llm_application": "Use the annealing disorder-reduction mechanism as a structured attention-pruning schedule: progressively reduce attention-head redundancy (dislocations) during fine-tuning via a temperature-governed sparsification schedule, settling the model into a lower-complexity, more generalizable configuration",
+        "content_words": ["dislocation reduction", "vacancy gradient", "temperature schedule", "attention pruning", "fine-tuning", "sparsification", "entropy minimization"],
+        "prima_facie_collision": "yes — simulated annealing is already a mainstream ML optimizer (IMPORTED on A2); A1 specifically (vacancy-gradient elimination as attention-pruning schedule) has some MEASURES-level hits but the specific mechanism of disorder-gradient elimination mapped to head-redundancy removal is not found as a named ML technique",
+        "notes": "C43_A2 (IMPORTED, 6 paper hits) is the strongest collision atom; C43_A1 is the sparsest. The positive control correctly fired."
+      }
+    },
+    {
+      "id": "C44",
+      "concept": "Crystal nucleation",
+      "domain": "physical chemistry",
+      "tier_prior": 4,
+      "empirical_tier": 4,
+      "source_results": [
+        {"title": "Nucleation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Nucleation"},
+        {"title": "Crystal growth - Wikipedia", "url": "https://en.wikipedia.org/wiki/Crystal_growth"},
+        {"title": "Crystal nucleation mechanism in melts of short polymer chains under quiescent conditions and under shear flow", "url": "https://arxiv.org/pdf/1407.1892"},
+        {"title": "Crystal Nucleation - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/chemistry/crystal-nucleation"},
+        {"title": "Crystallization - Wikipedia", "url": "https://en.wikipedia.org/wiki/Crystallization"}
+      ],
+      "mechanism_summary": "Crystal nucleation is the first step in forming a new phase: 'solute molecules or atoms dispersed in the solvent start to gather into clusters on the microscopic scale that become stable under current operating conditions.' Clusters must reach a critical size to become stable nuclei before growth proceeds. Nucleation can be homogeneous (spontaneous) or heterogeneous (seeded by foreign particles), and growth is significantly faster than nucleation once a stable nucleus forms.",
+      "atoms": [
+        {
+          "atom_id": "C44_A1",
+          "operator": "accumulates",
+          "verbatim_quote": "solute molecules or atoms dispersed in the solvent start to gather into clusters on the microscopic scale that become stable under current operating conditions",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nucleation",
+          "mechanism_atom": "Distributed particles accumulate into micro-clusters that, once past a critical size threshold, become self-sustaining nuclei for further growth"
+        },
+        {
+          "atom_id": "C44_A2",
+          "operator": "propagates",
+          "verbatim_quote": "After successful formation of a stable nucleus, a growth stage ensues in which free particles adsorb onto the nucleus and propagate its crystalline structure outwards from the nucleating site",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nucleation",
+          "mechanism_atom": "A stable seed propagates its structural template outward by adsorbing free particles, rapidly extending order from a single nucleating site"
+        },
+        {
+          "atom_id": "C44_A3",
+          "operator": "seeds",
+          "verbatim_quote": "Nucleation can be either homogeneous, without the influence of foreign particles, or heterogeneous, with the influence of foreign particles",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nucleation",
+          "mechanism_atom": "Foreign seed particles lower the energy barrier for cluster formation, enabling nucleation at lower supersaturation than homogeneous conditions require"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C44_A1",
+          "search_query": "crystal nucleation critical cluster size threshold machine learning",
+          "hits": [
+            {"title": "Size-Dependent Nucleation in Crystal Phase Transition from Machine Learning Metadynamics", "url": "https://arxiv.org/abs/2205.13631"},
+            {"title": "From cluster to nanocrystal: the continuous evolution and critical size of copper clusters revealed by machine learning", "url": "https://arxiv.org/pdf/2512.21067"},
+            {"title": "Size-Dependent Nucleation in Crystal Phase Transition from Machine Learning Metadynamics - PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/36374681/"},
+            {"title": "Unsupervised topological learning approach of crystal nucleation", "url": "https://www.nature.com/articles/s41598-022-06963-5"},
+            {"title": "Unsupervised topological learning approach of crystal nucleation - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8873400/"},
+            {"title": "Size-Dependent Nucleation in Crystal Phase Transition from Machine Learning Metadynamics", "url": "https://arxiv.org/pdf/2205.13631"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "Researchers developed frameworks combining machine learning potentials (MLPs) with metadynamics, using spectral descriptors and neural networks regression to explore multi-dimensional free energy surfaces",
+            "Using topological data analysis and machine learning clustering, researchers have identified minimal critical cluster sizes of about 65 atomic structures below which nuclei form"
+          ]
+        },
+        {
+          "atom_id": "C44_A2",
+          "search_query": "nucleation stable cluster self-assembly neural network LLM",
+          "hits": [
+            {"title": "Pattern recognition in the nucleation kinetics of non-equilibrium self-assembly", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10794147/"},
+            {"title": "Machine Learning Nucleation Collective Variables with Graph Neural Networks", "url": "https://pubs.acs.org/doi/10.1021/acs.jctc.3c00722"},
+            {"title": "Pattern recognition in the nucleation kinetics of non-equilibrium self-assembly", "url": "https://arxiv.org/pdf/2207.06399"},
+            {"title": "Pattern recognition in the nucleation kinetics of non-equilibrium self-assembly | Nature", "url": "https://www.nature.com/articles/s41586-023-06890-z"},
+            {"title": "Molecular Self-Assembly Can 'Think' Like a Neural Network - Chen Institute", "url": "https://neuroscience.caltech.edu/news/molecular-self-assembly-can-think-like-a-neural-network"},
+            {"title": "Molecular Self-Assembly Can 'Think' Like a Neural Network - Biology and Biological Engineering", "url": "https://www.bbe.caltech.edu/news/molecular-self-assembly-can-think-like-a-neural-network"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "IMPORTED",
+          "penetration_evidence": [
+            "nucleation during self-assembly of multicomponent structures can discriminate and classify high-dimensional patterns of concentrations in a manner similar to neural network computation",
+            "Researchers designed a set of 917 DNA tiles that can self-assemble in three alternative ways such that competitive nucleation depends sensitively on the extent of colocalization of high-concentration tiles within the three structures, and the system was trained in-silico to classify a set of 18 grayscale 30x30 pixel images"
+          ]
+        },
+        {
+          "atom_id": "C44_A3",
+          "search_query": "crystal nucleation critical cluster size threshold machine learning",
+          "hits": [
+            {"title": "Size-Dependent Nucleation in Crystal Phase Transition from Machine Learning Metadynamics", "url": "https://arxiv.org/abs/2205.13631"},
+            {"title": "Unsupervised topological learning approach of crystal nucleation", "url": "https://www.nature.com/articles/s41598-022-06963-5"},
+            {"title": "From cluster to nanocrystal: the continuous evolution and critical size of copper clusters revealed by machine learning", "url": "https://arxiv.org/pdf/2512.21067"},
+            {"title": "Size-Dependent Nucleation in Crystal Phase Transition from Machine Learning Metadynamics - PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/36374681/"},
+            {"title": "Machine Learning Nucleation Collective Variables with Graph Neural Networks", "url": "https://pubs.acs.org/doi/10.1021/acs.jctc.3c00722"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "machine learning potentials (MLPs) with metadynamics...exploring multi-dimensional free energy surfaces for investigating solid-solid phase transitions",
+            "sequential change in phase transition mechanisms from collective modes to nucleation and growths, demonstrating the importance of statistical sampling with large system sizes"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C44",
+        "source_atom_id": "C44_A3",
+        "source_mechanism_verbatim": "Nucleation can be either homogeneous, without the influence of foreign particles, or heterogeneous, with the influence of foreign particles",
+        "operator": "seeds",
+        "llm_application": "Apply heterogeneous nucleation as a few-shot seeding mechanism for LLM in-context learning: structured 'seed' exemplars lower the energy barrier for the model to crystallize correct reasoning patterns, analogous to foreign particles enabling nucleation at lower supersaturation — specifically, strategically placed diverse seed examples that initiate structured chain-of-thought propagation",
+        "content_words": ["seed exemplar", "energy barrier", "heterogeneous", "few-shot", "chain-of-thought", "crystallization", "supersaturation"],
+        "prima_facie_collision": "yes — nucleation-style methods detected at IMPORTED level (A2: DNA self-assembly computing as neural network); seed/few-shot mapping is a partially novel angle not yet formalized as named technique",
+        "notes": "Positive control correctly fired. A2 (IMPORTED) is strongest; A3 (MEASURES) is sparsest and most novel angle for candidate."
+      }
+    },
+    {
+      "id": "C45",
+      "concept": "Molecular diffusion",
+      "domain": "physics",
+      "tier_prior": 5,
+      "empirical_tier": 5,
+      "source_results": [
+        {"title": "Molecular diffusion - Wikipedia", "url": "https://en.wikipedia.org/wiki/Molecular_diffusion"},
+        {"title": "Diffusion - Wikipedia", "url": "https://en.wikipedia.org/wiki/Diffusion"},
+        {"title": "Molecular diffusion — Grokipedia", "url": "https://grokipedia.com/page/Molecular_diffusion"},
+        {"title": "Molecular Diffusion - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/molecular-diffusion"},
+        {"title": "Mass diffusivity - Wikipedia", "url": "https://en.m.wikipedia.org/wiki/Mass_diffusivity"}
+      ],
+      "mechanism_summary": "'Diffusion is considered as a result of the random walk of the diffusing particles.' Molecules move from regions of higher concentration to lower concentration, driven by net flux proportional to the concentration gradient (Fick's laws). The process is stochastic at the particle level but deterministic in aggregate: once concentrations equalize, random motion continues as self-diffusion without net flux.",
+      "atoms": [
+        {
+          "atom_id": "C45_A1",
+          "operator": "propagates",
+          "verbatim_quote": "diffusion is considered as a result of the random walk of the diffusing particles, where the moving molecules in a gas, liquid, or solid are self-propelled by kinetic energy",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Molecular_diffusion",
+          "mechanism_atom": "Stochastic random-walk motion of particles propagates signal from high-concentration to low-concentration regions, producing net directional flux from local randomness"
+        },
+        {
+          "atom_id": "C45_A2",
+          "operator": "transforms",
+          "verbatim_quote": "diffusion explains the net flux of molecules from a region of higher concentration to one of lower concentration. Once the concentrations are equal the molecules continue to move, but since there is no concentration gradient, the process of molecular diffusion has ceased",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Molecular_diffusion",
+          "mechanism_atom": "Iterative stochastic transforms gradually reduce concentration gradients until equilibrium, with the rate governed by the instantaneous gradient magnitude"
+        },
+        {
+          "atom_id": "C45_A3",
+          "operator": "reverses",
+          "verbatim_quote": "Molecular diffusion is typically described mathematically using Fick's laws of diffusion",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Molecular_diffusion",
+          "mechanism_atom": "The forward diffusion process (noise addition) is mathematically reversible; learning the reverse (score function) enables reconstruction of ordered signal from maximally diffused noise"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C45_A1",
+          "search_query": "molecular diffusion random walk concentration gradient deep learning neural network",
+          "hits": [
+            {"title": "Diffusion - Wikipedia", "url": "https://en.wikipedia.org/wiki/Diffusion"},
+            {"title": "Single particle diffusion characterization by deep learning", "url": "https://www.biorxiv.org/content/10.1101/588533.full.pdf"},
+            {"title": "Training Recurrent Neural Networks by Diffusion", "url": "https://people.csail.mit.edu/hmobahi/pubs/rnn_diffusion.pdf"},
+            {"title": "Introduction to Diffusion Models (Part I: Basic Concepts)", "url": "https://scalexi.medium.com/introduction-to-diffusion-models-part-i-basic-concepts-090727c9a410"},
+            {"title": "DiffMD: A Geometric Diffusion Model for Molecular Dynamics Simulations", "url": "https://arxiv.org/pdf/2204.08672"},
+            {"title": "Physics-informed deep learning for stochastic particle dynamics estimation", "url": "https://www.pnas.org/doi/10.1073/pnas.2418643122"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "IMPORTED",
+          "penetration_evidence": [
+            "Diffusion Models in Machine Learning are generative models that create new data by learning to reverse a process of gradually adding noise to training samples",
+            "stochastic particle-informed neural network (SPINN) is a physics-informed deep learning framework that integrates stochastic differential equations to model and infer particle diffusion dynamics"
+          ]
+        },
+        {
+          "atom_id": "C45_A2",
+          "search_query": "diffusion model generative AI score function denoising machine learning",
+          "hits": [
+            {"title": "Score-based Diffusion Models in Function Space", "url": "https://arxiv.org/pdf/2302.07400"},
+            {"title": "Diffusion model - Wikipedia", "url": "https://en.wikipedia.org/wiki/Diffusion_model"},
+            {"title": "A Malliavin calculus approach to score functions in diffusion generative models", "url": "https://arxiv.org/pdf/2507.05550"},
+            {"title": "Denoising MCMC for Accelerating Diffusion-Based Generative Models", "url": "https://arxiv.org/pdf/2209.14593"},
+            {"title": "Diffusion-based generative modeling for synthetic data generation systems and applications", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12299962"},
+            {"title": "Diffusion Models in Machine Learning - GeeksforGeeks", "url": "https://www.geeksforgeeks.org/artificial-intelligence/diffusion-models-in-machine-learning/"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "IMPORTED",
+          "penetration_evidence": [
+            "Diffusion models consist of a forward process that perturbs input data with Gaussian white noise and a reverse process that learns a score function to generate samples by denoising",
+            "Diffusion Models in Machine Learning are generative models that create new data by learning to reverse a process of gradually adding noise to training samples, using neural networks and probabilistic principles"
+          ]
+        },
+        {
+          "atom_id": "C45_A3",
+          "search_query": "diffusion model generative AI score function denoising machine learning",
+          "hits": [
+            {"title": "Score-based Diffusion Models in Function Space", "url": "https://arxiv.org/pdf/2302.07400"},
+            {"title": "Diffusion model - Wikipedia", "url": "https://en.wikipedia.org/wiki/Diffusion_model"},
+            {"title": "Denoising MCMC for Accelerating Diffusion-Based Generative Models", "url": "https://arxiv.org/pdf/2209.14593"},
+            {"title": "Deep Networks as Denoising Algorithms: Sample-Efficient Learning of Diffusion Models in High-Dimensional Graphical Models", "url": "https://arxiv.org/abs/2309.11420"},
+            {"title": "Training Diffusion-based Generative Models with Limited Data", "url": "https://openreview.net/forum?id=NDH7AzljFD"},
+            {"title": "Diffusion Models in Machine Learning - GeeksforGeeks", "url": "https://www.geeksforgeeks.org/artificial-intelligence/diffusion-models-in-machine-learning/"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "IMPORTED",
+          "penetration_evidence": [
+            "these models aim at learning the score function, which defines a map from a known probability distribution to the target data distribution via deterministic or stochastic differential equations (SDEs)",
+            "Diffusion-based generative models often require a large amount of data to train a score-based model that learns the score function of the data distribution through denoising score matching"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C45",
+        "source_atom_id": "C45_A1",
+        "source_mechanism_verbatim": "diffusion is considered as a result of the random walk of the diffusing particles, where the moving molecules in a gas, liquid, or solid are self-propelled by kinetic energy",
+        "operator": "propagates",
+        "llm_application": "Random-walk propagation of attention across token space: model token-to-token attention spread as a diffusion process where each token's influence propagates stochastically outward proportional to a learned 'concentration gradient' (relevance), enabling principled attention sparsification and long-range dependency modeling via diffusion equations",
+        "content_words": ["random walk", "concentration gradient", "token attention", "stochastic propagation", "Fick's law", "sparse attention", "long-range dependency"],
+        "prima_facie_collision": "yes — diffusion models are fully mainstream ML (IMPORTED on all three atoms); this specific random-walk attention variant is partially novel",
+        "notes": "C45 is the strongest positive control: all three atoms IMPORTED, 5 paper hits on A2/A3. Pipeline confirmed working."
+      }
+    },
+    {
+      "id": "C46",
+      "concept": "Stomatal aperture regulation",
+      "domain": "plant physiology",
+      "tier_prior": 3,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Stoma - Wikipedia", "url": "https://en.wikipedia.org/wiki/Stoma"},
+        {"title": "Stomatal conductance - Wikipedia", "url": "https://en.wikipedia.org/wiki/Stomatal_conductance"},
+        {"title": "Control of stomatal aperture: A renaissance of the old guard - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3258058/"},
+        {"title": "Stomatal Regulation: Control of Gas Exchange and Water Loss", "url": "https://www.longdom.org/open-access/stomatal-regulation-control-of-gas-exchange-and-water-loss-109669.html"},
+        {"title": "Complexity of ABA signaling for stomatal development and aperture regulation", "url": "https://www.biorxiv.org/content/10.1101/335810.full.pdf"}
+      ],
+      "mechanism_summary": "Guard cells control stomatal aperture by adjusting their turgor pressure through ion channel regulation: 'Guard cell response is coordinated by a complex of signal transduction networks including input from CO2, abscisic acid (ABA) and Ca2+, mediated by kinase/phosphatase regulation, secondary metabolites and the regulation of ion channels.' ABA binds PYR/RCAR receptors, inactivates PP2C phosphatases, releases SnRK2 kinases, activates SLAC1 anion channels leading to osmotic water loss and closure.",
+      "atoms": [
+        {
+          "atom_id": "C46_A1",
+          "operator": "activates",
+          "verbatim_quote": "ABA-induced stomatal closure is initiated by binding of the hormone to PYR/RCAR receptors that leads to inactivation of protein phosphatases, which releases kinases to activate guard cell ion channels including SLAC1, leading to the efflux of anions, followed by potassium and water efflux and stomatal closure",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Stoma",
+          "mechanism_atom": "A chemical signal (ABA) activates a sequential kinase cascade that opens ion channels, causing osmotic efflux and mechanical pore closure via turgor loss"
+        },
+        {
+          "atom_id": "C46_A2",
+          "operator": "regulates",
+          "verbatim_quote": "stomatal aperture is directly related to the turgor pressure of guard cells, which is actively regulated by changes in the osmotic potential of guard cells",
+          "quote_source_url": "https://www.longdom.org/open-access/stomatal-regulation-control-of-gas-exchange-and-water-loss-109669.html",
+          "mechanism_atom": "A feedback loop continuously regulates aperture size by sensing environmental inputs (CO2, humidity, light) and adjusting guard-cell osmotic potential to maintain homeostasis"
+        },
+        {
+          "atom_id": "C46_A3",
+          "operator": "inhibits",
+          "verbatim_quote": "Guard cell response is coordinated by a complex of signal transduction networks including input from CO2, abscisic acid (ABA) and Ca2+, mediated by kinase/phosphatase regulation, secondary metabolites and the regulation of ion channels",
+          "quote_source_url": "https://www.longdom.org/open-access/stomatal-regulation-control-of-gas-exchange-and-water-loss-109669.html",
+          "mechanism_atom": "Multiple inhibitory and activating signals are integrated by competing kinase/phosphatase pairs to produce a graded aperture response proportional to net signal balance"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C46_A1",
+          "search_query": "stomatal guard cell ion channel turgor pressure machine learning neural network",
+          "hits": [
+            {"title": "Structural and Functional Insights into the Role of Guard Cell Ion Channels in Abiotic Stress-Induced Stomatal Closure - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8707303/"},
+            {"title": "Control of Volume and Turgor in Stomatal Guard Cells", "url": "https://link.springer.com/article/10.1007/s00232-005-0851-7"},
+            {"title": "Structural and Functional Insights into the Role of Guard Cell Ion Channels in Abiotic Stress-Induced Stomatal Closure", "url": "https://www.mdpi.com/2223-7747/10/12/2774"},
+            {"title": "Optogenetic control of the guard cell membrane potential and stomatal movement", "url": "https://www.science.org/doi/10.1126/sciadv.abg4619"},
+            {"title": "Turgor pressure change in stomatal guard cells arises from interactions between water influx and mechanical responses", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10095868/"},
+            {"title": "Genetic screen to saturate guard cell signaling network reveals a role of GDP-L-fucose metabolism in stomatal closure", "url": "https://www.biorxiv.org/content/10.1101/2020.06.04.134353.full.pdf"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": [
+            "no returned results connect guard cell ion channel / turgor pressure mechanisms to machine learning algorithms or architectures",
+            "results are purely biological physiology papers with no ML/AI application to the mechanism itself"
+          ]
+        },
+        {
+          "atom_id": "C46_A2",
+          "search_query": "ABA abscisic acid kinase stomatal closure deep learning classification",
+          "hits": [
+            {"title": "MAP4K1 and MAP4K2 regulate ABA-induced and Ca2+-mediated stomatal closure in Arabidopsis", "url": "https://www.biorxiv.org/content/10.1101/2024.07.05.602132.full.pdf"},
+            {"title": "Calcium signals in guard cells enhance the efficiency by which abscisic acid triggers stomatal closure", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6771588/"},
+            {"title": "Abscisic Acid-Induced Stomatal Closure: An Important Component of Plant Defense Against Abiotic and Biotic Stress - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7969522/"},
+            {"title": "A new discrete dynamic model of ABA-induced stomatal closure predicts key feedback loops - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5627951/"},
+            {"title": "Abscisic acid regulates stomatal production by imprinting a SnRK2 kinase-mediated phosphocode on the master regulator SPEECHLESS", "url": "https://www.science.org/doi/10.1126/sciadv.add2063"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": [
+            "returned results are purely biological: kinase signaling papers, ABA receptor papers, calcium dynamics — no ML/AI mechanism import found",
+            "discrete dynamic model found (Boolean network) but this is a classical computational biology model, not ML/AI architecture"
+          ]
+        },
+        {
+          "atom_id": "C46_A3",
+          "search_query": "stomatal aperture CO2 signal transduction machine learning plant",
+          "hits": [
+            {"title": "A network-based modeling framework reveals the core signal transduction network underlying high carbon dioxide-induced stomatal closure in guard cells", "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002592"},
+            {"title": "Machine learning-enabled computer vision for plant phenotyping: a primer on AI/ML and a case study on stomatal patterning - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11565210/"},
+            {"title": "Machine learning-enabled computer vision for plant phenotyping: a case study on stomatal patterning", "url": "https://academic.oup.com/jxb/article/75/21/6683/7810660"},
+            {"title": "Insights into the Molecular Mechanisms of CO2-Mediated Regulation of Stomatal Movements", "url": "https://www.sciencedirect.com/science/article/pii/S0960982218313447"},
+            {"title": "CO2 Sensing and CO2 Regulation of Stomatal Conductance: Advances and Open Questions", "url": "https://www.sciencedirect.com/science/article/abs/pii/S1360138515002290"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "artificial intelligence and machine learning (AI/ML) can be used to automatically analyze large image datasets, with one valuable application being estimation of plant trait data contained within images, with 39 papers describing the development and/or application of such models for estimation of stomatal traits from epidermal micrographs",
+            "A network-based modeling framework reveals the core signal transduction network underlying high carbon dioxide-induced stomatal closure — but this is Boolean network modeling, not ML architecture import"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C46",
+        "source_atom_id": "C46_A1",
+        "source_mechanism_verbatim": "ABA-induced stomatal closure is initiated by binding of the hormone to PYR/RCAR receptors that leads to inactivation of protein phosphatases, which releases kinases to activate guard cell ion channels including SLAC1, leading to the efflux of anions, followed by potassium and water efflux and stomatal closure",
+        "operator": "activates",
+        "llm_application": "Implement an ABA-style gating mechanism in transformer token routing: a 'stress signal' token (analogous to ABA) propagates through a receptor-phosphatase-kinase cascade of learned gating layers that progressively close off (inhibit) certain attention pathways, enabling dynamic context-dependent suppression of irrelevant token channels during inference under distribution shift",
+        "content_words": ["stress signal", "kinase cascade", "gated inhibition", "attention suppression", "token routing", "osmotic efflux", "distribution shift"],
+        "prima_facie_collision": "no — no evidence found in searches that this specific sequential kinase-cascade gating mechanism has been imported as an ML architecture; closest is standard gated attention but the ABA cascade specifics are absent",
+        "notes": "Sparsest atoms are A1 and A2 (both NONE); A3 only MEASURES. This is the most genuinely novel candidate in the batch. Tier_prior=3 is apt."
+      }
+    },
+    {
+      "id": "C47",
+      "concept": "Hugelkultur",
+      "domain": "permaculture",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Hügelkultur - Wikipedia", "url": "https://en.wikipedia.org/wiki/H%C3%BCgelkultur"},
+        {"title": "Hugelkultur - The Urban Farming Guys Sustainable Technology WIKI", "url": "https://theurbanfarmingguys.com/wiki/index.php/Hugelkultur"},
+        {"title": "Hugelkultur | PermaWiki | Fandom", "url": "https://permaculture.fandom.com/wiki/Hugelkultur"},
+        {"title": "What Is Hügelkultur? Benefits, Layers, and Step-by-Step Instructions | The Old Farmer's Almanac", "url": "https://www.almanac.com/what-hugelkultur-ultimate-raised-bed"},
+        {"title": "Huegelkultur - Appropedia, the sustainability wiki", "url": "https://www.appropedia.org/Huegelkultur"}
+      ],
+      "mechanism_summary": "Hugelkultur is a raised-bed technique using buried decaying wood debris as a sponge-like substrate. 'The wood serves as a means to retain water, thus reducing or eliminating the need for irrigation. The wood also provides nutrients to the growing vegetation as the material slowly breaks down.' Decomposition by worms, fungi, and bacteria releases heat, improves soil fertility, and creates air pockets through wood shrinkage — a slow-release nutrient and moisture system driven by microbial decomposition.",
+      "atoms": [
+        {
+          "atom_id": "C47_A1",
+          "operator": "accumulates",
+          "verbatim_quote": "The wood serves as a means to retain water, thus reducing or eliminating the need for irrigation. The wood also provides nutrients to the growing vegetation as the material slowly breaks down",
+          "quote_source_url": "https://en.wikipedia.org/wiki/H%C3%BCgelkultur",
+          "mechanism_atom": "Porous organic substrate accumulates and slowly releases stored resources (water, nutrients) buffering supply against demand spikes"
+        },
+        {
+          "atom_id": "C47_A2",
+          "operator": "transforms",
+          "verbatim_quote": "Worms, fungi, microorganisms, and beneficial bacteria go to work as the wood breaks down, improving soil fertility and delivering nutrients to nourish the plant roots",
+          "quote_source_url": "https://en.wikipedia.org/wiki/H%C3%BCgelkultur",
+          "mechanism_atom": "A microbial consortium progressively transforms recalcitrant organic matter into bioavailable nutrients through enzymatic decomposition"
+        },
+        {
+          "atom_id": "C47_A3",
+          "operator": "generates",
+          "verbatim_quote": "This organic decomposition also generates heat, which can extend the growing season and potentially offer protection against frost",
+          "quote_source_url": "https://en.wikipedia.org/wiki/H%C3%BCgelkultur",
+          "mechanism_atom": "Exothermic microbial decomposition generates sustained heat as a byproduct, creating a thermal gradient that supports biological activity in cold conditions"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C47_A1",
+          "search_query": "hugelkultur wood decomposition nutrient release soil fungi machine learning",
+          "hits": [
+            {"title": "Hügelkultur: Building Thriving Gardens with Wood and Compost", "url": "https://www.live-native.com/hugelkultur-building-thriving-gardens-with-wood-and-compost/"},
+            {"title": "The Facts about Hugelkultur and Nitrogen Immobilization", "url": "https://earthundaunted.com/the-facts-about-hugelkultur-and-nitrogen-immobilization/"},
+            {"title": "Quantifying wood decomposition by insects and fungi using computed tomography scanning and machine learning", "url": "https://www.nature.com/articles/s41598-022-20377-3"},
+            {"title": "Quantifying wood decomposition by insects and fungi using computed tomography scanning and machine learning", "url": "https://www.researchgate.net/publication/363888715_Quantifying_wood_decomposition_by_insects_and_fungi_using_computed_tomography_scanning_and_machine_learning"},
+            {"title": "Quantifying wood decomposition by insects and fungi using computed tomography scanning and machine learning - PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/36168033/"},
+            {"title": "Hugelkultur: Permaculture Soil Regeneration Guide | Compost Check", "url": "https://www.compostcheck.com/academy/composting/hugelkultur-as-a-key-element-in-permaculture-design"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "Researchers developed and tested a new approach based on computed tomography (CT) scanning and semi-automatic image analysis to quantify the volume of beetle tunnels in wood and bark and the relative wood volume showing signs of fungal decay",
+            "ML is used to measure/quantify wood decomposition volume, NOT to import the slow-release sponge mechanism as an algorithm"
+          ]
+        },
+        {
+          "atom_id": "C47_A2",
+          "search_query": "slow decomposition wood moisture retention sponge neural network deep learning",
+          "hits": [
+            {"title": "An Interpretable Deep Learning Model for Wood Chip Moisture Content Prediction", "url": "https://www.researchgate.net/publication/371043262_An_Interpretable_Deep_Learning_Model_for_Wood_Chip_Moisture_Content_Prediction"},
+            {"title": "MoistNet: Machine Vision-based Deep Learning Models for Wood Chip Moisture Content Measurement", "url": "https://arxiv.org/abs/2409.04920"},
+            {"title": "Timber moisture detection using wavelet packet decomposition and convolutional neural network", "url": "https://www.scilit.com/publications/3a6b70929dd29c814d90594fc4fb7954"},
+            {"title": "MoistNet: Machine vision-based deep learning models for wood chip moisture content measurement", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417424022309"},
+            {"title": "Enabling moisture monitoring and deformation analysis in wood during drying by 4D-CT imaging coupled with deep learning", "url": "https://www.researchgate.net/publication/401399505_Enabling_moisture_monitoring_and_deformation_analysis_in_wood_during_drying_by_4D-CT_imaging_coupled_with_deep_learning"},
+            {"title": "Prediction of wood drying process based on artificial neural network", "url": "https://bioresources.cnr.ncsu.edu/resources/prediction-of-wood-drying-process-based-on-artificial-neural-network/"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "Researchers have explored using deep learning and machine vision to predict moisture content classes from RGB images of wood chips — ML used to measure/classify moisture, not to import sponge buffering mechanism",
+            "Two high-performing neural networks called MoistNetLite and MoistNetMax have been developed... for moisture content measurement — again, measurement, not mechanism import"
+          ]
+        },
+        {
+          "atom_id": "C47_A3",
+          "search_query": "hugelkultur wood decomposition nutrient release soil fungi machine learning",
+          "hits": [
+            {"title": "Quantifying wood decomposition by insects and fungi using computed tomography scanning and machine learning", "url": "https://www.nature.com/articles/s41598-022-20377-3"},
+            {"title": "The Facts about Hugelkultur and Nitrogen Immobilization", "url": "https://earthundaunted.com/the-facts-about-hugelkultur-and-nitrogen-immobilization/"},
+            {"title": "Hügelkultur: Building Thriving Gardens with Wood and Compost", "url": "https://www.live-native.com/hugelkultur-building-thriving-gardens-with-wood-and-compost/"},
+            {"title": "Hugelkultur: Permaculture Soil Regeneration Guide | Compost Check", "url": "https://www.compostcheck.com/academy/composting/hugelkultur-as-a-key-element-in-permaculture-design"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "no results connecting exothermic decomposition heat generation to any ML training mechanism or architecture",
+            "only hit with ML is measurement/quantification of wood decay volume via CT+ML, not mechanism import"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C47",
+        "source_atom_id": "C47_A1",
+        "source_mechanism_verbatim": "The wood serves as a means to retain water, thus reducing or eliminating the need for irrigation. The wood also provides nutrients to the growing vegetation as the material slowly breaks down",
+        "operator": "accumulates",
+        "llm_application": "Apply the hugelkultur sponge-buffering mechanism to LLM memory architecture: a slow-release episodic memory store where retrieved knowledge is 'composted' (compressed and enriched) over multiple inference passes rather than retrieved verbatim — the memory substrate releases contextually bioavailable information proportional to the current query's semantic 'root system', buffering against input sparsity",
+        "content_words": ["slow-release memory", "sponge buffer", "episodic compression", "semantic retrieval", "microbial enrichment", "RAG architecture", "query buffering"],
+        "prima_facie_collision": "no — searches returned only measurement uses of ML (CT scanning for wood decay quantification); the sponge/slow-release buffering mechanism is not found as an imported ML architectural principle",
+        "notes": "All three atoms are MEASURES at best; empirical_tier=2. Genuinely novel candidate. Tier_prior=1 confirmed accurate."
+      }
+    },
+    {
+      "id": "C48",
+      "concept": "Kintsugi",
+      "domain": "craft/repair",
+      "tier_prior": 1,
+      "empirical_tier": 1,
+      "source_results": [
+        {"title": "Kintsugi - Wikipedia", "url": "https://en.wikipedia.org/wiki/Kintsugi"},
+        {"title": "Kintsugi — Grokipedia", "url": "https://grokipedia.com/page/Kintsugi"},
+        {"title": "Kintsugi: The Art of Repairing What We Value - Luel Restoration Studio", "url": "https://www.luelstudio.com/blog/kintsugi-the-art-of-repairing-what-we-value/"},
+        {"title": "Kintsugi: Japanese Repair Technique - Japan House London", "url": "https://www.japanhouselondon.uk/read-and-watch/kintsugi/"},
+        {"title": "Traditional Japanese Kintsugi Repair: Authentic DIY Guide | Kogei Japonica", "url": "https://en.kogei-japonica.com/media/skills/kintsugi/"}
+      ],
+      "mechanism_summary": "Kintsugi is the Japanese technique of repairing broken pottery with urushi lacquer mixed with gold powder. 'The restoration involves multiple layers of urushi lacquer, each applied with care and allowed to cure slowly, with steps including reassembly, permanent bonding with durable urushi lacquer to the joints, filling of missing fragments with a mixture of lacquer and clay/flour, and sanding of seams to a smooth flow that follows the crack.' The philosophical mechanism: fractures are not hidden but highlighted with precious metal, making breakage history visible and structurally integral.",
+      "atoms": [
+        {
+          "atom_id": "C48_A1",
+          "operator": "reinforces",
+          "verbatim_quote": "kintsugi restorations are so obvious that they can be considered nothing less than celebrations of use",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Kintsugi",
+          "mechanism_atom": "Failure points are reinforced with precious material rather than concealed, making the repair structurally stronger at prior fracture sites while preserving fracture history as visible record"
+        },
+        {
+          "atom_id": "C48_A2",
+          "operator": "transforms",
+          "verbatim_quote": "highlighting cracks and repairs as events in the life of an object, rather than allowing its service to end at the time of its damage or breakage",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Kintsugi",
+          "mechanism_atom": "Damage events are transformed from liabilities into structural features: the crack pattern becomes a load-bearing golden joint that is stronger than the original unfractured material"
+        },
+        {
+          "atom_id": "C48_A3",
+          "operator": "accumulates",
+          "verbatim_quote": "The restoration involves multiple layers of urushi lacquer, each applied with care and allowed to cure slowly",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Kintsugi",
+          "mechanism_atom": "Repair is achieved through iterative layer-by-layer accumulation of bonding material along the fracture path, with each layer curing before the next is applied"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C48_A1",
+          "search_query": "kintsugi lacquer crack repair gold joint reinforcement machine learning AI",
+          "hits": [
+            {"title": "The Art of Embracing Imperfection with Golden Repair - My Japanese World", "url": "https://myjapaneseworld.com/blogs/japanese-craftsman-journal/the-art-of-embracing-imperfection-with-golden-repair"},
+            {"title": "Golden Joinery for the Mind. How AI Mends Japan's Fragmented Knowledge - Medium", "url": "https://medium.com/@kambizhoma/golden-joinery-for-the-mind-787c9be38c3a"},
+            {"title": "Kintsugi - Wikipedia", "url": "https://en.wikipedia.org/wiki/Kintsugi"},
+            {"title": "Si-Kintsugi: Towards Recovering Golden-Like Performance of Defective Many-Core Spatial Architectures for AI", "url": "https://dl.acm.org/doi/fullHtml/10.1145/3613424.3614278"},
+            {"title": "Kintsugi / Kintsukuroi Repair With Gold - Repair Lesson - Instructables", "url": "https://www.instructables.com/Kintsugi-Repair-With-Gold-Effect/"},
+            {"title": "How Kintsugi Is Done | Step-by-Step Gold Repair Guide", "url": "https://lakesidepottery.com/htm"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": [
+            "Si-Kintsugi: Towards Recovering Golden-Like Performance of Defective Many-Core Spatial Architectures for AI — uses kintsugi as a metaphor name for hardware fault recovery in AI chips, not a mechanism import",
+            "Golden Joinery for the Mind: Domain-specific AI, especially large language models, can help by using custom models trained on a company's own materials — purely metaphorical essay, not algorithmic mechanism import"
+          ]
+        },
+        {
+          "atom_id": "C48_A2",
+          "search_query": "kintsugi highlight damage repair resilience deep learning neural network",
+          "hits": [
+            {"title": "Kintsugi Futures: Repair and Emotional Resilience - Deeper Japan", "url": "https://www.deeperjapan.com/deeper-views/kintsugi-repair-and-resilience"},
+            {"title": "Deep reinforcement learning-based resilience optimization for infrastructure networks restoration", "url": "https://journal.hep.com.cn/fem/EN/10.1007/s42524-025-4091-5"},
+            {"title": "Si-Kintsugi: Towards Recovering Golden-Like Performance of Defective Many-Core Spatial Architectures for AI", "url": "https://dl.acm.org/doi/fullHtml/10.1145/3613424.3614278"},
+            {"title": "ArchRepair: Block-Level Architecture-Oriented Repairing for Deep Neural Networks", "url": "https://arxiv.org/pdf/2111.13330"},
+            {"title": "Provable Repair of Deep Neural Networks", "url": "https://arxiv.org/pdf/2104.04413"},
+            {"title": "What is Kintsugi? Kintsugi Spirit: Resilience, Transformation and Growth", "url": "https://kintsugi-spirit.com/what-is-kintsugi/"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "NONE",
+          "penetration_evidence": [
+            "ArchRepair and Provable Repair of DNNs are generic DNN repair papers with no connection to kintsugi's specific fracture-reinforcement mechanism",
+            "Si-Kintsugi uses kintsugi only as a naming metaphor for chip recovery — the crack-highlighting/gold-reinforcement mechanism is not imported as an ML algorithm"
+          ]
+        },
+        {
+          "atom_id": "C48_A3",
+          "search_query": "kintsugi lacquer crack repair gold joint reinforcement machine learning AI",
+          "hits": [
+            {"title": "Kintsugi - Wikipedia", "url": "https://en.wikipedia.org/wiki/Kintsugi"},
+            {"title": "Si-Kintsugi: Towards Recovering Golden-Like Performance of Defective Many-Core Spatial Architectures for AI", "url": "https://dl.acm.org/doi/fullHtml/10.1145/3613424.3614278"},
+            {"title": "Golden Joinery for the Mind - Medium", "url": "https://medium.com/@kambizhoma/golden-joinery-for-the-mind-787c9be38c3a"},
+            {"title": "Kintsugi: The Art of Repairing What We Value", "url": "https://www.luelstudio.com/blog/kintsugi-the-art-of-repairing-what-we-value/"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": [
+            "no evidence of iterative lacquer layering mechanism (C48_A3) being imported as any ML training or architecture pattern",
+            "all results are craft guides, metaphorical essays, or hardware naming — not mechanism import"
+          ]
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_024_C48",
+        "source_atom_id": "C48_A2",
+        "source_mechanism_verbatim": "highlighting cracks and repairs as events in the life of an object, rather than allowing its service to end at the time of its damage or breakage",
+        "operator": "transforms",
+        "llm_application": "Apply the kintsugi fracture-to-feature transform to LLM continual learning: rather than regularizing away or forgetting catastrophic interference events, actively detect failure-boundary regions in parameter space and reinforce them with targeted high-precision weight updates (the 'gold joint'), making previous interference boundaries into structurally robust decision boundaries that encode the model's learning history",
+        "content_words": ["catastrophic forgetting", "failure boundary", "continual learning", "targeted weight update", "fracture reinforcement", "parameter space", "learning history"],
+        "prima_facie_collision": "no — searches found only metaphorical/naming uses of kintsugi in AI contexts; the specific mechanism of fracture-highlighting-as-reinforcement is not found as an imported ML algorithm",
+        "notes": "Sparsest concept in batch: two atoms NONE, one MEASURES (naming only). empirical_tier=1. Most genuinely novel candidate alongside C46_A1. The continual-learning angle (fracture = catastrophic interference boundary) is a specific mechanistic mapping not found in any returned result."
+      }
+    }
+  ]
+}
