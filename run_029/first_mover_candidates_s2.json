@@ -1,0 +1,127 @@
+{
+  "_schema": "Run29 session2 Phase-3 pairing candidates (claude -p opus, non-git tempdir). preliminary_gap_guess is PRE-verification; Phase-4 verifies.",
+  "_phase": "3-pairing",
+  "count": 12,
+  "candidates": [
+    {
+      "rank": 1,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Bloomery smelter decision-making (judging the bloom) [smelting/metallurgy, session 2]",
+      "capability_gap": "The traditional bloomery has no model of how the internal thermal/reduction state and bloom mass will EVOLVE over the next minutes given the current charge/airflow; the smelter can only read instantaneous surface cues and cannot forecast where the unobservable interior front is heading. Existing ML targets modern industrial blast/ladle furnaces, not the low-shaft batch bloomery, and does forward control, not artisan-scale autoregressive state rollout from sparse sensing.",
+      "differentiator_justification": "SGNO uniquely provides STABLE long-horizon autoregressive rollout of a reaction-diffusion/heat-transfer PDE via its learned-generator exponential-time-differencing step — exactly the multi-step forward prediction of an unobservable interior field that a VLM color-reader or a single-snapshot classifier cannot give. A backbone/quantizer could not supply this; the operator IS the forecast.",
+      "preliminary_gap_guess": "OPEN - industrial-furnace ML exists but is closed-loop control on instrumented furnaces; no neural-operator forward-rollout of the traditional bloomery thermal-chemical state appears to exist.",
+      "search_probe": "neural operator PDE surrogate bloomery iron smelting bloom temperature rollout forecast"
+    },
+    {
+      "rank": 2,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Judging completion of lime/brick burning by flame cues [lime burning / clamp, session 2]",
+      "capability_gap": "Calcination completion over a multi-week clamp burn is read only from a disappearing blue flame at the top; there is no way to predict when the calcination FRONT has propagated through the whole charge. Current ML offers nothing for traditional clamp lime burning, and no instrument forecasts time-to-completion of the moving reaction front.",
+      "differentiator_justification": "Lime calcination is a slow moving reaction-diffusion front in a porous bed — a textbook long-horizon PDE. SGNO's residual time-stepper is purpose-built for stable long-horizon rollout where naive autoregression diverges, letting it predict days-ahead front position from sparse temperature/visual cues. No backbone substitutes for the operator's rollout stability over week-long horizons.",
+      "preliminary_gap_guess": "OPEN - traditional lime/brick clamp burning has essentially no ML; neural-operator front-tracking for it appears unaddressed.",
+      "search_probe": "neural operator calcination front lime kiln clamp burning completion prediction surrogate"
+    },
+    {
+      "rank": 3,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Quench judgment / interrupted (mar-)quench [blacksmithing heat-treatment, session 2]",
+      "capability_gap": "During an interrupted quench the smith must pull the part the instant the CORE passes ~400-500F, but core temperature is invisible and evolves in seconds; the call is made by hiss/feel. Nothing predicts the transient interior conduction trajectory in real time for a hand-forged part of irregular geometry.",
+      "differentiator_justification": "This is a fast transient heat-conduction PDE where the decision depends on an unobservable interior field. SGNO uniquely rolls forward the conduction PDE from surface observation to estimate core temperature ahead of time — a forecasting capability no color-classifier or anomaly-detector provides, and the operator formulation generalizes across part geometries.",
+      "preliminary_gap_guess": "OPEN - industrial quench-FEA exists offline, but real-time neural-operator core-temperature rollout to time a hand interrupted-quench is unserved.",
+      "search_probe": "neural operator transient quench core temperature real-time rollout heat treatment interrupted quench"
+    },
+    {
+      "rank": 4,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Glassblowing (working glass at workable viscosity by eye) [traditional craft, session 1]",
+      "capability_gap": "A gaffer has no real-time forecast of how fast the gather's viscosity/temperature field is dropping and when the workable window will close; this is pure kinesthetic memory. Industrial glass control (2604.00135) is closed-loop on furnace tanks, not a forward rollout for a hand-held cooling gather.",
+      "differentiator_justification": "Glass cooling/working is a coupled heat-transfer + temperature-dependent-viscosity PDE. SGNO's stable autoregressive rollout uniquely forecasts the viscosity field trajectory (window-closing time) from a single camera color reading, rather than classifying the present color. The watch-list flags this as the thinnest, most defensible remaining slice.",
+      "preliminary_gap_guess": "NARROW - industrial closed-loop glass viscosity control exists; the artisan hot-gather forward-rollout framing is the defensible slice but adjacent prior art is close.",
+      "search_probe": "neural operator glass viscosity temperature rollout glassblowing workable window surrogate"
+    },
+    {
+      "rank": 5,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Wood-firing stoking rhythm / ember-bed management (anagama) [pottery kiln, session 2]",
+      "capability_gap": "Teams judge when to stoke from pot glow, wall wetness, ember-bed glow and airflow over multi-day firings; there is no forecast of how the interior temperature/atmosphere field will respond to the next stoke, so over/under-stoking is avoided only by feel. Existing kiln ML targets automated electric/gas temperature setpoints, not the transient response of a wood-fired ember bed.",
+      "differentiator_justification": "An anagama is a long, spatially-distributed transient combustion+heat-transport PDE. SGNO uniquely rolls the field forward to predict the post-stoke thermal/atmosphere trajectory across the chamber, enabling rhythm guidance no instantaneous sensor or temp-controller gives.",
+      "preliminary_gap_guess": "OPEN - automated wood-kiln hardware patents exist but no neural-operator rollout of anagama interior dynamics for stoking guidance.",
+      "search_probe": "neural operator wood-fired kiln anagama temperature field stoking rollout surrogate"
+    },
+    {
+      "rank": 6,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Reading kiln temperature by glow + pyrometric cone bend as 'heat work' [pottery kiln firing, session 2]",
+      "capability_gap": "Cones integrate time+temperature into 'heat work' that a thermocouple alone cannot give; the firer reads cone slump to know maturation. No tool forecasts the heat-work integral / interior temperature field trajectory of the ware from sparse peephole readings.",
+      "differentiator_justification": "Heat-work is literally a time-integral of a heat-transfer PDE. SGNO's long-horizon rollout uniquely predicts the accumulated heat-work and when a body/glaze will mature, a forecasting capability distinct from VLM glow-color classification (down-weighted) or a setpoint controller.",
+      "preliminary_gap_guess": "NARROW - industrial/automated kiln temp control and kiln-packing ML exist; neural-operator heat-work forecasting for artisan firing is adjacent but the rollout framing is novel.",
+      "search_probe": "neural operator pyrometric cone heat work kiln firing temperature integral prediction"
+    },
+    {
+      "rank": 7,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "domain": "Reading slag and tap-hole management [smelting/metallurgy, session 2]",
+      "capability_gap": "Operators judge furnace condition from slag flow/color/viscosity and decide when to tap by eye; there is no live forecast of how slag viscosity and furnace thermal state will evolve toward a tappable condition. Research robotic tap-hole machines exist for industrial furnaces but read no slag dynamics for craft-scale control.",
+      "differentiator_justification": "Slag is a silicate melt whose flow/viscosity is governed by coupled thermal-composition PDEs. SGNO's spectral rollout uniquely forecasts the slag-state trajectory (when it becomes tappable) rather than classifying its present appearance, supplying the differentiator the domain lacks.",
+      "preliminary_gap_guess": "OPEN/NARROW - some industrial slag-monitoring ML exists; neural-operator forward-rollout of slag viscosity/thermal state for tap-timing appears unaddressed.",
+      "search_probe": "neural operator slag viscosity furnace tap-hole timing rollout surrogate metallurgy"
+    },
+    {
+      "rank": 8,
+      "technique": "SAM-Audio (Segment Anything in Audio)",
+      "arxiv_id": "2512.18099",
+      "domain": "Tuvan throat singing / overtone singing technique [music/performance craft, session 1]",
+      "capability_gap": "A learner produces a drone plus a focused overtone simultaneously; spectrogram visualizers DISPLAY the harmonics but cannot ISOLATE the focused overtone as a separable signal for measuring focus quality and giving corrective feedback on tongue/pharynx shaping. No pedagogical tool separates the two self-produced pitches.",
+      "differentiator_justification": "SAM-Audio is a general source-separation foundation model with temporal-span/text prompting that can isolate an arbitrary sound from a mixture — uniquely enabling extraction of the moving overtone stem from the fixed drone, the precise capability a visualizer lacks. Separation, not a generic encoder, is the differentiator.",
+      "preliminary_gap_guess": "NARROW - the watch-list flags this vs existing spectrogram visualizers; separation-based feedback is novel but the pedagogy niche attracts hobbyist tools.",
+      "search_probe": "audio source separation isolate overtone harmonic throat singing khoomei feedback stem"
+    },
+    {
+      "rank": 9,
+      "technique": "CANDI (Curated Test-Time Adaptation)",
+      "arxiv_id": "2604.01845",
+      "domain": "Anaerobic digester health read by foaming/scum [biogas/anaerobic digestion, session 2]",
+      "capability_gap": "pH explicitly gives NO early warning of a digester upset; operators watch scum/foam and VFA-alkalinity drift, and any fixed anomaly model fails because each digester/feedstock shifts the 'normal' baseline. The gap is early multivariate anomaly detection that adapts per-digester under distribution shift.",
+      "differentiator_justification": "CANDI is purpose-built for multivariate TS anomaly detection under distribution shift, with False-Positive Mining and a plug-and-play normality-adaptation module — it uniquely re-baselines to each digester/feedstock at test time, which a static foundation-model forecaster or a fixed-threshold sensor cannot.",
+      "preliminary_gap_guess": "NARROW - some digester-monitoring ML exists; test-time-adapted anomaly detection for foaming precursors is a distinct, lightly-served angle.",
+      "search_probe": "test-time adaptation multivariate anomaly detection anaerobic digester foaming early warning"
+    },
+    {
+      "rank": 10,
+      "technique": "Toto 2.0",
+      "arxiv_id": "2605.20119",
+      "domain": "Indigo fermentation vat readiness by flower/color/smell [natural dyeing, session 2]",
+      "capability_gap": "A fermentation indigo vat's redox/microbial maturity is judged only by surface 'flower', liquor color and odor; there is no forecast of when a low-data, per-vat sensor stream (pH, ORP, color) indicates the vat is alive/ready, and per-vat data is far too scarce to train a bespoke model.",
+      "differentiator_justification": "Toto 2.0 is an open multivariate zero-shot forecasting foundation model capturing cross-variable interactions and cross-domain transfer — it can forecast vat maturity from a few sensor channels with NO per-vat training, the up-weighted 'zero-shot forecasting x low-data fermentation' capability. The zero-shot multivariate transfer (not a generic backbone) is the differentiator.",
+      "preliminary_gap_guess": "NARROW - e-nose/CV fermentation snapshots exist; multivariate zero-shot forecasting of indigo-vat redox maturity appears unserved but TS-FM application is increasingly common.",
+      "search_probe": "time series foundation model zero-shot multivariate forecast indigo fermentation vat redox readiness"
+    },
+    {
+      "rank": 11,
+      "technique": "EnFlow (Energy-Guided Flow Matching)",
+      "arxiv_id": "2512.22597",
+      "domain": "Traditional lake pigment making (madder/carmine precipitation) [art/conservation, session 1]",
+      "capability_gap": "Lake-pigment color, transparency and lightfastness depend on the molecular structure/aggregation of the dye-mordant complex precipitated at a given pH/mordant ratio, but reconstructing/optimizing recipes is pure trial-and-error; there is no model predicting the precipitated complex's ground-state structure from recipe parameters.",
+      "differentiator_justification": "EnFlow couples flow matching with a learned energy model to generate high-fidelity conformers and identify ground states in 1-2 ODE steps — uniquely suited to predict the energetically-favored dye-metal complex configuration that determines pigment color, an up-weighted flow-matching-for-physics use no generic generative model supplies.",
+      "preliminary_gap_guess": "OPEN (speculative) - no evidence of flow-matching conformer/ground-state modeling applied to historical lake-pigment dye-mordant complexes; mapping recipe->structure->color is unestablished.",
+      "search_probe": "flow matching energy ground state dye metal mordant complex lake pigment structure color prediction"
+    },
+    {
+      "rank": 12,
+      "technique": "AFINs (Amortized Factor Inference Networks)",
+      "arxiv_id": "2605.26419",
+      "domain": "Prosthetic socket fitting (craft skill) [medicine/health, session 1]",
+      "capability_gap": "Prosthetists rectify the mould and iterate check sockets by feel with 'little objective guidance on where to add or relieve pressure'; what is missing is fast, uncertainty-aware inference of the residual-limb pressure/fit field from sparse check-socket feedback, per patient.",
+      "differentiator_justification": "AFINs map a model spec + observations to a full variational posterior in one forward pass with NUTS-level accuracy at 2-4 orders less compute — uniquely enabling instant, patient-specific Bayesian inference of the latent pressure-distribution field (with calibrated uncertainty over where to relieve), which offline FEA or a point-estimate regressor cannot deliver at chairside.",
+      "preliminary_gap_guess": "NARROW - biomechanical FEA and some ML socket-design tools exist; amortized posterior inference of the pressure field with uncertainty for chairside fitting is a distinct, lightly-served angle.",
+      "search_probe": "amortized Bayesian inference posterior prosthetic socket pressure distribution residual limb fit"
+    }
+  ]
+}
