@@ -1,0 +1,197 @@
+{
+  "run": "run30",
+  "phase": 5,
+  "overflag_reexam": {
+    "flags_in_phase3": 0,
+    "nothing_to_overturn": true,
+    "note": "R5 over-flag re-exam is vacuous-coherent: the checker raised 0 FLAGs, so there is no genuine merge wrongly killed as regurgitation/hallucination. There is literally nothing to overturn in the over-flag direction. The only live risk is the opposite (under-flag), handled below."
+  },
+  "underflag_reexam": [
+    {
+      "global_id": "M056",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "low",
+      "closest_named_thing": "arXiv:2602.00906 'Hallucination is a Consequence of Space-Optimality: A Rate-Distortion Theorem for Membership Testing' (Guo & Li, Feb 2026)",
+      "reasoning": "Decisive contrast confirmed from the paper's own abstract: 2602.00906 is an information-theoretic IMPOSSIBILITY / rate-distortion LOWER BOUND, and its central conclusion runs OPPOSITE to M056. Verbatim from the abstract: 'the information-theoretically optimal strategy under limited capacity is not to abstain or forget, but to assign high confidence to some non-facts, resulting in hallucination.' It proposes NO activation-based membership sketch, NO abstention primitive, and NO familiarity-vs-retrievability typology. M056 instead BUILDS an activation-hashed one-sided (no-false-negative) ABSTENTION primitive plus a 2x2 TOT/deja-vu recall-state typology -- i.e. it constructs the abstention mechanism the paper argues is sub-optimal, and adds a cognitive decomposition absent from the paper. Shared Bloom<->LLM framing is genuine adjacency, not verbatim equivalence. Genuine merge near prior work."
+    },
+    {
+      "global_id": "M008",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "low",
+      "closest_named_thing": "Git Re-Basin (arXiv:2209.04836); REPAIR (2211.08403); neuron-alignment mode connectivity (2009.02439)",
+      "reasoning": "Git Re-Basin (verified) permutes units to align two models then merges in weight space; it computes the alignment via an assignment/matching problem solved SEPARATELY, then measures the static barrier. M008's load-bearing object is the inverse: recover the aligning permutation as a free by-product of a budgeted ridge-CLIMB ('moss-compass' per-parameter gradient-orientation accumulator) plus a motion-aware dynamic barrier S* > static saddle. No named method decodes the permutation from a climb log or defines a budget-action barrier. Strong adjacency, distinct mechanism."
+    },
+    {
+      "global_id": "M019",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "medium",
+      "closest_named_thing": "MoTHer / Unsupervised Model Tree Heritage Recovery (arXiv:2405.18432); GhostSpec / 'Ghost in the Transformer' (arXiv:2511.06390)",
+      "reasoning": "Both neighbors verified and are real and close: MoTHer reconstructs model lineage trees from weight distances (weight-distance correlates with tree node-distance); GhostSpec builds permutation-invariant SVD spectral fingerprints of attention matrix products for data-free lineage/reuse detection. M019 reuses exactly these two ingredients (invariant spectra + lineage), so this is the closest-to-prior-work case. BUT neither named work makes M019's load-bearing dual claim: that the alignment-free invariant distance PREDICTS the post-alignment mode-connectivity BARRIER height (mergeability/soup-compatibility) before any permutation search. Lineage recovery != barrier prediction. The 'provenance-distance = mergeability-distance' equation is assembled across two separate literatures, not lifted from either. Adjacency is high but it is not verbatim equivalence; confirm PASS with medium risk flagged for transparency."
+    },
+    {
+      "global_id": "M027",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "low",
+      "closest_named_thing": "StreamingLLM 'Efficient Streaming Language Models with Attention Sinks' (arXiv:2309.17453, Xiao et al., ICLR 2024)",
+      "reasoning": "StreamingLLM (verified) establishes the attention-sink phenomenon and proposes keeping ~4 initial sink tokens' KV to stabilize streaming perplexity -- a fixed few-token engineering fix. M027's load-bearing objects are different: a concave monotone sink-MASS accumulation LAW M(L) vs context length, its slope dM/dL as a per-head under-specialization/key-miss metric, and a rank-sized MULTI-slot sink pinned to the effective rank of the unmatched-query covariance. None of these (growth law, slope-as-metric, rank-sized multi-slot) appears in StreamingLLM or the cited softmax-flattening fixes. Distinct construct; adjacency only."
+    },
+    {
+      "global_id": "M032",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "low",
+      "closest_named_thing": "PURM / Probabilistic Uncertain Reward Model (arXiv:2503.22480); BNRM / Bayesian Non-negative Reward Modeling (arXiv:2602.10623)",
+      "reasoning": "Both neighbors verified. PURM generalizes Bradley-Terry to learn reward DISTRIBUTIONS and quantifies per-sample uncertainty via Bhattacharyya overlap to curb reward hacking; BNRM uses Bayesian non-negative factor analysis to suppress spurious correlations / over-optimization. Both are PASSIVE, single-agent uncertainty-aware estimators. M032's load-bearing content is a ROLE_EXCHANGE: the reward model becomes an ACTIVE haggler that probes the policy's max-uncertainty skill and treats Kalman gain as a concession, with covariance-collapse-while-reward-rising as an over-optimization alarm. The active-probing/bargaining inversion + Kalman-concession-theorem is in neither named RM. Conceptual adjacency on the uncertainty axis only; distinct mechanism. (Top-ranked construct -- adjacency correctly disregarded in ranking.)"
+    },
+    {
+      "global_id": "M057",
+      "checker_verdict": "genuine_merge",
+      "audit_verdict": "confirm_PASS",
+      "regurgitation_risk": "low",
+      "closest_named_thing": "Neural Persistence (arXiv:1812.09764, Rieck et al., ICLR 2019); filtration-learning TDA on nets",
+      "reasoning": "Neural Persistence (verified) is a topological COMPLEXITY MEASURE computed on a single network's weighted stratified graph (static representation shape), used e.g. as an early-stopping criterion. M057's load-bearing move is orthogonal: use the CHECKPOINT-TIMELINE INDEX as the filtration axis so the persistence barcode DATES when a capability/backdoor entered a lineage (birth coordinate = training step entered; persistence = how load-bearing), yielding a birth-vs-persistence forensic plane and a 'load-bearing-yet-young' backdoor signature. No named TDA-on-nets work treats the training timeline as the filtration to date feature insertion. Same tool, distinct application; not regurgitation."
+    }
+  ],
+  "citation_verification": [
+    {
+      "citation": "arXiv:2602.00906",
+      "cited_for": "M056 (Bloom<->LLM membership-error unification; nearest prior work)",
+      "exists": true,
+      "what_it_says": "Rate-distortion / impossibility theorem: formalizes fact memorization as membership testing unifying Bloom-filter discrete error with LLM log-loss; under limited capacity the optimal strategy is NOT to abstain but to assign high confidence to some non-facts (hallucinate).",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'the information-theoretically optimal strategy under limited capacity is not to abstain or forget, but to assign high confidence to some non-facts, resulting in hallucination' (https://arxiv.org/abs/2602.00906)"
+    },
+    {
+      "citation": "arXiv:2602.10623",
+      "cited_for": "M032 (uncertainty-aware RM flagging over-optimization)",
+      "exists": true,
+      "what_it_says": "'Mitigating Reward Hacking in RLHF via Bayesian Non-negative Reward Modeling' (BNRM): Bayesian non-negative factor analysis in a Bradley-Terry model; sparsity debiases spurious correlations and reduces reward over-optimization.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "Title verified: 'Mitigating Reward Hacking in RLHF via Bayesian Non-negative Reward Modeling' (https://arxiv.org/abs/2602.10623)"
+    },
+    {
+      "citation": "arXiv:2604.04230",
+      "cited_for": "M041 (physics-of-MoE-routing adjacency)",
+      "exists": true,
+      "what_it_says": "'Three Phases of Expert Routing': models MoE routing as a congestion game with one congestion coefficient; tracks a non-monotone surge/stabilization/relaxation balance trajectory across training. No spin-glass frustration or aging two-time correlator.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "Title + 'congestion game' framing verified (https://arxiv.org/abs/2604.04230)"
+    },
+    {
+      "citation": "arXiv:2601.22010",
+      "cited_for": "M016 (diversity activation steering, adjacency)",
+      "exists": true,
+      "what_it_says": "STARS: 'Exploring Diverse Generation Paths via Inference-time Stiefel Activation Steering' -- training-free one-step orthogonal (Stiefel-manifold) steering update maximizing activation volume for diversity. Not a stateful self-cancelling feedback loop.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "Title + 'lightweight one-step update' verified (https://arxiv.org/abs/2601.22010)"
+    },
+    {
+      "citation": "arXiv:2602.06665",
+      "cited_for": "M016 (selective-layer diversity restoration, adjacency)",
+      "exists": true,
+      "what_it_says": "'Not All Layers Need Tuning: Selective Layer Restoration Recovers Diversity' -- restoring a chosen layer range to pre-trained weights recovers generation diversity (localizes mode collapse to layers).",
+      "matches_checker_claim": true,
+      "quote_if_seen": "Title verified (https://arxiv.org/abs/2602.06665)"
+    },
+    {
+      "citation": "arXiv:2605.07260",
+      "cited_for": "M024 (low-confidence/fragile-token routing analysis)",
+      "exists": true,
+      "what_it_says": "'When Are Experts Misrouted? Counterfactual Routing Analysis in MoE LMs' -- on fragile/low-confidence tokens the standard route is best on only 0.8% of tokens; best equal-compute alternative gains 20.4pp; misrouting concentrates on low-confidence tokens.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'on fragile tokens this alignment collapses: the standard route is best on only 0.8% of tokens' (https://arxiv.org/abs/2605.07260)"
+    },
+    {
+      "citation": "arXiv:2503.22480",
+      "cited_for": "M032 (uncertainty-aware RM, over-optimization signal)",
+      "exists": true,
+      "what_it_says": "PURM: 'Probabilistic Uncertain Reward Model' -- generalizes Bradley-Terry to learn reward distributions; per-sample uncertainty via Bhattacharyya-coefficient distribution overlap; sustains more RLHF steps before reward hacking.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'quantifies per-sample uncertainty via the average overlap area between reward distributions' (https://arxiv.org/abs/2503.22480)"
+    },
+    {
+      "citation": "arXiv:2405.18432",
+      "cited_for": "M019 (model lineage recovery from weights)",
+      "exists": true,
+      "what_it_says": "MoTHer / 'Unsupervised Model Tree Heritage Recovery' (a.k.a. On the Origin of Llamas) -- reconstructs model trees; weight distance correlates with tree node distance; weight-outlier count rises in generalization, falls in fine-tuning.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'the distance between weights of model pairs correlates with their node distance on the Model Tree' (https://arxiv.org/abs/2405.18432)"
+    },
+    {
+      "citation": "arXiv:2511.06390",
+      "cited_for": "M019 (permutation-invariant spectral fingerprint for model reuse)",
+      "exists": true,
+      "what_it_says": "'Ghost in the Transformer: Detecting Model Reuse with Invariant Spectral Signatures' (GhostSpec) -- SVD of invariant attention weight-matrix products (QK, VO) gives data-free fingerprints robust to fine-tuning/pruning for lineage detection.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'applies singular value decomposition (SVD) to invariant products of internal attention weight matrices' (https://arxiv.org/abs/2511.06390)"
+    },
+    {
+      "citation": "arXiv:2410.18351",
+      "cited_for": "M023 (entropy-based early draft stopping in spec decoding)",
+      "exists": true,
+      "what_it_says": "AdaEDL -- training/parameter-free early draft stopping using an entropy-based lower bound on token acceptance probability; outperforms static draft-length spec decoding by 10-57%.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'approximating a lower bound on the expected acceptance probability of the drafted token based on the currently observed entropy of the drafted logits' (https://arxiv.org/abs/2410.18351)"
+    },
+    {
+      "citation": "arXiv:2508.00943",
+      "cited_for": "M054 (sandbagging / eval-awareness target)",
+      "exists": true,
+      "what_it_says": "'LLMs Can Covertly Sandbag on Capability Evaluations Against Chain-of-Thought Monitoring' -- models can strategically underperform on dangerous-capability evals (WMDP/MMLU) while evading CoT monitors. Uses prompting/CoT monitoring, not vector-clock causal ordering.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "Title verified; 'Sandbagging is the strategic underperformance on evaluations' (https://arxiv.org/abs/2508.00943)"
+    },
+    {
+      "citation": "arXiv:2506.19382",
+      "cited_for": "M012 (Feature Monosemanticity Score / monosemanticity metric)",
+      "exists": true,
+      "what_it_says": "'Measuring and Guiding Monosemanticity' -- introduces FMS (Feature Monosemanticity Score) quantifying feature monosemanticity/localization, plus Guided SAEs. Score is classifier/dimension-based, not a relational gossip-reputation fixed point.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'introduces FMS (Feature Monosemanticity Score), a general score to systematically quantify feature monosemanticity' (https://arxiv.org/abs/2506.19382)"
+    },
+    {
+      "citation": "arXiv:2209.04836",
+      "cited_for": "M008 / M019 (mode connectivity via permutation alignment; classic)",
+      "exists": true,
+      "what_it_says": "Git Re-Basin: 'Merging Models modulo Permutation Symmetries' -- permutes one model's units to align with a reference, enabling weight-space merge into an approximately convex shared basin. Solves alignment separately, then merges.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'three algorithms to permute the units of one model to bring them into alignment with a reference model in order to merge the two models in weight space' (https://arxiv.org/abs/2209.04836)"
+    },
+    {
+      "citation": "arXiv:2203.05482",
+      "cited_for": "M047 (model soups merge target; classic)",
+      "exists": true,
+      "what_it_says": "Model Soups: averaging weights of multiple fine-tuned models improves accuracy/robustness without extra inference cost. No fluctuation-dissipation / FDT weighting.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'averaging the weights of multiple models fine-tuned with different hyperparameter configurations often improves accuracy and robustness' (https://arxiv.org/abs/2203.05482)"
+    },
+    {
+      "citation": "arXiv:1812.06162",
+      "cited_for": "M004 (Gradient Noise Scale; classic)",
+      "exists": true,
+      "what_it_says": "'An Empirical Model of Large-Batch Training' (McCandlish, Kaplan et al.) -- the gradient noise scale predicts the largest useful (critical) batch size across many domains. Treats GNS as one global scalar, not a per-concept bloom-crash trajectory.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'a simple and easy-to-measure statistic called the gradient noise scale predicts the largest useful batch size' (https://arxiv.org/abs/1812.06162)"
+    },
+    {
+      "citation": "arXiv:1812.09764",
+      "cited_for": "M057 (Neural Persistence; classic)",
+      "exists": true,
+      "what_it_says": "'Neural Persistence: A Complexity Measure for Deep Neural Networks Using Algebraic Topology' (Rieck et al., ICLR 2019) -- TDA-based static complexity measure on a network's weighted graph; yields an early-stopping criterion. Static shape, not checkpoint-timeline dating.",
+      "matches_checker_claim": true,
+      "quote_if_seen": "'a complexity measure for neural network architectures based on topological data analysis on weighted stratified graphs' (https://arxiv.org/abs/1812.09764)"
+    }
+  ],
+  "overall": {
+    "checker_overflagged": false,
+    "checker_underflagged": false,
+    "cited_neighbors_real": "all",
+    "hallucinated_citations": [],
+    "summary": "Phase-3 checker is sound. OVER-FLAG: 0 FLAGs raised, nothing to overturn (vacuously coherent). UNDER-FLAG: independently re-judged the 6 closest-to-prior-work PASS verdicts (M056, M008, M019, M027, M032, M057); all confirm_PASS -- each reuses ingredients adjacent to a real named work but adds a load-bearing object absent from that work, so none is verbatim regurgitation. Decisive case M056: its nearest paper (2602.00906) is an impossibility BOUND whose conclusion ('optimal strategy is NOT to abstain') is the OPPOSITE of M056's abstention primitive, and it contains no activation-sketch or TOT/deja-vu typology -- clearly distinct. Highest residual adjacency is M019 vs MoTHer+GhostSpec (medium risk) but the barrier-prediction claim is genuinely additional. CITATIONS: all 12 high-priority IDs and all 4 known-classic IDs verified to exist and to match what the checker cited them for; ZERO hallucinated arXiv ids. Both arxiv IDs that the checker treated as M056's twin and the top-5 load-bearing neighbors are real. Checker neither over- nor under-flagged."
+  },
+  "search_limited": false
+}
