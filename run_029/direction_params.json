@@ -1,60 +1,63 @@
 {
   "_schema": "direction_params - learned fertile-frontier regions for BFS first-mover (fresh technique x all-of-life). Append history each session; params steer next session's BFS.",
-  "version": 3,
+  "version": 4,
   "updated": "2026-06-04",
 
-  "core_lesson_learned": "Across 3 sessions, 34 paired candidates, 0 GAP_OPEN. The capability-gap > domain-gap lesson (v1) and the industrial-analog ceiling (v2) both hold, but session 3 found the DEEPER wall: SATURATION IS DEEPER THAN THE INDUSTRIAL-ANALOG AXIS. Targeting physics/sensory crafts with NO industrial analog (the v2 OPEN hypothesis) did NOT yield OPEN - all 12 collided to NARROW via two mechanisms: (1) many no-analog crafts ALREADY have research-stage AI on the craft itself (even kodo monkoh incense-listening has 'Smell with Genji' arXiv 2602.02785 CHI-2026; organ voicing has the Ising intonation-number law + DL voicing; knapping has CGAN; marbling has Mathematical-Marbling+NS; cognac-aroma has blend-interaction ML); (2) where the craft is genuinely zero-AI (hedgelaying, solera, nerikoh), the fresh TECHNIQUE-FAMILY always has a sibling foothold (visuo-tactile world-models on robot dough-kneading; Koopman on industrial reactors). Since a USABLE fresh technique is by-definition already demonstrated on some domain, there is essentially NO (fresh-technique x craft) cell empty on BOTH axes. The 'first-mover via fresh technique x under-served craft' thesis is SATURATED at the capability-gap level.",
+  "core_lesson_learned": "4 sessions, 46 paired candidates, 0 GAP_OPEN. Session 4 (path-B pivot to MODERN non-craft domains) confirmed the result is STRUCTURAL, not axis-specific. The BFS-first-mover method ('usable fresh technique x under-served domain, no prior application') is capped at NARROW by a structural dilemma: (1) a USABLE fresh technique is BY DEFINITION already demonstrated on >=1 domain, so it has a sibling foothold => every new application is capability-gap NARROW, not method-OPEN; (2) a technique with NO sibling (genuinely first-of-kind) is, in a 1-6mo window, VAPORWARE (no code) => fails R13 usability. 'usable => has-sibling' and 'no-sibling => vaporware' are mutually exclusive, so GAP_OPEN (usable AND no-sibling) is structurally near-empty. The life-axis cannot rescue it: LOW-AI regions (crafts) collide via the technique-sibling; HIGH-AI regions (modern institutions) collide via the application-already-built (often a deployed vendor => CLOSED). The NARROW/CLOSED ceiling is a property of the SEARCH METHOD itself.",
 
-  "v2_hypothesis_outcome": {
-    "hypothesis": "Physics-bearing crafts with NO industrial analog have no prior technique-application even in a twin -> genuine GAP_OPEN.",
-    "verdict_strict_gate": "REFUTED. 0/12 no-analog candidates reached GAP_OPEN.",
-    "verdict_correlation": "PARTIALLY VALIDATED. has_industrial_analog='no' crafts collide LESS (76% at none/very-low AI) than 'partial' (33%). The tag is a real low-penetration signal but insufficient for the absolute-zero OPEN needs.",
-    "honest_application_level_nuance": "3 crafts (hedgelaying pleacher-cut, solera saca-timing, nerikoh consistency-by-feel) have GENUINELY ZERO prior AI on the craft itself = application-level first-mover / timing-edge white space (R12). They are graded GAP_NARROW only because the fresh technique-family is demonstrated on a sibling. If 'first to apply ANY AI to this craft' counts as the win, these are the session-3 wins; if 'method-novel OPEN' is required, none qualify."
+  "R16_conclusion": {
+    "question": "Is the usable=>has-sibling NARROW ceiling craft-specific or universal?",
+    "answer": "UNIVERSAL / STRUCTURAL TO BFS. Modern non-craft domains ALSO ceiling (0/12 OPEN) and collide HARDER (4 CLOSED vs 0-1 in craft sessions), because they have research funding + commercial vendors and ZERO none-penetration niches.",
+    "implication": "No further BFS search-session (any axis) is expected to find GAP_OPEN. The method is exhausted. The negative result IS the deliverable (cf. README: useful outputs even at 0 PASS)."
+  },
+
+  "penetration_by_axis_observed": {
+    "crafts_with_industrial_analog_s2": {"none": 13, "very-low": 9, "low": 8, "moderate": 5, "high": 2},
+    "crafts_no_industrial_analog_s3": {"none": 14, "very-low": 11, "low": 11, "moderate": 5, "high": 1},
+    "modern_non_craft_s4": {"none": 0, "very-low": 9, "low": 23, "moderate": 21, "high": 4},
+    "reading": "Crafts have a large none-penetration bucket; MODERN domains have ZERO none - every modern niche already has some AI. Modern domains are the MOST saturated region swept."
   },
 
   "ml_subfield_fertility": [
-    {"subfield": "Scientific ML / neural operators (PDE rollout)", "fertility": "HIGH for NARROW (carried)", "evidence": "s1-s2 best capability-gaps (SGNO x glassblowing/lime/bloomery). Not re-sourced s3.", "sessions_seen": [1,2]},
-    {"subfield": "Tactile / haptic / visuo-tactile world models", "fertility": "USABLE-RICH but pairings -> NARROW", "evidence": "NEW s3. OmniVTA (2603.19201) + Sound2Hap (2601.12245) have code; the modality MATCHES kinesthetic crafts perfectly (knapping, pottery, hedgelaying, bonsai, nerikoh) BUT every pairing hit NARROW - robot deformable/dough manipulation + visuo-tactile stiffness estimation are dense siblings. Technique-family foothold is unavoidable.", "sessions_seen": [3], "open": 0, "narrow": 6},
-    {"subfield": "Symbolic regression / symbolic distillation (SymTorch)", "fertility": "NARROW (paired this session)", "evidence": "NEW-pairing s3. SymTorch x distilling tacit craft laws (organ voicing, clay plasticity, reed tuning) all NARROW - closed-form laws already exist for these (Ising number, Atterberg-limit ML, free-reed frequency formula). The 'distill a master's law' angle is already occupied by analytic physics + interpretable-ML.", "sessions_seen": [3], "open": 0, "narrow": 3},
-    {"subfield": "Koopman / DMD / evolution-operator learning (kooplearn)", "fertility": "NARROW", "evidence": "NEW s3. kooplearn (2512.21409) usable. Koopman x solera/marbling = NARROW (Koopman is standard on industrial mixing/chaotic-advection; the craft application is novel but the operator-family is everywhere).", "sessions_seen": [3], "open": 0, "narrow": 2},
-    {"subfield": "Olfactory / chemical / e-nose ML", "fertility": "LOW on arXiv-in-window; craft-frontier SATURATED", "evidence": "NEW s3. Fresh arXiv olfactory work is mostly molecular (AROMMA/NOSE/odor-strength, only odor-strength had code). And the scent-craft frontier is already AI-touched (agarwood e-nose/GC-MS; perfumery Philyra; the kodo game itself via 'Smell with Genji' 2602.02785).", "sessions_seen": [3], "open": 0, "narrow": 2},
-    {"subfield": "Differentiable simulation / Hamiltonian-Lagrangian NN", "fertility": "VAPORWARE this window", "evidence": "NEW s3. 5 fresh papers, 0 with usable code. Not buildable now.", "sessions_seen": [3]},
-    {"subfield": "Diffusion/score for inverse problems + data assimilation", "fertility": "VAPORWARE-heavy", "evidence": "NEW s3. 11 fresh papers, only kooplearn-adjacent ones; 10/11 no code (paper-only DA/score-filter surge).", "sessions_seen": [3]},
-    {"subfield": "Implicit neural representations / neural fields for physics", "fertility": "THIN in-window", "evidence": "NEW s3. Only NEMF cleanly fresh+in-window; most physics-INR work is 2025-or-earlier.", "sessions_seen": [3]},
-    {"subfield": "Causal discovery / causal representation", "fertility": "STILL-UNPAIRED usable", "evidence": "Usable since s2 (HOLOGRAPH/LCMs/CausalCompass) but again found NO compelling craft pairing - crafts lack the logged multivariate process data causal discovery needs. Likely a dead-end for the CRAFT axis; would need an industrial/scientific process-log domain.", "sessions_seen": [2,3], "open": 0, "narrow": 0}
+    {"subfield": "Computer-use / GUI agents + agentic/graph RAG + long-context doc reasoning", "fertility": "USABLE-RICH but -> NARROW/CLOSED", "evidence": "NEW s4. Most usable subfield yet (6/7 code: Mobile-Agent-v3.5, OpAgent, ColorBrowserAgent, A-RAG, LegalGraphRAG, Internalized-Reasoning). But every pairing into a modern niche hit NARROW or CLOSED - these techniques are deployed everywhere, maximal sibling density.", "sessions_seen": [4], "open": 0},
+    {"subfield": "Learning-to-optimize / neural combinatorial optimization / ML-for-OR", "fertility": "VAPORWARE-heavy", "evidence": "NEW s4. 6 fresh, 1 code (PMAx). Strong items (ReSched ICLR26, G-LNS, DEITSP) had no fresh arXiv ID in-window.", "sessions_seen": [4], "open": 0},
+    {"subfield": "Mechanism design / differentiable auctions / multi-agent-RL markets", "fertility": "VAPORWARE / out-of-window", "evidence": "NEW s4. 0 usable; RegretNet line + double-auction DL all pre-window.", "sessions_seen": [4], "open": 0},
+    {"subfield": "Spatiotemporal forecasting (traffic/grid/mobility graph)", "fertility": "1 usable (Lite-STGNN)", "evidence": "NEW s4. Most code-bearing repos out-of-window.", "sessions_seen": [4], "open": 0},
+    {"subfield": "Process mining / ML-for-business-process", "fertility": "THIN+1 usable (PMAx)", "evidence": "NEW s4. Mostly stale; PMAx the only fresh+code.", "sessions_seen": [4], "open": 0},
+    {"subfield": "[carried] Scientific-ML/neural-operators", "fertility": "HIGH for NARROW (best capability-gaps overall: SGNO x lime-clamp/bloomery, s2)", "sessions_seen": [1,2]},
+    {"subfield": "[carried] tactile/haptic, symbolic-regression, Koopman, causal-discovery, TTA, flow-for-science, amortized-Bayes", "fertility": "various; all -> NARROW when paired", "sessions_seen": [2,3,4]}
   ],
 
   "life_domain_fertility": [
-    {"domain": "No-industrial-analog physics/sensory crafts (knapping, marbling, organ voicing, hamon, nerikoh, kodo, hedgelaying, solera, bonsai)", "fertility": "LOWER-penetration but NOT open", "why": "v2 test domain. Collide less on average (76% none/very-low AI) but still reach only NARROW: the craft-AI research frontier (2024-2026) has touched even the long tail, and the technique-family always has a sibling. Best for application-level timing-edge first-mover, not method-OPEN."},
-    {"domain": "Crafts with ZERO prior craft-AI (hedgelaying, solera, nerikoh)", "fertility": "APPLICATION-FIRST-MOVER only", "why": "Genuinely no AI on the craft itself - you would be first to apply any AI. But method-NARROW (technique-family sibling exists). Pursue only if timing-edge / application-novelty is the accepted win type."},
-    {"domain": "Physics-bearing crafts WITH industrial analog (s1-s2: glass, kiln, forge, smelting, lime)", "fertility": "HIGH for NARROW (carried)", "why": "Best defensible capability-gaps so far (SGNO x lime-clamp/bloomery). Industrial analog caps at NARROW."},
-    {"domain": "Crafts where a LARGE adjacent INDUSTRY funded automation (perfumery, whisky, violin, pottery)", "fertility": "LOW (collide hard)", "why": "Even without a like-for-like industrial PROCESS, a funded industry produced craft-AI: Philyra (perfume), Mackmyra (whisky), plate-eigenfrequency NN (violin), centering pilot (pottery). Down-weight."},
-    {"domain": "Niche practices WITH consumer app market (carried)", "fertility": "LOW (AVOID)", "why": "s1-s2 list + s3 additions (bonsai care apps, marbling apps TryEbru/Marblizer, mushroom-ID, weather)."}
+    {"domain": "MODERN institutional/digital domains (markets, clinical, instruments, legal, sports, logistics, education, infra, dispatch, public-health)", "fertility": "LOW for first-mover (collide to NARROW/CLOSED)", "why": "s4. Zero none-penetration; residual manual niches are interpretive meta-judgment, often kept human DELIBERATELY (safety/legal/relational) - not a tooling gap. Where automatable, a vendor or paper usually already exists (CLOSED). Worst region for method-OPEN."},
+    {"domain": "[carried] Physics-bearing crafts WITH industrial analog (glass/kiln/forge/lime)", "fertility": "HIGH for NARROW (most defensible capability-gaps)", "why": "SGNO x lime-clamp/bloomery remain the thinnest-adjacency NARROWs across all 4 sessions."},
+    {"domain": "[carried] No-industrial-analog crafts (knapping/marbling/organ/hamon/hedgelaying/solera)", "fertility": "application-first-mover only (method-NARROW)", "why": "zero craft-AI on a few (hedgelaying/solera/nerikoh) = timing-edge, but technique-sibling => NARROW."},
+    {"domain": "[carried, AVOID] niches with consumer apps / funded adjacent industry", "fertility": "LOW (saturated)", "why": "weather, mushroom-ID, perfumery(Philyra), whisky(Mackmyra), + s4 vendor-saturated recon/handoff/SAR/triage."}
   ],
 
   "avoid_list_saturated_regions": [
-    "[carried s1-s2] VLM-counting x beekeeping; TS-anomaly x horology; inpainting x painting; ASR x whistled-language; weather-lore; mushroom-ID; industrial slag/tap-hole",
-    "olfactory ML x incense/scent crafts (agarwood e-nose, perfumery Philyra, kodo 'Smell with Genji' 2602.02785)",
-    "symbolic-regression x organ/reed/clay tacit-laws (closed-form laws already exist: Ising number, free-reed formula, Atterberg-limit ML)",
-    "visuo-tactile world-models x kinesthetic crafts AS A METHOD-OPEN CLAIM (robot dough/deformable manipulation is a dense sibling - always NARROW)"
+    "[carried s1-s3] VLM-counting x beekeeping; TS-anomaly x horology; inpainting x painting; ASR x whistled-language; weather-lore; mushroom-ID; industrial slag/tap-hole; olfactory ML x incense; symbolic-regression x organ/reed/clay laws; visuo-tactile x kinesthetic crafts (method-OPEN)",
+    "[s4] clinical handoff salience (RoBERTa saliency PMC11615705 + DAX Copilot); SAR tasking (RL-LPB 2405.12800 + SAROPS); reconciliation root-cause (SmartStream TLM/Duco); EMD triage (Corti live on 112); sequencing-QC (seqQscorer); warehouse damage adjudication (Arvist/xis.ai); wastewater (Covid-SURGE/NWSS)",
+    "ENTIRE METHOD: BFS 'usable-fresh-technique x under-served-domain' for method-OPEN - structurally exhausted (4 sessions, 0 OPEN)."
   ],
 
   "watch_list_qualified_narrow": [
-    "[s1-s2 carried, still the most defensible] SGNO neural-operator x traditional lime-clamp calcination-front (thinnest adjacency of any session); SGNO x bloomery interior-state",
-    "[s3 application-first-mover, method-NARROW] OmniVTA x hedgelaying living-hinge; kooplearn x solera saca-timing; OmniVTA x nerikoh consistency - all ZERO prior craft-AI",
-    "EnFlow x lake-pigment structure->color (s2); AFINs x socket-fit posterior (s2)"
+    "[BEST, carried s2] SGNO neural-operator x traditional lime-clamp calcination-front - thinnest adjacency of all 46 candidates; the strongest BUILD target if pursuing a NARROW",
+    "[s2] SGNO x bloomery interior-state; EnFlow x lake-pigment; AFINs x socket-fit posterior",
+    "[s3 application-first-mover] OmniVTA x hedgelaying; kooplearn x solera saca-timing",
+    "[s4 closest-to-open application] ShapPFN x IPO allocation (application empty but deliberately-human => poor build target)"
   ],
 
   "process_improvements_for_next_session": [
-    "STRICT-GATE FIX VALIDATED: baking 'any adjacency on either axis => NARROW' into the Phase-4 verifier prompts eliminated the verifier-optimism that s2's crosscheck had to correct (s3: 0 verifier-OPEN vs s2: 5 false-OPEN). Keep it.",
-    "THE CRAFT AXIS IS LIKELY EXHAUSTED for method-OPEN. 3 sessions x ~all-of-craft -> 0 OPEN, 29 NARROW. Recommend a SESSION-4 PIVOT, choose one: (A) ACCEPT application-level timing-edge as the win type and pick ONE zero-craft-AI NARROW (hedgelaying / solera / lime-clamp) to actually BUILD/spec (stop searching, start shipping); (B) ABANDON the craft axis - BFS a different all-of-life region the search has never touched (digital-native practices, economic/market microstructure, scientific-instrument operation, bureaucratic/legal process, sports biomechanics) where fresh techniques may have NO foothold; (C) flip the search: start from a USABLE fresh technique with NO known application and BFS outward (technique-first, not craft-first).",
-    "Causal-discovery and differentiable-sim remain usable-but-unpaired/vaporware - only worth revisiting with a process-log-rich NON-craft domain.",
-    "Keep app-store + 'funded-adjacent-industry' check in life sourcing (both correctly down-rated saturated crafts)."
+    "STOP SEARCHING. 4 sessions x (crafts-with-analog, crafts-no-analog, modern-institutions) -> 0 GAP_OPEN, 37 NARROW, ~9 CLOSED. The structural dilemma (usable=>has-sibling vs no-sibling=>vaporware) means another BFS session on any axis will reproduce the ceiling.",
+    "SESSION-5 SHOULD PICK A TERMINAL PATH, not another search: (A) WRITE UP the structural negative result as the deliverable (this is exactly what the pipeline is for per README - quantified saturation, 46-candidate evidence, the usable<=>sibling dilemma); and/or (B) BUILD the single most defensible NARROW (SGNO x lime-clamp calcination-front) as a concrete first-mover-application artifact, accepting capability-gap (not method-OPEN) as the win; (C) TECHNIQUE-FIRST WATCH: monitor the strongest VAPORWARE techniques (no-sibling, no-code-yet) and be first to apply when code drops - the only structurally-available route to method-OPEN, but requires waiting.",
+    "Keep: strict verifier gate (any adjacency=>NARROW; held 2 sessions, 0 false-OPEN), app-store + funded-adjacent-industry + commercial-vendor checks in sourcing."
   ],
 
   "history": [
-    {"session": 1, "date": "2026-06-04", "tech_bank": 36, "life_bank": 58, "candidates": 10, "gap_open": 0, "gap_narrow": 6, "gap_closed": 4, "headline": "Capability-gap > domain-gap. Fresh+usable x under-served still finds the target partially occupied."},
-    {"session": 2, "date": "2026-06-04", "tech_bank": 62, "life_bank": 95, "candidates": 12, "gap_open": 0, "gap_narrow": 11, "gap_closed_or_near": 1, "headline": "Even neural-operators x physics-crafts cap at NARROW because the craft's INDUSTRIAL ANALOG hosts the technique-family. Hypothesis: OPEN needs a craft with no industrial analog."},
-    {"session": 3, "date": "2026-06-04", "tech_bank": 86, "life_bank": 137, "candidates": 12, "gap_open": 0, "gap_narrow": 12, "headline": "v2 REFUTED: no-analog crafts ALSO collide (12/12 NARROW). Saturation is deeper than the industrial-analog axis - even kodo incense has fresh AI (Genji 2602.02785), and usable techniques always have a sibling foothold. Correlation holds (no-analog collides less, 76% vs 33%). Craft axis likely exhausted for method-OPEN; recommend session-4 pivot."}
+    {"session": 1, "date": "2026-06-04", "tech_bank": 36, "life_bank": 58, "candidates": 10, "gap_open": 0, "gap_narrow": 6, "gap_closed": 4, "headline": "Capability-gap > domain-gap."},
+    {"session": 2, "date": "2026-06-04", "tech_bank": 62, "life_bank": 95, "candidates": 12, "gap_open": 0, "gap_narrow": 11, "gap_closed_or_near": 1, "headline": "Industrial-analog ceiling; OPEN hypothesis = craft with no analog."},
+    {"session": 3, "date": "2026-06-04", "tech_bank": 86, "life_bank": 137, "candidates": 12, "gap_open": 0, "gap_narrow": 12, "headline": "v2 REFUTED: no-analog crafts also collide; saturation deeper than industrial-analog."},
+    {"session": 4, "date": "2026-06-04", "tech_bank": 105, "life_bank": 192, "candidates": 12, "gap_open": 0, "gap_narrow": 8, "gap_closed": 4, "headline": "PIVOT to modern non-craft domains FAILED to escape ceiling (R16: ceiling is STRUCTURAL to BFS, not craft-specific). Modern domains collide harder (4 CLOSED, 0 none-penetration). Method exhausted; stop searching, pick a terminal path."}
   ]
 }
