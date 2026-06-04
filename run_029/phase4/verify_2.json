@@ -1,0 +1,212 @@
+[
+  {
+    "candidate_index": 2,
+    "technique": "Reverso (tiny zero-shot time-series foundation model)",
+    "life_domain": "Cheese affinage (ripeness judged by touch) — Food, cooking, fermentation, culinary craft",
+    "searches": [
+      {
+        "reformulation_type": "exact_pairing",
+        "query": "Reverso cheese ripening time series forecasting affinage",
+        "results": [
+          {
+            "title": "Reverso: Efficient Time Series Foundation Models for Zero-shot Forecasting",
+            "url": "https://arxiv.org/abs/2602.17634",
+            "relevance": "technique-only",
+            "note": "The Reverso paper itself; general TSFM, no mention of cheese/affinage. Confirms technique is generic, not yet paired with this domain."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "technique_agnostic_problem",
+        "query": "machine learning cheese ripeness prediction sensor VOC gas",
+        "results": [
+          {
+            "title": "Machine Learning in Cheese-Making: Methods, Applications, and the Future",
+            "url": "https://link.springer.com/article/10.1007/s12393-025-09420-x",
+            "relevance": "prior_art",
+            "note": "2025 review surveying ML across cheese-making INCLUDING ripeness/maturity prediction — domain is squarely an active ML topic, not untouched."
+          },
+          {
+            "title": "A Novel MOS Nanowire Gas Sensor Device (S3) and GC-MS for Parmigiano Reggiano Cheese",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5192380/",
+            "relevance": "prior_art",
+            "note": "MOS gas-sensor array discriminates cheese quality AND ripening time — exactly the cheap VOC-sensor-for-ripeness premise the candidate claims is new."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability_framing",
+        "query": "time series forecasting cheese affinage maturity prediction deep learning",
+        "results": [
+          {
+            "title": "Deep Learning for Time Series Forecasting: Advances and Open Problems",
+            "url": "https://www.mdpi.com/2078-2489/14/11/598",
+            "relevance": "weak",
+            "note": "Generic DL-TS-forecasting survey; no cheese specificity. Shows capability is mature but did not surface a cheese-forecasting paper directly."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool_product_angle",
+        "query": "electronic nose cheese ripeness monitoring affineur AI",
+        "results": [
+          {
+            "title": "Automatic Monitoring Cheese Ripeness Using Computer Vision and Artificial Intelligence",
+            "url": "https://ieeexplore.ieee.org/document/9956763/",
+            "relevance": "prior_art",
+            "note": "Direct AI-monitoring-of-cheese-ripeness system (IEEE). The 'no AI has entered affinage' claim is false."
+          },
+          {
+            "title": "A Survey on ML Algorithms Used in Electronic Noses for Food Quality Assessment",
+            "url": "https://link.springer.com/article/10.1007/s42979-023-02052-0",
+            "relevance": "prior_art",
+            "note": "E-nose + ML for food quality; cited Pecorino cheese classified by ripening time via MOS e-nose + ANN — gas-array+ML ripeness pipeline already exists."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "trajectory_forecast_specific",
+        "query": "predicting optimal cheese ripening window gas sensor neural network forecast trajectory",
+        "results": [
+          {
+            "title": "Dynamic Bayesian networks for modelling food processing: cheese ripening process",
+            "url": "https://www.academia.edu/21248462/Dynamic_bayesian_networks_for_modelling_food_processing_Application_to_the_cheese_ripening_process",
+            "relevance": "prior_art",
+            "note": "Probabilistic temporal model of the ripening PROCESS over time — the forward-trajectory framing the candidate claims as first-mover already exists."
+          },
+          {
+            "title": "TinyML-Based Real-Time Drift Compensation for Gas Sensors Using Spectral-Temporal Neural Networks",
+            "url": "https://doi.org/10.3390/chemosensors13070223",
+            "relevance": "prior_art",
+            "note": "TinyML temporal NN on low-cost gas-sensor streams for ripening monitoring — edge ML on cheap gas sensors for ripening already demonstrated."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "ripening_trajectory_modeling_volatiles",
+        "query": "\"cheese ripening\" neural network predict maturity volatile compounds Danish blue prediction model",
+        "results": [
+          {
+            "title": "Decoding Cheese Ripening: A Deep Learning Approach to Non-Invasive Monitoring",
+            "url": "https://www.iiia.csic.es/media/filer_public/c2/17/c2174f4e-7697-43c0-ae1b-51eef0ac1831/faia-410-faia250613.pdf",
+            "relevance": "prior_art",
+            "note": "Deep-learning non-invasive cheese-ripening monitoring (IIIA-CSIC) — non-destructive DL ripeness estimation, the candidate's exact non-destructive use case."
+          },
+          {
+            "title": "Modelling the non-linear development of Shenley Station blue cheese volatiles during ripening (SOMs)",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2772753X22000351",
+            "relevance": "prior_art",
+            "note": "ML modelling of how volatile signals evolve OVER ripening time and predicts ripening time — multivariate ripening time-series modelling already published."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Springer 2025 review 'Machine Learning in Cheese-Making' covering ripeness/maturity prediction (ML applied to ripening extent, ripening weeks/days, NIR+ANN reportedly 100% accuracy).",
+      "IEEE 'Automatic Monitoring Cheese Ripeness Using Computer Vision and AI' — shipping AI ripeness monitor.",
+      "IIIA-CSIC 'Decoding Cheese Ripening: A Deep Learning Approach to Non-Invasive Monitoring' — non-destructive DL ripeness, same use case.",
+      "MOS gas-sensor array + multivariate stats / ANN discriminating cheese ripening time (Parmigiano Reggiano; Pecorino via e-nose+ANN) — cheap VOC-array-for-ripeness already exists.",
+      "Self-organizing-map modelling of blue-cheese volatile DEVELOPMENT during ripening that predicts ripening time — multivariate ripening time-series / trajectory framing.",
+      "Dynamic Bayesian networks explicitly modelling the cheese-ripening process over time.",
+      "TinyML spectral-temporal NN for low-cost gas-sensor drift compensation in ripening monitoring; GPR predicting freshness trajectories / remaining shelf life."
+    ],
+    "gap_verdict": "GAP_NARROW",
+    "verdict_reason": "The candidate's premise that 'no AI has entered the affinage cave' and 'no existing sensor pipeline' is demonstrably false: ML for cheese ripeness is an active field (a 2025 Springer review surveys it), with shipping computer-vision+AI ripeness monitors, deep-learning non-invasive monitoring, MOS/e-nose gas arrays + ANN that discriminate ripening time, TinyML on cheap gas sensors, and ML models of volatile DEVELOPMENT over ripening that already forecast ripening time (the forward-trajectory framing). The technique-agnostic problem and the capability/tool framings are CLOSED. What keeps it merely NARROW rather than fully CLOSED is that no work uses a tiny zero-shot TS foundation model (Reverso-class) for per-wheel edge forecasting of forward gas-signal maturity trajectory; that specific method+deployment is genuinely unoccupied. But the gap is much smaller and more crowded than the candidate claims.",
+    "confidence": 0.8
+  },
+  {
+    "candidate_index": 3,
+    "technique": "VETime (Vision-Enhanced Zero-Shot Time-Series Anomaly Detection)",
+    "life_domain": "Mechanical watch regulation (horology) — Social life, ritual, customs & trade",
+    "searches": [
+      {
+        "reformulation_type": "exact_pairing",
+        "query": "VETime watch timegrapher anomaly detection horology zero-shot",
+        "results": [
+          {
+            "title": "VETime: Vision Enhanced Zero-Shot Time Series Anomaly Detection",
+            "url": "https://arxiv.org/abs/2602.16681",
+            "relevance": "technique-only",
+            "note": "The VETime paper/repo itself; generic TSAD, no horology/watch mention. Confirms technique not yet paired with this domain."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "technique_agnostic_problem",
+        "query": "machine learning mechanical watch timegrapher fault diagnosis acoustic deep learning",
+        "results": [
+          {
+            "title": "Acoustic Signal Analysis with Deep Neural Network for Detecting Fault Diagnosis in Industrial Machines",
+            "url": "https://arxiv.org/pdf/2312.01062",
+            "relevance": "weak",
+            "note": "Acoustic DL fault diagnosis exists but for INDUSTRIAL machinery, not watches. No watch-specific academic ML diagnosis surfaced here."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool_product_angle",
+        "query": "timegrapher app AI automatic diagnosis beat error escapement watch regulation",
+        "results": [
+          {
+            "title": "Timegrapher AI — Free Online Watch Timegrapher",
+            "url": "https://timegrapher.ai/",
+            "relevance": "prior_art",
+            "note": "STRONG hit: browser timegrapher that uses the microphone and explicitly advertises 'AI-powered diagnosis' of rate/beat error/amplitude/escapement — directly the candidate's proposed tool."
+          },
+          {
+            "title": "Watch Tuner Timegrapher (MWM)",
+            "url": "https://mwm.ai/apps/watch-tuner-timegrapher/991367080",
+            "relevance": "prior_art",
+            "note": "Commercial mic-based timegrapher app from an AI company; measures and flags rate/beat-error/amplitude irregularities from tick acoustics."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability_framing",
+        "query": "anomaly detection mechanical watch tick sound acoustic signal balance wheel beat",
+        "results": [
+          {
+            "title": "Signature analysis of mechanical watch movements",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327007000660",
+            "relevance": "prior_art",
+            "note": "Peer-reviewed signal/'signature' analysis of watch movements from their acoustics to evaluate performance/diagnose — academic precedent for tick-trace fault analysis."
+          },
+          {
+            "title": "Tick-Tach: Timegrapher Mic for Watch Enthusiasts (Hackaday)",
+            "url": "https://hackaday.io/project/203812-tick-tach-timegrapher-mic-for-watch-enthusiasts",
+            "relevance": "prior_art",
+            "note": "DIY contact-mic timegrapher capturing tick acoustics and computing rate/amplitude/beat-error — the exact capture-and-flag pipeline the candidate describes."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "academic_nn_on_timegrapher_trace",
+        "query": "neural network classify mechanical watch escapement fault timegrapher trace pattern recognition",
+        "results": [
+          {
+            "title": "Signature analysis of mechanical watch movements",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327007000660",
+            "relevance": "prior_art",
+            "note": "Reconfirmed: signal-processing fault analysis of watch movements exists; no NEURAL-NET / zero-shot TSAD on timegrapher traces specifically surfaced."
+          },
+          {
+            "title": "Calibre — Know Your Watch",
+            "url": "https://calibrewatch.app/",
+            "relevance": "prior_art",
+            "note": "Consumer app doing acoustic watch tick analysis for amplitude/rate/beat-error — diagnostic tooling for benchtop horology already exists, contradicting 'no AI diagnostic tooling'."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Timegrapher AI (timegrapher.ai) — free browser timegrapher using the microphone with explicit 'AI-powered diagnosis' of rate/beat error/amplitude/escapement; no hardware needed. Directly equivalent to the proposed app.",
+      "Watch Tuner Timegrapher (MWM, an AI company) and Timegrapher X / Calibre / Watch-O-Scope — multiple shipping mic/sensor timegrapher apps that capture tick acoustics and flag rate/beat-error/amplitude/escapement irregularities and point the user to a watchmaker.",
+      "'Signature analysis of mechanical watch movements' (ScienceDirect) — peer-reviewed acoustic signature/fault analysis of watch movements.",
+      "Tick-Tach (Hackaday) and Bot-Thoughts 'Diagnosing Watches With Electronics' — DIY mic/electronic watch-diagnosis projects.",
+      "(Note: did NOT find a published zero-shot TS anomaly-detection / foundation-model approach specifically on timegrapher traces; academic NN fault-diagnosis hits were for industrial machinery, not watches.)"
+    ],
+    "gap_verdict": "GAP_CLOSED",
+    "verdict_reason": "The candidate's claim — that benchtop/amateur horology 'has no AI diagnostic tooling' and that timegrapher interpretation has 'never been paired with a modern' diagnostic model — is directly contradicted. Timegrapher AI is a live product that ingests the watch's tick acoustics via microphone and explicitly provides AI-powered diagnosis of rate, beat error, amplitude, and escapement irregularities (lock/impulse/unlock phases), i.e. exactly the candidate's 'capture tick acoustics -> flag and locate irregularities -> point the watchmaker at the fault' loop. Several other commercial/DIY mic-based timegrapher apps (Watch Tuner Timegrapher, Calibre, Watch-O-Scope, Tick-Tach) and a peer-reviewed acoustic signature-analysis paper on watch movements provide the same capability. The application (AI/automated diagnosis of mechanical-watch tick traces) already exists, so the gap is closed. The only thing genuinely unused is the SPECIFIC VETime zero-shot vision-enhanced TSAD model/architecture on a beat-timing series, but a directly-equivalent ML/AI diagnostic approach on this exact problem is already deployed, which is the rejection criterion.",
+    "confidence": 0.82
+  }
+]
