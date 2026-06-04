@@ -1,0 +1,48 @@
+{
+  "run": "run_027",
+  "phase": "5b_AUDIT",
+  "audited_by": "orchestrator (ran all gating WebSearches; adjudicated determinism flip via independent math)",
+  "date": "2026-06-04",
+
+  "determinism": {
+    "test": "Re-ran AGENT-EINSTEIN-CRITIC a 2nd time on byte-identical input; compared kill/survive set.",
+    "pass1": {"A1": "SURVIVES", "A2": "KILLED", "A3": "KILLED", "A4": "KILLED", "A5": "KILLED"},
+    "pass2": {"A1": "SURVIVES", "A2": "KILLED", "A3": "SURVIVES", "A4": "KILLED", "A5": "KILLED"},
+    "stable": ["A1", "A2", "A4", "A5"],
+    "unstable": ["A3"],
+    "finding": "4/5 verdicts deterministic across runs. A3 (the borderline case) FLIPPED KILLED<->SURVIVES. This reproduces the saturation-program concern: same-model verdicts are unstable precisely on borderline cases, so an external arbiter is required (the file-chain/critic cannot self-certify a borderline).",
+    "A3_adjudication": "KILLED is correct. Independent check: for an I/O-connected DAG (every edge on an input->output path) the log-holonomy of any graph cycle equals a difference of input->output path log-sums (verified on the s-a/b-t + a-b cross-link example, b_1=2 spanned by 3 s-t path differences). A3's own experiment stipulates 'identical all-paths spectra', under which the cycle Wilson loops are forced equal -> the distinguishing experiment cannot exist. All architectures A3 named (DenseNet, residual, multi-branch, recurrent UNROLLS) are DAGs where this holds. Pass2 SURVIVES missed applying the grounds-C math. NOTE: a NARROWER claim restricted to un-unrolled recurrent directed cycles (weight-shared, walks winding k times) might escape, but A3 did not make that claim.",
+    "A1_robustness": "A1 SURVIVES in both passes AND Bohr PASS AND held-out grounded-gap -> the one robust survivor."
+  },
+
+  "hallucination_check": {
+    "method": "Every paper an agent cited was checked against the orchestrator's OWN real WebSearch results; no arXiv ID was taken from an agent uncorroborated.",
+    "papers_all_real": [
+      "1907.02911 Brea (permutation saddles)", "2012.04728 Kunin Neural Mechanics",
+      "2209.04836 Git Re-Basin", "1506.02617 Path-SGD", "2008.02217 Hopfield Networks is All You Need",
+      "1506.02142 Dropout as a Bayesian Approximation", "2604.07405 Conservation Law Breaking at Edge of Stability",
+      "2602.14729 Terin soft gauge fixing", "2601.21653 representation holonomy",
+      "2509.10536 group-valued Boltzmann holonomy", "2510.02670 Topological Invariance and Breakdown",
+      "2407.08723 Topological Generalization Bounds"
+    ],
+    "quote_fidelity": {
+      "P1_P2_P3_formal_property_quotes": "VERBATIM-verified against retrieved sources (Phase 1).",
+      "A4_hopfield_quote": "PARAPHRASE FLAG: agent wrote 'We show that the transformer attention mechanism is the update rule of a modern Hopfield network with continuous states'; the paper's phrasing is 'The new update rule is equivalent to the attention mechanism used in transformers.' Claim real, exact string not verbatim. (A4 killed anyway.)",
+      "A5_dropout_quote": "NEAR-VERBATIM: matches Gal & Ghahramani phrasing 'a deep neural network with arbitrary depth and non-linearities, with dropout applied before every weight layer, is mathematically equivalent to an approximation to the probabilistic deep Gaussian process model.'"
+    },
+    "verdict": "No fabricated papers. One paraphrased (not verbatim) quote on a killed reframe (A4). Low hallucination."
+  },
+
+  "logic_break_check": {
+    "A2": "Real factual error caught + killed: predicted charge-drift LINEAR in eta; published spectral law gives ~eta^2 (2604.07405). Differentiator self-refuting.",
+    "A3": "Real logic error caught + killed: conflated scalar path-norm with the full all-paths invariant set; for DAGs the cycle holonomies are NOT independent of input->output paths, so 'beyond path-norm' is false as stated.",
+    "A4_A5": "No logic error - simply already-published reframes (correctly killed on grounds A).",
+    "A1": "Logic sound AS A HYPOTHESIS. Chain orbifold R^d/S_n -> branch loci (Brea points) -> drift-field curl -> quantized holonomy is valid. LOAD-BEARING ASSUMPTION (honestly flagged): that the gradient-drift circulation around the degeneracy is reproducible/sign-definite (ballistic) rather than diffusive - this is exactly the empirical claim the decisive experiment tests, not a proven fact. PRACTICAL CAVEAT: the test requires constructing a genuine closed loop in function space (a periodic protocol that truly returns to the same loss geometry); if the loop does not close, the monodromy is ill-defined. No fatal logic break."
+  },
+
+  "grounded_gap_heldout": {
+    "A1": "Fresh held-out queries reconfirm the specific object (discrete S_n monodromy of the weight-space TRAINING TRAJECTORY) is unclaimed; adjacent 2024-2026 'topology/holonomy of training' cluster is active (2601.21653, 2509.10536, 2407.08723) but targets different objects (representation holonomy / group-valued weights / persistent-homology bounds). Honest status: NARROW genuinely-novel testable observable ADJACENT to an awakening area, NOT a wide-open paradigm niche."
+  },
+
+  "overall": "Pipeline behaved as designed: critic killed 4/5; the 2 deliberately-known reframes (A4,A5) died on grounds A; the 2 collision/contradiction reframes (A2,A3) died on grounds A/C; A1 survived critic (x2) + Bohr + held-out grounded-gap. Determinism flip on borderline A3 is itself a finding. A1 is a real, novel, falsifiable lead of MODEST scope."
+}
