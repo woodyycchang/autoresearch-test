@@ -1,0 +1,38 @@
+{
+  "phase": "1_dirac_grounding",
+  "note": "Orchestrator-run WebSearch verification that each starting formal property is REAL (Gate 1 firewall). Verbatim quotes captured from retrieved search results only (R7 only-seen).",
+  "date": "2026-06-04",
+  "properties": [
+    {
+      "id": "P1_permutation_symmetry",
+      "statement": "Hidden units in a layer can be permuted (with weights adjusted) without changing the network function; the loss landscape has permutation symmetry.",
+      "verbatim_quote": "One can swap any two units of a hidden layer in a network and – assuming weights are adjusted accordingly – the functionality of the network will remain unchanged.",
+      "sources": [
+        "https://arxiv.org/abs/2209.04836 (Ainsworth et al., Git Re-Basin: Merging Models modulo Permutation Symmetries)",
+        "Entezari et al. 2021 (linear mode connectivity conjecture modulo permutation)",
+        "https://arxiv.org/pdf/1907.02911 (weight-space symmetry gives permutation saddles connected by equal-loss valleys)"
+      ],
+      "verified_real": true
+    },
+    {
+      "id": "P2_noether_conservation",
+      "statement": "Each continuous differentiable symmetry of an NN architecture yields a conserved quantity under gradient flow (Noether-style); finite learning rate breaks it.",
+      "verbatim_quote": "any such symmetry imposes stringent geometric constraints on gradients and Hessians, leading to an associated conservation law in the continuous-time limit of stochastic gradient descent (SGD), akin to Noether's theorem in physics",
+      "verbatim_quote_2": "finite learning rates used in practice can actually break these symmetry-induced conservation laws",
+      "sources": [
+        "https://arxiv.org/abs/2012.04728 (Kunin, Sagastuy-Brena, Ganguli, Yamins, Tanaka, Neural Mechanics: Symmetry and Broken Conservation Laws in Deep Learning Dynamics)"
+      ],
+      "verified_real": true
+    },
+    {
+      "id": "P3_relu_rescaling_symmetry",
+      "statement": "ReLU positive homogeneity: scaling a unit's incoming weights by c>0 and outgoing weights by 1/c leaves the function unchanged (continuous rescaling symmetry).",
+      "verbatim_quote": "if the incoming weights of a hidden node with ReLU activation are multiplied by a positive constant c and the outgoing weights are divided by c, the neural network with the new weights will generate exactly the same output as the old one for an arbitrary input",
+      "sources": [
+        "https://arxiv.org/pdf/1506.02617 (Neyshabur et al., Path-SGD: Path-Normalized Optimization)",
+        "Dinh et al. 2017 (Sharp Minima Can Generalize For Deep Nets)"
+      ],
+      "verified_real": true
+    }
+  ]
+}
