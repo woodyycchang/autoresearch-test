@@ -1,0 +1,15 @@
+{
+  "agent": "BOHR-FILTER",
+  "results": [
+    {
+      "reframe_id": "A1",
+      "radical_enough": true,
+      "radical_justification": "This is an ontological reconceptualization of what a training run IS, not a new metric on existing objects. It moves permutation symmetry from the status of 'redundancy to be quotiented out' to 'the carrier of a conserved topological integer (monodromy in S_n) that a point in weight space cannot possess and only a path can.' That is a gravity-is-curvature-style category shift: identity-of-network becomes a covering-space datum, and training becomes loop-lifting on a cover. Crucially it is NOT an incremental extension of the adjacent 2025-2026 holonomy-in-NN cluster: those works compute CONTINUOUS (SO(n)/GL_n) holonomy of a fixed network's feature/representation map (2601.21653) or group-valued weight holonomy in a non-SGD architecture (2509.10536). A1's object is the DISCRETE S_n monodromy of the SGD WEIGHT-SPACE TRAJECTORY itself — a different group, a different carrier, and a different claim (a property of the trajectory, not of any network). Brea et al. supplies only the static branch-locus substrate, not a trajectory charge. The adjacency lowers the 'wide-open paradigm' framing but does not make the specific reconceptualization incremental — the conserved discrete charge of a training path is a genuinely new primitive.",
+      "testable": true,
+      "falsifiable_prediction": "Run a closed-loop training protocol that demonstrably returns the network to the SAME effective function/loss geometry (e.g. a strictly periodic curriculum), for k = 1..N cycles, across multiple seeds. For each cycle, compute the optimal permutation alignment pi_k between cycle-start weights and post-cycle-k weights. CONFIRMED if pi_k is a reproducible-across-seeds NON-identity element of S_n whose distance-from-identity (e.g. number of transposed neurons / cycle length) grows in discrete step-wise (quantized, ~linear in k) increments while the loss/training curve shows no corresponding signature. REFUTED if pi_k remains the identity, OR if the accumulated permutation is seed-random with no reproducible direction and its magnitude grows diffusively (variance ∝ k, mean ≈ 0) rather than additively/quantized.",
+      "differs_from_standard": "The standard 'static redundancy' view predicts the weights return to themselves up to zero-mean noise, i.e. pi_k ≈ identity, and any residual permutation is a seed-dependent random-walk artifact (diffusive, mean-zero, non-reproducible). The reframe predicts a deterministic, seed-reproducible, quantized integer-valued net permutation that accumulates ADDITIVELY (step-wise, ballistic in k) and is robust to noise because it is topological — a reproducible non-identity group element where the standard view predicts identity-plus-diffusion.",
+      "verdict": "PASS",
+      "reject_reason": null
+    }
+  ]
+}
