@@ -2027,6 +2027,138 @@
       "source": "https://www.police1.com/911-and-dispatch/how-ai-call-automation-can-ease-the-strain-on-911-centers",
       "_source_agent": "LIFE-5",
       "_session": 4
+    },
+    {
+      "name": "911 call empathy/judgment triage on degraded audio",
+      "domain": "A",
+      "open_problem": "Deciding acuity and whether to involve law enforcement when callers are panicked, accented, traumatized, or in noisy environments — the empathy/intuition layer where AI fails and a human must weigh ambiguous spoken cues in real time.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial — call-center voice IVR/sentiment exists, but emergency degraded-audio + judgment-under-trauma is far harder than commercial telephony",
+      "app_market_check": "BlueSentry (Avairy), Hexagon/RapidDeploy, Carbyne, Aurelian, Prepared911 — vendors target non-emergency overflow, not the judgment core",
+      "verbatim_quote": "The technology often struggles with background noise, accents, trauma responses, or speech related to medical conditions.",
+      "source": "https://www.police1.com/artificial-intelligence/can-ai-fix-911s-biggest-problems-or-make-them-worse",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "EMD acuity determination / over-undertriage tuning",
+      "domain": "A",
+      "open_problem": "Closing the gap between dispatch-assigned priority and on-scene reality; Medical Priority Dispatch protocols overtriage at ~62% (target 25-35%) — a structured-protocol-plus-human-judgment task to right-size ambulance acuity that resists pure automation.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial — predictive triage exists in clinical ED settings, but pre-arrival phone-only acuity with no patient exam is a distinct unsolved gap",
+      "app_market_check": "Priority Dispatch (ProQA/MPDS) is the dominant protocol-card system; largely deterministic, not ML; nurse-triage add-ons exist but no ML acuity engine widely deployed",
+      "verbatim_quote": "Overtriage occurs when patients are triaged on-scene by EMS staff as lower acuity but were dispatched as high priority (P1).",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11887241/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "SAR mission tasking & search-segment prioritization",
+      "domain": "A",
+      "open_problem": "The IC's minute-by-minute call of which segment to assign which arriving resource — translating Lost Person Behavior probability into segment tasking and dynamic re-tasking remains manual map-work and human judgment, not optimization.",
+      "ai_penetration": "very-low",
+      "has_industrial_analog": "no — field logistics dispatch optimizers exist commercially but probabilistic-area lost-person tasking under terrain/weather/clue uncertainty has no real industrial twin",
+      "app_market_check": "CalTopo / SARTopo dominate; provide mapping, segments, LPB layers and 'probability-based heat mapping features being developed' — but resource-to-segment tasking is still the manager's manual decision",
+      "verbatim_quote": "The SAR Incident Commander is responsible for the coordination and control of all incident activities and the associated minute-by-minute decisions, and is accountable for the overall success or failure of the mission.",
+      "source": "https://www.nlgsarinquiry.ca/files/Exhibit-P-195.pdf",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Wildfire incident-command resource staging decisions",
+      "domain": "A",
+      "open_problem": "Recognition-primed IC choices on where to stage and pre-position crews/engines under fast-changing fire behavior — doctrine explicitly demands judgment, not procedure, leaving the staging/mobilization-center allocation call essentially un-automated.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial — supply-chain pre-positioning/inventory staging optimizers exist, but fire's recognition-primed, life-safety, rapidly-evolving front makes them a weak analog",
+      "app_market_check": "Technosylva (Wildfire Analyst/fiResponse), IBM EIS, Intterra, Tablet Command — fire-spread prediction and CAD exist; the staging-decision layer remains the IC's call",
+      "verbatim_quote": "Fire operations doctrine does not consist of procedures to be applied to specific situations so much as it sets forth general guidance that requires judgment.",
+      "source": "https://gacc.nifc.gov/swcc/management_admin/Agency_Administrator/AA_Guidelines/pdf_files/ch5.pdf",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Disaster preliminary damage assessment field verification",
+      "domain": "A",
+      "open_problem": "Human ground-truth validation of damage severity that feeds Presidential-declaration eligibility — even with imagery/Survey123, field assessors must adjudicate damage categories per-structure, a judgment + verification gap remote sensing alone can't close.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial — insurance claims damage adjudication is close, but FEMA's declaration-threshold standardized categorization is a niche public-sector decision",
+      "app_market_check": "FEMA FACT System + Esri ArcGIS Survey123 PDA templates (data collection); no ML severity-adjudication product seen for the decision itself",
+      "verbatim_quote": "Visual interpretation is very important as well as the experience of the map provider in order to contain as much as possible the limitations of the automatic processing.",
+      "source": "https://gis4schools.readthedocs.io/en/latest/part4/4_1.html",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Outbreak rumor/signal verification (true-vs-noise triage)",
+      "domain": "B",
+      "open_problem": "Epidemiologists manually verifying whether an unofficial outbreak rumor is real before triggering costly response — true events verified in ~2.7 days, false rumors ~9.3 days; the curation/verification judgment is human and slow.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial — fraud/misinformation detection pipelines are analogous for the text-signal step, but epidemiological consequence-weighting of an unverified threat is domain-specific",
+      "app_market_check": "WHO EIOS, ProMED, HealthMap, EpiCore/Ending Pandemics, BlueDot, Metabiota — aggregation/detection exist; verification still relies on 'human input ... for data curation and signal verification'",
+      "verbatim_quote": "Human input plays a crucial role for data curation and signal verification.",
+      "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10980988/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Syndromic-surveillance alarm adjudication (Alert/Monitor/No-action)",
+      "domain": "B",
+      "open_problem": "After low-threshold statistical alarms fire (high false-positive rates), an epidemiologist must do a second-stage manual review and assign Alert/Monitor/No-action — the contextual public-health-significance call is still human.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial — SOC/IT anomaly-alert triage (SIEM tier-2) is a strong structural twin for the false-positive triage problem",
+      "app_market_check": "ESSENCE (NSSP/CDC BioSense), EARS, England's RCGP/UKHSA system; one PMC study applies ML to 'refine decision making' — so some penetration, but adjudication is the analyst's",
+      "verbatim_quote": "Syndromic surveillance systems have to follow up alarms with a second stage process to determine whether individual alarms are of potential public health importance.",
+      "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6515660/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Wastewater signal interpretation -> public-health action",
+      "domain": "B",
+      "open_problem": "Turning noisy multi-site wastewater pathogen-load data into an actionable 'worsening trend / act now' call — explicitly mixes statistics with expert judgment, and local depts often lack the skills, so the interpretation step is a manual bottleneck.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial — industrial process/sensor anomaly trend detection is analogous, but cross-site normalization + public-health action-triggering is specialized",
+      "app_market_check": "Biobot Analytics, Verily (CDC NWSS contract / WastewaterSCAN) provide dashboards & trends; the interpret-and-act decision still needs expert judgment per CDC guidance",
+      "verbatim_quote": "Various methods are employed to draw inferences ... from tests of statistical significance to application of expert judgment. However, these analyses require skills that are not always readily available within the jurisdiction or local public health department.",
+      "source": "https://www.ncbi.nlm.nih.gov/books/NBK591711/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Contact-tracing interview prioritization sequencing",
+      "domain": "B",
+      "open_problem": "Which contact to interview next given limited tracers — a sequential decision with downstream branching effects (querying B vs C changes future options); currently a heuristic human call, only recently framed as a 'branching bandit' optimization.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "yes — operations-research scheduling/bandit problems and call-center next-best-action queuing are direct analogs",
+      "app_market_check": "Sara Alert, Salesforce Work.com / Contact Tracing, Dimagi CommCare; case-management workflow tools exist but next-contact prioritization optimization is not a shipped product feature",
+      "verbatim_quote": "A crucial decision in any contact tracing strategy is which person should a tracer trace next, given a set of contacts.",
+      "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10013731/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Risk-based health-inspection targeting",
+      "domain": "B",
+      "open_problem": "Allocating scarce inspectors by establishment risk — frequency still driven by static risk tiers + inspection history + complaint volume rather than dynamic predictive targeting in most jurisdictions.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "yes — predictive maintenance / audit-risk-scoring (tax, manufacturing QA) is a direct twin and well developed",
+      "app_market_check": "FieldPie, MyFieldAudits, HealthSpace, Accela; mostly checklist/grading workflow; Chicago/Yelp-data predictive-inspection pilots exist (academic), limited production ML",
+      "verbatim_quote": "Health inspection frequency depends on several factors reflecting an establishment's risk profile, with high-risk operations typically facing inspections every 6-12 months.",
+      "source": "https://www.myfieldaudits.com/blog/health-inspection-grading-scale",
+      "_source_agent": "LIFE-5",
+      "_session": 4
+    },
+    {
+      "name": "Vaccine cold-chain temperature-excursion disposition call",
+      "domain": "B",
+      "open_problem": "After an excursion, deciding whether product is still usable vs must be discarded, and re-routing last-mile under supply uncertainty — stability-budget judgment that's partly procedural but still a human disposition decision at the point of delivery.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "yes — pharma/perishables cold-chain logistics and shelf-life disposition is a mature commercial discipline",
+      "app_market_check": "Controlant, Sensitech, Berlinger, Zipline (last-mile); route+excursion decision-support 'two-stage' approaches are research-stage, monitoring is productized",
+      "verbatim_quote": "The sustainable last-mile cold chain logistics operations of COVID-19 vaccines is a complex short-term planning problem that faces many practical challenges.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9392992/",
+      "_source_agent": "LIFE-5",
+      "_session": 4
     }
   ]
 }
