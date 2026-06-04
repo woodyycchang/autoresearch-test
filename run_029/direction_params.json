@@ -1,0 +1,48 @@
+{
+  "_schema": "direction_params - learned fertile-frontier regions for BFS first-mover (fresh technique x all-of-life). Append history each session; params steer next session's BFS.",
+  "version": 1,
+  "updated": "2026-06-04",
+
+  "core_lesson_learned": "The fertile frontier is NOT 'a life domain with low AI penetration' - any domain with a DOCUMENTED open problem already attracts some ML, and 'obvious' applications are productized within months (varroa-counting apps, timegrapher.ai, MIT painting-restoration, whistled-language ASR all pre-existed). The fertile region is the INTERSECTION: a domain whose EXISTING ML work LACKS the specific capability a fresh technique uniquely provides. Match on CAPABILITY-GAP, not DOMAIN-GAP. And the fresh technique must be the differentiator, not incidental (a backbone/quantizer that 'any model could supply' does not define a first-mover).",
+
+  "ml_subfield_fertility": [
+    {"subfield": "Scientific ML / neural operators (physics-forward-rollout)", "fertility": "HIGH", "evidence": "SGNO->glassblowing was the closest-to-open (NARROW); physics surrogates are rarely pointed at craft, and crafts have no hobbyist-app market. Caveat: training data must often be simulated.", "n_this_session": 1, "survived_narrow": 1, "closed": 0},
+    {"subfield": "Foundation-model zero-shot transfer (time-series)", "fertility": "MEDIUM-HIGH", "evidence": "Toto2.0/Reverso->fermentation survived NARROW because the FOUNDATION-MODEL angle is distinct from bespoke per-domain models / e-nose already used; but VETime->horology CLOSED (anomaly detection on obvious signals gets productized).", "n_this_session": 3, "survived_narrow": 2, "closed": 1},
+    {"subfield": "Audio/sensing foundation models (learned source-separation)", "fertility": "MEDIUM", "evidence": "SAM-Audio->overtone-stem survived NARROW (separation-into-stems is a capability the domain's visualization tools lack); Audio-Omni->whistled-ASR CLOSED (ASR-type tasks already attempted).", "n_this_session": 2, "survived_narrow": 1, "closed": 1},
+    {"subfield": "VLM / multimodal (counting, grounding, inpainting)", "fertility": "LOW", "evidence": "Molmo2->varroa and InternVL-U->painting both CLOSED. Counting/grounding/generative-inpainting get productized fast even in niche domains.", "n_this_session": 2, "survived_narrow": 0, "closed": 2},
+    {"subfield": "Efficient/on-device LLMs & sequence backbones (SSM, quantization)", "fertility": "LOW", "evidence": "Sparse-BitNet->ethnoveterinary and Mamba-3->wayfinding survived NARROW only because their DOMAINS are under-served - the technique itself is incidental (any small/sequence model would serve). Backbones do not define a first-mover application.", "n_this_session": 2, "survived_narrow": 2, "closed": 0, "flag": "technique-incidental; discount"}
+  ],
+
+  "life_domain_fertility": [
+    {"domain": "Physics-bearing crafts (glassblowing, kiln firing, forge welding, thermal/viscosity by eye)", "fertility": "HIGH", "why": "Real physics (heat/PDE) + no consumer-app market + ML largely absent. Best target for neural-operator / physics-surrogate techniques."},
+    {"domain": "Tacit-sensory fermentation with a DOCUMENTED gap (moromi, koji, balsamic, affinage)", "fertility": "MEDIUM", "why": "Gap is real and literature-admitted, but e-nose/CV already nibbling; only the foundation-model zero-shot FORECASTING angle remains open. Calibration data is the bottleneck."},
+    {"domain": "Performance-craft acoustics (overtone singing, lutherie tap-tone, change ringing, throat singing)", "fertility": "MEDIUM", "why": "Spectrogram visualization tools exist; learned SOURCE-SEPARATION / generation is the unused capability."},
+    {"domain": "Low-resource / offline practice (ethnoveterinary, rural midwifery, herbal)", "fertility": "MEDIUM", "why": "Domains genuinely under-served, BUT offline-LLM-advisor capability already exists generically (Farmer.Chat, Pocket RAG) - the corpus is new, the technique is not. Technique-incidental risk."},
+    {"domain": "Traditional navigation / wayfinding", "fertility": "LOW-MEDIUM", "why": "Cognitive models (etak) + learned dead-reckoning (AI-IMU) already occupy the framing."},
+    {"domain": "Niche practices WITH a hobbyist/consumer app market (beekeeping varroa, watch regulation, painting restoration, whistled-language ASR)", "fertility": "LOW (AVOID)", "why": "Saturated by shipping apps or recent papers despite looking 'under-served' on Wikipedia. A consumer app market is a strong saturation signal."}
+  ],
+
+  "avoid_list_saturated_regions": [
+    "VLM object-counting x beekeeping mite monitoring (VarroDetector, Apizoom, BeeScanning)",
+    "TS anomaly-detection x mechanical-watch regulation (timegrapher.ai ships it)",
+    "generative inpainting x painting conservation (MIT/Kachkine, Nature 2025)",
+    "audio ASR/MLLM x whistled-language transcription (Jakubiak, Interspeech 2023)"
+  ],
+
+  "watch_list_qualified_narrow": [
+    "neural-operator forward-rollout x artisan hot-glass viscosity (vs industrial closed-loop control 2604.00135) - thinnest remaining slice, most defensible",
+    "learned source-separation-into-stems x overtone/throat-singing pedagogy (vs spectrogram visualizers)",
+    "multivariate-TS-foundation-model x in-tank fermentation maturity forecasting (vs e-nose/CV snapshots)"
+  ],
+
+  "process_improvements_for_next_session": [
+    "Add an APP-STORE / commercial-product search to Phase-1 life sourcing: ai_penetration ratings that ignore shipping consumer apps were over-optimistic (varroa, horology both had apps the life-agents missed).",
+    "In Phase 3 pairing, require the proposer to name the SPECIFIC capability the domain's existing ML lacks (capability-gap), and forbid 'why_no_one_done_it' claims of the form 'no AI in domain X' without a paired negative-search.",
+    "Down-weight VLM-counting/grounding/inpainting and generic LLM-backbone/quantization pairings (low fertility, technique-incidental).",
+    "Up-weight scientific-ML/neural-operators x physics-bearing crafts (highest fertility this session)."
+  ],
+
+  "history": [
+    {"session": 1, "date": "2026-06-04", "tech_bank": 36, "life_bank": 58, "usable_fresh": 24, "candidates": 10, "gap_open": 0, "gap_narrow": 6, "gap_closed": 4, "verdict": "NOT_FOUND (no clean first-mover); 6 qualified-NARROW", "headline": "Fresh+usable technique x under-served domain still tends to find the application target partially occupied; capability-gap > domain-gap is the steering update."}
+  ]
+}
