@@ -1,0 +1,1216 @@
+{
+  "_phase": "4 - adversarial gap verification (R5/R7/R13/R14)",
+  "_method": "5 agents, >=5 reformulated searches per candidate; verdict GAP_OPEN/NARROW/CLOSED",
+  "_gate": "FIRST_MOVER requires GAP_OPEN (no prior application). NARROW=qualified (specific fresh capability unused but broader problem served). CLOSED=reject.",
+  "n_candidates": 10,
+  "tally": {
+    "GAP_OPEN": 0,
+    "GAP_NARROW": 6,
+    "GAP_CLOSED": 4
+  },
+  "verdicts": [
+    {
+      "candidate_index": 0,
+      "technique": "Molmo2",
+      "life_domain": "Varroa mite monitoring (alcohol wash / sugar roll) - Agriculture & animal husbandry",
+      "searches": [
+        {
+          "reformulation_type": "exact",
+          "query": "Molmo varroa mite counting",
+          "results": [
+            {
+              "title": "A Comparative Study of Hybrid Machine-Learning vs. Deep-Learning Approaches for Varroa Mite Detection and Counting",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12390549/",
+              "relevance": "prior-art",
+              "note": "ML/DL methods already benchmarked for varroa detection+counting; no 'Molmo' but the exact task (detect-and-count mites) is solved work."
+            },
+            {
+              "title": "Analysis of Varroa Mite Colony Infestation Level Using New Open Software Based on Deep Learning Techniques",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11207890/",
+              "relevance": "prior-art",
+              "note": "Open deep-learning software that computes colony infestation level from mite imagery - directly the candidate's intended output."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "problem",
+          "query": "deep learning varroa mite counting automatic detection",
+          "results": [
+            {
+              "title": "An AI-Based Open-Source Software for Varroa Mite Fall Analysis in Honeybee Colonies (VarroDetector)",
+              "url": "https://www.mdpi.com/2077-0472/15/9/969",
+              "relevance": "prior-art",
+              "note": "Free DL software (VarroDetector) detects+counts varroa from smartphone images of sticky boards; R2=0.98-0.99 vs control, beats trained operators above 50 mites/sheet."
+            },
+            {
+              "title": "AI Helps Save Bees | NVIDIA Technical Blog",
+              "url": "https://developer.nvidia.com/blog/ai-helps-save-bees/",
+              "relevance": "prior-art",
+              "note": "Industry coverage of deep-learning varroa monitoring; the problem has clear AI penetration and vendor interest."
+            },
+            {
+              "title": "Varroa Mite Counting Based on Hyperspectral Imaging",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11281281/",
+              "relevance": "prior-art",
+              "note": "Another automated varroa-counting modality (hyperspectral) - reinforces that automated counting is an active solved area."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability",
+          "query": "computer vision automatic varroa mite counting app smartphone",
+          "results": [
+            {
+              "title": "Beekeeping - A Mobile Application for Controlling the Varroa Mite (Apizoom)",
+              "url": "https://www.agrarforschungschweiz.ch/en/2021/05/beekeeping-a-mobile-application-for-controlling-the-varroa-mite/",
+              "relevance": "prior-art",
+              "note": "Apizoom (EPFL/Agroscope) phone app auto-counts mites on the varroa tray, 'approaches human visual acuity' - precisely the candidate's phone-photo-of-tray use case."
+            },
+            {
+              "title": "GitHub - jodivaso/varrodetector",
+              "url": "https://github.com/jodivaso/varrodetector",
+              "relevance": "prior-art",
+              "note": "Open-source repo: YOLOv11-nano counts varroa from smartphone photos of sticky sheets, runs CPU-only - same input/output as the proposed Molmo2 workflow."
+            },
+            {
+              "title": "AI Tech Offers Gentle Mite Monitoring (Apiarist's Advocate)",
+              "url": "https://www.apiaristsadvocate.com/post/ai-tech-offers-gentle-mite-monitoring",
+              "relevance": "prior-art",
+              "note": "Trade article on AI-based mite monitoring tools already marketed to beekeepers."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool",
+          "query": "varroa counter app alcohol wash sugar roll image recognition",
+          "results": [
+            {
+              "title": "Varroa Counter - Apps on Google Play",
+              "url": "https://play.google.com/store/apps/details?id=topLab.VarroaCounter&hl=en&gl=US",
+              "relevance": "prior-art",
+              "note": "Shipped commercial app billed as 'the world's first professional mobile counting application for Varroa Destructor' using computer vision."
+            },
+            {
+              "title": "BeeScanning - Find varroa mites and sick brood",
+              "url": "https://beescanning.com/",
+              "relevance": "prior-art",
+              "note": "Commercial AI app: photograph bees, AI counts varroa-to-bee ratio in seconds, calibrated against alcohol wash on 1000 colonies; explicitly replaces sugar shake / alcohol wash."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "other",
+          "query": "vision language model object counting pointing bees mites grounding apiary",
+          "results": [
+            {
+              "title": "[2603.10978] GroundCount: Grounding Vision-Language Models with Object Detection for Mitigating Counting Hallucinations",
+              "url": "https://arxiv.org/abs/2603.10978",
+              "relevance": "related",
+              "note": "VLM pointing/grounding for counting is itself an active 2026 research area (and notes VLMs hallucinate counts), but not applied to varroa specifically."
+            },
+            {
+              "title": "Computer Vision Approaches for Automated Bee Counting Application",
+              "url": "https://arxiv.org/html/2406.08898v1",
+              "relevance": "related",
+              "note": "Vision-based counting in the apiary domain (bees) already established; varroa is the adjacent, already-served counting target."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "VarroDetector - free open-source DL software (YOLOv11-nano) counts varroa from smartphone photos of sticky sheets, runs CPU-only, R2=0.98-0.99 vs control and beats trained operators >50 mites/sheet: https://github.com/jodivaso/varrodetector and https://www.mdpi.com/2077-0472/15/9/969",
+        "Apizoom (EPFL/Agroscope) mobile app auto-counts mites on the varroa tray, approaching human visual acuity: https://www.agrarforschungschweiz.ch/en/2021/05/beekeeping-a-mobile-application-for-controlling-the-varroa-mite/",
+        "Varroa Counter on Google Play - shipped commercial computer-vision mite-counting app: https://play.google.com/store/apps/details?id=topLab.VarroaCounter",
+        "BeeScanning - commercial AI app counting varroa/bee ratio from photos, calibrated against alcohol wash across 1000 colonies: https://beescanning.com/",
+        "Multiple peer-reviewed DL/ML papers on varroa detection+counting and infestation-level estimation: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11207890/ , https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12390549/"
+      ],
+      "gap_verdict": "GAP_CLOSED",
+      "verdict_reason": "The exact application - phone photo of a varroa tray/sticky sheet -> automated computer-vision detection-and-count -> infestation level for the treat/no-treat decision - is already deployed in both open-source software (VarroDetector, YOLOv11-nano, validated R2~0.98-0.99) and multiple commercial apps (Apizoom, BeeScanning, Varroa Counter on Google Play). Molmo2's point-and-count is merely a newer model class for a problem that vision teams have demonstrably already targeted and shipped.",
+      "confidence": "high"
+    },
+    {
+      "candidate_index": 1,
+      "technique": "SAM-Audio (Segment Anything in Audio)",
+      "life_domain": "Tuvan throat singing / overtone singing technique - Art, music & performance craft",
+      "searches": [
+        {
+          "reformulation_type": "exact",
+          "query": "SAM-Audio throat singing overtone separation",
+          "results": [
+            {
+              "title": "SAM Audio: Segment Anything in Audio (arXiv 2512.18099)",
+              "url": "https://arxiv.org/pdf/2512.18099",
+              "relevance": "related",
+              "note": "Confirms SAM-Audio exists (promptable separation) but its own paper notes it struggles with highly similar sources - overtones are highly similar frequency components; no throat-singing application shown."
+            },
+            {
+              "title": "GitHub - lukemcraig/OvertoneFilter",
+              "url": "https://github.com/lukemcraig/OvertoneFilter",
+              "relevance": "related",
+              "note": "Existing tool emphasizes MIDI-selected harmonics to SIMULATE sygyt overtone singing - DSP synthesis/emphasis, not learned separation of a real singer's overtone stem."
+            },
+            {
+              "title": "Overtone focusing in biphonic Tuvan throat singing (eLife)",
+              "url": "https://elifesciences.org/articles/50476",
+              "relevance": "related",
+              "note": "Established acoustic science of the drone+overtone mechanism; characterizes biphonation as linear filtering, but is analysis, not a separation/feedback tool."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "problem",
+          "query": "machine learning overtone singing analysis pitch tracking real-time feedback",
+          "results": [
+            {
+              "title": "A Survey on 30+ Years of Automatic Singing Assessment and Singing Information Processing (arXiv 2601.12153)",
+              "url": "https://arxiv.org/html/2601.12153v1",
+              "relevance": "related",
+              "note": "ML/DNN-based singing assessment with real-time pitch/spectral feedback is a mature 30-year field - the pedagogical-feedback capability is broadly served, though not specifically via overtone source separation."
+            },
+            {
+              "title": "GVPT -- A software for guided visual pitch tracking (arXiv 2505.00750)",
+              "url": "https://arxiv.org/pdf/2505.00750",
+              "relevance": "related",
+              "note": "Real-time visual pitch-tracking pedagogy tool; same feedback goal but no learned overtone isolation."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability",
+          "query": "audio source separation overtone singing harmonic isolation khoomei sygyt",
+          "results": [
+            {
+              "title": "Analysis and modelling of overtone singing in the sygyt style (ScienceDirect)",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0003682X04001082",
+              "relevance": "related",
+              "note": "Signal-level modelling of the sygyt overtone, but classical DSP analysis - not a promptable/learned two-stem separator."
+            },
+            {
+              "title": "Overtone focusing in biphonic Tuvan throat singing (PMC)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7064340/",
+              "relevance": "related",
+              "note": "Describes overtone as a focused filter state at 1-2 kHz; confirms the physics but does no separation/feedback for learners."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool",
+          "query": "overtone singing trainer app visualize harmonics spectrogram feedback software",
+          "results": [
+            {
+              "title": "Sygyt Software - Software for Voice Analysis and Sound Visualization",
+              "url": "https://www.sygyt.com/en/",
+              "relevance": "prior-art",
+              "note": "Dedicated voice-analysis/visualization software named after the throat-singing style; targets overtone-singing feedback (spectrogram-based, not learned separation)."
+            },
+            {
+              "title": "Overtone Analyzer - Download",
+              "url": "https://overtone-analyzer.updatestar.com/en",
+              "relevance": "prior-art",
+              "note": "Explicitly 'used for studying and teaching overtone singing' with spectrogram + pitch detection - serves the exact corrective-feedback pedagogy goal, via visualization rather than separation."
+            },
+            {
+              "title": "MeionSpector / VoceVista / SING&SEE (Spectrogram apps for overtones)",
+              "url": "https://techfortheclassicalsinger.wordpress.com/2012/07/28/spectrogram-apps-for-visualizing-the-overtones-in-your-voice/",
+              "relevance": "prior-art",
+              "note": "MeionSpector: sing a note, see overtones, adjust vocal production until bands change - real-time overtone feedback loop already exists, again spectrogram-based not source-separation."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "other",
+          "query": "overtone extraction isolation audio neural network throat singing harmonic enhancement real-time",
+          "results": [
+            {
+              "title": "New Dataset Release: Overtone Singing (Preview) - Articulation-Level Overtone & Throat Singing Primitives (HuggingFace)",
+              "url": "https://discuss.huggingface.co/t/new-dataset-release-overtone-singing-preview-articulation-level-overtone-throat-singing-primitives/171144",
+              "relevance": "related",
+              "note": "ML community is now releasing ISOLATED overtone-singing primitives for MIR/generative research - shows ML is beginning to target this niche, but no separation+pedagogy system yet."
+            },
+            {
+              "title": "Joint Singing Pitch Estimation and Voice Separation Based on a Neural Harmonic Structure Renderer",
+              "url": "https://www.academia.edu/66573615/Joint_Singing_Pitch_Estimation_and_Voice_Separation_Based_on_a_Neural_Harmonic_Structure_Renderer",
+              "relevance": "related",
+              "note": "Neural harmonic-structure separation exists for singing voice generally; conceptually adjacent but not applied to drone-vs-overtone biphonic isolation."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Sygyt Software (sygyt.com) and Overtone Analyzer - dedicated tools explicitly used for studying/teaching overtone singing via real-time spectrogram + pitch detection: https://www.sygyt.com/en/ and https://overtone-analyzer.updatestar.com/en",
+        "MeionSpector / VoceVista / SING&SEE - real-time overtone visualization feedback loops where learners watch harmonic bands and adjust vocal-tract shaping: https://techfortheclassicalsinger.wordpress.com/2012/07/28/spectrogram-apps-for-visualizing-the-overtones-in-your-voice/",
+        "30+ year mature field of ML/DNN automatic singing assessment with real-time pitch/spectral feedback: https://arxiv.org/html/2601.12153v1 ; plus GVPT guided visual pitch tracking: https://arxiv.org/pdf/2505.00750",
+        "lukemcraig/OvertoneFilter - existing harmonic-emphasis tool for sygyt-style overtones (DSP, not learned separation): https://github.com/lukemcraig/OvertoneFilter",
+        "SAM-Audio's own paper documents a limitation separating highly similar sources (overtones are highly similar), and ML is only now releasing isolated overtone datasets - so a learned drone/overtone separator-for-pedagogy is not yet shipped: https://arxiv.org/pdf/2512.18099 and https://discuss.huggingface.co/t/new-dataset-release-overtone-singing-preview-articulation-level-overtone-throat-singing-primitives/171144"
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "The underlying pedagogical capability - making the invisible overtone observable in real time for corrective vocal-tract feedback - is already well-served by spectrogram/pitch-tracking tools explicitly built for teaching overtone singing (Sygyt Software, Overtone Analyzer, MeionSpector, VoceVista, SING&SEE), so the domain problem is NOT untouched. However, none of these perform learned audio source separation into a listenable isolated overtone stem; that specific SAM-Audio framing (promptable two-source drone/overtone separation) is a genuinely new, untried angle - making this a qualified first-mover rather than open or closed. (Caveat: SAM-Audio's paper flags weakness on highly similar sources, which overtones are.)",
+      "confidence": "medium"
+    },
+    {
+      "candidate_index": 2,
+      "technique": "Reverso (tiny zero-shot time-series foundation model)",
+      "life_domain": "Cheese affinage (ripeness judged by touch) \u2014 Food, cooking, fermentation, culinary craft",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "Reverso cheese ripening time series forecasting affinage",
+          "results": [
+            {
+              "title": "Reverso: Efficient Time Series Foundation Models for Zero-shot Forecasting",
+              "url": "https://arxiv.org/abs/2602.17634",
+              "relevance": "technique-only",
+              "note": "The Reverso paper itself; general TSFM, no mention of cheese/affinage. Confirms technique is generic, not yet paired with this domain."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "machine learning cheese ripeness prediction sensor VOC gas",
+          "results": [
+            {
+              "title": "Machine Learning in Cheese-Making: Methods, Applications, and the Future",
+              "url": "https://link.springer.com/article/10.1007/s12393-025-09420-x",
+              "relevance": "prior_art",
+              "note": "2025 review surveying ML across cheese-making INCLUDING ripeness/maturity prediction \u2014 domain is squarely an active ML topic, not untouched."
+            },
+            {
+              "title": "A Novel MOS Nanowire Gas Sensor Device (S3) and GC-MS for Parmigiano Reggiano Cheese",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5192380/",
+              "relevance": "prior_art",
+              "note": "MOS gas-sensor array discriminates cheese quality AND ripening time \u2014 exactly the cheap VOC-sensor-for-ripeness premise the candidate claims is new."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "time series forecasting cheese affinage maturity prediction deep learning",
+          "results": [
+            {
+              "title": "Deep Learning for Time Series Forecasting: Advances and Open Problems",
+              "url": "https://www.mdpi.com/2078-2489/14/11/598",
+              "relevance": "weak",
+              "note": "Generic DL-TS-forecasting survey; no cheese specificity. Shows capability is mature but did not surface a cheese-forecasting paper directly."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_product_angle",
+          "query": "electronic nose cheese ripeness monitoring affineur AI",
+          "results": [
+            {
+              "title": "Automatic Monitoring Cheese Ripeness Using Computer Vision and Artificial Intelligence",
+              "url": "https://ieeexplore.ieee.org/document/9956763/",
+              "relevance": "prior_art",
+              "note": "Direct AI-monitoring-of-cheese-ripeness system (IEEE). The 'no AI has entered affinage' claim is false."
+            },
+            {
+              "title": "A Survey on ML Algorithms Used in Electronic Noses for Food Quality Assessment",
+              "url": "https://link.springer.com/article/10.1007/s42979-023-02052-0",
+              "relevance": "prior_art",
+              "note": "E-nose + ML for food quality; cited Pecorino cheese classified by ripening time via MOS e-nose + ANN \u2014 gas-array+ML ripeness pipeline already exists."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "trajectory_forecast_specific",
+          "query": "predicting optimal cheese ripening window gas sensor neural network forecast trajectory",
+          "results": [
+            {
+              "title": "Dynamic Bayesian networks for modelling food processing: cheese ripening process",
+              "url": "https://www.academia.edu/21248462/Dynamic_bayesian_networks_for_modelling_food_processing_Application_to_the_cheese_ripening_process",
+              "relevance": "prior_art",
+              "note": "Probabilistic temporal model of the ripening PROCESS over time \u2014 the forward-trajectory framing the candidate claims as first-mover already exists."
+            },
+            {
+              "title": "TinyML-Based Real-Time Drift Compensation for Gas Sensors Using Spectral-Temporal Neural Networks",
+              "url": "https://doi.org/10.3390/chemosensors13070223",
+              "relevance": "prior_art",
+              "note": "TinyML temporal NN on low-cost gas-sensor streams for ripening monitoring \u2014 edge ML on cheap gas sensors for ripening already demonstrated."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "ripening_trajectory_modeling_volatiles",
+          "query": "\"cheese ripening\" neural network predict maturity volatile compounds Danish blue prediction model",
+          "results": [
+            {
+              "title": "Decoding Cheese Ripening: A Deep Learning Approach to Non-Invasive Monitoring",
+              "url": "https://www.iiia.csic.es/media/filer_public/c2/17/c2174f4e-7697-43c0-ae1b-51eef0ac1831/faia-410-faia250613.pdf",
+              "relevance": "prior_art",
+              "note": "Deep-learning non-invasive cheese-ripening monitoring (IIIA-CSIC) \u2014 non-destructive DL ripeness estimation, the candidate's exact non-destructive use case."
+            },
+            {
+              "title": "Modelling the non-linear development of Shenley Station blue cheese volatiles during ripening (SOMs)",
+              "url": "https://www.sciencedirect.com/science/article/pii/S2772753X22000351",
+              "relevance": "prior_art",
+              "note": "ML modelling of how volatile signals evolve OVER ripening time and predicts ripening time \u2014 multivariate ripening time-series modelling already published."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Springer 2025 review 'Machine Learning in Cheese-Making' covering ripeness/maturity prediction (ML applied to ripening extent, ripening weeks/days, NIR+ANN reportedly 100% accuracy).",
+        "IEEE 'Automatic Monitoring Cheese Ripeness Using Computer Vision and AI' \u2014 shipping AI ripeness monitor.",
+        "IIIA-CSIC 'Decoding Cheese Ripening: A Deep Learning Approach to Non-Invasive Monitoring' \u2014 non-destructive DL ripeness, same use case.",
+        "MOS gas-sensor array + multivariate stats / ANN discriminating cheese ripening time (Parmigiano Reggiano; Pecorino via e-nose+ANN) \u2014 cheap VOC-array-for-ripeness already exists.",
+        "Self-organizing-map modelling of blue-cheese volatile DEVELOPMENT during ripening that predicts ripening time \u2014 multivariate ripening time-series / trajectory framing.",
+        "Dynamic Bayesian networks explicitly modelling the cheese-ripening process over time.",
+        "TinyML spectral-temporal NN for low-cost gas-sensor drift compensation in ripening monitoring; GPR predicting freshness trajectories / remaining shelf life."
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "The candidate's premise that 'no AI has entered the affinage cave' and 'no existing sensor pipeline' is demonstrably false: ML for cheese ripeness is an active field (a 2025 Springer review surveys it), with shipping computer-vision+AI ripeness monitors, deep-learning non-invasive monitoring, MOS/e-nose gas arrays + ANN that discriminate ripening time, TinyML on cheap gas sensors, and ML models of volatile DEVELOPMENT over ripening that already forecast ripening time (the forward-trajectory framing). The technique-agnostic problem and the capability/tool framings are CLOSED. What keeps it merely NARROW rather than fully CLOSED is that no work uses a tiny zero-shot TS foundation model (Reverso-class) for per-wheel edge forecasting of forward gas-signal maturity trajectory; that specific method+deployment is genuinely unoccupied. But the gap is much smaller and more crowded than the candidate claims.",
+      "confidence": 0.8
+    },
+    {
+      "candidate_index": 3,
+      "technique": "VETime (Vision-Enhanced Zero-Shot Time-Series Anomaly Detection)",
+      "life_domain": "Mechanical watch regulation (horology) \u2014 Social life, ritual, customs & trade",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "VETime watch timegrapher anomaly detection horology zero-shot",
+          "results": [
+            {
+              "title": "VETime: Vision Enhanced Zero-Shot Time Series Anomaly Detection",
+              "url": "https://arxiv.org/abs/2602.16681",
+              "relevance": "technique-only",
+              "note": "The VETime paper/repo itself; generic TSAD, no horology/watch mention. Confirms technique not yet paired with this domain."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "machine learning mechanical watch timegrapher fault diagnosis acoustic deep learning",
+          "results": [
+            {
+              "title": "Acoustic Signal Analysis with Deep Neural Network for Detecting Fault Diagnosis in Industrial Machines",
+              "url": "https://arxiv.org/pdf/2312.01062",
+              "relevance": "weak",
+              "note": "Acoustic DL fault diagnosis exists but for INDUSTRIAL machinery, not watches. No watch-specific academic ML diagnosis surfaced here."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_product_angle",
+          "query": "timegrapher app AI automatic diagnosis beat error escapement watch regulation",
+          "results": [
+            {
+              "title": "Timegrapher AI \u2014 Free Online Watch Timegrapher",
+              "url": "https://timegrapher.ai/",
+              "relevance": "prior_art",
+              "note": "STRONG hit: browser timegrapher that uses the microphone and explicitly advertises 'AI-powered diagnosis' of rate/beat error/amplitude/escapement \u2014 directly the candidate's proposed tool."
+            },
+            {
+              "title": "Watch Tuner Timegrapher (MWM)",
+              "url": "https://mwm.ai/apps/watch-tuner-timegrapher/991367080",
+              "relevance": "prior_art",
+              "note": "Commercial mic-based timegrapher app from an AI company; measures and flags rate/beat-error/amplitude irregularities from tick acoustics."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "anomaly detection mechanical watch tick sound acoustic signal balance wheel beat",
+          "results": [
+            {
+              "title": "Signature analysis of mechanical watch movements",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327007000660",
+              "relevance": "prior_art",
+              "note": "Peer-reviewed signal/'signature' analysis of watch movements from their acoustics to evaluate performance/diagnose \u2014 academic precedent for tick-trace fault analysis."
+            },
+            {
+              "title": "Tick-Tach: Timegrapher Mic for Watch Enthusiasts (Hackaday)",
+              "url": "https://hackaday.io/project/203812-tick-tach-timegrapher-mic-for-watch-enthusiasts",
+              "relevance": "prior_art",
+              "note": "DIY contact-mic timegrapher capturing tick acoustics and computing rate/amplitude/beat-error \u2014 the exact capture-and-flag pipeline the candidate describes."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "academic_nn_on_timegrapher_trace",
+          "query": "neural network classify mechanical watch escapement fault timegrapher trace pattern recognition",
+          "results": [
+            {
+              "title": "Signature analysis of mechanical watch movements",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0888327007000660",
+              "relevance": "prior_art",
+              "note": "Reconfirmed: signal-processing fault analysis of watch movements exists; no NEURAL-NET / zero-shot TSAD on timegrapher traces specifically surfaced."
+            },
+            {
+              "title": "Calibre \u2014 Know Your Watch",
+              "url": "https://calibrewatch.app/",
+              "relevance": "prior_art",
+              "note": "Consumer app doing acoustic watch tick analysis for amplitude/rate/beat-error \u2014 diagnostic tooling for benchtop horology already exists, contradicting 'no AI diagnostic tooling'."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Timegrapher AI (timegrapher.ai) \u2014 free browser timegrapher using the microphone with explicit 'AI-powered diagnosis' of rate/beat error/amplitude/escapement; no hardware needed. Directly equivalent to the proposed app.",
+        "Watch Tuner Timegrapher (MWM, an AI company) and Timegrapher X / Calibre / Watch-O-Scope \u2014 multiple shipping mic/sensor timegrapher apps that capture tick acoustics and flag rate/beat-error/amplitude/escapement irregularities and point the user to a watchmaker.",
+        "'Signature analysis of mechanical watch movements' (ScienceDirect) \u2014 peer-reviewed acoustic signature/fault analysis of watch movements.",
+        "Tick-Tach (Hackaday) and Bot-Thoughts 'Diagnosing Watches With Electronics' \u2014 DIY mic/electronic watch-diagnosis projects.",
+        "(Note: did NOT find a published zero-shot TS anomaly-detection / foundation-model approach specifically on timegrapher traces; academic NN fault-diagnosis hits were for industrial machinery, not watches.)"
+      ],
+      "gap_verdict": "GAP_CLOSED",
+      "verdict_reason": "The candidate's claim \u2014 that benchtop/amateur horology 'has no AI diagnostic tooling' and that timegrapher interpretation has 'never been paired with a modern' diagnostic model \u2014 is directly contradicted. Timegrapher AI is a live product that ingests the watch's tick acoustics via microphone and explicitly provides AI-powered diagnosis of rate, beat error, amplitude, and escapement irregularities (lock/impulse/unlock phases), i.e. exactly the candidate's 'capture tick acoustics -> flag and locate irregularities -> point the watchmaker at the fault' loop. Several other commercial/DIY mic-based timegrapher apps (Watch Tuner Timegrapher, Calibre, Watch-O-Scope, Tick-Tach) and a peer-reviewed acoustic signature-analysis paper on watch movements provide the same capability. The application (AI/automated diagnosis of mechanical-watch tick traces) already exists, so the gap is closed. The only thing genuinely unused is the SPECIFIC VETime zero-shot vision-enhanced TSAD model/architecture on a beat-timing series, but a directly-equivalent ML/AI diagnostic approach on this exact problem is already deployed, which is the rejection criterion.",
+      "confidence": 0.82
+    },
+    {
+      "candidate_index": 4,
+      "technique": "InternVL-U (unified multimodal understanding + masked editing)",
+      "life_domain": "Inpainting / retouching in painting conservation (loss-filling) \u2014 Art, music & performance craft",
+      "searches": [
+        {
+          "reformulation_type": "1. Exact pairing (technique name + domain)",
+          "query": "InternVL painting restoration inpainting conservation generative editing",
+          "results": [
+            {
+              "title": "Synthetic Craquelure Generation for Unsupervised Painting Restoration",
+              "url": "https://arxiv.org/pdf/2602.12742",
+              "relevance": "partial",
+              "note": "Generative painting-restoration work (2026), not InternVL-specific; shows generative inpainting is an active, current painting-restoration topic."
+            },
+            {
+              "title": "Automated image inpainting for historical artifact restoration using hybridisation of transfer learning with deep generative models | Scientific Reports",
+              "url": "https://www.nature.com/articles/s41598-026-35056-w",
+              "relevance": "prior art (domain)",
+              "note": "2026 Nature paper: deep generative inpainting applied to historical artifact restoration \u2014 same problem class as the candidate, not InternVL but a generative VLM-adjacent model."
+            },
+            {
+              "title": "Image Inpainting: Virtual Restoration Techniques Explained",
+              "url": "https://www.toolify.ai/ai-news/image-inpainting-virtual-restoration-techniques-explained-3370391",
+              "relevance": "context",
+              "note": "Confirms deep-learning virtual restoration of artworks is an established, productized area; no specific InternVL hit."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "2. Technique-agnostic problem (any ML/DL/AI on this problem)",
+          "query": "deep learning painting restoration loss compensation virtual inpainting conservation lacuna",
+          "results": [
+            {
+              "title": "Machine learning for painting conservation: a state-of-the-art review | npj Heritage Science",
+              "url": "https://www.nature.com/articles/s40494-025-01924-3",
+              "relevance": "prior art (strong)",
+              "note": "2025 state-of-the-art review explicitly lists 'virtual restoration' as one of five ML themes in painting conservation, incl. inpainting of lacunas \u2014 directly contradicts the 'very-low-AI-penetration / never adapted' premise."
+            },
+            {
+              "title": "Assisting classical paintings restoration: efficient paint loss detection and descriptor-based inpainting using shared pretraining",
+              "url": "https://www.academia.edu/71121826/Assisting_classical_paintings_restoration_efficient_paint_loss_detection_and_descriptor_based_inpainting_using_shared_pretraining",
+              "relevance": "prior art (strong)",
+              "note": "Dedicated paper on PAINT LOSS detection + inpainting to assist classical paintings restoration \u2014 the candidate's exact loss-filling task already done with DL."
+            },
+            {
+              "title": "Colour-Balanced Edge-Guided Digital Inpainting: Applications on Artworks (PMC)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8002538/",
+              "relevance": "prior art",
+              "note": "Digital inpainting that respects surrounding colour for artworks; the 'fill blends with surrounding colours' constraint is already explicitly modeled."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "3. Capability framing (generative inpainting + cultural heritage painting + decision support)",
+          "query": "generative diffusion inpainting cultural heritage painting virtual restoration conservator decision support",
+          "results": [
+            {
+              "title": "Limitations and possibilities of digital restoration techniques using generative AI tools (Callet's Achilles)",
+              "url": "https://accscience.com/journal/AC/2/1/10.36922/ac.1793",
+              "relevance": "prior art (strong)",
+              "note": "Uses generative AI to virtually restore a damaged painting explicitly to GUIDE conservators/museums in physical restoration while preserving style \u2014 identical 'decision-support visualization before physical retouch' framing the candidate claims is novel."
+            },
+            {
+              "title": "Visual Design from Cultural Heritage through Inpainting-based Restoration (ICCV 2025 Workshop)",
+              "url": "https://openaccess.thecvf.com/content/ICCV2025W/WCCA/papers/Lee_Visual_Design_from_Cultural_Heritage_through_Inpainting-based_Restoration_ICCVW_2025_paper.pdf",
+              "relevance": "prior art",
+              "note": "Top-venue 2025 work on inpainting-based restoration of cultural-heritage imagery; mask-constrained generative fill for heritage is mainstream."
+            },
+            {
+              "title": "DiffuMural: a diffusion model for Dunhuang murals restoration | npj Heritage Science",
+              "url": "https://www.nature.com/articles/s40494-025-02274-w",
+              "relevance": "prior art",
+              "note": "Condition-guided diffusion inpainting of large missing regions in heritage paintings with cultural/stylistic-fidelity constraints \u2014 the constrained masked-fill capability already exists for paintings."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "4. Tool/app/product angle (AI restoration tool for conservators)",
+          "query": "AI art restoration tool conservator paint loss reversible visualization proposal",
+          "results": [
+            {
+              "title": "Have a damaged painting? Restore it in just hours with an AI-generated \u201cmask\u201d | MIT News",
+              "url": "https://news.mit.edu/2025/restoring-damaged-paintings-using-ai-generated-mask-0611",
+              "relevance": "prior art (decisive)",
+              "note": "MIT/Alex Kachkine method: generative AI reconstructs the freshly-painted look, software builds a retouch map of exact colours filling ONLY the losses, applied as a REVERSIBLE film with conservation varnish \u2014 covers every constraint the candidate lists (no original paint covered, reversible, colour/varnish match, conservator decision aid)."
+            },
+            {
+              "title": "AI-driven approach restores damaged paintings in just hours (Cosmos)",
+              "url": "https://cosmosmagazine.com/technology/computing/restoring-paintings-ai/",
+              "relevance": "prior art (decisive)",
+              "note": "Same method; outputs an explicit per-loss colour/retouch map (the candidate's 'explicit edit maps'), used as conservator-evaluated proposal before physical, reversible intervention."
+            },
+            {
+              "title": "Mechanical engineer develops AI-generated digital masks to restore damaged paintings | The Art Newspaper",
+              "url": "https://www.theartnewspaper.com/2025/07/04/mechanical-engineer-develops-ai-generated-digital-masks-to-restore-damaged-paintings",
+              "relevance": "prior art (decisive)",
+              "note": "Conservation-press coverage of the same mask-based generative approach \u2014 confirms the field has already adopted generative AI for reversible physical loss-filling, published in Nature (2025)."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "5. Confirmation of decisive prior art (mask/retouch-map + reversibility + future-conservator documentation)",
+          "query": "Kachkine AI painting restoration mask retouch map Nature 2025 reversible film conservation",
+          "results": [
+            {
+              "title": "AI restores classic paintings with reversible techniques (New Atlas)",
+              "url": "https://newatlas.com/good-thinking/ai-classic-painting-restoration/",
+              "relevance": "prior art (decisive)",
+              "note": "Confirms reversibility-by-design and that the digital mask file is stored for future conservators (documentation) \u2014 mirrors candidate's 'explicit edit maps / decision-support, not irreversible actuator' value proposition."
+            },
+            {
+              "title": "Can A.I. Restore a Renaissance Painting? Yes, Says This MIT Student (Artnet)",
+              "url": "https://news.artnet.com/art-world/ai-art-restoration-conservation-mit-2656171",
+              "relevance": "prior art",
+              "note": "Independent confirmation in art-world press; 5,612 losses reconstructed with generative AI, fill restricted to losses, colour-matched. Establishes broad awareness/adoption a year before InternVL-U."
+            },
+            {
+              "title": "Transforming Pixels into a Masterpiece: AI-Powered Art Restoration using a Novel Distributed Denoising CNN (DDCNN)",
+              "url": "https://arxiv.org/pdf/2310.05270",
+              "relevance": "prior art",
+              "note": "Earlier (2023) deep-learning art-restoration pipeline \u2014 shows DL loss-filling for paintings predates the technique by years."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "MIT / Alex Kachkine generative-AI painting-restoration method (Nature, June 2025): reconstructs losses with generative AI, builds an exact-colour retouch MAP confined to losses, applies a removable/reversible film with conservation varnish, stores the digital mask for future conservators \u2014 matches the candidate's masked-fill + edit-map + reversibility + conservator-decision-aid framing essentially 1:1.",
+        "  'Machine learning for painting conservation: a state-of-the-art review' (npj Heritage Science, 2025) \u2014 names 'virtual restoration' (incl. lacuna inpainting) as an established ML theme, refuting the very-low-penetration premise.",
+        "Generative-AI digital restoration of Callet's 'Achilles' (AccScience, 2024) \u2014 explicitly positions generative inpainting as guidance for conservators before physical restoration.",
+        "ICCV 2025 Workshop 'Visual Design from Cultural Heritage through Inpainting-based Restoration'; DiffuMural / GuidePaint diffusion mural inpainting (npj Heritage Science 2025); Nature Scientific Reports 2026 deep-generative artifact inpainting; 'Assisting classical paintings restoration: paint loss detection + descriptor-based inpainting'; Colour-Balanced Edge-Guided Digital Inpainting on artworks.",
+        "Earlier DL art-restoration pipelines (DDCNN, arXiv 2023; dual-attention/channel-transformer GAN for damaged artwork)."
+      ],
+      "gap_verdict": "GAP_CLOSED",
+      "verdict_reason": "The application already exists in directly equivalent form. The candidate frames a generative, mask-constrained, context-conditioned fill that paints ONLY documented losses, is reversible, matches surrounding palette/varnish, and serves as a conservator decision-support visualization with explicit edit maps before physical retouch. The MIT/Kachkine method (Nature 2025) realizes every one of these elements (generative reconstruction -> exact-colour retouch map over losses only -> reversible varnish-adhered film -> stored mask for documentation), and a 2025 npj Heritage Science review plus ICCV 2025 and multiple Nature diffusion-inpainting heritage papers show masked generative loss-filling for paintings is an established, even productized, area. Swapping the specific generative backbone to InternVL-U (a months-old unified model) does not constitute a first application: the technique class (masked generative fill respecting surrounding context, used as conservator decision support for reversible physical loss-filling) is already deployed. As flagged in the task, candidate 4's gap is closed.",
+      "confidence": 0.93
+    },
+    {
+      "candidate_index": 5,
+      "technique": "Toto 2.0 (multivariate time-series foundation model, cross-channel, zero/few-shot)",
+      "life_domain": "Soy sauce / miso moromi maturity assessment \u2014 Food, cooking, fermentation, culinary craft",
+      "searches": [
+        {
+          "reformulation_type": "1. Exact pairing (technique name + domain)",
+          "query": "Toto multivariate time series foundation model soy sauce miso fermentation moromi",
+          "results": [
+            {
+              "title": "Toto: An Open Time Series Foundation Model Optimized for Observability (OpenReview / arXiv 2505.14766)",
+              "url": "https://arxiv.org/abs/2505.14766",
+              "relevance": "technique only",
+              "note": "Toto/Toto 2.0 papers and repo \u2014 about IT observability metrics; NO mention of fermentation, soy sauce, or miso. Exact pairing returns no prior art."
+            },
+            {
+              "title": "Optimizing the initial moromi fermentation conditions to improve the quality of soy sauce - ScienceDirect",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0023643816304601",
+              "relevance": "domain only",
+              "note": "Food-science optimization of moromi fermentation; no ML/time-series-foundation-model link. Confirms the two topics have not been combined."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "2. Technique-agnostic problem (any ML/DL/AI on this maturity problem)",
+          "query": "machine learning soy sauce miso fermentation maturity prediction monitoring model",
+          "results": [
+            {
+              "title": "Tracing the change of the volatile compounds of soy sauce at different fermentation times by PTR-TOF-MS, E-nose and GC\u2013MS (PMC11722169 / S2590157524008903)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11722169/",
+              "relevance": "prior art (partial)",
+              "note": "2024 study: ML models (QDA/LDA) accurately predict the soy-sauce FERMENTATION STAGE from E-nose/VOC data, dividing the cycle into 4 stages and locating the aroma peak (day 90). ML is already applied to soy-sauce maturity \u2014 but as stage CLASSIFICATION from spectrometry, not multivariate forecasting of in-tank probe trajectories."
+            },
+            {
+              "title": "Exploring the potential of Pediococcus pentosaceus PPF28-8 in a rapid fermentation model for soy sauce flavor enhancement using machine learning - ScienceDirect",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S2212429225004845",
+              "relevance": "prior art (partial)",
+              "note": "ML (PLS-DA/PCA) applied to soy-sauce fermentation outcomes/flavor \u2014 shows ML has entered soy-sauce brewing, though for flavor/outcome modeling, not maturity-window forecasting."
+            },
+            {
+              "title": "Changes in Metabolite Profiles of Chinese Soy Sauce at Different Time Durations of Fermentation (1H-NMR metabolomics)",
+              "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11123076/",
+              "relevance": "context",
+              "note": "Time-resolved analytical profiling of soy-sauce fermentation; objective maturity-correlated signals already characterized, weakening the 'no objective metric' premise."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "3. Capability framing (multivariate time-series forecasting of fermentation from probes)",
+          "query": "multivariate time series forecasting fermentation monitoring in-tank sensor probe soy sauce moromi maturity trajectory",
+          "results": [
+            {
+              "title": "A novel method to evaluate the moromi maturity during the long-term fermentation of traditional soy sauce (S0956713524001385)",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0956713524001385",
+              "relevance": "prior art (key, undercuts premise)",
+              "note": "THIS IS THE CANDIDATE'S OWN quote_source. 2024 paper already establishes an OBJECTIVE moromi-maturity evaluation method (SEM + particle-and-crack analysis, PCAS). So an objective maturity method already exists \u2014 directly weakening the candidate's central 'no objective/fast maturity tool' justification (though it is image-based and not a forecasting/foundation-model approach)."
+            },
+            {
+              "title": "LSTM-based Fermentation Process Prediction Model / Enhancing Fermentation Process Monitoring through Data-Driven Modeling and Synthetic Time Series Generation (PMC11351132)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351132/",
+              "relevance": "prior art (capability, different substrate)",
+              "note": "LSTM multivariate time-series forecasting of fermentation parameters from modular sensor units, plus VAE/GAN augmentation \u2014 the exact capability (multivariate TS forecasting of fermentation from probes) already exists, just not on soy-sauce/miso and not with a TS foundation model."
+            },
+            {
+              "title": "Constructing in-situ and real-time monitoring methods during soy sauce production by miniature fiber NIR spectrometers (S0308814624024385)",
+              "url": "https://www.sciencedirect.com/science/article/abs/pii/S0308814624024385",
+              "relevance": "prior art (partial)",
+              "note": "2024 in-situ, real-time monitoring of koji/moromi fermentation via miniature NIR + regression \u2014 objective real-time moromi tracking already demonstrated (PLS/iPLS/Si-PLS), though not multivariate-foundation-model forecasting."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "4. Tool/sensor/product angle (electronic nose / e-tongue maturity assessment)",
+          "query": "electronic nose soy sauce miso fermentation maturity assessment quality prediction",
+          "results": [
+            {
+              "title": "Tracing the change of the volatile compounds of soy sauce ... E-nose and GC-MS (S2590157524008903)",
+              "url": "https://www.sciencedirect.com/science/article/pii/S2590157524008903",
+              "relevance": "prior art (partial)",
+              "note": "E-nose + ML used to discriminate soy-sauce fermentation stages and pinpoint the aroma-formation peak \u2014 an objective, sensor-based, fast maturity-stage readout already exists, contradicting 'no fast intuitive method'."
+            },
+            {
+              "title": "Frontiers | key compounds in different quality grades of soy-sauce-aroma baijiu by GC-MS coupled with electronic nose",
+              "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2023.1132527/full",
+              "relevance": "context",
+              "note": "E-nose distinguishes quality grades in a related soy-sauce-aroma product; e-nose maturity/quality grading is well established in this product family."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "5. Foundation-model / deep-learning + NIR/LSTM endpoint reformulation",
+          "query": "soy sauce fermentation deep learning NIR spectroscopy prediction maturity index objective endpoint forecasting LSTM",
+          "results": [
+            {
+              "title": "Determination of Quality Properties of Soy Sauce by Support Vector Regression Coupled with SW-NIR Spectroscopy",
+              "url": "https://www.researchgate.net/publication/267848243_Determination_of_Quality_Properties_of_Soy_Sauce_by_Support_Vector_Regression_Coupled_with_SW-NIR_Spectroscopy",
+              "relevance": "prior art (partial)",
+              "note": "SVR + NIR for objective soy-sauce quality determination; multiple NIR+chemometrics/ML papers exist for objective soy-sauce quality \u2014 but these are point quality estimation, not multivariate cross-channel trajectory FORECASTING."
+            },
+            {
+              "title": "Pressure-Guided LSTM Modeling for Fermentation Quantification Prediction (PMC12431037)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12431037/",
+              "relevance": "prior art (capability)",
+              "note": "Deep-learning (LSTM) forecasting of fermentation quantities from sensor signals \u2014 confirms TS deep-learning forecasting of fermentation is established generally, reinforcing that only the foundation-model + soy-sauce/miso specifics are new."
+            },
+            {
+              "title": "Determination of Amino Acid Nitrogen in Soy Sauce Using NIR + Extreme Learning Machine",
+              "url": "https://www.researchgate.net/publication/257764096_Determination_of_Amino_Acid_Nitrogen_in_Soy_Sauce_Using_Near_Infrared_Spectroscopy_Combined_with_Characteristic_Variables_Selection_and_Extreme_Learning_Machine",
+              "relevance": "prior art (partial)",
+              "note": "Neural-network (ELM) prediction of a key soy-sauce maturity-correlated index (amino-acid nitrogen) from NIR \u2014 ML estimation of objective maturity proxies already exists."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Objective moromi-maturity evaluation method already published in the candidate's OWN cited source (SEM + PCAS image analysis, Food Control 2024, S0956713524001385) \u2014 contradicts the 'no objective maturity method exists' justification (though not a forecasting/foundation-model approach).",
+        "ML stage prediction of soy-sauce fermentation from E-nose/PTR-TOF-MS VOCs (QDA/LDA, 2024) \u2014 objective, fast, sensor-based maturity-stage readout already demonstrated.",
+        "In-situ real-time moromi monitoring via miniature NIR + chemometrics (2024); SVR/ELM NIR estimation of soy-sauce quality and amino-acid-nitrogen maturity proxies (objective quality estimation already done).",
+        "Multivariate time-series DEEP-LEARNING forecasting of fermentation from sensor probes (LSTM models, VAE/GAN augmentation, pressure-guided LSTM) \u2014 the exact capability exists, but on other fermentations (bioreactors/brewing), not soy-sauce/miso, and not with a TS foundation model.",
+        "NO prior art found for the specific pairing: a multivariate time-series FOUNDATION model (Toto / zero-few-shot cross-channel) applied to in-tank soy-sauce or miso moromi telemetry to forecast the maturity-ready window."
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "Some ML/AI work clearly exists on this exact domain problem: E-nose/PTR-TOF-MS + ML already predicts soy-sauce fermentation stage, NIR+chemometrics monitors moromi in real time, ML estimates maturity-correlated indices, and \u2014 notably \u2014 the candidate's own cited source already provides an objective moromi-maturity method (SEM+PCAS). Generic multivariate time-series deep-learning forecasting of fermentation from sensor probes (LSTM, etc.) is also established. So the 'no objective method / very-low-AI-penetration' premise is overstated and the broad problem is touched. However, the SPECIFIC technique and framing the candidate proposes \u2014 a pretrained multivariate time-series FOUNDATION model (Toto 2.0) doing zero/few-shot, cross-channel forecasting of in-tank fermentation telemetry to project the convergence/ready-window for soy-sauce or miso moromi \u2014 returns no prior art: existing soy-sauce ML is stage classification or point quality estimation (not trajectory forecasting), and existing TS-forecasting deep learning is on other fermentation substrates with bespoke (non-foundation) models. The gap is therefore narrowed but not closed: the foundation-model-forecasting-of-moromi-maturity formulation is genuinely new, while the underlying objective-maturity goal is no longer virgin territory.",
+      "confidence": 0.7
+    },
+    {
+      "candidate_index": 6,
+      "technique": "Audio-Omni",
+      "life_domain": "Whistled language interpretation (Silbo Gomero) - Language & linguistics",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "Audio-Omni whistled language Silbo Gomero transcription",
+          "results": [
+            {
+              "title": "Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language",
+              "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.html",
+              "relevance": "prior-art",
+              "note": "Interspeech 2023 paper (Jakubiak) explicitly described as the first-ever ASR model for a whistled language; does whistle-to-text on Silbo Gomero. The exact problem the candidate claims as first-mover is already published (with a different, older technique)."
+            },
+            {
+              "title": "Silbo Gomero Speech Corpus (OpenSLR 137)",
+              "url": "https://www.openslr.org/137/",
+              "relevance": "prior-art",
+              "note": "Public 49-minute Silbo Gomero whistled-speech corpus (4 whistlers) already exists and is the training set for the 2023 whistle-to-text ASR - the 'existing recorded corpora' the candidate assumes is indeed published and ASR-labeled."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "automatic speech recognition Silbo Gomero whistled language machine learning",
+          "results": [
+            {
+              "title": "Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language (PDF)",
+              "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.pdf",
+              "relevance": "prior-art",
+              "note": "States the first-ever whistled-language ASR was built with HMM-GMM and that whistled-speech recognition 'is not only possible but achievable with methods used for ASR today' - the technique-agnostic problem is solved."
+            },
+            {
+              "title": "Whistler Identification in Whistled Spanish (Silbo): A Case Study (Springer)",
+              "url": "https://link.springer.com/chapter/10.1007/978-3-032-07959-6_11",
+              "relevance": "prior-art",
+              "note": "Later (2025) ML work on Silbo (speaker/whistler identification), showing the domain has continuing ML/AI activity beyond the 2023 ASR paper - not an untouched field."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "deep learning whistled speech recognition neural network transcription",
+          "results": [
+            {
+              "title": "Whistle: Data-Efficient Multilingual and Crosslingual Speech Recognition via Weakly Phonetic Supervision",
+              "url": "https://arxiv.org/html/2406.02166v1",
+              "relevance": "not-prior-art",
+              "note": "'Whistle' here is a model name for multilingual ASR, not whistled speech; no direct hit, but confirms modern neural ASR pipelines are the standard tooling that could be (and for Silbo, partly has been) applied."
+            },
+            {
+              "title": "Whisper (speech recognition system) - Wikipedia",
+              "url": "https://en.m.wikipedia.org/wiki/Whisper_(speech_recognition_system)",
+              "relevance": "weak",
+              "note": "General transformer encoder-decoder ASR. No evidence yet of Whisper/transformer applied to Silbo specifically; the published Silbo ASR used HMM-GMM, leaving the *modern-architecture* angle less developed."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_app_product",
+          "query": "Silbo Gomero translator app whistle to text tool",
+          "results": [
+            {
+              "title": "Silbo Gomero Whistle Language Translator | Free & AI-Powered (AnythingTranslate)",
+              "url": "https://anythingtranslate.com/translators/silbo-gomero-whistle-language-translator/",
+              "relevance": "partial-prior-art",
+              "note": "Live 'AI-powered' Silbo translator products exist; however these are primarily text->whistle phonetics, not audio whistle->text, so they are adjacent rather than identical to the candidate's whistle->text/speech pipeline."
+            },
+            {
+              "title": "adeadzeplin/silbo_gomero_translator (GitHub)",
+              "url": "https://github.com/adeadzeplin/silbo_gomero_translator",
+              "relevance": "partial-prior-art",
+              "note": "Open-source program translating between Silbo Gomero and Spanish (rule/text based), showing the translate-direction is also attempted in the wild, though not via an audio MLLM."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "modern_architecture_recency",
+          "query": "\"Silbo Gomero\" speech recognition Whisper transformer neural 2024 2025 transcribe",
+          "results": [
+            {
+              "title": "Silbo Gomero: The language that whistles between mountains (Ciencia Cognitiva, 2025)",
+              "url": "https://www.cienciacognitiva.org/files/2025-19-i.pdf",
+              "relevance": "context",
+              "note": "2025 overview noting ML models trained on whistle corpora are 'beginning to separate signal from wind, potentially enabling automatic transcription or education apps' - frames transcription as in-progress/emerging, not yet a deployed modern-architecture solution."
+            },
+            {
+              "title": "(no transformer/Whisper-on-Silbo result found)",
+              "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.html",
+              "relevance": "negative-evidence",
+              "note": "No 2024-2025 result pairing Whisper/transformer/audio-MLLM with Silbo; the only published Silbo ASR remains the 2023 HMM-GMM system. So a *modern unified audio-MLLM* whistle->text+speech pipeline appears genuinely undone, even though whistle->text ASR per se is not first-mover."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Jakubiak (2023, Interspeech) 'Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language' - explicitly the FIRST ASR system for a whistled language; performs whistle->text on Silbo Gomero using HMM-GMM. Directly contradicts the candidate's 'first automatic whistle->text/speech pipeline' claim.",
+        "OpenSLR 137 'Silbo Gomero Speech Corpus' - public 49-min, 4-whistler corpus used for that ASR.",
+        "'Whistler Identification in Whistled Spanish (Silbo)' (2025, Springer) - additional ML work on Silbo (speaker ID).",
+        "Multiple 'AI-powered' Silbo Gomero translator web tools (anythingtranslate.com, rizzai.ai) and a GitHub Silbo<->Spanish translator - mostly text->whistle / rule-based, i.e. adjacent applications.",
+        "2025 Ciencia Cognitiva survey: ML on whistle corpora 'beginning to... enable automatic transcription or education apps' - the domain is actively being worked, not untouched."
+      ],
+      "gap_verdict": "GAP_CLOSED",
+      "verdict_reason": "The candidate's headline first-application claim - the 'first automatic whistle->text/speech pipeline' for Silbo Gomero - is directly falsified by Jakubiak (2023, Interspeech), which is explicitly the first-ever ASR for a whistled language and performs whistle->text on Silbo using a public corpus (OpenSLR 137). Additional ML work (2025 whistler-ID) and live AI translator tools further show the domain is not under-served at the 'has anyone applied ML/AI' level. The technique class differs (modern unified audio MLLM vs. HMM-GMM) and the spoken-Spanish *synthesis/translation* leg may be incrementally new, but the core technique-agnostic application (automatic Silbo whistle transcription) already exists, so this is not a true first-mover opportunity and is rejected.",
+      "confidence": 0.88
+    },
+    {
+      "candidate_index": 7,
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "life_domain": "Glassblowing (working glass at the right viscosity by eye) - Traditional craft & trades",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "neural operator glassblowing viscosity reheat PDE surrogate real-time",
+          "results": [
+            {
+              "title": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts (arXiv 2602.18801)",
+              "url": "https://arxiv.org/abs/2602.18801",
+              "relevance": "technique-only",
+              "note": "The SGNO paper itself; benchmarked on APEBench turbulent flows, reaction-diffusion, climate dynamics. No glass/glassblowing application - confirms the technique has not been pointed at hot-glass working."
+            },
+            {
+              "title": "(no glassblowing+neural-operator result)",
+              "url": "https://arxiv.org/pdf/2507.18067",
+              "relevance": "negative-evidence",
+              "note": "Generic multiscale neural PDE surrogates; no result couples neural operators / PDE surrogates with glassblowing viscosity/reheat. The exact pairing appears undone."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "machine learning glassblowing temperature viscosity control molten glass forming",
+          "results": [
+            {
+              "title": "Temperature Control of Digital Glass Forming Processes (arXiv 2604.00135)",
+              "url": "https://arxiv.org/abs/2604.00135",
+              "relevance": "strong-adjacent-prior-art",
+              "note": "March 2026 paper: real-time temperature-control system that fuses thermal-camera + visual-camera + process data and a data-driven dynamic temperature model to keep glass in its working range. Same core problem (hold working-range temperature via thermal sensing) but for laser Digital Glass Forming (additive), not artisan hand glassblowing, and uses a closed-loop controller, not a neural-operator forward forecast."
+            },
+            {
+              "title": "ViscNet: Neural network for predicting fragility index and temperature-dependency of viscosity (arXiv 2007.03719)",
+              "url": "https://arxiv.org/pdf/2007.03719",
+              "relevance": "partial-prior-art",
+              "note": "ML already predicts glass viscosity vs temperature (material/composition level). Shows viscosity-temperature modeling by NN is established, but it is not a real-time spatial-field forecast for a working gather."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "physics-informed neural network glass forming heat transfer surrogate transient cooling temperature field",
+          "results": [
+            {
+              "title": "Physics-informed CNN for Temperature Field Prediction without Labeled Data (arXiv 2109.12482)",
+              "url": "https://arxiv.org/pdf/2109.12482",
+              "relevance": "technique-adjacent",
+              "note": "PINN/NN transient-heat-conduction temperature-field surrogates are mature (also ship-hull line heating, additive manufacturing). The capability (fast temperature-field surrogate) exists generically but none target cooling glass for a glassblower."
+            },
+            {
+              "title": "Advanced Deep Operator Networks to Predict Multiphysics Fields in Materials Processing and Additive Manufacturing (arXiv 2403.14795)",
+              "url": "https://arxiv.org/pdf/2403.14795",
+              "relevance": "technique-adjacent",
+              "note": "DeepONet predicting thermal/mechanical fields in casting/DED additive manufacturing - neural operators ARE used as thermal surrogates in materials processing, but not for glassblowing reheat timing."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_app_product",
+          "query": "glassblowing assistive sensor thermal camera real-time temperature feedback gaffer reheat",
+          "results": [
+            {
+              "title": "NIR-B-2K-Glass Thermal Imaging Camera (AMETEK Land)",
+              "url": "https://www.ametek-land.com/products/ir-thermal-imagers-and-line-scanners/fixed-thermal-imagers/application-specific-thermal-imaging-systems/nir-b-glass-thermal-imaging-camera",
+              "relevance": "context",
+              "note": "Thermal cameras for glass are commercial, but aimed at industrial glass *furnaces/forming lines*, not an artisan reheat assistant. The sensing hardware exists; the PDE-surrogate artisan-guidance use does not."
+            },
+            {
+              "title": "Optris PI640 G7 Thermal Imaging Camera for Glass",
+              "url": "https://www.processparameters.co.uk/optris-thermal-imaging-cameras-for-glass-applications/optris-pi640-g7-vga-thermal-imaging-camera-for-glass-applications/",
+              "relevance": "context",
+              "note": "Glass-tuned IR camera (200-1500 C). Confirms cheap thermal sensing of hot glass is feasible (candidate's hardware premise holds) but is sold for measurement, not forward viscosity forecasting."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "artisan_AI_assistant_recency",
+          "query": "artisan glassblower augmented reality AI assistant working temperature guidance craft hot glass",
+          "results": [
+            {
+              "title": "AI in Glassblowing Videos: Automated Temperature Zone Monitoring (ReelMind blog)",
+              "url": "https://reelmind.ai/blog/ai-in-glassblowing-videos-automated-temperature-zone-monitoring",
+              "relevance": "weak/unreliable-prior-art",
+              "note": "Marketing/SEO blog claims AI thermal cameras classify glass zones as 'workable/transitional/critical' and alert artists via wearables, and cites a 'Corning Smart Glassblowing Lab' real-time-feedback result. This mirrors the candidate's 'reheat now / leaving workable band' concept BUT is promotional, unverifiable, and describes current-state classification, not a PDE-surrogate forward forecast. Low evidentiary weight."
+            },
+            {
+              "title": "Corning GlassWorks AI solutions (LinkedIn, Mar 2025)",
+              "url": "https://www.linkedin.com/posts/corning-incorporated_corning-glassworks-ai-solutionsmp4-activity-7311043341079437315-EGDQ",
+              "relevance": "context",
+              "note": "Corning 'GlassWorks AI' is a real industrial glass-manufacturing AI line, not an artisan hand-glassblowing reheat assistant; supports the marketing-claim provenance but is not the candidate's application."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Temperature Control of Digital Glass Forming Processes (arXiv 2604.00135, Mar 2026): real-time thermal-camera + data-driven dynamic model temperature control to keep glass in its working range - the same 'hold the workable temperature band via thermal sensing' problem, but for laser additive Digital Glass Forming, via a closed-loop controller (NOT a neural-operator PDE-surrogate forecast for a hand gaffer).",
+        "ViscNet (arXiv 2007.03719) and physics-informed ML viscosity-temperature models: ML predicts glass viscosity vs temperature at the material level (not spatial real-time field forecast).",
+        "Neural-operator / PINN transient-heat-conduction temperature-field surrogates broadly established (e.g. DeepONet for casting/additive manufacturing, PINN temperature-field CNNs) - technique class is mature for thermal fields but not applied to glassblowing.",
+        "Commercial glass-tuned thermal cameras (AMETEK Land NIR-B-Glass, Optris PI640 G7) confirm the sensing premise but are industrial-furnace measurement tools.",
+        "ReelMind marketing blogs claim AI thermal 'workable/transitional/critical' zone classification + wearable alerts for glassblowers and reference a Corning 'Smart Glassblowing Lab'; unverifiable/promotional, and describe current-state classification, not forward PDE-surrogate forecasting."
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "Strong adversarial pressure but no kill. The technique-agnostic problem is being attacked: a March-2026 paper (Temperature Control of Digital Glass Forming) does real-time thermal-camera + data-driven dynamic-model control to keep glass in its working range, ML viscosity-temperature models exist (ViscNet), and there is marketing buzz (ReelMind/Corning) about AI thermal 'workable/critical' zone feedback for glassblowers - so this is NOT GAP_OPEN. However, none of these is the candidate's specific contribution: (1) the published glass temperature-control work targets industrial laser Digital Glass Forming, not artisan hand glassblowing, and uses a closed-loop controller, not a neural-operator forecast; (2) the AI-glassblowing-feedback claims are unverifiable marketing and only do current-state thermal classification, not a physics-surrogate forward rollout; (3) neural operators / PDE surrogates have never been pointed at hot-glass viscosity-field forecasting. The pairing of an SGNO-style PDE surrogate that rolls the viscosity/temperature field forward several seconds to give a gaffer 'reheat now' guidance is genuinely new, so the specific technique+framing survives - NARROW, not CLOSED.",
+      "confidence": 0.72
+    },
+    {
+      "candidate_index": 8,
+      "technique": "Sparse-BitNet",
+      "life_domain": "Ethnoveterinary medicine documentation and dosing \u2014 Medicine & health",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "BitNet ethnoveterinary medicine livestock dosing advisor",
+          "results": [
+            {
+              "title": "Medicinal ethnoveterinary plants used for treating livestock (PMC)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11059770/",
+              "relevance": "low",
+              "note": "Ethnobotanical survey of ethnoveterinary plant remedies; no AI/LLM/BitNet component. Not prior art for the technique."
+            },
+            {
+              "title": "Drugs for livestock treatment | Infonet Biovision",
+              "url": "https://www.infonet-biovision.org/animal-husbandry/drugs-livestock-treatment",
+              "relevance": "low",
+              "note": "Static reference page on livestock drug dosing; no on-device model. Not prior art."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "offline LLM livestock disease diagnosis advisor smallholder farmers low resource",
+          "results": [
+            {
+              "title": "Enabled LLM Framework for Livestock Disease Detection (IJCA, Oyelade 2025)",
+              "url": "https://www.ijcaonline.org/archives/volume187/number33/oyelade-2025-ijca-925602.pdf",
+              "relevance": "high",
+              "note": "An LLM framework generating livestock disease diagnosis + treatment/care recommendations for farmers. Adjacent prior art: LLM-based livestock disease advisory already exists (conventional/allopathic, not ethnoveterinary corpus)."
+            },
+            {
+              "title": "Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers (arXiv 2409.08916)",
+              "url": "https://arxiv.org/html/2409.08916v2",
+              "relevance": "high",
+              "note": "Deployed LLM advisory for smallholder farmers (incl. livestock) with voice/WhatsApp/app interfaces. Shows the broad smallholder-LLM-advisor problem is actively served, weakening framing novelty."
+            },
+            {
+              "title": "Building AI-based advisory services for smallholder farmers: AIEP Initiative (arXiv 2601.11537)",
+              "url": "https://arxiv.org/pdf/2601.11537",
+              "relevance": "medium",
+              "note": "LLM + query-orchestration advisory architecture for smallholders; notes low-resource-language and connectivity challenges. Adjacent, not ethnoveterinary-specific."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "on-device language model veterinary advisor low connectivity rural smartphone offline",
+          "results": [
+            {
+              "title": "Pocket RAG: On-Device RAG for First Aid Guidance in Offline Mobile Environment (arXiv 2602.13229)",
+              "url": "https://arxiv.org/pdf/2602.13229",
+              "relevance": "high",
+              "note": "Demonstrates an offline on-device clinical (first-aid) advisor on a phone. Directly shows the 'offline on-device medical advisor' capability already exists, weakening the technique-novelty claim per the candidate-8 caution."
+            },
+            {
+              "title": "Offline-First LLM Architecture for AI-Assisted Learning in Low-Connectivity Environments (arXiv 2603.03339)",
+              "url": "https://arxiv.org/pdf/2603.03339",
+              "relevance": "medium",
+              "note": "Offline-first quantized-LLM, CPU-only, hardware-aware deployment for low-connectivity settings. Confirms the offline-edge-LLM deployment niche is occupied (not veterinary, not ethnoveterinary)."
+            },
+            {
+              "title": "A Performance Evaluation of a Quantized Large Language Model on Various Smartphones (arXiv 2312.12472)",
+              "url": "https://arxiv.org/pdf/2312.12472",
+              "relevance": "medium",
+              "note": "Quantized LLMs running on phones generally. Background that on-device quantized LLM inference is established; specific ternary+N:M-sparse ethnoveterinary use not present."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_app_product",
+          "query": "offline app traditional herbal medicine plant remedy dosage livestock farmers",
+          "results": [
+            {
+              "title": "How to heal livestock with herbs and local plants: Farmers watch and learn | Access Agriculture",
+              "url": "https://www.accessagriculture.org/news/how-heal-livestock-herbs-and-local-plants-farmers-watch-and-learn",
+              "relevance": "low",
+              "note": "Multilingual training VIDEOS on ethnoveterinary herbal remedies \u2014 a knowledge-dissemination tool, not an AI/LLM advisor. Not prior art for the technique."
+            },
+            {
+              "title": "A new guide to traditional plant-based medicines for livestock in East Africa | World Agroforestry",
+              "url": "https://www.worldagroforestry.org/blog/2016/03/16/a-new-guide-to-traditional-plant-based-medicines-for-livestock-in-east-africa",
+              "relevance": "low",
+              "note": "Printed/PDF guide to ethnoveterinary plant medicines + dosage. Static documentation, no interactive model. Not prior art."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_edge_medical",
+          "query": "BitNet ternary quantized LLM on-device medical clinical advisor edge deployment offline",
+          "results": [
+            {
+              "title": "BitNet b1.58 2B4T Technical Report (arXiv 2504.12285)",
+              "url": "https://arxiv.org/html/2504.12285v1",
+              "relevance": "medium",
+              "note": "Native 1.58-bit LLM running on CPU/phones/Raspberry Pi. Establishes the on-device ternary-LLM capability the candidate relies on, but no medical/ethnoveterinary application shown."
+            },
+            {
+              "title": "Microsoft Native 1-Bit LLM Could Bring Efficient genAI to Everyday CPUs - InfoQ",
+              "url": "https://www.infoq.com/news/2025/04/microsoft-bitnet-1bit-llm/",
+              "relevance": "medium",
+              "note": "Frames ternary BitNet for edge/offline deployment incl. specialized domains like healthcare. General positioning, not an ethnoveterinary instance."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "ethnobotany_ai_dosage",
+          "query": "AI chatbot ethnobotany indigenous medicinal plant knowledge dosage recommendation system",
+          "results": [
+            {
+              "title": "Reimagining ethnopharmacology with generative AI: Towards inclusive, ethical, and data-driven traditional medicine (ScienceDirect S104366182500427X)",
+              "url": "https://www.sciencedirect.com/science/article/pii/S104366182500427X",
+              "relevance": "high",
+              "note": "Proposes generative-AI / LLM tools for traditional medicine deployable as multilingual mobile apps and chat-based advisors. Strongly adjacent: same generative-AI-for-traditional-medicine framing, but human ethnopharmacology, not ethnoveterinary, and conceptual."
+            },
+            {
+              "title": "How AI in Plant Medicine Is Decoding the Ancient Language of Plant Medicine (askmn.ai)",
+              "url": "https://www.askmn.ai/post/how-ai-in-plant-medicine-is-decoding-ancient-healing-wisdom",
+              "relevance": "medium",
+              "note": "Describes AI assistants / multilingual chatbots guiding herbal practices and documenting indigenous knowledge. Adjacent (human herbal), not livestock/ethnoveterinary."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "exact_pairing_llm_genai",
+          "query": "generative AI large language model ethnoveterinary traditional medicine decision support tool",
+          "results": [
+            {
+              "title": "TCMChat: A generative large language model for traditional Chinese medicine (ScienceDirect S1043661824004754)",
+              "url": "https://www.sciencedirect.com/science/article/pii/S1043661824004754",
+              "relevance": "medium",
+              "note": "Domain-tuned generative LLM answering herbal-medicine/efficacy queries and giving tailored recommendations. Demonstrates the corpus-tuned-traditional-medicine-LLM pattern, but for human TCM, not on-device, not ethnoveterinary."
+            },
+            {
+              "title": "Reimagining ethnopharmacology with generative AI (ScienceDirect S104366182500427X)",
+              "url": "https://www.sciencedirect.com/science/article/pii/S104366182500427X",
+              "relevance": "high",
+              "note": "Reconfirmed: explicitly envisions GenAI clinical-decision-support / chat advisors for traditional medicine. 'Ethnoveterinary' term not addressed in results \u2014 exact corpus pairing appears unclaimed."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "LLM-based livestock disease diagnosis + treatment-recommendation frameworks for farmers already exist (IJCA Oyelade 2025; Farmer.Chat arXiv 2409.08916; AIEP arXiv 2601.11537) \u2014 weakens the 'no decision-support tooling / novel framing' claim for livestock advisory broadly.",
+        "Offline / on-device clinical LLM advisors already exist (Pocket RAG offline first-aid arXiv 2602.13229; Offline-First LLM arXiv 2603.03339; quantized-LLM-on-phones arXiv 2312.12472) \u2014 directly weakens technique novelty: 'offline on-device medical advisor' is not new.",
+        "Generative-AI / LLM tooling for traditional medicine, including envisioned multilingual mobile chat advisors and domain-tuned models (TCMChat; 'Reimagining ethnopharmacology with generative AI' S104366182500427X) \u2014 same conceptual framing, applied to human ethnopharmacology rather than ethnoveterinary livestock dosing.",
+        "BitNet ternary on-device LLMs are explicitly positioned for edge/offline healthcare deployment (BitNet b1.58 report arXiv 2504.12285; InfoQ) \u2014 the enabling capability is established and already pointed at the healthcare-edge use case generically.",
+        "NOT FOUND: the exact pairing of a ternary + N:M-structured-sparse on-device LLM instruct-tuned on an ETHNOVETERINARY corpus for livestock dosing/diagnosis on a rural offline phone."
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "The precise application \u2014 a 1.58-bit + structured-sparse on-device LLM tuned on an ethnoveterinary corpus for offline livestock dosing \u2014 was not found, so the exact corpus+technique pairing is genuinely unclaimed. However, the gap is clearly NARROW rather than OPEN: per the candidate-8 caution, (1) offline/on-device clinical LLM advisors broadly exist (Pocket RAG, offline-first quantized LLMs), so the technique's headline 'offline edge medical advisor' capability is not novel; (2) LLM livestock-disease advisors for smallholders already exist; and (3) generative-AI tooling for traditional/indigenous medicine with multilingual chat advisors is an active, published framing (TCMChat, ethnopharmacology-GenAI). The novelty is reduced to the specific ethnoveterinary corpus plus the particular Sparse-BitNet quantization recipe, not the problem or capability. Not GAP_CLOSED because no source applies this technique-class (or an equivalent on-device LLM) to the ethnoveterinary corpus itself.",
+      "confidence": "medium-high"
+    },
+    {
+      "candidate_index": 9,
+      "technique": "Mamba-3",
+      "life_domain": "Polynesian wayfinding (star compass & wave piloting) \u2014 Navigation, wayfinding & orientation",
+      "searches": [
+        {
+          "reformulation_type": "exact_pairing",
+          "query": "Mamba state space model Polynesian navigation star compass wayfinding dead reckoning",
+          "results": [
+            {
+              "title": "Venturing into Uncharted Waters: The Navigation Compass from Transformer to Mamba (arXiv 2406.16722)",
+              "url": "https://arxiv.org/pdf/2406.16722",
+              "relevance": "low",
+              "note": "Uses 'navigation compass' only metaphorically for a survey of Mamba/SSM ML architectures \u2014 nothing to do with Polynesian wayfinding. NOT prior art (false-positive title)."
+            },
+            {
+              "title": "Polynesian Navigation | LEARNZ",
+              "url": "https://www.learnz.org.nz/location192/bg-standard-f/polynesian-navigation",
+              "relevance": "low",
+              "note": "Educational description of the 32-house star compass and swell navigation; explicitly notes the compass is a mental construct. Confirms domain framing, no AI. Not prior art."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "technique_agnostic_problem",
+          "query": "machine learning model traditional celestial navigation wave piloting swell pattern recognition",
+          "results": [
+            {
+              "title": "Multi-kernel SVM based star pattern recognition for Celestial Navigation (IEEE Xplore)",
+              "url": "https://ieeexplore.ieee.org/document/5599814/",
+              "relevance": "medium",
+              "note": "ML (SVM) for automated star/constellation recognition in instrumented celestial navigation. Adjacent ML-for-celestial-nav, but modern optical star-ID, not the traditional mental star-compass + swell dead-reckoning method."
+            },
+            {
+              "title": "Research on Intelligent Celestial Navigation Constellation Recognition Based on Optical Images and Machine Learning (ACM 3783669.3783762)",
+              "url": "https://dl.acm.org/doi/10.1145/3783669.3783762",
+              "relevance": "medium",
+              "note": "Deep-learning constellation recognition for celestial navigation systems. Again modern instrument-based star ID, not Polynesian wayfinding state estimation. Adjacent, not the same problem."
+            },
+            {
+              "title": "Understanding the Marshallese Navigation Techniques (Far and Away Adventures)",
+              "url": "https://farandawayadventures.com/understanding-the-marshallese-navigation-techniques/",
+              "relevance": "low",
+              "note": "Describes Marshallese wave-piloting (four primary swells). Domain background only, no computational/ML model. Not prior art."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "capability_framing",
+          "query": "neural network dead reckoning inertial state estimation deep learning IMU position",
+          "results": [
+            {
+              "title": "Deep Learning for Inertial Positioning: A Survey (arXiv 2303.03757)",
+              "url": "https://arxiv.org/html/2303.03757v3",
+              "relevance": "high",
+              "note": "Survey: deep nets directly produce velocity/position from inertial data, reducing DR drift. Establishes that 'learned sequential dead-reckoning state estimation' is a mature capability \u2014 weakens novelty of the capability, though applied to IMU/pedestrian/vehicle, not star-compass+swell."
+            },
+            {
+              "title": "AI-IMU Dead-Reckoning (Brossard et al., arXiv 1904.06064)",
+              "url": "https://arxiv.org/abs/1904.06064",
+              "relevance": "high",
+              "note": "Neural-network-augmented Kalman filter for 3D dead-reckoning state estimation from inertial data. Strong evidence that learned DR state estimation is well-established; not the Polynesian method, no SSM."
+            },
+            {
+              "title": "Deep Learning Assisted Inertial Dead Reckoning and Fusion (arXiv 2407.16387)",
+              "url": "https://arxiv.org/html/2407.16387v1",
+              "relevance": "medium",
+              "note": "Further DL dead-reckoning + sensor fusion work. Reinforces capability maturity; domain is conventional inertial navigation, not wayfinding."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "tool_app_product",
+          "query": "Polynesian wayfinding training simulator software AI voyaging canoe navigation teaching tool",
+          "results": [
+            {
+              "title": "Teaching Traditional Polynesian Navigation | World History Commons",
+              "url": "https://worldhistorycommons.org/teaching-traditional-polynesian-navigation",
+              "relevance": "low",
+              "note": "Pedagogical resources for teaching wayfinding; hands-on canoe + environmental cues. No AI simulator. Not prior art."
+            },
+            {
+              "title": "Polynesian Wayfinding - H\u014dk\u016ble\u02bba",
+              "url": "https://hokulea.com/polynesian-wayfinding/",
+              "relevance": "low",
+              "note": "Polynesian Voyaging Society wayfinding overview; oral/experiential teaching. Confirms there is no existing computational/AI teaching model. Not prior art."
+            }
+          ]
+        },
+        {
+          "reformulation_type": "computational_cognitive_model",
+          "query": "computational model traditional wayfinding cognition star compass etak simulation algorithm",
+          "results": [
+            {
+              "title": "Wayfinding across ocean and tundra: what traditional cultures teach us about navigation (Trends in Cognitive Sciences, S1364-6613(23)00251-6)",
+              "url": "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(23)00251-6",
+              "relevance": "medium",
+              "note": "Cognitive-science review of traditional navigation (incl. Pacific etak, multimodal cues). Treats the navigator's integration conceptually; NOT a learned/sensor-driven state-space model. Adjacent academic interest, not the proposed technique."
+            },
+            {
+              "title": "MAGELLAN: A Cognitive Map-Based Model of Human Wayfinding (Manning et al.)",
+              "url": "https://memory.psych.upenn.edu/files/pubs/MannEtal14a.pdf",
+              "relevance": "low",
+              "note": "Computational cognitive-map model of generic human wayfinding/spatial learning. Not maritime, not star-compass dead reckoning, not an SSM. Not prior art for this pairing."
+            },
+            {
+              "title": "Towards a Cognitive Model for Human Wayfinding (AAAI)",
+              "url": "https://cdn.aaai.org/ocs/4124/4124-17749-1-PB.pdf",
+              "relevance": "low",
+              "note": "Conceptual cognitive wayfinding model with regionalized maps. Generic indoor/urban wayfinding cognition, not the Polynesian open-ocean method. Not prior art."
+            }
+          ]
+        }
+      ],
+      "prior_art_found": [
+        "Learned / deep-learning dead-reckoning and inertial state estimation is a mature field (Deep Learning for Inertial Positioning survey arXiv 2303.03757; AI-IMU Dead-Reckoning arXiv 1904.06064; DL-assisted inertial DR arXiv 2407.16387) \u2014 weakens the claim that casting dead-reckoning as learned sequential state estimation is itself novel; but all are IMU/pedestrian/vehicle, not the star-compass+swell mental method.",
+        "Machine-learning / deep-learning star & constellation pattern recognition for (instrumented) celestial navigation exists (multi-kernel SVM IEEE 5599814; DL constellation recognition ACM 3783669.3783762) \u2014 adjacent ML-for-celestial-navigation, but automated optical star ID, not the traditional 32-house mental compass integration.",
+        "Cognitive-science and conceptual computational models of traditional/indigenous wayfinding exist (Trends in Cognitive Sciences ocean/tundra review incl. etak; MAGELLAN; AAAI cognitive wayfinding model) \u2014 academic interest in modeling the navigator's cognition exists, but as conceptual/cognitive-map models, not learned SSM state estimators fed by sky-camera/IMU/swell-buoy streams.",
+        "NOT FOUND: any Mamba / state-space-model application to Polynesian (or Micronesian) wayfinding, and no learned sequential state-estimation model of the star-compass-plus-swell dead-reckoning method specifically. The one 'Mamba + navigation' hit (arXiv 2406.16722) is a metaphorical-title false positive."
+      ],
+      "gap_verdict": "GAP_NARROW",
+      "verdict_reason": "No source applies Mamba/any SSM to Polynesian wayfinding, and no learned, sensor-driven state-estimation model of the traditional star-compass+swell method exists \u2014 so this specific technique+domain pairing is genuinely new. However, the domain problem is NOT essentially untouched, which rules out GAP_OPEN: (1) learned dead-reckoning / inertial state estimation (the candidate's core capability framing) is a mature, heavily published area (AI-IMU, DL inertial-positioning survey); (2) ML/DL star-and-constellation recognition for celestial navigation exists; and (3) cognitive-science and conceptual computational models of traditional wayfinding (including Pacific etak) already attempt to model the navigator's integration. Thus 'sequential state estimation for navigation' and 'computationally modeling traditional wayfinding' are both occupied at the framing level. Not GAP_CLOSED because none of these is the SSM-on-Polynesian-wayfinding application nor a directly equivalent learned model of the star-compass+swell method itself.",
+      "confidence": "medium-high"
+    }
+  ]
+}
