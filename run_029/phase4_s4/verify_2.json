@@ -1,0 +1,107 @@
+{
+  "verifier": "VERIFY-2 (adversarial prior-art, Run 29 s4, MODERN domains)",
+  "results": [
+    {
+      "candidate": "C3",
+      "technique": "A-RAG: Agentic RAG via Hierarchical Retrieval Interfaces",
+      "arxiv_id": "2602.03442",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "A-RAG: Scaling Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces",
+      "niche": "Clinical handoff/SBAR salience-selection (deciding WHICH facts matter enough to hand off; omission drives ~80% of serious handoff errors)",
+      "queries_run": [
+        "LLM clinical handoff summarization which facts to hand off salience selection I-PASS",
+        "SBAR automatic generation EHR sign-out machine learning omission errors",
+        "RoBERTa saliency content selection Llama emergency medicine handoff note generation",
+        "commercial AI sign-out tool hospital handoff Epic Nuance DAX patient summary generation product",
+        "agentic retrieval augmented generation clinical notes EHR multi-hop salience fact selection handoff"
+      ],
+      "prior_art_found": [
+        {
+          "title": "Developing and Evaluating Large Language Model-Generated Emergency Medicine Handoff Notes (JAMA Network Open 2024; PMC11615705)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11615705/",
+          "snippet": "RoBERTa (Robustly Optimized BERT Approach) was chosen for saliency content selection and Llama-2 7B for abstractive summarization... a RoBERTa-based saliency model to identify EM note sentences based on their likelihood of contributing to the emergency medicine-to-inpatient handoff notes... cohort study of 1600 EM patient medical records, the LLM-generated EM-to-IP handoff notes had a mean usefulness of 4.04 out of 5... mean patient safety of 4.06 out of 5... with no critical patient safety risks.",
+          "why_relevant": "DIRECT HIT on the exact niche: an LLM-based salience/saliency model that decides which clinical facts (sentences) matter enough to be carried into the handoff note. This is precisely 'deciding WHICH facts matter enough to hand off,' peer-reviewed and evaluated on 1600 records."
+        },
+        {
+          "title": "Extrinsically-Focused Evaluation of Omissions in Medical Summarization (MED-OMIT, arXiv 2311.08303)",
+          "url": "https://arxiv.org/pdf/2311.08303",
+          "snippet": "developed MED-OMIT to evaluate omission errors in clinical note generation. The research measures the importance of each fact to a simulated differential diagnosis to determine clinical relevance.",
+          "why_relevant": "Directly tackles fact-level importance/salience and omission in medical summarization (the 80%-of-errors failure mode named in the niche), via fact-importance scoring rather than agentic RAG."
+        },
+        {
+          "title": "Behavioral Analysis of Information Salience in Large Language Models (jantrienes/llm-salience)",
+          "url": "https://github.com/jantrienes/llm-salience",
+          "snippet": "LLMs have a nuanced, hierarchical notion of salience that is generally consistent across model families and sizes, but this notion of salience cannot be accessed through introspection and only weakly correlates with human perceptions of information salience.",
+          "why_relevant": "Technique-family sibling: LLM information-salience modeling (hierarchical salience), the core mechanism the candidate would apply."
+        },
+        {
+          "title": "Nuance DAX Copilot embedded in Epic (commercial)",
+          "url": "https://www.healthcareitnews.com/news/nuance-ai-copilot-now-fully-embedded-epic-ehr",
+          "snippet": "more than 150 health systems, hospitals and medical centers are set to deploy the DAX Copilot system embedded with Epic... Key features now extend beyond the note - including configurable styles, order suggestions inside Epic, and one-click outputs like referral letters and after-visit summaries.",
+          "why_relevant": "Deployed commercial AI clinical-documentation product generating note-derived summaries (after-visit summaries, referral letters) inside Epic; adjacent commercial coverage of the EHR auto-summary space, though not handoff salience specifically."
+        },
+        {
+          "title": "Secondary analysis of hand-offs in internal medicine using the I-PASS mnemonic (PMC11430516)",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11430516/",
+          "snippet": "The I-PASS mnemonic (Illness severity, Patient summary, Actions list, Situation awareness, Synthesis) has demonstrated a positive impact on reducing error rates in medical handoffs. Miscommunications account for up to 80% of preventable medical errors.",
+          "why_relevant": "Confirms the I-PASS/SBAR auto-tool framing and the ~80% omission/miscommunication statistic the niche cites; active I-PASS analytic literature exists."
+        }
+      ],
+      "verdict": "CLOSED",
+      "exact_unused_slice": "The literal A-RAG architecture (an agent driving hierarchical keyword/semantic/chunk-read retrieval interfaces over the EHR corpus) applied specifically to handoff salience-selection has not been published. But the underlying TASK -- LLM-based selection of which facts matter enough to hand off -- is already done (RoBERTa saliency selection -> Llama summarization, JAMA Netw Open 2024), so the niche itself is occupied even if the specific retrieval-interface mechanism is new.",
+      "honest_adjacency": "Application axis: CLOSED -- peer-reviewed LLM saliency/content-selection pipeline for EM-to-inpatient handoff notes (PMC11615705) plus omission-importance scoring (MED-OMIT) directly cover deciding which facts to hand off. Technique-family axis: LLM information-salience modeling already studied (llm-salience) and agentic/RAG-for-EHR summarization is active (CLI-RAG, dual-stage retrieval for progress notes). Commercial: DAX Copilot in Epic generates note-derived summaries at scale.",
+      "reasoning": "Adversarially, this niche is occupied, not open. A 2024 JAMA Network Open study performs the exact salience-selection-for-handoff task with an LLM-based saliency model deciding which sentences contribute to the handoff, evaluated for usefulness AND patient safety on 1600 records; MED-OMIT scores fact importance for omission control; commercial EHR-summary products are deployed in Epic at 150+ systems. The only genuinely novel slice is the specific A-RAG hierarchical-retrieval-interface mechanism, but the safety/clinical application is exactly the kind flagged to lean CLOSED, and direct prior art exists on the application axis. CLOSED."
+    },
+    {
+      "candidate": "C5",
+      "technique": "Dreamer-CDP model-based RL / world-model planning",
+      "arxiv_id": "2603.07083",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Dreamer-CDP: Improving Reconstruction-free World Models Via Continuous Deterministic Representation Prediction",
+      "niche": "Wilderness SAR mission tasking & search-segment prioritization (translating Lost-Person-Behavior probability into dynamic resource tasking/re-tasking)",
+      "queries_run": [
+        "reinforcement learning wilderness search and rescue search segment prioritization lost person behavior probability",
+        "SAROPS land search planning lost person behavior probability map resource tasking optimization",
+        "CASIE inland search planning software dynamic re-tasking operational period probability of area commercial",
+        "model-based reinforcement learning world model planning search and rescue mission tasking resource allocation",
+        "Dreamer world model multi-agent task allocation search coverage POMDP planning emergency response"
+      ],
+      "prior_art_found": [
+        {
+          "title": "Deep Reinforcement Learning for Time-Critical Wilderness Search And Rescue Using Drones (Frontiers Robotics & AI 2024; arXiv 2405.12800)",
+          "url": "https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1527095/full",
+          "snippet": "a novel algorithm using deep reinforcement learning to create efficient search paths for drones in wilderness environments. The approach leverages a priori data about the search area and the missing person in the form of a probability distribution map, which allows the policy to learn optimal flight paths that maximize the probability of finding the missing person quickly... improvement in search times compared to traditional coverage planning and search planning algorithms by over 160%.",
+          "why_relevant": "DIRECT HIT on niche: RL that consumes a lost-person probability distribution map and learns to prioritize/route search effort in wilderness SAR. The exact 'translate LPB probability into search prioritization' task, done with RL."
+        },
+        {
+          "title": "Reinforcement Learning with a Lost Person Model for Search and Rescue Path Planning (Virginia Tech, VTechWorks)",
+          "url": "https://vtechworks.lib.vt.edu/items/fb0be833-1c95-4dbb-88b9-694e02f1ed66",
+          "snippet": "trains a reinforcement learning agent to plan paths for search and rescue applications using a model of lost person behavior trained on past search incidents. An improved method is proposed for producing occupancy maps from the trajectories of an agent-based lost person model.",
+          "why_relevant": "DIRECT HIT: RL agent explicitly driven by a Lost-Person-Behavior model (occupancy maps from agent-based LPB trajectories) for SAR tasking/path planning -- exactly the candidate's application."
+        },
+        {
+          "title": "Recurrent Auto-Encoders for Enhanced Deep Reinforcement Learning in Wilderness Search and Rescue Planning (arXiv 2502.19356)",
+          "url": "https://arxiv.org/html/2502.19356v1",
+          "snippet": "Recurrent Auto-Encoders for Enhanced Deep Reinforcement Learning in Wilderness Search and Rescue Planning",
+          "why_relevant": "RL-for-WSAR-planning that adds learned latent (auto-encoder) representations -- conceptually the same family as world-model/latent-representation RL (Dreamer-CDP's reconstruction-free latent prediction) applied to WSAR planning."
+        },
+        {
+          "title": "SAROPS / inland search planning, search theory POA/POD/POS (dbs-sar Lost Person Behavior, SARBayes)",
+          "url": "https://www.dbs-sar.com/LPB/9POA.pdf",
+          "snippet": "Planning begins with a probability map showing where the lost person is likely to be, allocates search effort to minimize expected time to find, and updates the map after each operational period to account for completed searches, clues found, and possible subject motion... maximize POS (Probability of Success) as quickly as possible by increasing POA (Probability of Area) and POD (Probability of Detection).",
+          "why_relevant": "Established/operational decision-support: probability-map-driven search-effort allocation with dynamic re-tasking each operational period (the candidate's 'dynamic resource tasking/re-tasking' framing). SAROPS exists for marine and inland-SAR analogues (JPRA/DHS SBIR) are deployed."
+        },
+        {
+          "title": "Anticipatory Planning and Dynamic Lost Person Models for Human-Robot Search and Rescue (ICRA 2021; arXiv 2009.03976)",
+          "url": "https://dl.acm.org/doi/10.1109/ICRA48506.2021.9562070",
+          "snippet": "Anticipatory Human-Robot Path Planning for Search and Rescue",
+          "why_relevant": "Dynamic lost-person-model-driven anticipatory planning for SAR -- model-based forward-prediction planning over LPB dynamics, adjacent to world-model planning."
+        }
+      ],
+      "verdict": "CLOSED",
+      "exact_unused_slice": "The specific Dreamer-CDP algorithm (reconstruction-free world model with JEPA-style continuous deterministic representation prediction) as the planning engine for SAR mission tasking is not published. Existing WSAR RL uses model-free DRL (DQN/PPO-style) or auto-encoder latents, not a reconstruction-free Dreamer-CDP world model, and no work frames re-tasking as imagined-rollout planning in a learned latent SAR world model.",
+      "honest_adjacency": "Application axis: CLOSED -- multiple published works (Frontiers 2024 / arXiv 2405.12800; VT 'RL with a Lost Person Model'; arXiv 2502.19356) translate LPB probability maps into RL-driven search prioritization, and operational search-theory tools (SAROPS, inland-SAR POA/POS systems) already do probability-driven dynamic re-tasking. Technique-family axis: world-model/Dreamer RL is well-established for POMDP planning/navigation (DreamerV3, DreamerNav, PO-Dreamer) and multi-agent emergency-rescue task allocation is done via Dec-POMDP MARL (HECTA4ER) -- so the Dreamer/world-model family on sibling robotics/rescue tasks is present.",
+      "reasoning": "Adversarially this is occupied on both axes. The application (probability-map -> dynamic search prioritization/tasking) is directly done with RL in peer-reviewed/thesis work and is a mature operational decision-support domain (search theory, SAROPS, inland-SAR programs). The technique family (latent world-model RL, Dreamer) is already applied to navigation/POMDP and emergency rescue. The novel sliver is only the precise Dreamer-CDP reconstruction-free world-model-as-planner instantiation; the niche itself, especially a safety-critical SAR-tasking application, is not open. Per the guidance to reserve OPEN strictly and lean CLOSED on safety domains with mature retained tooling, this is CLOSED."
+    }
+  ]
+}
