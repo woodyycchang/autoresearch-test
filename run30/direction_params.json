@@ -1,0 +1,72 @@
+{
+  "version": 4,
+  "name": "merge-brainstorm direction params (v4)",
+  "run": "run30",
+  "role": "Steering parameters for the MERGE-BRAINSTORM niche-finding engine. They bias the generator toward human-blind combinatorial corners by maximizing cognitive distance and structural surprise of merges. These are the 'trained params' that DRIVE exploration. They do NOT gate novelty: the separate checker uses search ONLY for anti-cheating (hallucination + pretrained-regurgitation), never to disqualify a construct for 'already existing' (R7/R12).",
+  "engine_contract": {
+    "the_engine_is": "merge-brainstorm: merge maximally distant concepts into a NEW construct that human researchers would not naturally reach because the parents live in unrelated domains.",
+    "the_win_is": "a genuine merge that reaches a human-blind corner. Adjacency to prior work is NOT a penalty (R10).",
+    "search_is": "a last-resort INTEGRITY check run by a SEPARATE agent. It verifies the construct was genuinely merged (not hallucinated, not regurgitated from pretraining). It is never a novelty gate."
+  },
+  "objective_weights": {
+    "cognitive_distance": 0.30,
+    "structural_surprise": 0.25,
+    "triple_merge_bias": 0.20,
+    "mechanism_concreteness": 0.15,
+    "human_blind_corner_bias": 0.10,
+    "_note": "scoring = w·features; used by the engine to steer generation and by phase-4 ranking (cognitive_distance × structural_generativity × mechanism_concreteness)."
+  },
+  "merge_operators": [
+    {"key": "STRUCTURAL_TRANSFER", "desc": "carry the structural skeleton of parent A onto the substrate of parent B (e.g. a queueing discipline becomes an attention schedule)."},
+    {"key": "CONSTRAINT_INVERSION", "desc": "take a constraint that defines parent A and invert it inside parent B's dynamics."},
+    {"key": "SUBSTRATE_SWAP", "desc": "run parent A's process on a substrate it was never meant for (parent B's material/medium)."},
+    {"key": "DYNAMICS_BORROW", "desc": "import the time-evolution / update rule of A into the state space of B."},
+    {"key": "METRIC_IMPORT", "desc": "measure B using a metric/geometry native to A (e.g. an ecological diversity index over latent features)."},
+    {"key": "BOUNDARY_DISSOLVE", "desc": "erase the boundary that separates A and B, then ask what single object both become."},
+    {"key": "ROLE_EXCHANGE", "desc": "swap which parent is the actor and which is the environment."},
+    {"key": "SCALE_JUMP", "desc": "apply A's small-scale rule at B's large scale (or vice versa) and keep the rule, change the scale."}
+  ],
+  "distance_heuristic": {
+    "estimate_parent_distance_by": [
+      "different top-level domains (AI/CS/math/physics vs everyday-life/social/biological/cultural)",
+      "different ontological category (process vs object vs relation vs constraint vs metric)",
+      "different characteristic scale (microsecond vs generational; molecule vs society)",
+      "absence of literature co-occurrence (the parents are not normally discussed together)"
+    ],
+    "favor": "parents that score HIGH on as many distance axes as possible.",
+    "penalize_for_steering_only": "parents from the same sub-field (low distance) — they produce obvious, non-corner merges."
+  },
+  "corner_targeting": {
+    "prefer_triples": true,
+    "triple_form": "X (tech) × Y (life) × Z (distant third, tech or life) — favor X×Y×Z over X×Y (R9).",
+    "cross_substrate_rule": "at least one parent from tech_bank and one from life_bank, so the merge crosses the technical/experiential divide.",
+    "avoid": "parent pairs that already co-occur in the literature (those corners are not human-blind).",
+    "target": "the combinatorial corners human cognition skips because the parents are filed under unrelated mental categories."
+  },
+  "generation_requirements": {
+    "per_construct": [
+      "merged_construct (the new thing, named)",
+      "parents (explicit ids from the banks)",
+      "merge_operator (one of merge_operators.key)",
+      "mechanism (concrete, derivable, not hand-wavy)",
+      "what_it_produces (a prediction/method/object neither parent yields alone)",
+      "human_blind_spot_reason (WHY humans would not reach this corner)",
+      "generation_trace (the merge reasoning, so the checker can verify genuine merge vs pretrained recall)"
+    ],
+    "trace_requirement": "generation_trace MUST show parent selection + operator + step-by-step derivation. A construct without a real derivation trace is indistinguishable from recall and will be flagged in phase 3.",
+    "research_relevance_hint": "this repo mines AI/LLM/computational research niches; favor constructs whose what_it_produces is a candidate research direction (method, prediction, measurable object), reached via a distant life-side parent."
+  },
+  "anti_cheating_contract": {
+    "params_reward": "genuine merging (distance + surprise + concrete mechanism + real trace).",
+    "params_never_reward": "matching a known named concept.",
+    "checker_scope": "hallucination detection + pretrained-regurgitation detection ONLY.",
+    "pass_rule": "GENUINE-MERGE-near-prior-work = PASS. REGURGITATED-existing-concept-dressed-up = FLAG (R13).",
+    "never": "do not use search as a novelty gate; do not conclude 'saturated'; present genuine merges for human judgment (R12/R14)."
+  },
+  "changelog": [
+    {"version": 1, "change": "initial objective weights (distance + surprise)."},
+    {"version": 2, "change": "added triple_merge_bias; introduced merge_operators catalog."},
+    {"version": 3, "change": "added cross_substrate_rule (tech×life) and generation_trace requirement to make merges checker-verifiable."},
+    {"version": 4, "change": "hardened anti_cheating_contract per R7/R12/R13: search is integrity-only; adjacency to prior work is never penalized; distinguish genuine-merge-near-prior (PASS) from regurgitated-existing (FLAG)."}
+  ]
+}
