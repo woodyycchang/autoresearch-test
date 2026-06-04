@@ -1,0 +1,133 @@
+{
+  "verifier": "VERIFY-5",
+  "results": [
+    {
+      "candidate": "C10",
+      "technique": "Toto 2.0 (open multivariate zero-shot time-series forecasting foundation model)",
+      "arxiv_id": "2605.20119",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Toto 2.0: Time Series Forecasting Enters the Scaling Era",
+      "domain": "Indigo fermentation vat readiness (natural dyeing)",
+      "queries_run": [
+        "time series foundation model zero-shot multivariate forecast indigo fermentation vat redox readiness",
+        "indigo fermentation vat machine learning prediction pH ORP color sensor monitoring",
+        "natural indigo dye vat readiness prediction model when vat ready forecasting",
+        "soft sensor fermentation redox potential time series forecasting deep learning batch process readiness prediction",
+        "Toto TimesFM Chronos foundation model fermentation bioprocess monitoring forecasting application"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Enhancing Fermentation Process Monitoring through Data-Driven Modeling and Synthetic Time Series Generation (and the related Time-FLM bioreactor foundation model surfaced in the same snippet) — TS foundation-model / deep-learning forecasting for fermentation, but on ethanol/fed-batch bioreactors, not indigo dye vats",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351132/",
+          "verbatim": "Time-FLM adopts a Transformer architecture enhanced with causal attention and a mixture-of-experts stacking mechanism, enabling effective representation of the nonlinear and dynamic behaviors of bioreactors. Experimental evaluations demonstrate that Time-FLM achieves substantial improvements in zero-shot performance over broad-domain on pre-trained time series foundation models and, after full fine-tuning on specific tasks, outperforms most existing deep learning approaches."
+        },
+        {
+          "what": "MLOps soft sensor for real-time predictions in industrial-scale fed-batch fermentation — uses pH, redox potential, temperature as features for continuous prediction in fermentation, but generic bioprocess, no indigo vat / dye readiness, no zero-shot foundation model",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0098135424004095",
+          "verbatim": "Machine learning models can utilize readily measurable parameters such as pH, redox potential, capacitance, and temperature to enable continuous prediction of less frequently measured variables. Additionally, electrical capacitance, redox potential, pH, and temperature have been used as features in neural network regression models to create soft sensors for fermentation processes."
+        },
+        {
+          "what": "Fermentation Blues: Analyzing the Microbiota of Traditional Indigo Vat Dyeing in Hunan, China — confirms indigo vats are monitored via pH/ORP electrodes and judged by color turn, but is microbiota/sensor characterization only, NO forecasting model of readiness",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9430710/",
+          "verbatim": "Studies on indigo fermentation have measured pH, redox potential (ORP), and temperature values using electrode sensors and potentiometers. The changes in pH, redox potential, and temperature are monitored during the traditional indigo fermentation process. Traditional indigo dyeing vats require approximately 27 days for fermentation until the dye liquid turns yellow-green in color"
+        },
+        {
+          "what": "Fast prediction of optimal reaction conditions and dyeing effects of natural dyes on silk fabrics by lightweight integrated learning (XGBoost) — ML for natural-dye conditions, but optimization of dyeing outcomes, NOT temporal forecasting of fermentation vat readiness",
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/cote.12777",
+          "verbatim": "Recent machine learning research has achieved high prediction accuracies (up to 94% in validation) for natural dye reaction conditions using XGBoost models trained on 350 natural dye experiments, though this focuses on optimization rather than specifically vat readiness."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Zero-shot multivariate time-series FORECASTING (via a foundation model like Toto, no per-vat training) of WHEN a natural indigo fermentation vat's sparse per-vat channels (pH/ORP/color) cross a redox/microbial readiness threshold. Existing fermentation foundation-model/soft-sensor work (Time-FLM, MLOps soft sensors) targets industrial bioreactors (ethanol, fed-batch, cell culture); indigo-vat work is sensor/microbiota characterization with NO predictive forecasting; no one couples a zero-shot multivariate TSFM to the data-scarce per-vat indigo-readiness problem.",
+      "honest_adjacency": "Time-FLM (a Transformer bioreactor forecasting foundation model with demonstrated zero-shot performance over broad-domain TSFMs) and MLOps/soft-sensor fermentation forecasters already do exactly the *method* (zero-shot / few-step-ahead forecasting from pH+redox+temperature channels) for fermentation — they are squarely adjacent on technique. Separately, the Hunan indigo-vat microbiota study confirms the *domain* monitors the very same pH/ORP/color channels. The gap is that no work has bridged these two: a data-scarce, per-vat, zero-shot multivariate readiness forecast for indigo natural-dye vats.",
+      "reasoning": "5 reformulations (technique x app; app+ML; app via traditional craft methods; adjacent industrial soft-sensor forecasting; named TSFMs x bioprocess). The method exists for fermentation broadly and the channels exist for indigo vats, but the specific intersection — Toto-style zero-shot multivariate forecasting of indigo vat readiness under per-vat data scarcity — was not found. Because both the method (fermentation TS forecasting) and the channels (indigo pH/ORP/color sensing) are independently documented and only the exact slice is unmade, this is NARROW rather than OPEN."
+    },
+    {
+      "candidate": "C11",
+      "technique": "EnFlow (Energy-Guided Flow Matching for molecular conformer/ground-state generation)",
+      "arxiv_id": "2512.22597",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Energy-Guided Flow Matching Enables Few-Step Conformer Generation and Ground-State Identification",
+      "domain": "Traditional lake-pigment making (madder/carmine dye-mordant precipitation)",
+      "queries_run": [
+        "flow matching energy ground state dye metal mordant complex lake pigment structure color prediction",
+        "madder carmine lake pigment dye-metal complex structure color machine learning prediction recipe",
+        "generative model predict metal-organic complex structure from synthesis conditions pH ligand ratio precipitation",
+        "DFT TD-DFT prediction lake pigment color aluminum dye complex alizarin lightfastness aggregation",
+        "machine learning pigment recipe optimization color transparency lightfastness inverse design natural dye lake"
+      ],
+      "prior_art_found": [
+        {
+          "what": "In-silico color prediction process for natural dyes in Madder (Dyes and Pigments, 2025) — computational prediction of madder dye colors from structure, but via computational/quantum chemistry, NOT a flow-matching generative model, and does NOT generate the precipitated dye-mordant complex structure from recipe params (pH/mordant ratio)",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143720825000713",
+          "verbatim": "A computational procedure has been designed that can compute the absorption spectroscopic signatures and colors of all dyes extracted from madder with excellent accuracy. Computational chemistry can provide precise identification of anthraquinones and offer deeper insights into the lake substrate."
+        },
+        {
+          "what": "MOFFlow: Flow Matching for Structure Prediction of Metal-Organic Frameworks (arXiv 2410.17270) — flow-matching generative structure prediction for metal-organic complexes (same technique family as EnFlow), but for MOF crystals, NOT lake-pigment dye-mordant precipitates, and not tied to color",
+          "url": "https://arxiv.org/pdf/2410.17270",
+          "verbatim": "MOFFlow: Flow Matching for Structure Prediction of Metal-Organic Frameworks ... Deep generative models including diffusion models and flow-based models are promising solutions to accelerate MOF structure prediction, iteratively denoising random structures using neural networks that act similar to force fields guiding atom positions toward minimum energy configurations."
+        },
+        {
+          "what": "Brilliantly Red: The Structure of Carmine (Crystal Growth & Design, 2025) — solves carmine lake structure and links cation identity to color, but is experimental crystallography + analysis, NOT a generative ground-state predictor from recipe parameters",
+          "url": "https://pubs.acs.org/doi/10.1021/acs.cgd.5c00185",
+          "verbatim": "Cation identities in madder lake pigments influence the color by modifying charge distribution within the complex... Madder carmine varieties are carmine-containing madder lakes, with shades varying from scarlet to red with bluish tints depending on the metal salt used."
+        },
+        {
+          "what": "DFT/TD-DFT investigations of alizarin / industrial dyes (incl. lake structures) — established route from molecular/electronic structure to predicted color of madder/alizarin dyes and lakes, but quantum-chemistry forward prediction, not generative inverse structure-from-recipe via flow matching",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143720822007483",
+          "verbatim": "Lake or pigment structures are created by association of a colored dye with a metallic ion... TD-DFT calculations have yielded vertical excitation wavelengths, with complementary color theory used to predict visual colors... optical spectra computed from frequency-dependent real polarizability may be better suited to study effects of molecular aggregation."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using ENERGY-GUIDED FLOW MATCHING (EnFlow-style few-step generative ground-state identification) to predict the GROUND-STATE STRUCTURE / AGGREGATION of a precipitated traditional LAKE-PIGMENT dye-mordant complex (madder/carmine + Al/Ca/Sn) AS A FUNCTION OF RECIPE PARAMETERS (pH, mordant ratio), then mapping that structure to color/transparency/lightfastness. The technique is used for MOF crystals (MOFFlow) and small-molecule conformers (EnFlow); lake-pigment color is predicted by DFT/TD-DFT forward computation from a known structure, not generated from recipe parameters.",
+      "honest_adjacency": "Two flanking bodies of work exist. (1) Structure->color is solved for madder/carmine lakes by quantum chemistry (In-silico Madder color prediction; carmine structure paper; alizarin TD-DFT) — but these need a known/assumed structure and use DFT, not a generative recipe->structure model. (2) Flow-matching/energy-guided generative structure prediction for metal-organic complexes exists (MOFFlow, diffusion/flow MOF models, deep generative transition-metal complex inverse design) — but on MOF crystals/coordination complexes, decoupled from lake-pigment color/lightfastness. EnFlow's exact slice (generative ground-state structure of a dye-mordant precipitate from craft recipe params, tied to perceived color) sits in the unbridged gap between (1) and (2).",
+      "reasoning": "5 reformulations (technique x app; app+ML/recipe; generative complex-from-synthesis-conditions; DFT/TD-DFT lake color; ML pigment recipe inverse design). The structure->color science for madder/carmine lakes is well developed (DFT) and flow-matching structure prediction for metal-organic complexes exists (MOFFlow), but neither does the EnFlow-style generation of the precipitated dye-mordant ground-state structure from recipe parameters mapped to color. Both halves are independently documented and only the precise intersection is unmade, so NARROW rather than OPEN."
+    },
+    {
+      "candidate": "C12",
+      "technique": "AFINs (Amortized Factor Inference Networks — one-forward-pass variational posterior, NUTS-level accuracy)",
+      "arxiv_id": "2605.26419",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Amortized Factor Inference Networks for Posterior Inference",
+      "domain": "Prosthetic socket fitting (craft skill)",
+      "queries_run": [
+        "amortized Bayesian inference posterior prosthetic socket pressure distribution residual limb fit",
+        "prosthetic socket fit pressure field prediction machine learning residual limb finite element",
+        "uncertainty quantification Bayesian inverse problem soft tissue biomechanics patient-specific simulation-based inference",
+        "prosthetic socket rectification CAD CAM digital fitting automated guidance check socket data-driven",
+        "amortized variational inference neural network field reconstruction sparse sensor measurements physical system"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Predictive prosthetic socket design part 1 — FEA-driven Kriging surrogate model giving real-time (1.6 ms) prediction of socket interface pressure / soft-tissue strain across residual-limb morphologies; same target FIELD and real-time goal, but a deterministic surrogate with NO posterior / uncertainty quantification and not driven by sparse check-socket feedback",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7423807/",
+          "verbatim": "A parametric model was created considering population-driven residuum shape morphology, soft tissue compliance, and prosthetic socket design, with a Kriging surrogate model fitted to enable prediction for new residual limb morphologies and socket designs. This framework achieved real-time predictions (1.6 ms) with error less than 4 kPa in pressure at residuum tip and less than 3% in soft tissue strain."
+        },
+        {
+          "what": "Static and dynamic pressure prediction for prosthetic socket fitting assessment utilising an inverse problem approach — ANN inverse-problem prediction of residual-limb/socket interface pressure from socket-surface strain; closest to 'infer pressure field from sparse feedback' but is a point-estimate ANN, NOT amortized Bayesian posterior, no uncertainty",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0933365711001254",
+          "verbatim": "A backpropagation artificial neural network (ANN) was designed and validated to predict interfacial pressures at the residual limb/socket interface from strain data collected from the socket surface."
+        },
+        {
+          "what": "Bayesian model uncertainty quantification for hyperelastic soft tissue models (Data-Centric Engineering) + Bayesian multi-fidelity UQ in biomechanics — does Bayesian inference WITH uncertainty for soft-tissue constitutive parameters from sparse noisy data, but NOT amortized (per-fit re-inference / MCMC-style), NOT prosthetic-socket, NOT chairside field inference",
+          "url": "https://www.cambridge.org/core/journals/data-centric-engineering/article/bayesian-model-uncertainty-quantification-for-hyperelastic-soft-tissue-models/C1B47742890EA01AC0531659FDFC384F",
+          "verbatim": "Parameter uncertainty for incompressible hyperelasticity, often used for soft tissues, is addressed by a probabilistic identification approach based on Bayesian inference... the sparsity of experimental data and substantial noise cause considerable uncertainty in the identification."
+        },
+        {
+          "what": "AI-based prosthetist-specific rectification template (transtibial) — unsupervised learning of a prosthetist's manual rectifications to auto-rectify limb shape; addresses the same 'by-feel, implicit knowledge' craft gap, but learns shape modifications, NOT an uncertainty-aware pressure/fit FIELD posterior",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11272479/",
+          "verbatim": "A novel process involves generating a prosthetist-specific, digital \"global\" template that can be automatically applied to rectify the shape of a transtibial residual limb through acquisition of a \"training\" dataset and unsupervised learning of the prosthetist's rectifications by an artificial intelligence algorithm."
+        },
+        {
+          "what": "Amortized / VAE / implicit-neural field reconstruction from sparse sensors, incl. probabilistic 'Cascaded Sensing' with explicit uncertainty — proves the exact METHOD (amortized/probabilistic field inference from sparse measurements with UQ), but demonstrated on flow/physical fields, never on prosthetic-socket pressure/residual-limb fit",
+          "url": "https://arxiv.org/pdf/2512.01572",
+          "verbatim": "Rather than treating sparse reconstruction as a regression task, some methods recast it as a hierarchical probabilistic inference problem where uncertainty is explicitly represented, structured, and progressively resolved, proposing Cascaded Sensing as a general reconstruction paradigm for multi-scale physical fields under extreme data sparsity."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "AMORTIZED (one-forward-pass, NUTS-level) UNCERTAINTY-AWARE posterior inference of the per-patient residual-limb PRESSURE/FIT FIELD from SPARSE CHECK-SOCKET feedback, at CHAIRSIDE. Prosthetic-socket pressure-field prediction exists only as deterministic surrogates (FEA Kriging, real-time 1.6 ms) or point-estimate ANNs (strain->pressure inverse problem) with NO posterior; Bayesian UQ for soft tissue exists but is non-amortized (per-case MCMC/optimization) and not socket-specific; amortized probabilistic field inference exists but only for generic physical/flow fields. None combine amortized posterior + socket pressure field + sparse chairside feedback + uncertainty.",
+      "honest_adjacency": "Three flanking bodies. (1) Socket pressure-FIELD prediction is mature but deterministic: FEA-driven Kriging surrogate (real-time 1.6 ms) and an ANN inverse-problem that infers interface pressure from socket-surface strain — same field, same speed goal, but point estimates, no uncertainty, not from check-socket feedback. (2) Bayesian UQ for hyperelastic soft tissue from sparse noisy data is exactly the inferential stance (posterior + uncertainty under data sparsity) but is non-amortized and not on sockets. (3) Amortized/probabilistic field reconstruction from sparse sensors (VAE, implicit nets, Cascaded Sensing with explicit UQ) is the precise AFIN-like method but applied to flow/physical fields. AFINs' specific slice — a single amortized network giving an uncertainty-aware socket pressure/fit posterior per patient at chairside from sparse check-socket data — falls in the unjoined center of (1)+(2)+(3).",
+      "reasoning": "5 reformulations (technique x app; app via ML/FEA; Bayesian UQ soft-tissue inverse problem; existing CAD/CAM & AI rectification tools; amortized field inference from sparse sensors). Each ingredient exists separately — socket pressure-field surrogates, soft-tissue Bayesian UQ, amortized probabilistic sparse-field inference, and AI socket rectification — but no work delivers amortized, uncertainty-aware, chairside socket-fit field posteriors from sparse check-socket feedback. Strong, honest adjacency on every axis with the exact intersection unmade, so NARROW (not CLOSED, since no posterior/amortized socket inference found; not OPEN, since the method and the field both exist independently)."
+    }
+  ]
+}
