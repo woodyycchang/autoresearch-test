@@ -1,0 +1,35 @@
+{
+  "_schema": "Run 29 session 3 - Phase-5 reasoning audit: hallucination, logic-break, determinism, verbatim caveat (R5/R6/R7/R10/R13).",
+  "_date": "2026-06-04",
+  "_session": 3,
+
+  "hallucination_audit": {
+    "status": "CLEAN",
+    "candidate_technique_ids_resolved": [
+      {"id": "2603.19201", "title": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation"},
+      {"id": "2512.21409", "title": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning"},
+      {"id": "2602.21307", "title": "SymTorch: A Framework for Symbolic Distillation of Deep Neural Networks"},
+      {"id": "2512.08683", "title": "Machine learning for smell: Ordinal odor strength prediction of molecular perfumery components"}
+    ],
+    "decisive_adjacency_independently_confirmed": {"id": "2602.02785", "title": "Smell with Genji: Rediscovering Human Perception through an Olfactory Game with AI", "venue": "arXiv + ACM CHI 2026 (10.1145/3772363.3799121)", "why_it_matters": "This is the find that decisively refutes v2 - even the esoteric kodo monkoh incense game has a fresh-2026 AI classifier. Main agent independently re-searched and CONFIRMED it is a real paper, not a verifier hallucination."},
+    "readme_check_R13": "The 4 new usable techniques carried into pairing were code-flagged by sourcing agents from explicit github/HF evidence (OmniVTA -> MrSecant/OmniVTA + OmniViTac dataset; Sound2Hap -> Iris1215/Sound2Hap + HF dataset; odor-strength -> peter-fichtelmann/odor-strength; kooplearn -> established PyPI/github library). SymTorch (astroautomata/SymTorch) was README-confirmed (HTTP 200) in session 2.",
+    "false_leads_caught_by_agents": [
+      "LIFE/VERIFY caught 'Aqua Ignis A.I.' cognac = 'Artisanal Intelligence' (a steam-toasted-barrel marketing term), NOT machine learning - correctly excluded.",
+      "Multiple out-of-window date-traps rejected on ID prefix despite search-prose claiming 2026 (e.g. SmellNet/ScentFormer 2506.00239, Stochastic Neural DMD 2511.20612, Guiding-diffusion 2510.19971).",
+      "TECH-1 did not misattribute older unrelated github repos (greydanus/hamiltonian-nn 2019 etc.) to fresh papers - marked has_usable_code=false honestly."
+    ],
+    "note": "No fabricated arXiv IDs, titles, or repos detected across 8 sourcing + 5 verification agents + 1 pairing subprocess."
+  },
+
+  "logic_break_audit": {
+    "finding": "The params-v2 process fix WORKED and is measurable. In session 2 the adversarial verifiers produced 5 false-OPEN that the main-agent crosscheck had to overturn. In session 3 the SAME strict gate was baked INTO the verifier prompts ('any adjacency on either axis => NARROW; OPEN only for zero adjacency on both'). Result: the Phase-3 pairing proposer STILL showed optimism (7 of 12 preliminary-OPEN), but the Phase-4 verifiers returned 0 OPEN / 12 NARROW - the containment moved one stage earlier (proposer->verifier instead of verifier->crosscheck).",
+    "containment_result": "0 false WIN. Main-agent crosscheck independently confirmed the 12 NARROW verdicts and the single most-surprising adjacency (Genji 2602.02785). No verdict required overturning this session.",
+    "residual_proposer_optimism": "The pairing proposer's 7 prelim-OPEN were all on no-analog crafts - it correctly identified the v2-plausible region but over-estimated emptiness, not yet internalising that a fresh technique-family ALWAYS has a sibling foothold. Acceptable: the proposer's job is to surface candidates; the gate's job is to grade them."
+  },
+
+  "determinism": {
+    "note": "8 sourcing + 5 verification agents + 1 opus pairing subprocess + main-agent crosscheck, all over live web search - result SETS not bit-reproducible. Robustness from 5 reformulations/candidate + independent main-agent re-verification of the load-bearing claims. The 12-NARROW outcome is highly stable: every candidate had >=1 cited adjacency on >=1 axis, most on both."
+  },
+
+  "verbatim_caveat_R5_R6": "WebFetch and direct arxiv.org returned HTTP 403 throughout (agent sandboxes and main agent). All verbatim_quote values are 'as seen in WebSearch result blocks', not hand-verified against live arXiv pages. The three main-agent crosscheck claims (Genji real, hedgelaying zero-AI, solera no-Koopman) were verified via WebSearch result text actually seen, recorded in crosscheck_s3.json with URLs. Agents recorded only what they saw; uncertain items marked false/excluded."
+}
