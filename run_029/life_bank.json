@@ -1,5 +1,593 @@
 {
-  "_schema": "life_bank — Axis B (all aspects of life). APPEND-only across sessions.",
-  "_entry_fields": ["name", "domain", "open_problem", "ai_penetration", "verbatim_quote", "source"],
-  "concepts": []
+  "_schema": "life_bank \u2014 Axis B (all aspects of life). APPEND-only across sessions.",
+  "_entry_fields": [
+    "name",
+    "domain",
+    "open_problem",
+    "ai_penetration",
+    "verbatim_quote",
+    "source"
+  ],
+  "concepts": [
+    {
+      "name": "Cheese affinage (ripeness judged by touch)",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "An affineur decides when a wheel of cheese is at peak maturity by pressing it with the fingertips and using accumulated sensory instinct; there is no objective, non-destructive instrument that predicts optimal ripeness per-wheel, so timing-to-market is done by feel.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The skilled affineur will need to use their finely-tuned senses (alongside a grading iron) to ascertain the cheese's stage of maturity and make decisions as to whether the cheese is ready for market.",
+      "source": "https://academyofcheese.org/subjects/maturing-affinage-and-grading/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Koji (Aspergillus) cultivation timing by smell/feel",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "Koji makers judge when mold growth on rice/beans is finished by looking at the mycelia and smelling/tasting for a fruity-floral note; this finicky tacit skill is passed hand-to-hand and has no reliable in-tray sensor for end-point detection.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Sake craftspeople oversee the process to ensure the mould grows in optimal conditions by adjusting temperature and humidity, and their work determines the quality of the sake.",
+      "source": "https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-of-sake-making-with-koji-mold-in-japan-01977",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Soy sauce / miso moromi maturity assessment",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "Maturity of the moromi (fermenting mash) over 6-18+ months is still gauged by an experienced brewer's nose and eye; the literature itself notes the lack of any objective, fast, intuitive maturity metric.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "there is currently a deficiency of an objective, fast, and intuitive evaluation method for maturity.",
+      "source": "https://www.sciencedirect.com/science/article/abs/pii/S0956713524001385",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Dry-cured ham testing by the 'cala' (bone-needle smell test)",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "Whether a 24-36 month jamon is correctly cured is verified by a 'calador' who pierces the ham at four points with a bone spike and judges the released aroma; the entire quality gate depends on one expert's trained sense of smell with no instrument substitute.",
+      "ai_penetration": "none",
+      "verbatim_quote": "The 'cala' is a very complex process and it is necessary to have an excellent and highly developed sense of smell developed through experience.",
+      "source": "https://www.jamonarium.com/en/blog/cala-art-know-ham-well-cured-b64.html",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Sourdough bulk-fermentation / proof end-point ('poke test')",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "Bakers ignore the clock and decide dough is proofed by how it looks and springs back to a finger poke; end-point depends on temperature and starter vigor and is learned by watching the dough, with no consumer-accessible objective readiness signal.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Use time as a guideline, but let the dough tell you when it's ready.",
+      "source": "https://alexandracooks.com/2017/10/24/artisan-sourdough-made-simple-sourdough-bread-demystified-a-beginners-guide-to-sourdough-baking/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Wine harvest timing (post-veraison ripeness call)",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "The pick date 30-70 days after veraison is a judgment blending lab Brix/pH with tasting seeds and skins; picking a day early or late shifts the wine, and the final call remains a stylistic sensory decision.",
+      "ai_penetration": "low",
+      "verbatim_quote": "harvest typically follows 30 to 70 days after v\u00e9raison, depending on variety, climate, and the winemaker's stylistic goals.",
+      "source": "https://www.winewithseth.com/winewiki/veraison/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Traditional balsamic vinegar barrel maturation",
+      "domain": "Food, cooking, fermentation, culinary craft",
+      "open_problem": "Over 12-25 years of annual barrel transfers in an acetaia, the maestro decides which barrel/vintage is ready purely by tasting; each acetaia's progression is idiosyncratic and assessment is by master palate, not measurement.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "As master tasters know well, each balsamic vinegar is unique and releases an inimitable range of flavours and aromatic notes.",
+      "source": "https://acetaiasereni.com/en/conversation-en/the-variables-for-the-quality-of-a-balsamic-vinegar-of-modena/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Blacksmithing / forge welding heat judged by color",
+      "domain": "Traditional craft & trades",
+      "open_problem": "Smiths bring steel to forge-welding heat by reading the incandescent color of the metal by eye; the exact temperature is judged visually and learned per-forge, complicated by ambient light, with no affordable real-time guidance.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The exact temperature is almost always judged by eye and learned by experience on your set of equipment.",
+      "source": "https://www.thecrucible.org/guides/blacksmithing/forge-welding/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Pottery kiln firing without instruments",
+      "domain": "Traditional craft & trades",
+      "open_problem": "Traditional potters control temperature, soak time and oxidation/reduction atmosphere by reading flame color, ember glow and the look of the pots; this is instinctive expert knowledge with no low-cost sensing of in-kiln atmosphere/temperature for the artisan.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Without pyrometers or electric kilns, traditional potters relied on the color of the flames, the glowing embers, and the appearance of the pots themselves to gauge temperature, duration, and atmosphere parameters.",
+      "source": "https://nativeamericanmuseum.info/native-american-pottery-firing-methods/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Glassblowing (working glass at the right viscosity by eye)",
+      "domain": "Traditional craft & trades",
+      "open_problem": "A gaffer keeps molten glass in the narrow workable viscosity band by reading its color (e.g. bright orange near 1090 C) and feel, knowing when to reheat; it is kinesthetic memory built over years with no instrument feeding the working state in real time.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The working temperature is reduced in the furnace to around 1,090 \u00b0C (2,000 \u00b0F), at which stage the glass appears to be a bright orange color.",
+      "source": "https://en.wikipedia.org/wiki/Glassblowing",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Handloom weaving warp-tension management by feel",
+      "domain": "Traditional craft & trades",
+      "open_problem": "On traditional shuttle looms the weaver continuously feels warp tension, reads the cloth and adjusts by hand for hours; even tension across hundreds of threads is maintained purely by tactile judgment with no assistive feedback.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Traditional shuttle looms depend entirely on human judgment, and they require a weaver who can feel the tension, read the cloth, and respond to the material as it behaves under their hands.",
+      "source": "https://www.jennifershamam.com/news-more/how-does-weaving-work",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Dry stone walling (stone selection and fit by eye)",
+      "domain": "Traditional craft & trades",
+      "open_problem": "A mortarless wall stands only by gravity, friction and the waller's eye for which irregular stone to place where; certification is a timed hands-on rebuild, and stone selection/placement is an un-tooled spatial-reasoning skill judged by experts.",
+      "ai_penetration": "none",
+      "verbatim_quote": "Dry stone walling is so durable because it contains no mortar to crack and fail, but is held together merely by the weight of stone, and by the skill of the builder who selected and fitted the stones together.",
+      "source": "https://heritagecrafts.org.uk/craft/dry-stone-walling/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Japanese kumiko / nail-free joinery fitting",
+      "domain": "Traditional craft & trades",
+      "open_problem": "Kumiko pieces hold together by pressure alone, requiring each thin slat to be planed, sawn and chiseled to a hand-fitted tolerance; achieving the exact interference fit is a by-hand fine-adjustment skill with no digital aid for the artisan.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Thinly-slit wooden pieces are grooved, punched, and mortised, and then fitted individually using a plane, saw, chisel, and other tools to make fine-adjustments.",
+      "source": "https://en.wikipedia.org/wiki/Kumiko_(woodworking)",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Vegetable tanning of leather (recipe and feel by master tanner)",
+      "domain": "Traditional craft & trades",
+      "open_problem": "A master tanner sets tannin sources, concentrations, temperatures and weeks-to-months timings by judgment to hit a target softness/strength/touch; recipes are secret, hide-by-hide, and tuned by feel rather than by a predictive model.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The master tanner creates the ideal blend keeping in mind the result he wants to achieve in terms of softness, strength, colour and touch feeling.",
+      "source": "https://www.tannins.org/the-vegetable-tanning-process/",
+      "_source_agent": "LIFE-1 food+craft",
+      "_session": 1
+    },
+    {
+      "name": "Apiculture queen detection / hive inspection",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Beekeepers must manually open hives and inspect frames to confirm the queen is present and laying; her loss can collapse a colony, but inspection is intrusive, time-consuming, weather-limited, and depends on the beekeeper's eye for spotting a single bee or fresh eggs among thousands.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Manual inspections are laborious and disruptive, motivating the need for automated, non-invasive detection methods.",
+      "source": "https://arxiv.org/pdf/2509.14061",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Varroa mite monitoring (alcohol wash / sugar roll)",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "To decide whether to treat for varroa, beekeepers take a ~300-bee sample, dislodge mites with alcohol or powdered sugar, and count mites by hand against seasonal thresholds; counting is tedious, error-prone, kills the sample (alcohol), and is done by feel/eye rather than any automated sensor.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The powdered sugar roll is currently the most common and quickest tool to monitor mites.",
+      "source": "https://www.blog-veto-pharma.com/en/monitoring-for-varroa-determining-the-level-of-infestation-and-using-the-results-to-aid-in-control/",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Sericulture cocoon grading and silk reeling",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Silk quality depends on grading cocoons and reeling filament from them, traditionally judged by experienced workers by eye/feel (shell ratio, defects, seasonal quality); the larva must be killed at the chrysalis stage before the moth breaks the filament, and grading remains a hands-on craft.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Because an emerging moth would break the cocoon filament, the larva is killed in the cocoon by steam or hot air at the chrysalis stage.",
+      "source": "https://www.britannica.com/topic/sericulture",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Orphan / underutilized crop breeding",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Neglected crops vital to smallholders (e.g. fonio, bambara groundnut, teff) have almost no genomic or breeding resources and little institutional data; improvement is done with minimal investment and lost institutional memory, far behind wheat/rice/maize.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Orphan crops are also known as underutilized crops, neglected crops or crops for the future, named for the lack of genetic improvement, not for lack of use or incorporation into cultural diets.",
+      "source": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.839704/full",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Agroforestry / alley cropping design",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Designing tree-crop alley systems requires predicting decades of light/water/nutrient competition between rows of trees and alley crops, but interactions are poorly characterized and the long time horizon means design is largely by rule-of-thumb and farmer judgment.",
+      "ai_penetration": "low",
+      "verbatim_quote": "As trees and shrubs grow, they influence light, water and nutrient regimes in the field, and these interactions are what sets alley cropping apart from more common monocropping systems.",
+      "source": "https://extension.wsu.edu/wrlp/alleycropping/",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Seed saving: roguing and isolation",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Keeping a landrace/heirloom variety true-to-type requires the saver to recognize and remove off-type plants (roguing) before pollination and to maintain isolation distances; this is judgment-by-eye over whole populations with essentially no decision-support tooling.",
+      "ai_penetration": "none",
+      "verbatim_quote": "Roguing is the process of removing weak or \"off-type\" plants before they spread their pollen.",
+      "source": "https://www.learnseedsaving.com/roguing-selection/",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Soil judging / field texture-by-feel",
+      "domain": "Agriculture & animal husbandry",
+      "open_problem": "Classifying a soil in the field (texture, clay/sand percentage, horizons) is done by hand-feel ribboning and color books in a pit, a tacit skill built by practice; there is no portable instrument that replaces the trained fingers used in soil/land judging.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "In the field, it is necessary to estimate the soil texture by feeling it with the fingers, a skill that can be developed with practice and will be used in contests.",
+      "source": "https://iastate.pressbooks.pub/soiljudgingiowa/chapter/soil-texture/",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Polynesian wayfinding (star compass & wave piloting)",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Traditional navigators cross open Pacific ocean with no instruments, holding course by a memorized 32-house star compass and reading swell patterns/refraction off islands entirely in the head; the knowledge is oral, hard to teach, and has no computational model.",
+      "ai_penetration": "none",
+      "verbatim_quote": "The star compass is a mental construct and not physical like a western compass.",
+      "source": "https://www.learnz.org.nz/location192/bg-standard-f/polynesian-navigation",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Inuit snow/wind (sastrugi) wayfinding",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Arctic travelers orient in whiteouts and on featureless sea ice by reading wind-carved snow ridges (sastrugi), named prevailing winds, ice sounds, and animal cues; this is a multi-sensory tacit skill with no GPS-independent tooling that captures it.",
+      "ai_penetration": "none",
+      "verbatim_quote": "The snowdrifts left by prevailing winds are the most reliable source of spatial orientation, and only the drifts left by prevailing winds can last throughout the winter.",
+      "source": "https://en.wikipedia.org/wiki/Inuit_navigation",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Maritime pilotage (local-knowledge ship handling)",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Harbour/river pilots con large ships through dangerous waterways using visual references and intimate local knowledge of tides, currents, silting and shoals not shown on charts; this expertise is tacit, firsthand, and resists codification.",
+      "ai_penetration": "low",
+      "verbatim_quote": "A maritime pilot is a mariner who has specific knowledge of an often dangerous or congested waterway, such as harbors or river mouths.",
+      "source": "https://en.wikipedia.org/wiki/Maritime_pilot",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Orienteering route choice / map-terrain matching",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Orienteers must continuously match a topographic map to terrain while moving at speed and choose among routes weighing distance, climb, vegetation and footing; route choice and proactive map-reading are cognitive skills with little algorithmic support for the runner.",
+      "ai_penetration": "low",
+      "verbatim_quote": "A handrail is defined as a linear feature on a map that parallels your route and can be used as a quick aid to navigating yourself to the next control.",
+      "source": "https://www.learnorienteering.com/BSReadingMap.html",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Cave navigation & survey (compass/clinometer/tape)",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Underground there is no GPS and no map until someone makes one; cavers find their way and build surveys leg-by-leg with magnetic compass, clinometer and tape, fighting magnetic interference, reading error and slowness, often relying on a guideline to find the way out.",
+      "ai_penetration": "low",
+      "verbatim_quote": "The DistoX2 unit is a beefed-up laser rangefinder used to measure the distance and direction between survey stations underground.",
+      "source": "https://en.wikipedia.org/wiki/Cave_survey",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Dead reckoning (manual position keeping)",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "When fixes are unavailable, navigators advance a known position by hand from logged speed, heading and time; errors accumulate (~10-15% of distance) until a fix lets them reinitialize, and the running plot is maintained manually by the navigator's feel.",
+      "ai_penetration": "low",
+      "verbatim_quote": "The errors that are inherent in dead reckoning accumulate; when a position has been checked, the reckoning is therefore generally restarted from that position.",
+      "source": "https://www.britannica.com/technology/navigation-technology/Dead-reckoning",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Desert wayfinding (Tuareg/Bedouin dune navigation)",
+      "domain": "Navigation, wayfinding & orientation",
+      "open_problem": "Desert nomads cross shifting sand seas by recognizing slow-moving dune systems, named dunes, rock formations, sun and stars, with routes and dune names taught orally; the landscape changes with wind and the skill lives only in inherited memory.",
+      "ai_penetration": "none",
+      "verbatim_quote": "While the wind in the desert is constantly changing the landscape, the big dune systems are moving very slowly, so they are more recognizable and can be used as landmarks.",
+      "source": "https://www.naturalnavigator.com/the-library/navigating-with-the-tuareg/",
+      "_source_agent": "LIFE-2 ag+navigation",
+      "_session": 1
+    },
+    {
+      "name": "Whistled language interpretation (Silbo Gomero)",
+      "domain": "Language & linguistics",
+      "open_problem": "Whistled registers like Silbo Gomero compress a full spoken language into a tiny set of pitch/continuity contrasts (only ~2-4 whistled vowels and 4-10 consonants), and decoding them back into speech is done entirely by trained human ears in real time; there is no robust tool to transcribe or translate whistled speech, and the practice survives in only a handful of communities worldwide.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Silbo replaces each vowel or consonant with a whistling sound.",
+      "source": "https://en.wikipedia.org/wiki/Silbo_Gomero",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Sign language transcription and glossing (no standard notation)",
+      "domain": "Language & linguistics",
+      "open_problem": "Signed languages have no commonly accepted written or transcription system, so linguists hand-gloss video utterance-by-utterance using ad hoc systems (Stokoe, HamNoSys, glosses); annotation is slow, inconsistent across labs, and there is no widely usable automatic notation/transcription pipeline for the spatial-simultaneous structure of signs.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "There is no commonly accepted transcription system for describing the form of signs.",
+      "source": "https://www.handspeak.com/learn/3/",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Prosody and intonation labeling (ToBI)",
+      "domain": "Language & linguistics",
+      "open_problem": "Labeling the intonation/prosody of speech with the standard ToBI system is extraordinarily slow expert manual work (roughly 100-200x real time per minute of audio) and even trained labelers achieve only moderate inter-transcriber agreement, leaving most speech corpora unannotated for prosody.",
+      "ai_penetration": "low",
+      "verbatim_quote": "A ToBI prosodic labeling of speech typically takes even experienced labelers from 100 to 200 times real time.",
+      "source": "https://en.wikipedia.org/wiki/ToBI",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Tone-language transcription in phonetic fieldwork",
+      "domain": "Language & linguistics",
+      "open_problem": "Documenting the tone systems of under-described African and Asian languages relies on manually marking pitch height and contour (e.g. numeric 1-5 notation) by ear; transcribers need months of specialised training, the work is slow and costly, and it is racing against the rapid disappearance of endangered tone languages.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Current phonetic fieldwork relies on manual effort, resulting in substantial time and financial costs, especially challenging for endangered languages that are rapidly disappearing with limited funding.",
+      "source": "https://arxiv.org/pdf/2410.02324",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Dialectology fieldwork and linguistic-atlas compilation",
+      "domain": "Language & linguistics",
+      "open_problem": "Traditional dialect mapping still depends on painstaking in-person fieldwork (questionnaires, hand phonetic transcription, isogloss drawing) targeting specific NORM speakers; compiling a linguistic atlas is slow, expensive and labour-intensive, so most regions and dialect continua remain only partially surveyed.",
+      "ai_penetration": "low",
+      "verbatim_quote": "The preparation and compilation of linguistic atlases is a difficult, costly, voluminous, and time-consuming job.",
+      "source": "https://en.wikipedia.org/wiki/Dialectology",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Cuneiform tablet reading backlog (Assyriology)",
+      "domain": "Language & linguistics",
+      "open_problem": "Of the hundreds of thousands of excavated cuneiform tablets, the large majority have never been read or published because transliteration requires years of training and only a few hundred qualified experts exist worldwide; the script has no word spacing and signs are polyvalent, making automated reading still nascent and unreliable.",
+      "ai_penetration": "low",
+      "verbatim_quote": "An estimated half a million tablets are held in museums across the world, but comparatively few of these are published.",
+      "source": "https://en.wikipedia.org/wiki/Cuneiform",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Historical linguistic reconstruction via the comparative method",
+      "domain": "Language & linguistics",
+      "open_problem": "Reconstructing proto-languages is done by hand: linguists identify cognate sets, line up sound correspondences, and propose proto-forms following phonetic rules; this is slow expert judgement work with little tooling, and it breaks down beyond ~8,000-10,000 years as cognates become unrecognisable.",
+      "ai_penetration": "low",
+      "verbatim_quote": "Reconstruction becomes unreliable beyond roughly 8,000 to 10,000 years, as sound changes accumulate to the point where cognates are no longer recognizable.",
+      "source": "https://en.wikipedia.org/wiki/Comparative_method",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Snakebite responsible-species identification",
+      "domain": "Medicine & health",
+      "open_problem": "Choosing the right antivenom depends on knowing which snake bit the patient, but the snake is rarely seen, victim descriptions are misleading, and frontline rural hospital staff are usually not trained to identify the biting species even when it is brought in dead - so antivenom choice is often guesswork in exactly the low-resource settings where snakebite kills most.",
+      "ai_penetration": "low",
+      "verbatim_quote": "In many cases of envenoming following snake bite, the snake responsible for the accident remains unidentified; this frequently results in difficulty deciding which antivenom to administer to the systemically-envenomed victim, especially when only monospecific antivenoms are available.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4052258/",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Chronic wound assessment (visual and manual measurement)",
+      "domain": "Medicine & health",
+      "open_problem": "Tracking whether a chronic wound is healing relies on a clinician's naked-eye judgement of size and tissue type plus manual ruler measurement; this is highly subjective, varies with the clinician's experience, and manual area estimates can deviate enormously (up to 40-75%) from true wound size, with poor inter-rater reliability.",
+      "ai_penetration": "low",
+      "verbatim_quote": "Wound assessment and measurement depend on visual examination, which can be highly subjective and dependent on the clinician's experience.",
+      "source": "https://www.nature.com/articles/s41598-025-06703-5",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Ethnobotanical / traditional herbal medicine knowledge documentation",
+      "domain": "Medicine & health",
+      "open_problem": "Vast bodies of traditional herbal-remedy knowledge held by healers are undocumented and passed only by word of mouth; with the spread of modern medicine this knowledge is being eroded and lost generation by generation, and capturing it depends on slow manual ethnobotanical surveys.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Most cultures possess a huge store of undocumented traditional knowledge of applying herbal remedies in the treatment of diseases.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10632060/",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Ethnoveterinary medicine documentation and dosing",
+      "domain": "Medicine & health",
+      "open_problem": "Smallholder farmers across Africa and Asia treat livestock with plant-based home remedies where vets are unavailable, but the practice suffers from poor knowledge of application rates/dosage, inadequate diagnosis, and almost no documentation or standardisation - an indigenous knowledge system with essentially no decision-support tooling.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Some farmers have failed to use ethnoveterinary medicine due to poor knowledge of application rates (dosage), inadequate diagnosis, lack of documentation and side effects of the concoctions.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9244877/",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Prosthetic socket fitting (craft skill)",
+      "domain": "Medicine & health",
+      "open_problem": "Getting a comfortable prosthetic socket fit is a hand craft: the prosthetist casts the residual limb, manually 'rectifies' the positive mould, and iterates check sockets by feel; the result is time-consuming, expensive and heavily dependent on the individual prosthetist's skill, with little objective guidance on where to add or relieve pressure.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The process is time-consuming expensive and heavily dependent on the individual skills of the prosthetist.",
+      "source": "https://www.physio-pedia.com/Lower_Limb_Prosthetic_Sockets_and_Suspension_Systems",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Observational gait analysis in clinic",
+      "domain": "Medicine & health",
+      "open_problem": "Most clinical gait assessment is done by a therapist watching the patient walk and visually estimating joint angles and step parameters with no instrumentation; reliability is poor, results depend on the evaluator's expertise, and inter-rater agreement is low - yet instrumented labs are rarely available, so the subjective method dominates practice.",
+      "ai_penetration": "low",
+      "verbatim_quote": "Reliability of observational analysis is poor, and therapists should be encouraged to use objective measures to give a more representative account of the gait pattern.",
+      "source": "https://www.sciencedirect.com/science/article/abs/pii/S1356689X99800034",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Partograph-based labour monitoring in low-resource midwifery",
+      "domain": "Medicine & health",
+      "open_problem": "In low-resource maternity settings the partograph (manual plotting of cervical dilatation and fetal/maternal signs against alert/action lines) is the main tool to catch obstructed or abnormal labour, but correct use is labour-intensive, completion rates are low, and there are too few skilled attendants - so warning signs are missed where maternal/newborn mortality is highest.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The correct and effective use of the partograph is labour intensive even with the requisite skills, making it unfriendly to use in situations where the delivery rates are high with few skilled attendants.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7294611/",
+      "_source_agent": "LIFE-3 language+medicine",
+      "_session": 1
+    },
+    {
+      "name": "Lutherie and tonewood selection",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Selecting a specific piece of tonewood (spruce/maple billet) for a violin and predicting its acoustic outcome is done by expert feel \u2014 tapping, flexing, eyeing grain \u2014 because the internal structure of wood is uncertain and only roughly one tree in a thousand meets professional criteria. There is no tooling that maps a raw billet's measurable physical properties to the finished instrument's sound, so makers rely on tacit, hard-to-transfer judgment.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "The craft of luthiers, lutherie, is commonly divided into the two main categories of makers of stringed instruments that are plucked or strummed and makers of stringed instruments that are bowed.",
+      "source": "https://en.wikipedia.org/wiki/Luthier",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Change ringing method composition (campanology)",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Composing a 'peal' or 'touch' requires arranging thousands of bell-order permutations so that no row repeats ('truth') while remaining musical and physically ringable, and the conductor must memorise the entire composition. This combinatorial design over factorial-sized permutation groups is still done largely by hand and by tradition by a small community of expert conductors/composers.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Change ringing is the art of ringing a set of tuned bells in a tightly controlled manner to produce precise variations in their successive striking sequences, known as \"changes\".",
+      "source": "https://en.wikipedia.org/wiki/Campanology",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Inpainting / retouching in painting conservation",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Filling losses (lacunae) in a damaged painting so the fill blends with surrounding colours but does not cover any original paint, while staying reversible and ethically distinguishable, is an extremely time-consuming hand process driven by case-by-case expert judgement and contested philosophy. Generative image inpainting exists for photos but is essentially unused for physical conservation decisions, colour-matching aged varnish, or reversibility constraints.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Inpainting is the work done by a conservator-restorer to reinstate obliterated or damaged areas in a pictorial layer, in a way that blends with the surrounding colors but without covering any of the original paint.",
+      "source": "https://www.conservation-wiki.com/wiki/Inpainting",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Stained glass conservation and matching antique glass",
+      "domain": "Art, music & performance craft",
+      "open_problem": "When restoring a historic window, matching replacement glass to the original colour depth, texture, seeds (bubbles) and light behaviour is the most technically demanding and visually critical step; conservators do it by eye, sometimes plating two layers (one for colour, one for texture) so the patch does not read as a patch. There is no computational tool to predict perceived match under varying transmitted light or to recommend a plating recipe.",
+      "ai_penetration": "none",
+      "verbatim_quote": "When matching colored textured glass is not available, it is possible to use two layers of glass, one for texture and one for color, rather than installing a poorly matched piece that would be visible.",
+      "source": "https://grokipedia.com/page/conservation_and_restoration_of_stained_glass",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Labanotation / dance notation transcription",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Transcribing live or recorded human movement into a Labanotation score (direction, level, body part, duration, dynamics) is difficult, time-consuming and depends on a shrinking pool of trained notators; not all expressive movement maps cleanly to symbols. Automatic, accurate motion-to-Labanotation generation remains an open, barely-served problem, leaving most of the world's choreography unrecorded.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Labanotation is a system for analyzing and recording human movement, invented by Austro-Hungarian choreographer and dancer Rudolf von Laban (1879\u20131958).",
+      "source": "https://en.wikipedia.org/wiki/Labanotation",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Tuvan throat singing / overtone singing technique",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Throat singers produce two simultaneous pitches by precisely shaping the vocal tract to focus a single overtone above a sustained drone; mastering and teaching styles like khoomei, sygyt and kargyraa is done by ear and imitation. There is essentially no real-time pedagogical tool that analyses a learner's overtone focusing and gives corrective feedback on tongue/pharynx shaping.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Khoomei is traditionally a softer sounding style, with the fundamental (or drone) usually in the low-mid to midrange of the singer's normal voice.",
+      "source": "https://en.wikipedia.org/wiki/Tuvan_throat_singing",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Traditional lake pigment making",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Producing historical lake pigments (e.g. madder, carmine) by precipitating a natural dye onto a mordant is a centuries-old recipe craft whose colour, lightfastness and transparency depend on subtle, poorly-documented control of pH, mordant ratio and source material. Reconstructing or optimising these recipes for conservation/reproduction is done by trial-and-error by a handful of specialists.",
+      "ai_penetration": "none",
+      "verbatim_quote": "A lake pigment is a pigment made by precipitating a dye with an inert binder, or mordant, usually a metallic salt.",
+      "source": "https://en.wikipedia.org/wiki/Lake_pigment",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Marionette manipulation (string puppetry)",
+      "domain": "Art, music & performance craft",
+      "open_problem": "Animating a marionette convincingly through many strings (Burmese yoke th\u00e9 use 18\u201319 wires) is a dexterous expert skill, hardest when there is no central control rod; transmission of this craft is endangered. There is little to no tooling for capturing, notating, or assisting marionette manipulation, or for mapping desired character motion to per-string control.",
+      "ai_penetration": "none",
+      "verbatim_quote": "Burmese marionettes are very intricate and their use requires dexterous skills, employing 18 or 19 wires for male and female characters respectively, with each puppet controlled by only one puppeteer.",
+      "source": "https://en.wikipedia.org/wiki/Marionette",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Gift economy and obligations of reciprocity",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "In gift economies the obligations to give, receive and reciprocate (Mauss) govern social standing, yet deciding the appropriate counter-gift, timing and value to maintain honour is tacit cultural knowledge. There is no formal/computational modelling tool used by communities to reason about reciprocity obligations, debt of honour, or fairness in gift exchange networks.",
+      "ai_penetration": "none",
+      "verbatim_quote": "Because of the bond between giver and gift, the act of giving creates a social bond with an obligation to reciprocate on the part of the recipient.",
+      "source": "https://en.wikipedia.org/wiki/Gift_economy",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Computus (calculation of the date of Easter)",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Computus is the traditional algorithmic determination of moveable feast dates from ecclesiastical lunar/solar cycles (golden number, epact, Sunday letter). Reconciling competing historical computistical systems, reconstructing dates in fragmentary medieval calendars, and resolving Julian/Gregorian and Eastern/Western divergences is specialist manual scholarship with little modern tooling beyond fixed formulas.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Easter is the Sunday following the Paschal full moon date, which is the ecclesiastical full moon date on or after the ecclesiastical equinox on 21 March.",
+      "source": "https://en.wikipedia.org/wiki/Date_of_Easter",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Divination and interpretation of signs/omens",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Across hundreds of divination systems (haruspicy, augury, scrying, casting lots) the practitioner's core task is interpreting effectively random or natural phenomena into meaningful guidance for a querent within a ritual frame. This interpretive act is purely human/traditional; the under-served angle is formalising and comparing the symbolic interpretation systems themselves, not predicting the future.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Divination is the attempt to gain insight into a question or situation by way of a magic ritual or practice.",
+      "source": "https://en.wikipedia.org/wiki/Divination",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Barter and the double coincidence of wants",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Pure barter requires a double coincidence of wants \u2014 each party must want exactly what the other holds at the same time and place \u2014 which is improbable and historically limits moneyless trade. In modern barter rings, swap meets and sharing/gift networks, finding multi-party trade cycles that satisfy everyone is done informally; there is little practical matching tooling for community-scale non-monetary exchange.",
+      "ai_penetration": "low",
+      "verbatim_quote": "The coincidence of wants (often known as double coincidence of wants) is an economic phenomenon where two parties each hold an item that the other wants, so they exchange these items directly.",
+      "source": "https://en.wikipedia.org/wiki/Coincidence_of_wants",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Funerary / mortuary customs",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Mortuary customs (interment, excarnation, heart-burial, grave goods, mourning rites) are a vast, culturally-specific complex of beliefs and practices, much of it undocumented and endangered. Systematically recording, comparing and reconstructing variation in death rituals across cultures (and matching archaeological remains to likely practices) is manual ethnographic/archaeological work.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Funerary customs comprise the complex of beliefs and practices used by a culture to remember and respect the dead, from interment, to various monuments, prayers, and rituals undertaken in their honour.",
+      "source": "https://en.wikipedia.org/wiki/Funeral",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Mechanical watch regulation (horology)",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Regulating a mechanical movement \u2014 adjusting the escapement and balance so the watch keeps time across positions, temperatures and states of wind \u2014 requires cleaning, lubrication and calibration by a skilled watchmaker working by feel and timegrapher traces. Diagnosing rate errors and prescribing adjustments remains an expert manual craft with little assistive intelligence.",
+      "ai_penetration": "very-low",
+      "verbatim_quote": "Mechanical watches are typically not as accurate as quartz watches, and they eventually require periodic cleaning, lubrication and calibration by a skilled watchmaker.",
+      "source": "https://en.wikipedia.org/wiki/Mechanical_watch",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Kinship terminology systems analysis",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Different cultures encode relatives with structured kin-term systems whose generative logic (how terms compose to compute any relation) is an algebraic structure that anthropologists currently derive largely by hand. Eliciting, formalising and comparing these terminologies across the world's languages is labour-intensive and under-tooled despite being amenable to computation.",
+      "ai_penetration": "low",
+      "verbatim_quote": "During the 1950s and '60s, the formal analysis of systems of classification on the basis of their different component distinctions within a semantic domain became known as \"componential analysis.\"",
+      "source": "https://en.wikipedia.org/wiki/Kinship_terminology",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    },
+    {
+      "name": "Go scoring and life-and-death / seki determination",
+      "domain": "Social life, ritual, customs & trade",
+      "open_problem": "Settling a Go game requires agreeing which groups are alive or dead and resolving ambiguous positions such as seki, where neither player can play without being captured \u2014 a judgement amateurs frequently dispute and that traditional scoring leaves to consensus. While top engines play superbly, accessible, explainable tools that adjudicate disputed life-and-death/seki and teach the reasoning to beginners are largely missing.",
+      "ai_penetration": "moderate",
+      "verbatim_quote": "Another important concept is seki, a situation in which neither player can play on a particular point without then allowing the other player to play at another point to capture.",
+      "source": "https://en.wikipedia.org/wiki/Go_(game)",
+      "_source_agent": "LIFE-4 art+social",
+      "_session": 1
+    }
+  ]
 }
