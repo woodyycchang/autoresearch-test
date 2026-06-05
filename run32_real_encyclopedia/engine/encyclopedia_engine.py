@@ -198,30 +198,35 @@ def niche_check(c: dict, p: dict, approaches: list) -> dict:
 # STAGE 1 driver: generate constructs from the bank (cross-domain, transferable)
 # --------------------------------------------------------------------------
 def generate_constructs(bank: dict, p: dict) -> list:
-    """Generate cross-domain constructs that have a transfer interface.
+    """Generate constructs from the concept-pair space.
 
-    If merge_steer_strength > 0, prioritise pairs whose cognitive_distance is
-    near merge_distance_target (distance steering)."""
+    By default (v4) the FULL pair space is emitted and the integrity checker --
+    not the generator -- decides which are genuine merges, so genuine-merge rate
+    is a real measurement of raw generation quality.
+
+    p['merge_require_interface'] (v5): emit only pairs that share >=1 mechanism
+    token -- the transfer interface that coherence requires. This is the
+    measurement-driven merge-engine upgrade (raw generation fails ~93% as
+    incoherent_no_interface).
+    p['merge_steer_strength'] > 0: additionally drop the closest fraction by
+    cognitive distance (distance steering)."""
     concepts = bank["concepts"]
+    require_iface = p.get("merge_require_interface", False)
     constructs = []
     for a, b in combinations(concepts, 2):
-        if a["domain"] == b["domain"]:
+        if require_iface and not (set(a["mechanism_tokens"]) & set(b["mechanism_tokens"])):
             continue
-        if not (set(a["mechanism_tokens"]) & set(b["mechanism_tokens"])):
-            continue  # no transfer interface -> not a candidate merge
-        c = make_construct(a, b)
-        c["id"] = f"G_{a['id']}__{b['id']}"
-        constructs.append(c)
+        for donor, target in ((a, b), (b, a)):
+            c = make_construct(donor, target)
+            c["id"] = f"G_{donor['id']}__{target['id']}"
+            constructs.append(c)
     constructs.sort(key=lambda c: c["id"])
 
     steer = p.get("merge_steer_strength", 0.0)
     if steer > 0.0:
-        target = p.get("merge_distance_target", 0.70)
-        # stable, deterministic steering: rank by closeness to target, keep the
-        # top (1 - steer*0) ... here steering REORDERS toward target and the
-        # caller may sample the steered head. We attach a steer score.
-        for c in constructs:
-            c["steer_score"] = round(1.0 - abs(c["cognitive_distance"] - target), 4)
+        constructs.sort(key=lambda c: (-c["cognitive_distance"], c["id"]))
+        keep = int(round(len(constructs) * (1.0 - steer)))
+        constructs = sorted(constructs[:keep], key=lambda c: c["id"])
     return constructs
 
 
