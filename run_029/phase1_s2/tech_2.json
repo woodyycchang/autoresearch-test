@@ -1,0 +1,76 @@
+{
+  "team": "TECH-2",
+  "subfields": [
+    "diffusion/flow-for-science(molecule/material/protein)",
+    "neurosymbolic/symbolic-regression/program-synthesis"
+  ],
+  "techniques": [
+    {
+      "name": "MolCrystalFlow",
+      "arxiv_id": "2602.16020",
+      "arxiv_date": "2026-02",
+      "subfield": "A: flow matching for molecular crystal structure prediction",
+      "capability_enabled": "Predicts molecular crystal structures by embedding molecules as rigid bodies and jointly learning the lattice matrix, molecular orientations and centroid positions on their native Riemannian manifolds via geodesic flow matching.",
+      "has_usable_code": true,
+      "code_evidence": "GitHub repository visible in search results: github.com/Liu-Group-UF/MolCrystalFlow ('Molecular Crystal Structure Prediction with Flow Matching').",
+      "verbatim_quote": "The framework disentangles intramolecular complexity from intermolecular packing by embedding molecules as rigid bodies and jointly learning the lattice matrix, molecular orientations, and centroid positions.",
+      "source": "https://arxiv.org/abs/2602.16020"
+    },
+    {
+      "name": "EnFlow (Energy-Guided Flow Matching)",
+      "arxiv_id": "2512.22597",
+      "arxiv_date": "2025-12",
+      "subfield": "A: flow matching for molecular conformer generation / ground-state identification",
+      "capability_enabled": "Couples flow matching with an explicitly learned energy model via energy-guided sampling to produce high-fidelity molecular conformers and identify ground states in just 1-2 ODE steps.",
+      "has_usable_code": true,
+      "code_evidence": "Official code repository stated in search result: https://github.com/Rich-XGK/EnFlow.git",
+      "verbatim_quote": "By incorporating energy-gradient guidance during sampling, this method steers trajectories toward lower-energy regions, substantially improving conformational fidelity, particularly in the few-step regime.",
+      "source": "https://arxiv.org/abs/2512.22597"
+    },
+    {
+      "name": "SymTorch",
+      "arxiv_id": "2602.21307",
+      "arxiv_date": "2026-02",
+      "subfield": "B: symbolic regression / symbolic distillation of neural networks",
+      "capability_enabled": "Wraps neural-network components (GNNs, PINNs, transformers), collects their input-output behavior, and replaces them with human-readable closed-form equations via PySR, enabling interpretability of trained models.",
+      "has_usable_code": true,
+      "code_evidence": "GitHub repo github.com/astroautomata/SymTorch plus ReadTheDocs documentation (symtorch.readthedocs.io) visible in search results.",
+      "verbatim_quote": "SymTorch automates distillation by wrapping neural network components, collecting their input-output behavior, and approximating them with human-readable equations via PySR, while handling engineering challenges including GPU-CPU data transfer, input-output caching, model serialization, and seamless switching between neural and symbolic forward passes.",
+      "source": "https://arxiv.org/abs/2602.21307"
+    },
+    {
+      "name": "OrgFlow",
+      "arxiv_id": "2602.20195",
+      "arxiv_date": "2026-02",
+      "subfield": "A: flow matching for organic crystal structure generation from molecular graphs",
+      "capability_enabled": "Generates organic crystal structures directly from the asymmetric-unit molecular graph, integrating molecular connectivity with periodic boundary conditions and using a bond-aware Student-t regularizer for realistic covalent geometry.",
+      "has_usable_code": false,
+      "code_evidence": "No code/weights link found. Search results reference a flow-matching paper tracker only; a targeted code search returned an unrelated Salesforce 'OrgFlow' DevOps tool, not the crystal model. No explicit release statement seen.",
+      "verbatim_quote": "OrgFlow is the first flow-matching framework that (i) conditions explicitly on the asymmetric-unit molecular graph, (ii) trains on a large organic-only corpus with molecule-disjoint splits, and (iii) introduces a bond-aware Student-t regularizer tailored to organic covalent geometry.",
+      "source": "https://arxiv.org/abs/2602.20195"
+    },
+    {
+      "name": "SGN (Symbolic Graph Networks for PDE Discovery)",
+      "arxiv_id": "2603.22380",
+      "arxiv_date": "2026-03",
+      "subfield": "B: equation discovery / symbolic regression for PDEs from noisy sparse data",
+      "capability_enabled": "Discovers governing PDEs from noisy, sparse data by using graph message passing for a non-local representation (robust to high-frequency noise) and a symbolic regression module to extract interpretable equations.",
+      "has_usable_code": false,
+      "code_evidence": "One early WebSearch result block claimed code at github.com/CXY0112/SGN, but a follow-up targeted search could NOT confirm that repository exists. Treating as unverified; marking false to stay honest.",
+      "verbatim_quote": "Instead of relying on local differential approximations, SGN leverages graph message passing to model spatial interactions, providing a non-local representation that is less sensitive to high-frequency noise.",
+      "source": "https://arxiv.org/abs/2603.22380"
+    },
+    {
+      "name": "PuckerFlow",
+      "arxiv_id": "2601.12859",
+      "arxiv_date": "2026-01",
+      "subfield": "A: flow matching for cyclic/ring conformer generation",
+      "capability_enabled": "Generates conformers of cyclic (ring) structures by performing flow matching in low-dimensional Cremer-Pople ring-puckering coordinates, outperforming prior conformer generators on most metrics for drug-discovery and catalysis ring systems.",
+      "has_usable_code": false,
+      "code_evidence": "No official code repository found despite targeted searches; only an external flow-matching paper tracker references the arXiv ID. No release statement seen.",
+      "verbatim_quote": "PuckerFlow is a generative machine learning model that performs flow matching on the Cremer-Pople space, a low-dimensional internal coordinate system capturing the relevant degrees of freedom of rings.",
+      "source": "https://arxiv.org/abs/2601.12859"
+    }
+  ],
+  "notes": "Both subfields FERTILE for the Dec2025-Jun2026 window; neither barren. Subfield A (diffusion/flow for science) is especially hot for crystal structure prediction: many fresh flow-matching CSP papers seen (MolCrystalFlow 2602.16020, OrgFlow 2602.20195, PackFlow 2602.20140, DMFlow 2602.04734, AtomMOF 2602.07351, MolCrystalFlow vs MOFFlow). Recorded MolCrystalFlow + EnFlow with CONFIRMED github code (Liu-Group-UF/MolCrystalFlow; Rich-XGK/EnFlow). Subfield B yielded SymTorch (2602.21307) with confirmed code (astroautomata/SymTorch + ReadTheDocs) — strongest B hit. HONESTY/VAPORWARE NOTES: (1) Many fresh A papers (OrgFlow, PackFlow 2602.20140, DMFlow 2602.04734, PuckerFlow 2601.12859, SaDiT 2602.06706) had NO confirmable public code in search blocks despite targeted queries, so marked has_usable_code=false or excluded. PackFlow's apparent github (dow-cdao/packflow) is an UNRELATED tool, not the CSP model — excluded to avoid false attribution. (2) SGN (2603.22380): an early result block claimed github.com/CXY0112/SGN but a follow-up could not confirm it; marked false. (3) WebFetch to arxiv.org/arxiv.org/html returned 403 for all pages, so every verbatim_quote is taken directly from WebSearch result-block text (not fabricated). FRESHNESS: all six are within window (2601, 2602, 2603, 2512). REJECTED as too old: MDM 2209.05710, DiffMS 2502.09571, FlexiFlow 2511.17249, Torsion-Space Diffusion 2511.19184, refiner 2510.04878 (all <2512). None of the 26 banned IDs were re-added. Other fresh-but-not-recorded candidates seen (no/unclear code or weaker fit): SaDiT 2602.06706 (protein backbone, no code seen), AtomMOF 2602.07351, DMFlow 2602.04734, CAGenMol 2604.11483 (de novo, code unverified), Weak-PDE-Net 2603.22951 (B, code unverified), In-Context Symbolic Regression for KAN 2603.15250 (B; replication pkg Francesco-Sovrano/In-Context-Symbolic-Regression-KAN mentioned but lower priority)."
+}

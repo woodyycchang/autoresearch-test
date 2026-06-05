@@ -1,0 +1,40 @@
+{
+  "_schema": "Run 29 session 4 - independent MAIN-AGENT crosscheck (R7) + R16 verdict (is the NARROW ceiling craft-specific or universal?). Strict params-v3 gate baked into verifiers; 0 verifier-OPEN (no optimism to correct).",
+  "_date": "2026-06-04",
+  "_session": 4,
+  "headline": "PIVOT to modern non-craft domains FAILED to escape the ceiling. 0 GAP_OPEN / 8 NARROW / 4 CLOSED. R16 ANSWERED: the NARROW ceiling is STRUCTURAL to the BFS-first-mover method, NOT craft-specific. Modern domains collide HARDER (4 CLOSED vs 0-1 in craft sessions) because they have research funding + commercial vendors.",
+  "final_verdict_distribution": {"GAP_OPEN": 0, "GAP_NARROW": 8, "GAP_CLOSED": 4},
+
+  "R16_test_result": {
+    "question": "Do modern non-craft domains yield GAP_OPEN where crafts could not, or is the usable=>has-sibling NARROW ceiling universal?",
+    "answer": "UNIVERSAL. The ceiling is a property of the SEARCH METHOD, not the life-axis region. Modern domains also hit NARROW, plus 4 reached CLOSED.",
+    "why_modern_collides_harder": "Crafts had a large none-penetration bucket (13-14 concepts) and collided to NARROW via the technique-family sibling. Modern domains have ZERO none-penetration (every niche already has some AI) and collided via BOTH (a) the application already partly built (often a deployed commercial vendor or a published model => CLOSED) AND (b) the technique-family sibling. Modern domains have research $ + vendors, so prior art is denser.",
+    "structural_dilemma_confirmed": "The 4-session arc confirms a structural dilemma that caps GAP_OPEN near zero regardless of axis: (1) a USABLE fresh technique is BY DEFINITION already demonstrated on >=1 domain => it has a sibling foothold => any new application is capability-gap NARROW, never method-OPEN; (2) a technique with NO sibling (a genuinely first-of-its-kind application) is, in this 1-6mo window, VAPORWARE (no released code) => fails R13 usability. usable=>has-sibling and no-sibling=>vaporware are mutually exclusive, so GAP_OPEN (usable AND no-sibling) is structurally near-empty. The life-axis cannot rescue it: low-AI regions (crafts) collide via technique-sibling; high-AI regions (modern) collide via application-already-done. 4 sessions, 46 candidates, 0 GAP_OPEN."
+  },
+
+  "main_agent_independent_crosschecks": [
+    {"claim": "C1 sequencing-QC OPEN-shot is actually penetrated (kills the lone borderline-OPEN)", "result": "CONFIRMED penetrated -> NARROW", "evidence": "seqQscorer (Genome Biology 2021, github.com/salbrec/seqQscorer) 'uses machine learning to automatically predict whether NGS data passes or fails quality control standards', explicitly an alternative to 'manual quality control of NGS data files, which currently requires high-level expertise'. NGS-QC pass/fail ML is published + open-source."},
+    {"claim": "C11 EMD acuity is CLOSED (deployed product reduces over/under-triage)", "result": "CONFIRMED CLOSED", "evidence": "Corti 'already up and running in Copenhagen' on 112; EENA extending it; 'Triage ... helps to reduce over and under triaging and standardize dispatch decisions' - the exact gap, deployed."},
+    {"claim": "C9 reconciliation-break root-cause is CLOSED (deployed vendor ML)", "result": "CONFIRMED CLOSED", "evidence": "SmartStream TLM Reconciliation Premium + Affinity ML; Duco ML match-prediction; plus a paper 'Machine Learning for Predicting Reconciliation Exceptions and Root Causes'. Root-cause adjudication is commercially deployed."}
+  ],
+
+  "closest_to_open_modern": {
+    "candidate": "C12 ShapPFN x IPO bookbuilding allocation discretion",
+    "note": "After 6 reformulations VERIFY-5 found NO ML/algorithmic model for the IPO ALLOCATION decision (all IPO ML targets pricing/underpricing). So the APPLICATION axis is genuinely empty - analogous to s3's hedgelaying/solera (application-level white space). But it is graded NARROW because (a) tabular FMs are already used elsewhere in finance underwriting (technique-sibling) and (b) allocation is DELIBERATELY human/relational/regulated - it stays manual by choice, not for lack of tooling, making it a poor build target."
+  },
+
+  "all_12_final": [
+    {"candidate": "C1", "pair": "Internalized-Reasoning x sequencing-run QC judgment", "verdict": "GAP_NARROW", "adjacency": "seqQscorer NGS-QC ML + commercial 'AI assistance for MultiQC' + VLM-as-judge sibling"},
+    {"candidate": "C2", "pair": "HOLOGRAPH x foodborne outbreak hypothesis", "verdict": "GAP_NARROW", "adjacency": "public RF 'Vehicle Prediction Tool' + Bayesian source ID + LLM outbreak info-extraction"},
+    {"candidate": "C3", "pair": "A-RAG x clinical handoff salience", "verdict": "GAP_CLOSED", "adjacency": "RoBERTa handoff-saliency model PMC11615705 + MED-OMIT + DAX Copilot deployed in Epic"},
+    {"candidate": "C4", "pair": "ShapPFN x youth talent projection", "verdict": "GAP_NARROW", "adjacency": "deployed draft models (NFL Next Gen) + relative-age correction; TabPFN in sports + SHAP in scouting"},
+    {"candidate": "C5", "pair": "Dreamer-CDP x SAR mission tasking", "verdict": "GAP_CLOSED", "adjacency": "RL-with-Lost-Person-Model arXiv 2405.12800 + SAROPS probability-driven re-tasking + DreamerNav"},
+    {"candidate": "C6", "pair": "Molmo2 x warehouse damaged-goods adjudication", "verdict": "GAP_NARROW", "adjacency": "Arvist AI / xis.ai damage-detection deployed; grounding-for-defects task sibling"},
+    {"candidate": "C7", "pair": "CANDI x wastewater signal interpretation", "verdict": "GAP_NARROW", "adjacency": "Covid-SURGE + NWSS normalization + cross-sewershed transfer learning + wastewater anomaly DA paper"},
+    {"candidate": "C8", "pair": "LegalGraphRAG x corporate-action elective decisioning", "verdict": "GAP_NARROW", "adjacency": "SmartStream/Xceptor/Broadridge AI recon + agentic graph-RAG on contracts + TruthfulRAG conflict resolution"},
+    {"candidate": "C9", "pair": "PMAx x reconciliation-break root-cause", "verdict": "GAP_CLOSED", "adjacency": "SmartStream TLM AI + Gresham auto-root-cause + Duco ML + agentic exception agents + academic ML"},
+    {"candidate": "C10", "pair": "kooplearn x accelerator beam tuning", "verdict": "GAP_NARROW", "adjacency": "RL+Bayesian-opt tuning at DESY/CERN/SLAC (Nature 2024) + Xopt/Badger deployed; Koopman-control sibling (no Koopman-for-accelerator yet)"},
+    {"candidate": "C11", "pair": "LCMs x EMD acuity / over-triage", "verdict": "GAP_CLOSED", "adjacency": "Corti live on Copenhagen 112 (RCT) + Singapore RF cutting over-triage 15% + 2025 multimodal severity model"},
+    {"candidate": "C12", "pair": "ShapPFN x IPO bookbuilding allocation discretion", "verdict": "GAP_NARROW", "adjacency": "application empty (no IPO-allocation ML) BUT tabular-FM-in-finance sibling + deliberately-human/relational/regulated blocker"}
+  ]
+}

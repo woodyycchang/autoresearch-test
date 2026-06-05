@@ -1,0 +1,115 @@
+{
+  "changes": [
+    {
+      "param": "variant_rule_mode",
+      "from": "scalar",
+      "to": "two_factor",
+      "motivating_measurement": "results/run32_metrics.json :: niche_v4.deterministic_false_pass == ['M059']",
+      "rationale": "v4 scalar gate deterministically false-passes a mechanism-reuse variant (M059) whose combined similarity is below 0.70; requiring BOTH mechanism reuse AND problem echo catches it without lowering the threshold."
+    },
+    {
+      "param": "borderline_rule",
+      "from": "neighbor_set_first",
+      "to": "conservative_reject",
+      "motivating_measurement": "results/determinism.json :: v4.unstable_constructs == ['M0B1','M0B2']",
+      "rationale": "v4 resolves borderline verdicts via PYTHONHASHSEED-dependent set iteration; M0B1/M0B2 flip across seeds. A deterministic conservative reject removes the flip and never false-passes a borderline variant."
+    },
+    {
+      "param": "merge_require_interface",
+      "from": false,
+      "to": true,
+      "motivating_measurement": "results/run32_metrics.json :: merge_v4_raw (genuine_merge_rate=0.0579, incoherent_no_interface=5902) vs merge_v5_interface (genuine_merge_rate=0.8756)",
+      "rationale": "metric 1 shows the merge engine's dominant failure is missing transfer interface (~93% incoherent); emitting only pairs that share a mechanism token raises genuine-merge yield 0.0579 -> 0.8756."
+    },
+    {
+      "param": "merge_steer_strength",
+      "from": 0.0,
+      "to": 0.0,
+      "held": true,
+      "motivating_measurement": "results/run32_metrics.json :: merge_distance_steer_candidate (genuine_merge_rate=0.0461) vs merge_v4_raw (0.0579)",
+      "rationale": "distance steering was measured and REJECTED: it LOWERS yield (0.0461 < 0.0579) because incoherent pairs are mostly high-distance. The bottleneck is coherence, not distance (R14: change rejected by data)."
+    },
+    {
+      "param": "variant_similarity_threshold",
+      "from": 0.7,
+      "to": 0.7,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "merge_distance_min",
+      "from": 0.55,
+      "to": 0.55,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "confidence_margin",
+      "from": 0.05,
+      "to": 0.05,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "saturation_band",
+      "from": 0.5,
+      "to": 0.5,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "saturation_max_neighbors",
+      "from": 3,
+      "to": 3,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "mech_match_min",
+      "from": 0.6,
+      "to": 0.6,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    },
+    {
+      "param": "problem_echo_min",
+      "from": 0.3,
+      "to": 0.3,
+      "held": true,
+      "rationale": "no Run-32 measurement motivated a change (held => converging)."
+    }
+  ],
+  "v4_params": {
+    "merge_distance_min": 0.55,
+    "trivial_problem_overlap_max": 0.6,
+    "variant_similarity_threshold": 0.7,
+    "variant_w_mech": 0.5,
+    "variant_w_problem": 0.5,
+    "saturation_band": 0.5,
+    "saturation_max_neighbors": 3,
+    "confidence_margin": 0.05,
+    "variant_rule_mode": "scalar",
+    "borderline_rule": "neighbor_set_first",
+    "mech_match_min": 0.6,
+    "problem_echo_min": 0.3,
+    "merge_distance_target": 0.7,
+    "merge_steer_strength": 0.0
+  },
+  "v5_params": {
+    "merge_distance_min": 0.55,
+    "trivial_problem_overlap_max": 0.6,
+    "variant_similarity_threshold": 0.7,
+    "variant_w_mech": 0.5,
+    "variant_w_problem": 0.5,
+    "saturation_band": 0.5,
+    "saturation_max_neighbors": 3,
+    "confidence_margin": 0.05,
+    "variant_rule_mode": "two_factor",
+    "borderline_rule": "conservative_reject",
+    "mech_match_min": 0.6,
+    "problem_echo_min": 0.3,
+    "merge_distance_target": 0.7,
+    "merge_steer_strength": 0.0,
+    "merge_require_interface": true
+  }
+}

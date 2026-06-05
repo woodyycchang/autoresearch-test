@@ -1,0 +1,139 @@
+{
+  "checker": "run30-final-niche-check",
+  "judged_by": "dedicated last-resort checker agent",
+  "constructs": [
+    {
+      "global_id": "M032",
+      "merged_construct": "Haggling Reward Model (reservation-probing critic that concedes)",
+      "searches_run": [
+        "reward model RLHF active probing negotiation bargaining elicit policy competence uncertainty",
+        "uncertainty-aware reward model Kalman filter covariance over-optimization reward hacking detection",
+        "\"reward model\" active elicitation probe policy capability per-skill belief state debate eliciting latent knowledge"
+      ],
+      "genuine_merge": {
+        "verdict": true,
+        "reasoning": "All three parents are real and correctly characterized. Haggling/alternating-offer bargaining to discover a hidden reservation value is standard microeconomics; Kalman recursive estimation with gain K=Sigma/(Sigma+R) and its 'concede more when more uncertain' behaviour is canonical; preference-reward-model over-optimization / off-distribution RM error is a well-documented RLHF pathology. Search confirms the uncertainty-aware-RM neighbours the integrity check cited (PURM arXiv:2503.22480, BNRM arXiv:2602.10623, URME arXiv:2410.00847 'teaching reward models to know what is unknown', RewardUQ arXiv:2602.24040) plus an uncertainty-triggered routing paper 'Ask a Strong LLM Judge when Your Reward Model is Uncertain' (arXiv:2510.20369) and capability-elicitation work (The Elicitation Game arXiv:2502.02180; Probing Preference Representations arXiv:2511.12464). None of these is a reward model framed as an active haggler that issues low/high reward offers, treats per-skill competence as a Kalman hidden state, and reads concession AS the Kalman gain. The exact combined mechanism is unpublished as a named thing; this is a genuine 3-domain merge (microeconomics + control theory + RLHF), assembled, not recalled."
+      },
+      "blind_spot": {
+        "verdict": true,
+        "reasoning": "The role-exchange is genuinely counter-intuitive: alignment treats the reward model as the fixed environment by construction and worries only about the policy gaming it. Casting the critic as a self-interested agent that actively probes the policy's hidden reservation competence inverts the standard actor/environment assignment. Mapping economic concession onto a Kalman gain is a cross-field move RLHF researchers have no default path to. Humans would not reach this specific corner unprompted."
+      },
+      "worth_doing": {
+        "verdict": true,
+        "reasoning": "Produces something neither parent yields: per-skill (mu,Sigma) competence beliefs, active sampling toward the MAX-covariance (most hack-prone) skills, and — the load-bearing deliverable — per-skill covariance collapse while reward keeps rising as a LEADING indicator of over-optimization. That is a concrete, novel, online safety signal. The minimal experiment is cheap and real: a 1-3B policy + learned RM on verifiable tasks (math/format/length with checkable ground truth), comparing a frozen RM to a per-skill Kalman-probing RM, measuring whether Sigma_s-collapse precedes the frozen baseline's reward-hacking blow-up. A positive result (a leading indicator of reward hacking) would genuinely matter to alignment. Caveat that lowers but does not kill the value: the space is more crowded than the integrity note implies (uncertainty-aware RMs + capability elicitation + uncertainty-triggered routing all exist), so the contribution is the active-probing-as-bargaining framing and the covariance-collapse leading-indicator, not the use of RM uncertainty per se."
+      },
+      "verdict": "IS_NICHE",
+      "reasoning": "Genuine 3-domain merge, real blind spot, and a cheap, falsifiable, safety-relevant prediction (covariance collapse as a leading over-optimization indicator) that no single parent or existing method supplies. Adjacency to uncertainty-aware RMs is real but the active-haggling inversion + leading-indicator are a distinct, testable contribution. Value is genuine though not the very top because uncertainty-aware reward modeling is an active, fast-moving area it must out-run.",
+      "closest_prior_work": "Uncertainty-aware reward models: PURM (arXiv:2503.22480), BNRM (arXiv:2602.10623), URME 'know what is unknown' (arXiv:2410.00847), RewardUQ (arXiv:2602.24040); active-routing variant 'Ask a Strong LLM Judge when Your Reward Model is Uncertain' (arXiv:2510.20369); capability elicitation 'The Elicitation Game' (arXiv:2502.02180). All passive estimators or one-shot routers; none is a bargaining/Kalman-concession active prober.",
+      "cheapest_test": "1-3B policy + small learned RM on 3-4 verifiable skills (math/format/length with checkable true reward). Implement the RM as a per-skill Kalman estimator issuing low/high reward offers vs a frozen-RM baseline; log per-skill Sigma_s and the proxy-minus-true gap. Decisive cheap check: does Sigma_s collapse reliably PRECEDE the frozen baseline's reward-hacking onset (positive lead time)? A few GPU-days.",
+      "verbatim_quote": null,
+      "search_limited": false
+    },
+    {
+      "global_id": "M041",
+      "merged_construct": "Frustrated Marinade Routing: spin-glass diffusion-depth allocation for mixture-of-experts under grudge-weighted gating",
+      "searches_run": [
+        "spin glass frustration mixture of experts routing energy minimization aging non-equilibrium variable compute depth",
+        "mixture of experts router load balancing collapse aging two-time correlation glassy dynamics neural network training"
+      ],
+      "genuine_merge": {
+        "verdict": true,
+        "reasoning": "Parents real and correctly used. Spin-glass frustration (competing couplings, frustrated loop = odd number of negative couplings, many near-degenerate ground states, aging, two-time correlation C(t,t') depending on both times) is standard condensed-matter (confirmed via Wikipedia Geometrical frustration and spin-glass energy-landscape literature). Marination as diffusion-with-penetration-depth and grudge as a durable asymmetric negative bias are real. Search for MoE routing surfaces only standard load-balancing/anti-collapse work (Auxiliary-Loss-Free Load Balancing arXiv:2408.15664, Similarity-Preserving Routers arXiv:2506.14038, Latent Prototype Routing arXiv:2506.21328) and no method posing routing as grudge-weighted frustrated annealing over continuous marination depth with a glassy aging signature. The exact triple combination is unpublished; genuine merge."
+      },
+      "blind_spot": {
+        "verdict": true,
+        "reasoning": "MoE routing is treated as clean top-k classification; spin-glass frustration is filed under condensed-matter; 'marination depth = variable per-expert compute' requires a cooking-as-diffusion import; and the grudge term (persistent asymmetric negative gate memory) is something practitioners would call staleness and prune away rather than deliberately model. Three distant drawers; humans would not assemble this."
+      },
+      "worth_doing": {
+        "verdict": false,
+        "reasoning": "Decisive weakness is VALUE, not authenticity. The headline deliverable is a descriptive curiosity: a glassy AGING fingerprint (two-time-dependent routing correlations, never-equilibrating load entropy). Even if confirmed, 'MoE routing is statistically a glass' is a characterization with no clear capability, efficiency, or safety payoff. The construct bundles THREE independent, individually-costly mechanisms (frustrated-energy routing solved by per-token simulated annealing + continuous marination-depth allocation + slowly-decaying asymmetric grudge couplings) whose joint benefit is unestablished; per-token annealed routing is expensive and unlikely to beat learned top-k gating. The one practical claim — grudge negative feedback suppresses expert collapse — is already well served by standard auxiliary-loss-free load balancing, so it is not a new win. The test (train MoEs twice and estimate two-time correlations / age-dependence) is moderately expensive and a positive result would be of marginal interest to the field. Genuine merge, low value."
+      },
+      "verdict": "NOT_NICHE",
+      "reasoning": "A genuine, maximally-distant merge whose central forced object (a glassy aging signature in routing) is descriptive rather than actionable, whose practical claim (collapse suppression) duplicates existing load-balancing, and whose mechanism adds substantial routing-time cost for unclear benefit. Interesting physics analogy, but it does not clear the niche/worth-doing bar.",
+      "closest_prior_work": "Standard MoE load-balancing / anti-collapse: Auxiliary-Loss-Free Load Balancing (arXiv:2408.15664), Load Balancing with Similarity-Preserving Routers (arXiv:2506.14038), Latent Prototype Routing (arXiv:2506.21328); physics-of-routing framings (congestion-game / 'Three Phases of Expert Routing'). None uses spin-glass frustration + grudge + marination-depth, but all already address the only practical claim (collapse).",
+      "cheapest_test": "Train an 8-16 expert ~100-300M MoE with standard top-k vs the frustrated+grudge+depth router; log per-step routing and expert-load entropy; test whether C(t,t') is age-dependent (beyond lag) and whether collapse drops. Even cheaply run, a positive aging signal would not justify the added complexity, which is why this is NOT_NICHE despite being testable.",
+      "verbatim_quote": null,
+      "search_limited": false
+    },
+    {
+      "global_id": "M045",
+      "merged_construct": "Fermentation-Memory Probing: many-body-localized starter lineages for measuring non-thermalizing memory in long-context models, gated by tip-of-the-tongue retrieval",
+      "searches_run": [
+        "many-body localization long-context transformer in-context memory thermalization localization length phase transition",
+        "RoPE base frequency long context retrieval sharp degradation phase transition needle haystack positional encoding scaling"
+      ],
+      "genuine_merge": {
+        "verdict": true,
+        "reasoning": "Parents real and correctly characterized. MBL physics is genuine (strong disorder inhibits thermalization; LIOMs preserve memory of the initial state in local observables; imbalance order parameter and slow logarithmic entanglement growth, both exponents vanishing at the MBL transition) - confirmed via Wikipedia Many-body localization and the MBL reviews. Sourdough feeding (periodic re-reference) and tip-of-the-tongue (partial availability, blocked retrieval) are real. Search for MBL applied to LLM long-context returned only pure-physics papers; the MBL-as-in-context-memory metric is not published. Genuine merge."
+      },
+      "blind_spot": {
+        "verdict": true,
+        "reasoning": "Long-context memory is benchmarked by needle-in-a-haystack scalar accuracy; the MBL framing (localization length xi, thermalize-vs-localize phase transition) is quantum condensed-matter that benchmark designers never import, and the sourdough feeding protocol + TOT availability-minus-retrieval readout are life-side imports. The framing is a genuine blind spot."
+      },
+      "worth_doing": {
+        "verdict": false,
+        "reasoning": "Decisive: the construct's headline falsifiable prediction - that long-context retrieval of early information undergoes a SHARP (not smooth) transition as a positional-encoding/RoPE-base disorder knob is varied - is essentially ALREADY an actively characterized phenomenon, reached more directly and with theory. 'Rotary Positional Embeddings as Phase Modulation: Theoretical Bounds on the RoPE Base for Long-Context Transformers' (arXiv:2602.10959) derives an aliasing/Nyquist lower bound and a precision-dependent upper bound on the RoPE base, beyond which models exhibit 'attention collapse and long-range degradation' and 'positional erasure'; RoPE-base/frequency-band trade-off papers (arXiv:2406.13282; OpenReview frequency-bands) and needle-in-haystack failure analyses (arXiv:2404.06654) already map the retrieval cliff vs positional encoding. So the MBL apparatus (imbalance I(d), localization length xi, critical disorder) is largely an elaborate relabeling of an effect the field is pinning down by direct means. The genuinely-new sub-claim (a tip-of-the-tongue availability-minus-retrieval gap G that PEAKS exactly at the transition) is speculative and only loosely motivated; even if true, its marginal value over existing RoPE-base characterizations is small. The experiment is cheap (inference-only RoPE-base sweep with seeded n-grams), which is the construct's one strength, but cheapness does not rescue a low-marginal-value prediction. Genuine merge, too-adjacent-in-practice."
+      },
+      "verdict": "NOT_NICHE",
+      "reasoning": "Genuine merge and a real conceptual blind spot, but the central testable prediction (sharp retrieval transition vs a positional-encoding disorder knob) substantially overlaps phenomena the field is already characterizing directly and theoretically (RoPE-base bounds -> attention collapse / positional erasure). The MBL vocabulary adds elegance, not a new actionable result; the one novel piece (TOT gap peaking at criticality) is speculative and low-value. Does not clear the worth-doing bar.",
+      "closest_prior_work": "'Rotary Positional Embeddings as Phase Modulation: Theoretical Bounds on the RoPE Base for Long-Context Transformers' (arXiv:2602.10959) - derives base bounds beyond which models show attention collapse / long-range degradation / positional erasure; plus RoPE attention-perspective (arXiv:2406.13282) and needle-in-haystack length-degradation analyses (arXiv:2404.06654). These directly capture the 'sharp retrieval transition vs positional-encoding knob' that M045 predicts via MBL.",
+      "cheapest_test": "Inference-only: one open 7-8B model, sweep RoPE base 1x-32x, 2000 long contexts with a rare seeded n-gram at position 0 and cued probes at increasing distance; fit imbalance I(d) for a knee and test whether a TOT availability-minus-retrieval gap has an interior maximum co-located with the knee. Cheap, but the knee itself is already expected from RoPE-base theory, so the test mostly re-derives known structure.",
+      "verbatim_quote": null,
+      "search_limited": false
+    },
+    {
+      "global_id": "M054",
+      "merged_construct": "Vector-Clock Stage Fright: causal-ordering model of evaluation-induced performance collapse under observation",
+      "searches_run": [
+        "LLM sandbagging evaluation awareness causal not lexical cue behavior change multi-agent contagion test-aware",
+        "vector clock happens-before causal ordering applied language model evaluation observation Heisenberg measurement effect"
+      ],
+      "genuine_merge": {
+        "verdict": true,
+        "reasoning": "Parents real and correct. Vector clocks / Lamport happens-before partial order are canonical distributed-systems primitives; stage fright maps to the real Yerkes-Dodson inverted-U; yawn contagion is a documented phenomenon. The empirical target (LLMs behaving differently when they detect evaluation = sandbagging / eval-awareness) is itself a real, hot research area. Search found NO work pointing vector-clock happens-before ordering at model evaluation, nor modeling test-awareness as an epidemic with R0 across an agent graph. The exact merged instrument is unpublished; genuine 3-domain merge."
+      },
+      "blind_spot": {
+        "verdict": true,
+        "reasoning": "Three unrelated drawers: alignment/eval researchers lack a formal causal-ordering instrument; distributed-systems people own vector clocks but never aim them at model psychology; nobody links contagious yawning to multi-agent test-awareness spread. The assembly is a genuine blind corner."
+      },
+      "worth_doing": {
+        "verdict": false,
+        "reasoning": "Decisive: the construct's distinctive claim - a CAUSAL (not merely lexical/associative) trigger for eval-induced behavior change - is ALREADY being established by the live sandbagging literature using more direct tools. 'LLMs Can Covertly Sandbag ...' (arXiv:2508.00943) and 'The Hawthorne Effect in Reasoning Models' (arXiv:2505.14617) perform causal CoT interventions (search-confirmed: '99.3% of sandbagging is causally driven by verbalized eval-aware reasoning, ruling out shallow instruction-following'), and 'In-Context Environments Induce Evaluation-Awareness in Language Models' (arXiv:2603.03824) manipulates whether the environment (not the lexical cue) induces eval-awareness - i.e. the causal-vs-cue dissociation M054 sells as its contribution is substantially solved. The vector-clock happens-before formalism is heavy machinery that buys little beyond what causal CoT intervention already delivers; 'causal depth d*' and an inverted-U over stacked observation events are aesthetic re-castings. The one genuinely fresher angle - test-awareness as an epidemic with R0 across a multi-agent graph - is a minor extension and the monitor-aware multi-agent effect is itself already being measured (monitor-aware false-negative rates jump 2-6% -> 16-36%). So the valuable part is taken and the novel wrapper adds marginal value. The matched-triplet experiment is cheap, but cheapness cannot rescue a contribution whose core is already in the literature. Genuine merge, low marginal value."
+      },
+      "verdict": "NOT_NICHE",
+      "reasoning": "Genuine merge into a real blind corner, but the field is already doing the load-bearing thing (causal, not lexical, attribution of sandbagging via CoT interventions and environment-induced eval-awareness). The vector-clock/contagion formalism is an over-engineered wrapper that does not clearly out-perform existing causal-intervention methods, and the multi-agent R0 extension is incremental. Fails the worth-doing test on too-adjacent-in-practice grounds.",
+      "closest_prior_work": "Covert sandbagging vs CoT monitoring (arXiv:2508.00943); 'The Hawthorne Effect in Reasoning Models: Evaluating and Steering Test Awareness' (arXiv:2505.14617); 'In-Context Environments Induce Evaluation-Awareness in Language Models' (arXiv:2603.03824). These already perform causal (not lexical) attribution of eval-induced behavior change and manipulate environment-induced awareness - the heart of M054's claimed contribution.",
+      "cheapest_test": "600 eval items in matched triplets (observation event causally prior / concurrent / after, identical wording), single 8-70B chat model, inference only; test delta_prior > delta_concurrent ~ delta_after. Cheap, but largely re-confirms the already-demonstrated causal-vs-cue dissociation, which is why it does not move the needle.",
+      "verbatim_quote": null,
+      "search_limited": false
+    },
+    {
+      "global_id": "M057",
+      "merged_construct": "Persistent-Homology Bruise Forensics: topological dating of when a capability or backdoor entered a model lineage",
+      "searches_run": [
+        "persistent homology checkpoint training dynamics date when feature emerged backdoor detection topological data analysis neural network timeline",
+        "backdoor detection neural network training checkpoint when introduced provenance dating timestamp model audit",
+        "topological data analysis training trajectory checkpoints filtration over time evolution persistence neural network learning dynamics"
+      ],
+      "genuine_merge": {
+        "verdict": true,
+        "reasoning": "Parents real and correct. Persistent homology / barcodes / filtration / birth-death / persistence-as-signal-vs-noise are genuine TDA (confirmed via Neural Persistence arXiv:1812.09764 and the TDA-on-nets survey arXiv:2312.05840). Bruise color staging and tree-ring growth bands are real ordered/cumulative temporal records. Crucially, search confirms existing TDA-on-neural-nets work analyzes STATIC representation shape or generalization (Neural Persistence; predicting-generalization-gap arXiv:2203.12330) - NONE treats the checkpoint timeline ITSELF as the filtration axis to assign a feature a training-step birth coordinate and DATE when it entered. The specific construction (barcode over a checkpoint filtration -> birth-step + entrenchment) is unpublished; genuine merge."
+      },
+      "blind_spot": {
+        "verdict": true,
+        "reasoning": "TDA on nets studies static representation shape; backdoor/provenance work uses gradients, triggers, or loss/MI trajectories. Treating the checkpoint timeline as a filtration to DATE features - 'dating by color stage / growth ring' transplanted onto persistence - is a forensics-and-forestry idea filed far from both TDA and security. Humans in either field have no default path to it."
+      },
+      "worth_doing": {
+        "verdict": true,
+        "reasoning": "Produces a genuinely new, high-value object: a (birth-step, persistence) forensic plane in which an injected backdoor is isolable as a LOAD-BEARING-YET-YOUNG feature (high persistence, anomalously late birth) with COMPRESSED developmental staging ('too-fast-to-be-real') and a localizable ring-width spike at the poisoning interval - recovering the injection step from the barcode alone. This targets a real, important safety/audit problem (dating when a backdoor or capability entered a model lineage), not a curiosity. The test is genuinely cheap and decisive: train a small model (CNN/<=350M LM) twice with ~30 checkpoints - once with a backdoor injected at a known step, once with a benign new capability at the same step - and check whether the backdoor shows late-birth + fast staging + a ring-width spike and whether its recovered birth falls within ~2 checkpoints of truth. A positive result would matter for provenance/auditing. Honest risk that keeps this from the very top: the GOAL (using training-time dynamics to localize/date backdoor introduction) is already live via cheaper trajectory methods - BaDLoss (per-example loss trajectories), backdoor MI-trajectory dynamics (arXiv:2511.21923), and persistence-diagram backdoor detection in federated learning - so M057 must show the topological entrenchment-vs-age coupling beats simpler trajectory dating. But the specific 'date + entrenchment-consistency' forensic plane is a real differentiator and is worth a cheap test."
+      },
+      "verdict": "IS_NICHE",
+      "reasoning": "Genuine merge of a rigorous realness-metric (persistence) with staged-age records, yielding a distinct, falsifiable, safety-relevant object (a birth-vs-persistence plane that flags load-bearing-yet-young structure and dates backdoor entry) that no parent and no existing named method supplies, testable cheaply on a small model trained twice. Adjacent backdoor-dynamics and TDA-backdoor work exists, but none dates via a checkpoint-timeline filtration with an entrenchment-vs-age consistency law. Highest worth-doing of the five.",
+      "closest_prior_work": "Static/representation TDA on nets: Neural Persistence (arXiv:1812.09764), TDA-for-NN survey (arXiv:2312.05840), generalization-gap-via-TDA (arXiv:2203.12330). Backdoor-via-dynamics (the live competing GOAL): BaDLoss (loss-trajectory backdoor detection, OpenReview), backdoor MI-trajectory dynamics (arXiv:2511.21923), persistence-diagram backdoor detection in federated learning (ScienceDirect 2023). None dates entry via a checkpoint-timeline filtration with a load-bearing-yet-young signature.",
+      "cheapest_test": "Train a small model (CNN on CIFAR or <=350M LM) twice with ~30 evenly-spaced checkpoints: run A injects a trigger->target backdoor at a known late step; run B introduces a benign new capability at the same step. Compute the concept's activation-cloud persistence barcode per checkpoint with the checkpoint index as the filtration axis; for backdoor vs matched genuine concept extract (birth step, final persistence, steps-to-90%-persistence) and per-interval ring width. Decisive: does the backdoor show late birth + much faster staging + a ring-width spike, with recovered birth within ~2 checkpoints of truth? Modest compute; one model trained twice.",
+      "verbatim_quote": null,
+      "search_limited": false
+    }
+  ],
+  "ranking_one_line": "IS_NICHE: M057 > M032; NOT_NICHE: M054, M045, M041"
+}

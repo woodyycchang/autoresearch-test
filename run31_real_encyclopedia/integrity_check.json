@@ -1,0 +1,260 @@
+{
+  "_schema": "Run 31 Phase 3 integrity check (anti-cheating ONLY: hallucination + pretrained-regurgitation). Search is NEVER a novelty gate (R7).",
+  "checker": "separate integrity-checker agents with WebSearch",
+  "counts": {
+    "total": 18,
+    "PASS": 18,
+    "FLAG": 0
+  },
+  "verdicts": [
+    {
+      "id": "M005",
+      "merged_construct": "Le Chatelier RLHF: Equilibrium-Restoring KL Control under Reward Stress",
+      "searches_run": [
+        "Le Chatelier principle RLHF KL penalty PID controller derivative term reward over-optimization",
+        "adaptive KL controller PPO RLHF derivative term anticipatory braking over-optimization",
+        "\"Le Chatelier\" reinforcement learning RLHF named method equilibrium-restoring KL control"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "PPO's clipped surrogate limiting the update ratio and Le Chatelier's principle (a system at equilibrium shifts to partially counteract a disturbance, a negative feedback) are both characterized correctly. Adaptive-KL controllers and even a recent PID-on-KL RLHF paper (SAFE, Feb 2026) exist with derivative/anticipatory terms, but that is adjacency/overlap, not an exact pre-existing NAMED method matching the Le-Chatelier-framed derivative-on-KL-rate construct. The construct itself honestly scopes the PI part as known and isolates rate/derivative control as the new piece. PASS."
+    },
+    {
+      "id": "M011",
+      "merged_construct": "Somatic-Hypermutation Best-of-N: Affinity-Maturation Sampling with Clonal Selection",
+      "searches_run": [
+        "somatic hypermutation affinity maturation best-of-N sampling LLM clonal selection iterative refinement",
+        "evolutionary search LLM inference test-time scaling germinal center mutate top-k candidates targeted span re-decode named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Best-of-N (generate N, score with reward model/verifier, return best) is correct; somatic hypermutation (targeted, AID-driven hypermutation of Ig variable-region genes after clonal selection) and clonal selection (avidly-binding B cells preferentially proliferate) are correctly characterized. The closest published work, Mind Evolution, uses generic crossover/mutation genetic search over LLM candidates, not the specific targeted-high-saliency-span re-decode + clonal budget reallocation framing; that is adjacency, not exact regurgitation. PASS."
+    },
+    {
+      "id": "M012",
+      "merged_construct": "Baroreflex Learning-Rate Control with Isostatic Slow-Rebound",
+      "searches_run": [
+        "baroreflex Adam optimizer learning rate control gradient noise set-point post-glacial rebound two timescale",
+        "\"baroreflex\" OR \"homeostatic\" learning rate optimizer two-timescale set-point relaxation named method deep learning"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Adam (EMA first/second moments, bias correction) is correct; baroreflex (carotid-sinus/aortic-arch stretch receptors driving fast negative feedback on BP) and post-glacial rebound (crust isostatically depressed then slowly viscously rebounds) are correctly characterized and mapped to fast feedback vs slow set-point relaxation. Adjacent two-timescale LR methods exist (noradrenergic-gain, TASO, CG-ALR) but no exact named method combines baroreflex fast control with post-glacial-rebound slow set-point relaxation on Adam. PASS."
+    },
+    {
+      "id": "M016",
+      "merged_construct": "Frank-Starling Preload Gating for Mixture-of-Experts Capacity",
+      "searches_run": [
+        "Frank-Starling law of the heart length-tension preload mechanism cardiac output autoregulation",
+        "Frank-Starling preload gating mixture-of-experts capacity Switch Transformer Hadley cell named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Switch Transformer (top-1 routing, hard capacity factor) is correct; Frank-Starling (greater filling stretches myocytes along a saturating length-tension curve increasing force up to a plateau then decline) is correctly used, including the decompensation idea, and the Hadley cell is correctly used as conserved meridional circulation for overflow advection. No pre-existing named method replaces the Switch capacity factor with Frank-Starling autoregulation plus Hadley-style mass-conserving redistribution. PASS."
+    },
+    {
+      "id": "M017",
+      "merged_construct": "Complement-Cascade Opsonization for Speculative-Decoding Verification",
+      "searches_run": [
+        "complement system opsonization C3b cascade amplification immune mechanism speculative decoding graded acceptance",
+        "speculative decoding approximate acceptance early-exit confidence threshold layer-skip verification named method lossy"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Speculative decoding (draft generates K tokens, target verifies in one parallel pass via modified rejection sampling) is correct, and the construct explicitly and correctly notes that approximate acceptance breaks the exact-distribution guarantee (so it is honest, not hallucinating). Complement opsonization (C3b coats pathogens; C3 convertase amplifies) and seismology traveltime inversion are correctly characterized. Adjacent named methods exist (LayerSkip, ConfLayers, AdaDecode, HiSpec) but none is the exact opsonin-deposition graded-acceptance-with-cascade-gain plus traveltime depth-of-divergence construct; adjacency only. PASS."
+    },
+    {
+      "id": "M018",
+      "merged_construct": "Herd-Immunity Dropout with Seafloor-Spreading Capacity Accretion",
+      "searches_run": [
+        "herd immunity threshold reproduction number R0 dropout adaptive neural network seafloor spreading capacity growth",
+        "epidemic threshold branching process adaptive dropout co-adaptation cascade neural network named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Dropout (retain units with prob p, dropped units pass no activation/gradient) is correct; herd immunity threshold HIT = 1 - 1/R0 is correctly characterized and used (drop at least 1 - 1/max R0). Seafloor spreading (mantle upwells at ridge, new crust forms then ages/moves away) is correctly mapped to ridge-accreted units that rigidify with age. The construct openly frames the branching-process cascade-blocking guarantee as an unverified hypothesis rather than asserting it, so no misrepresentation; no exact named method exists. PASS."
+    },
+    {
+      "id": "M019",
+      "merged_construct": "Thermoregulatory Set-Point Temperature for Diffusion Sampling under Mantle-Plume Bursts",
+      "searches_run": [
+        "thermoregulation hypothalamus set-point feedback diffusion model sampling guidance scale PID controller temperature CADS",
+        "diffusion sampling closed-loop guidance PID denoiser disagreement plume re-noise residual named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "DDPM (forward Gaussian-noise Markov chain, reverse U-Net denoising) is correct; thermoregulation (hypothalamic thermostat with adjustable set-point per Hammel's model) and mantle plume (thermal diapir detaching from the boundary layer and rising buoyantly) are correctly characterized. The construct itself honestly flags overlap with CADS-style dynamic CFG and SDEdit-style partial diffusion as special cases (permitted adjacency); the combined measured-trajectory-temperature closed loop plus plume-targeted local re-noising is not a pre-existing named method. PASS."
+    },
+    {
+      "id": "M020",
+      "merged_construct": "Wound-Healing Phased LoRA Adaptation with Glacier Accumulation-Ablation Budgeting",
+      "searches_run": [
+        "wound healing phases hemostasis inflammation proliferation remodeling LoRA adaptation glacier mass balance rank budget",
+        "DART disentangled action reasoning tuning LoRA adapters gradient interference reasoning tool-use agentic RL"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "LoRA (freeze W0, add low-rank BA bypass, train A and B) is correct; wound healing (four overlapping phases: hemostasis, inflammation, proliferation, remodeling) and glacier mass balance (accumulation zone gains mass, ablation zone loses it, ice flows between them) are correctly characterized and mapped to a four-phase state machine plus a conserved rank budget that flows between layers. The construct openly notes strong overlap with AdaLoRA (permitted adjacency); the error-clearance-gated phase transitions plus strict rank-conservation constraint are not a pre-existing named method. PASS."
+    },
+    {
+      "id": "M021",
+      "merged_construct": "Gate-Control Pain Inhibition for Gradient Routing with River-Delta Distributary Sharding",
+      "searches_run": [
+        "DART disentangled action reasoning tuning LoRA adapters gradient interference reasoning tool-use agentic RL",
+        "gate control theory of pain Melzack Wall spinal cord large fiber inhibition gradient routing magnitude gating PCGrad"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "DART is a real paper (arXiv 2602.00994) and its parent description (route reasoning vs tool-use tokens to disjoint LoRA adapters over a frozen backbone to resolve gradient interference) matches the actual method. Gate control theory (Melzack-Wall 1965: large A-fibers close the dorsal-horn gate, small C-fibers open it) and river-delta distributary/avulsion dynamics are correctly characterized; PCGrad is correctly invoked as gradient surgery. The construct honestly notes hard/zero-gate limits recover DART/averaging and overlap with PCGrad (permitted adjacency); the soft magnitude-gated shared-stream selection plus saturation-triggered subspace re-routing is not a pre-existing named method. PASS."
+    },
+    {
+      "id": "M022",
+      "merged_construct": "Pharmacokinetic Compartment Decay for KV-Cache Eviction with Atmospheric-Circulation Token Transport",
+      "searches_run": [
+        "pharmacokinetic multi-compartment model KV cache eviction LLM attention",
+        "pharmacokinetics compartment model first-order rate constants half-life washout",
+        "atmospheric circulation meridional cells jet stream transport poleward heat",
+        "\"pharmacokinetic\" OR \"compartment decay\" KV cache LLM named method multi-tier precision demotion"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Searches confirm PK compartment kinetics (first-order rate constants, half-life washout, central/peripheral/deep tiers, therapeutic window) and meridional atmospheric circulation are characterized correctly and used coherently. No published named method couples PK-compartment kinetics with KV-cache eviction; results return only H2O/Ada-KV/mixed-precision KV work, which the construct itself names as the single-tier collapse case (adjacency, not flagged per R7)."
+    },
+    {
+      "id": "M023",
+      "merged_construct": "Second-Price Expert Routing (Vickrey-Gated MoE)",
+      "searches_run": [
+        "Vickrey auction second-price mixture of experts routing MoE gating",
+        "Vickrey auction mechanism second-highest bid incentive compatible truthful bidding",
+        "\"Mixture of Bidders\" MoB VCG auction expert routing dispatch weight second price gradient",
+        "second-price routing detach own-bid gradient stop-gradient MoE expert collapse reserve price seed penalty"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "A recent paper 'MoB: Mixture of Bidders' (arXiv 2512.10969) does apply VCG/Vickrey auctions to MoE, but it REPLACES the gating network with experts bidding true cost (execution + EWC forgetting cost), lowest-bidder-wins, targeting continual-learning catastrophic forgetting. M023 is a different mechanism: keeps token-choice top-K softmax, sets dispatch WEIGHT from the (K+1)-th bid, adds an own-bid stop-gradient, and swaps the aux load-balance loss for a reserve price + seed-decay penalty (aux-loss-free balancing / anti-collapse). Substantial overlap with the Vickrey-MoE area but not the same named method; parents correct, so PASS (variant-of-active-area judged in P5, not here)."
+    },
+    {
+      "id": "M026",
+      "merged_construct": "Handicap-Equalized Expert Capacity Control",
+      "searches_run": [
+        "golf handicap index course rating differential strokes fair competition",
+        "zugzwang chess forced to move worsens position must move",
+        "\"handicap\" OR \"zugzwang\" expert capacity routing no-drop forced reassignment MoE named method",
+        "MoE overflow token no token dropping forced best non-full expert mismatch feedback balancing"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Both parents verified correct. The handicap-bias half is, as the construct openly states, a re-derivation of DeepSeek-V3-style auxiliary-loss-free / bias-based load balancing (an integral controller on utilization) — explicit adjacency that R7 says PASSES. The distinctive no-drop 'zugzwang' handler (forced best-non-full reassignment + mismatch feedback) is not a pre-existing named method; searches return only expert-choice and standard token-drop/residual handling."
+    },
+    {
+      "id": "M035",
+      "merged_construct": "Etak Dead-Reckoning State Filter",
+      "searches_run": [
+        "Etak navigation system Micronesian wayfinding reference island moving stars",
+        "dead reckoning navigation heading speed elapsed time position fix drift error accumulation",
+        "Mamba state space model landmark token gated affine reset associative memory register state overwrite",
+        "\"Etak\" OR \"dead reckoning\" state space model Mamba navigation filter named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Navigation parents verified accurate and, crucially, the construct is self-honest that the drift analogy is weak/vestigial — no hallucinated misrepresentation. The implementable core (landmark-gated affine reset/register over the Mamba selective-scan state) is close in spirit to fast-weight/register tokens and Kalman measurement updates, which the construct discloses; searches find no exact named method combining Etak/dead-reckoning with Mamba. PASS."
+    },
+    {
+      "id": "M041",
+      "merged_construct": "Central-Place Expert Geography",
+      "searches_run": [
+        "central place theory Christaller threshold range hierarchy of settlements market",
+        "Yam route Mongol Empire relay stations ortoo messengers horses intervals",
+        "\"central place\" expert routing range gating viability threshold spacing regularizer MoE named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Both parents verified correct against sources. The construct is a structured replacement for the MoE balance loss (range gating + viability threshold + spacing regularizer) and is honestly compared against top-K and expert-choice; searches surface threshold-routing and balance-regularizer work but no named 'central-place expert geography' method combining range gating, viability coverage, and yam spacing. PASS."
+    },
+    {
+      "id": "M047",
+      "merged_construct": "Leitmotif Retrieval Tags: semantic-cell index keys that recur on referent salience",
+      "searches_run": [
+        "leitmotif Wagner recurring musical motif character theme identifier presence",
+        "deixis deictic center origo person place time reference speaker linguistics",
+        "entity-centric coreference-aware retrieval RAG salience-gated recurrence entity tracking discourse state"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Parents verified correct. Entity-centric / coref-aware / discourse-aware / salience RAG are confirmed active areas, and the construct explicitly admits heavy overlap with entity-graph RAG under perfect coref — exactly the substantial-overlap case R7 says PASSES. No published method named 'Leitmotif Retrieval Tags' or one whose primary scoring signal is referent-triggered motif recurrence plus deictic compatibility with per-step re-retrieval. PASS."
+    },
+    {
+      "id": "M049",
+      "merged_construct": "Apophatic Routing: experts defined by elimination rather than selection",
+      "searches_run": [
+        "apophatic theology negative theology via negativa systematic negation Pseudo-Dionysius divine attributes denied",
+        "MoE routing counterfactual supervision expert masking loss increase marginal value adaptive k per token named method",
+        "\"apophatic\" OR \"negation head\" OR \"routing by elimination\" experts defined by elimination MoE negative selection"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Parents verified correct. Adjacent work exists — 'When Are Experts Misrouted? Counterfactual Routing Analysis' (2605.07260, a diagnostic) and adaptive-k methods Ada-K/AdaMoE/BEAM/Ban&Pick — but none is M049's exact construct: a negation head trained on counterfactual masking-loss-increase targets plus an Occam stopping rule discarding confidently-wrong experts. Overlap with active counterfactual-routing / adaptive-k areas is R7-protected; no pre-existing named 'apophatic/elimination routing' method. PASS."
+    },
+    {
+      "id": "M064",
+      "merged_construct": "Phase-Locked-Loop Optimizer Synchronization",
+      "searches_run": [
+        "phase-locked loop PLL phase detector VCO loop filter feedback frequency lock",
+        "centrifugal governor Watt flyball steam engine speed regulation feedback throttle",
+        "learning rate control gradient sign-flip rate frequency target control loop optimizer RPROP delta-bar-delta meta",
+        "\"phase-locked loop\" optimizer learning rate synchronization neural network training named method PLL Adam"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Both control-systems parents verified correct. The construct openly states it is closest to sign-based step-size adaptation (delta-bar-delta, RPROP) but generalizes them into an explicit PI loop with a target flip-rate set-point + governor saturation on a scalar lr — RPROP/delta-bar-delta adjust per-weight steps on sign agreement and do NOT control sign-flip RATE to a set-point. R7 explicitly names 'schedulers near RPROP' as a non-failure. PLL-neural work found is oscillatory pattern recognition, not an lr controller; no exact named method. PASS."
+    },
+    {
+      "id": "M066",
+      "merged_construct": "Integrated-Pest-Management Threshold Early-Stopping",
+      "searches_run": [
+        "economic threshold integrated pest management adaptive dropout neural network regularization cost-aware named method",
+        "selective breeding artificial selection desired traits breeding pairs successive generations",
+        "cost-aware per-layer adaptive dropout co-adaptation index threshold trigger regularization dosing named method"
+      ],
+      "parents_real_and_correct": true,
+      "exact_named_method_exists": false,
+      "verdict": "PASS",
+      "flag_reason": "",
+      "reasoning": "Both parents verified correct. The construct openly self-discloses adjacency to adaptive/curriculum dropout, variational/concrete dropout (learned per-unit rates), layer-wise tuning, and early stopping — all R7-protected adjacencies — and even flags 'early-stopping' in its name as a misnomer. Searches find these adjacent methods but no named 'IPM-threshold / economic-threshold dropout dosing' method combining a cost-benefit intervention threshold with a selective-breeding unit-propagation step. PASS."
+    }
+  ]
+}

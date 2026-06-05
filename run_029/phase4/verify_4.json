@@ -1,0 +1,216 @@
+[
+  {
+    "candidate_index": 6,
+    "technique": "Audio-Omni",
+    "life_domain": "Whistled language interpretation (Silbo Gomero) - Language & linguistics",
+    "searches": [
+      {
+        "reformulation_type": "exact_pairing",
+        "query": "Audio-Omni whistled language Silbo Gomero transcription",
+        "results": [
+          {
+            "title": "Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language",
+            "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.html",
+            "relevance": "prior-art",
+            "note": "Interspeech 2023 paper (Jakubiak) explicitly described as the first-ever ASR model for a whistled language; does whistle-to-text on Silbo Gomero. The exact problem the candidate claims as first-mover is already published (with a different, older technique)."
+          },
+          {
+            "title": "Silbo Gomero Speech Corpus (OpenSLR 137)",
+            "url": "https://www.openslr.org/137/",
+            "relevance": "prior-art",
+            "note": "Public 49-minute Silbo Gomero whistled-speech corpus (4 whistlers) already exists and is the training set for the 2023 whistle-to-text ASR - the 'existing recorded corpora' the candidate assumes is indeed published and ASR-labeled."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "technique_agnostic_problem",
+        "query": "automatic speech recognition Silbo Gomero whistled language machine learning",
+        "results": [
+          {
+            "title": "Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language (PDF)",
+            "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.pdf",
+            "relevance": "prior-art",
+            "note": "States the first-ever whistled-language ASR was built with HMM-GMM and that whistled-speech recognition 'is not only possible but achievable with methods used for ASR today' - the technique-agnostic problem is solved."
+          },
+          {
+            "title": "Whistler Identification in Whistled Spanish (Silbo): A Case Study (Springer)",
+            "url": "https://link.springer.com/chapter/10.1007/978-3-032-07959-6_11",
+            "relevance": "prior-art",
+            "note": "Later (2025) ML work on Silbo (speaker/whistler identification), showing the domain has continuing ML/AI activity beyond the 2023 ASR paper - not an untouched field."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability_framing",
+        "query": "deep learning whistled speech recognition neural network transcription",
+        "results": [
+          {
+            "title": "Whistle: Data-Efficient Multilingual and Crosslingual Speech Recognition via Weakly Phonetic Supervision",
+            "url": "https://arxiv.org/html/2406.02166v1",
+            "relevance": "not-prior-art",
+            "note": "'Whistle' here is a model name for multilingual ASR, not whistled speech; no direct hit, but confirms modern neural ASR pipelines are the standard tooling that could be (and for Silbo, partly has been) applied."
+          },
+          {
+            "title": "Whisper (speech recognition system) - Wikipedia",
+            "url": "https://en.m.wikipedia.org/wiki/Whisper_(speech_recognition_system)",
+            "relevance": "weak",
+            "note": "General transformer encoder-decoder ASR. No evidence yet of Whisper/transformer applied to Silbo specifically; the published Silbo ASR used HMM-GMM, leaving the *modern-architecture* angle less developed."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool_app_product",
+        "query": "Silbo Gomero translator app whistle to text tool",
+        "results": [
+          {
+            "title": "Silbo Gomero Whistle Language Translator | Free & AI-Powered (AnythingTranslate)",
+            "url": "https://anythingtranslate.com/translators/silbo-gomero-whistle-language-translator/",
+            "relevance": "partial-prior-art",
+            "note": "Live 'AI-powered' Silbo translator products exist; however these are primarily text->whistle phonetics, not audio whistle->text, so they are adjacent rather than identical to the candidate's whistle->text/speech pipeline."
+          },
+          {
+            "title": "adeadzeplin/silbo_gomero_translator (GitHub)",
+            "url": "https://github.com/adeadzeplin/silbo_gomero_translator",
+            "relevance": "partial-prior-art",
+            "note": "Open-source program translating between Silbo Gomero and Spanish (rule/text based), showing the translate-direction is also attempted in the wild, though not via an audio MLLM."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "modern_architecture_recency",
+        "query": "\"Silbo Gomero\" speech recognition Whisper transformer neural 2024 2025 transcribe",
+        "results": [
+          {
+            "title": "Silbo Gomero: The language that whistles between mountains (Ciencia Cognitiva, 2025)",
+            "url": "https://www.cienciacognitiva.org/files/2025-19-i.pdf",
+            "relevance": "context",
+            "note": "2025 overview noting ML models trained on whistle corpora are 'beginning to separate signal from wind, potentially enabling automatic transcription or education apps' - frames transcription as in-progress/emerging, not yet a deployed modern-architecture solution."
+          },
+          {
+            "title": "(no transformer/Whisper-on-Silbo result found)",
+            "url": "https://www.isca-archive.org/interspeech_2023/jakubiak23_interspeech.html",
+            "relevance": "negative-evidence",
+            "note": "No 2024-2025 result pairing Whisper/transformer/audio-MLLM with Silbo; the only published Silbo ASR remains the 2023 HMM-GMM system. So a *modern unified audio-MLLM* whistle->text+speech pipeline appears genuinely undone, even though whistle->text ASR per se is not first-mover."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Jakubiak (2023, Interspeech) 'Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language' - explicitly the FIRST ASR system for a whistled language; performs whistle->text on Silbo Gomero using HMM-GMM. Directly contradicts the candidate's 'first automatic whistle->text/speech pipeline' claim.",
+      "OpenSLR 137 'Silbo Gomero Speech Corpus' - public 49-min, 4-whistler corpus used for that ASR.",
+      "'Whistler Identification in Whistled Spanish (Silbo)' (2025, Springer) - additional ML work on Silbo (speaker ID).",
+      "Multiple 'AI-powered' Silbo Gomero translator web tools (anythingtranslate.com, rizzai.ai) and a GitHub Silbo<->Spanish translator - mostly text->whistle / rule-based, i.e. adjacent applications.",
+      "2025 Ciencia Cognitiva survey: ML on whistle corpora 'beginning to... enable automatic transcription or education apps' - the domain is actively being worked, not untouched."
+    ],
+    "gap_verdict": "GAP_CLOSED",
+    "verdict_reason": "The candidate's headline first-application claim - the 'first automatic whistle->text/speech pipeline' for Silbo Gomero - is directly falsified by Jakubiak (2023, Interspeech), which is explicitly the first-ever ASR for a whistled language and performs whistle->text on Silbo using a public corpus (OpenSLR 137). Additional ML work (2025 whistler-ID) and live AI translator tools further show the domain is not under-served at the 'has anyone applied ML/AI' level. The technique class differs (modern unified audio MLLM vs. HMM-GMM) and the spoken-Spanish *synthesis/translation* leg may be incrementally new, but the core technique-agnostic application (automatic Silbo whistle transcription) already exists, so this is not a true first-mover opportunity and is rejected.",
+    "confidence": 0.88
+  },
+  {
+    "candidate_index": 7,
+    "technique": "SGNO: Spectral Generator Neural Operator",
+    "life_domain": "Glassblowing (working glass at the right viscosity by eye) - Traditional craft & trades",
+    "searches": [
+      {
+        "reformulation_type": "exact_pairing",
+        "query": "neural operator glassblowing viscosity reheat PDE surrogate real-time",
+        "results": [
+          {
+            "title": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts (arXiv 2602.18801)",
+            "url": "https://arxiv.org/abs/2602.18801",
+            "relevance": "technique-only",
+            "note": "The SGNO paper itself; benchmarked on APEBench turbulent flows, reaction-diffusion, climate dynamics. No glass/glassblowing application - confirms the technique has not been pointed at hot-glass working."
+          },
+          {
+            "title": "(no glassblowing+neural-operator result)",
+            "url": "https://arxiv.org/pdf/2507.18067",
+            "relevance": "negative-evidence",
+            "note": "Generic multiscale neural PDE surrogates; no result couples neural operators / PDE surrogates with glassblowing viscosity/reheat. The exact pairing appears undone."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "technique_agnostic_problem",
+        "query": "machine learning glassblowing temperature viscosity control molten glass forming",
+        "results": [
+          {
+            "title": "Temperature Control of Digital Glass Forming Processes (arXiv 2604.00135)",
+            "url": "https://arxiv.org/abs/2604.00135",
+            "relevance": "strong-adjacent-prior-art",
+            "note": "March 2026 paper: real-time temperature-control system that fuses thermal-camera + visual-camera + process data and a data-driven dynamic temperature model to keep glass in its working range. Same core problem (hold working-range temperature via thermal sensing) but for laser Digital Glass Forming (additive), not artisan hand glassblowing, and uses a closed-loop controller, not a neural-operator forward forecast."
+          },
+          {
+            "title": "ViscNet: Neural network for predicting fragility index and temperature-dependency of viscosity (arXiv 2007.03719)",
+            "url": "https://arxiv.org/pdf/2007.03719",
+            "relevance": "partial-prior-art",
+            "note": "ML already predicts glass viscosity vs temperature (material/composition level). Shows viscosity-temperature modeling by NN is established, but it is not a real-time spatial-field forecast for a working gather."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability_framing",
+        "query": "physics-informed neural network glass forming heat transfer surrogate transient cooling temperature field",
+        "results": [
+          {
+            "title": "Physics-informed CNN for Temperature Field Prediction without Labeled Data (arXiv 2109.12482)",
+            "url": "https://arxiv.org/pdf/2109.12482",
+            "relevance": "technique-adjacent",
+            "note": "PINN/NN transient-heat-conduction temperature-field surrogates are mature (also ship-hull line heating, additive manufacturing). The capability (fast temperature-field surrogate) exists generically but none target cooling glass for a glassblower."
+          },
+          {
+            "title": "Advanced Deep Operator Networks to Predict Multiphysics Fields in Materials Processing and Additive Manufacturing (arXiv 2403.14795)",
+            "url": "https://arxiv.org/pdf/2403.14795",
+            "relevance": "technique-adjacent",
+            "note": "DeepONet predicting thermal/mechanical fields in casting/DED additive manufacturing - neural operators ARE used as thermal surrogates in materials processing, but not for glassblowing reheat timing."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool_app_product",
+        "query": "glassblowing assistive sensor thermal camera real-time temperature feedback gaffer reheat",
+        "results": [
+          {
+            "title": "NIR-B-2K-Glass Thermal Imaging Camera (AMETEK Land)",
+            "url": "https://www.ametek-land.com/products/ir-thermal-imagers-and-line-scanners/fixed-thermal-imagers/application-specific-thermal-imaging-systems/nir-b-glass-thermal-imaging-camera",
+            "relevance": "context",
+            "note": "Thermal cameras for glass are commercial, but aimed at industrial glass *furnaces/forming lines*, not an artisan reheat assistant. The sensing hardware exists; the PDE-surrogate artisan-guidance use does not."
+          },
+          {
+            "title": "Optris PI640 G7 Thermal Imaging Camera for Glass",
+            "url": "https://www.processparameters.co.uk/optris-thermal-imaging-cameras-for-glass-applications/optris-pi640-g7-vga-thermal-imaging-camera-for-glass-applications/",
+            "relevance": "context",
+            "note": "Glass-tuned IR camera (200-1500 C). Confirms cheap thermal sensing of hot glass is feasible (candidate's hardware premise holds) but is sold for measurement, not forward viscosity forecasting."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "artisan_AI_assistant_recency",
+        "query": "artisan glassblower augmented reality AI assistant working temperature guidance craft hot glass",
+        "results": [
+          {
+            "title": "AI in Glassblowing Videos: Automated Temperature Zone Monitoring (ReelMind blog)",
+            "url": "https://reelmind.ai/blog/ai-in-glassblowing-videos-automated-temperature-zone-monitoring",
+            "relevance": "weak/unreliable-prior-art",
+            "note": "Marketing/SEO blog claims AI thermal cameras classify glass zones as 'workable/transitional/critical' and alert artists via wearables, and cites a 'Corning Smart Glassblowing Lab' real-time-feedback result. This mirrors the candidate's 'reheat now / leaving workable band' concept BUT is promotional, unverifiable, and describes current-state classification, not a PDE-surrogate forward forecast. Low evidentiary weight."
+          },
+          {
+            "title": "Corning GlassWorks AI solutions (LinkedIn, Mar 2025)",
+            "url": "https://www.linkedin.com/posts/corning-incorporated_corning-glassworks-ai-solutionsmp4-activity-7311043341079437315-EGDQ",
+            "relevance": "context",
+            "note": "Corning 'GlassWorks AI' is a real industrial glass-manufacturing AI line, not an artisan hand-glassblowing reheat assistant; supports the marketing-claim provenance but is not the candidate's application."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Temperature Control of Digital Glass Forming Processes (arXiv 2604.00135, Mar 2026): real-time thermal-camera + data-driven dynamic model temperature control to keep glass in its working range - the same 'hold the workable temperature band via thermal sensing' problem, but for laser additive Digital Glass Forming, via a closed-loop controller (NOT a neural-operator PDE-surrogate forecast for a hand gaffer).",
+      "ViscNet (arXiv 2007.03719) and physics-informed ML viscosity-temperature models: ML predicts glass viscosity vs temperature at the material level (not spatial real-time field forecast).",
+      "Neural-operator / PINN transient-heat-conduction temperature-field surrogates broadly established (e.g. DeepONet for casting/additive manufacturing, PINN temperature-field CNNs) - technique class is mature for thermal fields but not applied to glassblowing.",
+      "Commercial glass-tuned thermal cameras (AMETEK Land NIR-B-Glass, Optris PI640 G7) confirm the sensing premise but are industrial-furnace measurement tools.",
+      "ReelMind marketing blogs claim AI thermal 'workable/transitional/critical' zone classification + wearable alerts for glassblowers and reference a Corning 'Smart Glassblowing Lab'; unverifiable/promotional, and describe current-state classification, not forward PDE-surrogate forecasting."
+    ],
+    "gap_verdict": "GAP_NARROW",
+    "verdict_reason": "Strong adversarial pressure but no kill. The technique-agnostic problem is being attacked: a March-2026 paper (Temperature Control of Digital Glass Forming) does real-time thermal-camera + data-driven dynamic-model control to keep glass in its working range, ML viscosity-temperature models exist (ViscNet), and there is marketing buzz (ReelMind/Corning) about AI thermal 'workable/critical' zone feedback for glassblowers - so this is NOT GAP_OPEN. However, none of these is the candidate's specific contribution: (1) the published glass temperature-control work targets industrial laser Digital Glass Forming, not artisan hand glassblowing, and uses a closed-loop controller, not a neural-operator forecast; (2) the AI-glassblowing-feedback claims are unverifiable marketing and only do current-state thermal classification, not a physics-surrogate forward rollout; (3) neural operators / PDE surrogates have never been pointed at hot-glass viscosity-field forecasting. The pairing of an SGNO-style PDE surrogate that rolls the viscosity/temperature field forward several seconds to give a gaffer 'reheat now' guidance is genuinely new, so the specific technique+framing survives - NARROW, not CLOSED.",
+    "confidence": 0.72
+  }
+]

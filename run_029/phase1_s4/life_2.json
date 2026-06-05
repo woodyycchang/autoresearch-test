@@ -1,0 +1,97 @@
+{
+  "team": "LIFE-2",
+  "domains": ["scientific-instrument-operation", "legal/regulatory/compliance-process"],
+  "concepts": [
+    {
+      "name": "Particle-accelerator online beam tuning by expert operators",
+      "domain": "A",
+      "open_problem": "Online tuning across huge parameter spaces with sensitive, coupled beam responses is still done mostly by hand between shifts; operators make structure-aware educated guesses that RL/BO optimizers lack, so reproducibility and optimality remain unsolved.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial - RL/Bayesian-optimization 'autonomous accelerator' research exists (SLAC, DESY) but is not the production default; manual knob-turning persists",
+      "app_market_check": "No commercial product; research codes only (Xopt, Badger/Ocelot, KEK ML injector work) used in-house at national labs",
+      "verbatim_quote": "Despite efforts to automate beam tuning, the tuning of particle accelerators is to this day often done manually by experienced human operators.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11231256/"
+    },
+    {
+      "name": "Cryo-EM grid-square selection during screening",
+      "domain": "A",
+      "open_problem": "Operator manually scans low-mag grid overview and picks which squares (good ice vs thick/broken) to image at high mag; slow, imprecise, squares overlooked under time pressure, and 'good' is empirical/iterative judgment.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial - SmartScope, Smart Leginon, XCryoNet, attention-guided QA automate square scoring, but adoption is uneven and operators still override/curate",
+      "app_market_check": "SmartScope (open source), Smart Leginon, Thermo Fisher EPU automation; academic XCryoNet - tooling exists but not a settled commercial standard",
+      "verbatim_quote": "A microscope operator would scan the grid for promising squares to further image at higher magnifications, though this process can be slow and imprecise since the operator must manually closely examine squares and squares can be overlooked in the interest of time.",
+      "source": "https://elifesciences.org/articles/80047"
+    },
+    {
+      "name": "Electron-microscope astigmatism correction at high magnification",
+      "domain": "A",
+      "open_problem": "At high mag there is no substitute for human eye-hand coordination on stigmator/alignment knobs; auto-stigmation exists but fails in the hardest regime, and perception of beam roundness/translational motion varies operator-to-operator.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial - automatic alignment/astigmatism patents and built-in auto-stig on modern SEM/TEM, but explicitly inadequate at high magnification",
+      "app_market_check": "Vendor auto-functions (Thermo Fisher, JEOL, Hitachi built-in auto-stigmation); no third-party product for the high-mag manual regime",
+      "verbatim_quote": "While many SEMs are now equipped with automated astigmatism correction, there are situations, particularly at high magnification, where there is no substitute for eye-hand coordination to make this important correction.",
+      "source": "https://academic.oup.com/mt/article/27/3/32/6813519"
+    },
+    {
+      "name": "LC-MS / MRM peak-picking manual curation",
+      "domain": "A",
+      "open_problem": "Core peak-picking algorithms remain imperfect (poor separation, noise, baseline, peak shape) so every assignment needs manual inspection; not feasible at hundreds-thousands of metabolites, and batch manual-QC tooling is weak.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial - deep-learning peak curation (e.g. NeatMS) and MRMPro emerging in literature, but labs still staff dedicated manual-inspection teams",
+      "app_market_check": "XCMS, MZmine, Skyline (manual integration); MRMPro web tool; DL curation mostly research - no dominant automated commercial curator",
+      "verbatim_quote": "Despite various software solutions and advanced algorithms are available for MRM data analysis, the manual inspection process still remains a time-consuming and labor-intensive task.",
+      "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10848457/"
+    },
+    {
+      "name": "Telescope real-time project-switching / weather-band decision",
+      "domain": "A",
+      "open_problem": "Static queue optimization is automated, but judging when to switch projects as conditions change (and reacting to ToO triggers within weather bands) is left to scheduling staff / observers in real time.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial - automated schedulers (AstroQ, LCO network, Gemini queue) handle planning and ToO override logic, but live condition-based switching is human-supervised",
+      "app_market_check": "AstroQ, ACP/Scheduler, LCO scheduler, observatory in-house queue tools - planning automated, live override mostly manual",
+      "verbatim_quote": "Judging when to switch projects based on changing conditions is left to the telescope scheduling staff and observing team to decide.",
+      "source": "https://www.eaobservatory.org/jcmt/observing/guidelines-for-flexible-observing/"
+    },
+    {
+      "name": "Sequencing-run QC interpretation & rerun-eligibility judgment",
+      "domain": "A",
+      "open_problem": "FastQC-style flags only output Warn/Fail; the human must decide whether a run truly failed for THIS sample/application and whether a rerun is warranted - in-context interpretation, not just metric thresholds, is unautomated.",
+      "ai_penetration": "very-low",
+      "has_industrial_analog": "no - QC metric tools (FastQC, MultiQC) compute flags but explicitly punt the contextual pass/fail+rerun decision to the researcher/core staff",
+      "app_market_check": "FastQC, MultiQC, instrument vendor QC dashboards report metrics; no product makes the contextual rerun/accept call",
+      "verbatim_quote": "When quality control flags indicate \"Warn\" or \"Fail\" results, researchers must stop and consider what those results mean in the context of the particular sample and sequencing type used.",
+      "source": "https://rtsf.natsci.msu.edu/genomics/technical-documents/fastqc-tutorial-and-faq.aspx"
+    },
+    {
+      "name": "Contract redlining / fallback-position judgment",
+      "domain": "B",
+      "open_problem": "AI flags non-standard clauses and drafts redlines, but choosing the actual fallback/escalation position requires embedded knowledge of the company's risk tolerance, negotiation strategy, relationship history and commercial priorities that tools cannot access.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial - many AI review tools surface issues and suggest edits, but the strategic redline decision stays with the lawyer; 'playbook' is the human framework",
+      "app_market_check": "Spellbook, Legartis, Luminance, LegalOnTech, Juro, ContractSafe - saturated for issue-spotting/first-pass redlines, not for fallback strategy",
+      "verbatim_quote": "Redlining requires deep contextual understanding of your company's risk tolerance, negotiation strategy, fallback clauses, and commercial priorities, and general purpose tools like ChatGPT lack this embedded knowledge and cannot reliably replace a lawyer's judgment.",
+      "source": "https://www.legalontech.com/ai-contract-review-software"
+    },
+    {
+      "name": "Regulatory benefit-risk narrative synthesis (FDA/EMA submissions)",
+      "domain": "B",
+      "open_problem": "AI drafts ~40% (routine tables/boilerplate); the high-judgment benefit-risk story, integrated safety synthesis and cross-module justification - plus catching when AI output is simply wrong - stays with seasoned regulatory writers.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial - LLM drafting tools for IND/CTA/510(k) automate routine sections, but interpretive risk-benefit synthesis is explicitly human-controlled",
+      "app_market_check": "IntuitionLabs IND/CTA drafting, generic LLMs, CRO medical-writing services - automate routine drafting, not the synthesis judgment",
+      "verbatim_quote": "Medical writers handle high-judgment sections such as benefit-risk assessments, integrated analyses, and complex safety issues.",
+      "source": "https://residencyadvisor.com/resources/alternative-medical-careers/deep-dive-regulatory-medical-writing-for-fda-and-ema-submissions"
+    },
+    {
+      "name": "Sanctions-hit adjudication on ambiguous / transliterated names",
+      "domain": "B",
+      "open_problem": "Fuzzy matchers flood analysts with partial/ambiguous hits driven by transliteration, name reversal, phonetics and cultural variation; the true-match vs false-positive call requires human cultural/linguistic judgment and identity verification.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "partial - entity-resolution/AI matching (Quantifind, Senzing, OpenSanctions) reduces noise, but ambiguous-hit final adjudication remains manual and training-intensive",
+      "app_market_check": "Quantifind, Senzing, OpenSanctions, sanctions.io, Descartes, Lenzo - heavy on matching/scoring; the ambiguous-case decision is still analyst-driven",
+      "verbatim_quote": "Identity verification, confirming your customer isn't the sanctioned person, requires human judgment on ambiguous cases.",
+      "source": "https://www.lenzo.ai/blog/sanctions-name-matching-algorithm-limits-manual-review/"
+    }
+  ],
+  "notes": "Honest read of what snippets showed. GENUINELY LOW-AI niches: (1) accelerator online beam tuning - 'still done manually by experienced operators', research-only optimizers; (2) EM high-mag astigmatism - 'no substitute for eye-hand coordination'; (3) LC-MS/MRM peak curation - labs literally staff manual-inspection teams, DL still research; (4) sequencing-run QC contextual pass/fail+rerun call - tools only emit Warn/Fail flags (lowest penetration seen, very-low); (5) FDA/EMA benefit-risk narrative synthesis - explicitly the ~60% humans keep. MODERATE / NEARING SATURATION (kept because a specific judgment sub-step persists, but app markets are crowded): cryo-EM square selection (SmartScope/Leginon/XCryoNet closing fast), telescope live project-switching (planning automated, override human), contract redlining (Spellbook/Luminance/Legartis saturate issue-spotting; only fallback STRATEGY survives), sanctions ambiguous-hit adjudication (Quantifind/Senzing matching is mature; only ambiguous final call survives). DELIBERATELY DROPPED as too saturated: AML alert disposition (WorkFusion/Flagright market 'agentic' auto-disposition with audit trails, claim 93%+ FP reduction - low headroom); patent claim charting (XLSCOUT ClaimChart LLM, Patlytics, CaseMark already auto-generate charts, ~80% effort cut); broad e-discovery TAR (mature, court-accepted, predictive coding standard) - though attorney relevance/privilege subjectivity is a real residual gap. Pattern across BOTH domains: routine bulk steps are automated/saturated; the surviving manual work is the in-context interpretive/strategic judgment call (is THIS run/peak/hit/clause acceptable given THIS context) - that meta-decision layer is the consistently under-ML'd niche."
+}
