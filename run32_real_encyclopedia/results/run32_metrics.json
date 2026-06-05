@@ -400,6 +400,88 @@
     }
   },
   "coordination": {
-    "status": "produced_separately_by_coordination_probe"
+    "stage": "reasoning_audit (real Opus sub-agents)",
+    "n_agents": 6,
+    "well_formed_first_attempt": 6,
+    "malformed_first_attempt": 0,
+    "malformed_ids": [],
+    "retries_needed": 0,
+    "coordination_reliability_rate": 1.0,
+    "audit_vs_ground_truth_agreement": 0.8333,
+    "per_agent": [
+      {
+        "id": "M056",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": true,
+        "audit_is_variant": false,
+        "gt_is_variant": false,
+        "nearest": "A1_rlhf",
+        "confidence": 0.88
+      },
+      {
+        "id": "M050",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": true,
+        "audit_is_variant": false,
+        "gt_is_variant": false,
+        "nearest": "A9b_pred_error",
+        "confidence": 0.9
+      },
+      {
+        "id": "M005",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": true,
+        "audit_is_variant": true,
+        "gt_is_variant": true,
+        "nearest": "A4b_moe_capacity",
+        "confidence": 0.99
+      },
+      {
+        "id": "M059",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": true,
+        "audit_is_variant": true,
+        "gt_is_variant": true,
+        "nearest": "A6_homeostat",
+        "confidence": 0.82
+      },
+      {
+        "id": "M0B1",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": false,
+        "audit_is_variant": false,
+        "gt_is_variant": true,
+        "nearest": "A4_moe",
+        "confidence": 0.62
+      },
+      {
+        "id": "M0B2",
+        "file_written": true,
+        "parseable": true,
+        "schema_ok": true,
+        "extra_keys": [],
+        "agrees_ground_truth": true,
+        "audit_is_variant": true,
+        "gt_is_variant": true,
+        "nearest": "A9_predcoding",
+        "confidence": 0.72
+      }
+    ],
+    "note": "Each agent: read input from non-git /tmp, reason, write strict JSON to non-git /tmp (R3). Reliability = fraction returning schema-valid JSON on first attempt."
   }
 }
