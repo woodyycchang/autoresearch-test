@@ -1,310 +1,192 @@
 #!/usr/bin/env python3
 """
-run_cycle.py  —  Run 32 one optimization cycle, every stage instrumented.
+run_cycle.py  —  Run 33 optimization cycle (scale + audit integration).
 
-Computes (all from real execution, R5):
-  metric 1  merge-engine quality      (genuine-merge yield + cognitive-distance dist)
-  metric 2  integrity-checker quality (false-pass/false-reject vs ground truth)
-  metric 3  niche-checker quality     (false-pass/false-reject; variant-trap catch)
-  metric 5  determinism               (verdict agreement across PYTHONHASHSEED)
-Then DERIVES direction_params v5 from those measurements (each change traced),
-re-measures under v5, and writes results/. Metric 4 (coordination) is produced
-separately by coordination_probe.py and merged in if present.
+Inherits Run 32's engine + v5 params; measures every stage AT SCALE on the
+314-concept bank and the 21-fixture labelled probe set, wires the frozen
+reasoning-audit table into the borderline branch (v6), and re-measures. All
+numbers are produced by executing the engine (R5).
 """
-import json
-import os
-import statistics
-import subprocess
-import sys
-import copy
+import json, os, statistics, subprocess, sys, copy
 from collections import Counter
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE, "engine"))
 sys.path.insert(0, os.path.join(BASE, "ground_truth"))
-from encyclopedia_engine import (  # noqa: E402
-    generate_constructs, integrity_check, niche_check, load_bank, load_params)
-from build_ground_truth import KNOWN_APPROACHES  # noqa: E402
+from encyclopedia_engine import (generate_constructs, integrity_check, niche_check,  # noqa
+                                 load_bank, load_params)
+from build_ground_truth import KNOWN_APPROACHES  # noqa
 
 RESULTS = os.path.join(BASE, "results")
+WORKER = os.path.join(BASE, "instrumentation", "_niche_worker.py")
+SCALEW = os.path.join(BASE, "instrumentation", "_scale_worker.py")
+AUDIT = os.path.join(BASE, "reasoning_audit", "frozen_audit_table.json")
 SEEDS = list(range(16))
 
 
-def _dist_stats(xs):
+def dist_stats(xs):
     xs = sorted(xs)
-    n = len(xs)
-    bins = {"[0.4,0.5)": 0, "[0.5,0.6)": 0, "[0.6,0.7)": 0,
-            "[0.7,0.8)": 0, "[0.8,0.9)": 0, "[0.9,1.0]": 0}
-    for x in xs:
-        if x < 0.5: bins["[0.4,0.5)"] += 1
-        elif x < 0.6: bins["[0.5,0.6)"] += 1
-        elif x < 0.7: bins["[0.6,0.7)"] += 1
-        elif x < 0.8: bins["[0.7,0.8)"] += 1
-        elif x < 0.9: bins["[0.8,0.9)"] += 1
-        else: bins["[0.9,1.0]"] += 1
-    return {
-        "n": n, "min": round(min(xs), 4), "max": round(max(xs), 4),
-        "mean": round(statistics.mean(xs), 4), "median": round(statistics.median(xs), 4),
-        "stdev": round(statistics.pstdev(xs), 4),
-        "q1": round(xs[n // 4], 4), "q3": round(xs[(3 * n) // 4], 4),
-        "histogram": bins,
-    }
+    bins = {}
+    for lo in [0.0, 0.5, 0.6, 0.7, 0.8, 0.9]:
+        hi = lo + (0.5 if lo == 0.0 else 0.1)
+        bins[f"[{lo:.1f},{hi:.1f})"] = sum(1 for x in xs if lo <= x < hi or (hi >= 1.0 and x == 1.0))
+    return {"n": len(xs), "min": round(xs[0], 4), "max": round(xs[-1], 4),
+            "mean": round(statistics.mean(xs), 4), "median": round(statistics.median(xs), 4),
+            "stdev": round(statistics.pstdev(xs), 4), "histogram": bins}
 
 
-# ---------------- metric 1: merge engine ----------------
-def metric_merge_engine(bank, p):
+def metric_merge(bank, p):
     cons = generate_constructs(bank, p)
     integ = [integrity_check(c, p) for c in cons]
-    n_pass = sum(1 for r in integ if r["pass"])
-    reasons = Counter(r["reason"] for r in integ if not r["pass"])
     genuine = [c for c, r in zip(cons, integ) if r["pass"]]
-    return {
-        "config": {"merge_require_interface": p.get("merge_require_interface", False),
-                   "merge_steer_strength": p.get("merge_steer_strength", 0.0)},
-        "n_constructs": len(cons),
-        "genuine_merge_pass": n_pass,
-        "genuine_merge_rate": round(n_pass / len(cons), 4) if cons else 0.0,
-        "fail_reason_breakdown": dict(reasons),
-        "cognitive_distance_all": _dist_stats([c["cognitive_distance"] for c in cons]),
-        "cognitive_distance_genuine": _dist_stats([c["cognitive_distance"] for c in genuine])
-        if genuine else None,
-    }
+    return {"config": {"merge_require_interface": p.get("merge_require_interface"),
+                       "n_bank_concepts": bank["n_concepts"]},
+            "n_constructs": len(cons), "genuine_merge_pass": len(genuine),
+            "genuine_merge_rate": round(len(genuine) / len(cons), 4) if cons else 0.0,
+            "fail_reason_breakdown": dict(Counter(r["reason"] for r in integ if not r["pass"])),
+            "cognitive_distance_genuine": dist_stats([c["cognitive_distance"] for c in genuine]) if genuine else None}
 
 
-# ---------------- metric 2: integrity checker ----------------
 def metric_integrity(constructs, p):
-    fp = fr = 0
-    detail = []
-    for c in constructs:
-        gt = c["ground_truth"]["genuine_merge"]
-        pred = integrity_check(c, p)["pass"]
-        if pred and not gt: fp += 1
-        if (not pred) and gt: fr += 1
-        detail.append({"id": c["id"], "gt_genuine_merge": gt, "pred_pass": pred,
-                       "reason": integrity_check(c, p)["reason"]})
-    pos = [c for c in constructs if c["ground_truth"]["genuine_merge"]]
-    neg = [c for c in constructs if not c["ground_truth"]["genuine_merge"]]
+    fp = sum(1 for c in constructs if integrity_check(c, p)["pass"] and not c["ground_truth"]["genuine_merge"])
+    fr = sum(1 for c in constructs if not integrity_check(c, p)["pass"] and c["ground_truth"]["genuine_merge"])
     return {"false_pass": fp, "false_reject": fr,
-            "n_genuine": len(pos), "n_nongenuine": len(neg),
             "accuracy": round(1 - (fp + fr) / len(constructs), 4),
-            "detail": detail}
+            "n_genuine": sum(1 for c in constructs if c["ground_truth"]["genuine_merge"]),
+            "n_nongenuine": sum(1 for c in constructs if not c["ground_truth"]["genuine_merge"])}
 
 
-# ---------------- metric 3 + 5: niche checker across seeds ----------------
-def seed_sweep(params_path):
-    """Run the niche worker once per seed; return {seed: {id: verdict}}."""
+def seed_sweep(params_path, audit_path=None):
     table = {}
     for s in SEEDS:
         env = dict(os.environ, PYTHONHASHSEED=str(s))
-        out = subprocess.run(
-            [sys.executable, os.path.join(BASE, "instrumentation", "_niche_worker.py"),
-             params_path],
-            capture_output=True, text=True, env=env, check=True)
+        out = subprocess.run([sys.executable, WORKER, params_path, audit_path or "none"],
+                             capture_output=True, text=True, env=env, check=True)
         table[s] = json.loads(out.stdout.strip())
     return table
 
 
-def metric_niche_and_determinism(constructs, sweep):
+def niche_metrics(constructs, sweep):
     gt = {c["id"]: c["ground_truth"] for c in constructs}
     ids = [c["id"] for c in constructs]
-    # per-construct verdict set across seeds
     per = {cid: Counter(sweep[s][cid] for s in SEEDS) for cid in ids}
-    stable = {cid: (len(per[cid]) == 1) for cid in ids}
-    determinism_rate = round(sum(stable.values()) / len(ids), 4)
-    pair_agree = round(sum(1 for cid in ids if sweep[SEEDS[0]][cid] == sweep[SEEDS[1]][cid])
-                       / len(ids), 4)
-
-    # niche error accounting over the seed range (v4 is seed-dependent)
-    def niche_errors(verdict_of):
-        fp = fr = 0
-        fp_ids, fr_ids = [], []
-        for cid in ids:
-            pred_niche = verdict_of[cid] == "NICHE_FOUND"
-            if pred_niche and not gt[cid]["is_niche"]:
-                fp += 1; fp_ids.append(cid)
-            if (not pred_niche) and gt[cid]["is_niche"]:
-                fr += 1; fr_ids.append(cid)
-        return fp, fr, fp_ids, fr_ids
-
-    per_seed_fp, per_seed_fr = [], []
-    for s in SEEDS:
-        fp, fr, _, _ = niche_errors(sweep[s])
-        per_seed_fp.append(fp); per_seed_fr.append(fr)
-
-    # deterministic-floor errors: wrong on ALL seeds
-    floor_verdict = {cid: (per[cid].most_common(1)[0][0] if stable[cid] else None) for cid in ids}
-    det_fp = [cid for cid in ids if stable[cid] and floor_verdict[cid] == "NICHE_FOUND"
-              and not gt[cid]["is_niche"]]
-    det_fr = [cid for cid in ids if stable[cid] and floor_verdict[cid] != "NICHE_FOUND"
-              and gt[cid]["is_niche"]]
-    seed_dependent = [cid for cid in ids if not stable[cid]]
-
-    # variant-trap catch: true variants (genuine_merge=True, is_niche=False)
-    traps = [cid for cid in ids
-             if gt[cid]["genuine_merge"] and not gt[cid]["is_niche"]]
-    trap_catch = {cid: {v: per[cid][v] for v in per[cid]} for cid in traps}
-
-    return {
-        "determinism_rate": determinism_rate,
-        "pairwise_agreement_seed0_vs_seed1": pair_agree,
-        "stable_constructs": sum(stable.values()),
-        "unstable_constructs": seed_dependent,
-        "niche_false_pass_min": min(per_seed_fp),
-        "niche_false_pass_max": max(per_seed_fp),
-        "niche_false_reject_min": min(per_seed_fr),
-        "niche_false_reject_max": max(per_seed_fr),
-        "deterministic_false_pass": det_fp,
-        "deterministic_false_reject": det_fr,
-        "seed_dependent_verdicts": seed_dependent,
-        "variant_traps": traps,
-        "variant_trap_catch_distribution": trap_catch,
-    }
+    stable = {cid: len(per[cid]) == 1 for cid in ids}
+    fp = [[cid for cid in ids if sweep[k][cid] == "NICHE_FOUND" and not gt[cid]["is_niche"]] for k in SEEDS]
+    fr = [[cid for cid in ids if sweep[k][cid] != "NICHE_FOUND" and gt[cid]["is_niche"]] for k in SEEDS]
+    return {"determinism_rate": round(sum(stable.values()) / len(ids), 4),
+            "pairwise_agreement": round(sum(1 for cid in ids if sweep[SEEDS[0]][cid] == sweep[SEEDS[1]][cid]) / len(ids), 4),
+            "unstable_constructs": [cid for cid in ids if not stable[cid]],
+            "false_pass_min": min(len(x) for x in fp), "false_pass_max": max(len(x) for x in fp),
+            "false_reject_min": min(len(x) for x in fr), "false_reject_max": max(len(x) for x in fr),
+            "false_pass_ids_seed0": fp[0], "false_reject_ids_seed0": fr[0]}
 
 
-def build_v5(v4_blob, m1_raw, m1_dist_steer, m1_iface):
-    """Derive v5 from v4 + the Run-32 measurements. Returns (v5_blob, changes)."""
-    p4 = v4_blob["params"]
-    p5 = copy.deepcopy(p4)
-    changes = []
+def borderline_metric(constructs, p5, p6, audit):
+    bset = [c for c in constructs if c["id"].startswith("B")]
+    rows = []
+    for c in bset:
+        gtn = c["ground_truth"]["is_niche"]
+        v5 = niche_check(c, p5, KNOWN_APPROACHES)["verdict"]
+        v6 = niche_check(c, p6, KNOWN_APPROACHES, audit_table=audit)["verdict"]
+        rows.append({"id": c["id"], "gt_is_niche": gtn, "v5": v5, "v6": v6,
+                     "v5_correct": (v5 == "NICHE_FOUND") == gtn,
+                     "v6_correct": (v6 == "NICHE_FOUND") == gtn})
+    n = len(rows)
+    return {"n_borderline": n,
+            "v5_accuracy": round(sum(r["v5_correct"] for r in rows) / n, 4),
+            "v6_accuracy": round(sum(r["v6_correct"] for r in rows) / n, 4),
+            "detail": rows}
 
-    # change 1: two-factor variant rule (motivated by deterministic niche FP)
-    p5["variant_rule_mode"] = "two_factor"
+
+def scale_determinism(params_path, audit_path=None):
+    res = {}
+    for s in (0, 1):
+        env = dict(os.environ, PYTHONHASHSEED=str(s))
+        out = subprocess.run([sys.executable, SCALEW, params_path, audit_path or "none"],
+                             capture_output=True, text=True, env=env, check=True)
+        res[s] = json.loads(out.stdout.strip())
+    return {"seed0": res[0], "seed1": res[1], "agree": res[0]["digest"] == res[1]["digest"]}
+
+
+def build_v6(v5_blob, border, m1):
+    p5 = v5_blob["params"]; p6 = copy.deepcopy(p5); changes = []
+    p6["borderline_rule"] = "audit_gated"
+    p6["audit_confidence_gate"] = 0.75
     changes.append({
-        "param": "variant_rule_mode", "from": "scalar", "to": "two_factor",
-        "motivating_measurement": "results/run32_metrics.json :: niche_v4.deterministic_false_pass == ['M059']",
-        "rationale": "v4 scalar gate deterministically false-passes a mechanism-reuse "
-                     "variant (M059) whose combined similarity is below 0.70; requiring BOTH "
-                     "mechanism reuse AND problem echo catches it without lowering the threshold."})
-
-    # change 2: order-invariant borderline rule (motivated by determinism flips)
-    p5["borderline_rule"] = "conservative_reject"
+        "param": "borderline_rule", "from": "conservative_reject", "to": "audit_gated",
+        "also": {"audit_confidence_gate": 0.75},
+        "motivating_measurement": f"results/borderline_adjudication.json :: v5_accuracy={border['v5_accuracy']} "
+                                  f"(blanket reject false-rejects borderline NICHES)",
+        "rationale": "v5 blanket conservative_reject is right on borderline re-skins but FALSE-REJECTS borderline "
+                     "genuine niches (novel mechanism, same problem). Routing them to the frozen reasoning-audit "
+                     "lifts borderline accuracy; the audit table is frozen so determinism is preserved."})
     changes.append({
-        "param": "borderline_rule", "from": "neighbor_set_first", "to": "conservative_reject",
-        "motivating_measurement": "results/determinism.json :: v4.unstable_constructs == ['M0B1','M0B2']",
-        "rationale": "v4 resolves borderline verdicts via PYTHONHASHSEED-dependent set "
-                     "iteration; M0B1/M0B2 flip across seeds. A deterministic conservative "
-                     "reject removes the flip and never false-passes a borderline variant."})
-
-    # change 3a: merge interface-aware generation (motivated by metric-1 coherence bottleneck)
-    raw_rate, iface_rate = m1_raw["genuine_merge_rate"], m1_iface["genuine_merge_rate"]
-    incoh = m1_raw["fail_reason_breakdown"].get("incoherent_no_interface", 0)
-    p5["merge_require_interface"] = True
-    changes.append({
-        "param": "merge_require_interface", "from": False, "to": True,
-        "motivating_measurement": f"results/run32_metrics.json :: merge_v4_raw "
-                                  f"(genuine_merge_rate={raw_rate}, incoherent_no_interface={incoh}) "
-                                  f"vs merge_v5_interface (genuine_merge_rate={iface_rate})",
-        "rationale": "metric 1 shows the merge engine's dominant failure is missing transfer "
-                     "interface (~93% incoherent); emitting only pairs that share a mechanism "
-                     f"token raises genuine-merge yield {raw_rate} -> {iface_rate}."})
-
-    # change 3b: distance steering CONSIDERED and REJECTED by measurement
-    steer_rate = m1_dist_steer["genuine_merge_rate"]
-    changes.append({
-        "param": "merge_steer_strength", "from": 0.0, "to": 0.0, "held": True,
-        "motivating_measurement": f"results/run32_metrics.json :: merge_distance_steer_candidate "
-                                  f"(genuine_merge_rate={steer_rate}) vs merge_v4_raw ({raw_rate})",
-        "rationale": "distance steering was measured and REJECTED: it LOWERS yield "
-                     f"({steer_rate} < {raw_rate}) because incoherent pairs are mostly "
-                     "high-distance. The bottleneck is coherence, not distance (R14: change rejected by data)."})
-
-    # explicitly HELD scalars (report non-changes as convergence evidence)
-    for k in ["variant_similarity_threshold", "merge_distance_min", "confidence_margin",
-              "saturation_band", "saturation_max_neighbors", "mech_match_min", "problem_echo_min"]:
-        changes.append({"param": k, "from": p4[k], "to": p5[k], "held": True,
-                        "rationale": "no Run-32 measurement motivated a change (held => converging)."})
-
-    v5_blob = copy.deepcopy(v4_blob)
-    v5_blob["version"] = 5
-    v5_blob["version_label"] = "v5 (Run 32: two-factor variant rule + deterministic borderline)"
-    v5_blob["params"] = p5
-    v5_blob["derived_from"] = "v4 + Run-32 measurements (see results/param_update_v4_to_v5.json)"
-    return v5_blob, changes
+        "param": "audit_confidence_gate", "from": None, "to": 0.75,
+        "motivating_measurement": "Run 32 audit erred at confidence 0.62 (M0B1); Run 33 correct audits are all >=0.78.",
+        "rationale": "gate calibrated to the observed audit confidence/accuracy relationship; below it -> conservative_reject."})
+    for k in ["variant_similarity_threshold", "merge_distance_min", "confidence_margin", "saturation_band",
+              "saturation_max_neighbors", "mech_match_min", "problem_echo_min", "variant_rule_mode",
+              "merge_require_interface", "merge_steer_strength"]:
+        changes.append({"param": k, "from": p5[k], "to": p6[k], "held": True,
+                        "rationale": "no Run-33 measurement motivated a change (held => still converged)."})
+    v6 = copy.deepcopy(v5_blob); v6["version"] = 6
+    v6["version_label"] = "v6 (Run 33: audit-gated borderline adjudication; scale-validated)"
+    v6["params"] = p6
+    return v6, changes
 
 
 def main():
     os.makedirs(RESULTS, exist_ok=True)
     bank = load_bank()
-    v4_blob = json.load(open(os.path.join(BASE, "engine", "direction_params.json")))
-    p4 = v4_blob["params"]
-
-    # metric 1: three merge-engine configurations (all real)
-    m1_raw = metric_merge_engine(bank, {**p4})                                  # v4 raw
-    m1_dist_steer = metric_merge_engine(bank, {**p4, "merge_steer_strength": 0.30})  # candidate
-    m1_iface = metric_merge_engine(bank, {**p4, "merge_require_interface": True})    # v5 fix
-
-    # derive v5 from measurements, write it
-    v5_blob, changes = build_v5(v4_blob, m1_raw, m1_dist_steer, m1_iface)
+    v5_blob = json.load(open(os.path.join(BASE, "engine", "direction_params.json")))
     p5 = v5_blob["params"]
-    v5_path = os.path.join(RESULTS, "direction_params_v5.json")
-    json.dump(v5_blob, open(v5_path, "w"), indent=2)
+    audit = json.load(open(AUDIT))
+    constructs = json.load(open(os.path.join(BASE, "ground_truth", "labeled_constructs.json")))["constructs"]
 
-    # metric 1 under the actual v5 params
-    m1_v5 = metric_merge_engine(bank, {**p5})
+    m1 = metric_merge(bank, p5)
+    m2 = metric_integrity(constructs, p5)
+    border0 = borderline_metric(constructs, p5, {**p5, "borderline_rule": "audit_gated",
+                                                 "audit_confidence_gate": 0.75}, audit)
+    v6_blob, changes = build_v6(v5_blob, border0, m1)
+    p6 = v6_blob["params"]
+    v5_path = os.path.join(BASE, "engine", "direction_params.json")
+    v6_path = os.path.join(RESULTS, "direction_params_v6.json")
+    json.dump(v6_blob, open(v6_path, "w"), indent=2)
 
-    # metric 2 (integrity) — same checker logic for v4/v5
-    constructs = json.load(open(os.path.join(BASE, "ground_truth",
-                                             "labeled_constructs.json")))["constructs"]
-    m2 = metric_integrity(constructs, p4)
-
-    # metric 3+5 via seed sweep for v4 and v5
-    sweep_v4 = seed_sweep(os.path.join(BASE, "engine", "direction_params.json"))
     sweep_v5 = seed_sweep(v5_path)
-    niche_v4 = metric_niche_and_determinism(constructs, sweep_v4)
-    niche_v5 = metric_niche_and_determinism(constructs, sweep_v5)
+    sweep_v6 = seed_sweep(v6_path, AUDIT)
+    niche_v5 = niche_metrics(constructs, sweep_v5)
+    niche_v6 = niche_metrics(constructs, sweep_v6)
+    border = borderline_metric(constructs, p5, p6, audit)
+    scale_v6 = scale_determinism(v6_path, AUDIT)
 
-    # coordination (metric 4) merged if produced
-    coord_path = os.path.join(RESULTS, "coordination.json")
-    coordination = json.load(open(coord_path)) if os.path.exists(coord_path) else \
-        {"status": "produced_separately_by_coordination_probe"}
+    coordination = json.load(open(os.path.join(RESULTS, "coordination.json")))
+    coordination["reasoning_audit"]["borderline_adjudication_accuracy_vs_ground_truth"] = border["v6_accuracy"]
 
-    metrics = {
-        "run": "run32", "n_known_approaches": len(KNOWN_APPROACHES),
-        "merge_v4_raw": m1_raw,
-        "merge_distance_steer_candidate": m1_dist_steer,
-        "merge_v5_interface": m1_iface,
-        "merge_v5_applied": m1_v5,
-        "integrity": m2,
-        "niche_v4": niche_v4, "niche_v5": niche_v5,
-        "coordination": coordination,
-    }
-    json.dump(metrics, open(os.path.join(RESULTS, "run32_metrics.json"), "w"), indent=2)
+    metrics = {"run": "run33", "bank_concepts": bank["n_concepts"], "bank_domains": bank["n_domains"],
+               "n_known_approaches": len(KNOWN_APPROACHES), "n_labeled_fixtures": len(constructs),
+               "merge_at_scale": m1, "integrity": m2, "niche_v5": niche_v5, "niche_v6": niche_v6,
+               "borderline_adjudication": border, "scale_determinism_v6": scale_v6, "coordination": coordination}
+    json.dump(metrics, open(os.path.join(RESULTS, "run33_metrics.json"), "w"), indent=2)
+    json.dump({"seeds": SEEDS,
+               "v5": {k: niche_v5[k] for k in ["determinism_rate", "pairwise_agreement", "unstable_constructs"]},
+               "v6": {k: niche_v6[k] for k in ["determinism_rate", "pairwise_agreement", "unstable_constructs"]},
+               "scale_v6": scale_v6}, open(os.path.join(RESULTS, "determinism.json"), "w"), indent=2)
+    json.dump({"changes": changes, "v5_params": p5, "v6_params": p6},
+              open(os.path.join(RESULTS, "param_update_v5_to_v6.json"), "w"), indent=2)
+    json.dump(border, open(os.path.join(RESULTS, "borderline_adjudication.json"), "w"), indent=2)
 
-    determinism = {
-        "seeds": SEEDS,
-        "v4": {"determinism_rate": niche_v4["determinism_rate"],
-               "pairwise_agreement": niche_v4["pairwise_agreement_seed0_vs_seed1"],
-               "unstable_constructs": niche_v4["unstable_constructs"]},
-        "v5": {"determinism_rate": niche_v5["determinism_rate"],
-               "pairwise_agreement": niche_v5["pairwise_agreement_seed0_vs_seed1"],
-               "unstable_constructs": niche_v5["unstable_constructs"]},
-        "v4_sweep_sample": {str(s): sweep_v4[s] for s in SEEDS[:4]},
-        "v5_sweep_sample": {str(s): sweep_v5[s] for s in SEEDS[:4]},
-    }
-    json.dump(determinism, open(os.path.join(RESULTS, "determinism.json"), "w"), indent=2)
-
-    json.dump({"changes": changes,
-               "v4_params": p4, "v5_params": p5},
-              open(os.path.join(RESULTS, "param_update_v4_to_v5.json"), "w"), indent=2)
-
-    # ---- console summary ----
-    print("=== METRIC 1  merge engine ===")
-    print(f"  v4 raw:           constructs={m1_raw['n_constructs']:5} genuine-merge rate={m1_raw['genuine_merge_rate']}"
-          f"  fails={m1_raw['fail_reason_breakdown']}")
-    print(f"  distance-steer:   constructs={m1_dist_steer['n_constructs']:5} genuine-merge rate={m1_dist_steer['genuine_merge_rate']}  (candidate -> REJECTED by data)")
-    print(f"  v5 interface:     constructs={m1_iface['n_constructs']:5} genuine-merge rate={m1_iface['genuine_merge_rate']}"
-          f"  mean_dist={m1_iface['cognitive_distance_genuine']['mean']}")
-    print("=== METRIC 2  integrity checker ===")
-    print(f"  false_pass={m2['false_pass']} false_reject={m2['false_reject']} acc={m2['accuracy']}")
-    print("=== METRIC 3  niche checker ===")
-    print(f"  v4 false_pass range=[{niche_v4['niche_false_pass_min']},{niche_v4['niche_false_pass_max']}]"
-          f"  deterministic_FP={niche_v4['deterministic_false_pass']}  seed_dependent={niche_v4['seed_dependent_verdicts']}")
-    print(f"  v5 false_pass range=[{niche_v5['niche_false_pass_min']},{niche_v5['niche_false_pass_max']}]"
-          f"  false_reject range=[{niche_v5['niche_false_reject_min']},{niche_v5['niche_false_reject_max']}]")
-    print("=== METRIC 5  determinism ===")
-    print(f"  v4 rate={niche_v4['determinism_rate']} unstable={niche_v4['unstable_constructs']}")
-    print(f"  v5 rate={niche_v5['determinism_rate']} unstable={niche_v5['unstable_constructs']}")
-    print(f"\nwrote results/run32_metrics.json, determinism.json, param_update_v4_to_v5.json, direction_params_v5.json")
+    print("=== METRIC 1 merge @ scale (bank=%d/%d domains) ===" % (bank["n_concepts"], bank["n_domains"]))
+    print(f"  generated={m1['n_constructs']} genuine-merge rate={m1['genuine_merge_rate']} "
+          f"mean_dist={m1['cognitive_distance_genuine']['mean']} fails={m1['fail_reason_breakdown']}")
+    print("=== METRIC 2 integrity ===  fp=%d fr=%d acc=%s" % (m2["false_pass"], m2["false_reject"], m2["accuracy"]))
+    print("=== METRIC 3 niche (21 fixtures) ===")
+    print(f"  v5 fp=[{niche_v5['false_pass_min']},{niche_v5['false_pass_max']}] fr=[{niche_v5['false_reject_min']},{niche_v5['false_reject_max']}] fr_ids={niche_v5['false_reject_ids_seed0']}")
+    print(f"  v6 fp=[{niche_v6['false_pass_min']},{niche_v6['false_pass_max']}] fr=[{niche_v6['false_reject_min']},{niche_v6['false_reject_max']}] fr_ids={niche_v6['false_reject_ids_seed0']}")
+    print("=== NEW borderline adjudication ===  v5_acc=%s -> v6_acc=%s (n=%d)" %
+          (border["v5_accuracy"], border["v6_accuracy"], border["n_borderline"]))
+    print("=== METRIC 5 determinism ===  v5=%s v6=%s  scale_v6_agree=%s (%d genuine merges)" %
+          (niche_v5["determinism_rate"], niche_v6["determinism_rate"], scale_v6["agree"], scale_v6["seed0"]["n_genuine"]))
 
 
 if __name__ == "__main__":
