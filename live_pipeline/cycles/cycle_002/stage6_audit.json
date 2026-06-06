@@ -1,0 +1,32 @@
+{
+  "stage": 6,
+  "name": "reasoning audit (final adjudication)",
+  "cycle": 2,
+  "auditor_model": "opus",
+  "auditors": 2,
+  "niche_audited": "c2-G4-2 (LoadTightening AutoTTS)",
+  "AUD1_adversarial": {
+    "verdict": "NICHE_CONFIRMED_WITH_CAVEATS",
+    "strongest_rejection_case": "The monotone-hardening invariant is in DIRECT TENSION with inverse-scaling/entropy-trajectory evidence (2507.14417, 2506.04210): more compute can degrade reasoning and recovery often needs NON-monotone correction, which a hard monotone rule forbids -> may optimize a property anti-correlated with accuracy.",
+    "novelty_caveat": "Enforced compute-monotonicity is NeurIPS-2023 prior art (2306.02652, Product-of-Experts) in early-exit nets; the true gap is narrower (synthesis-time controller-threshold monotonicity in an LLM-agent loop) -> Stage-4 med-conf too generous, should be low-med.",
+    "provable_overclaim": "'Provable' is honest ONLY as a code-structure invariant (threshold function monotone), NOT system behavior on a stochastic controller.",
+    "kigumi_transfer": "DECORATIVE, not load-bearing: the technical claim stands verbatim with zero reference to joinery; Kigumi tightening is passive/beneficial whereas the imposed monotone constraint is plausibly harmful.",
+    "citation_defect": "Stage-5's cited closest collision arXiv:2603.20537 does NOT resolve in arXiv search (likely a checker self-hallucination); NO_COLLISION still stands via verifiable neighbor 2306.02652."
+  },
+  "AUD2_holistic": {
+    "verdict": "NICHE_CONFIRMED_WITH_CAVEATS",
+    "pipeline_did_real_filtering": true,
+    "filtering_evidence": "36->1 distributed mortality (8->5->1); Stage 3 caught a FALSE ATTRIBUTION (G3-1 mis-described PARD as dual-head) via redundant cover; Stage 4 binding gate killed 4/5 unanimously incl. all 3 tie-break recoveries citing CLOSER/more-recent prior art than Stage 3 (L-MTP, PosS, REINFORCE++, adaptive-decay); unprompted self-criticism; consistent with 0-PASS lineage. No rubber-stamp.",
+    "new_mechanisms": {
+      "r11_ml_x_life": "WORKED at fetch+verify (0 fabrications; 6/24 embellishments + 2 hooks debunked at Stage 1) BUT realized breadth << fetched breadth: merge agents collapsed 24 life concepts to 5 distinct (Etak x3, Kigumi x2).",
+      "analogy_collapse_probe": "CLEAR WIN — dominant, discriminating drop reason ('reduces to a named ML method'); the main integrity discriminator.",
+      "tiebreak": "NET ZERO-TO-NEGATIVE — recovered 3 merges that ALL died at Stage 4; changed no final output; 3/3 pro-genuine bias. Keep as a diagnostic (proved integrity!=niche), but not yet a net-positive filter; needs 2-agent tie-break or mandatory re-derivation of the claimed reduction.",
+      "ev_gate": "NECESSARY/load-bearing — the only mechanism preventing manufactured-survivor inflation; correctly routes G4-2 to SEED_ONLY. (Execution deferred to the Stage-7 agent.)"
+    },
+    "most_important_niche_weakness": "The hard monotonicity constraint may be ACTIVELY harmful (entropy-trajectory 2603.18940: non-monotone chains 46.8% vs monotone 68.8%, -21.9pts); narrow margin over AutoTTS beta-monotonicity; 'provable' binds code not the stochastic system. Realistic ceiling = hard-problem tail-variance reduction, possibly at an accuracy cost.",
+    "most_important_pipeline_weakness": "Single-ML-axis saturation fragility: every cycle-2 ML concept sat in a crowded fast-moving subarea, so 4/5 Stage-3 survivors collapsed at Stage 4 to very recent prior art; yield is gated by whether Stage 1 fetches ML in a less-saturated corner (no whitespace-steering), while the life/culture novelty engine is throttled to ~5 concepts by merge over-concentration. Net hit rate ~ base rate."
+  },
+  "consensus_verdict": "NICHE_CONFIRMED_WITH_CAVEATS",
+  "consensus_note": "Both Opus auditors independently agree. G4-2 is a genuine, no-fatal-collision, honestly-open niche but MARGINAL: a SEED at best, carrying a real (possibly disqualifying) accuracy risk, with the life/culture (Kigumi) axis judged decorative and 'provable' scoped to code not behavior. Pipeline filtered for real; 2 of 4 new mechanisms (analogy-collapse probe, EV gate) earned their keep; R11 leaked breadth; tie-break was a net wash.",
+  "feeds_stage7": "EV-gate expectation = SEED_ONLY; AUD1/AUD2 both flag a viability-grade accuracy risk that the Stage-7 agent must weigh (could push to NOT_VIABLE)."
+}
