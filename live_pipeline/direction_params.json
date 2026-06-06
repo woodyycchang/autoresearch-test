@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "pipeline": "live-fetch-niche-finder",
+  "principle": "NO pre-stored banks; live encyclopedia fetch only; maximum parallel tool-using agents; separate checker agents at every step; search = integrity check not novelty gate.",
+  "cycle": 0,
+  "params": {
+    "stage1_fetch_agents": 6,
+    "stage1_knowledge_branches": [
+      "condensed-matter-physics-and-materials",
+      "molecular-biology-and-biochemistry",
+      "pure-mathematics-and-category-theory",
+      "economics-mechanism-design-and-game-theory",
+      "neuroscience-and-cognitive-science",
+      "newest-ML-techniques-last-1-6-months"
+    ],
+    "stage1_min_websearch_per_agent": 2,
+    "stage1_concepts_per_agent": 3,
+    "stage1_checker_agents": 2,
+    "stage1_url_verify_fraction": 1.0,
+    "stage2_merge_agents": 4,
+    "stage2_triples_per_agent": 2,
+    "stage2_require_cross_branch": true,
+    "stage3_integrity_checkers": 4,
+    "stage3_redundancy_per_merge": 2,
+    "stage3_collision_reject_threshold": 1,
+    "stage4_niche_agents": 3,
+    "stage4_reject_trivial_variants": true,
+    "stage5_value_agents": 3,
+    "stage5_priorart_min_searches": 2,
+    "stage6_audit_model": "opus",
+    "novelty_gate_is_integrity_not_filter": true
+  },
+  "convergence": {
+    "target": "production-ready",
+    "fabrication_rate_caught_target": 0.0,
+    "stage_survival_curve": [],
+    "notes": "Algorithm-improvement is the evaluated quantity, not niche count (R9)."
+  },
+  "metrics_history": [],
+  "update_log": [
+    {
+      "cycle": 0,
+      "action": "initialize",
+      "rationale": "Cold start. Default params chosen for a generous-but-bounded fan-out: 6 knowledge branches (broad human-knowledge coverage + 1 newest-ML branch), redundancy 2 at the integrity stage where fabrication risk is highest. Counts are tunable and intended to scale up as cost budget allows."
+    }
+  ]
+}
