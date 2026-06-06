@@ -1,0 +1,30 @@
+{
+  "stage": 3,
+  "name": "integrity-check",
+  "cycle": 1,
+  "checker_agents": 8,
+  "design": "2-cover: every merge independently judged by 2 checkers; GENUINE only if both agree. Anti-fabrication gate, NOT a novelty gate (R6).",
+  "per_merge": [
+    {"id": "M1-T1", "cover": [{"checker": "K1", "verdict": "GENUINE_MERGE", "conf": "high"}, {"checker": "K5", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}], "result": "DROP_DISAGREEMENT", "reason": "K5: iGRPO is iterative/revisable, has no irreversible 'commit'; Beck monadicity is about coequalizers, not staged gating -> unifier mischaracterizes 2 of 3 components."},
+    {"id": "M1-T2", "cover": [{"checker": "K2", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}, {"checker": "K6", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}], "result": "DROP_HALLUCINATED", "reason": "Both: coend does not DERIVE dynamin's cooperativity threshold (26 subunits is real structural-biology geometry, cited post-hoc); DART pruning is N-gram, not a coend selector. Mechanism is a category-theory pun."},
+    {"id": "M2-T1", "cover": [{"checker": "K1", "verdict": "GENUINE_MERGE", "conf": "med"}, {"checker": "K7", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}], "result": "DROP_DISAGREEMENT", "reason": "K7: Kohn anomaly is single-particle Lindhard screening with NO game-theoretic externality; labeling it 'externality-gated' borrows VCG vocabulary for an absent mechanism."},
+    {"id": "M2-T2", "cover": [{"checker": "K2", "verdict": "GENUINE_MERGE", "conf": "med-high"}, {"checker": "K8", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}], "result": "DROP_DISAGREEMENT", "reason": "K8: Rashba spin-momentum chirality has no formal isomorphism to STDP temporal asymmetry; 'chirality coefficient' is undefined in STDP; conflates a coupling constant with a preference-ranking condition."},
+    {"id": "M3-T1", "cover": [{"checker": "K5", "verdict": "GENUINE_MERGE", "conf": "med"}, {"checker": "K3", "verdict": "GENUINE_MERGE", "conf": "high"}], "result": "SURVIVE", "reason": "Both: components accurate (QUEST 2604.00199, Kohn 2k_F, hexagonal grid reciprocal lattice); shared 'privileged reciprocal-space shell' is geometrically grounded across all three; GridPE is closest prior art but lacks the Kohn/2k_F + QUEST dimensions. Genuinely uncombined."},
+    {"id": "M3-T2", "cover": [{"checker": "K4", "verdict": "GENUINE_MERGE", "conf": "high"}, {"checker": "K6", "verdict": "HALLUCINATED_MECHANISM", "conf": "high"}], "result": "DROP_DISAGREEMENT", "reason": "K6: iGRPO has NO ~20x fast/slow dual-head; its Stage-2 refinement is slower, not faster -> the 'two-velocity' mapping factually misstates iGRPO's architecture."},
+    {"id": "M4-T1", "cover": [{"checker": "K7", "verdict": "GENUINE_MERGE", "conf": "med"}, {"checker": "K3", "verdict": "GENUINE_MERGE", "conf": "med"}], "result": "SURVIVE", "reason": "Both: components accurate (Beck split-coequalizers, Cas9 R->I->D checkpoint, VCG Clarke pivot); 'sequential conditions before irreversible commit' is at least structurally present in all three; no prior art for the triple. Both flag the abstract bridge as the weakest link (medium confidence)."},
+    {"id": "M4-T2", "cover": [{"checker": "K4", "verdict": "GENUINE_MERGE", "conf": "high"}, {"checker": "K8", "verdict": "GENUINE_MERGE", "conf": "med"}], "result": "SURVIVE", "reason": "Both: components accurate (Myerson-Satterthwaite, E1-E2-E3 ATP cost, Grothendieck fibration); 'indexed-type resource impossibility under hidden fiber data' is coherent (hidden substrate identity = private type; ATP deficit = budget deficit); no prior combination."}
+  ],
+  "survivors": ["M3-T1", "M4-T1", "M4-T2"],
+  "dropped": ["M1-T1", "M1-T2", "M2-T1", "M2-T2", "M3-T2"],
+  "metrics": {
+    "merges_in": 8,
+    "independent_checks": 16,
+    "survivors_unanimous_genuine": 3,
+    "dropped_unanimous_hallucinated": 1,
+    "dropped_on_disagreement": 4,
+    "disagreement_rate": 0.50,
+    "redundancy_flips": 4,
+    "redundancy_flip_note": "M1-T1, M2-T1, M2-T2, M3-T2 were each rated GENUINE by their first checker and caught only by the second. Without the 2-cover, the pass set would have been 7/8; with it, 3/8 -> redundancy removed ~57% of first-look passes. Direct empirical support for R3/R10 (hallucination reduction via redundant cross-check)."
+  },
+  "meta_integrity_caution": "Two checkers (K1, K6) cited recent arXiv IDs as 'closest prior art' near-misses (2603.08239 'Fibration Policy Optimization'; 2510.04072 'Slow-Fast Policy Optimization') that were NOT independently re-verified and may themselves be checker hallucinations. They were not load-bearing (used only to argue 'not a collision'), but this exposes a residual fabrication vector: checkers must verify their own cited near-miss IDs. Folded into direction_params for next cycle."
+}
