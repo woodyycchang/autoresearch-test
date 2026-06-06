@@ -1,0 +1,21 @@
+{
+  "stage": 1,
+  "check": "url-integrity / anti-fabrication",
+  "cycle": 1,
+  "checker_agents": 4,
+  "redundancy_on_highest_risk_branch": "B6 (recent ML arXiv) double-checked by C3 + C4 independently",
+  "method_note": "WebFetch was HTTP-403 blocked on EVERY domain (wikipedia.org, ncatlab.org, biorxiv.org, arxiv.org all bot-block direct fetch). Verification therefore fell back to independent WebSearch confirmation that each URL exists and matches the claimed topic/title. For the recent arXiv papers, two independent checkers cross-validated titles AND author lists.",
+  "results": {
+    "total_urls": 18,
+    "verified": 3,
+    "verified_via_search": 15,
+    "mismatch": 0,
+    "unresolvable": 0,
+    "fabrications_detected": 0
+  },
+  "cross_validation_highlight": "C3 and C4 independently recovered identical author lists for all three recent arXiv IDs (QUEST: Govindarajan et al.; DART: Liu et al.; iGRPO: Hatamizadeh et al.). Author-level agreement across two independent agents is strong evidence the recent IDs are genuine, not hallucinated.",
+  "metadata_corrections": [
+    {"id": "B6-C1", "field": "approx_month", "from": "2026-03", "to": "2026-04", "reason": "arXiv ID 2604 encodes April-2026 announcement; paper submitted Mar 31 2026. Flagged MONTH_INCONSISTENT by C3, confirmed VERIFIED by C4. Not a fabrication."}
+  ],
+  "verdict": "PASS — 18/18 concepts integrity-verified, 0 fabrications. Concepts proceed to Stage 2."
+}
