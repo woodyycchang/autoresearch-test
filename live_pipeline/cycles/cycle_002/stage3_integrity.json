@@ -1,0 +1,35 @@
+{
+  "stage": 3,
+  "name": "integrity check (2-cover + analogy-collapse probe + tie-break)",
+  "cycle": 2,
+  "base_checkers": 8,
+  "tiebreakers": 3,
+  "new_params_active": ["stage3_include_analogy_collapse_probe", "stage3_tiebreak_on_disagreement", "checker_must_verify_own_cited_ids"],
+  "per_merge": [
+    {"id": "c2-G1-1", "name": "Coppice-GA", "base": [{"K1": "GENUINE"}, {"K8": "REJECT (reduces to fitness-duration aging)"}], "tiebreak": {"TB-G1-1": "TIEBREAK_GENUINE"}, "result": "SURVIVE", "reason": "Tie-break (Opus): dominance-tenure trigger (rank-1 for K gens) needs a per-individual streak counter that age-based lifespan can't express; not reducible to APGA/Regularized Evolution/clearing/stagnation. K8's 'inverse-APGA' reduction conflated age with tenure.", "caveat": "novelty is in the trigger condition; the exclusion action is ordinary"},
+    {"id": "c2-G1-2", "name": "EtakLR", "base": [{"K1": "REJECT"}, {"K5": "REJECT"}], "result": "DROP", "reason": "Unanimous: reduces to SALR (2011.05348)/CDAT (2407.06183) sharpness-adaptive LR; also misattributes the cited paper's phase mechanism (offline task-parameter-indexed, not online curvature)."},
+    {"id": "c2-G2-1", "name": "Adaptive-Fenwick", "base": [{"K2": "REJECT (reduces to H-Net)"}, {"K5": "WEAK_ACCEPT"}], "tiebreak": {"TB-G2-1": "TIEBREAK_GENUINE"}, "result": "SURVIVE", "reason": "Tie-break (Opus): content-gated Fenwick LEVEL-promotion differs from H-Net (flat fixed-depth chunking) and adaptive-decay 2605.06946 (re-weights fixed buckets); cosine-sim is a shared primitive not a shared method. K2's 'decorative shell' claim is false.", "caveat": "content-adaptive promotion may break the O(log T) recurrence — feasibility risk to defend, not an integrity fail"},
+    {"id": "c2-G2-2", "name": "Kigumi-VLA", "base": [{"K2": "REJECT"}, {"K6": "REJECT (components_ok=false)"}], "result": "DROP", "reason": "Unanimous: the scalar penalty lambda_t∝||S_t||_F reduces to norm-based forget gating (Titans 2501.00663 / GLA / Mamba) AND misrepresents VLA's actual matrix-valued (Sherman-Morrison) mechanism."},
+    {"id": "c2-G3-1", "name": "Kotekan Dual-Head Drafting", "base": [{"K3": "CONDITIONAL (genuine-thin)"}, {"K6": "REJECT (false attribution to PARD)"}], "tiebreak": {"TB-G3-1": "TIEBREAK_GENUINE"}, "result": "SURVIVE", "reason": "Tie-break (Opus): PARD IS single-model (K6's fact correct), but the even/odd parity-partition is genuinely unclaimed (vs Medusa/EAGLE/Hydra/PARD-2) and buildable (COD supports arbitrary offset masks); the misframing is a fixable description error, not a fabricated mechanism.", "caveat": "MUST reword: 'PARD currently uses a single COD draft; we extend with two complementary even/odd heads'"},
+    {"id": "c2-G3-2", "name": "Entropy-Gated VeriCache", "base": [{"K3": "REJECT"}, {"K7": "REJECT"}], "result": "DROP", "reason": "Unanimous: reduces to AdaEDL (2410.18351)/SVIP (2411.18462)/SpecDec++ entropy-threshold draft stopping; Etak framing is rhetorical (Etak is continuous dead-reckoning, not threshold-triggered)."},
+    {"id": "c2-G4-1", "name": "Global Advantage Fallow", "base": [{"K4": "GENUINE (borderline)"}, {"K7": "GENUINE"}], "result": "SURVIVE", "reason": "Both: synchronized freeze-pool-refit-resume across ALL rollout streams maps structurally to Subak landscape-scale simultaneous fallow; not fully reducible to REINFORCE++ global normalization (which is inline per-update, no synchronized freeze).", "caveat": "narrow margin vs REINFORCE++ (2501.03262) global advantage normalization — must differentiate"},
+    {"id": "c2-G4-2", "name": "LoadTightening AutoTTS", "base": [{"K4": "GENUINE"}, {"K8": "GENUINE"}], "result": "SURVIVE", "reason": "Both: a verifiable CODE-STRUCTURE invariant (stop/prune thresholds provably monotone in accumulated compute) is distinct from AutoTTS's empirical beta-convention and from policy-level/early-exit heuristics."}
+  ],
+  "survivors": ["c2-G1-1", "c2-G2-1", "c2-G3-1", "c2-G4-1", "c2-G4-2"],
+  "dropped": ["c2-G1-2", "c2-G2-2", "c2-G3-2"],
+  "metrics": {
+    "merges_in": 8,
+    "base_checks": 16,
+    "tiebreak_checks": 3,
+    "survivors": 5,
+    "dropped_unanimous_reduces_to_existing": 3,
+    "base_disagreement_rate": 0.375,
+    "tiebreaks_triggered": 3,
+    "tiebreaks_resolved_genuine": 3,
+    "tiebreaks_recovered_merges": ["c2-G1-1", "c2-G2-1", "c2-G3-1"],
+    "dominant_drop_reason": "reduces-to-existing-named-ML-method (analogy-collapse probe) — a cleaner, more discriminating failure mode than cycle-1's physics-puns",
+    "false_attribution_caught": "G3-1 (merge claimed PARD has dual heads; PARD is single-model) — caught by redundant cover K6",
+    "key_finding": "All 3 tie-breaks resolved GENUINE, and in each the Opus adjudicator found the REJECTING checker's reduction was factually wrong (age!=rank-tenure; flat-chunk!=Fenwick-level-promotion; misattribution-fixable!=fabricated). The tie-break param improved filtering ACCURACY (recovered true positives the 2-cover auto-drop would have lost), not merely recall.",
+    "meta_caution": "3/3 tie-breaks toward GENUINE could indicate a tie-breaker pro-genuine bias. Queued for params: consider a 2-agent tie-break, or require the tie-breaker to independently RE-DERIVE the claimed reduction before overturning it. The downstream niche/value/EV-gate/viability stages remain the safety net."
+  }
+}
