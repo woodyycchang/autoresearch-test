@@ -1,0 +1,20 @@
+{
+  "stage": 5,
+  "name": "value + prior-art / competitiveness",
+  "cycle": 2,
+  "survivor_assessed": "c2-G4-2 (LoadTightening AutoTTS)",
+  "agents": 4,
+  "prior_art_done_already": {
+    "P1": {"collision_class": "NO_COLLISION", "queries": 22, "closest": "LLM-Driven Heuristic Synthesis for hot steel rolling (2603.20537) — post-hoc monotonicity audit, industrial domain"},
+    "P2": {"collision_class": "NO_COLLISION", "queries": 22, "closest": "AutoTTS itself (2605.08083) informal beta-monotonicity; SEVerA (2603.25111) general-correctness verified synthesis"},
+    "consensus": "NO_COLLISION (unanimous, two independent ~22-query sweeps). The 5-part combination — AutoTTS-style controller synthesis + hard code-structure invariant + monotone-non-decreasing-in-accumulated-compute + stop/prune thresholds + synthesis-time enforcement — has no direct prior art."
+  },
+  "value": {
+    "V1": {"tier": "MODEST_INCREMENTAL", "recommendation": "small_study", "confidence": "med"},
+    "V2": {"tier": "MODEST_INCREMENTAL", "recommendation": "small_study", "confidence": "med"},
+    "consensus": "MODEST_INCREMENTAL (unanimous). Field is hot (TTS controller design, real production demand) and the failure mode (token-efficiency variance, runaway branching) is acknowledged — BUT AutoTTS's beta convention + Confidence-Momentum-Controller's conservative branch-abandonment already capture most of the practical benefit, so the within-episode invariant's gain is confined to hard-problem TAIL variance, not mean performance. V2 flagged a genuine ACCURACY RISK: hard monotonicity blocks the controller from becoming MORE conservative after a confidence collapse (entropy-trajectory work 2603.18940 links non-monotone chains to wrong answers); and 'provable' overstates guarantees (holds over controller code, not the stochastic end-to-end system)."
+  },
+  "result": "PASS Stage 5 — no exact prior-art collision; value modest-incremental.",
+  "ev_gate_expectation": "MODEST_INCREMENTAL < promote-threshold SIGNIFICANT -> EV gate points to SEED_ONLY. Per R9, the terminal EV verdict is rendered by the Stage-7 viability AGENT (not the orchestrator); recorded here only as an expectation.",
+  "competitiveness_summary": "Competitive-with but not clearly-superior-to AutoTTS baseline; primarily adds a GUARANTEE dimension (verifiable within-episode monotonicity) the baselines lack, at the cost of a real over-constraining/accuracy risk. Recommended validation: ablate monotone-constraint vs unconstrained CMC on hard math (AIME); promote only if >~20% token-cost CoV reduction at <1-2% accuracy loss."
+}
