@@ -1,0 +1,24 @@
+{
+  "stage": 4,
+  "name": "niche check (variant-vs-genuine, 2-cover)",
+  "cycle": 2,
+  "niche_checkers": 10,
+  "per_survivor": [
+    {"id": "c2-G1-1", "name": "Coppice-GA", "cover": [{"N1": "TRIVIAL_VARIANT"}, {"N2": "TRIVIAL_VARIANT"}], "result": "DROP", "closest": "Clearing/Stagnation-extinction EC", "reason": "Tenure trigger novel but reactive & thin: by the time it fires, dominant primitives have propagated through offspring via crossover; benching one genome doesn't restore diversity; niching/island methods do more."},
+    {"id": "c2-G2-1", "name": "Adaptive-Fenwick", "cover": [{"N3": "TRIVIAL_VARIANT"}, {"N4": "TRIVIAL_VARIANT"}], "result": "DROP", "closest": "Adaptive Memory Decay for Log-Linear Attention (2605.06946)", "reason": "Content-adaptive TOPOLOGY either collapses back to soft-gating over fixed buckets (~2605.06946) or forfeits the O(log T) scan/hardware efficiency; cosine-routing-paradox (2603.20997) weakens the gate. No win either way."},
+    {"id": "c2-G3-1", "name": "Kotekan Dual-Head Drafting", "cover": [{"N5": "TRIVIAL_VARIANT"}, {"N6": "TRIVIAL_VARIANT"}], "result": "DROP", "closest": "PosS position-specialized drafting (2506.03566) + L-MTP leap-MTP (NeurIPS 2025)", "reason": "Acceptance in spec-decoding is prefix-sequential -> even/odd parity gives no mechanistic gain over contiguous position-splitting (PosS) or stride-2 leap (L-MTP); depth-doubling flows from having 2 heads, not from parity."},
+    {"id": "c2-G4-1", "name": "Global Advantage Fallow", "cover": [{"N7": "TRIVIAL_VARIANT"}, {"N8": "TRIVIAL_VARIANT"}], "result": "DROP", "closest": "REINFORCE++ global advantage normalization (2501.03262)", "reason": "The only novelty is the freeze CADENCE; REINFORCE++ already pools advantages globally inline; no evidence cross-minibatch drift survives that. A higher-cost scheduling variant (idles all rollout workers), against the async-RL engineering direction."},
+    {"id": "c2-G4-2", "name": "LoadTightening AutoTTS", "cover": [{"N9": "GENUINE_NICHE"}, {"N10": "GENUINE_NICHE"}], "result": "PASS", "closest": "AutoTTS beta convention (2605.08083); CPO dual-monotonicity (2604.14853); budget-forcing (s1)", "differentiator": "A provable WITHIN-EPISODE monotonicity invariant on stop/prune thresholds (non-decreasing in accumulated compute), formally verified at SYNTHESIS time — orthogonal to AutoTTS's cross-episode beta convention, distinct from a static budget ceiling and from dual-variable monotonicity proofs. Both checkers med confidence; honest caveat: practical delta over beta is an open empirical question."}
+  ],
+  "survivors": ["c2-G4-2"],
+  "dropped": ["c2-G1-1", "c2-G2-1", "c2-G3-1", "c2-G4-1"],
+  "metrics": {
+    "survivors_in": 5,
+    "checks": 10,
+    "passed": 1,
+    "dropped_trivial_variant": 4,
+    "disagreement_rate": 0.0,
+    "tiebreak_recoveries_that_died_here": ["c2-G1-1", "c2-G2-1", "c2-G3-1"],
+    "key_finding": "Stage 4 was UNANIMOUS on all 5 survivors (0 disagreement) and is the BINDING gate this cycle. All 3 Stage-3 tie-break recoveries dropped here as trivial variants -- confirming integrity('not a duplicate') != niche('worth pursuing'). The deeper Stage-4 prior-art search found CLOSER competitors than Stage 3 (L-MTP, PosS, adaptive-decay 2605.06946, REINFORCE++) -> Stage 4 needs the deep search, not just Stage 5. Dominant cycle-2 failure mode: ML x life merges whose ML side sits in a crowded fast-moving subarea (optimizer search / attention / speculative decoding / RL) collapse to very recent specific prior art."
+  }
+}
