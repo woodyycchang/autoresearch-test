@@ -1,0 +1,19 @@
+{
+  "stage": 5,
+  "name": "value + prior-art registry",
+  "cycle": 1,
+  "survivor_assessed": "M3-T1",
+  "agents": 4,
+  "prior_art_done_already": {
+    "P1": {"collision_class": "NO_COLLISION", "queries": 40, "closest": "GridPE (arXiv 2406.07049)"},
+    "P2": {"collision_class": "NO_COLLISION", "queries": 41, "closest": "GridPE (arXiv 2406.07049)"},
+    "consensus": "NO_COLLISION (unanimous across two independent ~40-query adversarial sweeps). Components partially covered (GridPE hexagonal grid-cell PE w/ FIXED analytic scales + vision; QUEST hypersphere key concentration; CARoPE/FoPE/GRAPE per-head learnable freqs) but the integrated mechanism + Kohn-2k_F shell-peak tuning for NLP length generalization is unclaimed."
+  },
+  "value": {
+    "V1": {"tier": "MODEST_INCREMENTAL", "recommendation": "small_study", "confidence": "high"},
+    "V2": {"tier": "MODEST_INCREMENTAL", "recommendation": "small_study", "confidence": "med"},
+    "consensus": "MODEST_INCREMENTAL (unanimous). Real & open problem (long-context length generalization) but VERY crowded PE space; likely load-bearing components are learnable per-head frequencies + QUEST norm-stabilization, NOT the hexagonal/2k_F geometry (post-hoc metaphor, no structural isomorphism to 1D token manifolds; learnable wavevectors train away from any initialization). Est. ~10-15% chance of a clean win over FoPE/RoPE+YaRN. Recommended as a bounded ablation, not a research program. Over-rating risk explicitly flagged."
+  },
+  "result": "PASS — M3-T1 clears Stage 5 (no exact prior-art collision; value modest-incremental, worth a small ablation).",
+  "meta_integrity_caution": "QUEST's existence is settled (Stage-1 dual-checker verified arXiv 2604.00199 + authors); V1's 'no traceable QUEST precedent' was a search-coverage gap on V1's side, not a real concern. Separately, P1/P2 cited several recent arXiv near-miss IDs (CARoPE 2507.23083, PoPE 2509.10534, RollPE 2511.11668, GRAPE 2512.07805, ComplexFormer 2505.10222, RoPE3D 2602.12045) that were NOT independently re-verified and may include checker hallucinations. The NO_COLLISION verdict is a negative result not dependent on any single near-miss being real; residual risk = an exact collision neither sweep's queries surfaced."
+}
