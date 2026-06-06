@@ -1,0 +1,22 @@
+{
+  "stage": 1,
+  "name": "live-fetch verification",
+  "cycle": 2,
+  "checker_agents": 3,
+  "checkers": {
+    "VML": {"scope": "12 newest-ML arXiv IDs", "REAL": 12, "SUSPECT": 0, "FABRICATED": 0, "note": "Every ID independently confirmed with title match; several corroborated by venue (ICLR/ASPLOS 2026) or GitHub repo. Name-vs-title nuances: Critical Sharpness = metric inside a curvature paper; ProGRPO = method inside 'Back to Basics...'; AutoTTS = Auto Test-Time Scaling (not TTS speech)."},
+    "VLIFE1": {"scope": "life L1-L4 (12)", "VERIFIED": 8, "SUSPECT": 4, "FABRICATED": 0},
+    "VLIFE2": {"scope": "life L5-L8 (12)", "VERIFIED": 10, "SUSPECT": 2, "FABRICATED": 0}
+  },
+  "aggregate": {"concepts": 36, "verified_or_real": 30, "suspect": 6, "fabricated": 0},
+  "suspect_concepts": [
+    {"id": "c2-L1-3", "name": "Fish-sauce salt-layer", "issue": "'single control parameter' overstated (pH/temp/species also matter)", "usable": true, "corrected": "salt is the PRIMARY (not sole) control parameter gating enzyme-vs-microbe regimes"},
+    {"id": "c2-L3-1", "name": "Constrictor knot", "issue": "'capstan effect' attribution overstated; jamming is crossing-turn geometry compressing the bound object", "usable": true, "corrected": "self-jamming from crossing-turn geometry; friction rises with load (not a strict capstan equation)"},
+    {"id": "c2-L4-2", "name": "Arabic Geomancy", "issue": "'adjacent XOR-parity' loosely conflates transpose (Daughters) with pairwise addition (Nieces); 11 figures correct excluding optional Reconciler", "usable": true, "corrected": "Daughters by transpose; Nieces/Witnesses/Judge by pairwise XOR-parity addition; Judge even-parity = checksum"},
+    {"id": "c2-L4-3", "name": "Aboriginal Songlines", "issue": "HOOK PARTIALLY DEBUNKED: 'recoverable from any one substrate' is an embellishment; sources say complementary/mutually-reinforcing, NOT individually sufficient", "usable": "with_caution", "corrected": "4 complementary redundant substrates (melody/dance/narrative/landscape); cross-reinforcing, not guaranteed full single-channel recovery"},
+    {"id": "c2-L7-1", "name": "Change-ringing Plain Bob", "issue": "HOOK PARTIALLY DEBUNKED: 'Hamiltonian circuit through all n! permutations' true only for small n (Minimus); n>4 needs bobs/compositions for a full extent", "usable": "with_caution", "corrected": "minimal adjacent-swap permutation sequence; a FULL extent of all n! requires composed bobs/singles, not automatic"},
+    {"id": "c2-L7-3", "name": "Ebru marbling", "issue": "conflates ox-gall (pigment spreading agent) vs alum (paper mordant)", "usable": true, "corrected": "ox-gall lets pigment float/spread on the size; alum-mordanted paper fixes pigment on contact; single-lift transfer is real"}
+  ],
+  "key_finding": "0 fabrications, but 6/24 life concepts had EMBELLISHED mechanisms — and 2 (Songlines 'any-one-channel recovery', Plain-Bob 'all n!') had their most computationally-attractive feature overstated. This is the pretrained-fallback tendency the architecture guards against, caught at Stage 1. Merge agents must use the CORRECTED mechanisms; the 2 hook-debunked concepts are flagged 'with_caution' so no merge is built on a false premise.",
+  "verdict": "PASS — 0 fabrications; all 36 concepts are real. Proceed to merge with corrected mechanisms."
+}
