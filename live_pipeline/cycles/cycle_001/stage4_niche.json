@@ -1,0 +1,22 @@
+{
+  "stage": 4,
+  "name": "niche-check (variant-vs-genuine)",
+  "cycle": 1,
+  "niche_checker_agents": 6,
+  "design": "2-cover: each survivor judged by 2 independent skeptical agents (default-suspicion = TRIVIAL_VARIANT). Pass only if both agree GENUINE_NICHE. Distinct from Stage 3: a merge can be integrity-clean yet still a dressed-up trivial variant.",
+  "per_survivor": [
+    {"id": "M3-T1", "cover": [{"checker": "N1", "verdict": "GENUINE_NICHE", "conf": "med"}, {"checker": "N2", "verdict": "GENUINE_NICHE", "conf": "med"}], "result": "PASS", "closest_prior_work": "GridPE (arXiv 2406.07049) hexagonal grid-cell PE; QUEST (2604.00199); FoPE (2412.17739)", "differentiator": "No prior PE couples a learnable hexagonal per-head nesting wavevector with QUEST-style per-token query-norm concentration tuned to peak at that wavevector shell (Kohn 2k_F analogue). Both agents: novel & testable, but gap is NARROW (both components published -> low barrier to being scooped). Honest med confidence."},
+    {"id": "M4-T1", "cover": [{"checker": "N3", "verdict": "TRIVIAL_VARIANT", "conf": "med"}, {"checker": "N4", "verdict": "TRIVIAL_VARIANT", "conf": "high"}], "result": "DROP", "closest_prior_work": "2025 CRISPRi resource-competition control (Rijal et al.; Fontanarrosa 2021; Jones 2021)", "reason": "VCG framing structurally collapses: sgRNAs are not strategic agents reporting valuations at runtime; the 'externality price' is a static design parameter, not dynamic pricing. 'smFRET checks Beck monadicity' is a category error (unfalsifiable). Prestige vocabulary is decorative; biology reduces to known sgRNA-competition + kinetic tuning."},
+    {"id": "M4-T2", "cover": [{"checker": "N5", "verdict": "TRIVIAL_VARIANT", "conf": "high"}, {"checker": "N6", "verdict": "TRIVIAL_VARIANT", "conf": "high"}], "result": "DROP", "closest_prior_work": "Hopfield 1974 kinetic proofreading; Murugan-Huse-Leibler PNAS 2012; ubiquitin-cascade proofreading models; DUB-coupled efficiency-frontier circuits", "reason": "MS 'ATP-deficit bound' reduces by direct variable substitution to the Hopfield-Murugan energy-accuracy Pareto frontier (private type->substrate distinguishability; budget balance->energy conservation; IR->throughput floor; welfare loss->error rate). MS's one distinctive ingredient (strategic agents misrepresenting private types) has NO physical correlate in an enzymatic cascade. Novel combination, but not a distinct bound; even the DUB-circuit 'experimental contribution' already exists."}
+  ],
+  "survivors": ["M3-T1"],
+  "dropped": ["M4-T1", "M4-T2"],
+  "metrics": {
+    "survivors_in": 3,
+    "checks": 6,
+    "passed": 1,
+    "dropped_trivial_variant": 2,
+    "disagreement_rate": 0.0,
+    "contrast_note": "Stage 3 disagreement was 0.50; Stage 4 was 0.0 (all three survivors got unanimous covers). The variant-vs-genuine judgment was more robust/agreed than the integrity judgment this cycle. Both 'trivial-variant' drops were the SAME failure mode: real, novel-combination, integrity-clean directions whose cross-domain 'bound/mechanism' collapses to an existing result once the formal analogy is pressed (VCG-without-strategic-agents; MS-reduces-to-proofreading). This failure mode is invisible to Stage 3 and is the specific value-add of Stage 4."
+  }
+}
