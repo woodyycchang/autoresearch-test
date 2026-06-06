@@ -1,0 +1,432 @@
+[
+ {
+  "name": "PPO (Proximal Policy Optimization)",
+  "arxiv_id": "1707.06347",
+  "year": 2017,
+  "mechanism": "Clipped surrogate objective enabling stable multi-epoch policy-gradient updates",
+  "target_problem": "Policy-gradient methods hard to tune/implement",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "TRPO already framed reliable policy optimization as hard/complex; PPO simplifies it (arXiv:1502.05477, 2015)",
+  "_area": "alignment"
+ },
+ {
+  "name": "Fine-Tuning Language Models from Human Preferences (RLHF for LMs)",
+  "arxiv_id": "1909.08593",
+  "year": 2019,
+  "mechanism": "Train reward model from preferences, fine-tune LM with RL+KL",
+  "target_problem": "Reward for language hard to specify",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Reward-from-preferences pioneered earlier to avoid hand-specified rewards (Christiano et al., arXiv:1706.03741, 2017)",
+  "_area": "alignment"
+ },
+ {
+  "name": "Learning to summarize from human feedback",
+  "arxiv_id": "2009.01325",
+  "year": 2020,
+  "mechanism": "Reward model on human comparisons, then RL-optimize summarizer",
+  "target_problem": "ROUGE/likelihood misalign with quality",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "ROUGE's poor correlation with human judgment long documented (Better Summ. Eval. w/ Word Embeddings, arXiv:1508.06034, 2015)",
+  "_area": "alignment"
+ },
+ {
+  "name": "WebGPT (best-of-N / rejection sampling)",
+  "arxiv_id": "2112.09332",
+  "year": 2021,
+  "mechanism": "Behavior cloning plus reward-model best-of-N rejection sampling with browsing",
+  "target_problem": "Long-form QA factual accuracy",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Parametric LMs known to hallucinate facts; retrieval motivated to fix it (RAG, arXiv:2005.11401, 2020)",
+  "_area": "alignment"
+ },
+ {
+  "name": "InstructGPT (RLHF / instruction following)",
+  "arxiv_id": "2203.02155",
+  "year": 2022,
+  "mechanism": "SFT then reward model then PPO on human preference rankings",
+  "target_problem": "LLMs ignore user intent",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Misalignment of LM objective vs human intent already motivated reward learning (Ziegler et al., arXiv:1909.08593, 2019)",
+  "_area": "alignment"
+ },
+ {
+  "name": "Constitutional AI (RLAIF for harmlessness)",
+  "arxiv_id": "2212.08073",
+  "year": 2022,
+  "mechanism": "Self-critique/revision plus AI-feedback preference model for RL",
+  "target_problem": "Scaling human harmlessness supervision",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Scalable oversight / costly human supervision flagged earlier (Scalable agent alignment via reward modeling, arXiv:1811.07871, 2018)",
+  "_area": "alignment"
+ },
+ {
+  "name": "DPO (Direct Preference Optimization)",
+  "arxiv_id": "2305.18290",
+  "year": 2023,
+  "mechanism": "Closed-form preference loss, no reward model or RL",
+  "target_problem": "RLHF complex and unstable",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "InstructGPT's multi-stage reward-model+PPO pipeline already known complex/unstable (arXiv:2203.02155, 2022)",
+  "_area": "alignment"
+ },
+ {
+  "name": "RLAIF (Scaling RLHF with AI Feedback)",
+  "arxiv_id": "2309.00267",
+  "year": 2023,
+  "mechanism": "Off-the-shelf LLM labels preferences replacing human annotators",
+  "target_problem": "Human preference labels expensive",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Cost of human harmlessness labels already motivated AI feedback (Constitutional AI, arXiv:2212.08073, 2022)",
+  "_area": "alignment"
+ },
+ {
+  "name": "Transformer (Attention Is All You Need)",
+  "arxiv_id": "1706.03762",
+  "year": 2017,
+  "mechanism": "Self-attention replaces recurrence/convolution for sequence modeling",
+  "target_problem": "Slow non-parallel sequential sequence modeling",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "RNN/LSTM sequential compute blocked parallelism and long-range deps (Hochreiter 1997; Bahdanau 1409.0473)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Sparsely-Gated Mixture-of-Experts (Shazeer)",
+  "arxiv_id": "1701.06538",
+  "year": 2017,
+  "mechanism": "Trainable gate sparsely routes tokens to expert subnetworks",
+  "target_problem": "Capacity limited by per-example compute",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Conditional computation to grow capacity cheaply was open problem (Bengio 1308.3432; Davis 1312.4461)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Switch Transformer",
+  "arxiv_id": "2101.03961",
+  "year": 2021,
+  "mechanism": "Top-1 routing simplifies MoE to trillion parameters",
+  "target_problem": "MoE training instability and complexity",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Prior MoE suffered instability, communication, complexity costs (Shazeer 1701.06538; GShard Lepikhin 2006.16668)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Chinchilla scaling laws",
+  "arxiv_id": "2203.15556",
+  "year": 2022,
+  "mechanism": "Scale model size and tokens equally for compute",
+  "target_problem": "Suboptimal compute allocation, undertrained models",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Kaplan scaling laws over-prioritized size, leaving models undertrained (Kaplan 2001.08361)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Chain-of-Thought Prompting",
+  "arxiv_id": "2201.11903",
+  "year": 2022,
+  "mechanism": "Prompt exemplars elicit intermediate reasoning steps",
+  "target_problem": "Poor multi-step reasoning, flat scaling",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "LLMs known weak at arithmetic/multi-step reasoning despite scale (Brown GPT-3 2005.14165; Rae Gopher 2112.11446)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Self-Consistency",
+  "arxiv_id": "2203.11171",
+  "year": 2022,
+  "mechanism": "Sample multiple reasoning paths, marginalize to majority answer",
+  "target_problem": "Greedy CoT decoding picks suboptimal path",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Refines CoT decoding; CoT itself only introduced ~2 months earlier (Wei 2201.11903)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Tree-of-Thoughts",
+  "arxiv_id": "2305.10601",
+  "year": 2023,
+  "mechanism": "Search tree of thoughts with self-evaluation and backtracking",
+  "target_problem": "CoT lacks exploration and lookahead",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Critiques left-to-right CoT, a paradigm itself new in 2022 (Wei 2201.11903)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "ReAct",
+  "arxiv_id": "2210.03629",
+  "year": 2022,
+  "mechanism": "Interleave reasoning traces with tool/environment actions",
+  "target_problem": "Reasoning-only CoT hallucinates, lacks grounding",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Targets hallucination in just-introduced CoT, not long-standing recognized limitation (Wei 2201.11903)",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Grokking",
+  "arxiv_id": "2201.02177",
+  "year": 2022,
+  "mechanism": "Delayed generalization long after training-set overfitting",
+  "target_problem": "Understanding generalization on algorithmic tasks",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Reports a newly-discovered phenomenon rather than addressing a pre-existing widely-discussed bottleneck",
+  "_area": "arch_reasoning"
+ },
+ {
+  "name": "Sparse Transformer",
+  "arxiv_id": "1904.10509",
+  "year": 2019,
+  "mechanism": "Sparse factorizations of the attention matrix into O(n*sqrt(n)) patterns",
+  "target_problem": "Quadratic attention cost on long sequences",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Original Transformer states attention is O(n^2*d) per layer, costly for long n (arxiv 1706.03762)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Reformer",
+  "arxiv_id": "2001.04451",
+  "year": 2020,
+  "mechanism": "Locality-sensitive hashing buckets queries/keys; reversible residual layers",
+  "target_problem": "Quadratic attention memory and compute",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Sparse Transformer already framed O(n^2) attention as prohibitive for long sequences (arxiv 1904.10509)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Longformer",
+  "arxiv_id": "2004.05150",
+  "year": 2020,
+  "mechanism": "Sliding-window local attention plus task-motivated global attention",
+  "target_problem": "Processing long documents efficiently",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Sparse Transformer pre-dated it framing quadratic self-attention as the long-sequence limitation (arxiv 1904.10509)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Linformer",
+  "arxiv_id": "2006.04768",
+  "year": 2020,
+  "mechanism": "Low-rank linear projection of keys/values to fixed dimension",
+  "target_problem": "Quadratic self-attention complexity",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Sparse Transformer (2019) framed O(n^2) attention as prohibitive for long sequences (arxiv 1904.10509)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Performer",
+  "arxiv_id": "2009.14794",
+  "year": 2020,
+  "mechanism": "FAVOR+ positive orthogonal random features approximate softmax kernel linearly",
+  "target_problem": "Quadratic softmax-attention time and memory",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Multiple prior works (Sparse Transformer 1904.10509, Reformer 2001.04451) framed quadratic attention as a known limitation",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Nystromformer",
+  "arxiv_id": "2102.03902",
+  "year": 2021,
+  "mechanism": "Nystrom method approximates softmax attention via landmark points",
+  "target_problem": "Quadratic self-attention on long sequences",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Efficient Transformers survey already cataloged quadratic attention as the core limitation (arxiv 2009.06732)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "FNet",
+  "arxiv_id": "2105.03824",
+  "year": 2021,
+  "mechanism": "Replaces self-attention with unparameterized 2D Fourier transform mixing",
+  "target_problem": "Self-attention compute cost in encoders",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Efficient Transformers survey framed quadratic self-attention as the key efficiency bottleneck (arxiv 2009.06732)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Mamba",
+  "arxiv_id": "2312.00752",
+  "year": 2023,
+  "mechanism": "Input-selective state space model with hardware-aware parallel scan",
+  "target_problem": "Transformer quadratic scaling and slow inference",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "S4 already framed Transformer quadratic scaling on long sequences as a core limitation (arxiv 2111.00396)",
+  "_area": "efficiency"
+ },
+ {
+  "name": "Adapter Layers (Houlsby Adapters)",
+  "arxiv_id": "1902.00751",
+  "year": 2019,
+  "mechanism": "Insert small trainable bottleneck MLPs between frozen transformer layers",
+  "target_problem": "Full fine-tuning needs one model per task",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "This paper itself established the parameter-efficiency framing for transformers; no widely-cited pre-dating limitation paper found.",
+  "_area": "peft"
+ },
+ {
+  "name": "Prefix-Tuning",
+  "arxiv_id": "2101.00190",
+  "year": 2021,
+  "mechanism": "Optimize continuous task-specific prefix vectors prepended to keys/values",
+  "target_problem": "Storing full fine-tuned copy per task",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "GPT-3 framed per-task fine-tuning datasets/weight updates as a limitation. arXiv:2005.14165 (2020).",
+  "_area": "peft"
+ },
+ {
+  "name": "Prompt Tuning",
+  "arxiv_id": "2104.08691",
+  "year": 2021,
+  "mechanism": "Learn soft prompt embeddings via backprop, freeze whole model",
+  "target_problem": "Costly per-task full model tuning",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "GPT-3 explicitly framed task-specific fine-tuning weight updates as a cost. arXiv:2005.14165 (2020).",
+  "_area": "peft"
+ },
+ {
+  "name": "LoRA",
+  "arxiv_id": "2106.09685",
+  "year": 2021,
+  "mechanism": "Inject trainable low-rank matrices into frozen weights",
+  "target_problem": "Fine-tuning cost and adapter latency",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Adapters add inference latency (Houlsby, arXiv:1902.00751, 2019); GPT-3 framed full-FT cost (arXiv:2005.14165, 2020).",
+  "_area": "peft"
+ },
+ {
+  "name": "BitFit",
+  "arxiv_id": "2106.10199",
+  "year": 2021,
+  "mechanism": "Fine-tune only the bias terms, freeze all else",
+  "target_problem": "Parameter inefficiency of full fine-tuning",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Adapters already framed full fine-tuning as parameter-inefficient needing per-task copies. arXiv:1902.00751 (2019).",
+  "_area": "peft"
+ },
+ {
+  "name": "Compacter",
+  "arxiv_id": "2106.04647",
+  "year": 2021,
+  "mechanism": "Adapters via Kronecker-product shared slow plus rank-one fast weights",
+  "target_problem": "Adapter parameter count still too high",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Adapters established the parameter-count vs performance trade-off being minimized. arXiv:1902.00751 (2019).",
+  "_area": "peft"
+ },
+ {
+  "name": "(IA)^3",
+  "arxiv_id": "2205.05638",
+  "year": 2022,
+  "mechanism": "Rescale key, value, and FFN activations by learned vectors",
+  "target_problem": "In-context learning compute cost per inference",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "GPT-3 in-context learning reprocesses examples each call, a per-inference cost it critiqued. arXiv:2005.14165 (2020).",
+  "_area": "peft"
+ },
+ {
+  "name": "QLoRA",
+  "arxiv_id": "2305.14314",
+  "year": 2023,
+  "mechanism": "LoRA over a frozen 4-bit NF4 quantized base model",
+  "target_problem": "Memory cost of finetuning large LLMs",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "LoRA framed GPU memory of full fine-tuning as the limitation it reduced 3x. arXiv:2106.09685 (2021).",
+  "_area": "peft"
+ },
+ {
+  "name": "DoRA",
+  "arxiv_id": "2402.09353",
+  "year": 2024,
+  "mechanism": "Decompose weights into magnitude and direction, LoRA on direction",
+  "target_problem": "LoRA accuracy gap versus full fine-tuning",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Gap was discussed informally, but no clear pre-dating (before Feb 2024) arxiv paper framing it as a widely-discussed limitation; 'LoRA Learns Less' (arXiv:2405.09673) post-dates DoRA.",
+  "_area": "peft"
+ },
+ {
+  "name": "Batch Normalization",
+  "arxiv_id": "1502.03167",
+  "year": 2015,
+  "mechanism": "Normalize layer activations per mini-batch with learned scale/shift",
+  "target_problem": "Slow, unstable deep network training",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Deep nets needed low LRs and careful init; covariate shift known (Shimodaira 2000)",
+  "_area": "training"
+ },
+ {
+  "name": "Adam",
+  "arxiv_id": "1412.6980",
+  "year": 2014,
+  "mechanism": "Per-parameter adaptive LR from first/second gradient moment estimates",
+  "target_problem": "Tuning LR; noisy/sparse gradients",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Adaptive LR an active problem; AdaGrad (Duchi 2011) and RMSProp (Tieleman/Hinton 2012) predate",
+  "_area": "training"
+ },
+ {
+  "name": "Dropout",
+  "arxiv_id": "1207.0580",
+  "year": 2014,
+  "mechanism": "Randomly drop units during training to prevent co-adaptation",
+  "target_problem": "Overfitting in neural networks",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Overfitting was the canonical known problem; dropout's own 2012 preprint (arXiv:1207.0580) predates JMLR version",
+  "_area": "training"
+ },
+ {
+  "name": "Layer Normalization",
+  "arxiv_id": "1607.06450",
+  "year": 2016,
+  "mechanism": "Normalize across features per sample, independent of batch",
+  "target_problem": "BatchNorm fails for RNNs/small batches",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "BatchNorm's batch-size dependence and RNN difficulty explicitly noted in Ioffe & Szegedy 2015",
+  "_area": "training"
+ },
+ {
+  "name": "Label Smoothing",
+  "arxiv_id": "1512.00567",
+  "year": 2015,
+  "mechanism": "Replace hard one-hot targets with softened label distribution",
+  "target_problem": "Overconfident predictions; poor calibration",
+  "bottleneck_before": false,
+  "bottleneck_evidence": "Inception-v3 introduced it; overconfidence not a widely-discussed named bottleneck before this paper",
+  "_area": "training"
+ },
+ {
+  "name": "Mixup",
+  "arxiv_id": "1710.09412",
+  "year": 2017,
+  "mechanism": "Train on convex combinations of input/label pairs",
+  "target_problem": "Memorization; weak generalization/robustness",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "ERM memorization of random labels documented (Zhang et al. 2017, arXiv:1611.03530)",
+  "_area": "training"
+ },
+ {
+  "name": "Sharpness-Aware Minimization (SAM)",
+  "arxiv_id": "2010.01412",
+  "year": 2020,
+  "mechanism": "Minimize worst-case loss in a parameter neighborhood (flat minima)",
+  "target_problem": "Sharp minima generalize poorly",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Flat-vs-sharp minima generalization widely studied (Keskar et al. 2016, arXiv:1609.04836; Hochreiter & Schmidhuber 1997)",
+  "_area": "training"
+ },
+ {
+  "name": "SGDR / Cosine LR Schedule",
+  "arxiv_id": "1608.03983",
+  "year": 2016,
+  "mechanism": "Cosine-anneal learning rate with periodic warm restarts",
+  "target_problem": "LR schedule tuning; escaping minima",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "LR schedule sensitivity long known; step/exponential decay standard but ad hoc (Bengio 2012 practical recommendations)",
+  "_area": "training"
+ },
+ {
+  "name": "Gradient Clipping (norm clipping)",
+  "arxiv_id": "1211.5063",
+  "year": 2013,
+  "mechanism": "Rescale gradient when its norm exceeds a threshold",
+  "target_problem": "Exploding gradients in RNN training",
+  "bottleneck_before": true,
+  "bottleneck_evidence": "Exploding/vanishing gradients the canonical RNN problem (Bengio et al. 1994; Hochreiter 1991 thesis)",
+  "_area": "training"
+ }
+]

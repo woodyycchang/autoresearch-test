@@ -1,0 +1,406 @@
+{
+  "n_niches": 43,
+  "corpus_n": 637,
+  "static_niche_median_gxc": 0.001019,
+  "random_mean_gxc": 0.001326,
+  "niches_below_random_median": 27,
+  "bottleneck_recall": 36,
+  "efficiency_cluster": [
+    {
+      "name": "Sparse Transformer",
+      "outcome": "faded",
+      "gxc": 0.001394,
+      "gxc_pct": 0.605
+    },
+    {
+      "name": "Reformer",
+      "outcome": "faded",
+      "gxc": 0.000804,
+      "gxc_pct": 0.068
+    },
+    {
+      "name": "Longformer",
+      "outcome": "winner",
+      "gxc": 0.000941,
+      "gxc_pct": 0.155
+    },
+    {
+      "name": "Linformer",
+      "outcome": "faded",
+      "gxc": 0.000502,
+      "gxc_pct": 0.005
+    },
+    {
+      "name": "Performer",
+      "outcome": "faded",
+      "gxc": 0.00292,
+      "gxc_pct": 0.999
+    },
+    {
+      "name": "Nystromformer",
+      "outcome": "faded",
+      "gxc": 0.000413,
+      "gxc_pct": 0.002
+    },
+    {
+      "name": "FNet",
+      "outcome": "faded",
+      "gxc": 0.000723,
+      "gxc_pct": 0.038
+    },
+    {
+      "name": "Mamba",
+      "outcome": "winner",
+      "gxc": 0.002021,
+      "gxc_pct": 0.951
+    }
+  ],
+  "winner_mean": 0.001481,
+  "faded_mean": 0.001126,
+  "all_rows": [
+    {
+      "name": "PPO (Proximal Policy Optimization)",
+      "area": "alignment",
+      "gen": 0.1279,
+      "cent": 0.0073,
+      "gxc": 0.000937,
+      "gxc_pct": 0.152
+    },
+    {
+      "name": "Fine-Tuning Language Models from Human Preferences (RLHF for LMs)",
+      "area": "alignment",
+      "gen": 0.0685,
+      "cent": 0.0141,
+      "gxc": 0.000968,
+      "gxc_pct": 0.177
+    },
+    {
+      "name": "Learning to summarize from human feedback",
+      "area": "alignment",
+      "gen": 0.0776,
+      "cent": 0.0149,
+      "gxc": 0.001158,
+      "gxc_pct": 0.361
+    },
+    {
+      "name": "WebGPT (best-of-N / rejection sampling)",
+      "area": "alignment",
+      "gen": 0.0904,
+      "cent": 0.0078,
+      "gxc": 0.00071,
+      "gxc_pct": 0.034
+    },
+    {
+      "name": "InstructGPT (RLHF / instruction following)",
+      "area": "alignment",
+      "gen": 0.0913,
+      "cent": 0.0031,
+      "gxc": 0.000287,
+      "gxc_pct": 0.0
+    },
+    {
+      "name": "Constitutional AI (RLAIF for harmlessness)",
+      "area": "alignment",
+      "gen": 0.1096,
+      "cent": 0.0408,
+      "gxc": 0.004473,
+      "gxc_pct": 1.0
+    },
+    {
+      "name": "DPO (Direct Preference Optimization)",
+      "area": "alignment",
+      "gen": 0.0822,
+      "cent": 0.0157,
+      "gxc": 0.00129,
+      "gxc_pct": 0.501
+    },
+    {
+      "name": "RLAIF (Scaling RLHF with AI Feedback)",
+      "area": "alignment",
+      "gen": 0.0651,
+      "cent": 0.0235,
+      "gxc": 0.001532,
+      "gxc_pct": 0.73
+    },
+    {
+      "name": "Transformer (Attention Is All You Need)",
+      "area": "arch_reasoning",
+      "gen": 0.0845,
+      "cent": 0.0232,
+      "gxc": 0.001956,
+      "gxc_pct": 0.937
+    },
+    {
+      "name": "Sparsely-Gated Mixture-of-Experts (Shazeer)",
+      "area": "arch_reasoning",
+      "gen": 0.0384,
+      "cent": 0.0147,
+      "gxc": 0.000562,
+      "gxc_pct": 0.009
+    },
+    {
+      "name": "Switch Transformer",
+      "area": "arch_reasoning",
+      "gen": 0.0822,
+      "cent": 0.0199,
+      "gxc": 0.001634,
+      "gxc_pct": 0.801
+    },
+    {
+      "name": "Chinchilla scaling laws",
+      "area": "arch_reasoning",
+      "gen": 0.1014,
+      "cent": 0.011,
+      "gxc": 0.001114,
+      "gxc_pct": 0.313
+    },
+    {
+      "name": "Chain-of-Thought Prompting",
+      "area": "arch_reasoning",
+      "gen": 0.0788,
+      "cent": 0.01,
+      "gxc": 0.000791,
+      "gxc_pct": 0.062
+    },
+    {
+      "name": "Self-Consistency",
+      "area": "arch_reasoning",
+      "gen": 0.0913,
+      "cent": 0.0043,
+      "gxc": 0.000394,
+      "gxc_pct": 0.002
+    },
+    {
+      "name": "Tree-of-Thoughts",
+      "area": "arch_reasoning",
+      "gen": 0.0502,
+      "cent": 0.0039,
+      "gxc": 0.000197,
+      "gxc_pct": 0.0
+    },
+    {
+      "name": "ReAct",
+      "area": "arch_reasoning",
+      "gen": 0.0708,
+      "cent": 0.0047,
+      "gxc": 0.000333,
+      "gxc_pct": 0.001
+    },
+    {
+      "name": "Grokking",
+      "area": "arch_reasoning",
+      "gen": 0.113,
+      "cent": 0.013,
+      "gxc": 0.001464,
+      "gxc_pct": 0.672
+    },
+    {
+      "name": "Sparse Transformer",
+      "area": "efficiency",
+      "gen": 0.0986,
+      "cent": 0.0141,
+      "gxc": 0.001394,
+      "gxc_pct": 0.605
+    },
+    {
+      "name": "Reformer",
+      "area": "efficiency",
+      "gen": 0.0603,
+      "cent": 0.0133,
+      "gxc": 0.000804,
+      "gxc_pct": 0.068
+    },
+    {
+      "name": "Longformer",
+      "area": "efficiency",
+      "gen": 0.0959,
+      "cent": 0.0098,
+      "gxc": 0.000941,
+      "gxc_pct": 0.155
+    },
+    {
+      "name": "Linformer",
+      "area": "efficiency",
+      "gen": 0.0959,
+      "cent": 0.0052,
+      "gxc": 0.000502,
+      "gxc_pct": 0.005
+    },
+    {
+      "name": "Performer",
+      "area": "efficiency",
+      "gen": 0.0594,
+      "cent": 0.0492,
+      "gxc": 0.00292,
+      "gxc_pct": 0.999
+    },
+    {
+      "name": "Nystromformer",
+      "area": "efficiency",
+      "gen": 0.0438,
+      "cent": 0.0094,
+      "gxc": 0.000413,
+      "gxc_pct": 0.002
+    },
+    {
+      "name": "FNet",
+      "area": "efficiency",
+      "gen": 0.0575,
+      "cent": 0.0126,
+      "gxc": 0.000723,
+      "gxc_pct": 0.038
+    },
+    {
+      "name": "Mamba",
+      "area": "efficiency",
+      "gen": 0.161,
+      "cent": 0.0126,
+      "gxc": 0.002021,
+      "gxc_pct": 0.951
+    },
+    {
+      "name": "Adapter Layers (Houlsby Adapters)",
+      "area": "peft",
+      "gen": 0.0799,
+      "cent": 0.0149,
+      "gxc": 0.001192,
+      "gxc_pct": 0.396
+    },
+    {
+      "name": "Prefix-Tuning",
+      "area": "peft",
+      "gen": 0.0849,
+      "cent": 0.0119,
+      "gxc": 0.001013,
+      "gxc_pct": 0.215
+    },
+    {
+      "name": "Prompt Tuning",
+      "area": "peft",
+      "gen": 0.0411,
+      "cent": 0.0147,
+      "gxc": 0.000602,
+      "gxc_pct": 0.014
+    },
+    {
+      "name": "LoRA",
+      "area": "peft",
+      "gen": 0.0434,
+      "cent": 0.0115,
+      "gxc": 0.000499,
+      "gxc_pct": 0.005
+    },
+    {
+      "name": "BitFit",
+      "area": "peft",
+      "gen": 0.0932,
+      "cent": 0.0157,
+      "gxc": 0.001462,
+      "gxc_pct": 0.671
+    },
+    {
+      "name": "Compacter",
+      "area": "peft",
+      "gen": 0.0936,
+      "cent": 0.0302,
+      "gxc": 0.002829,
+      "gxc_pct": 0.998
+    },
+    {
+      "name": "(IA)^3",
+      "area": "peft",
+      "gen": 0.0925,
+      "cent": 0.0251,
+      "gxc": 0.002323,
+      "gxc_pct": 0.983
+    },
+    {
+      "name": "QLoRA",
+      "area": "peft",
+      "gen": 0.0411,
+      "cent": 0.0248,
+      "gxc": 0.001019,
+      "gxc_pct": 0.221
+    },
+    {
+      "name": "DoRA",
+      "area": "peft",
+      "gen": 0.0822,
+      "cent": 0.0145,
+      "gxc": 0.001194,
+      "gxc_pct": 0.398
+    },
+    {
+      "name": "Batch Normalization",
+      "area": "training",
+      "gen": 0.0799,
+      "cent": 0.0286,
+      "gxc": 0.002283,
+      "gxc_pct": 0.981
+    },
+    {
+      "name": "Adam",
+      "area": "training",
+      "gen": 0.1252,
+      "cent": 0.011,
+      "gxc": 0.001376,
+      "gxc_pct": 0.589
+    },
+    {
+      "name": "Dropout",
+      "area": "training",
+      "gen": 0.137,
+      "cent": 0.044,
+      "gxc": 0.006021,
+      "gxc_pct": 1.0
+    },
+    {
+      "name": "Layer Normalization",
+      "area": "training",
+      "gen": 0.0685,
+      "cent": 0.0162,
+      "gxc": 0.001111,
+      "gxc_pct": 0.31
+    },
+    {
+      "name": "Label Smoothing",
+      "area": "training",
+      "gen": 0.0705,
+      "cent": 0.0078,
+      "gxc": 0.000553,
+      "gxc_pct": 0.008
+    },
+    {
+      "name": "Mixup",
+      "area": "training",
+      "gen": 0.0845,
+      "cent": 0.0067,
+      "gxc": 0.000564,
+      "gxc_pct": 0.009
+    },
+    {
+      "name": "Sharpness-Aware Minimization (SAM)",
+      "area": "training",
+      "gen": 0.074,
+      "cent": 0.0047,
+      "gxc": 0.000348,
+      "gxc_pct": 0.001
+    },
+    {
+      "name": "SGDR / Cosine LR Schedule",
+      "area": "training",
+      "gen": 0.1473,
+      "cent": 0.0047,
+      "gxc": 0.000694,
+      "gxc_pct": 0.029
+    },
+    {
+      "name": "Gradient Clipping (norm clipping)",
+      "area": "training",
+      "gen": 0.1479,
+      "cent": 0.0306,
+      "gxc": 0.004529,
+      "gxc_pct": 1.0
+    }
+  ]
+}
