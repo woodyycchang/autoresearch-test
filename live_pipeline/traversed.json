@@ -1,38 +1,29 @@
 {
   "schema_version": "1.0",
   "purpose": "Live-fetch dedup ledger. Next cycle reads this to avoid re-fetching the same concepts and re-attempting the same merges.",
-  "last_cycle": 1,
-  "concepts_fetched": [
-    {"id": "B1-C1", "name": "Kohn anomaly", "url": "https://en.wikipedia.org/wiki/Kohn_anomaly", "cycle": 1},
-    {"id": "B1-C2", "name": "Spin-charge separation (Luttinger liquid)", "url": "https://en.wikipedia.org/wiki/Luttinger_liquid", "cycle": 1},
-    {"id": "B1-C3", "name": "Rashba effect", "url": "https://en.wikipedia.org/wiki/Rashba_effect", "cycle": 1},
-    {"id": "B2-C1", "name": "Dynamin GTPase membrane fission", "url": "https://www.biorxiv.org/content/10.1101/167262v2.full", "cycle": 1},
-    {"id": "B2-C2", "name": "Polyubiquitin proteasomal tagging", "url": "https://en.wikipedia.org/wiki/Ubiquitin", "cycle": 1},
-    {"id": "B2-C3", "name": "CRISPR-Cas9 conformational-checkpoint cleavage", "url": "https://www.biorxiv.org/content/10.1101/122242v1.full", "cycle": 1},
-    {"id": "B3-C1", "name": "Beck's monadicity theorem", "url": "https://ncatlab.org/nlab/show/monadicity+theorem", "cycle": 1},
-    {"id": "B3-C2", "name": "Grothendieck construction", "url": "https://ncatlab.org/nlab/show/Grothendieck+fibration", "cycle": 1},
-    {"id": "B3-C3", "name": "Coend calculus / ninja Yoneda", "url": "https://arxiv.org/abs/1501.02503", "cycle": 1},
-    {"id": "B4-C1", "name": "Vickrey-Clarke-Groves mechanism", "url": "https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_mechanism", "cycle": 1},
-    {"id": "B4-C2", "name": "Myerson-Satterthwaite impossibility", "url": "https://en.wikipedia.org/wiki/Myerson%E2%80%93Satterthwaite_theorem", "cycle": 1},
-    {"id": "B4-C3", "name": "Maskin monotonicity", "url": "https://en.wikipedia.org/wiki/Maskin_monotonicity", "cycle": 1},
-    {"id": "B5-C1", "name": "Spike-timing-dependent plasticity", "url": "https://en.wikipedia.org/wiki/Spike-timing-dependent_plasticity", "cycle": 1},
-    {"id": "B5-C2", "name": "Grid-cell hexagonal encoding", "url": "https://en.wikipedia.org/wiki/Grid_cell", "cycle": 1},
-    {"id": "B5-C3", "name": "Hippocampal sharp-wave ripples", "url": "https://en.wikipedia.org/wiki/Sharp_waves_and_ripples", "cycle": 1},
-    {"id": "B6-C1", "name": "QUEST (query-modulated spherical attention)", "url": "https://arxiv.org/abs/2604.00199", "cycle": 1},
-    {"id": "B6-C2", "name": "DART (diffusion-inspired speculative decoding)", "url": "https://arxiv.org/abs/2601.19278", "cycle": 1},
-    {"id": "B6-C3", "name": "iGRPO (iterative group-relative policy optimization)", "url": "https://arxiv.org/abs/2602.09000", "cycle": 1}
-  ],
-  "merges_attempted": [
-    {"id": "M1-T1", "concepts": ["B6-C3", "B2-C3", "B3-C2"], "name": "Fibered Commitment Monads", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
-    {"id": "M1-T2", "concepts": ["B6-C2", "B2-C1", "B3-C3"], "name": "Dinatural Fission", "cycle": 1, "outcome": "DROPPED_STAGE3_hallucinated"},
-    {"id": "M2-T1", "concepts": ["B1-C1", "B4-C1", "B5-C3"], "name": "Nesting-Threshold Replay Selection", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
-    {"id": "M2-T2", "concepts": ["B1-C3", "B4-C3", "B5-C1"], "name": "Chirality-Monotonicity Plasticity", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
-    {"id": "M3-T1", "concepts": ["B6-C1", "B5-C2", "B1-C1"], "name": "Fermi-Shell Positional Encoding (GridFermi-PE)", "cycle": 1, "outcome": "SURVIVOR_NICHE_CONFIRMED_WITH_CAVEATS"},
-    {"id": "M3-T2", "concepts": ["B6-C3", "B5-C3", "B1-C2"], "name": "Fractionalized Policy Optimization", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
-    {"id": "M4-T1", "concepts": ["B4-C1", "B2-C3", "B3-C1"], "name": "Algebraic Gatekeeping Protocols", "cycle": 1, "outcome": "DROPPED_STAGE4_trivial_variant"},
-    {"id": "M4-T2", "concepts": ["B4-C2", "B2-C2", "B3-C2"], "name": "Fibered Mechanism Incompleteness", "cycle": 1, "outcome": "DROPPED_STAGE4_trivial_variant"}
-  ],
+  "last_cycle": 2,
+  "cycle_1": {
+    "concepts_fetched_names": ["Kohn anomaly", "Luttinger liquid", "Rashba effect", "Dynamin GTPase fission", "Polyubiquitin", "CRISPR-Cas9 checkpoint", "Beck monadicity", "Grothendieck construction", "Coend calculus", "VCG mechanism", "Myerson-Satterthwaite", "Maskin monotonicity", "STDP", "Grid cells", "Sharp-wave ripples", "QUEST (2604.00199)", "DART (2601.19278)", "iGRPO (2602.09000)"],
+    "axis": "academic-science (corrected in cycle 2 to ML x life/culture per R11)",
+    "survivor": "M3-T1 GridFermi-PE (MODEST, CONFIRMED_WITH_CAVEATS)"
+  },
+  "cycle_2": {
+    "life_culture_concepts": ["Koji staged-temp cultivation", "Kombucha back-slopping", "Fish-sauce salt-layer", "Double-Ikat registration", "Togidashi Maki-e", "Celadon iron-reduction", "Constrictor knot", "Kigumi joinery", "Coiled basketry", "Maya Calendar Round", "Arabic Geomancy XOR cascade", "Aboriginal Songlines", "Subak synchronized-fallow", "Coppicing", "Etak star-compass", "Swiss pairing", "Crokinole compulsory-contact", "Misere-Nim", "Change-ringing Plain Bob", "Balinese Kotekan", "Ebru marbling", "Inca Khipu", "ROSCA rotating credit", "Oral-formulaic composition"],
+    "newest_ml_concepts": ["Evolving DL Optimizers (2512.11853)", "Critical Sharpness (2601.16979)", "Optimal LR Schedules (2602.04774)", "Log-Linear Attention (2506.04761)", "Variational Linear Attention (2605.11196)", "Emergence Transformer (2604.19816)", "VeriCache (2605.17613)", "ZipServ (2603.17435)", "PARD (2504.18583)", "ProGRPO (2602.05281)", "MASPO (2602.17550)", "AutoTTS (2605.08083)"],
+    "merges_attempted": [
+      {"id": "c2-G1-1", "name": "Coppice-GA", "outcome": "DROP_STAGE4_trivial_variant (survived S3 via tie-break)"},
+      {"id": "c2-G1-2", "name": "EtakLR", "outcome": "DROP_STAGE3_reduces_to_SALR"},
+      {"id": "c2-G2-1", "name": "Adaptive-Fenwick", "outcome": "DROP_STAGE4_trivial_variant (survived S3 via tie-break)"},
+      {"id": "c2-G2-2", "name": "Kigumi-VLA", "outcome": "DROP_STAGE3_reduces_to_Titans"},
+      {"id": "c2-G3-1", "name": "Kotekan Dual-Head Drafting", "outcome": "DROP_STAGE4_trivial_variant (survived S3 via tie-break; PARD misattribution)"},
+      {"id": "c2-G3-2", "name": "Entropy-Gated VeriCache", "outcome": "DROP_STAGE3_reduces_to_AdaEDL"},
+      {"id": "c2-G4-1", "name": "Global Advantage Fallow", "outcome": "DROP_STAGE4_trivial_variant"},
+      {"id": "c2-G4-2", "name": "LoadTightening AutoTTS", "outcome": "SURVIVOR_all_7_stages -> SEED_ONLY"}
+    ],
+    "survivor": {"id": "c2-G4-2", "name": "LoadTightening AutoTTS (AutoTTS x Kigumi)", "value_tier": "MODEST_INCREMENTAL", "stage6": "CONFIRMED_WITH_CAVEATS", "stage7": "SEED_ONLY", "caveat": "real accuracy risk (monotone-hardening vs non-monotone recovery); life axis (Kigumi) judged decorative"}
+  },
   "survivors_all_time": [
-    {"id": "M3-T1", "name": "Fermi-Shell Positional Encoding (GridFermi-PE)", "cycle": 1, "value_tier": "MODEST_INCREMENTAL", "status": "stage6_NICHE_CONFIRMED_WITH_CAVEATS (seed_only under new EV gate)"}
+    {"cycle": 1, "name": "GridFermi-PE", "status": "MODEST / CONFIRMED_WITH_CAVEATS"},
+    {"cycle": 2, "name": "LoadTightening AutoTTS", "status": "SEED_ONLY (MODEST / CONFIRMED_WITH_CAVEATS / EV-gated)"}
   ]
 }

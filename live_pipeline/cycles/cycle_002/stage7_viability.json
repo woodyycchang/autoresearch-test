@@ -1,0 +1,23 @@
+{
+  "stage": 7,
+  "name": "last-resort viability check (AGENT-rendered per R9, never the orchestrator)",
+  "cycle": 2,
+  "niche": "c2-G4-2 (LoadTightening AutoTTS)",
+  "viability_agents": 2,
+  "VIA1": {
+    "exact_combo_done": false,
+    "competitive_vs_baselines": "Adds a formal code-structure monotonicity layer atop AutoTTS CMC (which already achieves behavioral near-monotonicity via EMA trend-gating). Auditability/interpretability value, not accuracy-competitive value.",
+    "accuracy_risk": "HIGH (corroborated: 2603.18940, 2506.04210, 2507.14417). Hard monotone thresholds forbid tightening after a confidence collapse — removes the very CMC 'not actively declining' flexibility behind AutoTTS's best accuracy/compute tradeoff.",
+    "verdict": "SEED_ONLY"
+  },
+  "VIA2": {
+    "exact_combo_done": false,
+    "competitive_vs_baselines": "Real but narrow gap; added value limited to formal verifiability, not improved accuracy/efficiency. AutoTTS's CMC EMA trend-gating handles confidence collapses better than a hard invariant would.",
+    "accuracy_risk": "HIGH (EDIS 2602.01288; entropy-trajectory 2603.18940). Reasoning trajectories are empirically non-monotone in confidence; a hard non-decreasing threshold structurally mishandles mid-trajectory collapse.",
+    "verdict": "SEED_ONLY"
+  },
+  "consensus_verdict": "SEED_ONLY",
+  "ev_gate_application": "Value MODEST_INCREMENTAL < promote-threshold SIGNIFICANT -> default SEED_ONLY. Exact combo NOT done -> not NOT_VIABLE. Accuracy risk HIGH caps upside but is scope-resolvable -> not NOT_VIABLE. Both agents independently landed SEED_ONLY.",
+  "terminal_classification": "SEED_ONLY",
+  "note": "Stage 7 is now PERMANENT in every future round (R9). The EV gate (cycle-1 param) here did its intended job: the pipeline declines to promote a marginal survivor, classifying it as a seed rather than a discovery. This is the honest terminal state cycle 1 lacked."
+}
