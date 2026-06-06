@@ -1,8 +1,38 @@
 {
   "schema_version": "1.0",
   "purpose": "Live-fetch dedup ledger. Next cycle reads this to avoid re-fetching the same concepts and re-attempting the same merges.",
-  "last_cycle": 0,
-  "concepts_fetched": [],
-  "merges_attempted": [],
-  "survivors_all_time": []
+  "last_cycle": 1,
+  "concepts_fetched": [
+    {"id": "B1-C1", "name": "Kohn anomaly", "url": "https://en.wikipedia.org/wiki/Kohn_anomaly", "cycle": 1},
+    {"id": "B1-C2", "name": "Spin-charge separation (Luttinger liquid)", "url": "https://en.wikipedia.org/wiki/Luttinger_liquid", "cycle": 1},
+    {"id": "B1-C3", "name": "Rashba effect", "url": "https://en.wikipedia.org/wiki/Rashba_effect", "cycle": 1},
+    {"id": "B2-C1", "name": "Dynamin GTPase membrane fission", "url": "https://www.biorxiv.org/content/10.1101/167262v2.full", "cycle": 1},
+    {"id": "B2-C2", "name": "Polyubiquitin proteasomal tagging", "url": "https://en.wikipedia.org/wiki/Ubiquitin", "cycle": 1},
+    {"id": "B2-C3", "name": "CRISPR-Cas9 conformational-checkpoint cleavage", "url": "https://www.biorxiv.org/content/10.1101/122242v1.full", "cycle": 1},
+    {"id": "B3-C1", "name": "Beck's monadicity theorem", "url": "https://ncatlab.org/nlab/show/monadicity+theorem", "cycle": 1},
+    {"id": "B3-C2", "name": "Grothendieck construction", "url": "https://ncatlab.org/nlab/show/Grothendieck+fibration", "cycle": 1},
+    {"id": "B3-C3", "name": "Coend calculus / ninja Yoneda", "url": "https://arxiv.org/abs/1501.02503", "cycle": 1},
+    {"id": "B4-C1", "name": "Vickrey-Clarke-Groves mechanism", "url": "https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_mechanism", "cycle": 1},
+    {"id": "B4-C2", "name": "Myerson-Satterthwaite impossibility", "url": "https://en.wikipedia.org/wiki/Myerson%E2%80%93Satterthwaite_theorem", "cycle": 1},
+    {"id": "B4-C3", "name": "Maskin monotonicity", "url": "https://en.wikipedia.org/wiki/Maskin_monotonicity", "cycle": 1},
+    {"id": "B5-C1", "name": "Spike-timing-dependent plasticity", "url": "https://en.wikipedia.org/wiki/Spike-timing-dependent_plasticity", "cycle": 1},
+    {"id": "B5-C2", "name": "Grid-cell hexagonal encoding", "url": "https://en.wikipedia.org/wiki/Grid_cell", "cycle": 1},
+    {"id": "B5-C3", "name": "Hippocampal sharp-wave ripples", "url": "https://en.wikipedia.org/wiki/Sharp_waves_and_ripples", "cycle": 1},
+    {"id": "B6-C1", "name": "QUEST (query-modulated spherical attention)", "url": "https://arxiv.org/abs/2604.00199", "cycle": 1},
+    {"id": "B6-C2", "name": "DART (diffusion-inspired speculative decoding)", "url": "https://arxiv.org/abs/2601.19278", "cycle": 1},
+    {"id": "B6-C3", "name": "iGRPO (iterative group-relative policy optimization)", "url": "https://arxiv.org/abs/2602.09000", "cycle": 1}
+  ],
+  "merges_attempted": [
+    {"id": "M1-T1", "concepts": ["B6-C3", "B2-C3", "B3-C2"], "name": "Fibered Commitment Monads", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
+    {"id": "M1-T2", "concepts": ["B6-C2", "B2-C1", "B3-C3"], "name": "Dinatural Fission", "cycle": 1, "outcome": "DROPPED_STAGE3_hallucinated"},
+    {"id": "M2-T1", "concepts": ["B1-C1", "B4-C1", "B5-C3"], "name": "Nesting-Threshold Replay Selection", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
+    {"id": "M2-T2", "concepts": ["B1-C3", "B4-C3", "B5-C1"], "name": "Chirality-Monotonicity Plasticity", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
+    {"id": "M3-T1", "concepts": ["B6-C1", "B5-C2", "B1-C1"], "name": "Fermi-Shell Positional Encoding (GridFermi-PE)", "cycle": 1, "outcome": "SURVIVOR_through_STAGE5_pending_STAGE6"},
+    {"id": "M3-T2", "concepts": ["B6-C3", "B5-C3", "B1-C2"], "name": "Fractionalized Policy Optimization", "cycle": 1, "outcome": "DROPPED_STAGE3_disagreement"},
+    {"id": "M4-T1", "concepts": ["B4-C1", "B2-C3", "B3-C1"], "name": "Algebraic Gatekeeping Protocols", "cycle": 1, "outcome": "DROPPED_STAGE4_trivial_variant"},
+    {"id": "M4-T2", "concepts": ["B4-C2", "B2-C2", "B3-C2"], "name": "Fibered Mechanism Incompleteness", "cycle": 1, "outcome": "DROPPED_STAGE4_trivial_variant"}
+  ],
+  "survivors_all_time": [
+    {"id": "M3-T1", "name": "Fermi-Shell Positional Encoding (GridFermi-PE)", "cycle": 1, "value_tier": "MODEST_INCREMENTAL", "status": "stage5_passed_pending_stage6_audit"}
+  ]
 }
