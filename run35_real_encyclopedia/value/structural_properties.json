@@ -1,0 +1,31 @@
+{
+  "description": "Structural-property primitives for the Run 35 value/plausibility scorer. A cross-domain transfer 'apply mechanism A to problem B' is PLAUSIBLE/VALUABLE when the structural properties A's mechanism REQUIRES (preconditions) are AFFORDED by problem B. Mechanism tokens are tagged with the properties they require; problem tokens with the properties they afford. value = coverage(preconditions by affordances).",
+  "properties": {
+    "continuous": "state/space is smooth and real-valued (not discrete)",
+    "discrete": "state is combinatorial / integer / categorical",
+    "gradient_structure": "there is a directional 'which way is better' signal",
+    "objective_function": "there is a scalar quantity to optimize or extremize",
+    "stochastic": "randomness / noise is intrinsic to the process",
+    "population": "many interacting units / a collection of candidates",
+    "variation": "units differ and the differences can be inherited/propagated",
+    "competition": "units compete for a limited shared resource",
+    "conserved_quantity": "some quantity is conserved and merely redistributed",
+    "spatial": "geometry, distance, or locality matters",
+    "temporal_dynamics": "the system evolves over time / has iteration",
+    "feedback_loop": "output feeds back to influence input",
+    "equilibrium": "the system settles toward a steady state",
+    "threshold_effect": "behavior changes abruptly past a critical point",
+    "network_structure": "entities and relations form a graph",
+    "hierarchy": "nested levels / scales of organization",
+    "modular": "separable, recombinable components",
+    "sequential": "order of operations matters",
+    "adversarial": "opposing agents with conflicting objectives",
+    "resource_constraint": "a limited budget bounds what is possible",
+    "measurable_state": "the current state can be observed/quantified",
+    "high_dimensional": "many variables / large state space",
+    "redundancy": "replicated or repeated elements provide slack",
+    "energy_landscape": "there are basins/minima the system can fall into"
+  },
+  "n_properties": 24,
+  "tagging_rubric": "Tag each token with the 2-4 properties most essential to it. For a MECHANISM token, tag what the mechanism REQUIRES of its substrate to work (e.g. 'gradient' requires continuous + gradient_structure + objective_function). For a PROBLEM token, tag what structure that problem AFFORDS / exhibits (e.g. 'allocation' affords discrete + resource_constraint + competition). Use ONLY these property names."
+}

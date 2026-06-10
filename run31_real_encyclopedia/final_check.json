@@ -1,0 +1,339 @@
+{
+  "_schema": "Run 31 Phase 5 niche-value check. SEPARATE strict checker (R13): a construct that is a method-variant of an ACTIVE research area is NOT_NICHE even if the exact combination is unpublished (the M032 lesson). Every verdict strips the metaphor to the bare mechanism and names the active area it would belong to.",
+  "checker": "separate niche-value checker agent (strict, R13) with WebSearch",
+  "counts": {
+    "total": 18,
+    "IS_NICHE": 0,
+    "NOT_NICHE": 18
+  },
+  "ranking_one_line": "IS_NICHE:  | NOT_NICHE: M005, M011, M012, M016, M017, M018, M019, M020, M021, M022, M023, M026, M035, M041, M047, M049, M064, M066",
+  "verdicts": [
+    {
+      "id": "M005",
+      "merged_construct": "Le Chatelier RLHF: Equilibrium-Restoring KL Control under Reward Stress",
+      "bare_mechanism": "A full PID controller on the policy-reference KL in KL-penalized PPO, whose distinctive piece is a derivative/rate term: the KL penalty coefficient and clip range respond to the positive rate-of-change of KL (max(dKL/dstep,0)) to anticipatorily brake reward over-optimization transients, on top of the standard PI adaptive-KL set-point regulation.",
+      "active_area_candidates": [
+        "Adaptive-KL controllers in RLHF (PI control of KL coefficient)",
+        "Reward over-optimization / over-optimization-control in RLHF",
+        "PID-on-KL with predictive/derivative (reward-velocity) terms"
+      ],
+      "searches_run": [
+        "PID control KL penalty RLHF reward over-optimization adaptive KL controller derivative term 2025 2026"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "PID-on-KL adaptive control in RLHF with a derivative term on KL/reward rate. SAFE (arxiv 2602.04651, Feb 2026) is an entropy-aware predictive controller with PID-driven adaptive KL thresholding that 'dynamically adjusts divergence tolerance based on reward velocity' — reward velocity is exactly M005's dKL/dstep anticipatory term. epsilon-DPO (Oct 2025) adapts the KL coefficient from observed monotonicity. M005 = the same derivative/predictive-on-KL control, re-metaphored as Le Chatelier.",
+      "reasoning": "This is the M032-style trap. M005 itself isolates its only-novel ingredient as the derivative/rate term on KL ('anticipatory braking of over-optimization'), conceding the PI part is the known adaptive-KL controller. But search shows that exact derivative/predictive-on-KL-rate mechanism is already an active method: SAFE (Feb 2026) does PID-driven adaptive KL thresholding keyed to reward velocity (= dKL/dstep) for the same over-optimization-control purpose. So even the 'genuinely new' piece is a published variant of the active over-optimization-control / adaptive-KL area. Nominal novelty (Le Chatelier framing) over a structurally-present mechanism does not qualify."
+    },
+    {
+      "id": "M011",
+      "merged_construct": "Somatic-Hypermutation Best-of-N: Affinity-Maturation Sampling with Clonal Selection",
+      "bare_mechanism": "Iterative population-based test-time search over LLM outputs: keep the top-k scored candidates, allocate more of the next-round sample budget to higher-reward candidates (fitness-proportional selection), and generate children by re-decoding only the localized, attribution-flagged error spans at higher temperature while freezing the rest, with temperature annealing as reward plateaus.",
+      "active_area_candidates": [
+        "evolutionary / genetic test-time search over LLM candidates (Mind Evolution, Population-Evolve, Duel-Evolve)",
+        "localized-edit / partial-regeneration mutation operators (JSON-Patch localized edits, AST-level localized sub-tree mutation, EvoLattice)",
+        "best-of-N / inference-time scaling with reward selection"
+      ],
+      "searches_run": [
+        "evolutionary test-time search LLM best-of-N iterative refinement mutate targeted spans select high reward candidates 2024 2025",
+        "LLM evolutionary search localized mutation edit specific spans tokens partial regeneration keep correct parts refine errors"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of LLM evolutionary test-time search with localized mutation. Mind Evolution (arXiv 2501.09891) does keep-best + refine-promising genetic search over LLM candidates; localized-edit mutation that 'maintains correct parts while refining errors through localized edits rather than complete regeneration' (database-plan localized edits 2602.10387; AST-level localized sub-tree mutation targeting semantically relevant nodes; EvoLattice 2512.13857) is the established mutation operator M011 calls targeted somatic hypermutation. Reward-proportional lineage budgeting = standard fitness-proportional selection.",
+      "reasoning": "Strip the germinal-center/clonal-selection story and M011 is evolutionary test-time search with selection + localized mutation, a crowded active area. Mind Evolution supplies the select-and-refine genetic loop; multiple 2025-2026 works already do attribution/saliency-targeted localized edits that freeze correct spans and re-decode only error regions. The attribution-confined partial re-decode is a mutation-operator design choice, not an unmodeled quantity with no analog. Reward-proportional budgeting is textbook fitness selection. NOT_NICHE."
+    },
+    {
+      "id": "M012",
+      "merged_construct": "Baroreflex Learning-Rate Control with Isostatic Slow-Rebound",
+      "bare_mechanism": "Wrap Adam in a two-timescale closed-loop learning-rate controller: a fast loop multiplicatively shrinks/grows the step to hold a gradient-noise statistic p=||g||^2/||v|| near a set-point, while a slow first-order (viscoelastic) loop relaxes that set-point itself toward the long-run statistic so the operating target re-baselines only after sustained regime changes.",
+      "active_area_candidates": [
+        "PID / control-theoretic LR controllers (PIDAO, PID-LR scheduler, NeurIPS-2024 PID calibration, 2510.04591)",
+        "feedback LR adaptation holding a gradient/update statistic at a target set-point (CMA-ES LRA constant-SNR 2401.15876; LANTON noise-adaptive 2510.14009; AdaLRS)",
+        "two-timescale / meta-learned LR with slow set-point adaptation under nonstationarity (ALFA 2011.00209; two-timescale fast-adapter/slow-controller)"
+      ],
+      "searches_run": [
+        "two-timescale learning rate controller gradient noise adaptive optimizer feedback control PID fast slow setpoint 2024 2025",
+        "adaptive learning rate target set-point slow drift homeostatic regulation gradient signal-to-noise ratio band optimizer 2024 2025",
+        "meta-learning hyperparameter adaptation two timescale slow setpoint controller learning rate target adaptation nonstationary regime change",
+        "CMA-ES learning rate adaptation constant signal-to-noise ratio target setpoint feedback population"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of feedback LR control on a gradient-noise statistic + two-timescale/meta set-point adaptation. CMA-ES LRA (arXiv 2401.15876) is a closed loop holding an update SNR statistic at a target set-point by raising/lowering the LR — mechanically M012's fast baroreflex loop on p=||g||^2/||v||. Two-timescale LR with a slow, regime-resetting meta-set-point is modeled by ALFA (2011.00209) and explicit fast-adapter/slow-controller architectures ('reset when environmental statistics change; meta-learned higher-order parameters').",
+      "reasoning": "Strip the baroreflex/post-glacial story and M012 is a two-timescale adaptive-LR controller: fast control of a gradient-noise statistic to a set-point plus slow adaptation of that set-point. CMA-ES LRA already does constant-SNR set-point LR control on an update-noise statistic; meta-LR work (ALFA, two-timescale controller/adapter) already adapts the control target slowly and resets on regime change. The viscoelastic relaxation is just a first-order functional form on an already-modeled slow-set-point channel. The controlled quantity (gradient-noise ratio) and the slow-re-baselining regime both have current analogs — no unmodeled quantity. NOT_NICHE."
+    },
+    {
+      "id": "M016",
+      "merged_construct": "Frank-Starling Preload Gating for Mixture-of-Experts Capacity",
+      "bare_mechanism": "MoE where (a) each expert's effective compute (FFN width / active rank) scales up with its assigned token load along a saturating gain curve that then declines past a plateau, and (b) the auxiliary load-balance loss is replaced by routing overflow tokens from over-subscribed experts down the utilization gradient to under-used experts via a conserved-flux redistribution field.",
+      "active_area_candidates": [
+        "dynamic/adaptive per-expert capacity and slimmable experts (DynaMoE, MoSE)",
+        "auxiliary-loss-free / bias-based load balancing (DeepSeek-V3, 2408.15664)",
+        "expert-overflow token reroute / least-loaded redistribution (Capacity-Aware Inference, LASER, Least-Loaded Expert Parallelism)"
+      ],
+      "searches_run": [
+        "mixture of experts dynamic per-expert capacity adaptive compute variable FFN width 2024 2025",
+        "MoE auxiliary-loss-free load balancing redistribution routing 2024 2025",
+        "MoE expert overflow token redistribution advection underutilized experts saturation routing",
+        "expert capacity scales with assigned load demand-following adaptive compute saturating gain MoE slimmable expert width input difficulty"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of adaptive-per-expert-capacity MoE + loss-free-balancing-with-overflow-reroute. MoSE (arXiv 2602.06154) gives variable per-expert width ('conditional computation over how much of each expert is utilized') with 'dynamic gating tunes expert capacity to token load'; loss-free bias balancing (2408.15664) replaces the aux loss; Token Reroute / Capacity-Aware Inference (2503.05066) and LASER redistribute overflow to underutilized/least-loaded experts. M016 = these three combined.",
+      "reasoning": "Strip the cardiac/atmospheric story and M016 is: load-dependent expert capacity + bias-based aux-loss-free balancing + overflow reroute to under-used experts. All three are active 2024-2026 areas with near-exact analogs (MoSE slimmable width keyed to load; DeepSeek loss-free bias; Token Reroute down the utilization gradient). The only nominal addition is the Frank-Starling 'decompensation' limb where capacity DROPS past a plateau, but the construct itself states this risks self-starvation and must be 'effectively disabled', so it introduces no beneficial unmodeled quantity — it is a counterproductive curve shape, not a structural regime with no current analog. This is the M032 pattern: method-variant of an active area in a biological costume. NOT_NICHE."
+    },
+    {
+      "id": "M017",
+      "merged_construct": "Complement-Cascade Opsonization for Speculative-Decoding Verification",
+      "bare_mechanism": "Speculative decoding where exact single-shot accept/reject is replaced by graded acceptance: accumulate target confidence on each draft token from cheap early-exit/intermediate-layer signals, accept once a threshold is crossed (and let a strongly-accepted token lower its successors' thresholds), and run full deep verification only from the estimated layer-depth at which draft and target first diverge, skipping shallow layers that already agree.",
+      "active_area_candidates": [
+        "self-speculative decoding via early-exit / layer-skipping (EESD 2406.03853, LayerSkip, pipeline early-exit 2509.19368)",
+        "partial / depth-localized verification (SpecPV 2512.02337, HiSpec 2510.01336)",
+        "confidence-threshold / intermediate-signal draft acceptance and hierarchical speculative decoding (Mirror-SD, SpecBranch)"
+      ],
+      "searches_run": [
+        "speculative decoding early exit partial verification layer skipping approximate acceptance confidence threshold draft tokens 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of early-exit self-speculative decoding + partial/depth-localized verification. SpecPV (arXiv 2512.02337) is 'self-speculative decoding via partial verification'; EESD (2406.03853) re-purposes the first-E layers and partially reuses computation between draft and verification; HiSpec (2510.01336) does hierarchical/early-exit verification; intermediate-model verification that 'discards inaccurate tokens early' on confidence is exactly M017's graded acceptance on early-exit signals.",
+      "reasoning": "De-metaphored, the complement/seismology construct is graded, early-exit-confidence acceptance plus verify-deep-only-from-the-divergence-depth — both squarely in active early-exit self-speculative + partial-verification work (SpecPV, EESD, HiSpec). The construct itself admits approximate acceptance forfeits the exact-distribution guarantee, i.e. it is just lossy/approximate self-speculative decoding, an active area. The opsonin 'cascade gain' (accepted token lowers successors' thresholds) is a minor neighbor-coupling heuristic, not an unmodeled quantity with no analog. NOT_NICHE."
+    },
+    {
+      "id": "M018",
+      "merged_construct": "Herd-Immunity Dropout with Seafloor-Spreading Capacity Accretion",
+      "bare_mechanism": "Two bolted-together mechanisms: (a) set dropout per layer adaptively from a measured feature-dependency proxy estimated by perturbation probes (how many downstream units are corrupted when a unit is perturbed), dropping more where dependency/sensitivity is high; and (b) an age-structured growing schedule that accretes new plastic units at a layer and freezes them as they age, for continual/lifelong learning.",
+      "active_area_candidates": [
+        "Adaptive / sensitivity- and information-driven per-unit/per-layer dropout (Rate-In, concrete/variational dropout)",
+        "Neurogenesis / progressive network growth with freezing for continual learning (DSD-SNN, Neuroplastic Expansion, 'when/where/how to add neurons to ANNs')"
+      ],
+      "searches_run": [
+        "adaptive per-unit dropout rate based on feature importance sensitivity co-adaptation information theoretic 2024 2025",
+        "progressive network growth freeze old neurons add new units age-structured continual learning neurogenesis 2024 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Rate-In (arXiv 2412.07169, CVPR 2025) adapts dropout per layer and per instance from a measured information-loss-to-downstream-feature-maps signal — exactly M018's perturbation-measured dependency proxy. The growth half is neurogenesis/progressive-growth continual learning (DSD-SNN dynamically grows+prunes neurons; Neuroplastic Expansion 2410.07994 regenerates and consolidates neurons; survey 2202.08539 on adding neurons to ANNs).",
+      "reasoning": "De-metaphored (herd immunity R0, seafloor spreading), the two parts are (a) sensitivity-/dependency-driven adaptive dropout and (b) age-structured grow-and-freeze continual learning — both confirmed-active areas. Rate-In already measures downstream information loss per unit/layer to set the rate, so the 'downstream-units-that-collapse' R0 quantity has a direct current analog; the 1-1/R0 herd-immunity formula is just a heuristic mapping from that measured sensitivity to a rate. The growth schedule is mainstream neurogenesis continual learning. The construct itself frames the branching-process guarantee as unverified and notes the two halves are 'bolted together,' so even the union is two separate active-area variants, not a structurally novel regime."
+    },
+    {
+      "id": "M019",
+      "merged_construct": "Thermoregulatory Set-Point Temperature for Diffusion Sampling under Mantle-Plume Bursts",
+      "bare_mechanism": "Wrap a pretrained diffusion sampler's reverse loop in a closed-loop controller: estimate a scalar quality/uncertainty proxy from the CFG conditional-vs-unconditional denoiser gap, and use a PID law to drive the guidance scale up and the injected noise down (with a deliberately high-then-low time-varying set-point), plus occasional stochastic re-noising of the highest-residual latent regions for a few forward steps and re-denoising.",
+      "active_area_candidates": [
+        "Dynamic / state-dependent classifier-free guidance (feedback guidance, online-feedback CFG, annealed/power-law CFG)",
+        "Localized / partial re-noising test-time scaling (SDEdit, LoTTS localized test-time scaling, restart sampling)"
+      ],
+      "searches_run": [
+        "closed-loop feedback control guidance scale diffusion sampling CFG dynamic 2024 2025",
+        "adaptive guidance schedule diffusion model error feedback per-step 2025",
+        "localized re-noising stuck regions diffusion restart SDEdit partial resampling high residual latent 2025",
+        "feedback guidance diffusion conditional unconditional discrepancy signal state-dependent guidance scale control loop posterior"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Feedback / dynamic CFG. 'Feedback Guidance of Diffusion Models' (arXiv 2506.06085, NeurIPS 2025) is an explicitly control-theory-inspired closed-loop scheme that self-regulates the guidance scale from a state-dependent signal derived from the conditional/unconditional discrepancy + posterior-likelihood tracking — exactly M019's 'measured trajectory-temperature' loop. 'Dynamic CFG via Online Feedback' (2509.16131) and C2FG (2603.08155) are further variants. The plume re-noising half = LoTTS localized test-time scaling (ICLR 2025) / SDEdit partial diffusion.",
+      "reasoning": "Stripping thermoregulation/mantle-plume leaves (i) closed-loop feedback on a measured denoiser-disagreement proxy to set guidance/noise and (ii) localized re-noising of high-residual regions. Search confirms both are active 2025-2026 areas: FBG (NeurIPS 2025) already uses the conditional/unconditional gap as a state-dependent control signal in a feedback loop, which is precisely the 'genuinely new content' M019 claims (measured feedback vs open-loop schedule). The construct itself concedes overlap with CADS dynamic CFG and SDEdit partial diffusion. The PID/fever-set-point/Poisson-plume framing is metaphorical packaging over an existing active mechanism; no unmodeled quantity is introduced."
+    },
+    {
+      "id": "M020",
+      "merged_construct": "Wound-Healing Phased LoRA Adaptation with Glacier Accumulation-Ablation Budgeting",
+      "bare_mechanism": "Make LoRA fine-tuning a multi-phase schedule (warm-up -> high-LR high-rank error-clearing -> grow low-rank directions only where residual persists -> prune/re-orthonormalize), advancing per layer on error-clearance signals, while enforcing a conserved global rank budget that periodically transfers integer rank units from low-importance layers to high-gradient-flux layers (water-filling under a fixed total).",
+      "active_area_candidates": [
+        "Adaptive / dynamic-rank LoRA budget allocation across layers (AdaLoRA, ElaLoRA, DaRA, FlexLoRA, La-LoRA, HyperAdaLoRA)",
+        "Importance-based prune-and-expand PEFT with rank scheduling"
+      ],
+      "searches_run": [
+        "phased staged LoRA adaptation dynamic rank budget reallocation across layers AdaLoRA 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "AdaLoRA-family dynamic rank budgeting. ElaLoRA (arXiv 2504.00254) simultaneously prunes and expands rank, reallocating a budget toward critical layers; DaRA reallocates ranks after a coarse warm-up by discarding directions from unimportant modules and assigning more to important ones; FlexLoRA (2601.22905) explicitly schedules 'aggressive rank reallocation early, gradual stabilization toward convergence' — i.e. the same phase/aggressiveness control M020 claims.",
+      "reasoning": "De-metaphored (wound-healing phases, glacier accumulation/ablation), this is staged dynamic-rank LoRA with a fixed total rank budget that flows between layers by importance — the defining AdaLoRA paradigm. Search shows the exact distinctive elements (early-aggressive-then-stabilize phasing in FlexLoRA, warm-up-then-reallocate in DaRA, prune+expand under a budget in ElaLoRA) already exist. The construct openly admits 'strong overlap with AdaLoRA.' Error-clearance-gated phase transitions are a scheduling heuristic over the same rank-importance machinery; the conservation constraint is the standard fixed-budget allocation. No unmodeled quantity."
+    },
+    {
+      "id": "M021",
+      "merged_construct": "Gate-Control Pain Inhibition for Gradient Routing with River-Delta Distributary Sharding",
+      "bare_mechanism": "On a shared backbone with task-conditioned (reasoning vs tool-use) gradient streams routed partly to disjoint adapters, combine the two shared-path gradients with a soft magnitude-dependent gate g=sigma(k(|g_R|-|g_T|)+d) so the larger-norm stream dominates the shared weights (plus a top-down bias and optional PCGrad projection for direction conflict), and reroute shared updates into the least-used rank subspace when the active subspace saturates, to preserve plasticity.",
+      "active_area_candidates": [
+        "Gradient-conflict resolution / gradient surgery for multi-task learning (PCGrad, GradNorm, GCond, gradient similarity surgery)",
+        "Stability-plasticity subspace allocation / partitioning for continual learning (PLAN, SplitLoRA, C-LoRA learnable routing)"
+      ],
+      "searches_run": [
+        "gradient conflict resolution multi-task soft gating magnitude PCGrad gradient surgery 2025",
+        "subspace reallocation saturation plasticity continual learning low-rank capacity reuse gradient routing adapters 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Gradient-surgery / magnitude-arbitration MTL (PCGrad; GCond, arXiv 2509.07252, adds an adaptive arbitration mechanism over conflicting gradients) for the gating half, and stability-plasticity subspace allocation (PLAN, ICCV 2025; SplitLoRA 2505.22370 partitions gradient space; C-LoRA 2502.17920 uses a learnable routing matrix into reusable subspaces) for the avulsion half.",
+      "reasoning": "Stripping gate-control-of-pain and river-delta framing leaves a soft magnitude-based arbitration of conflicting per-task gradients on a shared path plus saturation-triggered rerouting into an unused subspace. Search confirms magnitude-based and adaptive-arbitration gradient-conflict methods are an active, named family (the literature explicitly notes 'prior works only alter gradient magnitudes'), and subspace partitioning/rerouting for plasticity is an active continual-learning area. The construct concedes hard/zero-gate limits recover DART/averaging and overlaps with PCGrad. The 'avulsion to least-used subspace' returned zero ML hits as a name but is a relabel of active subspace-allocation routing. No unmodeled quantity."
+    },
+    {
+      "id": "M022",
+      "merged_construct": "Pharmacokinetic Compartment Decay for KV-Cache Eviction with Atmospheric-Circulation Token Transport",
+      "bare_mechanism": "KV-cache management where each token's importance/retention score decays exponentially over time (first-order washout with a per-token half-life), is refreshed by recent attention mass, and the token is demoted across multiple fidelity tiers (fp16 -> low-bit -> compressed summary) and finally evicted when its score falls below a threshold, all under a global memory budget; a salience-transport term promotes high-attention tokens up to full precision.",
+      "active_area_candidates": [
+        "temporal/exponential-decay token retention with budgeted eviction (TRIM-KV, G-KV)",
+        "mixed-precision / importance-aware KV quantization (No Token Left Behind, KVmix, MixKVQ)",
+        "progressive precision reduction + heavy-hitter eviction (RaaS, LazyEviction, R-KV, ThinKV)"
+      ],
+      "searches_run": [
+        "KV cache compression multi-tier precision demotion gradual eviction attention decay mixed precision quantization 2025",
+        "KV cache token importance exponential decay time recency half-life eviction score temporal aging attention 2024 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of decay-based budgeted KV retention + multi-tier mixed-precision KV. TRIM-KV (arXiv 2512.03324) predicts a per-token retention score that 'decays exponentially over time' with rate beta and evicts below budget — exactly M022's first-order half-life washout with attention re-dosing; G-KV adds a 'memory decay rate alpha'; mixed-precision KV (2402.18096, KVmix) and progressive-precision eviction (RaaS/LazyEviction/R-KV 'progressively reduce token precision during decoding') supply the fp16->lowbit->summary tiers.",
+      "reasoning": "De-metaphored, the PK compartment model is just attention-refreshed exponential decay of a token importance score plus multi-tier precision demotion under a memory budget. TRIM-KV/G-KV already model the exponential half-life decay-and-evict, and progressive-precision eviction methods already do continuous fp16->lowbit fidelity reduction; mixed-precision KV covers the tiers. M022's own stated failure (a far-back fact demoted just before it is needed) is the actively-studied 'recurring tokens' phenomenon, not an unmodeled quantity. The pharmacokinetic first-order-rate framing is a reparameterization of existing decay/eviction kinetics. NOT_NICHE."
+    },
+    {
+      "id": "M023",
+      "merged_construct": "Second-Price Expert Routing (Vickrey-Gated MoE)",
+      "bare_mechanism": "MoE token-choice top-K kept, but (1) dispatch weight set from the (K+1)-th-highest gate bid and the valuation head's gradient toward its own bid detached (stop-gradient), to resist router self-reinforcement / expert collapse, and (2) the auxiliary load-balance loss replaced by a learnable reserve price (null-route to a dense path) plus a seed-decay spacing penalty separating high-win experts.",
+      "active_area_candidates": [
+        "Auxiliary-loss-free / reserve-based MoE load balancing and anti-collapse",
+        "Auction / mechanism-design MoE routing (Vickrey/VCG)",
+        "Router-collapse / rich-get-richer mitigation in MoE"
+      ],
+      "searches_run": [
+        "auction mechanism Vickrey second-price expert routing mixture of experts 2024 2025",
+        "auxiliary-loss-free load balancing MoE expert bias DeepSeek 2024 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Aux-loss-free MoE balancing (DeepSeek 'Auxiliary-Loss-Free Load Balancing', arxiv 2408.15664, and DeepSeek-V3 2412.19437; theoretical framework 2512.03915) combined with the active auction-MoE line (MoB: Mixture of Bidders, arxiv 2512.10969, applies Vickrey/VCG to expert routing). M023 = a Vickrey-flavored anti-collapse + reserve/spacing balancing variant within these two active areas.",
+      "reasoning": "De-metaphored, M023 is an aux-loss-free balancing + anti-router-collapse scheme: a stop-gradient on the gate's own score plus a reserve null-route and a spacing penalty. Search confirms aux-loss-free bias/reserve balancing is a flagship active area (DeepSeek-V3 and follow-ups through Dec 2025) and that auction/Vickrey routing for MoE already exists (MoB, Dec 2025). The P3 note already conceded 'substantial overlap with the Vickrey-MoE area.' The own-bid detachment is a standard stop-gradient trick to fight rich-get-richer; nothing here is an unmodeled regime. Method-variant of two confirmed-active areas."
+    },
+    {
+      "id": "M026",
+      "merged_construct": "Handicap-Equalized Expert Capacity Control",
+      "bare_mechanism": "Switch top-1 routing augmented with a per-expert bias subtracted from gate logits equal to a low-pass-filtered load differential (recent minus fair share), replacing the auxiliary load-balance loss (an integral controller on utilization); on overflow, replace token-dropping with forced reassignment to the best non-full expert and feed the routing mismatch back as extra bias on the saturated expert.",
+      "active_area_candidates": [
+        "Auxiliary-loss-free / bias-based MoE load balancing (DeepSeek-V3 integral-controller bias)",
+        "MoE overflow handling / token-drop rectification and reassignment",
+        "Expert-capacity / load-balancing control in MoE"
+      ],
+      "searches_run": [
+        "auxiliary-loss-free load balancing MoE expert bias DeepSeek 2024 2025",
+        "MoE expert overflow no token dropping reassign overflow tokens nearest available expert routing"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "DeepSeek-V3-style auxiliary-loss-free bias balancing (arxiv 2408.15664 / 2412.19437: per-expert bias updated from realized load = integral controller on utilization) for the handicap half; and overflow-rectification for the no-drop half (Turn Waste into Worth: Rectifying Top-k Router of MoE, arxiv 2402.12399; Buffer Overflow in Mixture of Experts, arxiv 2402.05526). M026 = a re-metaphored combination of both.",
+      "reasoning": "De-metaphored, M026 is (a) bias-based aux-loss-free load balancing and (b) re-routing overflow tokens instead of dropping them. The construct explicitly admits the handicap-bias half is a re-derivation of DeepSeek-V3 loss-free bias balancing, which search confirms is the dominant active approach. The supposedly-distinct 'zugzwang' no-drop handler is also an active line: 'Turn Waste into Worth' and 'Buffer Overflow in MoE' (both 2024) already rectify/reassign overflow tokens rather than drop, and dynamic-capacity methods reassign to maintain latency. Forcing to the best non-full expert plus a mismatch-feedback bias is an engineering variant of these, not an unmodeled regime."
+    },
+    {
+      "id": "M035",
+      "merged_construct": "Etak Dead-Reckoning State Filter",
+      "bare_mechanism": "A gated, content-addressed affine reset/overwrite of the Mamba selective-scan state at learned 'landmark' tokens (a small associative-memory register with recall/overwrite semantics), conditioned on an integrated-magnitude proxy, to re-anchor latent state for recurring referents and improve exact long-range retrieval / variable rebinding.",
+      "active_area_candidates": [
+        "SSM memory augmentation for long-range retrieval / associative recall (MemMamba)",
+        "Fast-weight delta-rule state updates (DeltaNet, Gated DeltaNet, LaCT)",
+        "Kalman measurement-update SSMs / belief-state registers (Gated KalmaNet, Kalman Linear Attention)",
+        "Variable-binding / register memories in recurrent models"
+      ],
+      "searches_run": [
+        "Mamba state space model long-range retrieval gated memory register associative recall 2024 2025",
+        "fast weights register tokens landmark gated reset state space model Kalman update neural memory 2024",
+        "content-based gated state reset SSM landmark tokens variable binding recurrent memory overwrite recall 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "SSM associative-memory / fast-weight register augmentation. MemMamba (arxiv 2510.03279) augments Mamba state for >200k-token retrieval; DeltaNet/Gated DeltaNet (2024-2025) are content-dependent gated state overwrite (delta rule); Gated KalmaNet (arxiv 2511.21016) frames SSM state updates as Kalman measurement updates with gated reset — exactly the 'Kalman update over dead-reckoning' the construct names. M035 = a landmark-token-gated affine-reset variant of these.",
+      "reasoning": "Stripped of the (admittedly vestigial) drift story, M035 is a content-gated affine state reset / register over the Mamba scan to fix exact long-range recall and variable rebinding. Search shows this is a very active 2024-2026 area: SSM memory augmentation (MemMamba), fast-weight gated state overwrite (DeltaNet/Gated DeltaNet), and Kalman-gated state updates (Gated KalmaNet, Kalman Linear Attention), plus explicit variable-binding register subspaces in RNNs. The construct itself discloses it is 'closest in spirit to learned fast-weight/register tokens and Kalman measurement updates.' Conditioning the reset on landmark tokens is an input-gating variant, not an unmodeled quantity."
+    },
+    {
+      "id": "M041",
+      "merged_construct": "Central-Place Expert Geography",
+      "bare_mechanism": "Replace MoE top-K global routing with: (1) hard range/radius gating in router space so each expert only serves nearby tokens (token-dependent bounded candidate set); (2) a viability threshold that prunes/merges experts whose captured token mass is too low, replacing the auxiliary load-balance loss with an explicit demand-coverage criterion plus hierarchical escalation of rare tokens; (3) a regularizer enforcing roughly uniform centroid separation for gap-free coverage.",
+      "active_area_candidates": [
+        "Geometric / distance-based MoE routing (geometric routing, GrMoE Grassmannian routing, radial-angular decomposition, cosine-similarity metric-space routing)",
+        "Expert pruning / merging of dead/low-utilization experts (cluster-driven pruning, REAP, DiEP, LAEP)",
+        "Auxiliary-loss-free MoE load balancing"
+      ],
+      "searches_run": [
+        "geometric distance-based routing mixture of experts radius cluster centroid coverage 2024 2025",
+        "expert pruning merging dead experts coverage regularizer spacing uniform separation MoE load balancing 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Geometric MoE routing (e.g. 'Geometric Routing Enables Causal Expert Control in MoE' 2604.14434; GrMoE 2602.17798 gives formal sparsity guarantees via concentration parameters on a manifold; geometry-preserving MoE 2602.14039 uses radial-angular decomposition) combined with active expert-pruning/merging (cluster-driven pruning, REAP 2510.13999, DiEP 2509.16105) and auxiliary-loss-free balancing.",
+      "reasoning": "De-metaphored (central-place theory, Mongol yam relays), M041 is metric-space distance/radius-gated routing + low-mass expert pruning/merging + a centroid-separation diversity regularizer replacing the balance loss. Search shows geometric/distance-based MoE routing is a distinctly active 2024-2026 area, including manifold variants with sparsity/coverage guarantees, and that dead-expert pruning/merging and aux-loss-free balancing are mainstream. The 'viability threshold' is low-utilization expert pruning; the 'spacing regularizer' is a standard separation/diversity term. Each of the three pieces is an active-area variant; their union is nominal novelty, not a structurally unmodeled regime."
+    },
+    {
+      "id": "M047",
+      "merged_construct": "Leitmotif Retrieval Tags: semantic-cell index keys that recur on referent salience",
+      "bare_mechanism": "Augment RAG with an entity-indexed associative memory: each chunk carries an entity/referent key (and a viewpoint/time 'origo' vector), an entity-tracking head maintains a running set of active referents, and retrieval scoring is made state-dependent on that set so evidence for a currently-salient entity introduced upstream keeps being re-retrieved at each step, with deictic compatibility gating.",
+      "active_area_candidates": [
+        "Entity-centric / coreference-aware retrieval (coref-resolution RAG, entity retrieval)",
+        "Discourse-aware RAG (Disco-RAG, discourse-state retrieval)",
+        "Conversational / evolving-memory RAG with running state (adaptive retrieval, GAM-RAG gain-adaptive memory, SGMem)"
+      ],
+      "searches_run": [
+        "entity-centric coreference-aware retrieval augmented generation salience discourse state per-step re-retrieval 2024 2025",
+        "salience-gated retrieval running entity state memory keep retrieving entity introduced upstream conversational RAG 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Entity-centric / coref-aware RAG ('From Ambiguity to Accuracy' 2507.07847; Entity Retrieval 2408.02795) and discourse-aware / evolving-memory RAG (Disco-RAG 2601.04377; GAM-RAG 2603.01783 'gain-adaptive memory for evolving retrieval'; conversational memory RAG). State-dependent re-retrieval keyed on tracked entities is the core of these methods.",
+      "reasoning": "Stripping the Wagnerian-leitmotif and deixis framing leaves entity-keyed, salience/state-dependent re-retrieval with discourse-state gating — squarely the active entity-centric/coref-aware/discourse-aware/conversational-memory RAG cluster confirmed by search (multiple 2024-2026 papers). The construct itself states it 'overlaps heavily with entity-graph RAG' under perfect coref and is 'a tighter framing of entity-persistent retrieval,' i.e. an admitted variant. The motif-recurrence and origo vectors are renamings of entity salience and viewpoint/temporal context already modeled; no unmodeled quantity with no current analog."
+    },
+    {
+      "id": "M049",
+      "merged_construct": "Apophatic Routing: experts defined by elimination rather than selection",
+      "bare_mechanism": "MoE routing where (a) a head is trained with explicit counterfactual supervision — each expert's target is the measured loss increase when that expert is masked, a direct marginal-value estimate — and (b) the active expert count per token is set by an iterative stopping rule that discards the most-confidently-low-value experts until further removal would hurt, giving an adaptive, input-dependent k.",
+      "active_area_candidates": [
+        "counterfactual / masking-based routing valuation (When Are Experts Misrouted? 2605.07260; Counterfactual Routing / awakening dormant experts 2604.14246)",
+        "adaptive-k / token-adaptive expert count by confidence-threshold inclusion (AdaMoE 2406.13233, Ada-K, BEAM 2605.14438, DTop-p 2512.13996, 'Harder Tasks Need More Experts' 2403.07652)",
+        "leave-one-out / Shapley-style expert attribution and pruning"
+      ],
+      "searches_run": [
+        "mixture of experts counterfactual routing masking expert marginal contribution leave-one-out adaptive number of experts per token",
+        "counterfactual expert routing analysis misrouted experts MoE diagnostic masking loss increase 2025 2026",
+        "adaptive top-k experts confidence threshold pruning experts per token Ada-K AdaMoE dynamic expert selection"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Variant of counterfactual-routing-valuation + adaptive-k MoE. 'When Are Experts Misrouted? Counterfactual Routing Analysis' (arXiv 2605.07260) explicitly scores routes by comparing executed vs masked/alternative equal-compute routes via the resulting loss — exactly M049's counterfactual-mask-loss-increase training target. Adaptive-k by progressive threshold inclusion until a cumulative/stopping criterion (DTop-p 2512.13996, AdaMoE, 'Harder Tasks Need More Experts' 2403.07652) is M049's Occam parsimony stopping rule.",
+      "reasoning": "De-metaphored, the apophatic 'define by elimination' is just (1) counterfactual masking-loss valuation of experts and (2) adaptive-k that prunes low-value experts until a stopping rule fires — both active. The misrouting paper already trains/diagnoses on exactly the masking-loss-increase signal; multiple adaptive-k methods already grow/shrink the survivor set by confidence thresholds. 'Eliminating confidently-wrong experts' is mechanically identical to threshold-based adaptive-k inclusion of high-value ones, so the negation framing is nominal, not structural — no unmodeled quantity. This is precisely the M032 trap. NOT_NICHE."
+    },
+    {
+      "id": "M064",
+      "merged_construct": "Phase-Locked-Loop Optimizer Synchronization",
+      "bare_mechanism": "An outer closed-loop controller on the scalar learning rate whose error signal is the deviation of the gradient sign-flip (sign-change) rate from a target set-point, implemented as a PI loop with a governor saturation; momentum/Adam are left as the inner gradient filter.",
+      "active_area_candidates": [
+        "Sign-statistic step-size adaptation (RPROP, delta-bar-delta, ActiveLR)",
+        "Control-theoretic learning-rate control (PID/PI-on-LR: PIDAO, Incremental-PID-LR, SPI-Optimizer, hypergradient descent)",
+        "Closed-loop / schedule-free adaptive LR controllers"
+      ],
+      "searches_run": [
+        "sign-based learning rate adaptation RPROP delta-bar-delta optimizer 2024 2025",
+        "PID controller learning rate scheduler deep learning hypergradient 2024 2025",
+        "closed-loop scalar learning rate controller gradient sign-flip rate set-point PI control optimizer",
+        "gradient sign change frequency oscillation detection adapt learning rate sharp minima stochastic optimization"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Sign-statistic LR adaptation crossed with PID-on-LR control. ActiveLR adapts the LR per-epoch on whether the gradient changes sign (arxiv 2301.10133 / related); delta-bar-delta and RPROP adapt step size on sign agreement/disagreement; PIDAO (Nature Communications 2024) and Incremental-PID-LR (IEEE 2022) close an explicit PI/PID loop on the scalar LR. M064 = these with the controlled variable chosen as sign-flip RATE-to-a-set-point rather than instantaneous sign.",
+      "reasoning": "Stripped of the PLL/governor metaphor, M064 is a PI controller on the scalar LR driven by a gradient-sign statistic. Both ingredients are active: search confirms sign-change-driven LR adaptation (ActiveLR, RPROP, delta-bar-delta, still studied in 2024) and explicit PID/PI-on-LR controllers (PIDAO 2024, Incremental-PID-LR, SPI-Optimizer). Targeting the sign-flip RATE to a set-point instead of the instantaneous sign is a parameter/observable choice within these families, not an unmodeled quantity. The construct itself concedes it merely 'generalizes' RPROP/delta-bar-delta into a PI loop, which is the definition of a method-variant."
+    },
+    {
+      "id": "M066",
+      "merged_construct": "Integrated-Pest-Management Threshold Early-Stopping",
+      "bare_mechanism": "A per-layer, monitor-then-act controller that raises a layer's dropout rate only when a co-adaptation/overfitting index crosses a cost-benefit (economic) threshold, otherwise keeping it near zero, plus a step that propagates units that remain useful under dropout stress.",
+      "active_area_candidates": [
+        "Adaptive / per-layer dropout rate methods (Rate-In, Activation-Based Dropout)",
+        "Learned-rate dropout (Concrete Dropout, Variational Dropout)",
+        "Curriculum / scheduled dropout and conductance-based dropout (Y-Drop)"
+      ],
+      "searches_run": [
+        "adaptive dropout rate per-layer concrete variational dropout learned rate 2024 2025"
+      ],
+      "verdict": "NOT_NICHE",
+      "why_not_variant": "",
+      "which_active_variant_of": "Information/signal-driven adaptive per-layer dropout. Rate-In (arxiv 2412.07169, Dec 2024) dynamically sets per-layer/per-instance dropout from a measured information-loss signal; Activation-Based Dropout (2025) varies per-layer rate from activation diversity; Concrete/Variational Dropout learn per-unit rates. M066 = the same adaptive-rate idea with a cost-benefit threshold deciding when to raise the rate.",
+      "reasoning": "De-metaphored, M066 is adaptive per-layer dropout dosing from a monitored overfitting/co-adaptation signal. Search confirms this is a crowded active area in 2024-2026 (Rate-In, Activation-Based Dropout, Concrete/Variational Dropout, Y-Drop). Gating the rate change on an economic threshold and tolerating sub-threshold co-adaptation is a control-rule variant of these methods, and the selective-breeding unit-propagation is generic robust-unit retention. The construct openly self-discloses all of these adjacencies and even calls its own 'early-stopping' name a misnomer, confirming no genuinely unmodeled quantity."
+    }
+  ]
+}

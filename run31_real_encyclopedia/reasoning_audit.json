@@ -1,0 +1,117 @@
+{
+  "audited": [
+    {
+      "id": "M016",
+      "original_verdict": "NOT_NICHE",
+      "cited": "MoSE: Mixture of Slimmable Experts (arXiv 2602.06154) + DeepSeek loss-free bias (2408.15664) + Token Reroute/Capacity-Aware Inference (2503.05066)",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "Searched arXiv 2602.06154: MoSE is real (ICML 2026 poster), gives slimmable per-expert width with 'conditional computation over how much of each expert is utilized' and 'adaptive width allocation conditioned on router confidence' = M016's load-dependent saturating capacity. Loss-free bias balancing and overflow reroute to under-used experts are confirmed active areas. The only candidate-novel piece, the Frank-Starling decompensation limb (capacity DROPS past plateau), is conceded by the construct itself to risk self-starvation and need disabling, so it is a counterproductive curve shape, not a beneficial unmodeled quantity. Sound rejection."
+    },
+    {
+      "id": "M022",
+      "original_verdict": "NOT_NICHE",
+      "cited": "TRIM-KV / 'Cache What Lasts' (arXiv 2512.03324) + mixed-precision KV (No Token Left Behind 2402.18096, PM-KVQ, KVmix)",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2512.03324 is real (titled 'Cache What Lasts'; checker's TRIM-KV is an acronym but ID and mechanism match exactly): a per-token retention gate whose score 'decays exponentially as context grows' and evicts below a memory budget = M022's first-order half-life washout with attention re-dosing. Separate search confirms progressive/mixed-precision KV (PM-KVQ gradually lowers bit-width; No Token Left Behind importance-aware mixed precision; KVmix) supplies the fp16->lowbit->summary tiers. Both borrowed quantities have direct active analogs; PK reparameterization adds no unmodeled quantity. Sound."
+    },
+    {
+      "id": "M011",
+      "original_verdict": "NOT_NICHE",
+      "cited": "Mind Evolution / 'Evolving Deeper LLM Thinking' (arXiv 2501.09891) + localized-edit mutation operators",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2501.09891 is real (Lee et al., 'Evolving Deeper LLM Thinking', Jan 2025): a genetic-based evolutionary test-time search that recombines and refines candidate populations with reward selection = M011's keep-top-k + fitness-proportional budgeting loop. Localized partial-regeneration mutation (freeze correct spans, re-decode flagged error spans) is an established mutation-operator design choice, not an unmodeled quantity. Strip the clonal-selection metaphor and it is crowded evolutionary inference-scaling. Sound."
+    },
+    {
+      "id": "M049",
+      "original_verdict": "NOT_NICHE",
+      "cited": "'When Are Experts Misrouted? Counterfactual Routing Analysis' (arXiv 2605.07260) + Counterfactual Routing/CoR (2604.14246) + DTop-p (2512.13996) adaptive-k",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2605.07260 is real and exactly on-point: it scores routes by comparing the executed route against equal-compute masked/alternative routes via the resulting next-token loss = M049's counterfactual-mask-loss-increase training target. CoR (2604.14246) computes a Counterfactual Expert Impact via virtual ablation. DTop-p (2512.13996) is a PI-controlled adaptive-k where confident tokens use fewer experts and ambiguous recruit more = M049's parsimony stopping rule. Eliminating low-value experts is mechanically identical to threshold-based adaptive-k inclusion; negation framing is nominal. Sound (classic M032 trap)."
+    },
+    {
+      "id": "M012",
+      "original_verdict": "NOT_NICHE",
+      "cited": "CMA-ES with Learning Rate Adaptation (arXiv 2401.15876) + two-timescale/meta-LR (ALFA 2011.00209)",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2401.15876 is real: a closed-loop mechanism that adapts the learning rate to maintain a constant signal-to-noise ratio at a target set-point = M012's fast baroreflex loop holding p=||g||^2/||v|| near a set-point. The slow set-point re-baselining channel and regime-reset are covered by meta/two-timescale LR work (ALFA). The viscoelastic relaxation is a first-order functional form on an already-modeled slow-set-point channel; the controlled gradient-noise statistic has a current analog. No unmodeled quantity. Sound."
+    },
+    {
+      "id": "M017",
+      "original_verdict": "NOT_NICHE",
+      "cited": "SpecPV (arXiv 2512.02337) + EESD (2406.03853) + HiSpec (2510.01336)",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2512.02337 (SpecPV) is real: self-speculative decoding using partial verification with periodic full verification to clear accumulated error = M017's verify-deep-only-from-divergence plus graded/approximate acceptance. The construct itself admits approximate acceptance forfeits the exact-distribution guarantee, i.e. it is lossy self-speculative decoding, an active early-exit/partial-verification area. The opsonin cascade-gain (accepted token lowers successors' thresholds) is a minor neighbor-coupling heuristic, not an unmodeled quantity. Sound."
+    },
+    {
+      "id": "M019",
+      "original_verdict": "NOT_NICHE",
+      "cited": "Feedback Guidance of Diffusion Models / FBG (arXiv 2506.06085, NeurIPS 2025) + LoTTS/SDEdit localized re-noising",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "arXiv 2506.06085 (FBG) is real and on-point: a state-dependent coefficient that self-regulates guidance from 'feedback of its own predictions about the conditional signal informativeness', derived from the conditional/unconditional relationship = precisely M019's measured closed-loop guidance control on the CFG cond-vs-uncond gap (its claimed 'genuinely new' feedback-vs-open-loop content). Localized re-noising of high-residual regions is SDEdit/localized test-time scaling. The thermoregulation/mantle-plume framing is packaging. No unmodeled quantity. Sound."
+    },
+    {
+      "id": "M020",
+      "original_verdict": "NOT_NICHE",
+      "cited": "ElaLoRA (arXiv 2504.00254), FlexLoRA (2601.22905), DaRA",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "All three real and on-point. ElaLoRA (2504.00254) simultaneously prunes and expands rank, reallocating budget to critical layers. FlexLoRA (2601.22905) explicitly does 'aggressive rank reallocation in early training... gradual stabilization towards convergence' under a global budget = M020's exact phase/aggressiveness control. DaRA (OpenReview 'Dynamic Rank Reallocation for Module-Level LoRA') warms up then reallocates by discarding directions from unimportant modules. The construct admits 'strong overlap with AdaLoRA'; conservation constraint = standard fixed-budget allocation. No unmodeled quantity. Sound."
+    },
+    {
+      "id": "M021",
+      "original_verdict": "NOT_NICHE",
+      "cited": "GCond (arXiv 2509.07252) / PCGrad for gating half; SplitLoRA (2505.22370) + C-LoRA (2502.17920) for avulsion half",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "All three real and on-point. GCond (2509.07252) builds on PCGrad with an adaptive multi-zone arbitration mechanism over conflicting gradients = M021's soft magnitude-dependent gate. SplitLoRA (2505.22370) partitions the gradient space into primary/minor orthogonal subspaces for stability-plasticity, and C-LoRA (2502.17920) uses a learnable routing matrix that reuses learned subspaces = M021's saturation-triggered reroute into the least-used subspace ('avulsion'). The construct concedes hard-gate limits recover averaging/PCGrad. No unmodeled quantity. Sound."
+    },
+    {
+      "id": "M005",
+      "original_verdict": "NOT_NICHE",
+      "cited": "SAFE: Stable Alignment Finetuning with Entropy-Aware Predictive Control (arXiv 2602.04651) + epsilon-DPO",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "Spot-check confirms arXiv 2602.04651 (SAFE) is real (Feb 2026) AND on-point on the load-bearing claim: its abstract/HTML states 'PID-driven adaptive thresholding that dynamically adjusts divergence tolerance based on reward velocity' and couples 'directional divergence control with entropy dynamics and temporal reward trends' = exactly M005's derivative/rate term max(dKL/dstep,0) for anticipatory braking of over-optimization. M005 itself conceded the PI part is the known adaptive-KL controller; its only-novel derivative ingredient is published. Sound, not a hallucinated rejection."
+    },
+    {
+      "id": "M023",
+      "original_verdict": "NOT_NICHE",
+      "cited": "MoB: Mixture of Bidders (arXiv 2512.10969, Vickrey/VCG routing) + DeepSeek aux-loss-free balancing (2408.15664 / 2412.19437)",
+      "citation_verified": true,
+      "on_point": true,
+      "audit_finding": "sound",
+      "corrected_verdict": "NOT_NICHE",
+      "note": "Spot-check confirms arXiv 2512.10969 (MoB) is real: it reconceptualizes expert routing as a VCG/Vickrey auction where experts bid and the second-price/dominant-strategy mechanism decides = M023's Vickrey-gated MoE core. Aux-loss-free reserve/bias balancing (DeepSeek 2408.15664) is a flagship active area. MoB is framed for continual learning but does apply the second-price mechanism to MoE routing, so M023's borrowed auction quantity (dispatch weight from (K+1)-th bid + stop-gradient anti-collapse) is a variant within two confirmed-active areas. The P3 note conceded 'substantial overlap with the Vickrey-MoE area.' Sound."
+    }
+  ],
+  "summary": "The strict niche-checker held up under adversarial audit in BOTH directions. All 11 audited cited papers (9 load-bearing + 2 spot-checks) were verified REAL on arXiv with matching IDs and titles: MoSE 2602.06154, TRIM-KV/'Cache What Lasts' 2512.03324, Mind Evolution/'Evolving Deeper LLM Thinking' 2501.09891, 'When Are Experts Misrouted' 2605.07260, CMA-ES LRA 2401.15876, SpecPV 2512.02337, Feedback Guidance 2506.06085, ElaLoRA 2504.00254 + FlexLoRA 2601.22905, GCond 2509.07252 + SplitLoRA 2505.22370 + C-LoRA 2502.17920, SAFE 2602.04651, MoB 2512.10969. Supporting citations also checked out (DTop-p 2512.13996, CoR 2604.14246, DaRA, PM-KVQ/No-Token-Left-Behind). Zero hallucinated citations. Each cited paper was ON-POINT for the specific borrowed quantity, including the two that mattered most: SAFE genuinely models reward-velocity (the dKL/dstep derivative term, not just PI), and FBG genuinely uses the conditional/unconditional informativeness signal in a closed feedback loop. The two purely-reasoning-based rejections (M016 decompensation limb, M049 negation framing) are sound because the constructs themselves conceded the points (decompensation must be disabled; elimination == threshold-inclusion adaptive-k). No construct was over-rejected: in every case a nameable unmodeled quantity was absent or had a direct current analog. 0 overturns. The '0 IS_NICHE / 18 NOT_NICHE' conclusion stands for the audited subset.",
+  "overturns": 0,
+  "final_is_niche_ids": []
+}

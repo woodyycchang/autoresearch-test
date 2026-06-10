@@ -1,0 +1,138 @@
+{
+  "verifier": "VERIFY-3",
+  "verifier_role": "ADVERSARIAL prior-art verifier (Run 29 s4, MODERN domains)",
+  "run": "029",
+  "phase": "phase4_s4",
+  "date": "2026-06-04",
+  "method": "For each candidate, 5 reformulated WebSearch queries varying angle (niche-direct, technique-family-on-sibling, vendor/commercial, explainability/grounding sub-axis, exact technique x exact niche). STRICT GATE applied. Snippets are verbatim from WebSearch R5 results.",
+  "results": [
+    {
+      "candidate": "C4",
+      "technique": "ShapPFN — tabular foundation model (Prior-Data Fitted Network) with Shapley value regression integrated into architecture (ViaSHAP-style), producing predictions + explanations in a single forward pass (~1000x faster than KernelSHAP)",
+      "arxiv_id": "2603.29946",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Real-Time Explanations for Tabular Foundation Models",
+      "arxiv_notes": "Resolves at arxiv.org/abs/2603.29946. Submitted 2026-03-31, authors Luan Borges Teodoro Reis Sena, Francisco Galuppo Azevedo. Code github.com/kunumi/ShapPFN. Cand label 'ShapPFN' matches the named system in the paper; arxiv title is the paper's formal title 'Real-Time Explanations for Tabular Foundation Models'.",
+      "niche": "Youth athlete talent identification / projection — forecasting which immature youth will succeed despite poor inter-scout agreement and relative-age / maturation bias",
+      "queries_run": [
+        "machine learning youth athlete talent identification prediction model sports analytics draft projection",
+        "relative age effect correction model maturation bias adjustment youth soccer talent selection algorithm",
+        "NBA NFL draft projection model machine learning predict prospect success college to pro",
+        "TabPFN tabular foundation model sports prediction athlete performance small data",
+        "SHAP Shapley value explainable AI talent identification player scouting feature importance soccer"
+      ],
+      "prior_art_found": [
+        {
+          "axis": "niche — talent-ID ML (mature field, surveyed)",
+          "source": "The Role of Machine Learning in Talent Identification for Team Sports: A Systematic Review — PMC12912669",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12912669/",
+          "verbatim_snippet": "Predictive modeling seeks to forecast future selection, progression, or performance based on multidimensional athlete data, aligning with conventional supervised learning paradigms... longitudinal monitoring leverages sequential or temporal models to track developmental trajectories and maturation dynamics."
+        },
+        {
+          "axis": "niche — maturation/follow-up caveat exactly matching the candidate's stated blocker",
+          "source": "Systematic review (PMC12912669) summary",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12912669/",
+          "verbatim_snippet": "Differences in growth and biological maturation are particularly salient in adolescence, where earlier-developing youth may temporarily appear superior in test batteries, and predictability erodes as the follow-up window lengthens, cautioning against early deterministic selection."
+        },
+        {
+          "axis": "niche — one-class SVM future-elite junior soccer detector (deployed-style model)",
+          "source": "Systematic review summary",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12912669/",
+          "verbatim_snippet": "One study trained a one-class support vector machine on junior soccer players to detect potential future elite players, achieving an AUC-ROC of 0.763, with the most accurate model obtained when physical tests measuring technical skills, speed, and agility were used."
+        },
+        {
+          "axis": "niche — relative-age / maturation bias CORRECTION model (algorithmic reallocation)",
+          "source": "Leveling the Playing Field: A New Proposed Method to Address Relative Age- and Maturity-Related Bias in UK Male Academy Soccer Players (Frontiers / PMC8928578)",
+          "url": "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2022.847438/full",
+          "verbatim_snippet": "This approach allocates players into four discrete quartile groups based on the midway point of their chronological and estimated developmental (ED) birth dates (calculated using growth curves for stature)... A RAE was found for the overall sample (Q1 = 41.4% vs. Q4 = 14.9%) that completely disappeared after reallocation."
+        },
+        {
+          "axis": "niche — commercial/deployed draft-projection model",
+          "source": "Next Gen Stats Draft Model can predict prospects' pro success — NFL.com",
+          "url": "https://www.nfl.com/news/next-gen-stats-draft-model-can-predict-prospects-pro-success-0ap3000001103347",
+          "verbatim_snippet": "NFL's Next Gen Stats team created the Next Gen Stats Draft Model... The XGBoost algorithm builds hundreds to thousands of trees, learning about the relationship between features and the output with every tree iteration."
+        },
+        {
+          "axis": "technique-family on a SIBLING sports task — TabPFN (the exact FM family ShapPFN extends) already used in sports analytics",
+          "source": "Tabular Foundation Models for xG: Can TabPFN Score Without Training? — KU Leuven DTAI sports blog",
+          "url": "https://dtai.cs.kuleuven.be/sports/blog/tabular-foundation-models-for-xg:-can-tabpfn-score-without-training/",
+          "verbatim_snippet": "TabPFN achieves lower Brier scores in sports analytics predictions, with demonstrated performance across different playing zones. The model has been specifically evaluated for expected goals (xG) prediction in sports analytics contexts."
+        },
+        {
+          "axis": "explainability sub-axis on the niche — SHAP/Shapley already standard in soccer player evaluation",
+          "source": "Explainable artificial intelligence model for identifying Market Value in Professional Soccer Players — arXiv 2311.04599",
+          "url": "https://arxiv.org/html/2311.04599",
+          "verbatim_snippet": "An advanced machine learning method for predicting soccer players' market values combines ensemble models and the Shapley Additive Explanations (SHAP) for interpretability. The SHAP method identifies the primary features affecting athlete performance, offering a detailed quantitative analysis of individual player metrics that contribute to their market value."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "ShapPFN specifically — a single-forward-pass Shapley-attributing tabular foundation model (PFN + ViaSHAP) — applied to youth talent-ID/projection where (a) zero-shot/in-context learning fits the inherently small, fragmented per-academy cohorts that block conventional gradient-boosted models, and (b) the built-in real-time Shapley attribution is used to surface and audit relative-age/maturation features per-prospect so scouts can interrogate WHY a model favors a player. No deployed/published artifact seen that uses an attribution-native tabular FM for maturation-bias-aware youth projection.",
+      "honest_adjacency": "Both axes are densely occupied and the technique-family already touches a sibling: (1) niche — talent-ID ML is a surveyed field with deployed draft models (NFL Next Gen Stats, NBA ML big boards) and algorithmic RAE/maturation correction methods already exist; (2) technique — TabPFN (ShapPFN's direct parent family) is already applied to sports analytics (xG), and SHAP/Shapley explainability is already standard in soccer player market-value and scouting models. The novelty is confined to the precise pairing of the attribution-native PFN variant with small-data maturation-bias-aware youth projection; the surrounding cells are filled.",
+      "reasoning": "CLOSED rejected: no source shows ShapPFN (or any single-pass Shapley tabular FM) deployed/published on youth talent-ID. OPEN rejected decisively: there IS adjacency on BOTH axes after reformulation — TabPFN-on-sports (technique family on sibling) and SHAP-on-player-eval + RAE-correction models + deployed draft models (niche). Per gate, any adjacency on both axes => NARROW. Adversarial effort: targeted commercial (NFL/NBA), the correction-model sub-literature, and the parent-FM-on-sibling angle; all returned hits, none the exact cell."
+    },
+    {
+      "candidate": "C6",
+      "technique": "Molmo2 — open-weight VLM with point-driven grounding across single-image / multi-image / video (returns points + timestamps; SOTA open pointing/grounding; counting-by-pointing, tracking with persistent IDs)",
+      "arxiv_id": "2601.10611",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Molmo2: Open Weights and Data for Vision-Language Models with Video Understanding and Grounding",
+      "arxiv_notes": "Resolves at arxiv.org/abs/2601.10611 (v1-v4 seen; HuggingFace papers page present). Submitted 2026-01-15, Allen Institute for AI (Ai2). Title matches candidate.",
+      "niche": "Warehouse ambiguous receiving / damaged-goods accept-reject-quarantine adjudication (deciding disposition of incoming inventory that is damaged or mismatches the PO)",
+      "queries_run": [
+        "warehouse receiving damaged goods detection computer vision AI accept reject quarantine inspection",
+        "vision language model VLM warehouse inbound inspection damage detection grounding pointing",
+        "purchase order mismatch receiving automation AI WMS vendor goods-in discrepancy SKU verification",
+        "Molmo pointing grounding industrial quality inspection defect localization robotics application",
+        "multimodal LLM warehouse receiving inspection agent accept reject quarantine decision damaged goods adjudication"
+      ],
+      "prior_art_found": [
+        {
+          "axis": "niche — commercial warehouse damage-detection CV with reject/reroute (deployed, traditional vision)",
+          "source": "AI Vision Inspection for Damaged Cartons in Modern Warehouses — xis.ai; AI Visual Inspection for Damage Detection in Warehouse Shipments — Arvist AI",
+          "url": "https://arvist.ai/ai-visual-inspection-damage-detection/",
+          "verbatim_snippet": "AI models analyze image frames within milliseconds, compare them against trained defect patterns, and trigger rejection or rerouting actions instantly... identify crushed cartons, torn seals, moisture damage, and labeling errors before shipments leave the facility."
+        },
+        {
+          "axis": "niche — accept/reject/quarantine disposition is a defined existing workflow",
+          "source": "Incoming Inspections: Process, Software & Template — GoAudits; Quarantine inventory — Infor LN docs",
+          "url": "https://goaudits.com/blog/incoming-inspections/",
+          "verbatim_snippet": "Materials in incoming inspection may be accepted if they meet specifications, rejected if defects exceed acceptable limits, or quarantined for further evaluation."
+        },
+        {
+          "axis": "niche — PO-mismatch / SKU-verification receiving automation (commercial WMS)",
+          "source": "Purchase Order Receiving Automation for WMS — JASCI; Purchase Orders & Check-in — SkuSavvy",
+          "url": "https://www.jascicloud.com/features/purchase-order-receiving",
+          "verbatim_snippet": "When goods arrive at the dock, warehouse operators verify that physical products match what was ordered by checking quantities, SKUs, lot numbers, and condition before updating the WMS... Automated PO matching systems verify that quantities, SKUs, and pricing align between the packing slip and the original order."
+        },
+        {
+          "axis": "technique — VLM for visual inspection / defect localization (sibling task, in-context learning)",
+          "source": "Vision-Language In-Context Learning Driven Few-Shot Visual Inspection Model — arXiv 2502.09057",
+          "url": "https://arxiv.org/pdf/2502.09057",
+          "verbatim_snippet": "A method using VLMs and in-context learning to detect defective locations in product images. This approach can detect defective locations in new products without hyperparameter tuning or model retraining."
+        },
+        {
+          "axis": "technique-family (grounding/pointing) on a SIBLING defect task — direct adjacency",
+          "source": "Industrial Defect Impact Grounding (IDIG) — ScienceDirect S095070512500930X; MolmoPoint arXiv 2603.28069; VideoMolmo arXiv 2506.05336",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S095070512500930X",
+          "verbatim_snippet": "A new task called Industrial Defect Impact Grounding (IDIG) requires a system capable of taking an image and a natural language description of a defect's functional impact, and accurately grounding (localizing) the corresponding visual defect based on that description."
+        },
+        {
+          "axis": "technique — Molmo grounding pitched toward artifact/defect detection + robotics planning",
+          "source": "Molmo 2: State-of-the-art video understanding, pointing, and tracking — Ai2 blog",
+          "url": "https://allenai.org/blog/molmo2",
+          "verbatim_snippet": "grounded outputs unlock capabilities like counting-by-pointing, multi-object tracking with persistent IDs that follow objects across occlusions, dense video captioning, and artifact detection... points have been shown to be an effective way for VLMs to build plans for grasping or navigation."
+        },
+        {
+          "axis": "niche+technique boundary — LLM agent for warehouse (spatial reasoning, not damage adjudication)",
+          "source": "Warehouse Spatial Question Answering with LLM Agent — arXiv 2507.10778",
+          "url": "https://arxiv.org/pdf/2507.10778",
+          "verbatim_snippet": "research on LLM agent systems with spatial reasoning ability that integrate multiple tools to conduct spatial reasoning and API tools interaction for warehouse scenarios."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Molmo2-style point/grounding VLM as the adjudicator in ambiguous warehouse RECEIVING: pointing to the specific damaged region or to the PO-vs-physical mismatch on a unit and emitting a grounded accept / reject / quarantine disposition with a localized visual rationale. The combination of (a) point-grounded localization of the defect/discrepancy AND (b) the three-way disposition decision in inbound receiving was not found as a deployed product or paper. Existing systems either localize damage with traditional CNN defect-pattern matching (no NL grounding, no disposition reasoning) or do PO matching on text/barcode data (no vision grounding).",
+      "honest_adjacency": "Strong adjacency on BOTH axes. Niche: warehouse damage-detection CV with automated reject/reroute is commercially deployed (Arvist AI, xis.ai, AWL India), the accept/reject/quarantine disposition is a standardized WMS workflow (Infor, SG Systems), and PO/SKU-mismatch receiving automation is a shipping WMS feature (JASCI, SkuSavvy). Technique: VLM-based visual inspection exists (2502.09057), and the pointing/grounding family is already aimed at defect localization via the Industrial Defect Impact Grounding task and Molmo's own 'artifact detection' framing; MolmoPoint/VideoMolmo extend the exact family. So neither the warehouse-receiving niche nor the grounding-VLM-for-defects technique is empty.",
+      "reasoning": "CLOSED rejected: query 5 (most specific) explicitly returned no multimodal/grounding-VLM system for damaged-goods receiving adjudication; commercial damage CV uses traditional pattern matching, and PO-matching is text/barcode-based. OPEN rejected decisively: heavy adjacency on both axes — IDIG + Molmo 'artifact detection' (technique family on sibling defect task) and deployed warehouse damage CV + PO-mismatch automation + defined quarantine workflow (niche). Per gate, adjacency on both axes => NARROW. Adversarial effort spanned commercial WMS vendors, the grounding-for-defects academic task, and the exact agentic-adjudication phrasing."
+    }
+  ]
+}

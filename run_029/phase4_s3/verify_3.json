@@ -1,0 +1,101 @@
+{
+  "verifier": "VERIFY-3 (adversarial prior-art, Run 29 s3)",
+  "results": [
+    {
+      "candidate": "C5",
+      "technique": "OmniVTA visuo-tactile world model (self-supervised tactile encoder + two-stream visuo-tactile world model predicting short-horizon contact evolution + contact-aware fusion policy)",
+      "arxiv_id": "2603.19201",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "craft": "Bonsai wiring (wire gauge selection + bending choreography to reposition a living branch over months without cracking/scarring); gap = from a branch's felt stiffness, predict wire gauge/coil-angle and safe bend",
+      "queries_run": [
+        "tactile sensing robot bonsai wiring branch bending wire gauge selection",
+        "bonsai wiring app branch bending mechanics wire gauge recommendation",
+        "machine learning branch stiffness prediction bending plant stem robot",
+        "robot tactile estimation material stiffness bending deformation wire cable manipulation deformable",
+        "AI bonsai styling tool computer vision branch shaping recommendation app"
+      ],
+      "prior_art_found": [
+        {
+          "source": "arXiv 1804.06682 'A Robot to Shape your Natural Plant: The Machine Learning Approach to Model and Control Bio-Hybrid Systems'",
+          "url": "https://arxiv.org/abs/1804.06682",
+          "verbatim": "Researchers used computer vision to construct a model of plant stem stiffening and motion dynamics by training an LSTM network, with the LSTM network acting as a forward model predicting change in the plant and driving the evolution of neural network robot controllers.",
+          "relevance": "Sibling-domain ML forward-model that predicts living-plant stem stiffening/bending and drives a robot to SHAPE a living plant over time. Directly adjacent on the application axis (mechanical shaping of a living woody/herbaceous plant via predicted stiffness) and on the technique axis (learned forward/world model of contact-driven deformation)."
+        },
+        {
+          "source": "Plant Methods (Springer) 'Axial variation in flexural stiffness of plant stem segments'; PMC 'Multi-scale modelling predicts plant stem bending behaviour'; PMC 'Inverse Three-Point Bending Test to Determine Mechanical Properties of Plant Stems'",
+          "url": "https://link.springer.com/article/10.1186/s13007-021-00793-8",
+          "verbatim": "Three-point bending tests are frequently used to characterize the mechanical properties of plant stems ... Flexural stiffness can be obtained from both tests and has been shown to be highly correlated with bending strength.",
+          "relevance": "Established plant-stem flexural-stiffness measurement + FE/multi-scale models predicting bending response. Adjacency on the underlying physics the gap needs (branch stiffness -> safe bend), though not via tactile world model and not coupled to wire-gauge selection."
+        },
+        {
+          "source": "MDPI Electronics 10/12/1458 'Tactile Sensor Data Interpretation for Estimation of Wire Features'; arXiv 2410.23428 'Learning for Deformable Linear Object Insertion Leveraging Flexibility Estimation'; arXiv 1910.02860 'Cable Manipulation with a Tactile-Reactive Gripper'",
+          "url": "https://www.mdpi.com/2079-9292/10/12/1458",
+          "verbatim": "Deformable linear objects exhibit diverse physical properties, such as Young's modulus and bending stiffness ... a flexibility estimation scheme designed to characterize the properties of different types of DLOs ... estimating both stiffness and geometry while a robot is in contact with a deformable object.",
+          "relevance": "Robot tactile/visuo-tactile estimation of bending stiffness of WIRE/cable-like deformable objects, exactly the OmniVTA technique family applied to wire mechanics. Adjacency on the technique-family-on-sibling-domain axis (industrial cable/DLO manipulation), but applied to inert cable not a living branch, and predicts manipulation actions not horticultural wire-gauge/coil-angle for slow biological remodeling."
+        },
+        {
+          "source": "Bonsai Sculpting (AI-powered bonsai GPT), Bonsai AI Redesign App (Apple App Store id6756951750), Bonsai Composer / Bonsai Designer, FairyLights AI bonsai-care agent",
+          "url": "https://www.yeschat.ai/gpts-2OToXVtKJl-Bonsai-Sculpting",
+          "verbatim": "It provides a detailed, step-by-step guide on wiring techniques to shape the bonsai's branches, complete with visual aids. ... Bonsai Composer is a tool that generates trees based on your preferences. You can adjust the movement, taper, direction, and more.",
+          "relevance": "Consumer bonsai AI apps exist and DO touch wiring instructionally, but they are LLM tutorial / visual-redesign / care-reminder tools. None ingest a branch's felt stiffness via tactile sensing to predict wire gauge/coil-angle and a safe bend. Confirms the NOTE: bonsai care/design apps exist; wiring is covered only as generic textual guidance, not as a learned stiffness->mechanics prediction."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A visuo-tactile world model that, from a robot/probe's FELT stiffness of an individual living bonsai branch, predicts the specific wire gauge AND coil-angle/spacing and a slow safe bend trajectory that repositions the branch over months without cracking bark or scarring. No source couples (a) tactile stiffness sensing of a living branch to (b) horticultural wire-gauge/coil-angle selection to (c) a months-long bio-remodeling bend plan.",
+      "honest_adjacency": "Multiple adjacencies on BOTH axes. Application axis: arXiv 1804.06682 already uses an ML forward model to predict living-plant stem stiffening and drives a robot to shape a living plant; plant-biomechanics literature measures/predicts stem flexural stiffness and bending. Technique axis: visuo-tactile/tactile stiffness estimation of wire/DLO deformable objects (MDPI 1458, arXiv 2410.23428, 1910.02860) is the OmniVTA family applied to wire bending. Plus consumer bonsai AI apps cover wiring instructionally.",
+      "reasoning": "Both gap axes are touched. The capability_gap claims 'no industrial analog' but tactile/visuo-tactile bending-stiffness estimation of wires and deformable linear objects is an active industrial/robotics area (directly the technique family on a sibling domain), and ML-driven shaping of LIVING plants with stiffness forward-models already exists (1804.06682). Bonsai-specific AI apps exist and mention wiring. The narrow, genuinely unclaimed slice is the precise fusion: felt-stiffness -> wire-gauge + coil-angle + months-long non-scarring bend choreography on a living branch. Cannot be OPEN given dual-axis adjacency."
+    },
+    {
+      "candidate": "C6",
+      "technique": "Machine learning for smell: ordinal odor strength prediction of molecular perfumery components (structure-to-odor ordinal intensity model)",
+      "arxiv_id": "2512.08683",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Machine learning for smell: Ordinal odor strength prediction of molecular perfumery components",
+      "craft": "Cognac cellar-master (maitre de chai) eaux-de-vie assembly: intuiting which aromas combine well; gap = predict how esters/acids/aldehydes/phenols across eaux-de-vie interact when blended -- the 'which combination works' call",
+      "queries_run": [
+        "machine learning cognac eaux-de-vie blending aroma assembly cellar master AI",
+        "AI whisky blending Mackmyra Philyra perfume aroma combination prediction",
+        "machine learning predict aroma compound pairing esters which combination works blending",
+        "Larsen Aqua Ignis AI cognac how made algorithm eaux-de-vie selection blend",
+        "e-nose machine learning brandy spirit aroma blend quality prediction sensory model distillate"
+      ],
+      "prior_art_found": [
+        {
+          "source": "ACS Omega 'Deep Learning for Odor Prediction on Aroma-Chemical Blends' (DOI 10.1021/acsomega.4c07078) and arXiv 2312.16124 'Olfactory Label Prediction on Aroma-Chemical Pairs'",
+          "url": "https://pubs.acs.org/doi/10.1021/acsomega.4c07078",
+          "verbatim": "gathered over 160,000 molecule-pair data points from the GoodScents online chemical repository, where aroma chemical pages suggested complementary odorants ('blenders') which, when mixed together, yielded distinct aromas ... a non-linear relationship between the qualities of constituent aroma-chemicals and the overall blend, where emergent notes appear when molecules are combined, and other notes become muted in the blend.",
+          "relevance": "Directly models the 'which combination works' call: ML predicting the odor outcome of COMBINING aroma chemicals (pairs/blends), capturing emergent and muted notes. Same technique family (ML on molecular olfactory features) explicitly applied to compound INTERACTION/blending rather than only single-molecule strength. Strongest adjacency."
+        },
+        {
+          "source": "Mackmyra Intelligens (Mackmyra x Fourkind x Microsoft) -- world's first AI-generated whisky",
+          "url": "https://www.thoughtworks.com/en-us/clients/mackmyra",
+          "verbatim": "the AI can generate more than 70 million recipes that it predicts will be popular and of the highest quality ... The AI successfully predicted complex aroma and flavor combinations ... AI-generated but human-curated.",
+          "relevance": "Sibling spirits domain (whisky), exactly the 'master blender combines casks/recipes' task automated by ML predicting aroma/flavor combinations. Confirms the NOTE re: Mackmyra. Adjacent on application (cask/eaux-de-vie-style assembly of a brown spirit) though recipe/preference-driven rather than ester/acid/aldehyde/phenol interaction chemistry."
+        },
+        {
+          "source": "PMC11659623 'Odor prediction of whiskies based on their molecular composition'",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11659623/",
+          "verbatim": "Odor prediction of whiskies based on their molecular composition",
+          "relevance": "ML predicting whisky odor directly from molecular composition -- the precise technique (molecules -> olfactory perception) on a near-identical aged-spirit (sibling) domain. Adjacent on both technique and a sibling application."
+        },
+        {
+          "source": "Larsen Aqua Ignis 'A.I.' Cognac (Cognac-Expert, Cognatheque)",
+          "url": "https://www.cognac-expert.com/special-cognac/larsen-aqua-ignis-ai-cognac",
+          "verbatim": "Regarding the 'AI' acronym, 'Artisanal Intelligence A.I' = know-how, creative impulse, craftsmanship, audacity. ... we started from physical analyses (interactions between water and fire with the wood) to carry out many tests over many years.",
+          "relevance": "ADVERSARIAL CHECK / FALSE LEAD: an actual cognac branded 'A.I.', but 'A.I.' = 'Artisanal Intelligence' and the innovation is a steam-toasted-barrel aging process, NOT algorithmic/ML eaux-de-vie blending. Does NOT constitute machine-learning prior art for cognac assembly; recorded to avoid mistaking the brand name for the technique."
+        },
+        {
+          "source": "Hennessy 'How to preserve traditions in the age of AI'; IE Insights 'Art, Cognac, and AI'; e-nose + ML spirit/brandy aroma-quality work (PMC8398669, MDPI Flavor Wheel 13/24/4142)",
+          "url": "https://www.hennessy.com/en-int/stories/preserving-heritage-age-artificial-intelligence",
+          "verbatim": "Researchers have explored recording sensory experiences of tasters to measure data and use it as input for understanding blending processes. The blending of different years of cognac is compared to AI data blending, where balance is critical ... machine learning techniques have been applied to analyze datasets of chemical compounds and their associated aroma descriptors for distilled spirits [including brandy].",
+          "relevance": "Cognac-specific AI discourse (Hennessy) plus e-nose/ML aroma-quality modeling for brandy/distilled spirits. Adjacency on the exact application (cognac) for AI-assisted blending discussion and on chemometric aroma modeling of brandy, though not a published ester/phenol cross-eaux-de-vie interaction predictor."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A model that, from the specific ester/acid/aldehyde/phenol congener profiles of individual cognac eaux-de-vie (by cru/age), predicts how those volatile classes will INTERACT (emergent + muted notes) when those particular eaux-de-vie are assembled, replicating the maitre de chai's 'this combination works' judgment for cognac specifically. No source demonstrates cognac eaux-de-vie-level congener-interaction blend prediction.",
+      "honest_adjacency": "Heavy adjacency on BOTH axes, nearly CLOSED. Technique axis: 'Deep Learning for Odor Prediction on Aroma-Chemical Blends' / arXiv 2312.16124 already predict the aroma OUTCOME of combining aroma chemicals (emergent/muted notes) -- the 'which combination works' problem -- and PMC11659623 predicts whisky odor from molecular composition. Application axis: Mackmyra AI whisky blending automates the master-blender combination task on a sibling aged spirit; Hennessy and e-nose/ML brandy work touch cognac/brandy aroma assessment directly.",
+      "reasoning": "The 'which combination works' call is already an explicit ML target on aroma-chemical pairs/blends (ACS Omega + arXiv 2312.16124, 160k blender pairs modeling emergent/muted notes), and the sibling aged-spirit blending task is solved at recipe scale by Mackmyra and modeled molecularly for whisky (PMC11659623). The Larsen 'A.I.' cognac is a naming false-lead (Artisanal Intelligence, barrel process). Given dual-axis adjacency with a direct compound-blend-interaction predictor, this is firmly NARROW (arguably borderline CLOSED on technique-x-adjacent-application). The only genuinely unclaimed slice is cognac-specific eaux-de-vie congener-class (ester/acid/aldehyde/phenol) interaction prediction at the assembly level. Not OPEN."
+    }
+  ]
+}

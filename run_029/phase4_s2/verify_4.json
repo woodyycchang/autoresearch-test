@@ -1,0 +1,92 @@
+{
+  "verifier": "VERIFY-4",
+  "results": [
+    {
+      "candidate": "C8",
+      "technique": "SAM-Audio (Segment Anything in Audio — general promptable source separation)",
+      "arxiv_id": "2512.18099",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SAM Audio: Segment Anything in Audio",
+      "domain": "Tuvan/overtone throat-singing pedagogy (khoomei)",
+      "queries_run": [
+        "audio source separation isolate overtone harmonic throat singing khoomei feedback stem",
+        "throat singing overtone app deep learning AI feedback pedagogy learn khoomei",
+        "overtone singing analysis spectrogram harmonic detection real-time visualizer training tool",
+        "harmonic source separation singing voice isolate single harmonic partial from sustained tone",
+        "Tuvan throat singing acoustics formant overtone measurement research computational analysis"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Sygyt Software — Overtone Analyzer / VoceVista Video (the dominant overtone-singing pedagogy tools); they VISUALIZE harmonics and offer overlay 'Overtone Sliders' and interactive frequency filters, but do NOT separate a harmonic into a standalone audio stem",
+          "url": "https://www.sygyt.com/en/documentation/program-reference/ui-contents/overtone-sliders/",
+          "verbatim": "Overtone Sliders are visual tools overlaid on spectrograms, consisting of lines representing specific frequencies with spacing corresponding to the harmonic series of a given fundamental."
+        },
+        {
+          "what": "VoceVista Video real-time frequency filters — the closest existing 'isolation' feature for overtone teaching; it filters parts of the spectrum for analysis, not promptable source separation into a stem",
+          "url": "https://tranquanghaisworldthroatsinging.wordpress.com/2018/11/06/sygyt-software-maker-of-overtone-analyzer-and-vocevista-video/",
+          "verbatim": "VoceVista Video has real-time Frequency Filters, which allow interactive filtering of parts of the spectrum to better understand aspects of the voice such as timbre and singer's formant."
+        },
+        {
+          "what": "ELife/PMC 'Overtone focusing in biphonic Tuvan throat singing' — the canonical computational acoustics study of khoomei; uses spectral analysis + inverse filtering + MRI, NOT learned source separation / stem extraction, and not framed as a pedagogy/feedback tool",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7064340/",
+          "verbatim": "Specific computational techniques include: spectral analysis using custom-coded software in Matlab with spectrograms typically computed using 4096 point window segments... Inverse filtering revealed that the overtone enhancement resulted from a close clustering of formants 2 and 3."
+        },
+        {
+          "what": "SAM Audio itself (the technique) — Meta's docs frame education use only generically (highlighting voices for learners) and explicitly flag fine single-source isolation as an open challenge, i.e. NOT applied to overtone/throat-singing isolation",
+          "url": "https://ai.meta.com/research/publications/sam-audio-segment-anything-in-audio/",
+          "verbatim": "Separating very similar sounds - like isolating a single singer from a choir or picking out one instrument from an orchestra - also remains a challenge."
+        }
+      ],
+      "verdict": "OPEN",
+      "exact_unused_slice": "Using a promptable/general source-separation model (SAM-Audio or any DNN separator) to ISOLATE the focused overtone partial as a separable audio stem distinct from the simultaneous drone, for the SPECIFIC purpose of measuring overtone focus and giving corrective feedback in throat-singing/khoomei pedagogy. No found tool produces a separated overtone stem; all existing pedagogy tools only visualize or spectrally filter, and all throat-singing acoustics research analyzes (inverse filtering/formant tracking) rather than separates a stem.",
+      "honest_adjacency": "Adjacent work is real and dense: (a) mature overtone-singing visualizer/filter software (Sygyt Overtone Analyzer, VoceVista Video) that displays harmonics and even spectrally filters the spectrum in real time; (b) deep harmonic / harmonic-percussive source separation and general music-source-separation literature that isolates voice vs. instruments and even individual sinusoidal partials; (c) the SAM-Audio technique itself, which does promptable separation including vocals/acapella and gestures at education uses. None of these targets the single focused overtone partial of one biphonic singer as a stem, and SAM-Audio's own authors call out single-source-within-similar-sources as an unsolved case.",
+      "reasoning": "Across 5 reformulations (exact technique x app; app + AI/deep learning; app via spectrogram/visualizer method; the separation method generically; the academic niche), every hit falls into one of three buckets: visualization/filtering pedagogy tools (no stem), general/harmonic music source separation (not throat-singing, not the overtone partial), or throat-singing acoustics research (analysis, not separation). The exact technique x application slice — promptable separation of the focused overtone into a measurable stem for khoomei feedback — appears unmade."
+    },
+    {
+      "candidate": "C9",
+      "technique": "CANDI (Curated Test-Time Adaptation — multivariate time-series anomaly detection under distribution shift, with False-Positive Mining)",
+      "arxiv_id": "2604.01845",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection Under Distribution Shift",
+      "domain": "Anaerobic digester health / foaming early-warning (biogas)",
+      "queries_run": [
+        "test-time adaptation multivariate anomaly detection anaerobic digester foaming early warning",
+        "anaerobic digester foaming prediction machine learning deep learning early warning biogas",
+        "biogas plant process monitoring anomaly detection sensor data fault detection digester instability",
+        "domain adaptation distribution shift industrial process anomaly detection per-asset normal baseline online",
+        "test-time adaptation per-digester adaptive anomaly detection feedstock distribution shift biogas online normality"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Fermentation 2024 — 'Machine Learning Prediction of Foaming in Anaerobic Co-Digestion from Six Key Process Parameters'; supervised SVM classifier for foaming, FIXED model, no test-time adaptation and no per-digester distribution-shift handling",
+          "url": "https://doi.org/10.3390/fermentation10120639",
+          "verbatim": "A support vector machine (SVM) algorithm achieved the highest recognition accuracy of 87% for predicting foaming in anaerobic digesters. Six key parameters were identified for foaming prediction: Fe(II):S, Fe(II):TP, TCOD, Fe, TVFA:TALK, and Cu."
+        },
+        {
+          "what": "ScienceDirect — 'Data-driven techniques for fault detection in anaerobic digestion process'; soft-sensor / VFA-based fault detection, a static data-driven model, not adaptive multivariate anomaly detection at test time",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957582020319431",
+          "verbatim": "A practical data-driven framework for fault detection in anaerobic digestion is based on data-driven soft-sensors predicting total volatile fatty acids (VFA), mainly consisting of acetate, propionate, valerate and butyrate concentrations inside the digester."
+        },
+        {
+          "what": "MDPI Sensors 2025 review — 'Artificial Intelligence in Anaerobic Digestion'; surveys AD sensors/modeling/optimization; anomaly detection and digital twins discussed but no test-time-adaptive per-digester anomaly model",
+          "url": "https://www.mdpi.com/1424-8220/25/22/6961",
+          "verbatim": "Anomaly detection systems can recognize deviations in anaerobic digester system behavior before they escalate into critical issues."
+        },
+        {
+          "what": "MDPI Sensors 2025 — 'Practical Test-Time Domain Adaptation for Industrial Condition Monitoring by Leveraging Normal-Class Data'; TTA for anomaly detection under domain shift exists, but in generic industrial condition monitoring, NOT anaerobic digestion / foaming",
+          "url": "https://doi.org/10.3390/s25247614",
+          "verbatim": "A novel one-class domain adaptation framework leverages only normal-class data from the target domain at test-time to adapt ensemble models for anomaly detection. Models often experience performance degradation when applied to different data distributions (domain shift), which is particularly relevant in industrial condition monitoring where data originate from heterogeneous sensors operating under varying conditions."
+        },
+        {
+          "what": "iFactory industry article — 'How Real-Time Process Monitoring Prevents Upsets in Anaerobic Digesters'; commercial monitoring uses online VFA as early warning and ML to flag anomalies, but with fixed/general models, no per-digester test-time adaptation to a shifting normal baseline",
+          "url": "https://ifactoryapp.com/industries/biogas-plant/real-time-process-monitoring-prevents-upsets-anaerobic-digesters",
+          "verbatim": "Online VFA sensors provide 15-minute readings and are the single most important early warning for digester instability, while methane percentage and total flow are measured continuously to track energy value and detect production anomalies."
+        }
+      ],
+      "verdict": "OPEN",
+      "exact_unused_slice": "Applying TEST-TIME ADAPTATION (a model that adapts its notion of 'normal' per-digester / per-feedstock at inference, e.g. CANDI's False-Positive Mining + spatiotemporal normality adaptation) to multivariate digester sensor streams for EARLY foaming/instability warning. Existing AD foaming work is fixed supervised classifiers (SVM) or static soft-sensor fault detection; existing TTA-anomaly work (incl. CANDI) targets generic benchmarks/industrial condition monitoring, never anaerobic digestion. The slice 'per-digester test-time-adaptive multivariate anomaly detection for foaming early warning' is unmade.",
+      "honest_adjacency": "Strong adjacency on BOTH axes but they have not met: (a) On the application axis, foaming/upset prediction in AD is well studied with supervised ML (SVM 87% foaming) and data-driven VFA soft-sensors, and commercial systems already do real-time multivariate anomaly flagging — but all with fixed models that do not adapt the baseline per digester at test time. (b) On the technique axis, test-time adaptation for anomaly detection under distribution shift exists (CANDI itself; one-class TTA for industrial condition monitoring; graph-anomaly TTA for false-alarm correction) — but applied to generic time-series benchmarks or general industrial monitoring, not to anaerobic digesters or feedstock-driven baseline shift. The precise capability_gap (baseline shifts per digester/feedstock so a fixed model fails) is exactly what TTA addresses, yet no found work pairs it with the AD foaming domain.",
+      "reasoning": "5 reformulations covered: exact technique x app; foaming via deep learning/ML; digester anomaly/fault detection generally; the TTA/distribution-shift method generically; and a tightly-worded technique x app probe. The technique-axis searches return only generic/industrial TTA (and CANDI's own paper) with zero digester application; the application-axis searches return only fixed supervised/soft-sensor models and commercial fixed-model anomaly flagging. No source applies per-digester test-time-adaptive multivariate anomaly detection to foaming early warning, so the slice is OPEN."
+    }
+  ]
+}

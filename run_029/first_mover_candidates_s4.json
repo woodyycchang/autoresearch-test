@@ -1,0 +1,150 @@
+{
+  "_schema": "Run29 s4 Phase-3 pairing (claude -p opus). PIVOT to modern non-craft domains; tests R16 (NARROW ceiling craft-specific or universal).",
+  "count": 12,
+  "candidates": [
+    {
+      "rank": 1,
+      "technique": "Internalized Reasoning for Long-Context Visual Document Understanding",
+      "arxiv_id": "2604.02371",
+      "niche": "Sequencing-run QC interpretation & rerun-eligibility judgment (domain A)",
+      "ai_penetration": "very-low",
+      "capability_gap": "FastQC/MultiQC emit per-module Warn/Fail flags but explicitly punt the contextual decision: did THIS sample fail for THIS application, and is a rerun warranted. The judgment is reasoning over the visual QC report PLUS experiment context, not metric thresholding.",
+      "differentiator_justification": "The technique internalizes page-relevance reasoning over long visual documents (plots+tables) — exactly the QC-report-plus-context read that no flag-tool does. Differentiator is contextual adjudication, which no metric tool provides.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "OPEN (borderline) — has_industrial_analog=no clears the application axis cleanly (no sibling app, no product makes the accept/rerun call). The only adjacency risk is the technique family (visual-doc reasoning) having generic report-interpretation siblings; if the probe finds no bioinformatics-QC ML adjudicator, this is the one true OPEN. Honest lean: NARROW under strict reading of technique-family.",
+      "search_probe": "\"sequencing run QC\" OR FastQC \"rerun\" decision machine-learning interpret pass/fail context site:arxiv.org; and: bioinformatics core facility \"rerun eligibility\" automated model"
+    },
+    {
+      "rank": 2,
+      "technique": "HOLOGRAPH: Active Causal Discovery via Sheaf-Theoretic Alignment of LLM Priors",
+      "arxiv_id": "2512.24478",
+      "niche": "Foodborne outbreak hypothesis generation from trawling interviews (domain B)",
+      "ai_penetration": "very-low",
+      "capability_gap": "After a cluster is flagged, epidemiologists abductively reconcile free-text recall across many sick people to nominate a likely vehicle. No deployed product does interview-to-hypothesis; PulseNet only handles upstream genomic clustering.",
+      "differentiator_justification": "LLM-guided active causal discovery with hidden-confounder handling and Expected-Free-Energy query selection maps directly onto abductive vehicle nomination and 'which food to ask about next'. The method family is brand-new (Dec 2025) with no deployed sibling.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — application axis is fairly clear (weak industrial analog, no product), but causal inference IS epidemiology's core method family (case-control odds ratios touch this exact problem), so the technique axis has a sibling. Strict gate => NARROW despite the niche being near-virgin.",
+      "search_probe": "foodborne outbreak \"vehicle\" hypothesis generation LLM OR \"causal discovery\" trawling interview abductive; and: case-control outbreak investigation automated hypothesis machine learning"
+    },
+    {
+      "rank": 3,
+      "technique": "A-RAG: Agentic RAG via Hierarchical Retrieval Interfaces",
+      "arxiv_id": "2602.03442",
+      "niche": "Clinical handoff / SBAR salience-selection — what to hand off (domain B)",
+      "ai_penetration": "very-low",
+      "capability_gap": "Even with SBAR structure, the human judgment of WHICH facts are important enough to transmit drives omission errors (~80% of serious errors involve handoff). SBAR/I-PASS are forms, not salience selectors.",
+      "differentiator_justification": "Agentic multi-granularity retrieval over the chart could rank/select the salient handoff items rather than template-fill — a salience-selection differentiator no structured form offers.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — application axis: none-as-AI today, BUT the technique family (clinical note/discharge summarization, EHR retrieval) has heavy siblings, and the industrial shift-handover analog exists. Both-axis adjacency => NARROW.",
+      "search_probe": "SBAR handoff \"salience\" OR \"what to communicate\" LLM select; and: clinical handoff summarization model omission error reduction deployed"
+    },
+    {
+      "rank": 4,
+      "technique": "ShapPFN (tabular foundation model with built-in Shapley attribution)",
+      "arxiv_id": "2603.29946",
+      "niche": "Youth talent identification / projection beyond the scout's eye (domain A)",
+      "ai_penetration": "very-low",
+      "capability_gap": "Forecasting which immature youth athletes will succeed is subjective expert judgment with poor inter-scout agreement and relative-age/maturation bias; no model decomposes the holistic projection.",
+      "differentiator_justification": "A tabular FM that emits prediction + feature importance in one pass could decompose 'projectability' and expose maturation/relative-age confounds — the interpretable projection scouts can't articulate.",
+      "blocker_type": "data-access",
+      "preliminary_gap_guess": "NARROW — has_industrial_analog=no helps the application axis, but pro sports analytics is a strong technique-family sibling (same tabular/forecasting stack on in-game data, an adjacent app). Plus a hard data-access blocker (longitudinal youth outcomes are scarce). => NARROW.",
+      "search_probe": "youth athlete \"talent identification\" projection machine learning future potential model; and: relative age effect bias correction model scouting"
+    },
+    {
+      "rank": 5,
+      "technique": "Dreamer-CDP (reconstruction-free model-based RL / world-model planning)",
+      "arxiv_id": "2603.07083",
+      "niche": "SAR mission tasking & search-segment prioritization (domain A)",
+      "ai_penetration": "very-low",
+      "capability_gap": "The IC's minute-by-minute call of which arriving resource to assign which segment — translating Lost-Person-Behavior probability into dynamic tasking and re-tasking — is manual map-work, not optimization.",
+      "differentiator_justification": "A latent world-model planner is a natural fit for sequential resource-to-segment tasking under terrain/weather/clue uncertainty with dynamic re-tasking — sequential planning is the differentiator over static heat maps.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — application axis is nearly clear (no industrial twin) BUT maritime SAROPS/SARPlan Bayesian search theory is a direct technique-family sibling on the adjacent sea-search app, and CalTopo 'probability-based heat mapping' is emerging adjacency. => NARROW.",
+      "search_probe": "wilderness SAR \"segment\" tasking optimization reinforcement learning lost person behavior; and: SAROPS land search planning model deployed"
+    },
+    {
+      "rank": 6,
+      "technique": "Molmo2 (open-weight VLM with pointing/grounding, video)",
+      "arxiv_id": "2601.10611",
+      "niche": "Ambiguous receiving discrepancy / damaged-goods exception calls (domain B)",
+      "ai_penetration": "very-low",
+      "capability_gap": "At inbound receiving, accept/reject/quarantine on damaged or PO-mismatched goods is a worker judgment documented with photos+notes; WMS records but does not adjudicate.",
+      "differentiator_justification": "Point-driven visual grounding could localize damage and tie it to PO line items, producing a reviewable accept/quarantine recommendation — visual grounding + doc cross-ref is the differentiator over WMS logging.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — has_industrial_analog=no for the adjudication, but VLM visual-inspection/defect-detection is a massive technique-family sibling in manufacturing QC. Technique-axis adjacency => NARROW.",
+      "search_probe": "warehouse receiving damaged goods \"accept reject quarantine\" vision model decision; and: automated visual inspection PO mismatch grounding WMS"
+    },
+    {
+      "rank": 7,
+      "technique": "CANDI (Curated Test-Time Adaptation for multivariate anomaly detection)",
+      "arxiv_id": "2604.01845",
+      "niche": "Wastewater surveillance signal interpretation (domain B)",
+      "ai_penetration": "low",
+      "capability_gap": "Translating raw viral RNA concentrations into 'rising? real? what population? what action?' requires expert judgment because shedding/timing vary by pathogen and sewersheds don't map to populations.",
+      "differentiator_justification": "TTA with false-positive mining and spatiotemporal normality adaptation matches the distribution-shift problem (shedding shifts, new variants) better than fixed thresholds — adaptation under shift is the differentiator.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — environmental-sensor time-series anomaly detection/normalization is a known technique-family sibling, and Biobot/WastewaterSCAN/NWSS plus research Bayesian methods already touch the application. Both axes adjacent => NARROW.",
+      "search_probe": "wastewater surveillance \"normalization\" anomaly detection model rising signal interpret; and: sewershed shedding burden inference machine learning"
+    },
+    {
+      "rank": 8,
+      "technique": "LegalGraphRAG: Multi-Agent Graph RAG for Legal Reasoning",
+      "arxiv_id": "2605.28120",
+      "niche": "Corporate-action free-text interpretation & elective-event decisioning (domain A)",
+      "ai_penetration": "low",
+      "capability_gap": "~46% of event data arrives as unstructured free-text offering docs with contradictory terms; firms independently interpret ambiguous terms and make discretionary elections. Vendors handle connectivity/lifecycle, not interpretation.",
+      "differentiator_justification": "Hierarchical graph retrieval + Researcher/Auditor/Adjudicator verification fits ambiguous-term reconciliation across multi-document offering packages with an auditable election rationale — verified multi-doc reasoning is the differentiator.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — document-to-structured-data extraction and contract/RFQ interpretation are strong technique-family siblings (has_industrial_analog=yes), and fintech vendors already tool the surrounding lifecycle. => NARROW.",
+      "search_probe": "corporate action \"free text\" offering document interpretation LLM extraction election; and: ambiguous terms reconciliation RAG financial securities"
+    },
+    {
+      "rank": 9,
+      "technique": "PMAx: An Agentic Framework for AI-Driven Process Mining",
+      "arxiv_id": "2603.15351",
+      "niche": "Settlement-fail / reconciliation break exception adjudication (domain A)",
+      "ai_penetration": "low",
+      "capability_gap": "~15% of reconciliations break; ~90% of manual matching effort comes from non-standard data, and the root-cause cause-determination on each break is human judgment across confirmation/matching/settlement.",
+      "differentiator_justification": "Closed-loop agentic process mining bridges process semantics to root-cause across the trade lifecycle with hallucination mitigation — automated cross-stage root-cause is the differentiator over rule-based matchers.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — direct industrial analog (ERP/inventory reconciliation), and process mining is already applied to financial back-office reconciliation (technique-family sibling). Duco/SmartStream/HighRadius touch the app. => NARROW.",
+      "search_probe": "settlement fail reconciliation break \"root cause\" process mining automated adjudication; and: trade matching exception machine learning cause determination"
+    },
+    {
+      "rank": 10,
+      "technique": "kooplearn (Koopman/transfer-operator learning library)",
+      "arxiv_id": "2512.21409",
+      "niche": "Particle-accelerator online beam tuning by expert operators (domain A)",
+      "ai_penetration": "low",
+      "capability_gap": "Online tuning across huge, coupled, sensitive parameter spaces is still done by hand between shifts; operators make structure-aware guesses that RL/BO optimizers lack.",
+      "differentiator_justification": "Learning the Koopman/evolution operator of the coupled beam response is a distinct angle from RL/BO — a linear operator view of the coupled dynamics could give the structure-aware model operators want, differentiating from black-box optimizers.",
+      "blocker_type": "technical-gap",
+      "preliminary_gap_guess": "NARROW — RL/Bayesian-optimization 'autonomous accelerator' research (SLAC/DESY/KEK, Xopt/Badger) is a direct technique-family sibling on this exact application, even if not production-default. Both axes adjacent => NARROW.",
+      "search_probe": "accelerator beam tuning Koopman operator OR \"evolution operator\" online control; and: autonomous accelerator Bayesian optimization reinforcement learning production"
+    },
+    {
+      "rank": 11,
+      "technique": "Large Causal Models (LCMs) for Temporal Causal Discovery",
+      "arxiv_id": "2602.18662",
+      "niche": "EMD acuity determination / over-undertriage tuning (domain A)",
+      "ai_penetration": "low",
+      "capability_gap": "MPDS overtriages at ~62% (target 25-35%); right-sizing pre-arrival, phone-only ambulance acuity with no patient exam resists pure protocol or pure ML.",
+      "differentiator_justification": "A temporal causal foundation model over dispatch→on-scene-outcome could recalibrate protocol determinants and expose which call features causally drive over/undertriage — causal recalibration is the differentiator over deterministic cards.",
+      "blocker_type": "safety/legal/relational",
+      "preliminary_gap_guess": "NARROW — predictive triage in clinical ED is a technique-family sibling (has_industrial_analog=partial), and safety-criticality of dispatch keeps a human arbiter (addressed-and-constrained). => NARROW, with a safety blocker reinforcing it.",
+      "search_probe": "emergency medical dispatch MPDS overtriage model acuity machine learning; and: pre-arrival ambulance priority prediction causal calibration"
+    },
+    {
+      "rank": 12,
+      "technique": "ShapPFN (tabular foundation model with built-in Shapley attribution)",
+      "arxiv_id": "2603.29946",
+      "niche": "IPO bookbuilding allocation discretion (domain A)",
+      "ai_penetration": "very-low",
+      "capability_gap": "Underwriters allocate shares using discretion beyond the bid (relationship, perceived info quality), so identical bids get different allocations; this is deliberately human/relational.",
+      "differentiator_justification": "A transparent allocation-scoring model with attribution could surface implicit relationship/info-rent weightings — but the gap is intentional, not a tooling gap.",
+      "blocker_type": "safety/legal/relational",
+      "preliminary_gap_guess": "CLOSED — the allocation call is kept human by design for relational/information-rent reasons (addressed-and-declined). No product attempts it precisely because discretion is the point; not a capability gap. => CLOSED.",
+      "search_probe": "IPO bookbuilding allocation discretion algorithm model relationship; and: underwriter share allocation automation regulatory discretion"
+    }
+  ]
+}

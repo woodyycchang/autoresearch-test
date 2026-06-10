@@ -1,0 +1,240 @@
+[
+  {
+    "candidate_index": 0,
+    "technique": "Molmo2",
+    "life_domain": "Varroa mite monitoring (alcohol wash / sugar roll) - Agriculture & animal husbandry",
+    "searches": [
+      {
+        "reformulation_type": "exact",
+        "query": "Molmo varroa mite counting",
+        "results": [
+          {
+            "title": "A Comparative Study of Hybrid Machine-Learning vs. Deep-Learning Approaches for Varroa Mite Detection and Counting",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12390549/",
+            "relevance": "prior-art",
+            "note": "ML/DL methods already benchmarked for varroa detection+counting; no 'Molmo' but the exact task (detect-and-count mites) is solved work."
+          },
+          {
+            "title": "Analysis of Varroa Mite Colony Infestation Level Using New Open Software Based on Deep Learning Techniques",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11207890/",
+            "relevance": "prior-art",
+            "note": "Open deep-learning software that computes colony infestation level from mite imagery - directly the candidate's intended output."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "problem",
+        "query": "deep learning varroa mite counting automatic detection",
+        "results": [
+          {
+            "title": "An AI-Based Open-Source Software for Varroa Mite Fall Analysis in Honeybee Colonies (VarroDetector)",
+            "url": "https://www.mdpi.com/2077-0472/15/9/969",
+            "relevance": "prior-art",
+            "note": "Free DL software (VarroDetector) detects+counts varroa from smartphone images of sticky boards; R2=0.98-0.99 vs control, beats trained operators above 50 mites/sheet."
+          },
+          {
+            "title": "AI Helps Save Bees | NVIDIA Technical Blog",
+            "url": "https://developer.nvidia.com/blog/ai-helps-save-bees/",
+            "relevance": "prior-art",
+            "note": "Industry coverage of deep-learning varroa monitoring; the problem has clear AI penetration and vendor interest."
+          },
+          {
+            "title": "Varroa Mite Counting Based on Hyperspectral Imaging",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11281281/",
+            "relevance": "prior-art",
+            "note": "Another automated varroa-counting modality (hyperspectral) - reinforces that automated counting is an active solved area."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability",
+        "query": "computer vision automatic varroa mite counting app smartphone",
+        "results": [
+          {
+            "title": "Beekeeping - A Mobile Application for Controlling the Varroa Mite (Apizoom)",
+            "url": "https://www.agrarforschungschweiz.ch/en/2021/05/beekeeping-a-mobile-application-for-controlling-the-varroa-mite/",
+            "relevance": "prior-art",
+            "note": "Apizoom (EPFL/Agroscope) phone app auto-counts mites on the varroa tray, 'approaches human visual acuity' - precisely the candidate's phone-photo-of-tray use case."
+          },
+          {
+            "title": "GitHub - jodivaso/varrodetector",
+            "url": "https://github.com/jodivaso/varrodetector",
+            "relevance": "prior-art",
+            "note": "Open-source repo: YOLOv11-nano counts varroa from smartphone photos of sticky sheets, runs CPU-only - same input/output as the proposed Molmo2 workflow."
+          },
+          {
+            "title": "AI Tech Offers Gentle Mite Monitoring (Apiarist's Advocate)",
+            "url": "https://www.apiaristsadvocate.com/post/ai-tech-offers-gentle-mite-monitoring",
+            "relevance": "prior-art",
+            "note": "Trade article on AI-based mite monitoring tools already marketed to beekeepers."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool",
+        "query": "varroa counter app alcohol wash sugar roll image recognition",
+        "results": [
+          {
+            "title": "Varroa Counter - Apps on Google Play",
+            "url": "https://play.google.com/store/apps/details?id=topLab.VarroaCounter&hl=en&gl=US",
+            "relevance": "prior-art",
+            "note": "Shipped commercial app billed as 'the world's first professional mobile counting application for Varroa Destructor' using computer vision."
+          },
+          {
+            "title": "BeeScanning - Find varroa mites and sick brood",
+            "url": "https://beescanning.com/",
+            "relevance": "prior-art",
+            "note": "Commercial AI app: photograph bees, AI counts varroa-to-bee ratio in seconds, calibrated against alcohol wash on 1000 colonies; explicitly replaces sugar shake / alcohol wash."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "other",
+        "query": "vision language model object counting pointing bees mites grounding apiary",
+        "results": [
+          {
+            "title": "[2603.10978] GroundCount: Grounding Vision-Language Models with Object Detection for Mitigating Counting Hallucinations",
+            "url": "https://arxiv.org/abs/2603.10978",
+            "relevance": "related",
+            "note": "VLM pointing/grounding for counting is itself an active 2026 research area (and notes VLMs hallucinate counts), but not applied to varroa specifically."
+          },
+          {
+            "title": "Computer Vision Approaches for Automated Bee Counting Application",
+            "url": "https://arxiv.org/html/2406.08898v1",
+            "relevance": "related",
+            "note": "Vision-based counting in the apiary domain (bees) already established; varroa is the adjacent, already-served counting target."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "VarroDetector - free open-source DL software (YOLOv11-nano) counts varroa from smartphone photos of sticky sheets, runs CPU-only, R2=0.98-0.99 vs control and beats trained operators >50 mites/sheet: https://github.com/jodivaso/varrodetector and https://www.mdpi.com/2077-0472/15/9/969",
+      "Apizoom (EPFL/Agroscope) mobile app auto-counts mites on the varroa tray, approaching human visual acuity: https://www.agrarforschungschweiz.ch/en/2021/05/beekeeping-a-mobile-application-for-controlling-the-varroa-mite/",
+      "Varroa Counter on Google Play - shipped commercial computer-vision mite-counting app: https://play.google.com/store/apps/details?id=topLab.VarroaCounter",
+      "BeeScanning - commercial AI app counting varroa/bee ratio from photos, calibrated against alcohol wash across 1000 colonies: https://beescanning.com/",
+      "Multiple peer-reviewed DL/ML papers on varroa detection+counting and infestation-level estimation: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11207890/ , https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12390549/"
+    ],
+    "gap_verdict": "GAP_CLOSED",
+    "verdict_reason": "The exact application - phone photo of a varroa tray/sticky sheet -> automated computer-vision detection-and-count -> infestation level for the treat/no-treat decision - is already deployed in both open-source software (VarroDetector, YOLOv11-nano, validated R2~0.98-0.99) and multiple commercial apps (Apizoom, BeeScanning, Varroa Counter on Google Play). Molmo2's point-and-count is merely a newer model class for a problem that vision teams have demonstrably already targeted and shipped.",
+    "confidence": "high"
+  },
+  {
+    "candidate_index": 1,
+    "technique": "SAM-Audio (Segment Anything in Audio)",
+    "life_domain": "Tuvan throat singing / overtone singing technique - Art, music & performance craft",
+    "searches": [
+      {
+        "reformulation_type": "exact",
+        "query": "SAM-Audio throat singing overtone separation",
+        "results": [
+          {
+            "title": "SAM Audio: Segment Anything in Audio (arXiv 2512.18099)",
+            "url": "https://arxiv.org/pdf/2512.18099",
+            "relevance": "related",
+            "note": "Confirms SAM-Audio exists (promptable separation) but its own paper notes it struggles with highly similar sources - overtones are highly similar frequency components; no throat-singing application shown."
+          },
+          {
+            "title": "GitHub - lukemcraig/OvertoneFilter",
+            "url": "https://github.com/lukemcraig/OvertoneFilter",
+            "relevance": "related",
+            "note": "Existing tool emphasizes MIDI-selected harmonics to SIMULATE sygyt overtone singing - DSP synthesis/emphasis, not learned separation of a real singer's overtone stem."
+          },
+          {
+            "title": "Overtone focusing in biphonic Tuvan throat singing (eLife)",
+            "url": "https://elifesciences.org/articles/50476",
+            "relevance": "related",
+            "note": "Established acoustic science of the drone+overtone mechanism; characterizes biphonation as linear filtering, but is analysis, not a separation/feedback tool."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "problem",
+        "query": "machine learning overtone singing analysis pitch tracking real-time feedback",
+        "results": [
+          {
+            "title": "A Survey on 30+ Years of Automatic Singing Assessment and Singing Information Processing (arXiv 2601.12153)",
+            "url": "https://arxiv.org/html/2601.12153v1",
+            "relevance": "related",
+            "note": "ML/DNN-based singing assessment with real-time pitch/spectral feedback is a mature 30-year field - the pedagogical-feedback capability is broadly served, though not specifically via overtone source separation."
+          },
+          {
+            "title": "GVPT -- A software for guided visual pitch tracking (arXiv 2505.00750)",
+            "url": "https://arxiv.org/pdf/2505.00750",
+            "relevance": "related",
+            "note": "Real-time visual pitch-tracking pedagogy tool; same feedback goal but no learned overtone isolation."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "capability",
+        "query": "audio source separation overtone singing harmonic isolation khoomei sygyt",
+        "results": [
+          {
+            "title": "Analysis and modelling of overtone singing in the sygyt style (ScienceDirect)",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0003682X04001082",
+            "relevance": "related",
+            "note": "Signal-level modelling of the sygyt overtone, but classical DSP analysis - not a promptable/learned two-stem separator."
+          },
+          {
+            "title": "Overtone focusing in biphonic Tuvan throat singing (PMC)",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7064340/",
+            "relevance": "related",
+            "note": "Describes overtone as a focused filter state at 1-2 kHz; confirms the physics but does no separation/feedback for learners."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "tool",
+        "query": "overtone singing trainer app visualize harmonics spectrogram feedback software",
+        "results": [
+          {
+            "title": "Sygyt Software - Software for Voice Analysis and Sound Visualization",
+            "url": "https://www.sygyt.com/en/",
+            "relevance": "prior-art",
+            "note": "Dedicated voice-analysis/visualization software named after the throat-singing style; targets overtone-singing feedback (spectrogram-based, not learned separation)."
+          },
+          {
+            "title": "Overtone Analyzer - Download",
+            "url": "https://overtone-analyzer.updatestar.com/en",
+            "relevance": "prior-art",
+            "note": "Explicitly 'used for studying and teaching overtone singing' with spectrogram + pitch detection - serves the exact corrective-feedback pedagogy goal, via visualization rather than separation."
+          },
+          {
+            "title": "MeionSpector / VoceVista / SING&SEE (Spectrogram apps for overtones)",
+            "url": "https://techfortheclassicalsinger.wordpress.com/2012/07/28/spectrogram-apps-for-visualizing-the-overtones-in-your-voice/",
+            "relevance": "prior-art",
+            "note": "MeionSpector: sing a note, see overtones, adjust vocal production until bands change - real-time overtone feedback loop already exists, again spectrogram-based not source-separation."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "other",
+        "query": "overtone extraction isolation audio neural network throat singing harmonic enhancement real-time",
+        "results": [
+          {
+            "title": "New Dataset Release: Overtone Singing (Preview) - Articulation-Level Overtone & Throat Singing Primitives (HuggingFace)",
+            "url": "https://discuss.huggingface.co/t/new-dataset-release-overtone-singing-preview-articulation-level-overtone-throat-singing-primitives/171144",
+            "relevance": "related",
+            "note": "ML community is now releasing ISOLATED overtone-singing primitives for MIR/generative research - shows ML is beginning to target this niche, but no separation+pedagogy system yet."
+          },
+          {
+            "title": "Joint Singing Pitch Estimation and Voice Separation Based on a Neural Harmonic Structure Renderer",
+            "url": "https://www.academia.edu/66573615/Joint_Singing_Pitch_Estimation_and_Voice_Separation_Based_on_a_Neural_Harmonic_Structure_Renderer",
+            "relevance": "related",
+            "note": "Neural harmonic-structure separation exists for singing voice generally; conceptually adjacent but not applied to drone-vs-overtone biphonic isolation."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Sygyt Software (sygyt.com) and Overtone Analyzer - dedicated tools explicitly used for studying/teaching overtone singing via real-time spectrogram + pitch detection: https://www.sygyt.com/en/ and https://overtone-analyzer.updatestar.com/en",
+      "MeionSpector / VoceVista / SING&SEE - real-time overtone visualization feedback loops where learners watch harmonic bands and adjust vocal-tract shaping: https://techfortheclassicalsinger.wordpress.com/2012/07/28/spectrogram-apps-for-visualizing-the-overtones-in-your-voice/",
+      "30+ year mature field of ML/DNN automatic singing assessment with real-time pitch/spectral feedback: https://arxiv.org/html/2601.12153v1 ; plus GVPT guided visual pitch tracking: https://arxiv.org/pdf/2505.00750",
+      "lukemcraig/OvertoneFilter - existing harmonic-emphasis tool for sygyt-style overtones (DSP, not learned separation): https://github.com/lukemcraig/OvertoneFilter",
+      "SAM-Audio's own paper documents a limitation separating highly similar sources (overtones are highly similar), and ML is only now releasing isolated overtone datasets - so a learned drone/overtone separator-for-pedagogy is not yet shipped: https://arxiv.org/pdf/2512.18099 and https://discuss.huggingface.co/t/new-dataset-release-overtone-singing-preview-articulation-level-overtone-throat-singing-primitives/171144"
+    ],
+    "gap_verdict": "GAP_NARROW",
+    "verdict_reason": "The underlying pedagogical capability - making the invisible overtone observable in real time for corrective vocal-tract feedback - is already well-served by spectrogram/pitch-tracking tools explicitly built for teaching overtone singing (Sygyt Software, Overtone Analyzer, MeionSpector, VoceVista, SING&SEE), so the domain problem is NOT untouched. However, none of these perform learned audio source separation into a listenable isolated overtone stem; that specific SAM-Audio framing (promptable two-source drone/overtone separation) is a genuinely new, untried angle - making this a qualified first-mover rather than open or closed. (Caveat: SAM-Audio's paper flags weakness on highly similar sources, which overtones are.)",
+    "confidence": "medium"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "verifier": "VERIFY-1",
+  "results": [
+    {
+      "candidate": "C1",
+      "technique": "OmniVTA visuo-tactile world model for contact-rich robotic manipulation",
+      "arxiv_id": "2603.19201",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "craft": "Hedgelaying pleacher cut (partially cutting/bending a living stem to near-horizontal without snapping, keeping it alive) - predicting how much bark/sapwood hinge to leave",
+      "queries_run": [
+        "hedgelaying pleacher cut tactile sensing robot stem bending",
+        "hedgelaying machine learning AI prediction stem survival",
+        "visuo-tactile world model robot pruning bending living plant stem agriculture",
+        "tactile sensing robot cutting hinge wood deformation fracture prediction manipulation",
+        "hedgelaying app digital tool training simulation pleacher"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Sibling-domain foothold: visuo-tactile world models applied to contact-rich manipulation (same technique family, generic objects) - the directly adjacent 'Visuo-Tactile World Models' (VT-WM) paper",
+          "url": "https://arxiv.org/abs/2602.06001",
+          "verbatim": "Multi-task Visuo-Tactile World Models (VT-WM) capture the physics of contact through touch reasoning by complementing vision with tactile sensing to better understand robot-object interactions in contact-rich tasks. This approach avoids common failure modes of vision-only models under occlusion or ambiguous contact states. In zero-shot real-robot experiments, VT-WM achieves up to 35% higher success rates, with the largest gains in multi-step, contact-rich tasks."
+        },
+        {
+          "what": "Sibling-domain foothold: robotic pruning = cutting living plant branches under dynamic/contact conditions (closest agricultural analog to a pleacher cut, but vision/visual-servoing based, NOT tactile world-model survival prediction)",
+          "url": "https://arxiv.org/pdf/2008.11613",
+          "verbatim": "Pruning - the art of cutting unwanted and unhealthy plant branches - is a difficult task in field robotics that becomes even more complex when plant branches are moving. Research proposes multi-modal frameworks to deal with dynamic vines with the aim of sim2real skill transfer."
+        },
+        {
+          "what": "Technique-family foothold: tactile sensing used for fracture/crack characterization (i.e., touch predicting material failure) - adjacent to 'how much hinge before it breaks' but for crack detection, not cut-and-bend-to-survive",
+          "url": "https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2020.513004/full",
+          "verbatim": "Tactile and proximity sensing can be used to perform automatic crack detection using machine learning techniques to detect cracks based on deformation and proximity signals recorded during physical interaction between a robotic finger and the environment. Research has achieved an average crack detection accuracy of ~94% and width classification accuracy of ~80%."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using a visuo-tactile world model to predict, from contact signals during a partial cut, how much bark/sapwood hinge to leave on a specific living stem so it bends to ~45 degrees without snapping AND survives (a coupled fracture-threshold + tissue-viability judgment, per-stem/species). No AI/ML, robotic, or digital tool of any kind has touched hedgelaying/pleaching itself; and no visuo-tactile/contact model targets the dual 'don't snap but keep alive' hinge tradeoff.",
+      "honest_adjacency": "Two independent footholds exist but NEITHER closes the gap: (a) the technique family (visuo-tactile world models, arXiv 2602.06001; tactile fracture/crack detection) is established on generic contact-rich manipulation and material-failure sensing, and (b) the sibling agricultural task of robotic pruning/cutting of living plant branches exists (arXiv 2008.11613, 2504.07309) but is vision/visual-servoing based and aims to remove branches, not to leave a living hinge. Crucially the application (hedgelaying) has ZERO AI/ML/app contact - all hedgelaying results are traditional-craft/training-course pages (Wikipedia, National Hedgelaying Society).",
+      "reasoning": "Not CLOSED: no source applies this (or any) tactile/world-model technique to hedgelaying, and the survive-while-bending hinge prediction is absent everywhere. Not OPEN: there is clear adjacency on the technique axis (visuo-tactile world models, tactile fracture sensing) AND on the application's sibling axis (robotic pruning of living branches). Per the gate, any prior adjacency on either axis => NARROW. The arXiv technique resolves to a real March 2026 paper."
+    },
+    {
+      "candidate": "C2",
+      "technique": "kooplearn / Koopman (evolution-operator) learning of dynamical systems",
+      "arxiv_id": "2512.21409",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning",
+      "craft": "Solera capataz extraction-timing (criaderas-y-solera fractional blending; deciding saca timing/volume by venencia tasting) - modeling the solera as a Koopman operator to predict how a saca perturbs the steady-state character",
+      "queries_run": [
+        "solera criaderas fractional blending Koopman operator dynamical model",
+        "solera sherry blending machine learning AI prediction saca timing",
+        "solera system mathematical model simulation dynamics age distribution mixing",
+        "Koopman operator continuous stirred tank reactor blending process steady-state perturbation prediction",
+        "sherry winemaking digital tool app sensor fermentation prediction venencia tasting"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Technique-family foothold on a sibling industrial domain: Koopman operators applied to continuous stirred-tank reactor (CSTR) / chemical mixing processes with steady-state & perturbation prediction (a process-mixing analog to fractional blending)",
+          "url": "https://www.mdpi.com/2227-7390/13/15/2411",
+          "verbatim": "The Koopman-based linear predictors have been illustrated for the control of a second-order continuously stirred tank reactor (CSTR) process with numerical simulation results on the accuracy of the Koopman based linear predictors and the performance of the closed-loop system. Koopman based linear models perform better by virtue of enriching the data with nonlinear observable functions."
+        },
+        {
+          "what": "Application foothold: sherry/wine production HAS been touched by AI/ML/IoT, including deep-learning forecasting of the process - but via e-nose/e-tongue sensors during fermentation, NOT operator-modeling of the solera blending dynamics",
+          "url": "https://www.mdpi.com/1424-8220/25/13/3877",
+          "verbatim": "SmartBarrel is an innovative IoT-based sensory system for monitoring and forecasting wine fermentation processes, featuring a probing nose (E-nose) and probing tongue (E-tongue) that mount directly onto stainless steel wine tanks... The system uses a novel deep learning model called V-LSTM (Variable-length Long Short-Term Memory) to enable predictive analytics."
+        },
+        {
+          "what": "Application foothold (specific to Fino sherry): a 'smart cork' sensor prototype developed for Fino sherry by Cordoba/Malaga (Horizon 2020) - sensing/monitoring sherry, again a different method than Koopman blending dynamics",
+          "url": "https://citiesofthefuture.eu/well-make-no-wine-till-the-sensor-tells-us-its-time/",
+          "verbatim": "A team from the Universities of Cordoba and Malaga created a prototype of a smart cork for Fino sherry as part of the Horizon 2020 European research programme. The hardware is not in contact with the wine, is easily installed, and winemakers do not need to change the way they work."
+        },
+        {
+          "what": "Solera age-distribution dynamics are already understood as a convergent dynamical mixing process (asymptotic steady-state) - the conceptual substrate a Koopman model would target, described qualitatively but never as a learned evolution operator",
+          "url": "https://en.wikipedia.org/wiki/Solera",
+          "verbatim": "The average age of the product increases over time - after 20 years, the output of the solera would be a mix of wine from 3 to 20 years old, averaging very slightly under five years, with the average age asymptotically converging on a specific value as the solera continues."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Learning a data-driven Koopman/evolution operator of the criaderas-y-solera fractional-blending system from venencia/sensory state so as to predict how a specific saca (timing + volume) perturbs and relaxes the solera steady-state character. No source models the solera as a Koopman/transfer operator; solera dynamics are only described qualitatively (asymptotic age convergence), and existing sherry AI works on fermentation/aroma sensing rather than the blending operator or saca-timing decision.",
+      "honest_adjacency": "Strong adjacency on BOTH axes but the exact slice is unused: (a) Koopman/evolution-operator learning is well established on sibling industrial mixing/process systems - CSTR reactors and broader chemical-reactor modeling (MDPI 2025 review; NSF Koopman-Lyapunov MPC) - which is the closest process-engineering analog to fractional blending; and (b) the sherry/wine application has already been touched by ML/IoT and even deep-learning forecasting (SmartBarrel V-LSTM; Fino smart cork), but those target fermentation/aroma monitoring, not the solera blending operator or saca timing. Solera's age dynamics are known to converge asymptotically (Wikipedia/ScienceDirect) yet never cast as a learned operator.",
+      "reasoning": "Not CLOSED: no paper or tool applies Koopman/evolution-operator learning to the solera, nor predicts saca-driven perturbation of solera steady-state. Not OPEN: by the gate, NARROW requires only one adjacency on either axis, and here BOTH axes are populated - the technique family has a firm industrial foothold in CSTR/reactor mixing dynamics, and the application has already been touched by AI/ML/IoT (SmartBarrel deep learning, Fino smart cork) via different methods. The arXiv technique resolves to a real Dec 2025 paper."
+    }
+  ]
+}

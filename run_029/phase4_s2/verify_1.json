@@ -1,0 +1,92 @@
+{
+  "verifier": "VERIFY-1",
+  "results": [
+    {
+      "candidate": "C1",
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Bloomery smelter decision-making (judging the bloom) — traditional iron smelting",
+      "queries_run": [
+        "neural operator PDE surrogate bloomery iron smelting bloom temperature rollout forecast",
+        "bloomery iron smelting machine learning neural network bloom prediction",
+        "bloomery furnace simulation model thermal reduction state prediction",
+        "blast furnace ladle furnace interior thermal state machine learning forecasting",
+        "traditional iron smelting bloomery craft digital tool sensor monitoring"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Blast Furnace Thermal State Prediction Based on Multiobjective Evolutionary Ensemble Neural Networks (Journal of Sustainable Metallurgy) — ML for INTERIOR thermal state but on the MODERN blast furnace, not the bloomery",
+          "url": "https://link.springer.com/article/10.1007/s40831-024-00785-7",
+          "verbatim": "The blast furnace ironmaking process is characterized by strong nonlinearity, multivariable coupling, significant time delay, and uneven spatial thermal-state distribution, which necessitates advanced machine learning approaches for accurate forecasting."
+        },
+        {
+          "what": "Manufacturing process control with deep learning-based predictive model for hot metal temperature of blast furnace (USPTO patent) — DNN/LSTM forecasting of metal temperature, modern furnace, closed-loop control framing",
+          "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10633716",
+          "verbatim": "Research demonstrates the use of deep neural networks and LSTM models for predicting hot metal temperature differences in blast furnaces. Comparisons have been made between deep echo state networks (DESN) and long short-term memories (LSTM) for modeling and forecasting blast furnace processes."
+        },
+        {
+          "what": "Theoretical and practical aspects of iron smelting in a bloomery furnace (academia.edu) — the bloomery is modeled THERMODYNAMICALLY (isotherms, wustite reduction, slag), NOT by any learned operator or autoregressive rollout",
+          "url": "https://www.academia.edu/12866474/Theoretical_and_practical_aspects_of_iron_smelting_in_a_bloomery_furnace",
+          "verbatim": "The underlying thermodynamic principle demands a minimum temperature and CO concentration for wustite reduction, which is not reached everywhere in the furnace cross-section, with the heat demand of descending cold ore influencing the isotherms. The Urbain slag model explains why the bloomery process must leave approximately 50% FeO unreduced in the slag."
+        },
+        {
+          "what": "By the hand of the smelter: tracing the impact of decision-making in bloomery iron smelting (Springer, Archaeological & Anthropological Sciences) — bloomery decision-making studied ARCHAEOLOGICALLY/experimentally, no ML",
+          "url": "https://link.springer.com/article/10.1007/s12520-022-01516-3",
+          "verbatim": "experiments studying decision-making in the smelting process"
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "An autoregressive neural-operator (SGNO-style spectral residual time-stepper) that forecasts the UNOBSERVABLE INTERIOR thermal/reduction-state field AND bloom mass of a TRADITIONAL low-shaft BATCH BLOOMERY over the next minutes from SPARSE SURFACE cues, framed as artisan-scale long-horizon PDE rollout (not closed-loop industrial control). No paper applies any neural operator — or even a generic learned forecaster — to the traditional bloomery; all learned forecasting targets the modern blast/ladle furnace.",
+      "honest_adjacency": "Closest existing work is INDUSTRIAL-furnace ML thermal-state forecasting on the modern blast furnace: 'Blast Furnace Thermal State Prediction Based on Multiobjective Evolutionary Ensemble Neural Networks' (https://link.springer.com/article/10.1007/s40831-024-00785-7) and the USPTO DNN/LSTM hot-metal-temperature predictor (https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10633716). On the bloomery side the only modeling is thermodynamic/archaeological ('Theoretical and practical aspects of iron smelting in a bloomery furnace', https://www.academia.edu/12866474/Theoretical_and_practical_aspects_of_iron_smelting_in_a_bloomery_furnace).",
+      "reasoning": "Across 5 reformulations the technique×application slice splits cleanly: (a) the APPLICATION (bloomery) is served only by DIFFERENT methods — thermodynamic equilibrium / FEM-style and purely qualitative archaeological decision-making studies — with zero learned forecasting; (b) the TECHNIQUE class (neural-operator / DNN / LSTM thermal-state forecasting) exists abundantly but on the SIBLING industrial domain (blast/ladle furnace), and is framed as steady-state continuous-process control rather than artisan-scale batch autoregressive rollout from sparse surface cues. No single source closes the exact slice, so NARROW, not CLOSED or OPEN."
+    },
+    {
+      "candidate": "C2",
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Judging completion of lime/brick burning by flame cues (traditional clamp/kiln calcination)",
+      "queries_run": [
+        "neural operator calcination front lime kiln clamp burning completion prediction surrogate",
+        "lime burning calcination machine learning neural network flame completion",
+        "calcination reaction front propagation simulation model limestone decomposition",
+        "rotary lime kiln calcination degree prediction machine learning industrial",
+        "traditional clamp kiln lime brick burning blue flame craft monitoring digital"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Novel method for temperature prediction in rotary kiln process through machine learning and CFD (ScienceDirect) + CFD Modelling of Calcination in a Rotary Lime Kiln (MDPI) — shrinking-core CFD predicts WHERE calcination starts and the DEGREE of calcination at kiln end, but on the MODERN ROTARY kiln (continuous), not a traditional clamp burn, and not via a learned operator",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0032591024002912",
+          "verbatim": "CFD models simulate the calcination reaction using a shrinking core model, and predict the start of calcination and the degree of calcination at the end of the kiln."
+        },
+        {
+          "what": "Fast Solution of Shrinking Core Model for Calcination Applications (Springer) — a DEEP-LEARNING neural network integrating shrinking-core equations as a surrogate, demonstrated on limestone burning in a SHAFT kiln (industrial), the nearest technique-side analog",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-030-92529-1_2",
+          "verbatim": "A deep learning neural network approach has been proposed to integrate shrinking core model equations for faster solutions, with applications demonstrated for burning limestone in a shaft kiln."
+        },
+        {
+          "what": "Finite Element Analysis of Reaction Front Tracking in Lime Calcination (ASME) — the calcination REACTION FRONT is tracked, but by FEM (a different method) at PARTICLE scale, not a charge-scale neural operator over a clamp burn",
+          "url": "https://asmedigitalcollection.asme.org/AJTEC/proceedings-abstract/AJTEC2011/38921/T10130/353425",
+          "verbatim": "Mathematical models have been developed using Finite Element technique to track the reaction front movement from the surface to the core."
+        },
+        {
+          "what": "Metris AVA / Andritz LimeFire Flame Analyzer + Valmet imaging — flame cues for lime kilns are read by camera + neural network, replacing the human eye, but for the MODERN kiln and for monitoring/optimization, NOT predicting reaction-front completion in a traditional clamp",
+          "url": "https://www.andritz.com/products-en/group/pulp-and-paper/service-solutions/metris-ava/limefire-flame-analyzer",
+          "verbatim": "Traditional lime kiln flame monitoring was based solely on observations by the human eye and the operator's subjective assessment of how the burner was behaving... Revolutionary technology now measures flame shape and size by means of a regular camera and neural network to analyze the image stream."
+        },
+        {
+          "what": "Brick clamp / Clamp Burning vs Kiln Burning (Wikipedia + Civil Jungle) — confirms traditional clamp burning is uncontrolled and has NO predictive instrumentation",
+          "url": "https://en.wikipedia.org/wiki/Brick_clamp",
+          "verbatim": "clamp burning is a slow process where flame regulation is not possible and brick quality is not uniform, with bricks at the bottom found overburnt while at the top and sides they are under burnt."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "An autoregressive spectral neural operator (SGNO-style) that forecasts propagation of the CALCINATION REACTION FRONT through an ENTIRE multi-week TRADITIONAL CLAMP/heap lime (or brick) burn from sparse FLAME cues (the disappearing blue flame) to predict charge-wide COMPLETION. Front-tracking exists only via FEM/shrinking-core CFD at particle/rotary-kiln scale; learned operators on calcination exist only as physics-surrogate accelerators for industrial SHAFT/ROTARY kilns; flame-cue ML exists only for modern kiln burner monitoring. The traditional clamp burn has no predictive ML at all.",
+      "honest_adjacency": "Two honest adjacencies: (1) TECHNIQUE-side — 'Fast Solution of Shrinking Core Model for Calcination Applications' (https://link.springer.com/chapter/10.1007/978-3-030-92529-1_2), a deep NN surrogate of calcination on a SHAFT kiln; and CFD/ML calcination-degree prediction on a ROTARY kiln (https://www.sciencedirect.com/science/article/abs/pii/S0032591024002912). (2) FLAME-CUE side — Andritz Metris AVA LimeFire Flame Analyzer (https://www.andritz.com/products-en/group/pulp-and-paper/service-solutions/metris-ava/limefire-flame-analyzer), camera+NN flame reading on modern lime kilns. None operate on a traditional clamp burn nor predict whole-charge front completion via autoregressive rollout.",
+      "reasoning": "5 reformulations confirm the slice is split, not closed: the reaction FRONT is modeled only by physics (FEM/shrinking-core CFD) at particle/industrial scale; neural networks touch calcination only as physics-equation surrogates or as soft sensors / flame-image monitors for modern rotary/shaft kilns; and the traditional clamp burn is explicitly characterized as having no flame regulation and no instrumentation. No source applies a neural operator to forecast clamp-scale calcination-front completion from flame cues, so NARROW."
+    }
+  ]
+}

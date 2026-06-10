@@ -1,0 +1,161 @@
+{
+  "verifier": "VERIFY-3",
+  "run": "029",
+  "stage": "s2",
+  "date": "2026-06-04",
+  "arxiv_shared": {
+    "id": "2602.18801",
+    "resolves": true,
+    "title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+    "url": "https://arxiv.org/abs/2602.18801",
+    "note": "Residual time stepper using exponential time differencing in Fourier space with a learned diagonal generator; targets stable long-horizon autoregressive PDE rollouts (1D/2D/3D APEBench). Code: github.com/lijy32123-cloud/SGNO"
+  },
+  "results": [
+    {
+      "candidate": "C4",
+      "technique": "SGNO (Spectral Generator Neural Operator)",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Glassblowing — working glass at workable viscosity by eye (artisan hot-glass)",
+      "capability_gap": "A gaffer has no real-time forecast of how fast the gather's viscosity/temperature field is dropping and when the workable window will close.",
+      "queries_run": [
+        "neural operator glass viscosity temperature rollout glassblowing workable window surrogate",
+        "machine learning glassblowing gaffer real-time viscosity prediction hot glass working window",
+        "arXiv 2604.00135 industrial closed-loop glass forming control",
+        "neural operator surrogate molten glass temperature field simulation cooling forecast hot working",
+        "glassblowing community tool predict glass cooling time when too stiff to work torch lampworking"
+      ],
+      "prior_art_found": [
+        {
+          "what": "ViscNet / ANN glass viscosity composition models (temperature-dependence of viscosity from composition) — static property prediction, NOT a time-evolving field forecast for a working gather",
+          "url": "https://arxiv.org/pdf/2007.03719",
+          "verbatim": "The temperature-dependence of viscosity is used to adjust process variables for glass-making, and neural network models have been developed to predict viscosity parameters like the fragility index and glass transition temperature."
+        },
+        {
+          "what": "arXiv 2604.00135 'Temperature Control of Digital Glass Forming Processes' — closed-loop laser-power temperature control for a DIGITAL/additive glass forming machine (not artisan hot-glass, not a forecast/rollout)",
+          "url": "https://arxiv.org/abs/2604.00135",
+          "verbatim": "Digital Glass Forming (DGF) is a new manufacturing process for low-batch glass fabrication, and the work zone temperature must be maintained in the glass's working range to ensure good fabrication. ... a closed loop tracking controller that adjusts the commanded laser power to regulate the measured temperature."
+        },
+        {
+          "what": "FNO surrogates for temperature fields in laser/melt-pool processing (metal AM, not glass; process-parameter->field map)",
+          "url": "https://arxiv.org/pdf/2602.06241",
+          "verbatim": "A Fourier Neural Operator (FNO) based surrogate model has been developed to learn parametric solution operators for laser processes from multiphysics simulations, demonstrating the ability to map process parameters to three-dimensional temperature fields across broad process windows."
+        },
+        {
+          "what": "Lampworking/glassblowing craft guides — annealing and working temps described qualitatively; NO predictive tool for when glass becomes too stiff to work",
+          "url": "https://www.thecrucible.org/guides/lampworking-flameworking/",
+          "verbatim": "the search results don't contain information about a specific community tool designed to predict when glass becomes too stiff to work with a torch."
+        }
+      ],
+      "verdict": "OPEN",
+      "exact_unused_slice": "A neural-operator (SGNO-style stable long-horizon) rollout of the time-evolving viscosity/temperature FIELD of a hand-held glass gather during artisan hot-working, forecasting the closing of the workable window in real time from eye/sparse observation. Existing glass ML is static composition->viscosity (ViscNet); existing glass-forming control (2604.00135) is closed-loop laser control of a digital/additive machine with no forward field forecast and no artisan-craft framing.",
+      "honest_adjacency": "Closest adjacencies: (a) ViscNet/ANN glass-viscosity models (arxiv 2007.03719) — but these predict equilibrium viscosity vs temperature from composition, not a transient cooling rollout of a working gather; (b) arXiv 2604.00135 Digital Glass Forming temperature control — closed-loop, machine-based, no forecast/rollout, not artisan; (c) FNO melt-pool/temperature-field surrogates exist for metal laser processing (2602.06241) but not glass and not framed as a gaffer's workable-window forecast.",
+      "reasoning": "Across 5 reformulations (technique x application, application+AI/ML, application+simulation/control, industrial analog 2604.00135, craft community/lampworking), no work forecasts a hot-glass gather's viscosity/temperature trajectory and workable-window closure via a neural operator. The technique x application slice is unmade. OPEN."
+    },
+    {
+      "candidate": "C6",
+      "technique": "SGNO (Spectral Generator Neural Operator)",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Reading kiln temperature by glow + pyrometric cone bend as 'heat work' (artisan pottery firing)",
+      "capability_gap": "No tool forecasts the accumulated HEAT-WORK integral / interior temperature trajectory of the ware from sparse peephole readings; cones integrate time+temperature, thermocouples don't.",
+      "queries_run": [
+        "neural operator pyrometric cone heat work kiln firing temperature integral prediction",
+        "machine learning kiln firing heat work prediction pottery ceramic cone bending AI",
+        "neural network surrogate model kiln interior temperature trajectory simulation ware thermal heat soak",
+        "industrial kiln firing digital twin thermal model heat work integral real-time furnace ceramic",
+        "potters community AI app predict cone firing time temperature glow color peephole kiln sitter"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Orton ceramic foundation computer program relating cone bending to temperature/heating-rate/hold — deterministic lookup, NOT a learned forecast of interior trajectory from sparse readings",
+          "url": "https://www.ortonceramic.com/pyrometric-cones",
+          "verbatim": "Orton provides a computer program to relate bending behavior of cones to temperature, heating rate and hold time."
+        },
+        {
+          "what": "Advanced ML models for ceramic tile property prediction during the firing stage (Nature Sci Reports) — predicts product properties, not the heat-work integral / interior temperature rollout of a ware",
+          "url": "https://www.nature.com/articles/s41598-025-12011-9",
+          "verbatim": "research on advanced machine learning (ML) models to accurately predict ceramic properties by capturing their complex nonlinear relationships."
+        },
+        {
+          "what": "Tunnel-kiln digital-twin / CFD thermal modeling for industrial ceramic kilns (real-time monitoring, predictive control)",
+          "url": "https://www.mdpi.com/1996-1073/19/9/2219",
+          "verbatim": "Digital Twin and Industry 4.0 technologies offer promising capabilities for real-time monitoring, predictive control, and data-driven optimization in ceramic manufacturing."
+        },
+        {
+          "what": "PINN virtual thermal sensor — estimates temperature field from a small number of physical sensors (closest 'sparse readings' analog, but industrial, steady-field reconstruction not heat-work integral forecast)",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931023005380",
+          "verbatim": "A physics-informed neural network (PINN)-based surrogate model was proposed for a virtual thermal sensor that uses temperature data measured by a small number of physical temperature sensors to estimate the temperature field."
+        },
+        {
+          "what": "Commercial AI pottery glaze-prediction apps (Glazy.ai etc.) — predict glaze/surface outcome from recipe+clay+firing, explicitly NOT integrating real-time sensor feeds; do not forecast heat-work integral",
+          "url": "https://help.glazy.org/concepts/temperature",
+          "verbatim": "most commercial apps treat reduction as a binary toggle or a linear slider, and none integrate real-time atmospheric sensor feeds or account for kiln geometry-induced turbulence."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A neural-operator forecast of the cumulative HEAT-WORK integral (time-temperature, i.e. what a pyrometric cone integrates) and the interior temperature trajectory of an individual ware, inferred from SPARSE artisan peephole/glow observations during firing. No found work outputs heat-work / cone-equivalent forecasting; the artisan glow+cone framing with sparse-input rollout is unmade.",
+      "honest_adjacency": "Strong adjacencies on the industrial side: (a) PINN 'virtual thermal sensor' reconstructs a temperature FIELD from sparse sensors (S0017931023005380) — same sparse->field spirit, but reconstruction not forward heat-work-integral forecast, and uses thermocouples not glow/cone; (b) tunnel-kiln digital twins / CFD give real-time predictive control of industrial kilns (mdpi 19/9/2219); (c) Orton's program already maps cone bend<->T/rate/hold deterministically. None combine SGNO-style rollout + heat-work integral + sparse artisan readings, so the exact slice is unmade — but adjacency is close enough that this is NARROW not OPEN.",
+      "reasoning": "Industrial kiln thermal modeling, virtual thermal sensing from sparse sensors, and deterministic cone<->heatwork tools all exist; ceramic ML predicts properties. The specific neural-operator forecast of the heat-work integral/interior trajectory from artisan glow+cone+peephole input was not found, but adjacent sparse-sensor field reconstruction (PINN virtual thermal sensor) and digital-twin predictive control make this NARROW."
+    },
+    {
+      "candidate": "C7",
+      "technique": "SGNO (Spectral Generator Neural Operator)",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Reading slag and tap-hole management (smelting/metallurgy)",
+      "capability_gap": "No live forecast of how slag viscosity and furnace thermal state evolve toward a tappable condition for craft-scale control; research robotic tap-hole machines exist for industrial furnaces but read no slag dynamics.",
+      "queries_run": [
+        "neural operator slag viscosity furnace tap-hole timing rollout surrogate metallurgy",
+        "machine learning blast furnace slag viscosity real-time forecast tap timing AI smelting control",
+        "neural operator surrogate furnace thermal state evolution simulation molten slag dynamics prediction",
+        "smelting tap-hole management slag viscosity forecast craft scale furnace operator digital twin",
+        "robotic tap-hole machine furnace slag dynamics sensing prediction blacksmith bloomery smelt control"
+      ],
+      "prior_art_found": [
+        {
+          "what": "ANN / NRBO-DNN blast-furnace slag viscosity models (CaO-SiO2-Al2O3-MgO) — composition->viscosity static prediction, NOT a temporal rollout toward tappable condition",
+          "url": "https://www.mdpi.com/2075-163X/14/11/1160",
+          "verbatim": "Blast furnace slags are formed by CaO-SiO2-Al2O3-MgO systems, and viscosity is an important variable for blast furnace operation and performance. ... One artificial neural network model (ANN 23-24) with multiple hidden layers achieved better statistical performance than 11 different literature equations for predicting viscosity in these slag systems."
+        },
+        {
+          "what": "Blast-furnace digital twin running continuous FORWARD simulations predicting slag viscosity hours ahead of tap, with tap-timing optimization (iFactory) — directly addresses 'live forecast of slag viscosity toward tappable condition', industrially",
+          "url": "https://ifactoryapp.com/industries/steel-plant/blast-furnace-ai-monitoring-sensors",
+          "verbatim": "Digital twin systems can run continuous forward simulations predicting slag viscosity hours ahead of actual tap, enabling operators to intervene proactively. ... AI enables tap-to-tap timing and hot metal temperature/composition analysis, which helps optimize the complete smelting cycle."
+        },
+        {
+          "what": "Blast-furnace thermal-state prediction via multiobjective evolutionary ensemble NNs; fractional-order PINN for blast-furnace heat transfer (furnace thermal state forecasting)",
+          "url": "https://link.springer.com/article/10.1007/s40831-024-00785-7",
+          "verbatim": "A fractional-order PINN framework was proposed to characterize thermal memory effects in heat transfer equations and predict thermal state, with temperature prediction RMSE reaching 0.99 [deg]C when using optimal fractional order parameters."
+        },
+        {
+          "what": "Online estimation of electric-arc-furnace tap temperature via fuzzy neural networks (tap-readiness thermal estimate)",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0952197607001510",
+          "verbatim": "Online estimation of electric arc furnace tap temperature by using fuzzy neural networks"
+        },
+        {
+          "what": "Digital-twin converter steelmaking with timely tapping at predicted endpoint; 3D taphole/slag-skimmer modeling with real-time slag-iron parameters (confirms 'predict toward tappable' is industrially done)",
+          "url": "https://link.springer.com/article/10.1007/s10845-024-02366-7",
+          "verbatim": "By tapping at the predicted steelmaking endpoint in a timely manner, material waste can be avoided, and production efficiency can be improved. ... displaying core parameters in real-time including molten iron flow speed, flow rate, temperature, and slag-iron ratio."
+        },
+        {
+          "what": "MIRS robotic tapping/plugging machine for non-ferrous smelting furnaces — confirms candidate's own stated adjacency (robotic tap-hole machines exist, read no slag dynamics)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9451125/",
+          "verbatim": "A robotic tapping and plugging machine has been developed for slag tapping operations on large copper flash smelting furnaces."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "An SGNO-style stable long-horizon NEURAL-OPERATOR rollout of the coupled slag viscosity + furnace thermal FIELD evolving toward a tappable condition, specifically for CRAFT-SCALE / small-furnace tap-hole control. The industrial slice (predicting slag viscosity ahead of tap, tap-timing) is essentially CLOSED via digital twins and ANN/PINN models; what remains unmade is (i) the specific neural-operator (spectral long-horizon rollout) formulation rather than ANN regressors / CFD-based digital twins, and (ii) the craft/small-scale tap-hole-by-eye control framing.",
+      "honest_adjacency": "Very strong, near-closing adjacency: iFactory describes digital twins that 'run continuous forward simulations predicting slag viscosity hours ahead of actual tap'; converter-steelmaking digital twin tags 'tapping at the predicted endpoint'; multiple ANN/DNN slag-viscosity models and a fractional-order PINN for furnace thermal state exist; fuzzy-NN estimates EAF tap temperature; MIRS confirms robotic tap-hole hardware. The forecasting-slag-toward-tap capability itself is industrially realized. The unmade residue is narrow: the SGNO/neural-operator method choice and craft-scale (non-industrial) application.",
+      "reasoning": "Unlike C4/C6, the core capability (live forecast of slag viscosity + furnace thermal state toward a tappable condition) IS implemented industrially (digital-twin forward simulation 'hours ahead of tap', tap-timing optimization, PINN thermal-state prediction). That makes the general technique x application close to CLOSED. It stays NARROW (not CLOSED) only because no found work uses the specific SGNO/neural-operator spectral-rollout method or targets craft-scale tap-hole-by-eye control; the gap as literally written ('no live forecast ... toward a tappable condition') is largely contradicted by industrial digital twins, so the candidate's novelty is weakest of the three."
+    }
+  ],
+  "summary": {
+    "C4": "OPEN",
+    "C6": "NARROW",
+    "C7": "NARROW"
+  }
+}

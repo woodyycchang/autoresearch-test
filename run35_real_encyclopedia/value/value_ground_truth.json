@@ -1,0 +1,512 @@
+{
+  "n": 24,
+  "constructs": [
+    {
+      "id": "V01",
+      "donor": "simulated_annealing",
+      "target": "natural_selection",
+      "mech_core": [
+        "cooling",
+        "noise",
+        "search",
+        "temperature"
+      ],
+      "problem_core": [
+        "adaptation",
+        "optimization",
+        "search"
+      ],
+      "structural_fit": 0.7143,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Annealing (stochastic search over an energy landscape) maps onto evolutionary search over a fitness landscape."
+      }
+    },
+    {
+      "id": "V02",
+      "donor": "predictive_coding",
+      "target": "kalman_filter",
+      "mech_core": [
+        "compression",
+        "error",
+        "feedback",
+        "prediction"
+      ],
+      "problem_core": [
+        "estimation",
+        "tracking",
+        "uncertainty"
+      ],
+      "structural_fit": 0.625,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Predict-then-correct with feedback IS the structure of recursive estimation/tracking."
+      }
+    },
+    {
+      "id": "V03",
+      "donor": "gradient_descent",
+      "target": "simulated_annealing",
+      "mech_core": [
+        "gradient",
+        "iteration",
+        "optimization",
+        "update"
+      ],
+      "problem_core": [
+        "global",
+        "local_minima",
+        "optimization"
+      ],
+      "structural_fit": 0.5,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Gradient steps and annealing both extremize an objective over a continuous landscape."
+      }
+    },
+    {
+      "id": "V04",
+      "donor": "pid_control",
+      "target": "homeostasis",
+      "mech_core": [
+        "derivative",
+        "error",
+        "feedback",
+        "integral"
+      ],
+      "problem_core": [
+        "control",
+        "robustness",
+        "stability"
+      ],
+      "structural_fit": 0.4286,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "PID error-feedback regulation maps directly onto homeostatic setpoint control."
+      }
+    },
+    {
+      "id": "V05",
+      "donor": "immune_memory",
+      "target": "lru_cache",
+      "mech_core": [
+        "adaptation",
+        "memory",
+        "priming",
+        "recognition"
+      ],
+      "problem_core": [
+        "access",
+        "capacity",
+        "memory"
+      ],
+      "structural_fit": 0.375,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Priming on recently/ frequently seen items maps onto recency/use caching."
+      }
+    },
+    {
+      "id": "V06",
+      "donor": "quorum_sensing",
+      "target": "gossip_protocol",
+      "mech_core": [
+        "collective",
+        "density",
+        "signaling",
+        "threshold"
+      ],
+      "problem_core": [
+        "consensus",
+        "robustness",
+        "scaling"
+      ],
+      "structural_fit": 0.25,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Density-threshold collective triggering maps onto distributed consensus/coordination."
+      }
+    },
+    {
+      "id": "V07",
+      "donor": "error_correcting_code",
+      "target": "immune_memory",
+      "mech_core": [
+        "distance",
+        "encoding",
+        "recovery",
+        "redundancy"
+      ],
+      "problem_core": [
+        "defense",
+        "recognition",
+        "speed"
+      ],
+      "structural_fit": 0.5,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Redundant encoding for recovery maps onto immune recognition robustness."
+      }
+    },
+    {
+      "id": "V08",
+      "donor": "kalman_filter",
+      "target": "predictive_coding",
+      "mech_core": [
+        "estimation",
+        "fusion",
+        "noise",
+        "update"
+      ],
+      "problem_core": [
+        "efficiency",
+        "learning",
+        "perception"
+      ],
+      "structural_fit": 0.375,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Recursive noisy-estimate fusion maps onto perceptual prediction-error correction."
+      }
+    },
+    {
+      "id": "V09",
+      "donor": "natural_selection",
+      "target": "auction",
+      "mech_core": [
+        "fitness",
+        "heritability",
+        "selection",
+        "variation"
+      ],
+      "problem_core": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ],
+      "structural_fit": 0.5714,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Selection under competition for a limited resource maps onto competitive allocation."
+      }
+    },
+    {
+      "id": "V10",
+      "donor": "consistent_hashing",
+      "target": "gossip_protocol",
+      "mech_core": [
+        "hashing",
+        "partition",
+        "rebalance",
+        "ring"
+      ],
+      "problem_core": [
+        "consensus",
+        "robustness",
+        "scaling"
+      ],
+      "structural_fit": 0.4,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Partition/rebalance over a ring maps onto distributed load distribution under churn."
+      }
+    },
+    {
+      "id": "V11",
+      "donor": "diffusion_of_innovations",
+      "target": "quorum_sensing",
+      "mech_core": [
+        "diffusion",
+        "network",
+        "propagation",
+        "transition"
+      ],
+      "problem_core": [
+        "coordination",
+        "emergence",
+        "timing"
+      ],
+      "structural_fit": 0.5714,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Network propagation past a threshold maps onto collective adoption timing."
+      }
+    },
+    {
+      "id": "V12",
+      "donor": "homeostasis",
+      "target": "price_signal",
+      "mech_core": [
+        "feedback",
+        "regulation",
+        "setpoint",
+        "stability"
+      ],
+      "problem_core": [
+        "allocation",
+        "coordination",
+        "information"
+      ],
+      "structural_fit": 0.25,
+      "ground_truth": {
+        "is_valuable": true,
+        "reason": "Negative-feedback regulation toward a setpoint maps onto market price stabilization (a real, debated analogy)."
+      }
+    },
+    {
+      "id": "U01",
+      "donor": "gossip_protocol",
+      "target": "auction",
+      "mech_core": [
+        "diffusion",
+        "epidemic",
+        "randomized",
+        "redundancy"
+      ],
+      "problem_core": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ],
+      "structural_fit": 0.2727,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Epidemic spatial spread has no analogue in a one-shot discrete allocation: preconditions (spatial/network diffusion) unmet."
+      }
+    },
+    {
+      "id": "U02",
+      "donor": "ostwald_ripening",
+      "target": "social_mobility",
+      "mech_core": [
+        "aggregation",
+        "competition",
+        "diffusion",
+        "energy",
+        "scale"
+      ],
+      "problem_core": [
+        "distribution",
+        "dynamics",
+        "fairness"
+      ],
+      "structural_fit": 0.4167,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Physical coarsening needs spatial diffusion + a conserved physical quantity + surface energy; social mobility affords none -- the canonical novel-but-useless."
+      }
+    },
+    {
+      "id": "U03",
+      "donor": "titration",
+      "target": "gossip_protocol",
+      "mech_core": [
+        "balance",
+        "endpoint",
+        "incremental",
+        "measure"
+      ],
+      "problem_core": [
+        "consensus",
+        "robustness",
+        "scaling"
+      ],
+      "structural_fit": 0.125,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Incremental endpoint measurement is not distributed consensus; the procedural preconditions do not transfer."
+      }
+    },
+    {
+      "id": "U04",
+      "donor": "ostwald_ripening",
+      "target": "auction",
+      "mech_core": [
+        "aggregation",
+        "competition",
+        "diffusion",
+        "energy",
+        "scale"
+      ],
+      "problem_core": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ],
+      "structural_fit": 0.3333,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Diffusion-driven coarsening does not map onto bidding/allocation structure."
+      }
+    },
+    {
+      "id": "U05",
+      "donor": "simulated_annealing",
+      "target": "auction",
+      "mech_core": [
+        "cooling",
+        "noise",
+        "search",
+        "temperature"
+      ],
+      "problem_core": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ],
+      "structural_fit": 0.2857,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Annealing needs an energy landscape to cool over; a sealed-bid auction has no such continuous landscape."
+      }
+    },
+    {
+      "id": "U06",
+      "donor": "consistent_hashing",
+      "target": "predictive_coding",
+      "mech_core": [
+        "hashing",
+        "partition",
+        "rebalance",
+        "ring"
+      ],
+      "problem_core": [
+        "efficiency",
+        "learning",
+        "perception"
+      ],
+      "structural_fit": 0.3,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Hash-ring partitioning has no relation to perceptual prediction-error structure."
+      }
+    },
+    {
+      "id": "U07",
+      "donor": "lru_cache",
+      "target": "natural_selection",
+      "mech_core": [
+        "cleanup",
+        "history",
+        "threshold",
+        "use_dependent"
+      ],
+      "problem_core": [
+        "adaptation",
+        "optimization",
+        "search"
+      ],
+      "structural_fit": 0.4444,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Recency eviction is not heritable variation under selection; population/variation preconditions unmet."
+      }
+    },
+    {
+      "id": "U08",
+      "donor": "titration",
+      "target": "social_mobility",
+      "mech_core": [
+        "balance",
+        "endpoint",
+        "incremental",
+        "measure"
+      ],
+      "problem_core": [
+        "distribution",
+        "dynamics",
+        "fairness"
+      ],
+      "structural_fit": 0.375,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "A chemical endpoint procedure does not map onto social distribution dynamics."
+      }
+    },
+    {
+      "id": "U09",
+      "donor": "gossip_protocol",
+      "target": "price_signal",
+      "mech_core": [
+        "diffusion",
+        "epidemic",
+        "randomized",
+        "redundancy"
+      ],
+      "problem_core": [
+        "allocation",
+        "coordination",
+        "information"
+      ],
+      "structural_fit": 0.4545,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Randomized epidemic spread does not capture price aggregation/incentive structure."
+      }
+    },
+    {
+      "id": "U10",
+      "donor": "ostwald_ripening",
+      "target": "predictive_coding",
+      "mech_core": [
+        "aggregation",
+        "competition",
+        "diffusion",
+        "energy",
+        "scale"
+      ],
+      "problem_core": [
+        "efficiency",
+        "learning",
+        "perception"
+      ],
+      "structural_fit": 0.4167,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Particle coarsening has no predict-correct/perception structure."
+      }
+    },
+    {
+      "id": "U11",
+      "donor": "consistent_hashing",
+      "target": "natural_selection",
+      "mech_core": [
+        "hashing",
+        "partition",
+        "rebalance",
+        "ring"
+      ],
+      "problem_core": [
+        "adaptation",
+        "optimization",
+        "search"
+      ],
+      "structural_fit": 0.2,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Hash partitioning lacks variation/heritability/competition needed for selection."
+      }
+    },
+    {
+      "id": "U12",
+      "donor": "titration",
+      "target": "auction",
+      "mech_core": [
+        "balance",
+        "endpoint",
+        "incremental",
+        "measure"
+      ],
+      "problem_core": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ],
+      "structural_fit": 0.25,
+      "ground_truth": {
+        "is_valuable": false,
+        "reason": "Stepwise titration to an endpoint is not competitive bidding allocation."
+      }
+    }
+  ]
+}
