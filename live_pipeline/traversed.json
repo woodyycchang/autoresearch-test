@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "purpose": "Live-fetch dedup ledger. Next cycle reads this to avoid re-fetching the same concepts and re-attempting the same merges.",
-  "last_cycle": 2,
+  "last_cycle": 3,
   "cycle_1": {
     "concepts_fetched_names": ["Kohn anomaly", "Luttinger liquid", "Rashba effect", "Dynamin GTPase fission", "Polyubiquitin", "CRISPR-Cas9 checkpoint", "Beck monadicity", "Grothendieck construction", "Coend calculus", "VCG mechanism", "Myerson-Satterthwaite", "Maskin monotonicity", "STDP", "Grid cells", "Sharp-wave ripples", "QUEST (2604.00199)", "DART (2601.19278)", "iGRPO (2602.09000)"],
     "axis": "academic-science (corrected in cycle 2 to ML x life/culture per R11)",
@@ -22,8 +22,20 @@
     ],
     "survivor": {"id": "c2-G4-2", "name": "LoadTightening AutoTTS (AutoTTS x Kigumi)", "value_tier": "MODEST_INCREMENTAL", "stage6": "CONFIRMED_WITH_CAVEATS", "stage7": "SEED_ONLY", "caveat": "real accuracy risk (monotone-hardening vs non-monotone recovery); life axis (Kigumi) judged decorative"}
   },
+  "cycle_3_epoch3": {
+    "ml_whitespace_concepts": ["Partial Model Collapse unlearning (2507.04219)", "Frechet model merging (2604.27155)", "Conformal LM posterior sampling (2606.03731)", "Causal-DAG TabPFN (2603.10254)", "Sequel-aware GNN recommender (2506.05625)", "Interpretable Polynomial forecasting (2603.02906)"],
+    "life_concepts": ["Falconry weight-titration", "Distillation louche cut-point", "Drystone one-over-two redundancy", "Espalier photoperiod pruning", "Glassblowing annealing", "Geodetic triangulation closure", "Vickrey second-price auction", "Silbo whistled compression", "Jacquard binary encoding"],
+    "merges_attempted": [
+      {"id": "E3-mA", "name": "Yarak-PMC", "outcome": "DROP_S3_disagreement (reduces to Constrained Entropic Unlearning)"},
+      {"id": "E3-mB", "name": "CC-TabPFN", "outcome": "DROP_S3_disagreement (reduces to consistency-regularization)"},
+      {"id": "E3-mC", "name": "Annealed Frechet Merge", "outcome": "DROP_S3_unanimous (reduces to AdaMerging/FIM)"},
+      {"id": "E3-mD", "name": "Vickrey-Frechet Merge", "outcome": "SURVIVOR_S3 -> SEED_ONLY (S7)"}
+    ],
+    "survivor": {"id": "E3-mD", "name": "Vickrey-Frechet Merge", "tier": "MODEST", "stage7": "SEED_ONLY", "note": "novel no-precedent formula but logically inverted for merging (down-weights best model)"}
+  },
   "survivors_all_time": [
     {"cycle": 1, "name": "GridFermi-PE", "status": "MODEST / CONFIRMED_WITH_CAVEATS"},
-    {"cycle": 2, "name": "LoadTightening AutoTTS", "status": "SEED_ONLY (MODEST / CONFIRMED_WITH_CAVEATS / EV-gated)"}
+    {"cycle": 2, "name": "LoadTightening AutoTTS", "status": "SEED_ONLY (MODEST / EV-gated)"},
+    {"cycle": 3, "name": "Vickrey-Frechet Merge", "status": "SEED_ONLY (MODEST / load-bearing axis but inverted mechanism)"}
   ]
 }
