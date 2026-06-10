@@ -1,0 +1,23 @@
+{
+  "epoch": 5, "name": "first-principles fix RESULT: framing comparison + VIABLE found",
+  "viability_cover": "2 independent skeptical agents per candidate (agent-rendered, R9)",
+  "results": {
+    "E5-A3 KhipuHMM (Framing A)": {"V-A3-1": "SEED_ONLY", "V-A3-2": "SEED_ONLY", "consensus": "SEED_ONLY", "why": "undone (no prior HMM-on-khipu) BUT not useful-enough: ~650-khipu corpus too small + ZERO ground-truth bilingual key -> latent states unvalidatable -> structural-analysis paper, not decipherment"},
+    "E5-A4 KintsugiKalman (Framing A)": {"V-A4-1": "VIABLE_NICHE", "V-A4-2": "SEED_ONLY", "consensus": "SEED_ONLY (split; skeptic stronger)", "why": "uncertainty-aware imputation is well-established (V-RIN 2020 etc.); the model-agnostic 'scar-feature' triple is a thin engineering nuance, not a category break"},
+    "E5-B1 Band-Dwell Control (Framing B)": {"V-B1-1": "VIABLE_NICHE", "V-B1-2": "VIABLE_NICHE", "consensus": "VIABLE_NICHE", "why": "4-way conjunction (band-dwell + latent state + MANDATORY pre-trigger withdrawal + uncertain trigger timing) genuinely unformulated AND useful; structurally distinct from titration/constrained RL by the withdrawal asymmetry; real apps: anesthesia emergence, T1D, athletic tapering, drug washout, battery formation"},
+    "E5-B4 Colonization Resistance (Framing B)": {"V-B4-2": "SEED_ONLY", "V-B4-1": "pending", "consensus": "SEED_ONLY", "why": "reduces to gradient starvation (Pezeshki NeurIPS 2021) + pretraining-for-robustness; ecological reframing adds narrative not new mechanism; exact_problem_formulated=true"}
+  },
+  "VIABLE_NICHE_FOUND": {
+    "id": "E5-B1", "name": "Band-Dwell Control", "framing": "B (life->new-problem; from falconry yarak)",
+    "problem": "RL/control: drive a LATENT readiness state into a narrow BAND, HOLD under timing uncertainty, then MANDATORILY WITHDRAW interventions before an uncertain exogenous TRIGGER (overshoot-penalized). Not reducible to set-point tracking, titration-RL maintenance, or standard constrained MDPs.",
+    "verdict": "VIABLE_NICHE (2/2 independent skeptical Stage-7 agents)",
+    "honest_calibration": "This is a PROBLEM-FORMULATION novelty (the whole point of the pivot): novel at the INTERSECTION of known pieces (band-tracking, latent-state RL, mandatory-cessation, uncertain-horizon MDPs), independently judged unformulated + useful. A real but reviewer-debatable kind of novelty (a new problem class, not a new theorem). Next step = formalize the MDP, prove the withdrawal asymmetry is not a standard CMDP constraint, demo on anesthesia-emergence or T1D simulators."
+  },
+  "framing_comparison_answer": {
+    "newest_ML (epochs 1-4)": "~0/8 undone -> 0 VIABLE in 4 epochs (prior-art saturation by construction)",
+    "Framing A mature-ML": "4/4 generator-undone, but viability -> mostly SEED_ONLY: mature-ML fixes 'undone' (crowd moved on) but the undone combos are often undone-BECAUSE-niche (not useful-enough) or thin over a known general technique. Improves the input, does not by itself yield VIABLE.",
+    "Framing B life->new-problem": "4/4 generator-unformulated; viability -> 1 clear VIABLE (B1) + SEED/borderline others. The PIVOT (novelty in the PROBLEM, not in beating a crowded method) is what broke the >=0 VIABLE rate.",
+    "conclusion": "The first-principles diagnosis was CORRECT: the broken part was the ML-axis INPUT, not the checkers. Both new framings escape prior-art saturation; Framing B (new-problem) is the one that produced a VIABLE because it makes novelty=problem-formulation, which is structurally harder to pre-empt than novelty=better-method. Mature-ML (Framing A) reliably fixes 'undone' but must be paired with a genuinely useful target to reach VIABLE."
+  },
+  "stop_condition": "VIABLE_NICHE found (R10) -> return to user. 5-epoch ~0-VIABLE plateau BROKEN by the framing pivot."
+}
