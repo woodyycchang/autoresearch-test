@@ -1,0 +1,54 @@
+{
+  "_phase": "4b - independent crosscheck (R7 cross-check + grounded-gap)",
+  "_method": "Main agent (Opus) ran its OWN WebSearches to independently re-judge the strongest survivor and the strongest rejections, rather than trusting subagent verdicts. Records only results actually seen (R5).",
+  "crosscheck_date": "2026-06-04",
+  "checks": [
+    {
+      "candidate_index": 7,
+      "pairing": "SGNO (neural-operator PDE surrogate) -> glassblowing reheat/viscosity guidance",
+      "subagent_verdict": "GAP_NARROW (conf 0.72)",
+      "my_searches": [
+        {"query": "neural operator PDE surrogate glassblowing molten glass viscosity forecasting",
+         "key_results_seen": [
+           "Prediction of viscosity behavior in oxide glass materials using cation fingerprints with artificial neural networks (PMC7476533) - ANN predicts temperature for target glass viscosity, RMSE 33C - PRIOR ART on glass-viscosity NN prediction (not operator, not artisan).",
+           "AI-Generated Glassblowing Tutorials / 'neural physics engines combining GNN with physics-informed methods' (reelmind.ai) - MARKETING copy, unverifiable, current-state visualization not PDE rollout."
+         ]},
+        {"query": "\"Temperature Control\" \"Digital Glass Forming\" arXiv 2026 thermal camera data-driven",
+         "key_results_seen": [
+           "[2604.00135] Temperature Control of Digital Glass Forming Processes (submitted 2026-03-31, Tiwari et al.) - REAL. Thermal+visual camera sync, data-driven dynamic temperature model, closed-loop laser-power controller to hold glass working range. Industrial digital/laser glass forming, NOT artisan glassblowing; closed-loop control, NOT neural-operator forward forecast."
+         ]}
+      ],
+      "my_verdict": "GAP_NARROW confirmed, leaning crowded. The broad problem (hold molten glass in the workable temperature/viscosity band via thermal-camera + data-driven model) IS occupied (2604.00135 for industrial DGF; cation-fingerprint ANN for glass viscosity). The genuinely-unused slice is thin: a neural-operator forward-rollout surrogate aimed at real-time ARTISAN hand-glassblowing reheat decisions. Not OPEN; not fully CLOSED.",
+      "agreement": "AGREE with subagent (NARROW), with the caveat that the candidate's 'no instrument feeds the working state' premise is weaker than stated for the industrial case."
+    },
+    {
+      "candidate_index": 0,
+      "pairing": "Molmo2 (point-and-count VLM) -> varroa mite counting",
+      "subagent_verdict": "GAP_CLOSED (conf high)",
+      "my_searches": [
+        {"query": "VarroDetector YOLO varroa mite automatic counting smartphone open source",
+         "key_results_seen": [
+           "github.com/jodivaso/varrodetector - free open-source YOLOv11-nano counting varroa from smartphone sticky-sheet photos, runs offline no GPU.",
+           "An AI-Based Open-Source Software for Varroa Mite Fall Analysis in Honeybee Colonies (MDPI Agriculture 2025, 15(9):969) - R2=0.98-0.99, more reliable than trained operators above 50 mites/sheet."
+         ]}
+      ],
+      "my_verdict": "GAP_CLOSED confirmed. The phone-photo -> count -> treatment-decision pipeline is a shipping open-source tool + peer-reviewed paper. Rejection is sound; swapping in Molmo2 would be a method change, not a first application.",
+      "agreement": "AGREE (CLOSED)."
+    },
+    {
+      "candidate_index": 6,
+      "pairing": "Audio-Omni (audio MLLM) -> Silbo Gomero whistle transcription",
+      "subagent_verdict": "GAP_CLOSED (conf 0.88)",
+      "my_searches": [
+        {"query": "Whistle-to-text automatic recognition Silbo Gomero whistled language Interspeech",
+         "key_results_seen": [
+           "ISCA Archive - Whistle-to-text: Automatic recognition of the Silbo Gomero whistled language (Jakubiak, Interspeech 2023) - 'first-ever ASR model designed to recognise a whistled language', HMM-GMM, 49 min / 4 whistlers.",
+           "openslr.org/137 - Silbo Gomero Speech Corpus (public parallel corpus)."
+         ]}
+      ],
+      "my_verdict": "GAP_CLOSED confirmed. Automatic whistle->text for Silbo already exists (2023) with a public corpus. The 'first automatic whistle->text pipeline' claim is falsified; a 2026 MLLM would be a method upgrade, not a first application.",
+      "agreement": "AGREE (CLOSED)."
+    }
+  ],
+  "crosscheck_conclusion": "Independent re-judgment AGREES with the aggregate: 0 GAP_OPEN, 6 GAP_NARROW, 4 GAP_CLOSED. No verdict overturned. Grounded-gap finding (R7): every remaining NARROW gap is of the form 'specific fresh-technique capability not yet tried' on a problem whose BROADER framing is already AI-served (often by a 2023-2026 paper or a shipping app) - it is NOT 'problem untouched'. This reproduces the Run 22/23 lesson at the application layer: fresh technique + under-served domain still tends to find the application target partially occupied, because obvious applications get picked off fast and any documented open problem attracts some ML attention."
+}

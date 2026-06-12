@@ -1,0 +1,138 @@
+{
+  "_schema": "Run29 s3 Phase-3 pairing (claude -p opus). Tests v2 no-analog hypothesis. preliminary_gap_guess is PRE-verification.",
+  "count": 12,
+  "candidates": [
+    {
+      "rank": 1,
+      "technique": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "arxiv_id": "2603.19201",
+      "craft": "Hedgelaying pleacher cut (cutting/bending stems near-horizontal while leaving them alive)",
+      "has_industrial_analog": "no + no factory process partially severs and lays living stems into a stock-proof living fence; mechanical hedge cutters only trim",
+      "capability_gap": "No system predicts how much bark/sapwood hinge to leave so a partially-cut stem bends to near-horizontal WITHOUT snapping and stays alive — the tacit 'how far can I bend this stem' contact judgment varying per stem/species.",
+      "differentiator_justification": "OmniVTA's two-stream world model predicts short-horizon contact evolution from tactile+visual state — exactly the unmade prediction of fracture-vs-survival under a bending cut. A generic VLM cannot feel the hinge; the tactile world-model IS the differentiator.",
+      "preliminary_gap_guess": "OPEN — no industrial analog, no funded research-AI on living-fence laying, no app; pure kinesthetic white space.",
+      "search_probe": "\"hedgelaying\" OR \"pleacher\" (machine learning OR robot OR tactile OR \"bend without breaking\") living stem"
+    },
+    {
+      "rank": 2,
+      "technique": "kooplearn (Scikit-Learn Compatible Library for Evolution Operator Learning)",
+      "arxiv_id": "2512.21409",
+      "craft": "Solera capataz extraction-timing judgment (deciding when/how much wine to draw via venencia tasting)",
+      "has_industrial_analog": "no - the dynamic fractional-blending decision driven by venencia tasting is a bespoke cellar-master judgment with no automated equivalent",
+      "capability_gap": "No model captures the criaderas-y-solera fractional-blending system as a dynamical operator to predict how a given saca timing/volume perturbs the solera's steady-state character — currently only a by-palate decision.",
+      "differentiator_justification": "The criaderas-y-solera is a canonical evolution-operator/transfer-operator system; kooplearn learns the Koopman operator and its spectrum from cask data, directly forecasting character drift under withdrawal — a capability no tasting-note or forecasting model provides.",
+      "preliminary_gap_guess": "OPEN — no industrial analog, no app, and no prior Koopman/AI treatment of solera dynamics found.",
+      "search_probe": "(solera OR \"criaderas\" OR sherry) (\"Koopman\" OR \"dynamical model\" OR \"machine learning\") fractional blending extraction"
+    },
+    {
+      "rank": 3,
+      "technique": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "arxiv_id": "2603.19201",
+      "craft": "Nerikoh (Japanese kneaded incense) blending 'by feel' and maturation judgment",
+      "has_industrial_analog": "no - artisanal kneaded-incense composition is taught through long apprenticeship and tuned by tactile/olfactory feel; no automated process composes or judges nerikoh maturation",
+      "capability_gap": "No model captures the fingertip judgment of how much honey/water/plum to knead in to reach the correct paste consistency for the day's temperature/humidity — the veteran-only tactile setpoint.",
+      "differentiator_justification": "OmniVTA's self-supervised tactile encoder + contact-aware world model targets exactly the kneading-consistency feel; the differentiator is haptic state prediction, not any visual or odor proxy.",
+      "preliminary_gap_guess": "OPEN — no analog, no app, no funded research-AI; kneaded-incense tactile judgment is untouched white space.",
+      "search_probe": "(nerikoh OR \"kneaded incense\" OR \"練香\") (tactile OR \"machine learning\" OR robot OR kneading consistency)"
+    },
+    {
+      "rank": 4,
+      "technique": "Machine learning for smell: Ordinal odor strength prediction of molecular perfumery components",
+      "arxiv_id": "2512.08683",
+      "craft": "Kodo monkoh / kumiko scent-discernment ('listening to incense' and identifying materials)",
+      "has_industrial_analog": "no - the incense-appreciation/identification art has no industrial or automated analog; it is a cultivated human sensory practice (geido)",
+      "capability_gap": "No model maps aromatic-wood (jinkoh/kyara) volatile profiles to the discriminative 'identify-this-material' judgment trained in the kumiko guessing game.",
+      "differentiator_justification": "The odor-strength work's molecular-encoding→perception pipeline is the only fresh structure-to-olfaction learner that can be retargeted to incense-material discrimination; smell-ML is the differentiator, not a backbone.",
+      "preliminary_gap_guess": "OPEN — no analog, no app, no funded research-AI on kodo; caveat: odor-strength predicts strength not identity, so transfer is non-trivial.",
+      "search_probe": "(kodo OR monkoh OR \"agarwood\" OR kyara) (\"machine learning\" OR \"electronic nose\" OR odor classification) incense identification"
+    },
+    {
+      "rank": 5,
+      "technique": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "arxiv_id": "2603.19201",
+      "craft": "Bonsai wiring (gauge selection and bending choreography to reposition branches)",
+      "has_industrial_analog": "no - no industrial wire-forming process trains a living branch over months while judging bark scarring; it is a hands-on craft skill",
+      "capability_gap": "No system predicts, from a branch's felt stiffness, the wire gauge/coil-angle and safe bend that repositions it without cracking or scarring the bark over months of growth.",
+      "differentiator_justification": "This is a contact-rich living-material bending task; OmniVTA's tactile world-model predicting contact/deformation evolution is the differentiator over image-only bonsai concept generators.",
+      "preliminary_gap_guess": "OPEN — no analog, no wiring app/robot, ai very-low; tactile branch-training is white space.",
+      "search_probe": "bonsai wiring (robot OR \"machine learning\" OR tactile OR branch bending stiffness gauge selection)"
+    },
+    {
+      "rank": 6,
+      "technique": "Machine learning for smell: Ordinal odor strength prediction of molecular perfumery components",
+      "arxiv_id": "2512.08683",
+      "craft": "Cognac cellar master eaux-de-vie assembly (intuiting which aromas will 'work' in a blend)",
+      "has_industrial_analog": "no - Cognac assemblage by the maitre de chai is an inherently bespoke human sensory craft; no automated process composes the eaux-de-vie blend by judgment (houses market it as artisanal/hand-assembled)",
+      "capability_gap": "No model predicts how esters/acids/aldehydes/phenols across eaux-de-vie will interact when combined — the 'which combination works' compositional call.",
+      "differentiator_justification": "Molecular-structure→odor learning is the only relevant fresh technique for the aroma-component side; smell-ML differentiates, though interaction-prediction extends beyond single-molecule strength (honest scope risk).",
+      "preliminary_gap_guess": "OPEN — no analog, no app, ai very-low; caveat: adjacent spirits e-nose QC exists, verify it hasn't reached cognac assemblage.",
+      "search_probe": "cognac (assemblage OR \"eaux-de-vie\" OR blending) (\"electronic nose\" OR \"machine learning\" OR aroma prediction) cellar master"
+    },
+    {
+      "rank": 7,
+      "technique": "SymTorch",
+      "arxiv_id": "2602.21307",
+      "craft": "Flue-pipe voicing by hand (cutup, flueway, toe adjustment for timbre/volume/attack)",
+      "has_industrial_analog": "no - voicing is performed one pipe at a time by a specialist voicer on bespoke, one-off instruments; there is no mass-production line that voices flue pipes by formula",
+      "capability_gap": "No closed-form law maps the voicer's geometric tweaks (cutup height, flueway depth, toe diameter) to target timbre/volume/attack — the mapping exists only as the voicer's ear-judged feel.",
+      "differentiator_justification": "SymTorch distills a trained NN's geometry→tone behavior into a human-readable equation — turning the tacit voicing LAW into a formula, which is precisely the unmade artifact; symbolic distillation is the differentiator, not generic modeling.",
+      "preliminary_gap_guess": "OPEN — no industrial analog, no voicing-decision app; caveat: organ-acoustics academic models exist (jet-lip), probe whether any yields a voicing formula.",
+      "search_probe": "(\"organ pipe\" voicing OR \"flue pipe\") (\"symbolic regression\" OR equation OR \"machine learning\") cutup flueway toe timbre"
+    },
+    {
+      "rank": 8,
+      "technique": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "arxiv_id": "2603.19201",
+      "craft": "Pressure-flaking force/termination control (feathering vs. hinge/step termination)",
+      "has_industrial_analog": "no + no manufacturing process shapes objects by hand-pressure detachment of conchoidal flakes; closest brittle-material industry (glass scoring/sawing) uses unrelated mechanics",
+      "capability_gap": "No system predicts, from in-hand pressure direction/magnitude and biface positioning, whether a flake will feather-terminate vs leave a hinge/step — the fine haptic loop that defines the skill.",
+      "differentiator_justification": "OmniVTA's contact-evolution world-model targets the haptic feathering-vs-hinge prediction directly; tactile differentiator over the existing geometry-only knapping CGAN.",
+      "preliminary_gap_guess": "NARROW — no analog, but knapping already has a research CGAN for flake prediction; pressure-flaking termination specifically may still be unmodeled.",
+      "search_probe": "(knapping OR \"pressure flaking\" OR lithic) (tactile OR haptic OR \"machine learning\") hinge feather termination force"
+    },
+    {
+      "rank": 9,
+      "technique": "kooplearn (Scikit-Learn Compatible Library for Evolution Operator Learning)",
+      "arxiv_id": "2512.21409",
+      "craft": "Comb/rake stroke as chaotic-advection control (stretching-and-folding the size to a target figure)",
+      "has_industrial_analog": "no + chaotic-advection mixing is studied industrially in stirred tanks, but no factory process renders a controlled marbled FIGURE on a liquid surface for product; the figural patterning has no industrial counterpart",
+      "capability_gap": "No model maps a comb-stroke sequence to the resulting marbled figure (bouquet/peacock) on a real bath — the stretch-and-fold mapping under sensitive-to-initial-conditions chaotic advection.",
+      "differentiator_justification": "Koopman/transfer-operator learning linearizes the stretch-fold advection dynamics into a predictable operator — the right tool for chaotic-advection forward prediction; kooplearn is the differentiator over digital marbling sims.",
+      "preliminary_gap_guess": "NARROW — no industrial figural analog, but marbling has digital-sim apps and CFD literature; chaotic-advection ML may collide.",
+      "search_probe": "(marbling OR ebru OR suminagashi) (\"chaotic advection\" OR Koopman OR \"machine learning\") comb stroke pattern prediction"
+    },
+    {
+      "rank": 10,
+      "technique": "SymTorch",
+      "arxiv_id": "2602.21307",
+      "craft": "Judging clay plasticity / water content by feel (stiffness sensed by hand, not measured)",
+      "has_industrial_analog": "partial - industrial ceramics uses NIR/in-line moisture analyzers (MoistTech, Finna) to control clay moisture on production lines, but these measure bulk % moisture, not the hand-felt plasticity/workability judgment used in throwing",
+      "capability_gap": "No closed-form relation expresses the 'smooth = just right' tactile setpoint in terms of the inter-particle friction/plasticity it reflects — potters explicitly reject the gauge number.",
+      "differentiator_justification": "SymTorch can distill a tactile-sensor→workability NN into an interpretable plasticity equation, converting the tacit feel into a teachable law; symbolic distillation differentiates from bulk-% NIR sensing.",
+      "preliminary_gap_guess": "NARROW — partial industrial analog (NIR moisture) means a prior detection front exists, though the hand-feel law is likely unmodeled.",
+      "search_probe": "(clay OR ceramic) plasticity (\"machine learning\" OR \"symbolic regression\" OR tactile) workability throwing water content feel"
+    },
+    {
+      "rank": 11,
+      "technique": "SymTorch",
+      "arxiv_id": "2602.21307",
+      "craft": "Free-reed (harmonium/reed-organ) tuning by filing the reed tongue",
+      "has_industrial_analog": "partial - factory reed instruments (accordions/harmoniums) are made at scale, but final fine tuning/voicing of individual reeds is still done by hand filing, not an automated industrial step",
+      "capability_gap": "No formula gives how much metal to remove and where (tip=flat, base=sharp) per reed to hit a pitch given the irreversible nature of over-removal — done entirely by manual judgment.",
+      "differentiator_justification": "SymTorch distills a geometry/mass→pitch-shift NN into a closed-form filing law, the exact unmade decision aid; symbolic regression is the differentiator over generic tuner apps.",
+      "preliminary_gap_guess": "NARROW — partial industrial analog in reed manufacture and reed-acoustics models may already give a tuning relation; verify.",
+      "search_probe": "(\"free reed\" OR harmonium OR accordion) reed tuning (\"symbolic regression\" OR equation OR \"machine learning\") filing pitch tip base"
+    },
+    {
+      "rank": 12,
+      "technique": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "arxiv_id": "2603.19201",
+      "craft": "Platform/angle reading for flake initiation (platform-surface interior angle, exterior platform angle)",
+      "has_industrial_analog": "no + no industrial process requires reading a natural-stone platform geometry to launch a controlled conchoidal flake",
+      "capability_gap": "No system fuses in-hand tactile reading of a prepared platform with its geometry to predict whether a fracture will initiate and run as intended — the sensory geometric launch judgment.",
+      "differentiator_justification": "OmniVTA's visuo-tactile fusion targets the combined feel+geometry initiation read; the tactile stream differentiates it from purely geometric PSIA/angle academic work.",
+      "preliminary_gap_guess": "NARROW — no industrial analog, but knapping has academic angle/PSIA work and a flake-prediction CGAN; platform-reading may overlap.",
+      "search_probe": "(knapping OR lithic) platform angle (\"machine learning\" OR tactile OR prediction) flake initiation PSIA exterior platform"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "_schema": "Run 29 session 2 - Phase-5 reasoning audit: hallucination check, logic-break check, determinism + verbatim caveats (R5/R6/R7/R10/R13).",
+  "_date": "2026-06-04",
+  "_session": 2,
+
+  "hallucination_audit": {
+    "status": "CLEAN",
+    "method": "Every candidate technique's arXiv ID was independently re-searched by Phase-4 verifiers AND title-confirmed; candidate-relevant code repos were README-fetched by the main agent via raw.githubusercontent (R13).",
+    "arxiv_ids_confirmed_real": [
+      {"id": "2602.18801", "title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts", "by": "VERIFY-1/2/3 + main"},
+      {"id": "2512.18099", "title_seen": "SAM Audio: Segment Anything in Audio", "by": "VERIFY-4"},
+      {"id": "2604.01845", "title_seen": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection Under Distribution Shift", "by": "VERIFY-4"},
+      {"id": "2605.20119", "title_seen": "Toto 2.0: Time Series Forecasting Enters the Scaling Era", "by": "VERIFY-5"},
+      {"id": "2512.22597", "title_seen": "Energy-Guided Flow Matching Enables Few-Step Conformer Generation", "by": "VERIFY-5"},
+      {"id": "2605.26419", "title_seen": "Amortized Factor Inference Networks for Posterior Inference", "by": "VERIFY-5"},
+      {"id": "2604.00135", "title_seen": "Temperature Control of Digital Glass Forming Processes (adjacency/prior-art)", "by": "VERIFY-3"}
+    ],
+    "readme_fetched_200_R13": ["kimanki/CANDI (main)", "Rich-XGK/EnFlow (main)", "joohwanko/AFINs (master)", "Liu-Group-UF/MolCrystalFlow (main)", "astroautomata/SymTorch (main)"],
+    "readme_not_confirmed": ["LeapLabTHU/ViTTT (README.md 404 at main; repo asserted as CVPR-2026 Oral official, README path differs)"],
+    "readme_check_note": "All THREE new-this-session candidate techniques (CANDI C9, EnFlow C11, AFINs C12) are README-confirmed (HTTP 200). The SGNO/SAM-Audio/Toto2.0 candidates are session-1 techniques whose code was confirmed in session 1.",
+    "note": "No fabricated arXiv IDs, titles, or repos detected. One sourcing agent (TECH-2) PROACTIVELY excluded PackFlow (2602.20140) after finding its apparent repo was an unrelated tool - anti-hallucination behaviour, recorded honestly."
+  },
+
+  "logic_break_audit": {
+    "finding": "Two-stage optimism containment. The Phase-3 pairing proposer (claude -p opus) reproduced session-1's documented over-excitement: 6 of 12 candidates carried a preliminary OPEN guess. The Phase-4 adversarial verifiers reduced this to 5 OPEN (e.g. correctly downgrading C6 kiln-heat-work and C7 slag to NARROW). The MAIN-AGENT independent crosscheck (strict gate) then overturned ALL 5 remaining OPEN labels to NARROW.",
+    "systematic_bias_identified": "Both the proposer and the verifiers tended to equate 'the EXACT technique x application slice is unmade' with OPEN. Under the strict gate that is NARROW (capability-gap), because in every one of the 5 cases real adjacency exists - usually the SAME technique-family already applied to an industrial or sibling domain (PINN quench-field surrogate; PI-FNO tunnel-fire; ML AD-foaming prediction; ViscNet glass viscosity; overtone visualizers + isolated-overtone dataset).",
+    "containment_result": "0 false WIN escaped. No candidate reached GAP_OPEN. The crosscheck is the load-bearing defense, exactly as in session 1.",
+    "process_fix_for_session_3": "Instruct Phase-4 verifiers explicitly: ANY prior adjacency (same technique-family on a sibling/industrial domain, OR the application served by a different method) => NARROW. Reserve OPEN for ZERO adjacency on BOTH axes. This pre-empts the optimism bias before the crosscheck stage."
+  },
+
+  "determinism": {
+    "note": "Sourcing (8 agents) + verification (5 agents) + pairing (1 opus subprocess) + crosscheck (main agent) all ran over LIVE web search, so exact result SETS are not bit-reproducible. Robustness comes from redundancy: 5 reformulated searches/candidate + an independent main-agent crosscheck on every OPEN claim. No verdict survived as OPEN under crosscheck; the NARROW verdicts each rest on >=1 cited adjacency."
+  },
+
+  "verbatim_caveat_R5_R6": "WebFetch / direct arxiv.org fetch returned HTTP 403 in both agent sandboxes and the main-agent context (confirmed: arxiv.org -> 403). Therefore verbatim_quote values are 'as seen in WebSearch result blocks', NOT hand-verified against live arXiv pages. Code-usability WAS hardened beyond snippets for candidate-relevant techniques via raw.githubusercontent README fetches (HTTP 200 for CANDI, EnFlow, MolCrystalFlow, SymTorch). Agents recorded only results actually seen; uncertain/unconfirmed items were marked has_usable_code=false or excluded."
+}

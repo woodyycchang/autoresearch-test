@@ -1,0 +1,107 @@
+{
+  "verifier": "VERIFY-5 (ADVERSARIAL prior-art, Run 29 s3)",
+  "results": [
+    {
+      "candidate": "C9",
+      "technique": "kooplearn / Koopman (evolution) operator learning",
+      "arxiv_id": "2512.21409",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning",
+      "craft": "Paper-marbling comb/rake stroke as chaotic-advection control (map comb-stroke sequence -> marbled figure)",
+      "queries_run": [
+        "Koopman operator learning paper marbling comb rake stroke chaotic advection",
+        "paper marbling simulation machine learning AI predict pattern",
+        "mathematical marbling Navier-Stokes fluid simulation comb stroke model",
+        "Koopman operator chaotic advection mixing fluid control prediction",
+        "digital marbling ebru suminagashi software stroke to pattern generator"
+      ],
+      "prior_art_found": [
+        {"what": "'Mathematical Marbling' (Lu, Jaffer, Jin, Zhao, Mao) models combing actions as closed-form area-preserving transformations -- the forward stroke->pattern map, no full fluid solver needed", "snippet": "This approach models combing actions in paper marbling using closed-form mathematical transformations, arguing that you don't need to run a full-blown fluid solver to accurately simulate a marbled pattern.", "url": "https://blog.amandaghassaei.com/2022/10/25/digital-marbling/"},
+        {"what": "Navier-Stokes marbling sims (IEEE 'Nondissipative Marbling') treat marbling as a 2D fluid-dynamics problem", "snippet": "The marbling texture design process can be modeled as a 2D fluid-dynamics problem using Navier-Stokes equations to model the fluid evolution of the patterning process.", "url": "https://ieeexplore.ieee.org/document/4459863/"},
+        {"what": "Koopman operators are heavily applied to chaotic advection / mixing / data-driven prediction of chaotic flows (technique-family on sibling fluid-mixing domain)", "snippet": "A finite-dimensional approximation of the Koopman operator using vector-valued, delay-embedded observables with nonlinearities treated as external forcings can provide accurate predictions for several Lyapunov timescales for chaotic systems.", "url": "https://arxiv.org/pdf/1909.00076"}
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using a LEARNED Koopman/evolution operator (kooplearn-style spectral, data-driven) to model the marbling comb-stroke sequence as a chaotic-advection dynamical map and forecast the resulting marbled figure. Existing marbling math uses analytic closed-form area-preserving / Navier-Stokes forward solvers, NOT a learned Koopman operator; existing Koopman-on-advection work targets generic mixing/turbulence, not the comb-stroke->figure marbling map.",
+      "honest_adjacency": "BOTH axes touched: (app) marbling forward stroke->pattern simulation exists analytically and via Navier-Stokes; (technique) Koopman operator learning routinely applied to chaotic advection/mixing flows.",
+      "reasoning": "Application is well-modeled but by analytic/PDE solvers, and Koopman learning is a standard tool for chaotic mixing -- the two have not been joined. Clear adjacency on both axes => not OPEN. The specific learned-Koopman x marbling-comb-stroke pairing is not published => not CLOSED."
+    },
+    {
+      "candidate": "C10",
+      "technique": "SymTorch symbolic regression / symbolic distillation (PySR-backed)",
+      "arxiv_id": "2602.21307",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SymTorch: A Framework for Symbolic Distillation of Deep Neural Networks",
+      "craft": "Judging clay plasticity/water content by feel ('smooth = just right' tactile setpoint)",
+      "queries_run": [
+        "symbolic regression closed-form clay plasticity water content tactile workability setpoint",
+        "clay plasticity water content prediction machine learning Atterberg limits",
+        "clay workability moisture model prediction inter-particle plasticity index",
+        "symbolic regression soil geotechnical material property empirical formula discovery",
+        "tactile sensing clay consistency robotic pottery moisture feel sensor"
+      ],
+      "prior_art_found": [
+        {"what": "Interpretable, data-driven plasticity models built WITH symbolic regression (exact technique-family on plasticity/materials)", "snippet": "an implicit symbolic regression technique has been developed to identify a plastic yield potential from homogenized finite element response data.", "url": "https://www.researchgate.net/publication/351437148_Development_of_interpretable_data-driven_plasticity_models_with_symbolic_regression"},
+        {"what": "ML prediction of Atterberg limits (liquid/plastic limit) and volume-change behavior from clay indices", "snippet": "Studies have developed artificial intelligence models to predict Atterberg's limits, specifically the liquid (LL) and plastic limits.", "url": "https://link.springer.com/article/10.1007/s41939-024-00560-x"},
+        {"what": "Closed-form clay plasticity-index models exist (R2=0.9982) linking slope/LL to PI -- analytic relation for bulk plasticity", "snippet": "The relationship between average slope (20/LL) and plasticity index showed an R2 = 0.9982.", "url": "https://www.researchgate.net/publication/374195224_THE_PLASTICITY_INDEX_OF_INORGANIC_CLAY"},
+        {"what": "Workability window for plastic forming of ceramics quantified vs water content", "snippet": "Overall workability of a clay can be viewed as a coupling of the toughness of a 'normal consistency' clay and the range of water contents over which the clay can be effectively worked.", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0950061818321925"},
+        {"what": "Tactile sensing can read moisture/hardness/softness of deformable objects in robotics (adjacent sensing modality)", "snippet": "Tactile sensors are devices that measure properties of objects through physical contact, including shape, texture, temperature, hardness, and moisture content.", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7762590/"}
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A symbolic / closed-form relation for the HAND TACTILE workability setpoint ('smooth = just right' felt by a potter) as a function of inter-particle plasticity -- i.e., the tactile/perceptual just-right point, NOT the bulk lab indices (LL, PL, plasticity index) or NIR bulk moisture %. Existing SR-plasticity and Atterberg-ML work models bulk geotechnical/ceramic indices, never the tactile setpoint.",
+      "honest_adjacency": "BOTH axes touched: (app) clay plasticity vs water content is modeled extensively by closed-form index relations AND ML (Atterberg, workability window); (technique) symbolic regression is already used to build interpretable plasticity/yield models.",
+      "reasoning": "Technique (SR on plasticity) and application (clay plasticity/workability vs water) both have dense prior art => far from OPEN. But all of it is bulk-index / instrumented, not the tactile hand-feel setpoint; the SR x tactile-setpoint pairing is unpublished => not CLOSED."
+    },
+    {
+      "candidate": "C11",
+      "technique": "SymTorch symbolic regression / symbolic distillation (PySR-backed)",
+      "arxiv_id": "2602.21307",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SymTorch: A Framework for Symbolic Distillation of Deep Neural Networks",
+      "craft": "Free-reed (harmonium/accordion) tuning by filing the reed tongue (tip = flat... i.e. tip->raise, base->lower pitch)",
+      "queries_run": [
+        "symbolic regression formula free-reed harmonium accordion reed tongue filing pitch frequency",
+        "free reed accordion harmonica tuning machine learning frequency prediction",
+        "cantilever reed tongue frequency model mass removal tip base tuning equation",
+        "symbolic regression vibration beam natural frequency closed-form material removal",
+        "tuning fork cantilever beam filing frequency shift position mass sensitivity formula"
+      ],
+      "prior_art_found": [
+        {"what": "Published CLOSED-FORM free-reed natural-frequency formula including tip-mass ratio K -- directly the metal-removal vs pitch relation", "snippet": "f = 1/2pi x sqrt(X/L^2) x sqrt(E/D(1+4.1K)) ... K is the ratio between the mass at the end of the tongue and the mass of the tongue itself.", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8802949"},
+        {"what": "Established tuning practice: filing tip (-mass, raise pitch) vs root (-stiffness, lower pitch) -- the exact craft rule", "snippet": "It is common practice to tune a reed to a desired pitch by removing material from the tip (reducing mass and raising pitch) or from the root (reducing stiffness and lowering pitch).", "url": "https://physicstoday.scitation.org/doi/10.1063/1.3563819"},
+        {"what": "Cantilever/tuning-fork etching frequency-shift equations with position-dependent mass sensitivity (sibling vibration domain, closed-form)", "snippet": "A game-changing equation during the etching of tuning forks and its verification through experiments.", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0263224124010200"},
+        {"what": "Closed-form / regression natural-frequency expressions for cracked & modified beams (material-removal analog)", "snippet": "novel polynomial expressions have been developed to obtain natural frequencies as a function of angular velocity, slenderness ratio, cube radius and crack characteristics, formulated using multiple regression techniques.", "url": "https://www.mdpi.com/2227-7390/10/24/4742"},
+        {"what": "Existing accordion/free-reed tuning software (FFT phase-vocoder) for measuring per-reed pitch error (tool axis)", "snippet": "musical instrument tuner specialized for accordion reed tuning with multi-pitch detection ... uses FFT with phase vocoder for sub-bin frequency accuracy.", "url": "https://github.com/dan-vine/accordion-tuner"}
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A SYMBOLIC-REGRESSION-DISTILLED inverse prescription -- 'how much metal to remove and exactly where along THIS reed to hit target pitch' learned from data -- as opposed to the existing analytic forward acoustic model. The forward relation (mass/stiffness -> frequency, tip vs base) already exists in closed form; the SR-from-data inverse filing-amount/location prescription per reed is the only unused slice.",
+      "honest_adjacency": "Near-CLOSED. BOTH axes heavily touched: (app) closed-form free-reed frequency formula with tip-mass term AND the explicit tip/base filing rule are published; (technique) symbolic/regression closed-form derivation of beam/tuning-fork frequencies under material removal is standard, plus existing accordion-tuning tools.",
+      "reasoning": "This is the weakest gap of the four: the technique x application essentially exists analytically (free-reed frequency formula + tip/base filing rule + cantilever etching equations). Held at NARROW (not CLOSED) only because no source SymTorch-style data-driven symbolic DISTILLATION producing an inverse per-reed filing prescription was seen; reserve weakly."
+    },
+    {
+      "candidate": "C12",
+      "technique": "OmniVTA visuo-tactile world model (contact-state prediction)",
+      "arxiv_id": "2603.19201",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "craft": "Flint-knapping platform/angle reading for flake initiation (interior/exterior platform angle)",
+      "queries_run": [
+        "visuo-tactile world model flint knapping platform angle flake initiation fracture prediction",
+        "flint knapping flake formation machine learning prediction conchoidal fracture model",
+        "lithic flake platform angle exterior interior detachment prediction simulation mechanics",
+        "tactile world model robot manipulation predict crack fracture initiation brittle contact",
+        "robotic stone tool knapping simulation Hertzian cone fracture controlled flaking"
+      ],
+      "prior_art_found": [
+        {"what": "ML virtual-knapping framework (CGAN) predicts flake removals from 3D cores (app + ML, geometry-based)", "snippet": "a proof of concept for a machine learning-based virtual knapping framework capable of quickly and accurately predicting flake removals from 3D cores using a conditional adversarial neural network (CGAN).", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0241714"},
+        {"what": "Fracture-mechanics + controlled-experiment models predict flake form from exterior platform angle / PSIA (app physics)", "snippet": "these are used to make predictions with explicit mathematical models about how flakes should look under varying conditions of force application and solid material properties.", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7673556/"},
+        {"what": "ML classifies knapped flakes / Levallois methods >80% using platform angles + typometry (app + ML)", "snippet": "Machine learning has been applied to experimentally knapped flint flakes, achieving accuracy >80% in differentiating flaking methods using typometric variables ... platform angles ...", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7757815/"},
+        {"what": "OmniVTA-class visuo-tactile world models predict short-horizon contact states for contact-rich manipulation (technique core)", "snippet": "a two-stream visuo-tactile world model for predicting short-horizon contact evolution", "url": "https://arxiv.org/pdf/2603.19201"},
+        {"what": "Tactile + proximity sensing + ML detects/characterizes cracks (94% accuracy) in robotics (technique-family on brittle fracture, but detection not knapping initiation)", "snippet": "Using machine learning techniques on tactile sensor data, researchers achieved an average crack detection accuracy of 94% and width classification accuracy of 80%.", "url": "https://www.frontiersin.org/articles/10.3389/frobt.2020.513004/full"}
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "FUSING a tactile platform reading (the haptic feel of the platform/edge) WITH core geometry inside a learned visuo-tactile world model to predict whether a knapping fracture INITIATES and RUNS. Existing knapping ML (CGAN, classifiers) uses 3D geometry/typometry and force variables only -- never tactile platform feel; existing robotic tactile crack work is detection/characterization on built surfaces, not predicting flake initiation in knapping.",
+      "honest_adjacency": "BOTH axes touched: (app) flake initiation from platform angle is modeled by fracture mechanics AND ML (CGAN flake-removal prediction, >80% method classifiers); (technique) visuo-tactile world models predict contact states, and tactile+ML predicts/characterizes cracks in brittle surfaces.",
+      "reasoning": "Dense prior art on both the knapping-prediction application and visuo-tactile/tactile-fracture technique => clearly not OPEN. But the specific tactile-platform-reading + geometry fusion for fracture initiation/run in knapping is unpublished => not CLOSED. The unused slice (tactile platform feel as input, vs geometry-only) is well-defined."
+    }
+  ]
+}

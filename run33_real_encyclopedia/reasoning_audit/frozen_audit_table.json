@@ -1,0 +1,32 @@
+{
+  "BN1": {
+    "is_variant": false,
+    "confidence": 0.8,
+    "nearest": "A6_homeostat",
+    "reason": "Persistent homology is topological data analysis (multi-scale persistence of topological features), a genuinely different mechanism than A6's setpoint/error-feedback control; tokens mislead."
+  },
+  "BN2": {
+    "is_variant": false,
+    "confidence": 0.8,
+    "nearest": "A3_ensemble",
+    "reason": "TDA (persistent homology/topology of data, loss landscape, decision boundaries) is a distinct mechanism, not ensembling. Token overlap with A3 is misleading; same problem, different method."
+  },
+  "BN3": {
+    "is_variant": false,
+    "confidence": 0.8,
+    "nearest": "A7_ecc",
+    "reason": "Reservoir computing (fixed random recurrent dynamics + trained linear readout) is a distinct mechanism; shares only encoding/redundancy tokens with ECC, not its algebraic distance method."
+  },
+  "BV1": {
+    "is_variant": true,
+    "confidence": 0.9,
+    "nearest": "A6_homeostat",
+    "reason": "PID is closed-loop error-feedback setpoint regulation = the homeostat (A6) mechanism on its usual problem (setpoint/control); gradient/search tokens are spurious."
+  },
+  "BV2": {
+    "is_variant": true,
+    "confidence": 0.78,
+    "nearest": "A3_ensemble",
+    "reason": "DropConnect is stochastic weight-dropping regularization = implicit ensemble (noise/randomized/redundancy) for overfitting; same method as A3_ensemble, its usual problem."
+  }
+}

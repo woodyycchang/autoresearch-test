@@ -1,0 +1,75 @@
+{
+  "run": "run32",
+  "metric_1_decision_accuracy_trajectory": {
+    "niche_checker_false_pass": [
+      {
+        "run": "run30",
+        "false_pass": 1,
+        "detail": "M032 over-passed",
+        "inherited": true
+      },
+      {
+        "run": "run31",
+        "false_pass": 0,
+        "detail": "strict R13 caught M032",
+        "inherited": true
+      },
+      {
+        "run": "run32_v4",
+        "false_pass_on_inherited_traps": 0,
+        "false_pass_on_full_run32_probe_set": [
+          1,
+          3
+        ],
+        "deterministic_false_pass": [
+          "M059"
+        ],
+        "seed_dependent": [
+          "M0B1",
+          "M0B2"
+        ],
+        "note": "Run 32 added harder probes (M059 mechanism-reuse variant, M0B1/M0B2 borderline) absent from the Run 30/31 test set. v4 still scores 0 false-pass on the inherited traps {M032,M005,M056} (consistent with Run 31) but the new probes expose 1 deterministic + 2 seed-dependent failures."
+      },
+      {
+        "run": "run32_v5",
+        "false_pass": 0,
+        "false_reject": 0,
+        "note": "0 false-pass, 0 false-reject on the full harder probe set, deterministically."
+      }
+    ],
+    "verdict": "improving (v5 returns to 0 false-pass on a strictly harder benchmark)"
+  },
+  "metric_2_param_change_magnitude": {
+    "continuous_scalar_L1": {
+      "v1_to_v2": 0.21,
+      "v2_to_v3": 0.19,
+      "v3_to_v4": 0.08,
+      "v4_to_v5": 0.0
+    },
+    "trajectory": "0.21 -> 0.19 -> 0.08 -> 0.00 (monotonically shrinking)",
+    "v4_to_v5_structural_changes": [
+      "variant_rule_mode",
+      "borderline_rule",
+      "merge_require_interface"
+    ],
+    "verdict": "converging on continuous scalars (L1 -> 0); v5 improvements are structural/process upgrades (variant rule mode, borderline rule, interface-aware generation), the expected late-stage behaviour."
+  },
+  "metric_3_determinism": {
+    "run27": {
+      "note": "borderline-case flips identified as the weak point",
+      "inherited": true
+    },
+    "run32_v4_agreement_rate": 0.875,
+    "run32_v5_agreement_rate": 1.0,
+    "verdict": "rising (0.875 -> 1.0); the PYTHONHASHSEED flip hazard is eliminated by construction."
+  },
+  "metric_4_coordination_reliability": {
+    "n_agents": 6,
+    "well_formed_rate": 1.0,
+    "retries_needed": 0,
+    "malformed": 0,
+    "audit_vs_ground_truth_agreement": 0.8333,
+    "verdict": "reliable (0 malformed, 0 retries this cycle); the lone audit/GT disagreement is the lowest-confidence borderline case (M0B1), independently corroborating the determinism finding."
+  },
+  "overall_verdict": "CONVERGING toward production-ready: decision accuracy rising on a harder benchmark, param-change magnitude shrinking to 0 on scalars, determinism risen to 1.0, coordination reliable."
+}

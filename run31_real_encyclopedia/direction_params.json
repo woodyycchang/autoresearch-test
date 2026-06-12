@@ -1,0 +1,37 @@
+{
+  "version": 5,
+  "name": "merge-brainstorm direction params (v5)",
+  "run": "run31",
+  "role": "Steering parameters for the MERGE-BRAINSTORM niche-finding engine. They bias the generator toward human-blind combinatorial corners by maximizing cognitive distance and structural surprise of merges between REAL encyclopedia knowledge (life_bank) and REAL ML/CS/math techniques (tech_bank). These are the 'trained params' that DRIVE exploration. They do NOT gate novelty: the P3 checker uses search ONLY for anti-cheating (hallucination + pretrained-regurgitation), never to disqualify a construct for 'already existing' (R7). The SEPARATE P5 niche-value checker DOES judge niche value, and per R13 is EXTRA strict on method-variants-of-active-areas (the M032 lesson).",
+  "core_fix_vs_run30": "Run 30 bootstrapped 297 INVENTED concepts. Run 31 forbids invention: every concept in both banks traces to a REAL searched source (Wikipedia / arXiv) with a verbatim quote (R5/R12). Banks = freshly harvested real encyclopedia (life) + real ML techniques (tech) + merged-in REAL Run 29 banks.",
+  "engine_contract": {
+    "the_engine_is": "merge-brainstorm: merge maximally distant REAL concepts (a tech technique x 2 distant life/encyclopedia mechanisms, a triple) into a NEW construct that human researchers would not naturally reach because the parents live in unrelated domains.",
+    "the_win_is": "a genuine merge that reaches a human-blind corner AND survives a strict niche-value check. Adjacency to prior work is NOT a P3 penalty, but in P5 a construct that is merely a method-variant of an ACTIVE research area is NOT_NICHE even if the exact combination is unpublished (R13).",
+    "search_is": "P3 = anti-cheating integrity only (was it genuinely merged, not hallucinated/regurgitated). P5 = a separate, strict niche-value judgment."
+  },
+  "objective_weights": {
+    "cognitive_distance": 0.3,
+    "structural_surprise": 0.25,
+    "triple_merge_bias": 0.2,
+    "mechanism_concreteness": 0.15,
+    "human_blind_corner_bias": 0.1,
+    "_note": "scoring = w*features; used by the engine to steer generation and by phase-4 ranking (cognitive_distance x structural_generativity x mechanism_concreteness)."
+  },
+  "merge_operators": [
+    {"key": "STRUCTURAL_TRANSFER", "desc": "carry the structural skeleton of parent A onto the substrate of parent B (e.g. a queueing discipline becomes an attention schedule)."},
+    {"key": "CONSTRAINT_INVERSION", "desc": "take a constraint that defines parent A and invert it inside parent B's dynamics."},
+    {"key": "SUBSTRATE_SWAP", "desc": "run parent A's process on a substrate it was never meant for (parent B's material/medium)."},
+    {"key": "DYNAMICS_BORROW", "desc": "replace a scalar/static quantity in the tech method with the borrowed temporal dynamics (lags, hysteresis, depletion/recovery) of a life mechanism."},
+    {"key": "CONTROL_LAW_IMPORT", "desc": "import a real-world regulatory/feedback law (homeostasis, market clearing, ecological succession) as a training/inference control law."},
+    {"key": "FAILURE_MODE_MIRROR", "desc": "map a characteristic failure/pathology of a life system onto the tech system to predict or induce an analogous failure."}
+  ],
+  "niche_checker_R13_rule": {
+    "lesson": "M032 (Haggling Reward Model) was passed in Run 30 because the exact combo was unpublished, but it is really an incremental variant of an ACTIVE area: uncertainty-aware reward models / reward over-optimization detection (InfoRM, PURM, hidden-state regularization, URME, RewardUQ).",
+    "rule": "A construct is NOT_NICHE if its core mechanism is a method-variant of a currently active research area, EVEN IF the exact named combination is unpublished. IS_NICHE requires that the merge opens a corner that is not merely 'a new flavor of an existing active method' — the underexplored quality must be structural, not just nominal.",
+    "test_questions": [
+      "Strip the metaphor: what is the bare mechanism? Is that bare mechanism an active research area right now?",
+      "If I describe this to a researcher in the active area as 'a variant where X', do they say 'oh that's just <known method> with a different prior/regularizer/signal'? If yes -> NOT_NICHE.",
+      "Does the niche require a genuinely unmodeled quantity or regime (a real-world dynamic with no current analog in the active area), or just a re-skin of a modeled one?"
+    ]
+  }
+}

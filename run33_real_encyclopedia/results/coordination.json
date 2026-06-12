@@ -1,0 +1,41 @@
+{
+  "stage": "agent_coordination (Run 33: harvest fan-out + reasoning audit)",
+  "harvest": {
+    "n_agents": 13,
+    "model": "opus",
+    "all_completed": 13,
+    "concepts_produced_valid": 234,
+    "validation_after_merge": {
+      "bad_tokens": 0,
+      "missing_source_url": 0,
+      "duplicates_dropped": 1
+    },
+    "agents_self_corrected": 5,
+    "self_correction_examples": [
+      "opt_or: removed invalid tokens 'packing'/'matching' (not in vocab)",
+      "control_robotics: replaced 2 fabricated URLs that never appeared in WebSearch, trimmed 3 over-length defs",
+      "epi_socio: replaced invalid token 'latent' and 2 unverifiable source URLs",
+      "geo_astro: corrected stellar_parallax URL to the page WebSearch actually returned",
+      "ml_signal: replaced 1 URL not present in search results with the verified top result"
+    ],
+    "malformed_final_output": 0,
+    "note": "All 13 agents completed and produced schema-valid, vocab-only, real-sourced concepts. ~5 agents self-corrected invalid tokens or unverifiable URLs before finishing (a reliability signal: first-pass output was not always clean, but the anti-fabrication instruction caught it). R3: every agent wrote only to non-git /tmp/run33_scratch."
+  },
+  "reasoning_audit": {
+    "n_agents": 5,
+    "model": "opus",
+    "well_formed_first_attempt": 5,
+    "malformed": 0,
+    "retries_needed": 0,
+    "coordination_reliability_rate": 1.0,
+    "borderline_adjudication_accuracy_vs_ground_truth": null,
+    "audit_confidences": {
+      "BN1": 0.8,
+      "BN2": 0.8,
+      "BN3": 0.8,
+      "BV1": 0.9,
+      "BV2": 0.78
+    },
+    "note": "5 borderline constructs adjudicated from NEUTRAL inputs (no ground-truth leak). All returned schema-valid JSON; see reasoning_audit/frozen_audit_table.json."
+  }
+}

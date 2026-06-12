@@ -1,0 +1,102 @@
+{
+  "verifier": "VERIFY-1",
+  "results": [
+    {
+      "candidate": "C1",
+      "technique": "Internalized reasoning for long-context visual document understanding (VLM that scores/orders pages, extracts evidence, reasons over a long visual document; reasoning internalized via SFT on thinking-traces + low-strength model merging)",
+      "arxiv_id": "2604.02371",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Internalized Reasoning for Long-Context Visual Document Understanding",
+      "niche": "Sequencing-run QC interpretation & rerun-eligibility judgment: reasoning over a FastQC/MultiQC visual report + experiment context to decide did-this-sample-fail-for-this-application and is-a-rerun-warranted",
+      "queries_run": [
+        "machine learning contextual sequencing QC pass fail rerun judgment FastQC MultiQC interpretation",
+        "LLM bioinformatics QC report interpretation agent sequencing rerun decision support",
+        "automated NGS quality control machine learning predict sequencing run failure rerun classifier",
+        "vision language model scientific report figure interpretation pass fail decision laboratory",
+        "application-aware sequencing QC thresholds RNA-seq amplicon contextual fail decision automated tool"
+      ],
+      "prior_art_found": [
+        {
+          "what": "seqQscorer (Genome Biology 2021 / bioRxiv 768713) - deployed ML tool for automated NGS QC pass/fail prediction",
+          "url": "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02294-2",
+          "verbatim": "Researchers created machine learning models able to automatically predict quality from raw NGS data as an alternative to manual quality control... Four quality feature sets were derived using standard bioinformatics tools (like FastQC)... Application of this method on labeled database content and disease datasets was very promising in its ability to clearly identify problematic samples."
+        },
+        {
+          "what": "Decision-tree ML model predicting QC pass/fail status for RNA-seq FFPE samples (PMC9479231)",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9479231/",
+          "verbatim": "Research has built decision tree models to learn the relationship between pre-sequencing lab metrics and QC pass/fail status, achieving an F score of 0.848 in predicting QC status for FFPE samples."
+        },
+        {
+          "what": "NonStop - 'Reimagining MultiQC Reports with AI Assistance' (commercial AI engineering blog/product; page 403'd to direct fetch but search snippet captured the claim)",
+          "url": "https://nonstopio.com/blogs/reimagining-multiqc-reports-with-ai-assistance",
+          "verbatim": "Bioinformaticians have to page through dense plots and tables, validating thresholds, checking context and mentally filtering noise from signals, and a system that could summarize the report and surface only what mattered would make the job faster and more focused."
+        },
+        {
+          "what": "miQC (bioRxiv 2021.03.03.433798) - adaptive probabilistic, context-dependent QC thresholding for scRNA-seq",
+          "url": "https://www.biorxiv.org/content/10.1101/2021.03.03.433798.full.pdf",
+          "verbatim": "An adaptive framework that addresses how QC thresholds can be highly dependent on the organism or tissue, the type of scRNA-seq technology used, or protocol-specific decisions."
+        },
+        {
+          "what": "FutureLearn bioinformatics course - explicitly frames FastQC flags as needing contextual (application-aware) interpretation",
+          "url": "https://www.futurelearn.com/info/courses/making-sense-of-genomic-data-covid-19-web-based-bioinformatics/0/steps/319526",
+          "verbatim": "FastQC assigns flags of 'Passed'... 'Warn'... or 'Fail'... but when receiving these flags, researchers should consider what the results mean in the context of the particular sample and the type of sequencing that was run... specifically tuned for good quality whole-genome shotgun DNA sequencing, while less reliable for other types like mRNA-Seq or targeted amplicon sequencing."
+        },
+        {
+          "what": "VLM-as-a-judge for scientific figures against domain rubrics (arXiv 2511.14631) - technique-family sibling foothold (VLM judging figures pass/fail)",
+          "url": "https://arxiv.org/pdf/2511.14631",
+          "verbatim": "A VLM-as-a-judge can evaluate figures against dynamically generated domain-specific rubrics, enabling agents to correct their own errors and steer exploratory data analysis in real-time."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using an internalized-reasoning long-context VLM to reason directly over the rendered FastQC/MultiQC visual report (the plots/tables as images) jointly with free-text experiment context (assay type, application, intended downstream use) to render a contextual sample-level fail-for-THIS-application call AND an explicit is-a-rerun-warranted judgment. Existing ML touches the application only via classical classifiers on extracted numeric features (seqQscorer, FFPE decision trees) or adaptive thresholding (miQC) -- none reason over the visual report itself, none ingest experiment/application context as free text, and none output a rerun-eligibility decision; AI MultiQC products (NonStop) only summarize/surface, they do not adjudicate rerun.",
+      "honest_adjacency": "Strong on BOTH axes. Application axis: automated sequencing-QC pass/fail / problematic-sample judgment is already a deployed ML task (seqQscorer is a named tool; FFPE decision-tree predicts QC pass/fail status; miQC does context-dependent QC), plus a commercial 'AI assistance for MultiQC' product exists. Technique-family axis: VLM-as-a-judge over scientific figures against rubrics (arXiv 2511.14631) and VLM data-visualization understanding are an active sibling space. The unused intersection is narrow but real (visual-report reasoning + experiment-context + rerun decision).",
+      "reasoning": "Cannot be OPEN: reformulations hit a named deployed ML tool for the exact application family (seqQscorer), a published decision-tree model predicting QC pass/fail, and an AI/commercial MultiQC-interpretation product, plus a VLM-judges-figures sibling for the technique. The remaining headroom is genuinely the VLM-reasons-over-the-visual-report-plus-context-for-a-rerun-call slice, which I found no instance of -- but adjacency on both axes is unambiguous, so NARROW, not OPEN. Note: this contradicts the framing of C1 as the 'key OPEN candidate'; the application is more penetrated than 'very-low' suggests (classical-ML QC scoring is well established), though the specific visual-reasoning+rerun framing is unclaimed."
+    },
+    {
+      "candidate": "C2",
+      "technique": "HOLOGRAPH active causal discovery (LLM causal priors aligned via sheaf theory; presheaf sections as local causal beliefs, sheaf cohomology as obstruction, active/interventional discovery)",
+      "arxiv_id": "2512.24478",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "HOLOGRAPH: Active Causal Discovery via Sheaf-Theoretic Alignment of Large Language Model Priors",
+      "niche": "Foodborne outbreak hypothesis generation from trawling/hypothesis-generating-interview free text: abductively nominating a likely food vehicle from many sick people's open-ended recall",
+      "queries_run": [
+        "foodborne outbreak food vehicle hypothesis generation machine learning trawling interview free text",
+        "LLM large language model outbreak investigation epidemiology hypothesis generation food vehicle",
+        "causal inference Bayesian outbreak investigation identify food source case-control exposure",
+        "NLP text mining open-ended interview food exposure questionnaire outbreak hypothesis-generating interview recall",
+        "Epi Info SaTScan PulseNet outbreak software hypothesis generation food vehicle commercial tool"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Vehicle Prediction Tool (White et al., Foodborne Pathogens and Disease 2022, PMID 35171001) - deployed public ML tool that does foodborne-outbreak food-vehicle hypothesis generation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35171001/",
+          "verbatim": "The study evaluated six algorithmic methods, selecting the random forest prediction model... The final model was translated into a free, publicly available online tool that can be used by investigators to provide data-driven hypotheses about outbreak vehicles as part of ongoing outbreak investigations."
+        },
+        {
+          "what": "Bayesian variable selection for identifying the source of foodborne outbreaks (Jacobs et al. 2019, PMC6448052)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6448052/",
+          "verbatim": "A formal Bayesian variable selection method has been developed to account for misclassified responses and missing covariates, which are common complications in food-borne outbreak investigations. This method was illustrated on a Salmonella Thompson outbreak in the Netherlands in 2012."
+        },
+        {
+          "what": "Epidemic Information Extraction for Event-Based Surveillance using LLMs (arXiv 2408.14277) - LLM over unstructured outbreak text (sibling technique on the domain)",
+          "url": "https://arxiv.org/html/2408.14277v1",
+          "verbatim": "Recent studies evaluate open-source and commercial LLMs for epidemic information extraction, with the goal of using extracted information from unstructured datasets to enhance accuracy and timeliness of epidemic outbreak modeling and forecasting."
+        },
+        {
+          "what": "Epidemiological Data Mining for Assisting with Foodborne Outbreak Investigation (PMC10606626)",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10606626/",
+          "verbatim": "Epidemiological Data Mining for Assisting with Foodborne Outbreak Investigation"
+        },
+        {
+          "what": "Outbreak Toolkit - hypothesis-generating interviews use open-ended free-text recall; search confirmed NO NLP applied to these responses",
+          "url": "https://outbreaktools.ca/background/hypothesis-generation/",
+          "verbatim": "Open-ended questions allow for unlimited responses in the respondents own words... The search results don't contain specific information about NLP (Natural Language Processing) or text mining applications for analyzing open-ended interview responses from food exposure questionnaires."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Active/abductive CAUSAL-DISCOVERY (HOLOGRAPH-style LLM-causal-prior + sheaf alignment, or any causal-graph method) that ingests the UNSTRUCTURED FREE TEXT of many cases' trawling/hypothesis-generating interview recall and abductively nominates a food vehicle. Existing automated work operates on STRUCTURED inputs: random forest on demographic/outbreak characteristics from FDOSS surveillance records (Vehicle Prediction Tool), or Bayesian variable selection / logistic case-control on tabulated exposure tables. LLM work on outbreaks is information-extraction/surveillance/classification, not causal-discovery-driven vehicle nomination. The open-ended interview free text is explicitly not yet NLP-processed for vehicle hypothesis generation, and no causal-discovery method (active or otherwise) is applied to this abductive nomination step.",
+      "honest_adjacency": "Strong on BOTH axes. Application axis: a deployed, free, public ML tool ALREADY does foodborne-outbreak food-vehicle hypothesis generation (random forest Vehicle Prediction Tool), and Bayesian/data-mining methods already identify outbreak food sources. Technique-family axis: LLM-priors-over-unstructured-outbreak-text is an active area (epidemic information extraction, social-media epi classification), and causal/Bayesian source-attribution is established. The unclaimed slice is the union (causal-discovery over the interview FREE TEXT for abductive vehicle nomination), not either axis alone.",
+      "reasoning": "Cannot be OPEN: the very application (food-vehicle hypothesis generation) is a named, deployed, publicly available ML product, and the technique family (LLM priors on unstructured outbreak text + Bayesian causal source attribution) has clear siblings on this exact domain. PulseNet (genomic clustering) and SaTScan/Epi Info (cluster detection / analytic studies) are the manual/structured incumbents the candidate flagged, all confirmed present. The specific causal-discovery-on-free-text-recall framing appears unclaimed (NLP on open-ended interview responses explicitly not found), giving real but narrow headroom => NARROW."
+    }
+  ]
+}

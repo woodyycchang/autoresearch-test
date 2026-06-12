@@ -1,0 +1,44 @@
+{
+  "_schema": "Run 29 session 4 - Phase-5 reasoning audit: hallucination, logic-break, data-hygiene, determinism, verbatim caveat.",
+  "_date": "2026-06-04",
+  "_session": 4,
+
+  "hallucination_audit": {
+    "status": "CLEAN",
+    "candidate_technique_ids_resolved": [
+      {"id": "2604.02371", "title": "Internalized Reasoning for Long-Context Visual Document Understanding"},
+      {"id": "2512.24478", "title": "HOLOGRAPH: Active Causal Discovery via Sheaf-Theoretic Alignment of LLM Priors"},
+      {"id": "2602.03442", "title": "A-RAG: Agentic RAG via Hierarchical Retrieval Interfaces"},
+      {"id": "2603.29946", "title": "resolves (sourced as 'ShapPFN'; verifier saw title 'Real-Time Explanations for Tabular Foundation Models') - ID real, name is the method nickname"},
+      {"id": "2603.07083", "title": "Dreamer-CDP (reconstruction-free model-based RL)"},
+      {"id": "2601.10611", "title": "Molmo2: Open Weights and Data for VLMs with Video Understanding and Grounding"},
+      {"id": "2604.01845", "title": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection"},
+      {"id": "2605.28120", "title": "LegalGraphRAG: Multi-Agent Graph RAG for Legal Reasoning"},
+      {"id": "2603.15351", "title": "PMAx: An Agentic Framework for AI-Driven Process Mining"},
+      {"id": "2512.21409", "title": "kooplearn: Scikit-Learn Compatible Library for Evolution Operator Learning"},
+      {"id": "2602.18662", "title": "Large Causal Models for Temporal Causal Discovery"}
+    ],
+    "prior_art_independently_confirmed_by_main_agent": [
+      {"what": "seqQscorer NGS-QC pass/fail ML (kills C1 OPEN shot)", "url": "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02294-2", "repo": "github.com/salbrec/seqQscorer"},
+      {"what": "Corti AI live on Copenhagen 112, reduces over/under-triage (C11 CLOSED)", "url": "https://eena.org (Corti report) + buscomminc.com/corti-911"},
+      {"what": "SmartStream TLM Affinity + Duco ML + 'ML for Predicting Reconciliation Exceptions and Root Causes' (C9 CLOSED)", "url": "smart.stream/solutions/smart-reconciliations + du.co"}
+    ],
+    "false_leads_caught": [
+      "TECH-3 corrected mismatched IDs for OpAgent/ColorBrowserAgent before recording.",
+      "TECH-1/TECH-2 marked has_usable_code=false where no repo URL appeared (RRNCO 2503.16159 pre-window rejected; mechanism-design RegretNet line all out-of-window rejected).",
+      "VERIFY-5 ran 6 reformulations on C12 IPO allocation and HONESTLY reported the application axis is empty (no IPO-allocation ML) rather than inventing prior art - then correctly graded NARROW on technique-sibling + deliberately-human blocker."
+    ],
+    "note": "No fabricated IDs/titles/repos detected across 8 sourcing + 5 verification agents + 1 pairing subprocess + main-agent crosscheck."
+  },
+
+  "logic_break_audit": {
+    "finding": "Strict-gate fix held for a 2nd session. The Phase-3 pairing proposer produced only 1 borderline-OPEN (C1) - far less optimism than s3's 7, because modern domains visibly have more prior art. The Phase-4 verifiers (strict gate) returned 0 OPEN / 8 NARROW / 4 CLOSED. Main-agent crosscheck confirmed the 3 most load-bearing calls (C1 killed, C11 + C9 CLOSED). No verdict required overturning.",
+    "containment_result": "0 false WIN across the session. The lone OPEN shot (C1 sequencing-QC) was independently killed by seqQscorer."
+  },
+
+  "data_hygiene_note": "The LIFE-5 sourcing agent OVERWROTE its own life_5.json mid-run (first set: foodborne/EventEpi/Mattson-POA; final set: SAR/wildfire/wastewater). The first set was already merged into life_bank; the second set was appended separately (11 new distinct concepts). Both sets are real, distinct, honestly-sourced public-health/dispatch niches - retained both, provenance tagged LIFE-5/_session 4. No double-count (dedup by name).",
+
+  "determinism": "8 sourcing + 5 verification agents + 1 opus pairing subprocess + main-agent crosscheck over live web search; result SETS not bit-reproducible. The 0-OPEN / 8-NARROW / 4-CLOSED outcome is highly stable: every candidate had cited adjacency, 4 had deployed commercial products.",
+
+  "verbatim_caveat_R5_R6": "WebFetch and direct arxiv.org returned HTTP 403 throughout (agents + main agent). verbatim_quote values are 'as seen in WebSearch result blocks', not hand-verified against live arXiv pages. The 3 main-agent crosscheck confirmations (seqQscorer, Corti, SmartStream) were verified via WebSearch result text actually seen, URLs recorded in crosscheck_s4.json. README-verify (R13): the 8 usable s4 techniques were code-flagged from explicit github/HF evidence in result blocks; deep per-README fetch not repeated this session (the usable techniques were not the bottleneck - prior art on the application side was)."
+}

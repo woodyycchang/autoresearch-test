@@ -1,0 +1,69 @@
+{
+  "_schema": "Run 29 session 2 - independent MAIN-AGENT crosscheck (R7) of Phase-4 verifier verdicts. The main agent re-searched every candidate the verifiers labeled OPEN, applying the STRICT gate: GAP_OPEN = no prior application AT ALL; any real adjacency (incl. the same technique-family on a sibling/industrial domain, or the application served by a different method) => GAP_NARROW (capability-gap).",
+  "_date": "2026-06-04",
+  "_session": 2,
+  "headline": "All 5 verifier-OPEN labels OVERTURNED to NARROW on independent crosscheck. Every candidate has documented prior adjacency. Final: 0 GAP_OPEN, 11 GAP_NARROW (capability-gap), 1 NARROW-near-CLOSED.",
+  "verifier_label_distribution": {"OPEN": 5, "NARROW": 7},
+  "main_agent_final_distribution": {"GAP_OPEN": 0, "GAP_NARROW": 11, "NARROW_near_CLOSED": 1},
+  "overturns": [
+    {
+      "candidate": "C3", "pair": "SGNO (2602.18801) x interrupted/martempering quench core-temp timing",
+      "verifier_label": "OPEN", "main_agent_verdict": "GAP_NARROW",
+      "decisive_adjacency_found_by_main_agent": [
+        {"what": "PINN full-field temperature recovery during water quenching (FE-trained, energy-conservation-informed surrogate)", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0924013622000462"},
+        {"what": "PINN-based virtual thermal sensor with real-time millisecond field/heat-flux estimation from sparse sensors", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931023005380"},
+        {"what": "MCO-PINN 3D temperature-field soft sensing of aluminium-alloy workpieces during quenching heat treatment"}
+      ],
+      "exact_unused_slice": "SGNO-style STABLE LONG-HORIZON autoregressive rollout for real-time CORE-temperature forecasting to time an INTERRUPTED (mar-)quench on an IRREGULAR hand-forged artisan part. Neural quench-field surrogates exist; the interrupted-quench-timing + irregular-artisan-geometry + long-horizon-rollout combination is unmade.",
+      "why_not_open": "Neural-network surrogates for quench temperature fields (incl. real-time virtual thermal sensors) already exist; this is capability-gap, not virgin ground."
+    },
+    {
+      "candidate": "C5", "pair": "SGNO (2602.18801) x anagama wood-firing stoking-response field rollout",
+      "verifier_label": "OPEN", "main_agent_verdict": "GAP_NARROW",
+      "decisive_adjacency_found_by_main_agent": [
+        {"what": "Physics-informed Fourier neural operator (PI-hyperFNO) for surrogate prediction of tunnel-fire temperature FIELD spatiotemporal evolution from limited conditions - the SAME technique family (FNO + physics residual) on a sibling fire-field", "url": "https://www.sciencedirect.com/science/article/abs/pii/S1359431126010653"}
+      ],
+      "exact_unused_slice": "Neural-operator rollout of an ANAGAMA kiln's interior temperature/atmosphere field RESPONSE TO THE NEXT STOKE for stoking-rhythm guidance. The technique family (physics-informed FNO for fire temperature fields) is already demonstrated on tunnel fires; only the wood-kiln-stoking application is unmade.",
+      "why_not_open": "A physics-informed neural operator for fire temperature-field rollout already exists (tunnel fire). Sibling-domain technique-family => NARROW."
+    },
+    {
+      "candidate": "C8", "pair": "SAM-Audio (2512.18099) x overtone-stem separation for throat-singing pedagogy",
+      "verifier_label": "OPEN", "main_agent_verdict": "GAP_NARROW",
+      "decisive_adjacency_found_by_main_agent": [
+        {"what": "VoceVista / Praat spectrogram visualizers used for overtone-singing pedagogy ('a feedback loop that accelerates learning')", "url": "https://overtonevoices.com/the-science-of-overtone-singing/"},
+        {"what": "Released 'Overtone Singing Preview Dataset' with ISOLATED overtone primitives for ML research / generative audio", "url": "https://discuss.huggingface.co/t/new-dataset-release-overtone-singing-preview-articulation-level-overtone-throat-singing-primitives/171144"}
+      ],
+      "exact_unused_slice": "Learned SOURCE-SEPARATION of the self-produced focused overtone into a measurable STEM (via a promptable separation FM like SAM-Audio) for quantitative corrective feedback. Visualizers + an isolated-overtone dataset exist; the separation-into-feedback-stem pipeline is unmade.",
+      "why_not_open": "Overtone pedagogy feedback tools (spectrogram visualizers) and an isolated-overtone ML dataset already exist. Consistent with session-1's NARROW classification of this pair."
+    },
+    {
+      "candidate": "C9", "pair": "CANDI (2604.01845) x per-digester test-time-adaptive foaming early-warning",
+      "verifier_label": "OPEN", "main_agent_verdict": "GAP_NARROW",
+      "decisive_adjacency_found_by_main_agent": [
+        {"what": "Machine Learning Prediction of Foaming in Anaerobic Co-Digestion from Six Key Process Parameters (fixed-model ML foaming prediction already exists)", "url": "https://www.mdpi.com/2311-5637/10/12/639"},
+        {"what": "AI in Anaerobic Digestion review (sensors/modeling/optimization) + digester digital twins for early warning", "url": "https://www.mdpi.com/1424-8220/25/22/6961"}
+      ],
+      "exact_unused_slice": "TEST-TIME-ADAPTED (per-digester, distribution-shift-robust, false-positive-mined) multivariate anomaly detection for foaming precursors. Fixed-parameter ML foaming prediction exists; the per-digester test-time adaptation angle is unmade.",
+      "why_not_open": "ML foaming prediction for anaerobic digesters already exists (fixed models, 6-parameter). Capability-gap is the TTA angle, not the application itself."
+    },
+    {
+      "candidate": "C4", "pair": "SGNO (2602.18801) x artisan glassblowing viscosity-window rollout",
+      "verifier_label": "OPEN", "main_agent_verdict": "GAP_NARROW",
+      "decisive_adjacency_found_by_main_agent": [
+        {"what": "ViscNet (open-source NN, R^2=0.97) predicts temperature-dependence of glass viscosity; used to adjust glass-making process variables; GlassNet predicts 85 glass properties", "url": "https://arxiv.org/abs/2007.03719"},
+        {"what": "Industrial digital glass-forming temperature control (session-1 adjacency)", "url": "https://arxiv.org/abs/2604.00135"}
+      ],
+      "exact_unused_slice": "Real-time SGNO field rollout of a hand-held hot GATHER's viscosity/temperature field to forecast the closing of the workable window for an artisan gaffer (transient, geometry-varying). Composition->viscosity ML and industrial closed-loop control exist; the artisan transient-rollout slice is unmade.",
+      "why_not_open": "Confirmed session-1's NARROW: glass-viscosity ML (ViscNet/GlassNet) + industrial control already occupy the broad problem."
+    }
+  ],
+  "confirmed_narrow_from_verifiers": [
+    {"candidate": "C1", "pair": "SGNO x traditional bloomery smelting interior-state rollout", "verdict": "GAP_NARROW", "adjacency": "modern blast/ladle-furnace thermal-state ML; traditional bloomery modeled only thermodynamically/archaeologically", "defensibility": "HIGH (thin adjacency)"},
+    {"candidate": "C2", "pair": "SGNO x traditional lime/brick CLAMP-burning calcination-front completion", "verdict": "GAP_NARROW", "adjacency": "particle-scale shrinking-core calcination models + modern rotary-kiln flame-cue monitoring (Andritz LimeFire); traditional clamp burn has NO predictive ML", "defensibility": "HIGHEST this session (thinnest adjacency)"},
+    {"candidate": "C6", "pair": "SGNO x artisan kiln heat-work (cone-equivalent) integral forecast", "verdict": "GAP_NARROW", "adjacency": "PINN 'virtual thermal sensor' field reconstruction + tunnel-kiln digital twins + Orton deterministic cone<->T/rate program"},
+    {"candidate": "C7", "pair": "SGNO x slag/tap-hole tappable-state rollout", "verdict": "GAP_NARROW_near_CLOSED", "adjacency": "iFactory digital twins 'run continuous forward simulations predicting slag viscosity hours ahead of actual tap'; converter twins tap at predicted endpoint; ANN slag-viscosity models; MIRS robotic tap-hole. Only SGNO method-choice + craft framing remain unmade.", "defensibility": "LOW (near-closed)"},
+    {"candidate": "C10", "pair": "Toto 2.0 x zero-shot indigo-vat readiness forecast", "verdict": "GAP_NARROW", "adjacency": "Time-FLM bioreactor forecasting foundation model (zero-shot) + indigo-vat microbiota pH/ORP/color monitoring study; not yet coupled"},
+    {"candidate": "C11", "pair": "EnFlow x lake-pigment dye-mordant ground-state -> color", "verdict": "GAP_NARROW", "adjacency": "quantum-chem structure->color for madder/carmine lakes (In-silico Madder; alizarin TD-DFT) + MOFFlow flow-matching for metal-organic complexes; the recipe->precipitated-complex-structure->color intersection is unbridged", "defensibility": "MEDIUM-HIGH (flanking but unbridged)"},
+    {"candidate": "C12", "pair": "AFINs x chairside amortized Bayesian socket-fit pressure-field posterior", "verdict": "GAP_NARROW", "adjacency": "deterministic FEA Kriging socket-pressure surrogate (1.6 ms) + ANN inverse strain->pressure + non-amortized Bayesian soft-tissue UQ; amortized uncertainty-aware chairside posterior unmade"}
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "team": "TECH-1",
+  "subfields": ["RL/world-models/planning", "LLM-agents/tool-use/RL-reasoning"],
+  "techniques": [
+    {
+      "name": "Dreamer-CDP",
+      "arxiv_id": "2603.07083",
+      "arxiv_date": "2026-03",
+      "subfield": "A: RL/world-models/planning",
+      "capability_enabled": "Reconstruction-free model-based RL: a JEPA-style predictor over continuous, deterministic latent representations predicts the next abstract state instead of reconstructing pixels, matching Dreamer's performance on Crafter without any reconstruction objective.",
+      "has_usable_code": true,
+      "code_evidence": "https://github.com/fmi-basel/Dreamer-CDP (official repo; 'The official code is available at github.com/fmi-basel/Dreamer-CDP', tested on Linux, Python 3.11+)",
+      "verbatim_quote": "Dreamer-CDP: Improving Reconstruction-free World Models Via Continuous Deterministic Representation Prediction",
+      "source": "https://arxiv.org/abs/2603.07083"
+    },
+    {
+      "name": "ProRL Agent (Rollout-as-a-Service)",
+      "arxiv_id": "2603.18815",
+      "arxiv_date": "2026-03",
+      "subfield": "B: LLM-agents/tool-use/RL-reasoning",
+      "capability_enabled": "Scalable multi-turn agentic RL training infrastructure that decouples the full rollout lifecycle (init/run/evaluate) from the GPU trainer via an HTTP rollout-as-a-service API, enabling rollout and training to run on separate machines with standardized sandbox environments.",
+      "has_usable_code": true,
+      "code_evidence": "https://github.com/NVIDIA-NeMo/ProRL-Agent-Server (official NVIDIA repo; 'ProRL Agent is open-sourced and integrated as part of NVIDIA NeMo Gym', also github.com/NVIDIA-NeMo/Gym)",
+      "verbatim_quote": "ProRL Agent: Rollout-as-a-Service for RL Training of Multi-Turn LLM Agents",
+      "source": "https://arxiv.org/abs/2603.18815"
+    },
+    {
+      "name": "DART (Disentangled Action Reasoning Tuning)",
+      "arxiv_id": "2602.00994",
+      "arxiv_date": "2026-02",
+      "subfield": "B: LLM-agents/tool-use/RL-reasoning",
+      "capability_enabled": "Resolves gradient interference between reasoning and tool-use in agentic RL by routing reasoning vs. tool-use tokens to disjoint LoRA adapters over a frozen backbone, so updates for the two capabilities never collide.",
+      "has_usable_code": true,
+      "code_evidence": "https://github.com/sheriyuo/DART (NOTE: described in results as an UNOFFICIAL/community implementation, not an author release; includes vocab fine-tuning, SFT and LoRA configs via ms-swift)",
+      "verbatim_quote": "Reasoning and Tool-use Compete in Agentic RL: From Quantifying Interference to Disentangled Tuning",
+      "source": "https://arxiv.org/abs/2602.00994"
+    },
+    {
+      "name": "WorldCompass",
+      "arxiv_id": "2602.09022",
+      "arxiv_date": "2026-02",
+      "subfield": "A: RL/world-models/planning",
+      "capability_enabled": "RL post-training framework for long-horizon interactive video world models, using a clip-level rollout strategy, complementary interaction-accuracy + visual-quality rewards, and negative-aware fine-tuning to improve interaction accuracy and visual fidelity over the open WorldPlay model.",
+      "has_usable_code": false,
+      "code_evidence": "No code/repo found in search results; only arXiv/HF paper pages returned, no github link or release statement.",
+      "verbatim_quote": "WorldCompass: Reinforcement Learning for Long-Horizon World Models",
+      "source": "https://arxiv.org/abs/2602.09022"
+    },
+    {
+      "name": "World-Gymnast",
+      "arxiv_id": "2602.02454",
+      "arxiv_date": "2026-02",
+      "subfield": "A: RL/world-models/planning",
+      "capability_enabled": "RL finetuning of a vision-language-action (VLA) policy by rolling out the policy inside an action-conditioned video world model and scoring rollouts with a VLM-based reward, outperforming SFT by up to 18x and a software simulator by up to 2x on the Bridge robot setup.",
+      "has_usable_code": false,
+      "code_evidence": "Project page exists (https://world-gymnast.github.io/) but search results returned NO github code repository link; project page alone, no released code/weights confirmed.",
+      "verbatim_quote": "World-Gymnast: Training Robots with Reinforcement Learning in a World Model",
+      "source": "https://arxiv.org/abs/2602.02454"
+    },
+    {
+      "name": "AWPO (Advantage-Weighted Policy Optimization)",
+      "arxiv_id": "2512.19126",
+      "arxiv_date": "2025-12",
+      "subfield": "B: LLM-agents/tool-use/RL-reasoning",
+      "capability_enabled": "Integrates chain-of-thought reasoning-quality rewards into RLVR advantage estimation for tool-use via variance-aware gating and difficulty-aware weighting, with a 4B model reportedly surpassing Grok-4 by 16.0% in multi-turn tool-use accuracy.",
+      "has_usable_code": false,
+      "code_evidence": "No code evidence in results; arXiv/HF/alphaXiv paper pages only, no github repo or release statement found across two targeted searches.",
+      "verbatim_quote": "AWPO: Enhancing Tool-Use of Large Language Models through Adaptive Integration of Reasoning Rewards",
+      "source": "https://arxiv.org/abs/2512.19126"
+    }
+  ],
+  "notes": "Both subfields were fertile for FRESH papers (Dec 2025 - Mar 2026). Confirmed OFFICIAL usable code for 2: Dreamer-CDP (github.com/fmi-basel/Dreamer-CDP, subfield A) and ProRL Agent (github.com/NVIDIA-NeMo/ProRL-Agent-Server, subfield B). DART (2602.00994) has a github repo but search results explicitly call it an UNOFFICIAL/community implementation - flagged has_usable_code=true with that caveat in code_evidence; downgrade if author-release is required. has_usable_code=false set honestly for WorldCompass, World-Gymnast (project page only), and AWPO - all fresh and strong but NO code/repo evidence visible in snippets. VAPORWARE/not-yet-usable seen: EigenData/2601.22607 ('code and data will be released soon'), RWML/2602.05842 (tracker shows '[Paper]' only, no '[Code]' tag), DreamerAD/2603.24587 (no code evidence). FRESHNESS REJECTS encountered (out of window, NOT included): RLVR-World 2505.13934 (May 2025), Empowering Multi-Turn TIR / GTPO 2511.14846 (Nov 2025 prefix - rejected despite an Apr-2026 listing date), plus many 2505/2506/2507/2508/2509 reasoning-RL papers that surfaced. All 6 recorded IDs are within 2512-2603 and none collide with the do-not-re-add bank."
+}

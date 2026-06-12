@@ -1,0 +1,1368 @@
+{
+  "schema_version": "1.0",
+  "lineage": "real-encyclopedia (reconstructed Run 32; see INHERITANCE.md)",
+  "n_domains": 14,
+  "n_concepts": 80,
+  "concepts": [
+    {
+      "id": "biol_01",
+      "name": "natural_selection",
+      "domain": "biology",
+      "definition": "Differential reproduction filters heritable variation.",
+      "mechanism_tokens": [
+        "fitness",
+        "heritability",
+        "selection",
+        "variation"
+      ],
+      "problem_tokens": [
+        "adaptation",
+        "optimization",
+        "search"
+      ]
+    },
+    {
+      "id": "biol_02",
+      "name": "immune_memory",
+      "domain": "biology",
+      "definition": "Past exposure primes a faster future response.",
+      "mechanism_tokens": [
+        "adaptation",
+        "memory",
+        "priming",
+        "recognition"
+      ],
+      "problem_tokens": [
+        "defense",
+        "recognition",
+        "speed"
+      ]
+    },
+    {
+      "id": "biol_03",
+      "name": "apoptosis",
+      "domain": "biology",
+      "definition": "Programmed cell death prunes damaged or excess cells.",
+      "mechanism_tokens": [
+        "cleanup",
+        "programmed",
+        "pruning",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "control",
+        "quality",
+        "regulation"
+      ]
+    },
+    {
+      "id": "biol_04",
+      "name": "homeostasis",
+      "domain": "biology",
+      "definition": "Negative feedback holds internal state in a band.",
+      "mechanism_tokens": [
+        "feedback",
+        "regulation",
+        "setpoint",
+        "stability"
+      ],
+      "problem_tokens": [
+        "control",
+        "robustness",
+        "stability"
+      ]
+    },
+    {
+      "id": "biol_05",
+      "name": "quorum_sensing",
+      "domain": "biology",
+      "definition": "Cells act collectively once density crosses a threshold.",
+      "mechanism_tokens": [
+        "collective",
+        "density",
+        "signaling",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "coordination",
+        "emergence",
+        "timing"
+      ]
+    },
+    {
+      "id": "biol_06",
+      "name": "horizontal_gene_transfer",
+      "domain": "biology",
+      "definition": "Traits move between organisms, not just by descent.",
+      "mechanism_tokens": [
+        "lateral",
+        "recombination",
+        "sharing",
+        "transfer"
+      ],
+      "problem_tokens": [
+        "adaptation",
+        "diversity",
+        "spread"
+      ]
+    },
+    {
+      "id": "biol_07",
+      "name": "chemotaxis",
+      "domain": "biology",
+      "definition": "Move along a chemical gradient toward a target.",
+      "mechanism_tokens": [
+        "feedback",
+        "gradient",
+        "movement",
+        "sensing"
+      ],
+      "problem_tokens": [
+        "navigation",
+        "search",
+        "targeting"
+      ]
+    },
+    {
+      "id": "chem_01",
+      "name": "catalysis",
+      "domain": "chemistry",
+      "definition": "Lower an activation barrier without being consumed.",
+      "mechanism_tokens": [
+        "acceleration",
+        "barrier",
+        "pathway",
+        "reuse"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "rate",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "chem_02",
+      "name": "self_assembly",
+      "domain": "chemistry",
+      "definition": "Components spontaneously organize into structure.",
+      "mechanism_tokens": [
+        "assembly",
+        "local_rules",
+        "spontaneous",
+        "structure"
+      ],
+      "problem_tokens": [
+        "emergence",
+        "fabrication",
+        "organization"
+      ]
+    },
+    {
+      "id": "chem_03",
+      "name": "le_chatelier",
+      "domain": "chemistry",
+      "definition": "A stressed equilibrium shifts to relieve the stress.",
+      "mechanism_tokens": [
+        "equilibrium",
+        "feedback",
+        "shift",
+        "stress"
+      ],
+      "problem_tokens": [
+        "control",
+        "response",
+        "stability"
+      ]
+    },
+    {
+      "id": "chem_04",
+      "name": "chromatography",
+      "domain": "chemistry",
+      "definition": "Separate a mixture by differential affinity.",
+      "mechanism_tokens": [
+        "affinity",
+        "gradient",
+        "partition",
+        "separation"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "purification",
+        "separation"
+      ]
+    },
+    {
+      "id": "chem_05",
+      "name": "titration",
+      "domain": "chemistry",
+      "definition": "Find an unknown by reacting to a known endpoint.",
+      "mechanism_tokens": [
+        "balance",
+        "endpoint",
+        "incremental",
+        "measure"
+      ],
+      "problem_tokens": [
+        "calibration",
+        "control",
+        "measurement"
+      ]
+    },
+    {
+      "id": "comp_01",
+      "name": "content_addressable_store",
+      "domain": "computer_science",
+      "definition": "Retrieve data by a hash of its content, not location.",
+      "mechanism_tokens": [
+        "addressing",
+        "dedup",
+        "hashing",
+        "lookup"
+      ],
+      "problem_tokens": [
+        "integrity",
+        "retrieval",
+        "storage"
+      ]
+    },
+    {
+      "id": "comp_02",
+      "name": "write_ahead_log",
+      "domain": "computer_science",
+      "definition": "Record intent before mutating state for crash recovery.",
+      "mechanism_tokens": [
+        "durability",
+        "logging",
+        "ordering",
+        "replay"
+      ],
+      "problem_tokens": [
+        "atomicity",
+        "consistency",
+        "recovery"
+      ]
+    },
+    {
+      "id": "comp_03",
+      "name": "bloom_filter",
+      "domain": "computer_science",
+      "definition": "Probabilistic set membership with no false negatives.",
+      "mechanism_tokens": [
+        "compression",
+        "hashing",
+        "membership",
+        "probabilistic"
+      ],
+      "problem_tokens": [
+        "filtering",
+        "lookup",
+        "memory"
+      ]
+    },
+    {
+      "id": "comp_04",
+      "name": "backpressure",
+      "domain": "computer_science",
+      "definition": "Slow producers when consumers fall behind.",
+      "mechanism_tokens": [
+        "feedback",
+        "flow",
+        "queue",
+        "throttle"
+      ],
+      "problem_tokens": [
+        "latency",
+        "overload",
+        "stability"
+      ]
+    },
+    {
+      "id": "comp_05",
+      "name": "copy_on_write",
+      "domain": "computer_science",
+      "definition": "Share state until a writer forks a private copy.",
+      "mechanism_tokens": [
+        "fork",
+        "lazy",
+        "sharing",
+        "snapshot"
+      ],
+      "problem_tokens": [
+        "isolation",
+        "memory",
+        "versioning"
+      ]
+    },
+    {
+      "id": "comp_06",
+      "name": "consistent_hashing",
+      "domain": "computer_science",
+      "definition": "Map keys to nodes so few keys move when nodes change.",
+      "mechanism_tokens": [
+        "hashing",
+        "partition",
+        "rebalance",
+        "ring"
+      ],
+      "problem_tokens": [
+        "churn",
+        "distribution",
+        "scaling"
+      ]
+    },
+    {
+      "id": "comp_07",
+      "name": "speculative_execution",
+      "domain": "computer_science",
+      "definition": "Do work before knowing if it is needed; roll back if not.",
+      "mechanism_tokens": [
+        "parallel",
+        "prefetch",
+        "rollback",
+        "speculation"
+      ],
+      "problem_tokens": [
+        "latency",
+        "throughput",
+        "waste"
+      ]
+    },
+    {
+      "id": "comp_08",
+      "name": "gossip_protocol",
+      "domain": "computer_science",
+      "definition": "Spread state by random peer-to-peer exchange.",
+      "mechanism_tokens": [
+        "diffusion",
+        "epidemic",
+        "randomized",
+        "redundancy"
+      ],
+      "problem_tokens": [
+        "consensus",
+        "robustness",
+        "scaling"
+      ]
+    },
+    {
+      "id": "cont_01",
+      "name": "pid_control",
+      "domain": "control_theory",
+      "definition": "Correct error using its size, history, and trend.",
+      "mechanism_tokens": [
+        "derivative",
+        "error",
+        "feedback",
+        "integral"
+      ],
+      "problem_tokens": [
+        "regulation",
+        "stability",
+        "tracking"
+      ]
+    },
+    {
+      "id": "cont_02",
+      "name": "kalman_filter",
+      "domain": "control_theory",
+      "definition": "Fuse noisy predictions and measurements optimally.",
+      "mechanism_tokens": [
+        "estimation",
+        "fusion",
+        "noise",
+        "update"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "tracking",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "cont_03",
+      "name": "model_predictive_control",
+      "domain": "control_theory",
+      "definition": "Optimize over a rolling horizon, act, repeat.",
+      "mechanism_tokens": [
+        "constraint",
+        "horizon",
+        "optimization",
+        "rolling"
+      ],
+      "problem_tokens": [
+        "constraint",
+        "control",
+        "planning"
+      ]
+    },
+    {
+      "id": "cont_04",
+      "name": "lyapunov_stability",
+      "domain": "control_theory",
+      "definition": "A decreasing energy function certifies stability.",
+      "mechanism_tokens": [
+        "certificate",
+        "decrease",
+        "energy",
+        "invariance"
+      ],
+      "problem_tokens": [
+        "guarantee",
+        "stability",
+        "verification"
+      ]
+    },
+    {
+      "id": "cont_05",
+      "name": "observer",
+      "domain": "control_theory",
+      "definition": "Reconstruct hidden state from outputs.",
+      "mechanism_tokens": [
+        "estimation",
+        "feedback",
+        "hidden",
+        "reconstruction"
+      ],
+      "problem_tokens": [
+        "monitoring",
+        "observability",
+        "state"
+      ]
+    },
+    {
+      "id": "cryp_01",
+      "name": "zero_knowledge_proof",
+      "domain": "cryptography",
+      "definition": "Prove a fact while revealing nothing else.",
+      "mechanism_tokens": [
+        "challenge",
+        "hiding",
+        "proof",
+        "verification"
+      ],
+      "problem_tokens": [
+        "privacy",
+        "trust",
+        "verification"
+      ]
+    },
+    {
+      "id": "cryp_02",
+      "name": "commitment_scheme",
+      "domain": "cryptography",
+      "definition": "Lock in a value now, reveal it provably later.",
+      "mechanism_tokens": [
+        "binding",
+        "commitment",
+        "hiding",
+        "reveal"
+      ],
+      "problem_tokens": [
+        "integrity",
+        "ordering",
+        "trust"
+      ]
+    },
+    {
+      "id": "cryp_03",
+      "name": "merkle_tree",
+      "domain": "cryptography",
+      "definition": "Hash a tree so any leaf is verifiable cheaply.",
+      "mechanism_tokens": [
+        "aggregation",
+        "hashing",
+        "tree",
+        "verification"
+      ],
+      "problem_tokens": [
+        "integrity",
+        "scaling",
+        "verification"
+      ]
+    },
+    {
+      "id": "cryp_04",
+      "name": "threshold_secret_sharing",
+      "domain": "cryptography",
+      "definition": "Split a secret so any k of n can recover it.",
+      "mechanism_tokens": [
+        "recovery",
+        "redundancy",
+        "sharing",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "access",
+        "robustness",
+        "trust"
+      ]
+    },
+    {
+      "id": "ecol_01",
+      "name": "trophic_cascade",
+      "domain": "ecology",
+      "definition": "A change at one level ripples through the food web.",
+      "mechanism_tokens": [
+        "cascade",
+        "indirect",
+        "network",
+        "propagation"
+      ],
+      "problem_tokens": [
+        "control",
+        "leverage",
+        "stability"
+      ]
+    },
+    {
+      "id": "ecol_02",
+      "name": "keystone_species",
+      "domain": "ecology",
+      "definition": "A few nodes hold a whole network's structure.",
+      "mechanism_tokens": [
+        "dependence",
+        "hub",
+        "leverage",
+        "structure"
+      ],
+      "problem_tokens": [
+        "fragility",
+        "leverage",
+        "stability"
+      ]
+    },
+    {
+      "id": "ecol_03",
+      "name": "succession",
+      "domain": "ecology",
+      "definition": "Communities reorganize predictably after disturbance.",
+      "mechanism_tokens": [
+        "disturbance",
+        "ordering",
+        "recovery",
+        "staging"
+      ],
+      "problem_tokens": [
+        "ordering",
+        "recovery",
+        "resilience"
+      ]
+    },
+    {
+      "id": "ecol_04",
+      "name": "carrying_capacity",
+      "domain": "ecology",
+      "definition": "Growth saturates at an environment's limit.",
+      "mechanism_tokens": [
+        "density",
+        "feedback",
+        "limit",
+        "saturation"
+      ],
+      "problem_tokens": [
+        "growth",
+        "limits",
+        "stability"
+      ]
+    },
+    {
+      "id": "econ_01",
+      "name": "price_signal",
+      "domain": "economics",
+      "definition": "Prices aggregate dispersed information into one number.",
+      "mechanism_tokens": [
+        "aggregation",
+        "feedback",
+        "incentive",
+        "signal"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "coordination",
+        "information"
+      ]
+    },
+    {
+      "id": "econ_02",
+      "name": "mechanism_design",
+      "domain": "economics",
+      "definition": "Engineer rules so self-interest yields a desired outcome.",
+      "mechanism_tokens": [
+        "design",
+        "equilibrium",
+        "incentive",
+        "rules"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "coordination",
+        "truthfulness"
+      ]
+    },
+    {
+      "id": "econ_03",
+      "name": "auction",
+      "domain": "economics",
+      "definition": "Allocate scarce goods by competitive bidding.",
+      "mechanism_tokens": [
+        "allocation",
+        "bidding",
+        "competition",
+        "valuation"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "fairness",
+        "revenue"
+      ]
+    },
+    {
+      "id": "econ_04",
+      "name": "comparative_advantage",
+      "domain": "economics",
+      "definition": "Specialize where your relative cost is lowest.",
+      "mechanism_tokens": [
+        "allocation",
+        "exchange",
+        "specialization",
+        "tradeoff"
+      ],
+      "problem_tokens": [
+        "division",
+        "efficiency",
+        "gains"
+      ]
+    },
+    {
+      "id": "econ_05",
+      "name": "reputation_system",
+      "domain": "economics",
+      "definition": "Past behavior priced into future trust.",
+      "mechanism_tokens": [
+        "feedback",
+        "history",
+        "reputation",
+        "trust"
+      ],
+      "problem_tokens": [
+        "incentive",
+        "selection",
+        "trust"
+      ]
+    },
+    {
+      "id": "econ_06",
+      "name": "liquidity",
+      "domain": "economics",
+      "definition": "Ease of converting an asset without moving its price.",
+      "mechanism_tokens": [
+        "buffer",
+        "depth",
+        "exchange",
+        "flow"
+      ],
+      "problem_tokens": [
+        "access",
+        "resilience",
+        "stability"
+      ]
+    },
+    {
+      "id": "info_01",
+      "name": "error_correcting_code",
+      "domain": "information_theory",
+      "definition": "Add redundancy so noise can be reversed.",
+      "mechanism_tokens": [
+        "distance",
+        "encoding",
+        "recovery",
+        "redundancy"
+      ],
+      "problem_tokens": [
+        "integrity",
+        "noise",
+        "reliability"
+      ]
+    },
+    {
+      "id": "info_02",
+      "name": "rate_distortion",
+      "domain": "information_theory",
+      "definition": "Trade bits against reconstruction error optimally.",
+      "mechanism_tokens": [
+        "bound",
+        "compression",
+        "distortion",
+        "tradeoff"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "fidelity",
+        "limits"
+      ]
+    },
+    {
+      "id": "info_03",
+      "name": "mutual_information",
+      "domain": "information_theory",
+      "definition": "How much one variable tells you about another.",
+      "mechanism_tokens": [
+        "correlation",
+        "dependence",
+        "information",
+        "measure"
+      ],
+      "problem_tokens": [
+        "relevance",
+        "selection",
+        "structure"
+      ]
+    },
+    {
+      "id": "info_04",
+      "name": "source_coding",
+      "domain": "information_theory",
+      "definition": "Assign short codes to frequent symbols.",
+      "mechanism_tokens": [
+        "compression",
+        "encoding",
+        "entropy",
+        "frequency"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "storage",
+        "transmission"
+      ]
+    },
+    {
+      "id": "info_05",
+      "name": "channel_capacity",
+      "domain": "information_theory",
+      "definition": "The max reliable rate over a noisy channel.",
+      "mechanism_tokens": [
+        "bound",
+        "capacity",
+        "limit",
+        "noise"
+      ],
+      "problem_tokens": [
+        "limits",
+        "reliability",
+        "throughput"
+      ]
+    },
+    {
+      "id": "ling_01",
+      "name": "compositionality",
+      "domain": "linguistics",
+      "definition": "Meaning of a whole is built from its parts.",
+      "mechanism_tokens": [
+        "composition",
+        "recursion",
+        "rules",
+        "structure"
+      ],
+      "problem_tokens": [
+        "generalization",
+        "productivity",
+        "structure"
+      ]
+    },
+    {
+      "id": "ling_02",
+      "name": "phonotactics",
+      "domain": "linguistics",
+      "definition": "Rules govern which sound sequences are allowed.",
+      "mechanism_tokens": [
+        "constraint",
+        "filtering",
+        "rules",
+        "sequence"
+      ],
+      "problem_tokens": [
+        "generation",
+        "structure",
+        "validity"
+      ]
+    },
+    {
+      "id": "ling_03",
+      "name": "grammatical_agreement",
+      "domain": "linguistics",
+      "definition": "Distant words must co-vary in features.",
+      "mechanism_tokens": [
+        "agreement",
+        "constraint",
+        "dependency",
+        "long_range"
+      ],
+      "problem_tokens": [
+        "binding",
+        "consistency",
+        "structure"
+      ]
+    },
+    {
+      "id": "ling_04",
+      "name": "code_switching",
+      "domain": "linguistics",
+      "definition": "Speakers alternate systems mid-stream by context.",
+      "mechanism_tokens": [
+        "context",
+        "gating",
+        "mixing",
+        "switching"
+      ],
+      "problem_tokens": [
+        "adaptation",
+        "context",
+        "flexibility"
+      ]
+    },
+    {
+      "id": "mach_01",
+      "name": "gradient_descent",
+      "domain": "machine_learning",
+      "definition": "Follow the negative gradient to minimize a loss.",
+      "mechanism_tokens": [
+        "gradient",
+        "iteration",
+        "optimization",
+        "update"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "fitting",
+        "learning"
+      ]
+    },
+    {
+      "id": "mach_02",
+      "name": "attention_mechanism",
+      "domain": "machine_learning",
+      "definition": "Weight inputs by learned relevance to a query.",
+      "mechanism_tokens": [
+        "context",
+        "relevance",
+        "routing",
+        "weighting"
+      ],
+      "problem_tokens": [
+        "memory",
+        "selection",
+        "sequence"
+      ]
+    },
+    {
+      "id": "mach_03",
+      "name": "contrastive_learning",
+      "domain": "machine_learning",
+      "definition": "Pull positives together, push negatives apart.",
+      "mechanism_tokens": [
+        "contrast",
+        "embedding",
+        "pairing",
+        "similarity"
+      ],
+      "problem_tokens": [
+        "labels",
+        "representation",
+        "structure"
+      ]
+    },
+    {
+      "id": "mach_04",
+      "name": "dropout_regularization",
+      "domain": "machine_learning",
+      "definition": "Randomly drop units to prevent co-adaptation.",
+      "mechanism_tokens": [
+        "ensemble",
+        "noise",
+        "randomized",
+        "redundancy"
+      ],
+      "problem_tokens": [
+        "generalization",
+        "overfitting",
+        "robustness"
+      ]
+    },
+    {
+      "id": "mach_05",
+      "name": "knowledge_distillation",
+      "domain": "machine_learning",
+      "definition": "Train a small model to mimic a large one's outputs.",
+      "mechanism_tokens": [
+        "compression",
+        "soft_target",
+        "teacher",
+        "transfer"
+      ],
+      "problem_tokens": [
+        "deployment",
+        "efficiency",
+        "fidelity"
+      ]
+    },
+    {
+      "id": "mach_06",
+      "name": "mixture_of_experts",
+      "domain": "machine_learning",
+      "definition": "Route each input to a few specialized sub-models.",
+      "mechanism_tokens": [
+        "gating",
+        "routing",
+        "sparsity",
+        "specialization"
+      ],
+      "problem_tokens": [
+        "capacity",
+        "efficiency",
+        "scaling"
+      ]
+    },
+    {
+      "id": "mach_07",
+      "name": "curriculum_learning",
+      "domain": "machine_learning",
+      "definition": "Present easy examples before hard ones.",
+      "mechanism_tokens": [
+        "difficulty",
+        "ordering",
+        "scheduling",
+        "staging"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "learning",
+        "stability"
+      ]
+    },
+    {
+      "id": "mach_08",
+      "name": "active_learning",
+      "domain": "machine_learning",
+      "definition": "Query labels for the most informative points.",
+      "mechanism_tokens": [
+        "feedback",
+        "query",
+        "selection",
+        "uncertainty"
+      ],
+      "problem_tokens": [
+        "annotation",
+        "efficiency",
+        "labels"
+      ]
+    },
+    {
+      "id": "mate_01",
+      "name": "annealing_metallurgy",
+      "domain": "materials",
+      "definition": "Heat then slow-cool to relieve internal stress.",
+      "mechanism_tokens": [
+        "cooling",
+        "relaxation",
+        "stress",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "defects",
+        "quality",
+        "stability"
+      ]
+    },
+    {
+      "id": "mate_02",
+      "name": "percolation",
+      "domain": "materials",
+      "definition": "Connectivity appears abruptly past a density threshold.",
+      "mechanism_tokens": [
+        "connectivity",
+        "network",
+        "threshold",
+        "transition"
+      ],
+      "problem_tokens": [
+        "emergence",
+        "robustness",
+        "transport"
+      ]
+    },
+    {
+      "id": "mate_03",
+      "name": "fatigue_failure",
+      "domain": "materials",
+      "definition": "Repeated sub-critical load accumulates into fracture.",
+      "mechanism_tokens": [
+        "accumulation",
+        "cyclic",
+        "damage",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "failure",
+        "lifetime",
+        "reliability"
+      ]
+    },
+    {
+      "id": "mate_04",
+      "name": "composite_lamination",
+      "domain": "materials",
+      "definition": "Layer dissimilar materials for combined properties.",
+      "mechanism_tokens": [
+        "anisotropy",
+        "combination",
+        "interface",
+        "layering"
+      ],
+      "problem_tokens": [
+        "design",
+        "strength",
+        "tradeoff"
+      ]
+    },
+    {
+      "id": "math_01",
+      "name": "fixed_point_iteration",
+      "domain": "mathematics",
+      "definition": "Repeatedly apply a map until it stops moving.",
+      "mechanism_tokens": [
+        "contraction",
+        "convergence",
+        "iteration",
+        "update"
+      ],
+      "problem_tokens": [
+        "equilibrium",
+        "solving",
+        "stability"
+      ]
+    },
+    {
+      "id": "math_02",
+      "name": "spectral_decomposition",
+      "domain": "mathematics",
+      "definition": "Break an operator into eigen-components.",
+      "mechanism_tokens": [
+        "basis",
+        "decomposition",
+        "eigen",
+        "projection"
+      ],
+      "problem_tokens": [
+        "dimensionality",
+        "ordering",
+        "structure"
+      ]
+    },
+    {
+      "id": "math_03",
+      "name": "convex_relaxation",
+      "domain": "mathematics",
+      "definition": "Replace a hard set with its convex hull to make optimization tractable.",
+      "mechanism_tokens": [
+        "approximation",
+        "bound",
+        "optimization",
+        "relaxation"
+      ],
+      "problem_tokens": [
+        "guarantee",
+        "intractable",
+        "search"
+      ]
+    },
+    {
+      "id": "math_04",
+      "name": "graph_cut",
+      "domain": "mathematics",
+      "definition": "Partition a graph by minimizing edges across a boundary.",
+      "mechanism_tokens": [
+        "boundary",
+        "flow",
+        "minimization",
+        "partition"
+      ],
+      "problem_tokens": [
+        "clustering",
+        "segmentation",
+        "separation"
+      ]
+    },
+    {
+      "id": "math_05",
+      "name": "martingale",
+      "domain": "mathematics",
+      "definition": "A process whose expected next value is its current value.",
+      "mechanism_tokens": [
+        "drift",
+        "expectation",
+        "fairness",
+        "process"
+      ],
+      "problem_tokens": [
+        "prediction",
+        "risk",
+        "stopping"
+      ]
+    },
+    {
+      "id": "math_06",
+      "name": "homotopy_continuation",
+      "domain": "mathematics",
+      "definition": "Deform an easy problem into a hard one tracking solutions.",
+      "mechanism_tokens": [
+        "continuation",
+        "deformation",
+        "path",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "initialization",
+        "robustness",
+        "solving"
+      ]
+    },
+    {
+      "id": "math_07",
+      "name": "measure_concentration",
+      "domain": "mathematics",
+      "definition": "High-dimensional mass concentrates near a thin shell.",
+      "mechanism_tokens": [
+        "bound",
+        "concentration",
+        "dimension",
+        "tail"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "generalization",
+        "sampling"
+      ]
+    },
+    {
+      "id": "math_08",
+      "name": "duality_gap",
+      "domain": "mathematics",
+      "definition": "Distance between primal and dual optimum certifies optimality.",
+      "mechanism_tokens": [
+        "bound",
+        "certificate",
+        "duality",
+        "gap"
+      ],
+      "problem_tokens": [
+        "guarantee",
+        "optimization",
+        "verification"
+      ]
+    },
+    {
+      "id": "neur_01",
+      "name": "predictive_coding",
+      "domain": "neuroscience",
+      "definition": "The brain encodes prediction error, not raw input.",
+      "mechanism_tokens": [
+        "compression",
+        "error",
+        "feedback",
+        "prediction"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "learning",
+        "perception"
+      ]
+    },
+    {
+      "id": "neur_02",
+      "name": "synaptic_pruning",
+      "domain": "neuroscience",
+      "definition": "Unused connections are removed during development.",
+      "mechanism_tokens": [
+        "cleanup",
+        "pruning",
+        "threshold",
+        "use_dependent"
+      ],
+      "problem_tokens": [
+        "capacity",
+        "efficiency",
+        "specialization"
+      ]
+    },
+    {
+      "id": "neur_03",
+      "name": "lateral_inhibition",
+      "domain": "neuroscience",
+      "definition": "Active units suppress their neighbors to sharpen contrast.",
+      "mechanism_tokens": [
+        "competition",
+        "contrast",
+        "inhibition",
+        "sharpening"
+      ],
+      "problem_tokens": [
+        "encoding",
+        "resolution",
+        "selection"
+      ]
+    },
+    {
+      "id": "neur_04",
+      "name": "replay_consolidation",
+      "domain": "neuroscience",
+      "definition": "Offline replay of experience consolidates memory.",
+      "mechanism_tokens": [
+        "consolidation",
+        "offline",
+        "rehearsal",
+        "replay"
+      ],
+      "problem_tokens": [
+        "learning",
+        "memory",
+        "stability"
+      ]
+    },
+    {
+      "id": "neur_05",
+      "name": "neuromodulation",
+      "domain": "neuroscience",
+      "definition": "Global signals reconfigure network behavior on the fly.",
+      "mechanism_tokens": [
+        "context",
+        "gain",
+        "gating",
+        "modulation"
+      ],
+      "problem_tokens": [
+        "adaptation",
+        "control",
+        "flexibility"
+      ]
+    },
+    {
+      "id": "phys_01",
+      "name": "renormalization",
+      "domain": "physics",
+      "definition": "Coarse-grain to see how behavior changes across scales.",
+      "mechanism_tokens": [
+        "coarse_grain",
+        "flow",
+        "invariance",
+        "scale"
+      ],
+      "problem_tokens": [
+        "complexity",
+        "scaling",
+        "universality"
+      ]
+    },
+    {
+      "id": "phys_02",
+      "name": "simulated_annealing",
+      "domain": "physics",
+      "definition": "Anneal temperature to escape local minima.",
+      "mechanism_tokens": [
+        "cooling",
+        "noise",
+        "search",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "global",
+        "local_minima",
+        "optimization"
+      ]
+    },
+    {
+      "id": "phys_03",
+      "name": "phase_transition",
+      "domain": "physics",
+      "definition": "A small change flips the system's global order.",
+      "mechanism_tokens": [
+        "criticality",
+        "order",
+        "threshold",
+        "transition"
+      ],
+      "problem_tokens": [
+        "control",
+        "emergence",
+        "stability"
+      ]
+    },
+    {
+      "id": "phys_04",
+      "name": "least_action",
+      "domain": "physics",
+      "definition": "Nature picks the path extremizing an action functional.",
+      "mechanism_tokens": [
+        "constraint",
+        "extremum",
+        "path",
+        "variational"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "optimization",
+        "prediction"
+      ]
+    },
+    {
+      "id": "phys_05",
+      "name": "dissipation_fluctuation",
+      "domain": "physics",
+      "definition": "Response to perturbation relates to equilibrium noise.",
+      "mechanism_tokens": [
+        "equilibrium",
+        "fluctuation",
+        "noise",
+        "response"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "measurement",
+        "stability"
+      ]
+    },
+    {
+      "id": "phys_06",
+      "name": "conservation_law",
+      "domain": "physics",
+      "definition": "A symmetry implies a conserved quantity.",
+      "mechanism_tokens": [
+        "conservation",
+        "constraint",
+        "invariance",
+        "symmetry"
+      ],
+      "problem_tokens": [
+        "prediction",
+        "structure",
+        "verification"
+      ]
+    },
+    {
+      "id": "phys_07",
+      "name": "resonance",
+      "domain": "physics",
+      "definition": "Driving near a natural frequency amplifies response.",
+      "mechanism_tokens": [
+        "amplification",
+        "feedback",
+        "frequency",
+        "tuning"
+      ],
+      "problem_tokens": [
+        "amplification",
+        "control",
+        "selectivity"
+      ]
+    }
+  ]
+}
