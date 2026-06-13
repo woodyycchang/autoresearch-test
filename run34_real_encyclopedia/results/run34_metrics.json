@@ -1,0 +1,161 @@
+{
+  "run": "run34",
+  "bank_concepts": 314,
+  "bank_domains": 27,
+  "n_known_approaches": 119,
+  "n_labeled_fixtures": 21,
+  "merge_at_scale": {
+    "config": {
+      "merge_require_interface": true,
+      "n_bank_concepts": 314
+    },
+    "n_constructs": 10840,
+    "genuine_merge_pass": 9632,
+    "genuine_merge_rate": 0.8886,
+    "fail_reason_breakdown": {
+      "trivial_too_close": 1194,
+      "restatement_same_problem": 14
+    },
+    "cognitive_distance_genuine": {
+      "n": 9632,
+      "min": 0.56,
+      "max": 1.0,
+      "mean": 0.9565,
+      "median": 1.0,
+      "stdev": 0.0828,
+      "histogram": {
+        "[0.0,0.5)": 0,
+        "[0.5,0.6)": 2,
+        "[0.6,0.7)": 154,
+        "[0.7,0.8)": 536,
+        "[0.8,0.9)": 320,
+        "[0.9,1.0)": 8620
+      }
+    }
+  },
+  "integrity": {
+    "false_pass": 0,
+    "false_reject": 0,
+    "accuracy": 1.0,
+    "n_genuine": 18,
+    "n_nongenuine": 3
+  },
+  "niche_v6_with_scaled_registry": {
+    "determinism_rate": 1.0,
+    "pairwise_agreement": 1.0,
+    "unstable_constructs": [],
+    "false_pass_min": 0,
+    "false_pass_max": 0,
+    "false_reject_min": 0,
+    "false_reject_max": 0,
+    "false_pass_ids_seed0": [],
+    "false_reject_ids_seed0": []
+  },
+  "borderline_adjudication": {
+    "n_borderline": 5,
+    "v5_accuracy": 0.4,
+    "v6_accuracy": 1.0,
+    "detail": [
+      {
+        "id": "BN1",
+        "gt_is_niche": true,
+        "v5": "REJECT",
+        "v6": "NICHE_FOUND",
+        "v5_correct": false,
+        "v6_correct": true
+      },
+      {
+        "id": "BN2",
+        "gt_is_niche": true,
+        "v5": "REJECT",
+        "v6": "NICHE_FOUND",
+        "v5_correct": false,
+        "v6_correct": true
+      },
+      {
+        "id": "BN3",
+        "gt_is_niche": true,
+        "v5": "REJECT",
+        "v6": "NICHE_FOUND",
+        "v5_correct": false,
+        "v6_correct": true
+      },
+      {
+        "id": "BV1",
+        "gt_is_niche": false,
+        "v5": "REJECT",
+        "v6": "REJECT",
+        "v5_correct": true,
+        "v6_correct": true
+      },
+      {
+        "id": "BV2",
+        "gt_is_niche": false,
+        "v5": "REJECT",
+        "v6": "REJECT",
+        "v5_correct": true,
+        "v6_correct": true
+      }
+    ]
+  },
+  "at_scale_discrimination": {
+    "n_approaches": 119,
+    "n_genuine": 9632,
+    "niche_found": 9550,
+    "niche_pass_rate": 0.9915,
+    "reject": 82,
+    "reject_rate": 0.0085,
+    "reason_counts": {
+      "passes_all_gates": 9550,
+      "method_variant": 63,
+      "method_variant_borderline": 11,
+      "saturated_region": 8
+    },
+    "borderline_count": 27,
+    "max_similarity_distribution": {
+      "n": 9632,
+      "min": 0.0625,
+      "max": 0.9,
+      "mean": 0.292,
+      "median": 0.25,
+      "stdev": 0.136,
+      "histogram": {
+        "[0.0,0.5)": 8103,
+        "[0.5,0.6)": 1316,
+        "[0.6,0.7)": 191,
+        "[0.7,0.8)": 19,
+        "[0.8,0.9)": 2,
+        "[0.9,1.0)": 1
+      }
+    },
+    "intrinsically_novel_frac_below_0p4": 0.8076,
+    "near_miss_frac_0p5_to_0p7": 0.1565
+  },
+  "fixture_regressions_after_registry_scale": 0,
+  "coordination": {
+    "stage": "agent_coordination (Run 34: known-approach registry harvest)",
+    "harvest": {
+      "n_agents": 9,
+      "model": "opus",
+      "all_completed": 9,
+      "methods_produced_valid": 107,
+      "validation_after_merge": {
+        "bad_tokens": 0,
+        "missing_source_url": 0,
+        "duplicates_dropped": 1
+      },
+      "agents_self_corrected": 2,
+      "self_correction_examples": [
+        "control_robotics_ling: replaced a fabricated HMM URL (aclanthology.org/Q16-1018) that never appeared in search results with the real ACL/ACM paper URL it actually found",
+        "others verified each source URL against their own WebSearch output before finishing"
+      ],
+      "malformed_final_output": 0,
+      "note": "9 agents harvested 107 real published method families across 27 domains, controlled-vocab tagged + real source URLs. R3: scratch in non-git /tmp/run34_scratch."
+    },
+    "reasoning_audit": {
+      "n_agents": 5,
+      "inherited_from_run33": true,
+      "note": "Borderline audit table frozen from Run 33; reused (not re-run). Verified it still adjudicates the borderline fixtures correctly under the 119-registry (accuracy 1.0)."
+    }
+  }
+}

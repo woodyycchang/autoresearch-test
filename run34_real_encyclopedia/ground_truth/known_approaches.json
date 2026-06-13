@@ -1,0 +1,1869 @@
+{
+  "n_approaches": 119,
+  "approaches": [
+    {
+      "id": "A1_rlhf",
+      "name": "RLHF preference optimisation",
+      "mechanism_tokens": [
+        "feedback",
+        "gradient",
+        "preference",
+        "update"
+      ],
+      "problem_tokens": [
+        "alignment",
+        "control",
+        "learning"
+      ]
+    },
+    {
+      "id": "A2_rag",
+      "name": "retrieval-augmented generation",
+      "mechanism_tokens": [
+        "addressing",
+        "context",
+        "lookup",
+        "retrieval"
+      ],
+      "problem_tokens": [
+        "grounding",
+        "knowledge",
+        "memory"
+      ]
+    },
+    {
+      "id": "A3_ensemble",
+      "name": "ensemble / dropout regularisation",
+      "mechanism_tokens": [
+        "ensemble",
+        "noise",
+        "randomized",
+        "redundancy"
+      ],
+      "problem_tokens": [
+        "generalization",
+        "overfitting",
+        "robustness"
+      ]
+    },
+    {
+      "id": "A4_moe",
+      "name": "mixture-of-experts sparse routing",
+      "mechanism_tokens": [
+        "gating",
+        "routing",
+        "sparsity",
+        "specialization"
+      ],
+      "problem_tokens": [
+        "capacity",
+        "efficiency",
+        "scaling"
+      ]
+    },
+    {
+      "id": "A5_annealing",
+      "name": "annealing global optimisation",
+      "mechanism_tokens": [
+        "cooling",
+        "noise",
+        "search",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "global",
+        "local_minima",
+        "optimization"
+      ]
+    },
+    {
+      "id": "A6_homeostat",
+      "name": "homeostatic feedback control",
+      "mechanism_tokens": [
+        "error",
+        "feedback",
+        "regulation",
+        "setpoint"
+      ],
+      "problem_tokens": [
+        "control",
+        "robustness",
+        "stability"
+      ]
+    },
+    {
+      "id": "A7_ecc",
+      "name": "error-correcting redundancy coding",
+      "mechanism_tokens": [
+        "distance",
+        "encoding",
+        "recovery",
+        "redundancy"
+      ],
+      "problem_tokens": [
+        "integrity",
+        "noise",
+        "reliability"
+      ]
+    },
+    {
+      "id": "A8_active",
+      "name": "active / curriculum selection",
+      "mechanism_tokens": [
+        "ordering",
+        "query",
+        "selection",
+        "uncertainty"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "labels",
+        "learning"
+      ]
+    },
+    {
+      "id": "A9_predcoding",
+      "name": "predictive-coding compression",
+      "mechanism_tokens": [
+        "compression",
+        "error",
+        "feedback",
+        "prediction"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "learning",
+        "perception"
+      ]
+    },
+    {
+      "id": "A10_selfassembly",
+      "name": "self-assembly fabrication",
+      "mechanism_tokens": [
+        "assembly",
+        "local_rules",
+        "spontaneous",
+        "structure"
+      ],
+      "problem_tokens": [
+        "emergence",
+        "fabrication",
+        "organization"
+      ]
+    },
+    {
+      "id": "A4b_moe_capacity",
+      "name": "MoE capacity routing (near-dup of A4)",
+      "mechanism_tokens": [
+        "gating",
+        "routing",
+        "sparsity",
+        "specialization"
+      ],
+      "problem_tokens": [
+        "capacity",
+        "scaling",
+        "throughput"
+      ]
+    },
+    {
+      "id": "A9b_pred_error",
+      "name": "predictive error coding (near-dup of A9)",
+      "mechanism_tokens": [
+        "compression",
+        "error",
+        "feedback",
+        "prediction"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "fidelity",
+        "learning"
+      ]
+    },
+    {
+      "id": "astronomical_photometry",
+      "name": "Astronomical Photometry",
+      "mechanism_tokens": [
+        "filtering",
+        "frequency",
+        "measure",
+        "signal"
+      ],
+      "problem_tokens": [
+        "calibration",
+        "estimation",
+        "measurement"
+      ]
+    },
+    {
+      "id": "astronomical_spectroscopy",
+      "name": "Astronomical Spectroscopy",
+      "mechanism_tokens": [
+        "decomposition",
+        "frequency",
+        "recognition",
+        "signal"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "estimation",
+        "recognition"
+      ]
+    },
+    {
+      "id": "gravitational_lensing",
+      "name": "Gravitational Lensing",
+      "mechanism_tokens": [
+        "amplification",
+        "distortion",
+        "projection",
+        "reconstruction"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "measurement",
+        "structure"
+      ]
+    },
+    {
+      "id": "radio_aperture_synthesis",
+      "name": "Radio Interferometry Aperture Synthesis",
+      "mechanism_tokens": [
+        "combination",
+        "projection",
+        "reconstruction",
+        "signal"
+      ],
+      "problem_tokens": [
+        "fidelity",
+        "representation",
+        "resolution"
+      ]
+    },
+    {
+      "id": "chromatography_separation",
+      "name": "Chromatography",
+      "mechanism_tokens": [
+        "affinity",
+        "binding",
+        "exchange",
+        "partition",
+        "separation"
+      ],
+      "problem_tokens": [
+        "purification",
+        "selectivity",
+        "separation"
+      ]
+    },
+    {
+      "id": "flow_cytometry",
+      "name": "Flow Cytometry",
+      "mechanism_tokens": [
+        "flow",
+        "recognition",
+        "sensing",
+        "separation",
+        "signal"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "measurement",
+        "throughput"
+      ]
+    },
+    {
+      "id": "fluorescence_microscopy",
+      "name": "Fluorescence Microscopy",
+      "mechanism_tokens": [
+        "contrast",
+        "recognition",
+        "sensing",
+        "signal"
+      ],
+      "problem_tokens": [
+        "measurement",
+        "recognition",
+        "resolution"
+      ]
+    },
+    {
+      "id": "gel_electrophoresis",
+      "name": "Gel Electrophoresis",
+      "mechanism_tokens": [
+        "filtering",
+        "gradient",
+        "movement",
+        "separation"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "purification",
+        "separation"
+      ]
+    },
+    {
+      "id": "chromatography",
+      "name": "Chromatography",
+      "mechanism_tokens": [
+        "affinity",
+        "flow",
+        "partition",
+        "selection",
+        "separation"
+      ],
+      "problem_tokens": [
+        "purification",
+        "selectivity",
+        "separation"
+      ]
+    },
+    {
+      "id": "electrolysis",
+      "name": "Electrolysis",
+      "mechanism_tokens": [
+        "energy",
+        "exchange",
+        "flow",
+        "separation",
+        "transfer"
+      ],
+      "problem_tokens": [
+        "control",
+        "purification",
+        "separation"
+      ]
+    },
+    {
+      "id": "fractional_distillation",
+      "name": "Fractional Distillation",
+      "mechanism_tokens": [
+        "flow",
+        "separation",
+        "temperature",
+        "threshold",
+        "transition"
+      ],
+      "problem_tokens": [
+        "purification",
+        "selectivity",
+        "separation"
+      ]
+    },
+    {
+      "id": "nmr_spectroscopy",
+      "name": "Nuclear Magnetic Resonance Spectroscopy",
+      "mechanism_tokens": [
+        "frequency",
+        "recognition",
+        "response",
+        "signal",
+        "transition"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "recognition",
+        "structure"
+      ]
+    },
+    {
+      "id": "a_star_search",
+      "name": "A* search",
+      "mechanism_tokens": [
+        "bound",
+        "estimation",
+        "path",
+        "priming",
+        "search"
+      ],
+      "problem_tokens": [
+        "navigation",
+        "planning",
+        "search"
+      ]
+    },
+    {
+      "id": "b_tree_indexing",
+      "name": "B-tree indexing",
+      "mechanism_tokens": [
+        "balance",
+        "lookup",
+        "ordering",
+        "structure",
+        "tree"
+      ],
+      "problem_tokens": [
+        "lookup",
+        "retrieval",
+        "storage"
+      ]
+    },
+    {
+      "id": "bloom_filter_membership",
+      "name": "Bloom filter",
+      "mechanism_tokens": [
+        "compression",
+        "filtering",
+        "hashing",
+        "membership",
+        "probabilistic"
+      ],
+      "problem_tokens": [
+        "filtering",
+        "lookup",
+        "memory"
+      ]
+    },
+    {
+      "id": "dijkstra_shortest_path",
+      "name": "Dijkstra's algorithm",
+      "mechanism_tokens": [
+        "distance",
+        "iteration",
+        "ordering",
+        "path",
+        "search"
+      ],
+      "problem_tokens": [
+        "navigation",
+        "optimization",
+        "search"
+      ]
+    },
+    {
+      "id": "h_infinity_control",
+      "name": "H-infinity Control",
+      "mechanism_tokens": [
+        "bound",
+        "feedback",
+        "frequency",
+        "gain",
+        "optimization"
+      ],
+      "problem_tokens": [
+        "control",
+        "robustness",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "linear_quadratic_regulator",
+      "name": "Linear Quadratic Regulator (LQR)",
+      "mechanism_tokens": [
+        "feedback",
+        "gain",
+        "minimization",
+        "optimization",
+        "setpoint"
+      ],
+      "problem_tokens": [
+        "control",
+        "optimization",
+        "stability"
+      ]
+    },
+    {
+      "id": "model_predictive_control",
+      "name": "Model Predictive Control (MPC)",
+      "mechanism_tokens": [
+        "constraint",
+        "feedback",
+        "horizon",
+        "optimization",
+        "prediction"
+      ],
+      "problem_tokens": [
+        "constraint",
+        "control",
+        "optimization"
+      ]
+    },
+    {
+      "id": "sliding_mode_control",
+      "name": "Sliding Mode Control",
+      "mechanism_tokens": [
+        "boundary",
+        "convergence",
+        "feedback",
+        "switching",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "control",
+        "robustness",
+        "tracking"
+      ]
+    },
+    {
+      "id": "diffie_hellman_key_exchange",
+      "name": "Diffie-Hellman Key Exchange",
+      "mechanism_tokens": [
+        "agreement",
+        "difficulty",
+        "exchange",
+        "hiding",
+        "sharing"
+      ],
+      "problem_tokens": [
+        "privacy",
+        "transmission",
+        "trust"
+      ]
+    },
+    {
+      "id": "elliptic_curve_cryptography",
+      "name": "Elliptic-Curve Cryptography",
+      "mechanism_tokens": [
+        "difficulty",
+        "encoding",
+        "hiding",
+        "pairing",
+        "verification"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "privacy",
+        "verification"
+      ]
+    },
+    {
+      "id": "merkle_hash_tree",
+      "name": "Merkle Tree (Hash Tree)",
+      "mechanism_tokens": [
+        "hashing",
+        "membership",
+        "proof",
+        "tree",
+        "verification"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "integrity",
+        "verification"
+      ]
+    },
+    {
+      "id": "rsa_cryptosystem",
+      "name": "RSA Public-Key Cryptosystem",
+      "mechanism_tokens": [
+        "difficulty",
+        "encoding",
+        "hiding",
+        "pairing",
+        "verification"
+      ],
+      "problem_tokens": [
+        "privacy",
+        "transmission",
+        "verification"
+      ]
+    },
+    {
+      "id": "consistent_hashing_partition",
+      "name": "Consistent hashing",
+      "mechanism_tokens": [
+        "allocation",
+        "hashing",
+        "partition",
+        "rebalance",
+        "ring"
+      ],
+      "problem_tokens": [
+        "churn",
+        "distribution",
+        "scaling"
+      ]
+    },
+    {
+      "id": "paxos_consensus",
+      "name": "Paxos",
+      "mechanism_tokens": [
+        "agreement",
+        "commitment",
+        "redundancy",
+        "verification"
+      ],
+      "problem_tokens": [
+        "consensus",
+        "coordination",
+        "failure"
+      ]
+    },
+    {
+      "id": "raft_consensus",
+      "name": "Raft",
+      "mechanism_tokens": [
+        "agreement",
+        "history",
+        "logging",
+        "replay",
+        "selection"
+      ],
+      "problem_tokens": [
+        "consensus",
+        "coordination",
+        "reliability"
+      ]
+    },
+    {
+      "id": "vector_clocks_causality",
+      "name": "Vector clocks",
+      "mechanism_tokens": [
+        "accumulation",
+        "dependency",
+        "history",
+        "ordering"
+      ],
+      "problem_tokens": [
+        "consistency",
+        "ordering",
+        "tracking"
+      ]
+    },
+    {
+      "id": "food_web_network_analysis",
+      "name": "Food-web network analysis",
+      "mechanism_tokens": [
+        "connectivity",
+        "flow",
+        "hub",
+        "network",
+        "structure"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "stability",
+        "structure"
+      ]
+    },
+    {
+      "id": "mark_recapture_estimation",
+      "name": "Mark-recapture population estimation",
+      "mechanism_tokens": [
+        "estimation",
+        "probabilistic",
+        "randomized",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "sampling",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "occupancy_modeling",
+      "name": "Occupancy modeling",
+      "mechanism_tokens": [
+        "estimation",
+        "probabilistic",
+        "sensing",
+        "weighting"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "sampling",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "species_distribution_modeling",
+      "name": "Species distribution modeling",
+      "mechanism_tokens": [
+        "dependence",
+        "estimation",
+        "prediction",
+        "projection"
+      ],
+      "problem_tokens": [
+        "distribution",
+        "fitting",
+        "prediction"
+      ]
+    },
+    {
+      "id": "difference_in_differences",
+      "name": "Difference-in-Differences Estimation",
+      "mechanism_tokens": [
+        "contrast",
+        "estimation",
+        "history",
+        "transition"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "estimation",
+        "validity"
+      ]
+    },
+    {
+      "id": "input_output_analysis",
+      "name": "Input-Output (Leontief) Analysis",
+      "mechanism_tokens": [
+        "exchange",
+        "flow",
+        "network",
+        "propagation",
+        "structure"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "analysis",
+        "structure"
+      ]
+    },
+    {
+      "id": "instrumental_variables",
+      "name": "Instrumental Variables Estimation",
+      "mechanism_tokens": [
+        "correlation",
+        "estimation",
+        "indirect",
+        "leverage",
+        "projection"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "noise",
+        "validity"
+      ]
+    },
+    {
+      "id": "vector_autoregression",
+      "name": "Vector Autoregression (VAR)",
+      "mechanism_tokens": [
+        "correlation",
+        "dependence",
+        "history",
+        "prediction",
+        "sequence"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "estimation",
+        "prediction"
+      ]
+    },
+    {
+      "id": "case_control_study",
+      "name": "Case-control study design",
+      "mechanism_tokens": [
+        "estimation",
+        "history",
+        "pairing",
+        "selection"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "risk",
+        "selection"
+      ]
+    },
+    {
+      "id": "cohort_study",
+      "name": "Cohort study design",
+      "mechanism_tokens": [
+        "estimation",
+        "history",
+        "sequence",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "prediction",
+        "risk"
+      ]
+    },
+    {
+      "id": "contact_tracing",
+      "name": "Contact tracing",
+      "mechanism_tokens": [
+        "network",
+        "path",
+        "propagation",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "control",
+        "spread",
+        "transmission"
+      ]
+    },
+    {
+      "id": "sir_compartmental_model",
+      "name": "SIR compartmental modeling",
+      "mechanism_tokens": [
+        "epidemic",
+        "flow",
+        "propagation",
+        "threshold",
+        "transition"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "prediction",
+        "spread"
+      ]
+    },
+    {
+      "id": "fictitious_play",
+      "name": "Fictitious Play",
+      "mechanism_tokens": [
+        "adaptation",
+        "convergence",
+        "history",
+        "iteration",
+        "response"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "equilibrium",
+        "learning"
+      ]
+    },
+    {
+      "id": "nash_bargaining_solution",
+      "name": "Nash Bargaining Solution",
+      "mechanism_tokens": [
+        "agreement",
+        "extremum",
+        "fairness",
+        "tradeoff",
+        "valuation"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "equilibrium",
+        "fairness"
+      ]
+    },
+    {
+      "id": "replicator_dynamics",
+      "name": "Replicator Dynamics",
+      "mechanism_tokens": [
+        "competition",
+        "fitness",
+        "selection",
+        "stability",
+        "variation"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "emergence",
+        "equilibrium"
+      ]
+    },
+    {
+      "id": "vickrey_vcg_mechanism",
+      "name": "Vickrey-Clarke-Groves Auction Mechanism",
+      "mechanism_tokens": [
+        "bidding",
+        "design",
+        "incentive",
+        "reveal",
+        "valuation"
+      ],
+      "problem_tokens": [
+        "incentive",
+        "revenue",
+        "truthfulness"
+      ]
+    },
+    {
+      "id": "crispr_cas9_genome_editing",
+      "name": "CRISPR-Cas9 Genome Editing",
+      "mechanism_tokens": [
+        "addressing",
+        "binding",
+        "programmed",
+        "recognition",
+        "selection"
+      ],
+      "problem_tokens": [
+        "design",
+        "selectivity",
+        "targeting"
+      ]
+    },
+    {
+      "id": "polymerase_chain_reaction",
+      "name": "Polymerase Chain Reaction (PCR)",
+      "mechanism_tokens": [
+        "amplification",
+        "binding",
+        "cyclic",
+        "iteration",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "amplification",
+        "analysis",
+        "sequence"
+      ]
+    },
+    {
+      "id": "rna_interference",
+      "name": "RNA Interference (RNAi)",
+      "mechanism_tokens": [
+        "inhibition",
+        "pairing",
+        "recognition",
+        "regulation",
+        "selection"
+      ],
+      "problem_tokens": [
+        "regulation",
+        "selectivity",
+        "targeting"
+      ]
+    },
+    {
+      "id": "sanger_sequencing",
+      "name": "Sanger Sequencing",
+      "mechanism_tokens": [
+        "gating",
+        "ordering",
+        "selection",
+        "separation"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "resolution",
+        "sequence"
+      ]
+    },
+    {
+      "id": "gps_geodesy",
+      "name": "GPS Geodesy",
+      "mechanism_tokens": [
+        "estimation",
+        "movement",
+        "signal",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "measurement",
+        "tracking"
+      ]
+    },
+    {
+      "id": "radiometric_dating",
+      "name": "Radiometric Dating",
+      "mechanism_tokens": [
+        "accumulation",
+        "decrease",
+        "frequency",
+        "process"
+      ],
+      "problem_tokens": [
+        "calibration",
+        "estimation",
+        "measurement"
+      ]
+    },
+    {
+      "id": "satellite_remote_sensing",
+      "name": "Satellite Remote Sensing",
+      "mechanism_tokens": [
+        "frequency",
+        "reconstruction",
+        "sensing",
+        "signal"
+      ],
+      "problem_tokens": [
+        "measurement",
+        "monitoring",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "seismic_tomography",
+      "name": "Seismic Tomography",
+      "mechanism_tokens": [
+        "estimation",
+        "projection",
+        "propagation",
+        "reconstruction"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "resolution",
+        "structure"
+      ]
+    },
+    {
+      "id": "elisa_immunosorbent_assay",
+      "name": "Enzyme-Linked Immunosorbent Assay (ELISA)",
+      "mechanism_tokens": [
+        "affinity",
+        "amplification",
+        "binding",
+        "recognition",
+        "signal"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "measurement",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "hybridoma_monoclonal_antibody",
+      "name": "Hybridoma Monoclonal Antibody Production",
+      "mechanism_tokens": [
+        "affinity",
+        "fusion",
+        "recognition",
+        "selection",
+        "specialization"
+      ],
+      "problem_tokens": [
+        "generation",
+        "purification",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "immunohistochemistry_staining",
+      "name": "Immunohistochemistry (IHC)",
+      "mechanism_tokens": [
+        "affinity",
+        "binding",
+        "contrast",
+        "recognition",
+        "signal"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "recognition",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "western_blot_immunoblotting",
+      "name": "Western Blot (Immunoblotting)",
+      "mechanism_tokens": [
+        "binding",
+        "recognition",
+        "separation",
+        "signal",
+        "transfer"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "selectivity",
+        "separation"
+      ]
+    },
+    {
+      "id": "arithmetic_coding",
+      "name": "Arithmetic Coding",
+      "mechanism_tokens": [
+        "compression",
+        "encoding",
+        "entropy",
+        "partition",
+        "probabilistic"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "encoding",
+        "information"
+      ]
+    },
+    {
+      "id": "huffman_coding",
+      "name": "Huffman Coding",
+      "mechanism_tokens": [
+        "compression",
+        "encoding",
+        "frequency",
+        "tree",
+        "weighting"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "encoding",
+        "storage"
+      ]
+    },
+    {
+      "id": "lempel_ziv_lz77",
+      "name": "Lempel-Ziv (LZ77) Compression",
+      "mechanism_tokens": [
+        "compression",
+        "dedup",
+        "lookup",
+        "redundancy",
+        "rolling"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "encoding",
+        "storage"
+      ]
+    },
+    {
+      "id": "viterbi_algorithm",
+      "name": "Viterbi Algorithm",
+      "mechanism_tokens": [
+        "optimization",
+        "path",
+        "prediction",
+        "recursion",
+        "sequence"
+      ],
+      "problem_tokens": [
+        "noise",
+        "recovery",
+        "sequence"
+      ]
+    },
+    {
+      "id": "dependency_parsing",
+      "name": "Dependency Parsing",
+      "mechanism_tokens": [
+        "dependency",
+        "recognition",
+        "search",
+        "structure",
+        "tree"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "representation",
+        "structure"
+      ]
+    },
+    {
+      "id": "finite_state_morphology",
+      "name": "Finite-State Morphology",
+      "mechanism_tokens": [
+        "composition",
+        "recognition",
+        "rules",
+        "structure",
+        "transition"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "recognition",
+        "structure"
+      ]
+    },
+    {
+      "id": "hmm_pos_tagging",
+      "name": "Hidden Markov Model POS Tagging",
+      "mechanism_tokens": [
+        "estimation",
+        "hidden",
+        "probabilistic",
+        "sequence",
+        "transition"
+      ],
+      "problem_tokens": [
+        "labels",
+        "recognition",
+        "sequence"
+      ]
+    },
+    {
+      "id": "ngram_language_model",
+      "name": "N-gram Language Model",
+      "mechanism_tokens": [
+        "estimation",
+        "history",
+        "prediction",
+        "probabilistic",
+        "sequence"
+      ],
+      "problem_tokens": [
+        "generation",
+        "prediction",
+        "sequence"
+      ]
+    },
+    {
+      "id": "adam_optimizer",
+      "name": "Adam Optimizer",
+      "mechanism_tokens": [
+        "acceleration",
+        "accumulation",
+        "adaptation",
+        "gradient",
+        "tuning"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "learning",
+        "optimization"
+      ]
+    },
+    {
+      "id": "batch_normalization",
+      "name": "Batch Normalization",
+      "mechanism_tokens": [
+        "acceleration",
+        "aggregation",
+        "scale",
+        "shift",
+        "stability"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "initialization",
+        "stability"
+      ]
+    },
+    {
+      "id": "support_vector_machine",
+      "name": "Support Vector Machine",
+      "mechanism_tokens": [
+        "boundary",
+        "optimization",
+        "projection",
+        "selection",
+        "separation"
+      ],
+      "problem_tokens": [
+        "generalization",
+        "optimization",
+        "recognition"
+      ]
+    },
+    {
+      "id": "variational_autoencoder",
+      "name": "Variational Autoencoder",
+      "mechanism_tokens": [
+        "compression",
+        "embedding",
+        "probabilistic",
+        "reconstruction",
+        "variational"
+      ],
+      "problem_tokens": [
+        "dimensionality",
+        "generation",
+        "representation"
+      ]
+    },
+    {
+      "id": "chemical_vapor_deposition",
+      "name": "Chemical Vapor Deposition",
+      "mechanism_tokens": [
+        "accumulation",
+        "assembly",
+        "flow",
+        "process",
+        "propagation"
+      ],
+      "problem_tokens": [
+        "fabrication",
+        "growth",
+        "quality"
+      ]
+    },
+    {
+      "id": "electron_microscopy",
+      "name": "Electron Microscopy",
+      "mechanism_tokens": [
+        "contrast",
+        "recognition",
+        "scale",
+        "signal"
+      ],
+      "problem_tokens": [
+        "measurement",
+        "recognition",
+        "resolution"
+      ]
+    },
+    {
+      "id": "sintering",
+      "name": "Sintering",
+      "mechanism_tokens": [
+        "aggregation",
+        "binding",
+        "consolidation",
+        "diffusion",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "defects",
+        "fabrication",
+        "strength"
+      ]
+    },
+    {
+      "id": "xray_diffraction",
+      "name": "X-ray Diffraction",
+      "mechanism_tokens": [
+        "contrast",
+        "order",
+        "recognition",
+        "signal",
+        "structure"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "measurement",
+        "structure"
+      ]
+    },
+    {
+      "id": "fast_fourier_transform",
+      "name": "Fast Fourier Transform",
+      "mechanism_tokens": [
+        "combination",
+        "decomposition",
+        "frequency",
+        "recursion"
+      ],
+      "problem_tokens": [
+        "complexity",
+        "efficiency",
+        "encoding"
+      ]
+    },
+    {
+      "id": "finite_element_method",
+      "name": "Finite Element Method",
+      "mechanism_tokens": [
+        "approximation",
+        "basis",
+        "decomposition",
+        "partition",
+        "variational"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "solving",
+        "structure"
+      ]
+    },
+    {
+      "id": "monte_carlo_integration",
+      "name": "Monte Carlo Integration",
+      "mechanism_tokens": [
+        "estimation",
+        "expectation",
+        "probabilistic",
+        "randomized"
+      ],
+      "problem_tokens": [
+        "dimensionality",
+        "estimation",
+        "sampling"
+      ]
+    },
+    {
+      "id": "newtons_method",
+      "name": "Newton's Method (Newton-Raphson)",
+      "mechanism_tokens": [
+        "approximation",
+        "convergence",
+        "derivative",
+        "iteration"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "estimation",
+        "solving"
+      ]
+    },
+    {
+      "id": "eeg_spectral_analysis",
+      "name": "EEG spectral analysis",
+      "mechanism_tokens": [
+        "cyclic",
+        "decomposition",
+        "filtering",
+        "frequency",
+        "signal"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "encoding",
+        "measurement"
+      ]
+    },
+    {
+      "id": "fmri_bold_imaging",
+      "name": "fMRI BOLD functional imaging",
+      "mechanism_tokens": [
+        "correlation",
+        "encoding",
+        "flow",
+        "response",
+        "signal"
+      ],
+      "problem_tokens": [
+        "measurement",
+        "representation",
+        "resolution"
+      ]
+    },
+    {
+      "id": "optogenetics_control",
+      "name": "Optogenetics neural control",
+      "mechanism_tokens": [
+        "gating",
+        "modulation",
+        "selection",
+        "signaling",
+        "switching"
+      ],
+      "problem_tokens": [
+        "control",
+        "selectivity",
+        "targeting"
+      ]
+    },
+    {
+      "id": "patch_clamp_electrophysiology",
+      "name": "Patch clamp electrophysiology",
+      "mechanism_tokens": [
+        "gating",
+        "sensing",
+        "signal",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "measurement",
+        "noise",
+        "resolution"
+      ]
+    },
+    {
+      "id": "dynamic_programming_bellman",
+      "name": "Dynamic Programming (Bellman)",
+      "mechanism_tokens": [
+        "decomposition",
+        "memory",
+        "optimization",
+        "recursion",
+        "reuse"
+      ],
+      "problem_tokens": [
+        "optimization",
+        "planning",
+        "solving"
+      ]
+    },
+    {
+      "id": "network_flow_max_flow_min_cut",
+      "name": "Network Flow (Max-Flow Min-Cut)",
+      "mechanism_tokens": [
+        "capacity",
+        "duality",
+        "flow",
+        "network",
+        "path"
+      ],
+      "problem_tokens": [
+        "allocation",
+        "capacity",
+        "optimization"
+      ]
+    },
+    {
+      "id": "queueing_theory",
+      "name": "Queueing Theory",
+      "mechanism_tokens": [
+        "capacity",
+        "probabilistic",
+        "queue",
+        "saturation",
+        "scheduling"
+      ],
+      "problem_tokens": [
+        "capacity",
+        "latency",
+        "throughput"
+      ]
+    },
+    {
+      "id": "branch_and_bound",
+      "name": "Branch and bound",
+      "mechanism_tokens": [
+        "bound",
+        "decomposition",
+        "pruning",
+        "search",
+        "tree"
+      ],
+      "problem_tokens": [
+        "intractable",
+        "optimization",
+        "search"
+      ]
+    },
+    {
+      "id": "interior_point_method",
+      "name": "Interior-point method",
+      "mechanism_tokens": [
+        "barrier",
+        "constraint",
+        "convergence",
+        "gradient",
+        "iteration"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "optimization",
+        "solving"
+      ]
+    },
+    {
+      "id": "lagrangian_relaxation",
+      "name": "Lagrangian relaxation",
+      "mechanism_tokens": [
+        "bound",
+        "constraint",
+        "duality",
+        "relaxation",
+        "weighting"
+      ],
+      "problem_tokens": [
+        "constraint",
+        "optimization",
+        "solving"
+      ]
+    },
+    {
+      "id": "simplex_method_lp",
+      "name": "Simplex method",
+      "mechanism_tokens": [
+        "boundary",
+        "extremum",
+        "iteration",
+        "search"
+      ],
+      "problem_tokens": [
+        "constraint",
+        "optimization",
+        "solving"
+      ]
+    },
+    {
+      "id": "density_functional_theory",
+      "name": "Density Functional Theory",
+      "mechanism_tokens": [
+        "approximation",
+        "density",
+        "eigen",
+        "energy",
+        "minimization"
+      ],
+      "problem_tokens": [
+        "complexity",
+        "optimization",
+        "structure"
+      ]
+    },
+    {
+      "id": "molecular_dynamics_simulation",
+      "name": "Molecular Dynamics Simulation",
+      "mechanism_tokens": [
+        "ensemble",
+        "flow",
+        "iteration",
+        "movement",
+        "temperature"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "prediction",
+        "state"
+      ]
+    },
+    {
+      "id": "monte_carlo_simulation",
+      "name": "Monte Carlo Simulation",
+      "mechanism_tokens": [
+        "convergence",
+        "estimation",
+        "expectation",
+        "probabilistic",
+        "randomized"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "intractable",
+        "sampling"
+      ]
+    },
+    {
+      "id": "perturbation_theory",
+      "name": "Perturbation Theory",
+      "mechanism_tokens": [
+        "approximation",
+        "combination",
+        "derivative",
+        "iteration",
+        "relaxation"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "convergence",
+        "solving"
+      ]
+    },
+    {
+      "id": "image_based_visual_servoing",
+      "name": "Visual Servoing",
+      "mechanism_tokens": [
+        "error",
+        "feedback",
+        "gain",
+        "sensing",
+        "tracking"
+      ],
+      "problem_tokens": [
+        "control",
+        "perception",
+        "tracking"
+      ]
+    },
+    {
+      "id": "inverse_kinematics",
+      "name": "Inverse Kinematics",
+      "mechanism_tokens": [
+        "approximation",
+        "constraint",
+        "estimation",
+        "iteration",
+        "optimization"
+      ],
+      "problem_tokens": [
+        "constraint",
+        "control",
+        "solving"
+      ]
+    },
+    {
+      "id": "rapidly_exploring_random_tree",
+      "name": "Rapidly-exploring Random Tree (RRT) Motion Planning",
+      "mechanism_tokens": [
+        "incremental",
+        "path",
+        "randomized",
+        "search",
+        "tree"
+      ],
+      "problem_tokens": [
+        "navigation",
+        "planning",
+        "search"
+      ]
+    },
+    {
+      "id": "simultaneous_localization_mapping",
+      "name": "Simultaneous Localization and Mapping (SLAM)",
+      "mechanism_tokens": [
+        "estimation",
+        "filtering",
+        "structure",
+        "tracking",
+        "update"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "navigation",
+        "state"
+      ]
+    },
+    {
+      "id": "compressed_sensing",
+      "name": "Compressed Sensing",
+      "mechanism_tokens": [
+        "compression",
+        "optimization",
+        "reconstruction",
+        "sensing",
+        "sparsity"
+      ],
+      "problem_tokens": [
+        "efficiency",
+        "recovery",
+        "sampling"
+      ]
+    },
+    {
+      "id": "fourier_transform",
+      "name": "Fourier Transform",
+      "mechanism_tokens": [
+        "basis",
+        "decomposition",
+        "filtering",
+        "frequency",
+        "projection"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "filtering",
+        "representation"
+      ]
+    },
+    {
+      "id": "matched_filter",
+      "name": "Matched Filter",
+      "mechanism_tokens": [
+        "correlation",
+        "filtering",
+        "gain",
+        "signal",
+        "threshold"
+      ],
+      "problem_tokens": [
+        "noise",
+        "recognition",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "wavelet_transform",
+      "name": "Wavelet Transform",
+      "mechanism_tokens": [
+        "basis",
+        "decomposition",
+        "filtering",
+        "frequency",
+        "scale"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "noise",
+        "resolution"
+      ]
+    },
+    {
+      "id": "agent_based_modeling",
+      "name": "Agent-Based Modeling",
+      "mechanism_tokens": [
+        "collective",
+        "local_rules",
+        "process",
+        "propagation"
+      ],
+      "problem_tokens": [
+        "dynamics",
+        "emergence",
+        "structure"
+      ]
+    },
+    {
+      "id": "ethnographic_fieldwork",
+      "name": "Ethnographic Participant Observation",
+      "mechanism_tokens": [
+        "context",
+        "history",
+        "recognition",
+        "sensing"
+      ],
+      "problem_tokens": [
+        "context",
+        "knowledge",
+        "representation"
+      ]
+    },
+    {
+      "id": "social_network_analysis",
+      "name": "Social Network Analysis",
+      "mechanism_tokens": [
+        "connectivity",
+        "eigen",
+        "hub",
+        "network",
+        "structure"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "clustering",
+        "structure"
+      ]
+    },
+    {
+      "id": "survey_probability_sampling",
+      "name": "Survey Probability Sampling",
+      "mechanism_tokens": [
+        "estimation",
+        "partition",
+        "randomized",
+        "selection",
+        "weighting"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "representation",
+        "sampling"
+      ]
+    },
+    {
+      "id": "bootstrap_resampling",
+      "name": "Bootstrap Resampling",
+      "mechanism_tokens": [
+        "accumulation",
+        "estimation",
+        "iteration",
+        "probabilistic",
+        "randomized"
+      ],
+      "problem_tokens": [
+        "estimation",
+        "sampling",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "expectation_maximization",
+      "name": "Expectation-Maximization Algorithm",
+      "mechanism_tokens": [
+        "convergence",
+        "estimation",
+        "expectation",
+        "hidden",
+        "iteration"
+      ],
+      "problem_tokens": [
+        "clustering",
+        "convergence",
+        "estimation"
+      ]
+    },
+    {
+      "id": "markov_chain_monte_carlo",
+      "name": "Markov Chain Monte Carlo",
+      "mechanism_tokens": [
+        "convergence",
+        "equilibrium",
+        "iteration",
+        "probabilistic",
+        "randomized"
+      ],
+      "problem_tokens": [
+        "convergence",
+        "estimation",
+        "sampling"
+      ]
+    },
+    {
+      "id": "principal_component_analysis",
+      "name": "Principal Component Analysis",
+      "mechanism_tokens": [
+        "compression",
+        "decomposition",
+        "eigen",
+        "projection",
+        "variation"
+      ],
+      "problem_tokens": [
+        "analysis",
+        "dimensionality",
+        "representation"
+      ]
+    }
+  ]
+}
