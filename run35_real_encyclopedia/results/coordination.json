@@ -1,0 +1,26 @@
+{
+  "stage": "agent_coordination (Run 35: structural-ontology tagging + value audit)",
+  "ontology_tagging": {
+    "n_agents": 6,
+    "model": "opus",
+    "all_completed": 6,
+    "tokens_tagged": 349,
+    "mech_preconditions": 219,
+    "problem_affordances": 130,
+    "validation": {
+      "invalid_property_tags": 0,
+      "missing_tokens": 0
+    },
+    "note": "6 agents tagged 219 mechanism tokens (preconditions) + 130 problem tokens (affordances) against a fixed 24-property structural vocabulary; 0 invalid tags."
+  },
+  "value_audit": {
+    "n_agents": 5,
+    "model": "opus",
+    "all_completed": 5,
+    "band_constructs_audited": 17,
+    "well_formed": 17,
+    "malformed": 0,
+    "accuracy_vs_value_gt_on_band": "13/17",
+    "note": "5 agents adjudicated the 17 borderline value constructs from NEUTRAL inputs. Recovered all 6 borderline VALUABLE cases; the 4 disagreements are debatable analogies (annealing->auction etc.). Frozen -> value/frozen_value_audit.json."
+  }
+}

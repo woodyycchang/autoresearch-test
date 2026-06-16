@@ -1,0 +1,107 @@
+{
+  "run": "run33",
+  "metric_1_decision_accuracy": {
+    "niche_false_pass_reject_trajectory": [
+      {
+        "run": "run30",
+        "false_pass": 1,
+        "inherited": true
+      },
+      {
+        "run": "run31",
+        "false_pass": 0,
+        "inherited": true
+      },
+      {
+        "run": "run32_v5",
+        "false_pass": 0,
+        "false_reject": 0,
+        "n_fixtures": 16,
+        "prior": true
+      },
+      {
+        "run": "run33_v5",
+        "false_pass": [
+          0,
+          0
+        ],
+        "false_reject": [
+          3,
+          3
+        ],
+        "false_reject_ids": [
+          "BN1",
+          "BN2",
+          "BN3"
+        ],
+        "n_fixtures": 21,
+        "note": "Run 33 added 5 borderline-adjudication probes; inherited v5 now FALSE-REJECTS the 3 borderline niches (a new failure mode the old benchmark lacked)."
+      },
+      {
+        "run": "run33_v6",
+        "false_pass": [
+          0,
+          0
+        ],
+        "false_reject": [
+          0,
+          0
+        ],
+        "note": "audit-gating -> 0 false-pass, 0 false-reject on the hardest probe set yet."
+      }
+    ],
+    "verdict": "improving: v6 returns to 0/0 on a strictly harder, larger benchmark."
+  },
+  "metric_2_param_change_magnitude": {
+    "continuous_scalar_L1": {
+      "v1_to_v2": 0.21,
+      "v2_to_v3": 0.19,
+      "v3_to_v4": 0.08,
+      "v4_to_v5": 0.0,
+      "v5_to_v6": 0.0
+    },
+    "trajectory": "0.21 -> 0.19 -> 0.08 -> 0.00 -> 0.00 (converged; two consecutive cycles at 0.00)",
+    "v5_to_v6_structural_changes": [
+      "borderline_rule",
+      "audit_confidence_gate"
+    ],
+    "verdict": "converged on continuous scalars; gains remain structural/process."
+  },
+  "metric_3_determinism": {
+    "run32": {
+      "v4": 0.875,
+      "v5": 1.0,
+      "prior": true
+    },
+    "run33_v5": 1.0,
+    "run33_v6": 1.0,
+    "run33_scale_v6_agree": true,
+    "run33_scale_genuine_merges": 9632,
+    "verdict": "stable at 1.0; holds at scale (9632 generated merges agree across seeds) AND with the LLM audit wired in (frozen table)."
+  },
+  "metric_4_coordination_and_borderline": {
+    "run32_coordination_reliability": 1.0,
+    "run33_audit_reliability": 1.0,
+    "run33_harvest_agents_completed": 13,
+    "run33_harvest_self_corrected": 5,
+    "NEW_borderline_adjudication_accuracy": {
+      "v5_blanket": 0.4,
+      "v6_audit_gated": 1.0
+    },
+    "verdict": "reliable; NEW borderline-adjudication accuracy 0.4 -> 1.0 via the reasoning-audit."
+  },
+  "scale": {
+    "bank_concepts": 314,
+    "bank_domains": 27,
+    "prior_bank_concepts_run32": 80,
+    "merge_genuine_rate_run32_vs_run33": [
+      0.8756,
+      0.8886
+    ],
+    "borderline_fraction_at_scale": 0.0007,
+    "niche_found_fraction_at_scale": 0.9977,
+    "note": "merge quality held (88.86% vs 87.56%) at 3.9x scale; integrity + determinism held."
+  },
+  "overall_verdict": "CONVERGED / approaching production-ready: all 4 metrics are at ceiling and STABLE across two consecutive cycles (param-L1 0.00 x2, determinism 1.0 x2 incl at scale, decision accuracy 0/0 at the active version on growing benchmarks, coordination reliable). Each cycle still surfaces ONE new failure mode when the benchmark is hardened, and the pipeline absorbs it without regressing prior fixes.",
+  "next_target": "The 12-family known-approach registry is now the binding constraint: at scale 99.8% of generated merges pass as niches because prior-art coverage is thin. Scale the registry to a realistic method landscape (and auto-populate audit entries for the 0.07% borderline-at-scale) so variant detection is stress-tested against dense prior art."
+}

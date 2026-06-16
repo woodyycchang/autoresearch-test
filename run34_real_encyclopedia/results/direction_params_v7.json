@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "lineage": "real-encyclopedia direction_params",
+  "version": 7,
+  "version_label": "v7 (Run 34: registry scaled 12->119; params unchanged -- stable)",
+  "note": "Run 34 inherits v6 + 314 bank + frozen audit table; scales the known-approach registry 12 -> 100+. Scalars converged; expect structural changes only (R14).",
+  "params": {
+    "merge_distance_min": 0.55,
+    "trivial_problem_overlap_max": 0.6,
+    "variant_similarity_threshold": 0.7,
+    "variant_w_mech": 0.5,
+    "variant_w_problem": 0.5,
+    "saturation_band": 0.5,
+    "saturation_max_neighbors": 3,
+    "confidence_margin": 0.05,
+    "variant_rule_mode": "two_factor",
+    "borderline_rule": "audit_gated",
+    "mech_match_min": 0.6,
+    "problem_echo_min": 0.3,
+    "merge_distance_target": 0.7,
+    "merge_steer_strength": 0.0,
+    "merge_require_interface": true,
+    "audit_confidence_gate": 0.75
+  },
+  "param_descriptions": {
+    "merge_distance_min": "Minimum cognitive distance for a construct to count as a genuine (non-trivial) merge.",
+    "trivial_problem_overlap_max": "If the two parents' problem-token Jaccard exceeds this, the construct is a restatement, not a merge.",
+    "variant_similarity_threshold": "R13 variant gate: if a construct's similarity to any known approach >= this, it is a method-variant, not a niche. Lower = stricter.",
+    "variant_w_mech": "Weight on mechanism-token Jaccard inside variant similarity.",
+    "variant_w_problem": "Weight on problem-token Jaccard inside variant similarity.",
+    "saturation_band": "Similarity above which a known approach counts as a 'neighbor' for saturation.",
+    "saturation_max_neighbors": "If a construct has more neighbors than this, its region is saturated -> not a niche.",
+    "confidence_margin": "Half-width of the borderline band around variant_similarity_threshold. Verdicts inside the band are 'borderline'.",
+    "variant_rule_mode": "'scalar' (v4: combined-similarity threshold only) or 'two_factor' (v5: require mechanism reuse AND problem echo).",
+    "borderline_rule": "How borderline verdicts are resolved. 'neighbor_set_first' (v4) iterates a Python set of neighbour ids -> PYTHONHASHSEED-dependent flip (the Run-27 determinism hazard). 'conservative_reject' (v5) is order-invariant.",
+    "mech_match_min": "v5 two-factor: min mechanism-token Jaccard with a known approach to count as mechanism reuse.",
+    "problem_echo_min": "v5 two-factor: min problem-token Jaccard with that same approach to count as a problem echo (vs a novel application).",
+    "merge_distance_target": "Distance the merge engine steers generated pairs toward.",
+    "merge_steer_strength": "0..1 fraction of generation that is distance-steered vs uniform-random pairing."
+  },
+  "version_history": [
+    {
+      "version": 1,
+      "label": "v1 (run_029 baseline)",
+      "variant_similarity_threshold": 0.85,
+      "merge_distance_min": 0.45,
+      "confidence_margin": 0.08,
+      "saturation_max_neighbors": 5,
+      "merge_steer_strength": 0.0,
+      "rationale": "Initial loose gate; over-passed incremental variants (e.g. the M032 family)."
+    },
+    {
+      "version": 2,
+      "label": "v2 (run_029)",
+      "variant_similarity_threshold": 0.8,
+      "merge_distance_min": 0.5,
+      "confidence_margin": 0.07,
+      "saturation_max_neighbors": 4,
+      "merge_steer_strength": 0.0,
+      "rationale": "Tightened variant gate after first false-pass review."
+    },
+    {
+      "version": 3,
+      "label": "v3 (run_029 -> run30)",
+      "variant_similarity_threshold": 0.74,
+      "merge_distance_min": 0.52,
+      "confidence_margin": 0.06,
+      "saturation_max_neighbors": 3,
+      "merge_steer_strength": 0.0,
+      "rationale": "Run 30 still false-passed M032 once; gate lowered but not enough."
+    },
+    {
+      "version": 4,
+      "label": "v4 (strict R13, run31)",
+      "variant_similarity_threshold": 0.7,
+      "merge_distance_min": 0.55,
+      "confidence_margin": 0.05,
+      "saturation_max_neighbors": 3,
+      "merge_steer_strength": 0.0,
+      "rationale": "Strict R13 variant rule; Run 31 caught M032 (0 false-pass). Inherited state for Run 32."
+    },
+    {
+      "version": 5,
+      "label": "v5 (Run 32: two-factor variant rule + deterministic borderline)",
+      "variant_similarity_threshold": 0.7,
+      "merge_distance_min": 0.55,
+      "confidence_margin": 0.05,
+      "saturation_max_neighbors": 3,
+      "merge_steer_strength": 0.0,
+      "rationale": "Run 32 structural upgrade: scalar->two_factor variant rule, neighbor_set_first->conservative_reject borderline rule, merge_require_interface=True. Continuous scalars held (converged). 0 false-pass/reject, determinism 1.0."
+    },
+    {
+      "version": 6,
+      "label": "v6 (Run 33: audit-gated borderline adjudication)",
+      "variant_similarity_threshold": 0.7,
+      "merge_distance_min": 0.55,
+      "confidence_margin": 0.05,
+      "saturation_max_neighbors": 3,
+      "merge_steer_strength": 0.0,
+      "rationale": "Run 33 wired the frozen reasoning-audit into the borderline branch; borderline accuracy 0.4->1.0; determinism preserved; scalars held (converged)."
+    }
+  ]
+}
