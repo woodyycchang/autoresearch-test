@@ -1,0 +1,160 @@
+{
+  "changes": [
+    {
+      "param": "(known_approach_registry)",
+      "from": 12,
+      "to": 119,
+      "held_params": true,
+      "motivating_measurement": "results/run34_metrics.json :: at_scale_discrimination (reject_rate 0.0023 -> 0.0085; regressions=0)",
+      "rationale": "process/data change: registry scaled 12->119 real families. It improved at-scale discrimination (3.7x more prior-art rejections) with ZERO fixture regressions and required NO param change -- the existing v6 params handle 10x prior-art correctly."
+    },
+    {
+      "param": "merge_distance_min",
+      "from": 0.55,
+      "to": 0.55,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "trivial_problem_overlap_max",
+      "from": 0.6,
+      "to": 0.6,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "variant_similarity_threshold",
+      "from": 0.7,
+      "to": 0.7,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "variant_w_mech",
+      "from": 0.5,
+      "to": 0.5,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "variant_w_problem",
+      "from": 0.5,
+      "to": 0.5,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "saturation_band",
+      "from": 0.5,
+      "to": 0.5,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "saturation_max_neighbors",
+      "from": 3,
+      "to": 3,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "confidence_margin",
+      "from": 0.05,
+      "to": 0.05,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "variant_rule_mode",
+      "from": "two_factor",
+      "to": "two_factor",
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "borderline_rule",
+      "from": "audit_gated",
+      "to": "audit_gated",
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "mech_match_min",
+      "from": 0.6,
+      "to": 0.6,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "problem_echo_min",
+      "from": 0.3,
+      "to": 0.3,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "merge_distance_target",
+      "from": 0.7,
+      "to": 0.7,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "merge_steer_strength",
+      "from": 0.0,
+      "to": 0.0,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "merge_require_interface",
+      "from": true,
+      "to": true,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    },
+    {
+      "param": "audit_confidence_gate",
+      "from": 0.75,
+      "to": 0.75,
+      "held": true,
+      "rationale": "no Run-34 measurement motivated a change (held => converged/stable)."
+    }
+  ],
+  "v6_params": {
+    "merge_distance_min": 0.55,
+    "trivial_problem_overlap_max": 0.6,
+    "variant_similarity_threshold": 0.7,
+    "variant_w_mech": 0.5,
+    "variant_w_problem": 0.5,
+    "saturation_band": 0.5,
+    "saturation_max_neighbors": 3,
+    "confidence_margin": 0.05,
+    "variant_rule_mode": "two_factor",
+    "borderline_rule": "audit_gated",
+    "mech_match_min": 0.6,
+    "problem_echo_min": 0.3,
+    "merge_distance_target": 0.7,
+    "merge_steer_strength": 0.0,
+    "merge_require_interface": true,
+    "audit_confidence_gate": 0.75
+  },
+  "v7_params": {
+    "merge_distance_min": 0.55,
+    "trivial_problem_overlap_max": 0.6,
+    "variant_similarity_threshold": 0.7,
+    "variant_w_mech": 0.5,
+    "variant_w_problem": 0.5,
+    "saturation_band": 0.5,
+    "saturation_max_neighbors": 3,
+    "confidence_margin": 0.05,
+    "variant_rule_mode": "two_factor",
+    "borderline_rule": "audit_gated",
+    "mech_match_min": 0.6,
+    "problem_echo_min": 0.3,
+    "merge_distance_target": 0.7,
+    "merge_steer_strength": 0.0,
+    "merge_require_interface": true,
+    "audit_confidence_gate": 0.75
+  }
+}

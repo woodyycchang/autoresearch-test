@@ -1,0 +1,264 @@
+[
+  {
+    "candidate_index": 4,
+    "technique": "InternVL-U (unified multimodal understanding + masked editing)",
+    "life_domain": "Inpainting / retouching in painting conservation (loss-filling) — Art, music & performance craft",
+    "searches": [
+      {
+        "reformulation_type": "1. Exact pairing (technique name + domain)",
+        "query": "InternVL painting restoration inpainting conservation generative editing",
+        "results": [
+          {
+            "title": "Synthetic Craquelure Generation for Unsupervised Painting Restoration",
+            "url": "https://arxiv.org/pdf/2602.12742",
+            "relevance": "partial",
+            "note": "Generative painting-restoration work (2026), not InternVL-specific; shows generative inpainting is an active, current painting-restoration topic."
+          },
+          {
+            "title": "Automated image inpainting for historical artifact restoration using hybridisation of transfer learning with deep generative models | Scientific Reports",
+            "url": "https://www.nature.com/articles/s41598-026-35056-w",
+            "relevance": "prior art (domain)",
+            "note": "2026 Nature paper: deep generative inpainting applied to historical artifact restoration — same problem class as the candidate, not InternVL but a generative VLM-adjacent model."
+          },
+          {
+            "title": "Image Inpainting: Virtual Restoration Techniques Explained",
+            "url": "https://www.toolify.ai/ai-news/image-inpainting-virtual-restoration-techniques-explained-3370391",
+            "relevance": "context",
+            "note": "Confirms deep-learning virtual restoration of artworks is an established, productized area; no specific InternVL hit."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "2. Technique-agnostic problem (any ML/DL/AI on this problem)",
+        "query": "deep learning painting restoration loss compensation virtual inpainting conservation lacuna",
+        "results": [
+          {
+            "title": "Machine learning for painting conservation: a state-of-the-art review | npj Heritage Science",
+            "url": "https://www.nature.com/articles/s40494-025-01924-3",
+            "relevance": "prior art (strong)",
+            "note": "2025 state-of-the-art review explicitly lists 'virtual restoration' as one of five ML themes in painting conservation, incl. inpainting of lacunas — directly contradicts the 'very-low-AI-penetration / never adapted' premise."
+          },
+          {
+            "title": "Assisting classical paintings restoration: efficient paint loss detection and descriptor-based inpainting using shared pretraining",
+            "url": "https://www.academia.edu/71121826/Assisting_classical_paintings_restoration_efficient_paint_loss_detection_and_descriptor_based_inpainting_using_shared_pretraining",
+            "relevance": "prior art (strong)",
+            "note": "Dedicated paper on PAINT LOSS detection + inpainting to assist classical paintings restoration — the candidate's exact loss-filling task already done with DL."
+          },
+          {
+            "title": "Colour-Balanced Edge-Guided Digital Inpainting: Applications on Artworks (PMC)",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8002538/",
+            "relevance": "prior art",
+            "note": "Digital inpainting that respects surrounding colour for artworks; the 'fill blends with surrounding colours' constraint is already explicitly modeled."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "3. Capability framing (generative inpainting + cultural heritage painting + decision support)",
+        "query": "generative diffusion inpainting cultural heritage painting virtual restoration conservator decision support",
+        "results": [
+          {
+            "title": "Limitations and possibilities of digital restoration techniques using generative AI tools (Callet's Achilles)",
+            "url": "https://accscience.com/journal/AC/2/1/10.36922/ac.1793",
+            "relevance": "prior art (strong)",
+            "note": "Uses generative AI to virtually restore a damaged painting explicitly to GUIDE conservators/museums in physical restoration while preserving style — identical 'decision-support visualization before physical retouch' framing the candidate claims is novel."
+          },
+          {
+            "title": "Visual Design from Cultural Heritage through Inpainting-based Restoration (ICCV 2025 Workshop)",
+            "url": "https://openaccess.thecvf.com/content/ICCV2025W/WCCA/papers/Lee_Visual_Design_from_Cultural_Heritage_through_Inpainting-based_Restoration_ICCVW_2025_paper.pdf",
+            "relevance": "prior art",
+            "note": "Top-venue 2025 work on inpainting-based restoration of cultural-heritage imagery; mask-constrained generative fill for heritage is mainstream."
+          },
+          {
+            "title": "DiffuMural: a diffusion model for Dunhuang murals restoration | npj Heritage Science",
+            "url": "https://www.nature.com/articles/s40494-025-02274-w",
+            "relevance": "prior art",
+            "note": "Condition-guided diffusion inpainting of large missing regions in heritage paintings with cultural/stylistic-fidelity constraints — the constrained masked-fill capability already exists for paintings."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "4. Tool/app/product angle (AI restoration tool for conservators)",
+        "query": "AI art restoration tool conservator paint loss reversible visualization proposal",
+        "results": [
+          {
+            "title": "Have a damaged painting? Restore it in just hours with an AI-generated “mask” | MIT News",
+            "url": "https://news.mit.edu/2025/restoring-damaged-paintings-using-ai-generated-mask-0611",
+            "relevance": "prior art (decisive)",
+            "note": "MIT/Alex Kachkine method: generative AI reconstructs the freshly-painted look, software builds a retouch map of exact colours filling ONLY the losses, applied as a REVERSIBLE film with conservation varnish — covers every constraint the candidate lists (no original paint covered, reversible, colour/varnish match, conservator decision aid)."
+          },
+          {
+            "title": "AI-driven approach restores damaged paintings in just hours (Cosmos)",
+            "url": "https://cosmosmagazine.com/technology/computing/restoring-paintings-ai/",
+            "relevance": "prior art (decisive)",
+            "note": "Same method; outputs an explicit per-loss colour/retouch map (the candidate's 'explicit edit maps'), used as conservator-evaluated proposal before physical, reversible intervention."
+          },
+          {
+            "title": "Mechanical engineer develops AI-generated digital masks to restore damaged paintings | The Art Newspaper",
+            "url": "https://www.theartnewspaper.com/2025/07/04/mechanical-engineer-develops-ai-generated-digital-masks-to-restore-damaged-paintings",
+            "relevance": "prior art (decisive)",
+            "note": "Conservation-press coverage of the same mask-based generative approach — confirms the field has already adopted generative AI for reversible physical loss-filling, published in Nature (2025)."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "5. Confirmation of decisive prior art (mask/retouch-map + reversibility + future-conservator documentation)",
+        "query": "Kachkine AI painting restoration mask retouch map Nature 2025 reversible film conservation",
+        "results": [
+          {
+            "title": "AI restores classic paintings with reversible techniques (New Atlas)",
+            "url": "https://newatlas.com/good-thinking/ai-classic-painting-restoration/",
+            "relevance": "prior art (decisive)",
+            "note": "Confirms reversibility-by-design and that the digital mask file is stored for future conservators (documentation) — mirrors candidate's 'explicit edit maps / decision-support, not irreversible actuator' value proposition."
+          },
+          {
+            "title": "Can A.I. Restore a Renaissance Painting? Yes, Says This MIT Student (Artnet)",
+            "url": "https://news.artnet.com/art-world/ai-art-restoration-conservation-mit-2656171",
+            "relevance": "prior art",
+            "note": "Independent confirmation in art-world press; 5,612 losses reconstructed with generative AI, fill restricted to losses, colour-matched. Establishes broad awareness/adoption a year before InternVL-U."
+          },
+          {
+            "title": "Transforming Pixels into a Masterpiece: AI-Powered Art Restoration using a Novel Distributed Denoising CNN (DDCNN)",
+            "url": "https://arxiv.org/pdf/2310.05270",
+            "relevance": "prior art",
+            "note": "Earlier (2023) deep-learning art-restoration pipeline — shows DL loss-filling for paintings predates the technique by years."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "MIT / Alex Kachkine generative-AI painting-restoration method (Nature, June 2025): reconstructs losses with generative AI, builds an exact-colour retouch MAP confined to losses, applies a removable/reversible film with conservation varnish, stores the digital mask for future conservators — matches the candidate's masked-fill + edit-map + reversibility + conservator-decision-aid framing essentially 1:1.",
+    "  'Machine learning for painting conservation: a state-of-the-art review' (npj Heritage Science, 2025) — names 'virtual restoration' (incl. lacuna inpainting) as an established ML theme, refuting the very-low-penetration premise.",
+      "Generative-AI digital restoration of Callet's 'Achilles' (AccScience, 2024) — explicitly positions generative inpainting as guidance for conservators before physical restoration.",
+      "ICCV 2025 Workshop 'Visual Design from Cultural Heritage through Inpainting-based Restoration'; DiffuMural / GuidePaint diffusion mural inpainting (npj Heritage Science 2025); Nature Scientific Reports 2026 deep-generative artifact inpainting; 'Assisting classical paintings restoration: paint loss detection + descriptor-based inpainting'; Colour-Balanced Edge-Guided Digital Inpainting on artworks.",
+      "Earlier DL art-restoration pipelines (DDCNN, arXiv 2023; dual-attention/channel-transformer GAN for damaged artwork)."
+    ],
+    "gap_verdict": "GAP_CLOSED",
+    "verdict_reason": "The application already exists in directly equivalent form. The candidate frames a generative, mask-constrained, context-conditioned fill that paints ONLY documented losses, is reversible, matches surrounding palette/varnish, and serves as a conservator decision-support visualization with explicit edit maps before physical retouch. The MIT/Kachkine method (Nature 2025) realizes every one of these elements (generative reconstruction -> exact-colour retouch map over losses only -> reversible varnish-adhered film -> stored mask for documentation), and a 2025 npj Heritage Science review plus ICCV 2025 and multiple Nature diffusion-inpainting heritage papers show masked generative loss-filling for paintings is an established, even productized, area. Swapping the specific generative backbone to InternVL-U (a months-old unified model) does not constitute a first application: the technique class (masked generative fill respecting surrounding context, used as conservator decision support for reversible physical loss-filling) is already deployed. As flagged in the task, candidate 4's gap is closed.",
+    "confidence": 0.93
+  },
+  {
+    "candidate_index": 5,
+    "technique": "Toto 2.0 (multivariate time-series foundation model, cross-channel, zero/few-shot)",
+    "life_domain": "Soy sauce / miso moromi maturity assessment — Food, cooking, fermentation, culinary craft",
+    "searches": [
+      {
+        "reformulation_type": "1. Exact pairing (technique name + domain)",
+        "query": "Toto multivariate time series foundation model soy sauce miso fermentation moromi",
+        "results": [
+          {
+            "title": "Toto: An Open Time Series Foundation Model Optimized for Observability (OpenReview / arXiv 2505.14766)",
+            "url": "https://arxiv.org/abs/2505.14766",
+            "relevance": "technique only",
+            "note": "Toto/Toto 2.0 papers and repo — about IT observability metrics; NO mention of fermentation, soy sauce, or miso. Exact pairing returns no prior art."
+          },
+          {
+            "title": "Optimizing the initial moromi fermentation conditions to improve the quality of soy sauce - ScienceDirect",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0023643816304601",
+            "relevance": "domain only",
+            "note": "Food-science optimization of moromi fermentation; no ML/time-series-foundation-model link. Confirms the two topics have not been combined."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "2. Technique-agnostic problem (any ML/DL/AI on this maturity problem)",
+        "query": "machine learning soy sauce miso fermentation maturity prediction monitoring model",
+        "results": [
+          {
+            "title": "Tracing the change of the volatile compounds of soy sauce at different fermentation times by PTR-TOF-MS, E-nose and GC–MS (PMC11722169 / S2590157524008903)",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11722169/",
+            "relevance": "prior art (partial)",
+            "note": "2024 study: ML models (QDA/LDA) accurately predict the soy-sauce FERMENTATION STAGE from E-nose/VOC data, dividing the cycle into 4 stages and locating the aroma peak (day 90). ML is already applied to soy-sauce maturity — but as stage CLASSIFICATION from spectrometry, not multivariate forecasting of in-tank probe trajectories."
+          },
+          {
+            "title": "Exploring the potential of Pediococcus pentosaceus PPF28-8 in a rapid fermentation model for soy sauce flavor enhancement using machine learning - ScienceDirect",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2212429225004845",
+            "relevance": "prior art (partial)",
+            "note": "ML (PLS-DA/PCA) applied to soy-sauce fermentation outcomes/flavor — shows ML has entered soy-sauce brewing, though for flavor/outcome modeling, not maturity-window forecasting."
+          },
+          {
+            "title": "Changes in Metabolite Profiles of Chinese Soy Sauce at Different Time Durations of Fermentation (1H-NMR metabolomics)",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11123076/",
+            "relevance": "context",
+            "note": "Time-resolved analytical profiling of soy-sauce fermentation; objective maturity-correlated signals already characterized, weakening the 'no objective metric' premise."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "3. Capability framing (multivariate time-series forecasting of fermentation from probes)",
+        "query": "multivariate time series forecasting fermentation monitoring in-tank sensor probe soy sauce moromi maturity trajectory",
+        "results": [
+          {
+            "title": "A novel method to evaluate the moromi maturity during the long-term fermentation of traditional soy sauce (S0956713524001385)",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0956713524001385",
+            "relevance": "prior art (key, undercuts premise)",
+            "note": "THIS IS THE CANDIDATE'S OWN quote_source. 2024 paper already establishes an OBJECTIVE moromi-maturity evaluation method (SEM + particle-and-crack analysis, PCAS). So an objective maturity method already exists — directly weakening the candidate's central 'no objective/fast maturity tool' justification (though it is image-based and not a forecasting/foundation-model approach)."
+          },
+          {
+            "title": "LSTM-based Fermentation Process Prediction Model / Enhancing Fermentation Process Monitoring through Data-Driven Modeling and Synthetic Time Series Generation (PMC11351132)",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351132/",
+            "relevance": "prior art (capability, different substrate)",
+            "note": "LSTM multivariate time-series forecasting of fermentation parameters from modular sensor units, plus VAE/GAN augmentation — the exact capability (multivariate TS forecasting of fermentation from probes) already exists, just not on soy-sauce/miso and not with a TS foundation model."
+          },
+          {
+            "title": "Constructing in-situ and real-time monitoring methods during soy sauce production by miniature fiber NIR spectrometers (S0308814624024385)",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0308814624024385",
+            "relevance": "prior art (partial)",
+            "note": "2024 in-situ, real-time monitoring of koji/moromi fermentation via miniature NIR + regression — objective real-time moromi tracking already demonstrated (PLS/iPLS/Si-PLS), though not multivariate-foundation-model forecasting."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "4. Tool/sensor/product angle (electronic nose / e-tongue maturity assessment)",
+        "query": "electronic nose soy sauce miso fermentation maturity assessment quality prediction",
+        "results": [
+          {
+            "title": "Tracing the change of the volatile compounds of soy sauce ... E-nose and GC-MS (S2590157524008903)",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2590157524008903",
+            "relevance": "prior art (partial)",
+            "note": "E-nose + ML used to discriminate soy-sauce fermentation stages and pinpoint the aroma-formation peak — an objective, sensor-based, fast maturity-stage readout already exists, contradicting 'no fast intuitive method'."
+          },
+          {
+            "title": "Frontiers | key compounds in different quality grades of soy-sauce-aroma baijiu by GC-MS coupled with electronic nose",
+            "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2023.1132527/full",
+            "relevance": "context",
+            "note": "E-nose distinguishes quality grades in a related soy-sauce-aroma product; e-nose maturity/quality grading is well established in this product family."
+          }
+        ]
+      },
+      {
+        "reformulation_type": "5. Foundation-model / deep-learning + NIR/LSTM endpoint reformulation",
+        "query": "soy sauce fermentation deep learning NIR spectroscopy prediction maturity index objective endpoint forecasting LSTM",
+        "results": [
+          {
+            "title": "Determination of Quality Properties of Soy Sauce by Support Vector Regression Coupled with SW-NIR Spectroscopy",
+            "url": "https://www.researchgate.net/publication/267848243_Determination_of_Quality_Properties_of_Soy_Sauce_by_Support_Vector_Regression_Coupled_with_SW-NIR_Spectroscopy",
+            "relevance": "prior art (partial)",
+            "note": "SVR + NIR for objective soy-sauce quality determination; multiple NIR+chemometrics/ML papers exist for objective soy-sauce quality — but these are point quality estimation, not multivariate cross-channel trajectory FORECASTING."
+          },
+          {
+            "title": "Pressure-Guided LSTM Modeling for Fermentation Quantification Prediction (PMC12431037)",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12431037/",
+            "relevance": "prior art (capability)",
+            "note": "Deep-learning (LSTM) forecasting of fermentation quantities from sensor signals — confirms TS deep-learning forecasting of fermentation is established generally, reinforcing that only the foundation-model + soy-sauce/miso specifics are new."
+          },
+          {
+            "title": "Determination of Amino Acid Nitrogen in Soy Sauce Using NIR + Extreme Learning Machine",
+            "url": "https://www.researchgate.net/publication/257764096_Determination_of_Amino_Acid_Nitrogen_in_Soy_Sauce_Using_Near_Infrared_Spectroscopy_Combined_with_Characteristic_Variables_Selection_and_Extreme_Learning_Machine",
+            "relevance": "prior art (partial)",
+            "note": "Neural-network (ELM) prediction of a key soy-sauce maturity-correlated index (amino-acid nitrogen) from NIR — ML estimation of objective maturity proxies already exists."
+          }
+        ]
+      }
+    ],
+    "prior_art_found": [
+      "Objective moromi-maturity evaluation method already published in the candidate's OWN cited source (SEM + PCAS image analysis, Food Control 2024, S0956713524001385) — contradicts the 'no objective maturity method exists' justification (though not a forecasting/foundation-model approach).",
+      "ML stage prediction of soy-sauce fermentation from E-nose/PTR-TOF-MS VOCs (QDA/LDA, 2024) — objective, fast, sensor-based maturity-stage readout already demonstrated.",
+      "In-situ real-time moromi monitoring via miniature NIR + chemometrics (2024); SVR/ELM NIR estimation of soy-sauce quality and amino-acid-nitrogen maturity proxies (objective quality estimation already done).",
+      "Multivariate time-series DEEP-LEARNING forecasting of fermentation from sensor probes (LSTM models, VAE/GAN augmentation, pressure-guided LSTM) — the exact capability exists, but on other fermentations (bioreactors/brewing), not soy-sauce/miso, and not with a TS foundation model.",
+      "NO prior art found for the specific pairing: a multivariate time-series FOUNDATION model (Toto / zero-few-shot cross-channel) applied to in-tank soy-sauce or miso moromi telemetry to forecast the maturity-ready window."
+    ],
+    "gap_verdict": "GAP_NARROW",
+    "verdict_reason": "Some ML/AI work clearly exists on this exact domain problem: E-nose/PTR-TOF-MS + ML already predicts soy-sauce fermentation stage, NIR+chemometrics monitors moromi in real time, ML estimates maturity-correlated indices, and — notably — the candidate's own cited source already provides an objective moromi-maturity method (SEM+PCAS). Generic multivariate time-series deep-learning forecasting of fermentation from sensor probes (LSTM, etc.) is also established. So the 'no objective method / very-low-AI-penetration' premise is overstated and the broad problem is touched. However, the SPECIFIC technique and framing the candidate proposes — a pretrained multivariate time-series FOUNDATION model (Toto 2.0) doing zero/few-shot, cross-channel forecasting of in-tank fermentation telemetry to project the convergence/ready-window for soy-sauce or miso moromi — returns no prior art: existing soy-sauce ML is stage classification or point quality estimation (not trajectory forecasting), and existing TS-forecasting deep learning is on other fermentation substrates with bespoke (non-foundation) models. The gap is therefore narrowed but not closed: the foundation-model-forecasting-of-moromi-maturity formulation is genuinely new, while the underlying objective-maturity goal is no longer virgin territory.",
+    "confidence": 0.7
+  }
+]

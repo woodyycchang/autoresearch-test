@@ -1,0 +1,82 @@
+{
+  "verifier": "VERIFY-2",
+  "results": [
+    {
+      "candidate": "C3",
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Quench judgment / interrupted (mar-)quench in blacksmithing/heat-treatment",
+      "queries_run": [
+        "neural operator transient quench core temperature real-time rollout heat treatment interrupted quench",
+        "blacksmithing heat treatment machine learning core temperature prediction interrupted quench marquench AI",
+        "quenching FEA simulation transient interior temperature irregular geometry forged part prediction",
+        "bladesmith forum app real-time core temperature monitoring during quench timing pull part",
+        "arXiv 2602.18801 Spectral Generator Neural Operator (arXiv resolution check)"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Full-field temperature recovery during water quenching processes via physics-informed machine learning (ScienceDirect, J. Materials Processing Tech 2022)",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0924013622000462",
+          "verbatim": "a physics-informed neural network (PINN)-based surrogate model can quickly output full-field temperature distribution from thermal boundary conditions ... This ML model can be utilized with experiments to quickly obtain the full-field thermal history of quenched parts to evaluate residual stress and part distortion. ... Neural network inference is approximately five orders of magnitude (~10^5) faster than finite element method (FEM), enabling near-real-time full-field reconstructions."
+        },
+        {
+          "what": "3D FEM simulation of steel quenching and investigation of the effect of asymmetric geometry on residual stress distribution (offline FEA)",
+          "url": "https://www.academia.edu/5801483/3D_FEM_simulation_of_steel_quenching_and_investigation_of_the_effect_of_asymmetric_geometry_on_residual_stress_distribution",
+          "verbatim": "3D finite element analysis has been applied to steel quenching processes to simulate the transient temperature field and thermally induced solid-solid phase transformations ... These models can effectively predict the trends in the distribution of residual stresses for 3D asymmetric components."
+        },
+        {
+          "what": "AI-powered Blacksmithing Quench Oil Selector / Heat Mapping App (Alibaba product-insights marketing pages) and Heat Treat Industry AI overviews",
+          "url": "https://www.alibaba.com/product-insights/ai-powered-blacksmithing-quench-oil-selector-do-they-factor-in-ambient-workshop-temperature.html",
+          "verbatim": "AI-powered quench oil selectors promise precision: input alloy composition, part geometry, and desired hardness; receive a ranked list of oils with predicted cooling curves and risk assessments. ... In practice, thermal gradients mean the surface hits target before the core, leading to inconsistent microstructures unless actively monitored."
+        }
+      ],
+      "verdict": "OPEN",
+      "exact_unused_slice": "A spectral/Fourier neural-operator (SGNO-class) transient-conduction surrogate that does REAL-TIME autoregressive rollout of the INTERIOR core-temperature trajectory of an IRREGULAR hand-forged part during an interrupted/marquench, to call the instant the core passes ~400-500F. No surfaced work applies any neural operator to in-the-moment core-temperature rollout for hand-forging quench timing; existing thermal NO/PINN/FEM work targets full-field offline reconstruction, residual-stress/distortion, or process-control of industrial furnace/quench tanks, not the smith's real-time pull decision on bespoke geometry.",
+      "honest_adjacency": "Closest adjacent prior art is PINN full-field temperature recovery during water quenching (S0924013622000462), which is ~10^5x faster than FEM and described as 'near-real-time full-field reconstructions' but is industrial, geometry-specified, and aimed at residual-stress/distortion not a live core-crossing pull cue; plus offline 3D-FEM transient quench simulation for asymmetric geometries, and AI quench-oil selectors that output predicted cooling curves but treat the part offline and do not roll out interior core temperature live.",
+      "reasoning": "arXiv 2602.18801 resolves to the real SGNO paper. Across 5 reformulated angles (exact technique x app; app+AI; app+FEA/simulation; craft-community+digital-tool; plus the industrial analog surfaced repeatedly), every hit is EITHER industrial quench thermal modeling (offline FEM, PINN full-field surrogate, ANN-derived heat-transfer coefficients) OR marketing-grade AI quench-oil selectors. The bladesmith-community query returned only CPU-temperature tools and a 2015 forum thread asking how to measure pre-quench temperature, i.e., no digital tool predicting interior conduction. Nobody has applied a long-horizon-stable neural operator to real-time core-temperature rollout for irregular hand-forged interrupted quench. Adjacent but the exact technique x application slice is unmade -> OPEN (with strong, honestly-cited industrial adjacency)."
+    },
+    {
+      "candidate": "C5",
+      "technique": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SGNO: Spectral Generator Neural Operators for Stable Long Horizon PDE Rollouts",
+      "domain": "Wood-firing stoking rhythm / ember-bed management (anagama kiln)",
+      "queries_run": [
+        "neural operator wood-fired kiln anagama temperature field stoking rollout surrogate",
+        "anagama wood kiln firing machine learning temperature prediction stoking schedule AI",
+        "wood-fired kiln FEA CFD simulation transient interior temperature atmosphere field combustion prediction",
+        "neural operator combustion furnace transient temperature field forecast next fuel charge surrogate model",
+        "potter ceramic wood firing community sensor digital tool predict kiln response stoke ember bed"
+      ],
+      "prior_art_found": [
+        {
+          "what": "Physics-informed Fourier neural operator for surrogate prediction of tunnel fire temperature field (ScienceDirect, Applied Thermal Engineering 2026) - FNO on a sibling combustion-thermal domain",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S1359431126010653",
+          "verbatim": "A physics-informed deep neural operator framework has been proposed for fast surrogate prediction of the spatiotemporal evolution of tunnel fire temperature fields from limited global conditions. ... a hypernetwork is introduced to replace the fixed spectral kernels in FNO with condition-adaptive kernels."
+        },
+        {
+          "what": "Transient combustion / thermal CFD studies of wood-fired (pine-wood) brick & traditional pottery kilns (offline CFD, not real-time, not a learned operator)",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2214157X24014722",
+          "verbatim": "Brick kilns have been experimentally studied to measure transient temperature of hot gases using pine wood as fuel, and transient combustion models based on CFD were used to simulate combustion in the kiln ... numerical simulations were carried out to obtain transient hot gas temperature under stoichiometric, fuel-rich, and excess air conditions."
+        },
+        {
+          "what": "Industrial furnace temperature-field surrogates (graph neural network real-time billet field; combustion digital twin POD-XGBoost; coal-fired boiler transpose-CNN online reconstruction) - learned thermal-field models on industrial combustion, not wood-fired craft kilns",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931024010500",
+          "verbatim": "A real-time reconstruction model for transient temperature fields of steel billets has been developed based on a data-driven mixture-of-experts framework ... A combustion digital twin was developed using flow-field-informed POD-XGBoost reduced-order modeling ... The digital twin achieved median normalized root mean squared errors of 0.0240 for temperature while requiring only 5% of the computational time of traditional CFD."
+        },
+        {
+          "what": "WoodFirePro (Creek Road Pottery) - the actual wood-firing craft-community digital tool; logging/analytics only, no forecasting of field response to next stoke",
+          "url": "https://creekroadpottery.com/woodfirepro/",
+          "verbatim": "WoodFirePro provides data analysis and visualization capabilities that generate comprehensive firing analysis including temperature progression charts across all sensors, atmosphere control tracking, wood consumption rates, and statistical summaries. ... The interface design prioritizes the expertise and intuition of the kiln master while providing digital tools that enhance rather than replace traditional knowledge."
+        }
+      ],
+      "verdict": "OPEN",
+      "exact_unused_slice": "An SGNO-class spectral neural operator that does autoregressive ROLLOUT of how the anagama kiln's INTERIOR temperature AND atmosphere (reduction) FIELD will respond to the NEXT stoke / ember-bed action over a multi-day wood firing, as a live decision aid for stoking rhythm. No surfaced work applies a neural operator (or any learned transient-field forecaster) to wood-fired/anagama kiln stoke response; existing kiln ML targets industrial rotary/electric/gas setpoints or offline CFD, and the only craft-community tool (WoodFirePro) merely logs and visualizes sensor history.",
+      "honest_adjacency": "Closest adjacent prior art: (1) a physics-informed FOURIER neural operator already predicts spatiotemporal TUNNEL-FIRE temperature fields (S1359431126010653) - the same family of technique on a sibling combustion-thermal domain, but not wood-fired kilns and not stoke-conditioned; (2) offline transient CFD of pine-wood brick/pottery kilns models the physics but is not real-time and not a learned rollout; (3) GNN/POD-XGBoost/CNN industrial furnace & boiler field surrogates give fast learned thermal-field prediction but for steel/coal industrial combustion, not wood-fired craft kilns; (4) WoodFirePro is the genuine community tool but is log/analytics, explicitly 'enhance rather than replace,' with no predictive field model.",
+      "reasoning": "arXiv 2602.18801 resolves (SGNO long-horizon PDE rollout). Five reformulated searches (exact tech x app; app+AI/ML; app+CFD/simulation; the industrial combustion-furnace analog with neural operators; craft-community+digital-tool) found NO neural-operator or learned transient-field forecaster for anagama/wood-fired stoking. The strongest hit, a physics-informed FNO for tunnel-fire temperature fields, proves the technique family is live on a sibling domain but leaves the wood-fired-kiln stoke-response slice unmade. Industrial furnace surrogates (GNN, POD digital twin, boiler CNN) are real-time and learned but on industrial setpoint combustion, matching the candidate's own stated gap. Wood-fired kiln work is offline CFD only; the craft tool WoodFirePro is analytics, not prediction. Exact technique x application slice is unmade -> OPEN (strong, honestly-cited combustion-thermal and industrial adjacency)."
+    }
+  ]
+}

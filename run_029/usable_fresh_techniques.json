@@ -1,0 +1,384 @@
+{
+  "_phase": "2 - freshness + usability filter (R13)",
+  "_window": "2512-2606 (Dec2025-Jun2026)",
+  "_rule": "keep iff has_usable_code AND arxiv_date in window",
+  "n_total_techniques": 36,
+  "n_usable_fresh": 24,
+  "n_rejected": 12,
+  "usable_fresh_techniques": [
+    {
+      "name": "Mamba-3",
+      "arxiv_id": "2603.15569",
+      "arxiv_date": "2026-03",
+      "subfield": "Efficient sequence architectures / post-transformer models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/state-spaces/mamba",
+      "capability": "Improved state-space-model LLM backbone: a more expressive (trapezoidal) recurrence, a complex-valued state-update rule for richer state tracking, and a MIMO formulation that boosts downstream accuracy without increasing decode latency; matches Mamba-2 perplexity with half the state size.",
+      "verbatim_quote": "Mamba-3: Improved Sequence Modeling using State Space Principles Through Structured State Space Duality",
+      "source": "https://arxiv.org/abs/2603.15569"
+    },
+    {
+      "name": "Gated DeltaNet-2",
+      "arxiv_id": "2605.22791",
+      "arxiv_date": "2026-05",
+      "subfield": "Efficient sequence architectures / linear attention",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/NVlabs/GatedDeltaNet-2",
+      "capability": "Linear-attention sequence layer that decouples erase and write into two independent channel-wise gates, letting the model edit its fixed-size recurrent (compressed KV) memory without scrambling existing associations; trainable on FineWeb-Edu with released code.",
+      "verbatim_quote": "Linear attention compresses an unbounded KV cache into a fixed-size recurrent state. The hard part is not just what to forget, but how to edit this compressed memory without scrambling existing associations.",
+      "source": "https://arxiv.org/abs/2605.22791"
+    },
+    {
+      "name": "MiniCPM-SALA",
+      "arxiv_id": "2602.11761",
+      "arxiv_date": "2026-02",
+      "subfield": "Efficient sequence architectures / hybrid sparse-linear attention",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://huggingface.co/openbmb/MiniCPM-SALA",
+      "capability": "9B hybrid LLM that interleaves sparse attention (InfLLM-V2) with linear attention (Lightning Attention) at a 1:3 ratio plus hybrid positional encoding, enabling million-token-context inference on consumer GPUs; converts pretrained Transformers to the hybrid via continual training (~75% cheaper than from scratch). Open weights released.",
+      "verbatim_quote": "Integrates 25% InfLLM-V2 and 75% Lightning Attention, effectively leveraging the granular focus of sparse attention for local details and the high efficiency of linear attention for broad context.",
+      "source": "https://arxiv.org/abs/2602.11761"
+    },
+    {
+      "name": "Parallax (Parameterized Local Linear Attention)",
+      "arxiv_id": "2605.29157",
+      "arxiv_date": "2026-05",
+      "subfield": "Efficient sequence architectures / linear attention",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/Yifei-Zuo/Parallax",
+      "capability": "A drop-in upgrade to softmax attention: a scalable, solver-free form of Local Linear Attention that learns a query-like projector probing the KV covariance, with a hardware-aware decode kernel matching/outperforming FlashAttention 2/3; pretrained at 0.6B and 1.7B with consistent perplexity gains.",
+      "verbatim_quote": "Parallax is an upgrade to Softmax Attention. It is a scalable form of Local Linear Attention (LLA), a mechanism with provable theoretical advantages over Softmax Attention.",
+      "source": "https://arxiv.org/abs/2605.29157"
+    },
+    {
+      "name": "Reverso",
+      "arxiv_id": "2602.17634",
+      "arxiv_date": "2026-02",
+      "subfield": "Time-series & forecasting foundation models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/shinfxh/reverso",
+      "capability": "A family of tiny (0.2M-2.6M param) zero-shot time-series foundation models that interleave long-convolution and linear-RNN (DeltaNet) layers, matching transformer-based forecasters over 100x larger; pushes the performance-efficiency Pareto frontier. Reverso-Small checkpoint released (others 'coming soon').",
+      "verbatim_quote": "By combining long convolutions with linear RNN layers, Reverso matches the performance of transformer-based models that are over 100x larger.",
+      "source": "https://arxiv.org/abs/2602.17634"
+    },
+    {
+      "name": "Toto 2.0",
+      "arxiv_id": "2605.20119",
+      "arxiv_date": "2026-05",
+      "subfield": "Time-series & forecasting foundation models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/DataDog/toto",
+      "capability": "An open-weights family of multivariate time-series forecasting foundation models (4M to 2.5B params) trained under one u-muP-scaled recipe, setting state of the art on the BOOM observability benchmark, GIFT-Eval, and the contamination-resistant TIME benchmark; captures multivariate interactions, long context, and cross-domain transfer.",
+      "verbatim_quote": "Toto is a foundation model for multivariate time series forecasting with a focus on observability metrics.",
+      "source": "https://arxiv.org/abs/2605.20119"
+    },
+    {
+      "name": "VETime (Vision Enhanced Zero-Shot Time Series Anomaly Detection)",
+      "arxiv_id": "2602.16681",
+      "arxiv_date": "2026-02",
+      "subfield": "Time-series foundation models / anomaly detection backbone",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/yyyangcoder/VETime",
+      "capability": "Zero-shot time-series anomaly-detection backbone that unifies temporal and visual modalities via reversible image conversion, patch-level temporal alignment, anomaly-window contrastive learning, and task-adaptive multi-modal fusion; superior zero-shot localization with lower compute than vision-based baselines. Pretrained checkpoints released.",
+      "verbatim_quote": "VETime significantly outperforms state-of-the-art models in zero-shot scenarios, achieving superior localization precision with lower computational overhead",
+      "source": "https://arxiv.org/abs/2602.16681"
+    },
+    {
+      "name": "Flow2GAN (Hybrid Flow Matching + GAN, Multi-Resolution Network)",
+      "arxiv_id": "2512.23278",
+      "arxiv_date": "2025-12",
+      "subfield": "Generative models beyond images (audio)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/k2-fsa/Flow2GAN",
+      "capability": "High-fidelity audio generation/vocoding from Mel-spectrograms or discrete audio tokens with few-step (even one-step) inference, combining flow matching and GAN training.",
+      "verbatim_quote": "Flow2GAN enables high-fidelity audio generation from Mel-spectrograms or discrete audio tokens with efficient few-step (even one-step) inference.",
+      "source": "https://arxiv.org/abs/2512.23278"
+    },
+    {
+      "name": "SGNO: Spectral Generator Neural Operator",
+      "arxiv_id": "2602.18801",
+      "arxiv_date": "2026-02",
+      "subfield": "Scientific ML / neural operators (PDE surrogate)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/lijy32123-cloud/SGNO",
+      "capability": "Stable long-horizon autoregressive PDE rollouts via a residual time-stepper using exponential time differencing in Fourier space with a learned diagonal generator; lower long-horizon error than baselines on 1D/2D/3D PDE families.",
+      "verbatim_quote": "SGNO maps the current state and coordinates to the next state through a residual neural operator.",
+      "source": "https://arxiv.org/abs/2602.18801"
+    },
+    {
+      "name": "Lance (3B native unified multimodal model for image+video generation/editing)",
+      "arxiv_id": "2605.18678",
+      "arxiv_date": "2026-05",
+      "subfield": "Generative models beyond images (video)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/bytedance/Lance",
+      "capability": "Single 3B model that performs image and video understanding, generation, and editing including image-to-video (i2v) within one framework; weights released on HuggingFace.",
+      "verbatim_quote": "Lance is a 3B native unified multimodal model that supports image and video understanding, generation, and editing within a single framework.",
+      "source": "https://arxiv.org/abs/2605.18678"
+    },
+    {
+      "name": "Bernini (MLLM semantic planner + DiT renderer for video generation/editing)",
+      "arxiv_id": "2605.22344",
+      "arxiv_date": "2026-05",
+      "subfield": "Generative models beyond images (video)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/bytedance/Bernini",
+      "capability": "Unified video generation and editing that combines an MLLM-based semantic planner with a DiT-based renderer; inference code and model weights (Bernini-R) released.",
+      "verbatim_quote": "Bernini is a unified framework for video generation and editing that combines an MLLM-based semantic planner with a DiT-based renderer.",
+      "source": "https://arxiv.org/abs/2605.22344"
+    },
+    {
+      "name": "E3RelaxH2 (high-degree, high-order equivariant GNN for direct crystal structure optimization)",
+      "arxiv_id": "2603.23941",
+      "arxiv_date": "2026-03",
+      "subfield": "Graph neural networks / geometric deep learning",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/guaguabujianle/E3RelaxH2",
+      "capability": "Maps an unrelaxed crystal directly to its DFT-relaxed structure (atomic positions and lattice parameters) in a single equivariant forward pass, avoiding iterative DFT relaxation. Pretrained checkpoints (c2db, mp, xmno) and datasets are released on Zenodo.",
+      "verbatim_quote": "E3RelaxH2 is an E(3)-equivariant graph neural network that predicts relaxed crystal structures (atomic positions and lattice parameters) from unrelaxed inputs in a single forward pass.",
+      "source": "https://arxiv.org/abs/2603.23941"
+    },
+    {
+      "name": "GREPO (graph neural network benchmark + GNN retrievers/rerankers for repository-level bug localization)",
+      "arxiv_id": "2602.13921",
+      "arxiv_date": "2026-02",
+      "subfield": "Graph neural networks / geometric deep learning",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/qingpingmo/GREPO",
+      "capability": "Provides the first GNN benchmark for repository-scale bug localization (86 Python repos, 47,294 bug-fixing tasks) together with official GNN retriever/reranker training and evaluation code and a dataset on ModelScope, enabling graph-structured code reasoning for software engineering.",
+      "verbatim_quote": "This repository is the official code implementation for the paper 'GREPO: A Benchmark for Graph Neural Networks on Repository-Level Bug Localization'.",
+      "source": "https://arxiv.org/abs/2602.13921"
+    },
+    {
+      "name": "Molmo2 (open-weight vision-language model with video understanding and pointing/grounding)",
+      "arxiv_id": "2601.10611",
+      "arxiv_date": "2026-01",
+      "subfield": "Multimodal & vision-language-action models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/allenai/molmo2",
+      "capability": "Open-weight VLM family (Molmo2-4B, Molmo2-8B, Molmo2-O-7B) with state-of-the-art point-driven visual grounding across single-image, multi-image, and video tasks; full code, pretrain/SFT checkpoints, and 9 new datasets are released.",
+      "verbatim_quote": "Molmo2 is state-of-the-art among open-source models and demonstrates exceptional new capabilities in point-driven grounding in single image, multi-image, and video tasks",
+      "source": "https://arxiv.org/abs/2601.10611"
+    },
+    {
+      "name": "InternVL-U (unified multimodal model for understanding, reasoning, generation, and editing)",
+      "arxiv_id": "2603.09877",
+      "arxiv_date": "2026-03",
+      "subfield": "Multimodal & vision-language-action models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/OpenGVLab/InternVL-U",
+      "capability": "A single lightweight 4B-parameter unified multimodal model that performs multimodal understanding, reasoning, image generation, and image editing in one framework, outperforming prior open-source unified baselines on generation/editing while retaining strong understanding. Inference code and a HuggingFace checkpoint are released.",
+      "verbatim_quote": "InternVL-U is a 4B-parameter unified multimodal model (UMM) that brings multimodal understanding, reasoning, image generation, image editing into a single framework",
+      "source": "https://arxiv.org/abs/2603.09877"
+    },
+    {
+      "name": "VLA Foundry (unified single-codebase framework for training LLM -> VLM -> VLA models)",
+      "arxiv_id": "2604.19728",
+      "arxiv_date": "2026-04",
+      "subfield": "Multimodal & vision-language-action models",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/TRI-ML/vla_foundry",
+      "capability": "An open-source framework unifying LLM, VLM, and VLA training in one shared stack (language pretraining through action-expert fine-tuning), supporting both from-scratch training and HuggingFace pretrained backbones; trained LLM/VLM/VLA model weights (e.g. Foundry-VLA-1.7B-sim) are released on HuggingFace.",
+      "verbatim_quote": "VLA Foundry is an open-source framework that unifies LLM, VLM, and VLA training in a single codebase.",
+      "source": "https://arxiv.org/abs/2604.19728"
+    },
+    {
+      "name": "SIGMA-PPG",
+      "arxiv_id": "2601.21031",
+      "arxiv_date": "2026-01",
+      "subfield": "Self-supervised / representation learning for sensing signals (PPG bio-signals)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/ZonghengGuo/SigmaPPG",
+      "capability": "Self-supervised PPG foundation model using a Prior-Guided Adversarial Masking mechanism; pretrained on 120,000+ hours of photoplethysmography, it produces general representations that beat five SOTA baselines across 12 downstream health tasks. Pretrained checkpoints released on HuggingFace.",
+      "verbatim_quote": "Pre-trained on over 120,000 hours of data, SIGMA-PPG achieves superior average performance compared to five state-of-the-art baselines across 12 diverse downstream tasks.",
+      "source": "https://arxiv.org/abs/2601.21031"
+    },
+    {
+      "name": "PulseLM",
+      "arxiv_id": "2603.03331",
+      "arxiv_date": "2026-03",
+      "subfield": "Self-supervised / representation learning for sensing signals (PPG bio-signals + language)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/manhph2211/PulseLM",
+      "capability": "Multimodal framework pairing PPG signal encoders with LLMs for physiological-signal reasoning; ships a large PPG-text QA dataset (1.31M 10s segments, 3.15M QA pairs across 12 clinical tasks), training/eval code, and model checkpoints + dataset on HuggingFace.",
+      "verbatim_quote": "PulseLM is a multimodal framework that integrates PPG (Photoplethysmography) signal encoders with large language models for physiological signal understanding research.",
+      "source": "https://arxiv.org/abs/2603.03331"
+    },
+    {
+      "name": "SAM-Audio (Segment Anything in Audio)",
+      "arxiv_id": "2512.18099",
+      "arxiv_date": "2025-12",
+      "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/facebookresearch/sam-audio",
+      "capability": "Diffusion-transformer foundation model (Meta) for general audio source separation that unifies text, visual, and temporal-span prompting in one framework; isolates any sound in a mixture. Code installable via pip and checkpoints (sam-audio-large) released on HuggingFace.",
+      "verbatim_quote": "SAM-Audio is a foundation model for isolating any sound in audio using text, visual, or temporal prompts.",
+      "source": "https://arxiv.org/abs/2512.18099"
+    },
+    {
+      "name": "Woosh (Sound Effects Foundation Model)",
+      "arxiv_id": "2604.01929",
+      "arxiv_date": "2026-04",
+      "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/SonyResearch/Woosh",
+      "capability": "Sony AI sound-effects foundation model bundling a high-quality audio encoder/decoder (Woosh-AE), a text-audio alignment model (Woosh-CLAP), and text-to-audio + video-to-audio generative models, including distilled fast-inference variants. Inference code and open weights released.",
+      "verbatim_quote": "This repository provides inference code and open weights for the sound effect generative models developed at Sony AI.",
+      "source": "https://arxiv.org/abs/2604.01929"
+    },
+    {
+      "name": "Audio-Omni",
+      "arxiv_id": "2604.10708",
+      "arxiv_date": "2026-04",
+      "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/ZeyueT/Audio-Omni",
+      "capability": "End-to-end framework unifying understanding, generation, and editing across general sound, music, and speech; couples a frozen Qwen2.5-Omni MLLM with a trainable Diffusion Transformer, plus a new 1M-pair AudioEdit dataset. Code on GitHub and model checkpoint on HuggingFace.",
+      "verbatim_quote": "the first end-to-end framework to unify understanding, generation, and editing across general sound, music, and speech domains.",
+      "source": "https://arxiv.org/abs/2604.10708"
+    },
+    {
+      "name": "Sparse-BitNet",
+      "arxiv_id": "2603.05168",
+      "arxiv_date": "2026-03",
+      "subfield": "Efficient / on-device / small models (extreme quantization + sparsity)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/AAzdi/Sparse-BitNet",
+      "capability": "Training/inference framework that combines 1.58-bit (ternary) BitLinear quantization with N:M structured sparsity, showing 1.58-bit LLMs are naturally friendly to semi-structured sparsity for efficient on-device LLMs. Runnable train.py / eval.py / generate.py provided.",
+      "verbatim_quote": "Training framework for Sparse-BitNet models -- combining 1.58-bit quantization (BitLinear) with N:M structured sparsity for efficient LLM training and inference.",
+      "source": "https://arxiv.org/abs/2603.05168"
+    },
+    {
+      "name": "Agent Memory Below the Prompt (Persistent Q4 KV Cache)",
+      "arxiv_id": "2603.04428",
+      "arxiv_date": "2026-03",
+      "subfield": "Efficient / on-device / small models (edge KV-cache quantization)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/yshk-mxim/agent-memory",
+      "capability": "Persists each agent's KV cache to disk as 4-bit quantized safetensors and reloads it directly into attention, eliminating redundant prefill for multi-agent LLM inference on edge devices; cuts time-to-first-token by up to 136x and fits 4x more agent contexts in fixed memory vs FP16. Open-source code for Apple Silicon.",
+      "verbatim_quote": "Persistent KV cache for multi-agent LLM systems on Apple Silicon.",
+      "source": "https://arxiv.org/abs/2603.04428"
+    },
+    {
+      "name": "EEG-DLite",
+      "arxiv_id": "2512.12210",
+      "arxiv_date": "2025-12",
+      "subfield": "Efficient / on-device / small models (data distillation for efficient sensing-model training)",
+      "fresh": true,
+      "usable": true,
+      "code_url": "https://github.com/t170815518/EEG-DLite",
+      "capability": "Dataset-distillation framework that encodes EEG segments into compact latent representations and filters out noisy/redundant samples, enabling more efficient pre-training of large EEG foundation models on a smaller curated subset (AAAI 2026). Runnable distillation + LaBraM pretraining scripts.",
+      "verbatim_quote": "EEG-DLite is the first systematic framework for pre-training data distillation in EEG foundation models.",
+      "source": "https://arxiv.org/abs/2512.12210"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "TimeRadar (Domain-Rotatable Foundation Model for TS Anomaly Detection)",
+      "arxiv_date": "2026-02",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "MeanVoiceFlow (One-step Nonparallel Voice Conversion with Mean Flows)",
+      "arxiv_date": "2026-02",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "FLAC: Few-shot Acoustic Synthesis with Multimodal Flow Matching",
+      "arxiv_date": "2026-03",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "UNISON: Unified Sound Generation and Editing via Deep LLM Fusion",
+      "arxiv_date": "2026-05",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "OGPP: Orbit-Space Particle Flow Matching (Orbit-Space Geometric Probability Paths)",
+      "arxiv_date": "2026-05",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "Cellular Sheaf Neural Operators for Structure-Preserving PDE Surrogates",
+      "arxiv_date": "2026-06",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "Langevin Speculative Dynamics (LSD) - Speculative Sampling for Faster Molecular Dynamics",
+      "arxiv_date": "2026-06",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "GIST: Gauge-Invariant Spectral Transformers for Scalable Graph Neural Operators",
+      "arxiv_date": "2026-03",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "SCNO: Spiking Compositional Neural Operator (Neuromorphic Foundation Model for Nuclear PDEs)",
+      "arxiv_date": "2026-04",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "Tensor Channel Equivariant Graph Neural Networks (molecular polarizability prediction)",
+      "arxiv_date": "2026-05",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "GraphBFF (Billion-Scale Graph Foundation Models)",
+      "arxiv_date": "2026-02",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    },
+    {
+      "name": "Health-Conditioned Vision-Language-Action Models (malfunction-aware robot control)",
+      "arxiv_date": "2026-05",
+      "fresh": true,
+      "usable": false,
+      "reason": "not-usable (no code/checkpoint)"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "run": "run35",
+  "held_decision_metrics": {
+    "decision_accuracy_fp_fr": [
+      0,
+      0
+    ],
+    "determinism": 1.0,
+    "borderline_adjudication": 1.0,
+    "param_change_L1_decision_scalars_v7_v8": 0.0,
+    "verdict": "0 regressions: niche 0/0, determinism 1.0, borderline 1.0 (identical to Run 34); the value stage is additive."
+  },
+  "decision_accuracy_6cycles": [
+    {
+      "run": "run30",
+      "fp": 1,
+      "inherited": true
+    },
+    {
+      "run": "run31",
+      "fp": 0,
+      "inherited": true
+    },
+    {
+      "run": "run32",
+      "fp": 0,
+      "fr": 0,
+      "prior": true
+    },
+    {
+      "run": "run33",
+      "fp": 0,
+      "fr": 0,
+      "prior": true
+    },
+    {
+      "run": "run34",
+      "fp": 0,
+      "fr": 0,
+      "prior": true
+    },
+    {
+      "run": "run35",
+      "fp": 0,
+      "fr": 0,
+      "note": "held at 0/0 with the value stage added"
+    }
+  ],
+  "param_change_magnitude": {
+    "decision_scalar_L1": {
+      "v1_v2": 0.21,
+      "v2_v3": 0.19,
+      "v3_v4": 0.08,
+      "v4_v5": 0.0,
+      "v5_v6": 0.0,
+      "v6_v7": 0.0,
+      "v7_v8": 0.0
+    },
+    "trajectory": "0.21 -> 0.19 -> 0.08 -> 0.00 -> 0.00 -> 0.00 -> 0.00 (FOUR consecutive cycles at 0.00)",
+    "v8_additions": [
+      "value_threshold",
+      "value_floor",
+      "value_audit_gate(=0, gate rejected)",
+      "value_rule"
+    ],
+    "verdict": "decision scalars converged; v8 adds a NEW value stage (structural)."
+  },
+  "NEW_value_discrimination": {
+    "chance": 0.5,
+    "structural_only": 0.75,
+    "structural_plus_audit_gate_0p75_REJECTED": 0.7917,
+    "structural_plus_audit_no_gate_v8": 0.8333,
+    "structural_only_false_useful": 0,
+    "v8_false_useful_false_useless": [
+      4,
+      0
+    ],
+    "verdict": "value scorer WORKS: 0.50 chance -> 0.75 structural-only (0 false-useful, high precision) -> 0.833 with the value-audit (full recall). The 0.75 confidence gate was measured and REJECTED (0.792 < 0.833). Value is fuzzier than novelty: residual false-useful are debatable analogies the audit defensibly accepts."
+  },
+  "at_scale_value": {
+    "novelty_pass_rate": 0.9915,
+    "structural_valuable_frac": 0.4097,
+    "useless_frac": 0.0583,
+    "borderline_frac": 0.532,
+    "verdict": "novelty collapses to value: of the 99.15% novel niches, 41.0% pass the high-precision structural-value filter, 5.8% clearly useless, 53.2% borderline. Novel != useful, quantified."
+  },
+  "overall_verdict": "The DECISION pipeline remains PRODUCTION-READY (4 consecutive stable cycles; the new value stage caused ZERO decision regressions). The VALUE scorer WORKS (0.833, gate rejected) but is less mature: value judgement is intrinsically fuzzier and 53%% of niches are borderline at scale. The FULL pipeline (novel AND useful) is APPROACHING production-ready -- it now filters ~99%% novelty down to ~41%% high-precision value.",
+  "next_target": "Mature the value half: (a) auto-populate value-audit entries for the 53%% at-scale borderline (value coverage is now the constraint, as niche coverage was at Run 33); (b) refine the structural ontology to shrink the borderline band; (c) grow the 24-fixture value GT with multiple raters. The decision half needs no further work."
+}
