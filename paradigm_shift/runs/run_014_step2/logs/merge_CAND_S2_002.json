@@ -1,0 +1,109 @@
+{
+  "cand_id": "CAND_S2_002",
+  "parse_ok": true,
+  "parsed_candidate": {
+    "joint_topic": "Competency-Driven Test-Time Training as Morphogenetic Weight Adaptation",
+    "thesis": "Treat each layer or token-block of a network as a cell-like agent that, during inference, updates its own inner weights to resolve local prediction errors, so that test-time training assembles coherent global behavior from distributed local error-correction the way evo-devo cells assemble anatomy.",
+    "mechanism": "Local prediction errors at each inference step induce small per-agent inner-model weight updates that transform local errors into corrective signals, and these distributed updates produce a coherent global output, mirroring how competent cells regulate morphogenesis toward a target anatomy.",
+    "operator": "TRANSFORMS",
+    "primary_quote": "the network adapts its own weights during inference rather than only at train time",
+    "verification_plan": [
+      {
+        "source": "arxiv",
+        "query": "test-time training inner loop weight update during inference"
+      },
+      {
+        "source": "Semantic Scholar",
+        "query": "competency morphogenesis cells as agents error correction Levin"
+      },
+      {
+        "source": "Google Scholar",
+        "query": "test-time adaptation local error global coherence neural network"
+      },
+      {
+        "source": "OpenReview",
+        "query": "test-time training sequence model self-supervised inner model adaptation"
+      },
+      {
+        "source": "bioRxiv",
+        "query": "evo-devo competency architecture morphogenetic problem solving cells agents"
+      },
+      {
+        "source": "PubMed",
+        "query": "basal cognition morphogenesis collective intelligence anatomy target"
+      }
+    ]
+  },
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 13534,
+    "duration_api_ms": 12184,
+    "ttft_ms": 4435,
+    "num_turns": 1,
+    "result": "```json\n{\n  \"joint_topic\": \"Competency-Driven Test-Time Training as Morphogenetic Weight Adaptation\",\n  \"thesis\": \"Treat each layer or token-block of a network as a cell-like agent that, during inference, updates its own inner weights to resolve local prediction errors, so that test-time training assembles coherent global behavior from distributed local error-correction the way evo-devo cells assemble anatomy.\",\n  \"mechanism\": \"Local prediction errors at each inference step induce small per-agent inner-model weight updates that transform local errors into corrective signals, and these distributed updates produce a coherent global output, mirroring how competent cells regulate morphogenesis toward a target anatomy.\",\n  \"operator\": \"TRANSFORMS\",\n  \"primary_quote\": \"the network adapts its own weights during inference rather than only at train time\",\n  \"verification_plan\": [\n    {\"source\": \"arxiv\", \"query\": \"test-time training inner loop weight update during inference\"},\n    {\"source\": \"Semantic Scholar\", \"query\": \"competency morphogenesis cells as agents error correction Levin\"},\n    {\"source\": \"Google Scholar\", \"query\": \"test-time adaptation local error global coherence neural network\"},\n    {\"source\": \"OpenReview\", \"query\": \"test-time training sequence model self-supervised inner model adaptation\"},\n    {\"source\": \"bioRxiv\", \"query\": \"evo-devo competency architecture morphogenetic problem solving cells agents\"},\n    {\"source\": \"PubMed\", \"query\": \"basal cognition morphogenesis collective intelligence anatomy target\"}\n  ]\n}\n```",
+    "stop_reason": "end_turn",
+    "session_id": "64253e00-1f45-4b88-aa73-af2849a3375f",
+    "total_cost_usd": 0.0468485,
+    "usage": {
+      "input_tokens": 2531,
+      "cache_creation_input_tokens": 1572,
+      "cache_read_input_tokens": 14221,
+      "output_tokens": 651,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1572,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2531,
+          "output_tokens": 651,
+          "cache_read_input_tokens": 14221,
+          "cache_creation_input_tokens": 1572,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1572
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 873,
+        "outputTokens": 22,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.000983,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2531,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 14221,
+        "cacheCreationInputTokens": 1572,
+        "webSearchRequests": 0,
+        "costUSD": 0.045865500000000003,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "76868be2-2cf4-40ad-94e3-2dbe89f4a0cc"
+  },
+  "prompt": "You are merging two research \"atoms\" into ONE candidate paradigm-shift research niche in AI / LLMs.\n\nATOM A (id ML_E1_A03, source arxiv): \"Test-time training updates a small inner model on each input sequence, so the network adapts its own weights during inference rather than only at train time.\"\nATOM B (id ARXIV_R10_evodevo, source arxiv): \"Evo-devo competency architectures treat cells as agents that solve morphogenetic problems, transforming local errors into coherent global anatomy.\"\n\nCombine the mechanism in ATOM A with the mechanism/principle in ATOM B into a single, concrete, testable research direction.\n\nOutput ONLY a fenced ```json block (no prose before or after) with EXACTLY these fields:\n{\n  \"joint_topic\": \"<=12 word title of the merged niche\",\n  \"thesis\": \"1-2 sentence concrete research thesis\",\n  \"mechanism\": \"1-2 sentences describing the causal mechanism; MUST use concrete causal verbs such as induces, produces, causes, transforms, regulates, activates, inhibits, routes\",\n  \"operator\": \"a short relation label such as INDUCES or TRANSFORMS; do NOT use ANALOGY_TRANSFERS_TO_OPEN\",\n  \"primary_quote\": \"a quote of at least 30 characters copied EXACTLY (verbatim, character-for-character) from ATOM A's text or ATOM B's text; do not paraphrase or invent\",\n  \"verification_plan\": [{\"source\": \"<name>\", \"query\": \"<search query>\"}]\n}\n\nRules:\n- primary_quote MUST be an exact substring of one atom's text. Copy it; do not invent.\n- verification_plan MUST list at least 5 entries with 5 DISTINCT source names.\n- Output nothing except the json block.",
+  "merged_at": "2026-05-29T12:24:34.632090+00:00"
+}

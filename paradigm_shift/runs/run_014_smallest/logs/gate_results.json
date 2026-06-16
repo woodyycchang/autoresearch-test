@@ -1,0 +1,137 @@
+[
+  {
+    "cand_id": "CAND_014_E1_001",
+    "joint_topic": "Genome-Inspired Modular Routing for Mixture-of-Experts Body Plans",
+    "operator": "INDUCES",
+    "mechanism": "The router regulates which expert modules activate per token, and we treat these activation patterns as developmental switches: distinct module-activation combinations induce distinct specialized subnetworks, so one shared parameter set produces many task-specific architectures depending on which modules switch on.",
+    "primary_quote": "a single genome induces many distinct body plans depending on which modules switch on",
+    "composite": 0.8515,
+    "gate_1_threshold": {
+      "pass": true,
+      "composite": 0.8515,
+      "threshold": 0.85
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": []
+    },
+    "gate_3_cross_llm": {
+      "pass": true,
+      "distinct_sources": [
+        "arxiv",
+        "dblp",
+        "google_scholar",
+        "openreview",
+        "pubmed",
+        "semantic_scholar"
+      ],
+      "required": 5
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "produces",
+        "regulates"
+      ],
+      "operator": "INDUCES",
+      "operator_ok": true,
+      "quote_chars": 85,
+      "quote_grounded": true
+    },
+    "survived": true,
+    "gates_failed": [],
+    "first_drop_gate": null
+  },
+  {
+    "cand_id": "CAND_014_E1_002",
+    "joint_topic": "Test-Time Weight Updates as Cellular Competency for Coherent Inference",
+    "operator": "TRANSFORMS",
+    "mechanism": "Test-time training updates a small inner model on each input sequence, which transforms local prediction errors into corrective weight adjustments; treating each updated sub-model as a competent agent routes these local corrections into a coherent global representation, analogous to how cells transform local errors into coherent anatomy.",
+    "primary_quote": "transforming local errors into coherent global anatomy",
+    "composite": 0.7514,
+    "gate_1_threshold": {
+      "pass": false,
+      "composite": 0.7514,
+      "threshold": 0.85
+    },
+    "gate_2_quarantine": {
+      "pass": false,
+      "quarantine_hits": [
+        "ARXIV_R10_evodevo"
+      ]
+    },
+    "gate_3_cross_llm": {
+      "pass": true,
+      "distinct_sources": [
+        "arxiv",
+        "biorxiv",
+        "google_scholar",
+        "openreview",
+        "pubmed",
+        "semantic_scholar"
+      ],
+      "required": 5
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "transforms"
+      ],
+      "operator": "TRANSFORMS",
+      "operator_ok": true,
+      "quote_chars": 54,
+      "quote_grounded": true
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_threshold",
+      "gate_2_quarantine"
+    ],
+    "first_drop_gate": "gate_1_threshold"
+  },
+  {
+    "cand_id": "CAND_014_E1_003",
+    "joint_topic": "Continual Capability Gains Compounding Into Broad AI Impact",
+    "operator": "INDUCES",
+    "mechanism": "Repeated optimization across successive model generations induces incremental loss reductions that activate latent capabilities, and the accumulation of these activated capabilities transforms narrow gains into broad cross-domain impact.",
+    "primary_quote": "the models just kind of get better over time",
+    "composite": 0.1473,
+    "gate_1_threshold": {
+      "pass": false,
+      "composite": 0.1473,
+      "threshold": 0.85
+    },
+    "gate_2_quarantine": {
+      "pass": true,
+      "quarantine_hits": []
+    },
+    "gate_3_cross_llm": {
+      "pass": true,
+      "distinct_sources": [
+        "acl anthology",
+        "arxiv",
+        "google scholar",
+        "openreview",
+        "papers with code",
+        "semantic scholar"
+      ],
+      "required": 5
+    },
+    "gate_4_belinda": {
+      "pass": true,
+      "mechanism_verbs": [
+        "induces",
+        "transforms"
+      ],
+      "operator": "INDUCES",
+      "operator_ok": true,
+      "quote_chars": 44,
+      "quote_grounded": true
+    },
+    "survived": false,
+    "gates_failed": [
+      "gate_1_threshold"
+    ],
+    "first_drop_gate": "gate_1_threshold"
+  }
+]

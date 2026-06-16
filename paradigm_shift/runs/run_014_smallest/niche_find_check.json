@@ -1,0 +1,38 @@
+{
+  "verdict": "NICHE_FOUND",
+  "survivors": [
+    {
+      "cand_id": "CAND_014_E1_001",
+      "composite": 0.8515,
+      "joint_topic": "Genome-Inspired Modular Routing for Mixture-of-Experts Body Plans",
+      "operator": "INDUCES",
+      "mechanism": "The router regulates which expert modules activate per token, and we treat these activation patterns as developmental switches: distinct module-activation combinations induce distinct specialized subnetworks, so one shared parameter set produces many task-specific architectures depending on which modules switch on.",
+      "primary_quote": "a single genome induces many distinct body plans depending on which modules switch on"
+    }
+  ],
+  "drop_counts": {
+    "gate_1_threshold": 2,
+    "gate_2_quarantine": 0,
+    "gate_3_cross_llm": 0,
+    "gate_4_belinda": 0
+  },
+  "gate_fired_counts": {
+    "gate_1_threshold": 2,
+    "gate_2_quarantine": 1,
+    "gate_3_cross_llm": 0,
+    "gate_4_belinda": 0
+  },
+  "per_candidate_gates_failed": {
+    "CAND_014_E1_001": [],
+    "CAND_014_E1_002": [
+      "gate_1_threshold",
+      "gate_2_quarantine"
+    ],
+    "CAND_014_E1_003": [
+      "gate_1_threshold"
+    ]
+  },
+  "candidates_scanned": 3,
+  "notes": "At least one candidate passed all four gates. drop_counts = first gate each candidate failed; gate_fired_counts = every gate that dropped a candidate (so Gate 2 quarantine is credited even when Gate 1 also failed).",
+  "timestamp": "2026-05-29T05:56:49.907069+00:00"
+}

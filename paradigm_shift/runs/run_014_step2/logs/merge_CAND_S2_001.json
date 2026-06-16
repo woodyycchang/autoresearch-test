@@ -1,0 +1,105 @@
+{
+  "cand_id": "CAND_S2_001",
+  "parse_ok": true,
+  "parsed_candidate": {
+    "joint_topic": "Genome-Style Regulatory Routing for Mixture-of-Experts Models",
+    "thesis": "A single MoE backbone can be trained so that a learned regulatory router activates distinct expert modules per task-context, inducing many specialized 'body plans' (sub-models) from one shared parameter genome.",
+    "mechanism": "A regulatory router reads task-context signals and selectively activates a subset of expert modules, which routes computation to specialized subnetworks and thereby induces distinct emergent sub-models from one shared set of parameters.",
+    "operator": "INDUCES",
+    "primary_quote": "a single genome induces many distinct body plans depending on which modules switch on",
+    "verification_plan": [
+      {
+        "source": "arxiv",
+        "query": "mixture-of-experts conditional module activation specialization"
+      },
+      {
+        "source": "semanticscholar",
+        "query": "gene regulatory network modularity developmental body plan"
+      },
+      {
+        "source": "openreview",
+        "query": "context-conditioned expert routing emergent submodels shared parameters"
+      },
+      {
+        "source": "pubmed",
+        "query": "regulatory gene networks selective developmental module activation"
+      },
+      {
+        "source": "googlescholar",
+        "query": "single parameter genome multiple task-specialized subnetworks routing"
+      }
+    ]
+  },
+  "envelope": {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "api_error_status": null,
+    "duration_ms": 10556,
+    "duration_api_ms": 8645,
+    "ttft_ms": 7592,
+    "num_turns": 1,
+    "result": "```json\n{\n  \"joint_topic\": \"Genome-Style Regulatory Routing for Mixture-of-Experts Models\",\n  \"thesis\": \"A single MoE backbone can be trained so that a learned regulatory router activates distinct expert modules per task-context, inducing many specialized 'body plans' (sub-models) from one shared parameter genome.\",\n  \"mechanism\": \"A regulatory router reads task-context signals and selectively activates a subset of expert modules, which routes computation to specialized subnetworks and thereby induces distinct emergent sub-models from one shared set of parameters.\",\n  \"operator\": \"INDUCES\",\n  \"primary_quote\": \"a single genome induces many distinct body plans depending on which modules switch on\",\n  \"verification_plan\": [\n    {\"source\": \"arxiv\", \"query\": \"mixture-of-experts conditional module activation specialization\"},\n    {\"source\": \"semanticscholar\", \"query\": \"gene regulatory network modularity developmental body plan\"},\n    {\"source\": \"openreview\", \"query\": \"context-conditioned expert routing emergent submodels shared parameters\"},\n    {\"source\": \"pubmed\", \"query\": \"regulatory gene networks selective developmental module activation\"},\n    {\"source\": \"googlescholar\", \"query\": \"single parameter genome multiple task-specialized subnetworks routing\"}\n  ]\n}\n```",
+    "stop_reason": "end_turn",
+    "session_id": "6cc18a5d-ab92-4d6b-b74b-484cf44e7b39",
+    "total_cost_usd": 0.0416775,
+    "usage": {
+      "input_tokens": 2531,
+      "cache_creation_input_tokens": 1580,
+      "cache_read_input_tokens": 14221,
+      "output_tokens": 443,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1580,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2531,
+          "output_tokens": 443,
+          "cache_read_input_tokens": 14221,
+          "cache_creation_input_tokens": 1580,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1580
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 872,
+        "outputTokens": 18,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0009620000000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-opus-4-8": {
+        "inputTokens": 2531,
+        "outputTokens": 443,
+        "cacheReadInputTokens": 14221,
+        "cacheCreationInputTokens": 1580,
+        "webSearchRequests": 0,
+        "costUSD": 0.0407155,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "uuid": "a56c2efd-8ace-490f-95c3-3499fc5a06b9"
+  },
+  "prompt": "You are merging two research \"atoms\" into ONE candidate paradigm-shift research niche in AI / LLMs.\n\nATOM A (id ML_E1_A01, source arxiv): \"Sparse mixture-of-experts routing activates only a few expert subnetworks per token, so the router gates compute toward the inputs each expert specializes in.\"\nATOM B (id BIO_E1_A02, source essay): \"In developmental biology, regulatory gene networks selectively activate developmental modules, so a single genome induces many distinct body plans depending on which modules switch on.\"\n\nCombine the mechanism in ATOM A with the mechanism/principle in ATOM B into a single, concrete, testable research direction.\n\nOutput ONLY a fenced ```json block (no prose before or after) with EXACTLY these fields:\n{\n  \"joint_topic\": \"<=12 word title of the merged niche\",\n  \"thesis\": \"1-2 sentence concrete research thesis\",\n  \"mechanism\": \"1-2 sentences describing the causal mechanism; MUST use concrete causal verbs such as induces, produces, causes, transforms, regulates, activates, inhibits, routes\",\n  \"operator\": \"a short relation label such as INDUCES or TRANSFORMS; do NOT use ANALOGY_TRANSFERS_TO_OPEN\",\n  \"primary_quote\": \"a quote of at least 30 characters copied EXACTLY (verbatim, character-for-character) from ATOM A's text or ATOM B's text; do not paraphrase or invent\",\n  \"verification_plan\": [{\"source\": \"<name>\", \"query\": \"<search query>\"}]\n}\n\nRules:\n- primary_quote MUST be an exact substring of one atom's text. Copy it; do not invent.\n- verification_plan MUST list at least 5 entries with 5 DISTINCT source names.\n- Output nothing except the json block.",
+  "merged_at": "2026-05-29T12:24:20.515838+00:00"
+}
