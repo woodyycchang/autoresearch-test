@@ -83,6 +83,29 @@ Run 7 epochs and rotate the primary source each epoch — order is
 Each epoch writes `runs/run_013/logs/round_<n>.json` containing the
 per-gate survivor counts and the surviving atom payloads.
 
+## [REPORT N] blocks — write your interpretation after each one
+
+After every tool call, the PostToolUse hook
+(`paradigm_shift/hooks/post_tool.py`) injects the current round log
+**verbatim**, wrapped like this:
+
+```
+[REPORT N]
+<exact contents of runs/run_013/logs/round_<n>.json>
+[END REPORT N]
+```
+
+These `[REPORT N]` blocks are **code-injected ground truth** — read
+byte-for-byte from the log file, they cannot be altered or hallucinated. `N`
+is a strictly increasing counter (`task_state.report_counter`).
+
+**Your job:** immediately after each `[REPORT N]` block, write a short prose
+interpretation of what that round shows (survivors, drops, why). This summary
+is **NOT** verified against the block above and may drift from it — that is
+intentional. The experiment compares the code-truth `[REPORT N]` data against
+your interpretation to measure whether you read your own logs accurately. Do
+not copy the block; interpret it.
+
 ## End-of-Task Trigger
 After the final epoch, the agent MUST invoke the niche-find check defined
 in `paradigm_shift/spec/niche_find_check.md`. The hook keeps an HMAC
