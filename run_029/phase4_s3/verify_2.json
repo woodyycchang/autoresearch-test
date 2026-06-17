@@ -1,0 +1,107 @@
+{
+  "verifier": "VERIFY-2 (adversarial prior-art, Run 29 s3)",
+  "results": [
+    {
+      "candidate": "C3",
+      "technique": "OmniVTA visuo-tactile world model (self-supervised tactile encoder + two-stream visuo-tactile world model + contact-aware fusion policy + reflexive controller for contact-rich manipulation)",
+      "arxiv_id": "2603.19201",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "craft": "Nerikoh (Japanese kneaded incense) blending 'by feel' + maturation judgment: capturing the fingertip judgment of how much honey/water/plum to knead in to reach the correct paste consistency for the day's temperature/humidity.",
+      "queries_run": [
+        "nerikoh kneaded incense paste consistency machine learning tactile robot",
+        "incense making artisan honey binder dough consistency AI prediction humidity",
+        "tactile sensing robot dough kneading consistency clay manipulation deep learning",
+        "visuo-tactile world model deformable material food manipulation softness estimation",
+        "robot learning paste consistency target softness adapt temperature humidity ceramic clay"
+      ],
+      "prior_art_found": [
+        {
+          "title": "Robotic Dough Shaping",
+          "url": "https://arxiv.org/pdf/2208.00386",
+          "snippet": "Rolling out dough into a log is identified as a crucial part of many dough manipulation tasks, from dumpling making to bread shaping.",
+          "relation": "SIBLING-DOMAIN adjacency on technique axis: robot manipulation/shaping of dough (an elasto-plastic kneadable paste), but vision/geometry-driven and not consistency-by-feel for a target softness, and not incense."
+        },
+        {
+          "title": "Deformable Elasto-Plastic Object Shaping using an Elastic Hand and Model-Based Reinforcement Learning",
+          "url": "https://arxiv.org/pdf/2107.06924",
+          "snippet": "shaping elasto-plastic dough by using elastic end-effectors with reinforcement learning, learning transition models from robot exploration data.",
+          "relation": "SIBLING-DOMAIN adjacency: model-based RL world-model-style learning of dough (elasto-plastic) deformation dynamics; closest to OmniVTA's predict-contact-evolution idea applied to a kneadable paste, but no fingertip target-consistency judgment, no temp/humidity adaptation, not incense."
+        },
+        {
+          "title": "VIRDO++: Real-World, Visuo-tactile Dynamics and Perception of Deformable Objects",
+          "url": "https://arxiv.org/pdf/2210.03701",
+          "snippet": "multimodal visuo-tactile state-estimation and dynamics prediction for deformable objects ... high-fidelity cross-modal state-estimation and prediction of deformable objects from partial visuo-tactile feedback.",
+          "relation": "TECHNIQUE-FAMILY adjacency: visuo-tactile dynamics-prediction (a world-model analog) for deformable objects, the exact method family OmniVTA sits in, but on generic deformables, not paste-consistency-to-target, not incense."
+        },
+        {
+          "title": "Deep Visuo-Tactile Learning: Estimation of Material Properties from Images",
+          "url": "https://deepai.org/publication/deep-visuo-tactile-learning-estimation-of-material-properties-from-images",
+          "snippet": "train encoder-decoder networks with images as input and tactile sequences as output, representing material properties in an intermediate layer as continuous feature space.",
+          "relation": "ADJACENCY on technique axis: visuo-tactile estimation of material softness/properties; relevant to judging 'consistency', but not the kneading-to-target-consistency control loop, not climate-adaptive, not incense."
+        },
+        {
+          "title": "Capturing forceful interaction with deformable objects using a deep learning-powered stretchable tactile array",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11535439/",
+          "snippet": "typical actions like kneading dough, grasping a sponge, and pinching a paper cup using tactile sensing arrays ... dynamic dumpling-making tasks using soft plasticine, involving kneading the material into a ball.",
+          "relation": "SIBLING-DOMAIN adjacency: deep-learning tactile sensing explicitly applied to KNEADING dough/plasticine into a ball (very close to nerikoh kneading mechanics), but classifies/captures interaction, does not judge target paste consistency for given temp/humidity, not incense."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "A visuo-tactile world model that learns the artisan's fingertip judgment of WHEN a kneaded incense (nerikoh) paste has reached the correct consistency for that day's temperature/humidity, deciding incrementally how much honey/water/plum to add — i.e. closed-loop adaptation of a moisture-target to ambient climate during kneading, plus the downstream maturation-readiness judgment. No work pairs visuo-tactile/world-model methods with this honey-binder consistency-for-climate decision, nor with kneaded-incense maturation.",
+      "honest_adjacency": "Both axes are touched. Technique family (visuo-tactile dynamics prediction / world models for deformables, and visuo-tactile material-softness estimation) is well established (VIRDO++ 2210.03701; Deep Visuo-Tactile Learning). The sibling domain of kneadable paste is directly addressed by robotic dough manipulation and elasto-plastic shaping (Robotic Dough Shaping 2208.00386; Elasto-Plastic Shaping w/ MBRL 2107.06924; stretchable tactile array kneading dough PMC11535439). What is missing is the incense-specific, climate-conditioned, by-feel consistency target and maturation judgment.",
+      "reasoning": "After 5 reformulations the application 'nerikoh consistency-by-feel for temp/humidity' returns only how-to artisan guides (KyaraZen, incensemaking.com) with zero AI/robotics, but the technique family and the sibling kneadable-paste domain (dough/plasticine/clay) are richly covered by robot tactile/world-model manipulation work, including explicit dough-kneading. Adjacency exists on both axes, so this is NARROW, not OPEN. It is not CLOSED because no work targets paste-consistency-to-climate or incense maturation."
+    },
+    {
+      "candidate": "C4",
+      "technique": "ML for smell: ordinal odor-strength prediction from molecular structure (QSOR-style; ordinal odorless/low/medium/high intensity classification of perfumery molecules)",
+      "arxiv_id": "2512.08683",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "Machine learning for smell: Ordinal odor strength prediction of molecular perfumery components",
+      "craft": "Kodo monkoh / kumiko scent-discernment ('listening to incense'): identifying aromatic woods (jinkoh / kyara), mapping agarwood volatile profiles to the discriminative identify-this-material judgment of the kumiko game.",
+      "queries_run": [
+        "agarwood jinkoh kyara classification machine learning volatile profile GC-MS discrimination",
+        "kodo monkoh incense ceremony scent discernment AI electronic nose agarwood identification",
+        "agarwood region origin classification six countries Rakoku Manaka deep learning scent prediction",
+        "olfaction molecular structure odor character identification model perfumery wood scent discrimination machine learning",
+        "incense game kumiko-koh scent matching identification quantitative structure odor relationship agarwood sample classifier"
+      ],
+      "prior_art_found": [
+        {
+          "title": "Smell with Genji: Rediscovering Human Perception through an Olfactory Game with AI",
+          "url": "https://arxiv.org/abs/2602.02785",
+          "snippet": "an AI-mediated olfactory interaction system that reinterprets the traditional Japanese incense game Genji-ko as a collaborative human-AI sensory experience ... The AI co-smelling partner integrates olfactory sensing hardware, a scent classification model, and an LLM-based conversational interface ... The model uses a Transformer encoder backbone coupled with an MLP classifier head for 5-class incense categorization. ... Genji-ko is a social olfactory game ... participants compare sequences of five incense scents.",
+          "relation": "NEAR-DIRECT adjacency on the APPLICATION axis: AI making the comparative scent-discernment judgment of a traditional Japanese incense game (Genji-ko, a sibling of kumiko-ko) via a learned scent classifier. This is essentially 'AI plays the incense-identification game', the same capability the C4 gap describes, though it classifies incense from live olfactory-sensor data, not from agarwood volatile/molecular profiles."
+        },
+        {
+          "title": "Classification of Agarwood Oil Using an Electronic Nose",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3292139/",
+          "snippet": "the quality assurance of agarwood oil is traditionally performed by sensory panels which has significant drawbacks ... an electronic nose (e-nose) may be successfully utilised for the classification of agarwood oil. Hierarchical Cluster Analysis (HCA) and Principal Component Analysis (PCA) were used to classify different types of oil.",
+          "relation": "DIRECT application-axis adjacency: machine classification/discrimination of agarwood, the exact material of monkoh, but via e-nose sensor data + PCA/HCA, not molecular-structure odor models and not framed as the kumiko identify-this-wood game."
+        },
+        {
+          "title": "Identification of Agarwood (Aquilaria Malaccensis) / Statistical Analysis of Agarwood Oil Compounds based on GC-MS Data + KNN grading",
+          "url": "https://www.researchgate.net/publication/331527271_Statistical_Analysis_of_Agarwood_Oil_Compounds_based_on_GC-MS_Data",
+          "snippet": "Chemical compositions of agarwood oil samples have been analyzed by gas chromatography ... pattern recognition profiles examined by chemometric analysis using principal component analysis (PCA) ... A grading model based on KNN classification was implemented to classify agarwood oil according to quality.",
+          "relation": "DIRECT application-axis adjacency: ML (KNN) + chemometrics mapping agarwood VOLATILE profiles to grade/quality classes. This maps volatile profiles to a discriminative class, very close to the C4 gap, but the target is quality grade, not the kumiko/rikkoku 'which named wood/region is this' identity judgment."
+        },
+        {
+          "title": "Visualization OPLS class models of GC-MS-based metabolomics data for identifying agarwood essential oil",
+          "url": "https://www.nature.com/articles/s41598-025-85976-2",
+          "snippet": "Visualization OPLS class models of GC-MS-based metabolomics data for identifying agarwood essential oil extracted by hydro-distillation.",
+          "relation": "Application-axis adjacency: supervised class models (OPLS) over agarwood GC-MS volatile data for identifying agarwood, again identity/extraction-method classification rather than the kumiko discernment-game judgment."
+        },
+        {
+          "title": "Machine learning for smell: ordinal odor strength prediction of molecular perfumery components (+ Interpretable multitask DL for odor perception from molecular structure; Morgan-fingerprint XGBoost QSOR)",
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2026/ra/d6ra01805j",
+          "snippet": "Predicting olfactory perception directly from molecular structure is central to product design in perfumery ... woody and musk categories occupy the highest molecular-weight regime (~230-240 Da), consistent with their roles as persistent base notes ... the Morgan-fingerprint-based XGBoost model achieves high discrimination ... a continuous, interpretable scent space.",
+          "relation": "TECHNIQUE-axis adjacency (the C4 technique itself): molecular-structure-to-odor ML, including explicit handling of WOODY notes, is mature. The unused step is applying QSOR-style molecular models to the specific agarwood-discernment identity task."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Mapping agarwood VOLATILE/MOLECULAR profiles (e.g. 2-(2-phenylethyl)chromones, sesquiterpenes) to the kodo rikkoku-gomi identity judgment — i.e. predicting 'which of the six classical jinkoh types/origins (Kyara, Rakoku, Manaka, Manaban, Sasora, Sumotara) is this sample' as the kumiko game decides — from chemistry, using a structure/QSOR-style or volatile-profile model. Adjacent work either (a) classifies agarwood by quality GRADE (KNN/OPLS/e-nose), not by the named rikkoku identity, or (b) plays the incense game with AI but classifies from live olfactory-sensor signals (Smell with Genji), not from molecular/volatile chemistry. No work joins molecular/volatile-profile odor ML to the rikkoku identify-this-wood discernment judgment.",
+      "honest_adjacency": "Both axes are heavily touched. APPLICATION axis: agarwood is already classified/graded by ML, e-nose, and GC-MS chemometrics (PMC3292139; KNN on GC-MS; OPLS class models), AND the kodo incense-identification GAME itself is already AI-mediated via a Transformer scent classifier in 'Smell with Genji' (arXiv 2602.02785, CHI 2026). TECHNIQUE axis: molecular-structure-to-odor ML (including woody-note QSOR, Morgan-fingerprint XGBoost) is mature. The combination is therefore strongly bracketed; only the specific chemistry-to-rikkoku-identity link is unfilled.",
+      "reasoning": "Five reformulations surfaced dense prior art on both axes. The application (machine discrimination of agarwood/jinkoh) is well covered by e-nose and GC-MS+chemometrics, and crucially the kumiko-style incense-discernment game is already done with AI ('Smell with Genji', 2602.02785), which is a near-direct hit on the gap's framing. The technique (molecular-structure odor prediction) is also mature. This is comfortably NARROW. Not CLOSED only because no single work maps molecular/volatile agarwood chemistry to the rikkoku-gomi named-identity judgment; existing agarwood ML targets quality grade, and the game-playing AI classifies from sensor signals rather than chemistry."
+    }
+  ]
+}

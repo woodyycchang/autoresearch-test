@@ -1,0 +1,90 @@
+[
+  {
+    "name": "SIGMA-PPG",
+    "arxiv_id": "2601.21031",
+    "arxiv_date": "2026-01",
+    "subfield": "Self-supervised / representation learning for sensing signals (PPG bio-signals)",
+    "capability_it_enables": "Self-supervised PPG foundation model using a Prior-Guided Adversarial Masking mechanism; pretrained on 120,000+ hours of photoplethysmography, it produces general representations that beat five SOTA baselines across 12 downstream health tasks. Pretrained checkpoints released on HuggingFace.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/ZonghengGuo/SigmaPPG",
+    "verbatim_quote": "Pre-trained on over 120,000 hours of data, SIGMA-PPG achieves superior average performance compared to five state-of-the-art baselines across 12 diverse downstream tasks.",
+    "source": "https://arxiv.org/abs/2601.21031"
+  },
+  {
+    "name": "PulseLM",
+    "arxiv_id": "2603.03331",
+    "arxiv_date": "2026-03",
+    "subfield": "Self-supervised / representation learning for sensing signals (PPG bio-signals + language)",
+    "capability_it_enables": "Multimodal framework pairing PPG signal encoders with LLMs for physiological-signal reasoning; ships a large PPG-text QA dataset (1.31M 10s segments, 3.15M QA pairs across 12 clinical tasks), training/eval code, and model checkpoints + dataset on HuggingFace.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/manhph2211/PulseLM",
+    "verbatim_quote": "PulseLM is a multimodal framework that integrates PPG (Photoplethysmography) signal encoders with large language models for physiological signal understanding research.",
+    "source": "https://arxiv.org/abs/2603.03331"
+  },
+  {
+    "name": "SAM-Audio (Segment Anything in Audio)",
+    "arxiv_id": "2512.18099",
+    "arxiv_date": "2025-12",
+    "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+    "capability_it_enables": "Diffusion-transformer foundation model (Meta) for general audio source separation that unifies text, visual, and temporal-span prompting in one framework; isolates any sound in a mixture. Code installable via pip and checkpoints (sam-audio-large) released on HuggingFace.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/facebookresearch/sam-audio",
+    "verbatim_quote": "SAM-Audio is a foundation model for isolating any sound in audio using text, visual, or temporal prompts.",
+    "source": "https://arxiv.org/abs/2512.18099"
+  },
+  {
+    "name": "Woosh (Sound Effects Foundation Model)",
+    "arxiv_id": "2604.01929",
+    "arxiv_date": "2026-04",
+    "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+    "capability_it_enables": "Sony AI sound-effects foundation model bundling a high-quality audio encoder/decoder (Woosh-AE), a text-audio alignment model (Woosh-CLAP), and text-to-audio + video-to-audio generative models, including distilled fast-inference variants. Inference code and open weights released.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/SonyResearch/Woosh",
+    "verbatim_quote": "This repository provides inference code and open weights for the sound effect generative models developed at Sony AI.",
+    "source": "https://arxiv.org/abs/2604.01929"
+  },
+  {
+    "name": "Audio-Omni",
+    "arxiv_id": "2604.10708",
+    "arxiv_date": "2026-04",
+    "subfield": "Self-supervised / representation learning for sensing signals (audio)",
+    "capability_it_enables": "End-to-end framework unifying understanding, generation, and editing across general sound, music, and speech; couples a frozen Qwen2.5-Omni MLLM with a trainable Diffusion Transformer, plus a new 1M-pair AudioEdit dataset. Code on GitHub and model checkpoint on HuggingFace.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/ZeyueT/Audio-Omni",
+    "verbatim_quote": "the first end-to-end framework to unify understanding, generation, and editing across general sound, music, and speech domains.",
+    "source": "https://arxiv.org/abs/2604.10708"
+  },
+  {
+    "name": "Sparse-BitNet",
+    "arxiv_id": "2603.05168",
+    "arxiv_date": "2026-03",
+    "subfield": "Efficient / on-device / small models (extreme quantization + sparsity)",
+    "capability_it_enables": "Training/inference framework that combines 1.58-bit (ternary) BitLinear quantization with N:M structured sparsity, showing 1.58-bit LLMs are naturally friendly to semi-structured sparsity for efficient on-device LLMs. Runnable train.py / eval.py / generate.py provided.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/AAzdi/Sparse-BitNet",
+    "verbatim_quote": "Training framework for Sparse-BitNet models -- combining 1.58-bit quantization (BitLinear) with N:M structured sparsity for efficient LLM training and inference.",
+    "source": "https://arxiv.org/abs/2603.05168"
+  },
+  {
+    "name": "Agent Memory Below the Prompt (Persistent Q4 KV Cache)",
+    "arxiv_id": "2603.04428",
+    "arxiv_date": "2026-03",
+    "subfield": "Efficient / on-device / small models (edge KV-cache quantization)",
+    "capability_it_enables": "Persists each agent's KV cache to disk as 4-bit quantized safetensors and reloads it directly into attention, eliminating redundant prefill for multi-agent LLM inference on edge devices; cuts time-to-first-token by up to 136x and fits 4x more agent contexts in fixed memory vs FP16. Open-source code for Apple Silicon.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/yshk-mxim/agent-memory",
+    "verbatim_quote": "Persistent KV cache for multi-agent LLM systems on Apple Silicon.",
+    "source": "https://arxiv.org/abs/2603.04428"
+  },
+  {
+    "name": "EEG-DLite",
+    "arxiv_id": "2512.12210",
+    "arxiv_date": "2025-12",
+    "subfield": "Efficient / on-device / small models (data distillation for efficient sensing-model training)",
+    "capability_it_enables": "Dataset-distillation framework that encodes EEG segments into compact latent representations and filters out noisy/redundant samples, enabling more efficient pre-training of large EEG foundation models on a smaller curated subset (AAAI 2026). Runnable distillation + LaBraM pretraining scripts.",
+    "has_usable_code": true,
+    "code_url": "https://github.com/t170815518/EEG-DLite",
+    "verbatim_quote": "EEG-DLite is the first systematic framework for pre-training data distillation in EEG foundation models.",
+    "source": "https://arxiv.org/abs/2512.12210"
+  }
+]

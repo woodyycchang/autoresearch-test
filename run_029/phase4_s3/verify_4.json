@@ -1,0 +1,87 @@
+{
+  "verifier": "VERIFY-4 (ADVERSARIAL prior-art verifier, Run 29 s3)",
+  "results": [
+    {
+      "candidate": "C7",
+      "technique": "SymTorch — symbolic regression / symbolic distillation of deep neural networks (PySR-backed)",
+      "arxiv_id": "2602.21307",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "SymTorch: A Framework for Symbolic Distillation of Deep Neural Networks",
+      "craft": "Flue-pipe organ voicing by hand (cutup height, flueway depth, toe diameter -> timbre / volume / attack); goal is a closed-form law mapping the voicer's geometric tweaks to target timbre, currently only ear-judged.",
+      "queries_run": [
+        "symbolic regression flue pipe organ voicing cutup height timbre closed-form law",
+        "flue organ pipe voicing machine learning neural network timbre prediction",
+        "organ pipe acoustics physical modeling synthesis cutup geometry equation prediction",
+        "symbolic regression musical instrument acoustics interpretable equation flute woodwind timbre",
+        "arXiv 2602.21307 SymTorch symbolic regression distillation (technique/ID confirmation)"
+      ],
+      "prior_art_found": [
+        {
+          "source": "Ising, H. (1971), dimensionless intonation number — via thediapason.com 'Art of Voicing' / grokipedia 'organ flue pipe scaling' / IRCAM Rioux 'Sound Quality of Flue Organ Pipes'",
+          "snippet": "Hartmut Ising (1971) proposed a dimensionless number that characterises the voicing state of a flue pipe. It relates wind pressure, flue thickness, cutup height, and the pipe's fundamental frequency... Cutup (H) enters as H^(3/2) and has by far the strongest influence on the intonation number... the timbre gets brighter with more pressure P, ... as the flueway D deepens, and ... smoother very quickly as the cutup height H increases.",
+          "relevance": "Existing CLOSED-FORM physics law already maps the exact voicer geometry (cutup height H, flueway/flue thickness D, pressure P, frequency f) to voicing character/timbre — i.e. the capability_gap's target relation already has a hand-derived closed-form equation."
+        },
+        {
+          "source": "Recognition of the Flue Pipe Type Using Deep Learning (Springer, 2021) + Sounding Mechanism of a Flue Organ Pipe (MDPI Sensors 2024)",
+          "snippet": "Artificial Neural Networks (ANN) have been trained to recognize the details of pipe mouth construction with very high accuracy... Deep learning in the recognition of pipe sound parameters may be used in the voicing of the pipe organ and the selection of appropriate parameters of pipes to obtain the desired timbre... Timbre charts could assist in the work of pipe voicing by means of an electronic voicing device.",
+          "relevance": "The application (flue-pipe voicing) is already touched by deep learning / neural networks for the geometry<->timbre relationship, including explicit framing of NN use for selecting pipe parameters to obtain a desired timbre and an electronic voicing assistant."
+        },
+        {
+          "source": "PIPESOUND (EU FP6, CORDIS id 21505); 'Simulation of organ pipes' acoustic behavior' (FEM/BEM); 'Innovative methods for the sound design of organ pipes' (PhD); COMSOL organ-pipe acoustics tutorial",
+          "snippet": "Researchers have modeled organ pipes using various numerical techniques such as FEM, BEM, and coupled FEM/BEM methods. The Helmholtz equation is solved in the whole domain... These parameters are highly affected by small changes in pipe geometry, requiring fine resolution in numeric models.",
+          "relevance": "Physical-modeling / numerical (FEM/BEM, Helmholtz) prediction of timbre from pipe geometry is well established — adjacency on the application axis via a different (physics-simulation) method."
+        },
+        {
+          "source": "Symbolic regression / interpretable-equation modeling of instrument timbre — MDPI Electronics 'Acoustic Descriptors ... using FFT'; 'Analysis and Modeling of Timbre Perception Features' (MDPI App.Sci.); Timbre Toolbox PLSR/ANN studies",
+          "snippet": "Mathematical models of timbre perception features have been developed using linear regression, support vector regression, neural networks, and random forest algorithms for characteristics like brightness, raspiness, sharpness... dimensionless descriptors for describing the timbre of wooden aerophones (Bassoon, Clarinet, Transverse Flute, Oboe).",
+          "relevance": "Technique-family (regression/ANN, and even dimensionless descriptors) applied to instrument timbre on the SIBLING woodwind/aerophone domain — but search returned NO genuine symbolic-regression-derived governing equation; 'the search results don't specifically address symbolic regression as a technique for discovering interpretable equations in this domain.'"
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using SYMBOLIC-REGRESSION / symbolic distillation (PySR-style, e.g. SymTorch) to DISTILL a trained deep model of measured pipe sound into a NEW interpretable closed-form law that maps the hand-voicer's three geometric controls specifically {cutup height, flueway depth, TOE/foot-hole diameter} jointly to {timbre descriptor, radiated volume, attack/transient}. Existing closed forms (Ising number) omit toe/foot diameter and attack and were derived analytically, not regressed from data; existing ML (Springer DL) does recognition/classification or black-box parameter selection, not an emitted human-readable equation.",
+      "honest_adjacency": "STRONG on BOTH axes. Application axis: flue-pipe voicing already addressed by (a) a hand-derived closed-form law for geometry->timbre (Ising number, H^3/2 cutup, flueway, pressure, frequency) and (b) deep-learning systems explicitly aimed at voicing / desired-timbre parameter selection, plus FEM/BEM physical-modeling synthesis. Technique axis: symbolic-regression-family (regression/ANN/dimensionless descriptors) is applied to musical-instrument timbre on sibling aerophone domains. The only genuinely unclaimed sliver is the specific act of symbolic-distillation of a data-trained pipe-sound network into a closed-form geometry->timbre/volume/attack law including the toe/foot diameter and attack terms.",
+      "reasoning": "First reformulation alone surfaced an existing dimensionless closed-form intonation law (Ising) directly relating cutup/flueway/pressure/frequency to timbre, which substantially pre-empts 'a closed-form law mapping the voicer's geometric tweaks to target timbre.' Deep-learning-for-voicing literature (Springer 2021; MDPI Sensors 2024) and FEM/BEM/PIPESOUND physical models further saturate the application axis. Symbolic-regression on instrument-timbre sibling domains exists in regression/descriptor form. Because adjacency is dense on both axes, this fails the OPEN gate decisively; it is not CLOSED only because no source shows symbolic-regression (vs analytic derivation or black-box DL) emitting a closed-form law over the full {cutup, flueway, toe-diameter -> timbre/volume/attack} control set."
+    },
+    {
+      "candidate": "C8",
+      "technique": "OmniVTA — visuo-tactile world model for contact-rich robotic manipulation (predict short-horizon contact evolution from visuo-tactile-action)",
+      "arxiv_id": "2603.19201",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation",
+      "craft": "Knapping pressure-flaking force/termination control — predict feather vs hinge/step termination from in-hand pressure direction/magnitude + biface positioning.",
+      "queries_run": [
+        "flintknapping flake termination prediction feather hinge step pressure force machine learning",
+        "virtual knapping CGAN generative adversarial network stone tool flake prediction",
+        "conchoidal fracture mechanics simulation lithic flake propagation finite element Hertzian cone",
+        "tactile sensing in-hand force prediction fracture brittle material breakage robotic manipulation world model",
+        "arXiv 2603.19201 OmniVTA visuo-tactile world model (technique/ID confirmation)"
+      ],
+      "prior_art_found": [
+        {
+          "source": "A proof of concept for machine learning-based virtual knapping using neural networks (Orellana Figueroa et al., Scientific Reports 2021, s41598-021-98755-6 / PMC8497608)",
+          "snippet": "Researchers presented a proof of concept for a machine learning-based virtual knapping framework capable of quickly and accurately predicting flake removals from 3D cores using a conditional adversarial neural network (CGAN)... after training, the CGAN accurately predicted the length, volume, width, and shape of these flake removals using the intact core surface information alone.",
+          "relevance": "Direct ML on the application: a CGAN already PREDICTS flake-removal outcomes (length/volume/width/shape) from core geometry — the exact 'virtual knapping CGAN' adjacency named in the candidate note. It predicts flake morphology, though not specifically termination TYPE (feather/hinge/step) from in-hand pressure."
+        },
+        {
+          "source": "Fracture-mechanics knapping knowledge — Museum of Stone Tools (terminations / propagation workshops); Wikipedia 'Termination type'; Cotterell & Kamminga style accounts via flintknapping compilations",
+          "snippet": "The factors that affect the creation of the various flakes are width-to-thickness ratio of the core, loading time of the force, and angle of blow... As the crack grows and starts to lose compression energy, the force angle can become too large to maintain the balance between compression and shearing forces... the crack curves abruptly to exit the face of the core. [feather = straight exit; hinge = force rolls away, rounded end; step = snap/right-angle break]",
+          "relevance": "The causal mapping from force parameters (loading time, angle of blow, width:thickness) to termination type is already articulated qualitatively/mechanically — i.e. the physics the candidate wants to learn is a known fracture-mechanics relationship, not virgin territory."
+        },
+        {
+          "source": "Conchoidal/Hertzian fracture-mechanics simulation literature — ANU Press 'Procedures for Lithic Analysis'; 'Reconstructing hammerstone size flake by flake' (PMC12074805); 'Platform surface interior angle (PSIA)' (PMC7673556); bending/radial flake fracture experiments (J.Arch.Sci.)",
+          "snippet": "The Hertzian cone propagates in a circle around the contact area and expands down into the nucleus in a cone shape at an angle partly dependent on the angle of applied force... fracture predictability in archaeology ... employs the ideas of fracture mechanics, geology, and materials science... systematically examining how hammerstone size, velocity and strike angle affect ring crack and flake size under controlled conditions.",
+          "relevance": "Quantitative fracture-mechanics modeling (Hertzian cone, force-angle dependence, controlled force->flake-size studies) on the exact knapping domain — adjacency on the application axis via physics/experimental method rather than a learned tactile world model."
+        },
+        {
+          "source": "Tactile/visuo-tactile force & fracture prediction for fragile objects — OmniVTA itself (2603.19201); GenForce / 'General Force Sensation for Tactile Robot' (arXiv 2503.01058); tactile slip & fragile-object reviews (MDPI Sensors)",
+          "snippet": "Tactile sensor systems demonstrate the ability to grab fragile objects without breakage or slippage... devices can estimate contact forces, torsional moment, object slip and object geometry... slip prediction... self-supervised tactile encoder, a two-stream visuo-tactile world model for predicting short-horizon contact evolution.",
+          "relevance": "Technique-family (tactile/visuo-tactile prediction of contact forces, slip, and incipient breakage of brittle/fragile objects) is established on sibling robotic-manipulation domains — adjacency on the TECHNIQUE axis. None applies it to predicting knapping flake-termination type."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Using a VISUO-TACTILE WORLD MODEL (OmniVTA-style: in-hand tactile encoder + short-horizon contact-evolution prediction + closed-loop reflexive correction) to PREDICT THE DISCRETE FLAKE-TERMINATION CLASS (feather vs hinge vs step) in real time from {in-hand pressure-flaker force direction/magnitude, biface/platform positioning} during PRESSURE flaking. Existing knapping ML (CGAN) predicts flake morphology from STATIC core geometry, not termination type, and uses no tactile/force input; fracture-mechanics work is offline/analytic; tactile world models predict slip/breakage for generic fragile objects but never termination typology in lithic reduction.",
+      "honest_adjacency": "STRONG on BOTH axes. Application axis: knapping is already touched by ML (CGAN virtual knapping predicting flake removals from cores) and by quantitative fracture mechanics (Hertzian cone, force-angle -> feather/hinge/step, controlled force->flake-size studies). Technique axis: visuo-tactile / tactile world models that predict contact forces, slip, and breakage of brittle/fragile objects are established in robotic manipulation (incl. OmniVTA's own domain). The unclaimed sliver is binding the two — an in-hand tactile world model that outputs termination TYPE from pressure direction/magnitude + biface positioning during pressure flaking.",
+      "reasoning": "Reformulation 2 directly returned the candidate's own named adjacency (CGAN virtual knapping, Scientific Reports 2021) which already does ML-based flake-outcome prediction, and reformulations 1/3 show the feather/hinge/step termination physics is a documented fracture-mechanics relationship tied to force angle, loading time and width:thickness. Reformulation 4 confirms tactile/visuo-tactile prediction of contact forces, slip and fragile-object breakage is a mature technique family on sibling domains. With adjacency dense on both the application and technique axes after 5 reformulations, the OPEN gate fails; it stays short of CLOSED only because no source predicts knapping termination TYPE from in-hand tactile/force signals via a world model — existing knapping ML uses static core geometry (no tactile, no termination class) and existing tactile world models never address lithic termination."
+    }
+  ]
+}

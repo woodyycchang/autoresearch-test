@@ -1,0 +1,119 @@
+{
+  "verifier": "VERIFY-4 (adversarial prior-art, Run 29 s4, MODERN domains)",
+  "results": [
+    {
+      "candidate": "C7",
+      "technique": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection Under Distribution Shift (False Positive Mining + Spatiotemporally-Aware Normality Adaptation)",
+      "arxiv_id": "2604.01845",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "CANDI: Curated Test-Time Adaptation for Multivariate Time-Series Anomaly Detection Under Distribution Shift",
+      "niche": "Wastewater surveillance signal interpretation (raw viral RNA -> rising?/real?/what population?/what action?), where fecal shedding rates and sewershed-population mapping vary over time and across sites (i.e., distribution shift). ai_penetration: low.",
+      "queries_run": [
+        "wastewater surveillance machine learning anomaly detection viral RNA signal trend rising",
+        "Biobot WastewaterSCAN Verily analytics normalization population shedding sewershed model",
+        "CDC NWSS wastewater nowcasting trend classification percentile method change point detection",
+        "wastewater epidemiology domain adaptation distribution shift model robustness across sewersheds transfer learning",
+        "\"wastewater\" anomaly detection \"is this signal real\" public health action threshold distinguishing noise outbreak (also: test-time adaptation wastewater viral signal false positive shedding population normalization unlabeled online)"
+      ],
+      "prior_art_found": [
+        {
+          "source": "Separating signal from noise in wastewater data: An algorithm to identify community-level COVID-19 surges in real time (PNAS 2023)",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.2216021120",
+          "snippet": "Wastewater monitoring has provided health officials with early warnings for new COVID-19 outbreaks, but to date, no approach has been validated to distinguish signal (sustained surges) from noise (background variability) in wastewater data... The Covid-SURGE algorithm reliably distinguishes signal from noise in the wastewater data, flags community-level surges, and gives public health officials a timely way to assess the need for heightened response.",
+          "relevance": "Directly targets the niche's 'rising?/real?/what action?' question, but is a deterministic multi-metric rule-based algorithm, NOT a learned test-time-adaptive anomaly detector. No FPM/TTA mechanism."
+        },
+        {
+          "source": "Causal-Informed Domain Adaptation with Cross-Attention for Predicting Anomalous Effluent Quality Fluctuations in Wastewater Treatment Plants (Water Research 2026)",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0043135426000540",
+          "snippet": "a causal-informed temporal domain adaptation model that dynamically captures and aligns causal structures across heterogeneous domains using temporal causal features extracted via variational autoencoder and cross-attention mechanisms.",
+          "relevance": "Domain adaptation + anomaly detection + wastewater all present, BUT task is effluent-quality (water-treatment-process) anomalies, NOT viral-RNA surveillance signal interpretation. Domain adaptation, not test-time adaptation. Closest adjacency on the technique axis but a different wastewater task."
+        },
+        {
+          "source": "A transferable machine learning model for real-time forecast of epidemic dynamics and pre-trigger event warning (AI in Civil Engineering 2025)",
+          "url": "https://link.springer.com/article/10.1007/s43503-025-00059-5",
+          "snippet": "a pretrained model from one sewershed could be applied to other sewersheds seamlessly without retraining, with robust adaptability and transferability enabling forecasting across diverse wastewater-based epidemiology programs with limited datasets.",
+          "relevance": "Cross-sewershed transfer learning / robustness to site heterogeneity exists, but it is forecasting epidemic dynamics, not unlabeled online test-time-adaptive anomaly detection of the raw signal."
+        },
+        {
+          "source": "Viral particle prediction in wastewater treatment plants using nonlinear lifelong learning models (npj Clean Water 2025)",
+          "url": "https://www.nature.com/articles/s41545-025-00461-7",
+          "snippet": "Lifelong learning-based LSTM approaches have demonstrated utility for handling multiple time scales and distribution shifts in wastewater datasets.",
+          "relevance": "Explicitly handles distribution shift in wastewater via continual/lifelong learning, adjacent to TTA's motivation, but is a forecasting/prediction model (treatment-plant viral particle prediction), not curated test-time adaptation for surveillance anomaly/signal-validity interpretation."
+        },
+        {
+          "source": "Biobot Analytics normalization white paper; WastewaterSCAN/Verily; CDC NWSS percentile method",
+          "url": "https://cduvallet.github.io/files/BIOBOT_WHITEPAPER_NORMALIZING_WASTEWATER_DATA_V01-1.pdf",
+          "snippet": "Normalization addresses key interpretation challenges of wastewater data by standardizing environmental effects across samples... shedding studies of normalizing agents PMMoV and CrAssphage demonstrate the wide range of shedding quantities among individuals. (NWSS: facility SARS-CoV-2 percentile is an ordered rank of current concentration relative to historic peak/nadir at that facility; 15-day window.)",
+          "relevance": "Commercial/agency analytics (Biobot, WastewaterSCAN, CDC NWSS) handle the population/shedding normalization and trend-rank interpretation, but via fixed normalization + percentile/rank statistics, NOT ML anomaly detection and NOT test-time adaptation."
+        },
+        {
+          "source": "Predicting COVID-19 Prevalence Using Wastewater RNA Surveillance: A Semi-Supervised Learning Approach with Temporal Feature Trust (arXiv 2512.00100)",
+          "url": "https://arxiv.org/abs/2512.00100",
+          "snippet": "semi-supervised learning approach with temporal feature trust for predicting COVID-19 prevalence from wastewater RNA surveillance.",
+          "relevance": "Recent ML on wastewater RNA, but prevalence prediction with semi-supervised learning, not test-time-adaptive multivariate anomaly detection."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Curated test-time adaptation (unlabeled, online) with False-Positive Mining + spatiotemporally-aware normality adaptation applied to multivariate wastewater viral-surveillance SIGNAL INTERPRETATION (is the rise real vs a shedding/population/sampling artifact), treating time-varying shedding rates and sewershed-population remapping as the distribution shift to adapt to at inference. No source applies a TTA/FPM anomaly detector to this surveillance-interpretation task.",
+      "honest_adjacency": "Heavy adjacency on the NICHE axis: the 'separate signal from noise / is this surge real' problem is explicitly named and addressed by the Covid-SURGE rule-based algorithm and by NWSS/Biobot normalization+percentile analytics. Strong adjacency on the TECHNIQUE axis within wastewater: domain adaptation for anomalous effluent-quality fluctuations, cross-sewershed transfer learning, and lifelong-learning LSTMs explicitly motivated by wastewater distribution shift. What is NOT present is the specific intersection: test-time (inference-time, unlabeled) adaptation with curated false-positive mining for the viral-surveillance multivariate anomaly/signal-validity task.",
+      "reasoning": "Both axes are well populated independently and there is even a domain-adaptation-for-anomaly paper inside wastewater (treatment-plant effluent), so this is clearly not OPEN. But no deployed product or paper combines test-time adaptation / FPM-style curated adaptation with the viral-RNA surveillance signal-interpretation task; existing surveillance interpretation is rule/percentile-based and existing wastewater ML is forecasting or treatment-process anomaly detection. The shedding-rate and sewershed-population variability framing maps cleanly onto CANDI's distribution-shift motivation, making the gap real but narrow rather than wide-open. Verdict NARROW."
+    },
+    {
+      "candidate": "C8",
+      "technique": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning (hierarchical legal graph + multi-agent verification of evidence-based reasoning)",
+      "arxiv_id": "2605.28120",
+      "arxiv_resolves": true,
+      "arxiv_title_seen": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning",
+      "niche": "Corporate-action free-text interpretation & elective-event decisioning: ~46% of events arrive as unstructured offering docs with contradictory terms; discretionary/voluntary elections require reconciling conflicting clauses into an actionable decision. ai_penetration: low.",
+      "queries_run": [
+        "corporate actions unstructured offering documents LLM extraction NLP voluntary elective events automation",
+        "SmartStream Broadridge Xceptor corporate actions AI machine learning unstructured document extraction ISO 15022 20022",
+        "graph RAG knowledge graph corporate actions contradictory terms reconciliation multi-agent financial event interpretation",
+        "voluntary corporate action election decisioning unstructured offering documents contradictory terms golden record straight-through processing AI",
+        "LLM graph RAG prospectus offering memorandum term sheet conflicting clauses extraction reasoning financial"
+      ],
+      "prior_art_found": [
+        {
+          "source": "SmartStream TLM / Smart Actions (corporate actions, AI/ML)",
+          "url": "https://a-teaminsight.com/smartstream-launches-new-version-of-tlm-corporate-actions-adds-solution-to-common-platform/",
+          "snippet": "SmartStream offers Smart Actions for corporate actions processing... developing its corporate actions solution to include data tagging around ISO 20022 messages and XBRL.",
+          "relevance": "Commercial corporate-actions automation incl. AI/ML and ISO 20022 tagging, but framed around message standardization/data tagging and reconciliation, not multi-agent graph RAG over contradictory free-text offering docs."
+        },
+        {
+          "source": "Xceptor + OnCorps AI partnership (financial-services automation)",
+          "url": "https://www.xceptor.com/newsroom/xceptor-and-oncorps-ai-partner-to-deliver-enhanced-automation-solutions-to-financial-services-industry",
+          "snippet": "Xceptor partnered with OnCorps AI, with OnCorps AI's advanced machine learning algorithms designed to handle predictable and laborious calculations in financial operations... reduce the burden of manual processes.",
+          "relevance": "Vendor data-automation/ML for financial ops (Xceptor is heavily used for corporate-actions document ingestion), but ML for calculations/automation, no graph-RAG or multi-agent conflicting-terms reasoning."
+        },
+        {
+          "source": "Broadridge AI platform for reconciliation/matching/exception management",
+          "url": "https://ctmfile.com/story/broadridge-introduces-ai-platform-for-reconciliation-matching-and-exception",
+          "snippet": "Broadridge introduces AI platform for reconciliation, matching and exception management.",
+          "relevance": "Major corporate-actions vendor deploying AI, but for reconciliation/exceptions, not free-text elective-event decisioning via graph RAG."
+        },
+        {
+          "source": "TruthfulRAG: Resolving Factual-level Conflicts in RAG with Knowledge Graphs (arXiv 2511.10375)",
+          "url": "https://arxiv.org/pdf/2511.10375",
+          "snippet": "TruthfulRAG leverages Knowledge Graphs to resolve factual-level knowledge conflicts in RAG systems by systematically extracting triples from retrieved content and employing entropy-based filtering mechanisms to precisely locate conflicting elements.",
+          "relevance": "Technique-family on a SIBLING problem: KG/graph-RAG for resolving CONTRADICTORY/conflicting evidence. Directly analogous to the niche's 'contradictory terms', but generic, not corporate-actions/offering-doc specific."
+        },
+        {
+          "source": "Agentic GraphRAG for Commercial Contracts (Towards Data Science) + Agentic GraphRAG for Capital Markets (AWS)",
+          "url": "https://towardsdatascience.com/agentic-graphrag-for-commercial-contracts/",
+          "snippet": "Knowledge graphs can be built for contracts by extracting structured information... convert documents into nodes (statutes, clauses, entities) and edges (defines, amends, cites, applies_to, exceptions). Agentic GraphRAG systems orchestrate tools to answer complex capital markets queries and showcase reasoning traces.",
+          "relevance": "Multi-agent/agentic graph RAG already applied to commercial contracts and to capital-markets queries (sibling financial/legal-document domains), but not to corporate-action elective-event decisioning over contradictory offering documents."
+        },
+        {
+          "source": "FinKario / FinReflectKG / Knowledge Graph Enhanced Event Extraction in Financial Documents",
+          "url": "https://arxiv.org/html/2508.00961v1",
+          "snippet": "dual-schema design comprises an Attribute Graph and an Event Graph, where the Event Graph... captures underlying drivers of observed financial metrics through diverse categories like strategic actions... Financial documents can be used to identify and extract multiple types of events (equity freeze, equity repurchase, equity pledge, lawsuit).",
+          "relevance": "Financial event extraction into knowledge graphs (incl. equity repurchase, equity freeze - corporate-action-adjacent event types), but extraction/embedding for analytics, not elective-decisioning over conflicting voluntary-action terms."
+        }
+      ],
+      "verdict": "NARROW",
+      "exact_unused_slice": "Multi-agent graph RAG (with a hierarchical/multi-granular event graph + agentic verification) applied specifically to VOLUNTARY/ELECTIVE corporate-action decisioning: ingesting the ~46% of events that arrive as unstructured offering documents, reconciling CONTRADICTORY terms across those docs into a single actionable election/golden-record, and producing an evidence-traced election recommendation. No vendor or paper targets this exact intersection.",
+      "honest_adjacency": "Strong adjacency on BOTH axes. Technique axis: agentic/multi-agent graph RAG already applied to commercial contracts and capital-markets queries, and KG-based conflict resolution (TruthfulRAG, DRAGged-into-Conflicts) handles exactly 'contradictory terms' on sibling document types; financial event-extraction-into-KG (FinKario, equity repurchase/freeze events) is corporate-action-adjacent. Niche axis: SmartStream Smart Actions, Xceptor+OnCorps AI, and Broadridge AI are all deploying AI/ML to corporate-actions processing, and the unstructured-doc / golden-record / STP pain point is explicitly documented (Advent/SimCorp/Clearstream). What is missing is the specific union: multi-agent graph RAG for contradictory-offering-doc reconciliation and elective-event decisioning.",
+      "reasoning": "Cannot be CLOSED: vendor AI for corporate actions centers on reconciliation/matching/exceptions and ISO message tagging, and the academic graph-RAG conflict-resolution work is on legal/contract/generic siblings, not corporate-action elections; no deployed or published system reconciles contradictory offering-doc terms into elective-event decisions via multi-agent graph RAG. Cannot be OPEN: the technique-family is demonstrably applied to neighboring financial/legal documents (commercial contracts, capital markets, financial event KGs) and the niche is an active commercial-automation target, so adjacency exists on both axes within one reformulation. The gap is a specific unoccupied slice -> NARROW."
+    }
+  ]
+}

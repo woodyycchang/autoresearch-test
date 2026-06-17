@@ -1,0 +1,49 @@
+{
+  "_phase": "5 - logic-break + hallucination + feasibility audit",
+  "session": 1,
+  "date": "2026-06-04",
+
+  "hallucination_audit": {
+    "method": "Main agent independently re-searched a sample of surviving-technique arXiv IDs to confirm they are real (sourcing agents had WebFetch 403-blocked, so their IDs/quotes came from WebSearch snippets; code existence WAS directly verified by them via raw.githubusercontent.com README fetches).",
+    "ids_independently_confirmed_real": [
+      "2603.15569 Mamba-3 (state-spaces/mamba)",
+      "2512.18099 SAM Audio (Meta; HF facebook/sam-audio-large; github facebookresearch/sam-audio)",
+      "2605.20119 Toto 2.0 (DataDog; HF Datadog/Toto-2.0-*)",
+      "2602.18801 SGNO (Li/Wang/Salim; github lijy32123-cloud/SGNO)",
+      "2604.00135 (prior-art paper found in verification - real)",
+      "2601.10611 Molmo2 (via verification prior-art chain - varroa unrelated but Molmo2 real)"
+    ],
+    "result": "CLEAN for sampled IDs - no fabrication detected. tech_bank entries that were spot-checked resolve to real arXiv/HF/GitHub pages with matching titles and capabilities.",
+    "residual_risk": "Unsampled arXiv IDs (the 30 not independently re-fetched this session) rely on sourcing-agent WebSearch snippets. Code-usability claims are well-grounded (READMEs fetched). Verbatim quotes are 'as seen in WebSearch result blocks', NOT hand-verified against live pages (WebFetch was 403-blocked in agent sandboxes) - recorded honestly per R5 but a verifiability limitation to flag (R6/R10)."
+  },
+
+  "logic_break_audit": {
+    "phase1_sourcing": "Sound. Agents honestly flagged the WebFetch-403 constraint and the not-usable (code-on-request) techniques (12 rejected) rather than padding. No fabrication detected.",
+    "phase2_filter": "Sound. Mechanical fresh(2512-2606)+usable(code exists) rule applied; 24 pass, 12 rejected, all 12 for missing code (none out-of-window). No logic break.",
+    "phase3_pairing": "LOGIC GAP (expected, by design): the Opus pairing step asserted gap-novelty in 'why_no_one_done_it' WITHOUT verification, and several assertions were later FALSIFIED in Phase 4 - e.g. 'no AI has entered the affinage cave' (false: CV cheese-ripeness + ML volatile models exist), 'first automatic whistle->text pipeline' (false: Jakubiak 2023), 'no AI diagnostic tooling' for timegraphers (false: timegrapher.ai ships it). This is the OVEREXCITEMENT / optimism failure mode. It was contained because Phase 4 is adversarial and independent.",
+    "phase4_verification": "Sound and adversarial. 5 agents x >=5 reformulations found prior art for every 'obvious' pairing; main-agent crosscheck independently re-confirmed 3 verdicts (1 survivor + 2 rejections) against live search. No verdict overturned.",
+    "net": "The pipeline's self-correction worked: optimistic Phase-3 novelty claims were caught by Phase-4 grounding rather than propagating to a false WIN."
+  },
+
+  "feasibility_audit": {
+    "survivors_are_code_feasible": "Yes - all 6 NARROW survivors use techniques with released code/checkpoints (R13 usable gate). Compute is modest (tiny TS models, 4B VLMs, pip-installable audio separators, on-device ternary LLMs).",
+    "binding_constraints": [
+      "Sensor-to-target CALIBRATION is the real bottleneck, not the model: VOC-array -> cheese/moromi sensory ripeness, tick-acoustics -> escapement fault, thermal-field -> glass viscosity all need a labeled calibration set the domain currently lacks.",
+      "Training DATA for niche domains is scarce (overtone-singing stems, whistle/Spanish parallels, star-compass+swell voyaging logs). Several survivors implicitly assume fine-tuning data that must be collected.",
+      "For Sparse-BitNet->ethnoveterinary and Mamba-3->wayfinding the technique is INCIDENTAL (any small model / any sequence model would serve) - weak technique-domain coupling (a domain_intelligence soft-failure)."
+    ],
+    "most_feasible_now": "SAM-Audio -> overtone-singing stem separation (mic + pip checkpoint, zero new hardware) and SGNO -> glassblowing (thermal cam + simulatable heat-PDE training data).",
+    "least_feasible_now": "Mamba-3 -> Polynesian wayfinding (requires bespoke multi-sensor voyaging dataset that essentially does not exist)."
+  },
+
+  "trehan_chopra_failure_modes": {
+    "bias_training_data": {"occurred": true, "where": "same-model proposes (Phase 3) and judges (Phase 4)", "mitigation": "adversarial framing + independent main-agent crosscheck + grounding every verdict in real web evidence (apps/papers with URLs)"},
+    "implementation_drift": {"occurred": false},
+    "memory_context": {"occurred": false, "note": "single session; banks persisted for future resume"},
+    "overexcitement": {"occurred": true, "where": "Phase 3 'why_no_one_done_it' overclaimed gap-novelty for 4 pairings later found CLOSED", "mitigation": "Phase 4 adversarial verification + crosscheck caught all of them"},
+    "domain_intelligence": {"occurred": true, "where": "2 pairings (Sparse-BitNet, Mamba-3) coupled technique to domain only incidentally", "mitigation": "flagged via capability_match_strength=medium and feasibility audit"},
+    "scientific_taste": {"occurred": false, "note": "pipeline correctly refused to claim a WIN and distinguished method-novelty from application-novelty"}
+  },
+
+  "honest_conclusion": "0 of 10 candidates cleared all gates (none GAP_OPEN). The strict verdict is NOT_FOUND for a clean first-mover this session. 6 are qualified-NARROW (a specific fresh capability is unused while the broader problem is already AI-served). The dominant, reproducible finding: even FRESH (1-6mo) + USABLE techniques paired with UNDER-SERVED domains tend to find the APPLICATION TARGET partially occupied - usually by a 2023-2026 paper or a shipping app - because (a) obvious applications are picked off within months and (b) any domain with a *documented* open problem already attracts some ML attention. This is the Run 22/23 lesson reproduced at the timing/application layer: novelty-by-recency does not by itself buy white space."
+}

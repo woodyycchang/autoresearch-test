@@ -1,0 +1,87 @@
+{
+  "team": "LIFE-1",
+  "domains": ["paper-marbling/suminagashi/ebru", "flint-obsidian-knapping/lithics"],
+  "concepts": [
+    {
+      "name": "Surfactant/surface-tension gradient steering of floating pigment (suminagashi soap-ink-oil balance)",
+      "domain": "A",
+      "open_problem": "Tacit real-time judgment of how each ink/soap/oil drop locally lowers surface tension and where the pigment will flee to; the artist must feel the moment-to-moment Marangoni balance to keep concentric rings from collapsing. No closed-form way to pick drop sequence for a target pattern on a real tray.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "partial + hydro dipping / water transfer printing floats ink on water and transfers it to an object at factory scale, but it uses a PRE-PRINTED PVA film, not live surface-tension manipulation, so the pattern-creation physics is not industrialized",
+      "app_market_check": "app (TryEbru, Watermarbling/hydro.dipping on Google Play, Marblizer browser sim) but all simulate digitally, none control a real fluid tray",
+      "verbatim_quote": "Soap reduces the surface tension of water, and when added to floating ink, it creates areas of lower surface tension. The ink moves away from these areas towards regions with higher surface tension, causing the ink to spread out and form the flowing, dynamic patterns.",
+      "source": "https://suminagashi.com (via WebSearch snippet, suminagashi fluid pattern control query)"
+    },
+    {
+      "name": "Comb/rake stroke as chaotic-advection control (stretching-and-folding the size to a target figure)",
+      "domain": "A",
+      "open_problem": "Combing actions stretch and fold the size in a chaotic-advection regime; predicting the resulting figure (e.g. bouquet, peacock) from a stroke sequence on a real bath is unsolved tacit skill, because the mapping is sensitive to initial drop placement and is effectively chaotic.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "no + chaotic-advection mixing is studied industrially in stirred tanks, but no factory process renders a controlled marbled FIGURE on a liquid surface for product; the figural patterning has no industrial counterpart",
+      "app_market_check": "app (Marblizer, TryEbru) simulate combing digitally; none drive a physical comb",
+      "verbatim_quote": "The main idea behind Mathematical Marbling is that combing actions in paper marbling can be modeled by closed-form mathematical transformations, meaning you don't need to run a full-blown fluid solver to accurately simulate a marbled pattern.",
+      "source": "https://blog.amandaghassaei.com/2022/10/25/digital-marbling/ (via WebSearch snippet, paper marbling machine learning query)"
+    },
+    {
+      "name": "Size (mucilage) viscosity / density tuning so pigments float and spread correctly",
+      "domain": "A",
+      "open_problem": "Judging by feel when the carrageenan/cornstarch size has the right viscosity and density for the day's temperature/humidity so colors float and open at the desired rate; an empirical, sensory calibration with no instrument-free rule.",
+      "ai_penetration": "none",
+      "has_industrial_analog": "partial + viscosity/rheology control is ubiquitous in coatings and printing industry, but tuning a marbling SIZE so hand-applied pigments float-and-bloom is craft-specific and not an industrial line process",
+      "app_market_check": "none seen",
+      "verbatim_quote": "In this method the liquid has to be thickened because the colors used are water-based and would otherwise not float.",
+      "source": "https://en.wikipedia.org/wiki/Paper_marbling (via WebSearch snippet, paper marbling ebru technique query)"
+    },
+    {
+      "name": "Controlled chance: guiding pigment flow while ceding outcome to the fluid",
+      "domain": "A",
+      "open_problem": "The core tacit judgment of ebru is balancing deliberate manipulation against the fluid's autonomous behavior ('controlled chance'); knowing how much to intervene vs. let the water act is intuition built over years and is not formalized.",
+      "ai_penetration": "very-low",
+      "has_industrial_analog": "no + no industrial process intentionally couples human steering with stochastic fluid behavior to make an aesthetic surface pattern",
+      "app_market_check": "app (digital ebru apps) but they remove the real-fluid stochasticity rather than control it",
+      "verbatim_quote": "The foundation of Ebru is the concept of \"controlled chance.\" The artist prepares the medium and sets the colors in motion, but the water, the viscosity, and the natural behavior of the pigments all contribute to the final outcome.",
+      "source": "https://www.momentslog.com/culture/the-art-of-turkish-ebru-painting-on-water (via WebSearch snippet, ebru unpredictable intuition query)"
+    },
+    {
+      "name": "Predicting/controlling flake shape from a percussion blow (Hertzian-cone propagation)",
+      "domain": "B",
+      "open_problem": "Anticipating the size and shape of the flake a given blow will detach from a core is a hard, experience-bound prediction; only highly experienced knappers can do it, showing the judgment is tacit and not reducible to a simple rule.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "no + industry CUTS brittle silica by diamond sawing (a different, kerf-removal mechanism); no factory deliberately propagates Hertzian-cone conchoidal fractures to detach shaped flakes",
+      "app_market_check": "none seen (only YouTube tutorials and in-person workshops; no dedicated knapping simulator app)",
+      "verbatim_quote": "Only modern stone knappers with extensive knapping experience proved capable of predicting and controlling the shape of a flake, indicating the significant difficulty of controlling flake shape.",
+      "source": "https://www.sciencedirect.com/science/article/abs/pii/S0047248410000722 (via WebSearch snippet, ML flake shape lithic query)"
+    },
+    {
+      "name": "Platform/angle reading for flake initiation (platform-surface interior angle, exterior platform angle)",
+      "domain": "B",
+      "open_problem": "Selecting and preparing the striking platform and reading its angle so the fracture initiates and runs as intended is a sensory geometric judgment; there is academic work on PSIA/angle but the in-hand reading remains tacit.",
+      "ai_penetration": "low",
+      "has_industrial_analog": "no + no industrial process requires reading a natural-stone platform geometry to launch a controlled conchoidal flake",
+      "app_market_check": "none seen",
+      "verbatim_quote": "Controlled knapping experiments on materials like glass or chert demonstrate that conchoidal outcomes can be anticipated through variables such as hammer angle, with lower angles producing larger, sharper flakes.",
+      "source": "https://grokipedia.com/page/Conchoidal_fracture (via WebSearch snippet, conchoidal fracture industrial query)"
+    },
+    {
+      "name": "Pressure-flaking force/termination control (feathering vs. hinge/step termination)",
+      "domain": "B",
+      "open_problem": "Modulating pressure direction/magnitude with an antler or copper tool, and repositioning the biface, to make each flake feather-terminate instead of leaving a hinge/step fracture is fine haptic skill; nearly impossible to specify numerically and learned by hand-feel.",
+      "ai_penetration": "very-low",
+      "has_industrial_analog": "no + no manufacturing process shapes objects by hand-pressure detachment of conchoidal flakes; closest brittle-material industry (glass scoring/sawing) uses unrelated mechanics",
+      "app_market_check": "none seen",
+      "verbatim_quote": "after each flake removal the biface needs to be moved so that the next flake is resting over the slot. If this is not done the flake will often terminate in a small fingernail hinge at the point where it meets the pad.",
+      "source": "https://stonetoolsmuseum.com/technique/pressure-flaking/ (via WebSearch snippet, obsidian pressure flaking query)"
+    },
+    {
+      "name": "Virtual-knapping flake prediction from intact core geometry (CGAN)",
+      "domain": "B",
+      "open_problem": "Closing the gap between fracture-mechanics theory and what a knapper intuits: predicting flake removal (length/width/volume/shape) from only the intact core surface. A proof-of-concept ML model exists but is explicitly preliminary, so the general predictive problem is open.",
+      "ai_penetration": "moderate",
+      "has_industrial_analog": "no + this is a research model of an ancient hand craft; no industrial percussion-fracture shaping line exists to model",
+      "app_market_check": "none seen (research code/PoC only, not a consumer app)",
+      "verbatim_quote": "A proof of concept framework uses a conditional adversarial neural network (CGAN) capable of predicting flake removals from 3D cores, with the CGAN accurately predicting the length, volume, width, and shape of flake removals using intact core surface information alone.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8497608/ (via WebSearch snippet, ML flake shape lithic query)"
+    }
+  ],
+  "notes": "v2 hypothesis (no-industrial-analog => no prior AI => white space) is PARTIALLY CONTRADICTED this session. Domain B (knapping) is the cleanest no-industrial-analog case: industry cuts silica by diamond SAWING (kerf removal), nobody factory-knaps via Hertzian-cone percussion. Yet knapping is NOT zero-AI: there is real academic ML (CGAN virtual knapping PMC8497608; Random Forest predicting original flake mass r2=0.97 PMC12303336). So no-industrial-analog did NOT guarantee zero AI here. HOWEVER the v2 spirit survives at the sub-skill level: the REAL-TIME PHYSICAL EXECUTION skills in B (pressure-flaking force/termination control; in-hand platform-angle reading) have no-industrial-analog AND near-zero AI AND zero consumer apps -> genuine white space. Those two (pressure-flaking termination control, platform reading) are the strongest no-analog + ~zero-AI candidates. Domain A (marbling) is a NEGATIVE for the hypothesis on the analog axis: it HAS a partial industrial analog (hydro dipping / water transfer printing, which the sources say 'shares some basic qualities with suminagashi'), and it also has the MOST AI/sim work (Navier-Stokes/GPU digital marbling, Mathematical Marbling) and several shipping consumer apps (TryEbru, Watermarbling, Marblizer). The one A sub-skill that is closest to no-analog + low-AI is the figural chaotic-advection comb stroke and 'controlled chance' judgment, but even those are partly addressed by simulators. Honest caveat on R5: Wikipedia/PMC/ScienceDirect/Met/museum pages returned HTTP 403 to WebFetch, so every verbatim_quote above is taken from the WebSearch result snippet text I actually saw (query noted in each source field), NOT from directly opening the page; source URLs are the canonical pages the snippets came from."
+}
