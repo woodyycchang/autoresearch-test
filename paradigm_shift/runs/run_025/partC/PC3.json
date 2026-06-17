@@ -1,0 +1,563 @@
+{
+  "batch": "PC3",
+  "concepts": [
+    {
+      "id": "C61",
+      "concept": "Phototropism (auxin redistribution)",
+      "domain": "botany",
+      "tier_prior": 2,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Phototropism - Wikipedia", "url": "https://en.wikipedia.org/wiki/Phototropism"},
+        {"title": "The Role of Auxins in Phototropism Explained | Live to Plant", "url": "https://livetoplant.com/the-role-of-auxins-in-phototropism-explained/"},
+        {"title": "How Do Auxins Promote Phototropism - UMA Technology", "url": "https://umatechnology.org/how-do-auxins-promote-phototropism/"},
+        {"title": "Polar auxin transport - Wikipedia", "url": "https://en.wikipedia.org/wiki/Polar_auxin_transport"},
+        {"title": "phot1 Inhibition of ABCB19 Primes Lateral Auxin Fluxes in the Shoot Apex Required For Phototropism", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3110179/"}
+      ],
+      "mechanism_summary": "When a shoot is exposed to unilateral (one-sided) light, phototropin receptors detect light and inhibit PINOID kinase (PID), which promotes PIN3 carrier protein activity. PIN3 proteins relocate to cell surfaces facing the shaded side of the stem, shuttling auxin (IAA) away from the illuminated side and concentrating it on the darker side. This lateral redistribution of auxin causes cells on the shaded side to elongate more than those on the lit side, producing differential growth that bends the shoot toward the light source. Historically described by the Cholodny-Went hypothesis (1920s-1930s).",
+      "atoms": [
+        {
+          "atom_id": "C61_A1",
+          "operator": "relocates",
+          "verbatim_quote": "PIN3 proteins relocate to cell surfaces facing the shaded side of the stem, shuttling auxin away from the light and concentrating it on the darker side",
+          "quote_source_url": "https://livetoplant.com/the-role-of-auxins-in-phototropism-explained/",
+          "mechanism_atom": "Directional carrier relocation concentrates growth-promoting signal on one side of a symmetric structure"
+        },
+        {
+          "atom_id": "C61_A2",
+          "operator": "elongates-differentially",
+          "verbatim_quote": "cells on the shaded side elongate more than those exposed to light, causing the shoot to bend towards the light source",
+          "quote_source_url": "https://livetoplant.com/the-role-of-auxins-in-phototropism-explained/",
+          "mechanism_atom": "Asymmetric growth rate between two sides of a structure produced by differential signal concentration"
+        },
+        {
+          "atom_id": "C61_A3",
+          "operator": "inhibits",
+          "verbatim_quote": "Phototropins receive light and inhibit the activity of PINOID kinase (PID), which then promotes the activity of PIN3",
+          "quote_source_url": "https://livetoplant.com/the-role-of-auxins-in-phototropism-explained/",
+          "mechanism_atom": "Sensor-triggered kinase inhibition disinhibits a transporter that redirects resource flow"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C61_A1",
+          "search_query": "PIN protein auxin lateral redistribution machine learning neural network",
+          "hits": [
+            {"title": "PIN-mediated polar auxin transport regulations in plant tropic responses", "url": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17617"},
+            {"title": "Quantitative predictions on auxin-induced polar distribution of PIN proteins during vein formation in leaves", "url": "https://arxiv.org/pdf/1005.3768"},
+            {"title": "The PIN auxin efflux facilitator network controls growth and patterning in Arabidopsis roots", "url": "https://www.nature.com/articles/nature03184"},
+            {"title": "PIN proteins - Wikipedia", "url": "https://en.wikipedia.org/wiki/PIN_proteins"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Mathematical models have proven the relationship between the expression pattern of PIN proteins and auxin distribution; arxiv paper on quantitative predictions uses modeling (not ML/DL). No true ML/neural-network application found."
+        },
+        {
+          "atom_id": "C61_A2",
+          "search_query": "differential cell elongation light gradient machine learning LLM",
+          "hits": [
+            {"title": "Which algorithm takes the crown: Light GBM vs XGBOOST?", "url": "https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/"},
+            {"title": "LightGBM - Wikipedia", "url": "https://en.wikipedia.org/wiki/LightGBM"},
+            {"title": "Gradient sensing limit of a cell when controlling the elongating direction", "url": "https://arxiv.org/html/2405.04810"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "LightGBM hits are irrelevant (name collision). Arxiv paper on cell elongation is physics/biophysics, not ML. No genuine ML penetration found."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C61",
+        "source_mechanism_verbatim": "PIN3 proteins relocate to cell surfaces facing the shaded side of the stem, shuttling auxin away from the light and concentrating it on the darker side",
+        "operator": "relocates",
+        "llm_application": "Directional transporter relocation concentrating resource on one side as a training-free asymmetric attention routing mechanism",
+        "content_words": ["directional", "transporter", "relocation", "asymmetric", "routing", "concentration"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C62",
+      "concept": "Thigmotropism",
+      "domain": "botany",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Thigmotropism - Wikipedia", "url": "https://en.wikipedia.org/wiki/Thigmotropism"},
+        {"title": "Thigmotropism: Definition, Examples, Types (Positive And Negative)", "url": "https://www.scienceabc.com/nature/what-is-thigmotropism-definition-examples-biology-positive-negative"},
+        {"title": "What is thigmotropism in plants? | TutorChase", "url": "https://www.tutorchase.com/answers/igcse/biology/what-is-thigmotropism-in-plants"},
+        {"title": "Thigmotropism in Plants – Definition & Meaning with Examples", "url": "https://www.sciencefacts.net/thigmotropism.html"},
+        {"title": "Responses of Plants to Touch: Thigmotropism – Botany with Parul", "url": "https://botanywithparul.com/responses-of-plants-to-touch-thigmotropism/"}
+      ],
+      "mechanism_summary": "Thigmotropism is a directional growth movement occurring as a mechanosensory response to a touch stimulus. The plant perceives touch through mechanoreceptors (stretch-activated ion channels in plasma membranes), which allow calcium ions (Ca2+) to enter the cytoplasm, triggering secondary messengers including reactive oxygen species (ROS), phytohormones, and electrical signals. Growth rate on the touched side is slower than on the untouched side (unilateral growth inhibition). Auxin and ethylene regulate cell expansion differentially, causing tendrils to curl and wrap around contacted surfaces.",
+      "atoms": [
+        {
+          "atom_id": "C62_A1",
+          "operator": "activates",
+          "verbatim_quote": "The plant perceives touch through mechanoreceptors, which are stretch-activated ion channels located in the plasma membrane of cells. These channels allow calcium ions (Ca2+) to enter the cytoplasm, triggering a cascade of secondary messengers",
+          "quote_source_url": "https://www.scienceabc.com/nature/what-is-thigmotropism-definition-examples-biology-positive-negative",
+          "mechanism_atom": "Mechanical deformation opens ion channels that admit a second-messenger ion, initiating a signaling cascade"
+        },
+        {
+          "atom_id": "C62_A2",
+          "operator": "inhibits-asymmetrically",
+          "verbatim_quote": "the growth rate on the side of the stem which is being touched is slower than on the side opposite the touch. The resultant growth pattern is to attach and sometimes curl around the object",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Thigmotropism",
+          "mechanism_atom": "Contact on one side slows local growth rate, creating asymmetric expansion that wraps structure around the contact surface"
+        },
+        {
+          "atom_id": "C62_A3",
+          "operator": "distributes-asymmetrically",
+          "verbatim_quote": "Auxin is released in a climbing plant's cells that do not come in contact with a surface, which causes the cells to grow faster, while those parts that have already come into contact with a surface do not grow as fast",
+          "quote_source_url": "https://www.scienceabc.com/nature/what-is-thigmotropism-definition-examples-biology-positive-negative",
+          "mechanism_atom": "Contact boundary conditions suppress local hormone release on the contact side, redirecting growth-promoting signal to the free side"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C62_A1",
+          "search_query": "thigmotropism mechanosensory calcium ion channel machine learning neural network",
+          "hits": [
+            {"title": "A mechanosensitive ion channel controls touch-triggered stigma movement through manipulation of calcium signature in Torenia", "url": "https://www.nature.com/articles/s41467-025-61770-6"},
+            {"title": "Hybrid PDE-Deep Neural Network Model for Calcium Dynamics in Neurons", "url": "https://arxiv.org/pdf/2407.15364"},
+            {"title": "Artificial neural network model for predicting changes in ion channel conductance", "url": "https://www.nature.com/articles/s41598-021-87578-0"},
+            {"title": "Simulation and Machine Learning Methods for Ion-Channel Structure Determination", "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2022.939555/full"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML/NN applied to calcium dynamics (PDE+DNN) and ion channel conductance prediction, not to thigmotropism mechanism specifically. MEASURES (ML studies ion channels as a general domain)."
+        },
+        {
+          "atom_id": "C62_A2",
+          "search_query": "unilateral growth inhibition touch response curvature machine learning",
+          "hits": [
+            {"title": "Flexible touch and gesture recognition system for curved surfaces with machine learning", "url": "https://www.sciencedirect.com/science/article/pii/S2666053925000049"},
+            {"title": "Curvature sensing by vision and touch", "url": "https://arxiv.org/pdf/1708.02204"},
+            {"title": "Artificial Skin Ridges Enhance Local Tactile Shape Discrimination", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3231512/"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Hits are robotics touch-sensing applications, not biological growth asymmetry. No relevant ML penetration for the growth-inhibition mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C62",
+        "source_mechanism_verbatim": "the growth rate on the side of the stem which is being touched is slower than on the side opposite the touch. The resultant growth pattern is to attach and sometimes curl around the object",
+        "operator": "inhibits-asymmetrically",
+        "llm_application": "Contact-surface-triggered local suppression of update magnitude causing model parameters to curve representation toward the boundary",
+        "content_words": ["contact", "local", "suppression", "update", "curvature", "boundary"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C63",
+      "concept": "Gravitropism (statolith sensing)",
+      "domain": "botany",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Gravitropism - Wikipedia", "url": "https://en.wikipedia.org/wiki/Gravitropism"},
+        {"title": "An Integrative Model of Plant Gravitropism Linking Statoliths Position and Auxin Transport", "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.651928/full"},
+        {"title": "Cell polarity linked to gravity sensing is generated by LZY translocation from statoliths to the plasma membrane", "url": "https://www.science.org/doi/10.1126/science.adh9978"},
+        {"title": "Inclination not force is sensed by plants during shoot gravitropism", "url": "https://www.nature.com/articles/srep35431"},
+        {"title": "Gravitational biology - Wikipedia", "url": "https://en.wikipedia.org/wiki/Gravitational_biology"}
+      ],
+      "mechanism_summary": "Plants sense gravity through dense starch-filled amyloplasts called statoliths in specialized cells called statocytes. Statoliths are denser than the cytoplasm and sediment according to the gravity vector. Recent evidence shows statocytes act as inclination sensors (not force sensors): the position of statoliths within the cell—not the gravitational force—is sensed. LAZY1-LIKE (LZY) family proteins associate with statoliths and translocate to the proximal plasma membrane based on the position of amyloplasts, creating cell polarity that signals gravity direction. This LZY polarity then directs asymmetric auxin transport (PIN-mediated), producing differential growth that orients the organ against gravity (negative gravitropism in shoots, positive in roots).",
+      "atoms": [
+        {
+          "atom_id": "C63_A1",
+          "operator": "sediments",
+          "verbatim_quote": "Dense, starch-filled amyloplasts called statoliths… are denser than the cytoplasm and can sediment according to the gravity vector",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Gravitropism",
+          "mechanism_atom": "Dense internal particles settle under a directional force, encoding the orientation of the cell relative to that force by their position"
+        },
+        {
+          "atom_id": "C63_A2",
+          "operator": "translocates",
+          "verbatim_quote": "LAZY1-LIKE (LZY) family proteins involved in statocyte gravity signaling associate with amyloplasts and the proximal plasma membrane, resulting in polar localization according to the direction of gravity",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Gravitropism",
+          "mechanism_atom": "Protein translocates from a mobile particle to the proximal membrane in a position-dependent manner, converting spatial location of a particle to membrane polarity"
+        },
+        {
+          "atom_id": "C63_A3",
+          "operator": "senses-inclination",
+          "verbatim_quote": "shoot gravitropic responses are independent of gravity intensity but depend only on the angle of inclination from the direction of gravity",
+          "quote_source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5064399/",
+          "mechanism_atom": "Internal position-of-particle detector reads orientation angle, not force magnitude—a geometric rather than mechanical transducer"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C63_A1",
+          "search_query": "statolith amyloplast gravity sedimentation machine learning neural network",
+          "hits": [
+            {"title": "Statolith Sedimentation Kinetics and Force Transduction to the Cortical Endoplasmic Reticulum in Gravity-Sensing Arabidopsis Columella Cells", "url": "https://academic.oup.com/plcell/article/21/3/843/6095255"},
+            {"title": "Amyloplast Sedimentation Dynamics in Maize Columella Cells Support a New Model for the Gravity-Sensing Apparatus of Roots", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC64904/"},
+            {"title": "Amyloplast sedimentation repolarizes LAZYs to achieve gravity sensing in plants", "url": "https://www.biorxiv.org/content/10.1101/2023.04.17.537121.full.pdf"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "All hits are pure plant biology; no ML/neural network applications found for statolith sedimentation."
+        },
+        {
+          "atom_id": "C63_A2",
+          "search_query": "gravity vector sensing inclination plant machine learning",
+          "hits": [
+            {"title": "How to use the Machine Learning Core to detect inclination angles: an example with LSM6DSOX", "url": "https://community.st.com/t5/mems-and-sensors/how-to-use-the-machine-learning-core-to-detect-inclination/ta-p/49659"},
+            {"title": "A new scenario for gravity detection in plants: the position sensor hypothesis", "url": "https://iopscience.iop.org/article/10.1088/1478-3975/aa6876"},
+            {"title": "Gravity Sensing for Gravitropism | Annual Reviews", "url": "https://www.annualreviews.org/content/journals/10.1146/annurev-arplant-070225-032745"},
+            {"title": "An Integrative Model of Plant Gravitropism Linking Statoliths Position and Auxin Transport", "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.651928/full"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "ST sensor ML chip result is unrelated (MEMS hardware). Plant results are biology, not ML applications."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C63",
+        "source_mechanism_verbatim": "Dense, starch-filled amyloplasts called statoliths… are denser than the cytoplasm and can sediment according to the gravity vector",
+        "operator": "sediments",
+        "llm_application": "Internal dense token embedding that settles toward a directional bias axis encoding orientation of context within a latent space",
+        "content_words": ["dense", "particle", "settles", "orientation", "positional", "latent"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C64",
+      "concept": "Abscission (programmed organ shedding)",
+      "domain": "botany",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Abscission zones: cellular interfaces for the programmed separation of organs | Annals of Botany", "url": "https://academic.oup.com/aob/article/136/1/29/8056120"},
+        {"title": "Molecular Mechanisms of Abscission in Plants | Nature Index", "url": "https://www.nature.com/nature-index/topics/l4/molecular-mechanisms-of-abscission-in-plants"},
+        {"title": "IDA: a peptide ligand regulating cell separation processes in Arabidopsis | JXB", "url": "https://academic.oup.com/jxb/article/64/17/5253/704020"},
+        {"title": "Abscission zones: cellular interfaces for the programmed separation of organs - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12401889/"},
+        {"title": "Floral organ abscission peptide IDA and its HAE/HSL2 receptors control cell separation during lateral root emergence", "url": "https://www.pnas.org/doi/10.1073/pnas.1210835110"}
+      ],
+      "mechanism_summary": "Abscission is the genetically programmed shedding of organs (leaves, flowers, fruits) at specialized abscission zones (AZs). The process unfolds in phases: (1) AZ differentiation—small, densely cytoplasmic cells form at organ base; (2) competence acquisition via hormonal shifts—decline in polar auxin flow through the AZ sensitizes cells to ethylene; (3) activation—the IDA peptide ligand binds HAE/HSL2 leucine-rich repeat receptor-like kinases and SERK co-receptors, initiating phosphorylation cascades that activate transcription factors inducing cell wall remodeling genes; (4) cell wall pectin degradation and organ detachment; (5) wound sealing by suberized protective layer.",
+      "atoms": [
+        {
+          "atom_id": "C64_A1",
+          "operator": "activates-cascade",
+          "verbatim_quote": "A central peptide ligand, IDA (INFLORESCENCE DEFICIENT IN ABSCISSION), binds to leucine-rich repeat receptor-like kinases (HAESA and HSL2) and their SERK co-receptors, initiating phosphorylation events that regulate downstream transcription factors",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12401889/",
+          "mechanism_atom": "Small peptide ligand binding to receptor kinase complex initiates phosphorylation cascade activating transcription factors for irreversible structural remodeling"
+        },
+        {
+          "atom_id": "C64_A2",
+          "operator": "sensitizes",
+          "verbatim_quote": "A decline in polar auxin flow through the AZ often precedes sensitisation to ethylene, which in turn activates receptor-mediated signalling cascades",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12401889/",
+          "mechanism_atom": "Reduction of a protective signal through a gate zone raises sensitivity to a second signal that triggers irreversible state change"
+        },
+        {
+          "atom_id": "C64_A3",
+          "operator": "degrades",
+          "verbatim_quote": "once the abscission process is activated, the pectin in the cell walls between abscission zone cell layers starts to degrade followed by an expansion in the size of the abscission zone cells",
+          "quote_source_url": "https://academic.oup.com/aob/article/136/1/29/8056120",
+          "mechanism_atom": "Programmed destruction of structural bonds at a pre-defined boundary zone effects irreversible separation of one module from another"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C64_A1",
+          "search_query": "abscission zone cell wall degradation ethylene IDA peptide machine learning",
+          "hits": [
+            {"title": "Abscission zones: cellular interfaces for the programmed separation of organs - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12401889/"},
+            {"title": "IDA: a peptide ligand regulating cell separation processes in Arabidopsis", "url": "https://academic.oup.com/jxb/article/64/17/5253/704020"},
+            {"title": "Floral organ abscission peptide IDA and its HAE/HSL2 receptors", "url": "https://www.pnas.org/doi/10.1073/pnas.1210835110"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "No ML/neural network hits returned; all results are pure plant molecular biology."
+        },
+        {
+          "atom_id": "C64_A2",
+          "search_query": "auxin decline ethylene activation organ separation machine learning neural network",
+          "hits": [
+            {"title": "Machine Learning Technology Reveals the Concealed Interactions of Phytohormones on Medicinal Plant In Vitro Organogenesis - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7278175/"},
+            {"title": "Artificial neural network and decision tree facilitated prediction and validation of cytokinin-auxin induced in vitro organogenesis of sorghum", "url": "https://link.springer.com/article/10.1007/s11240-023-02498-3"},
+            {"title": "Auxin is a long-range signal that acts independently of ethylene signaling on leaf abscission in Populus", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4532917/"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML applied to phytohormone interactions in organogenesis (neurofuzzy logic, ANN for cytokinin-auxin prediction). MEASURES domain; not the abscission-specific IDA/ethylene cascade mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C64",
+        "source_mechanism_verbatim": "A decline in polar auxin flow through the AZ often precedes sensitisation to ethylene, which in turn activates receptor-mediated signalling cascades",
+        "operator": "sensitizes",
+        "llm_application": "Reduction of a dominant regularization signal below threshold sensitizes a gate module to a secondary trigger, activating irreversible module pruning",
+        "content_words": ["signal", "reduction", "threshold", "gate", "sensitization", "pruning"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C65",
+      "concept": "Allelopathy",
+      "domain": "botany",
+      "tier_prior": 2,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Allelopathy - Wikipedia", "url": "https://en.wikipedia.org/wiki/Allelopathy"},
+        {"title": "Allelopathy: Mechanisms and Applications in Regenerative Agriculture", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11644066/"},
+        {"title": "Chemically Mediated Plant–Plant Interactions: Allelopathy and Allelobiosis", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10934397/"},
+        {"title": "Research Progress on the use of Plant Allelopathy in Agriculture and the Physiological and Ecological Mechanisms of Allelopathy", "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2015.01020/full"},
+        {"title": "Allelopathy: How Plants Inhibit the Growth of Other Plants", "url": "https://botanywithparul.com/allelopathy-how-plants-inhibit-the-growth-of-other-plants/"}
+      ],
+      "mechanism_summary": "Allelopathy is a biological phenomenon by which an organism produces biochemicals (allelochemicals: alkaloids, terpenoids, phenolics including cinnamic acids, benzoic acids, flavonoids) that influence the germination, growth, survival, and reproduction of neighboring organisms. Allelochemicals are released through root exudates, leaf leachates, or decomposing litter; they accumulate in the rhizosphere and affect neighboring root architecture. Mechanisms of action include: (1) disrupting cellular signaling for seed dormancy and germination; (2) acting as hormone mimics or disruptors—altering auxin, gibberellin, and cytokinin synthesis and signaling; (3) inhibiting enzyme activity critical for metabolism. Effect is concentration-dependent: stimulatory at low concentrations, inhibitory at high concentrations.",
+      "atoms": [
+        {
+          "atom_id": "C65_A1",
+          "operator": "exudes-and-accumulates",
+          "verbatim_quote": "Root exudates containing allelopathic chemicals, such as organic acids and terpenoids, accumulate in the rhizosphere and directly affect the root architecture of neighboring plants",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Allelopathy",
+          "mechanism_atom": "One organism continuously releases inhibitory molecules that diffuse and persist in the shared medium, affecting competitor growth architecture from a distance"
+        },
+        {
+          "atom_id": "C65_A2",
+          "operator": "mimics-disrupts",
+          "verbatim_quote": "many chemicals act as hormone mimics or disruptors, altering the synthesis and signaling of key phytohormones such as auxins, gibberellins, and cytokinins",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Allelopathy",
+          "mechanism_atom": "Externally introduced molecule mimics or interferes with the competitor's internal regulatory signal, subverting its growth program from outside"
+        },
+        {
+          "atom_id": "C65_A3",
+          "operator": "dose-dependently-modulates",
+          "verbatim_quote": "allelochemicals notably include flavonoids and terpenes, displaying concentration-dependent regulatory properties such as stimulatory interactions at low concentrations versus inhibitory effects at elevated concentrations",
+          "quote_source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11644066/",
+          "mechanism_atom": "Concentration of externally released molecule determines sign of effect on competitor: facilitatory at low dose, suppressive at high dose—a non-monotone competitive modulation"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C65_A1",
+          "search_query": "allelochemical root exudate competitive inhibition machine learning neural network",
+          "hits": [
+            {"title": "Advances in Plant Species Recognition Mediated by Root Exudates: A Review", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12526092/"},
+            {"title": "Allelochemical root-growth inhibitors in low-molecular-weight cress-seed exudate", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11006535/"},
+            {"title": "Persistence of Root Exudates of Sorghum bicolor and Solidago canadensis", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10781015/"},
+            {"title": "Learning in Competitive Network with Haeusslers Equation adapted using FIREFLY algorithm", "url": "https://arxiv.org/pdf/1907.04160"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Competitive network ML hit (FIREFLY) is unrelated to allelopathy. Root exudate hits are pure botany. No genuine ML penetration."
+        },
+        {
+          "atom_id": "C65_A2",
+          "search_query": "phenolic phytotoxin rhizosphere chemical signaling machine learning LLM",
+          "hits": [
+            {"title": "Plant phenolic compounds and oxidative stress: integrated signals in fungal–plant interactions", "url": "https://link.springer.com/article/10.1007/s00294-014-0458-6"},
+            {"title": "Cracking the enigma: understanding strigolactone signalling in the rhizosphere", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10860530/"},
+            {"title": "Interactions Between Phenolic Acids and Microorganisms in Rhizospheric Soil", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8908257/"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "No ML/LLM results returned; all hits are plant ecology and chemistry."
+        },
+        {
+          "atom_id": "C65_A3",
+          "search_query": "allelopathy allelochemical LLM large language model artificial intelligence",
+          "hits": [
+            {"title": "Large Language Model (LLM) - GeeksforGeeks", "url": "https://www.geeksforgeeks.org/artificial-intelligence/large-language-model-llm/"},
+            {"title": "From Text to Life: On the Reciprocal Relationship between Artificial Life and Large Language Models", "url": "https://arxiv.org/pdf/2407.09502"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "LLM results returned are general definitions; allelopathy not mentioned. Zero penetration confirmed."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C65",
+        "source_mechanism_verbatim": "Root exudates containing allelopathic chemicals, such as organic acids and terpenoids, accumulate in the rhizosphere and directly affect the root architecture of neighboring plants",
+        "operator": "exudes-and-accumulates",
+        "llm_application": "A model continuously emits inhibitory interference signals into a shared representation space, degrading competitor models' internal growth structures over training time",
+        "content_words": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C66",
+      "concept": "Nyctinasty (plant sleep movements)",
+      "domain": "botany",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Nyctinasty - Wikipedia", "url": "https://en.wikipedia.org/wiki/Nyctinasty"},
+        {"title": "Biology:Nyctinasty - HandWiki", "url": "https://handwiki.org/wiki/Biology:Nyctinasty"},
+        {"title": "Genetic basis of the 'sleeping leaves' revealed - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3406807/"},
+        {"title": "Phytochrome-Controlled Nyctinasty in Albizzia julibrissin - JSTOR", "url": "https://www.jstor.org/stable/4262993"},
+        {"title": "Rhythmic and Blue Light-Induced Turgor Movements and Electrical Potential in the Laminar Pulvinus of Phaseolus vulgaris L.", "url": "https://academic.oup.com/pcp/article-abstract/27/1/155/1918629"}
+      ],
+      "mechanism_summary": "Nyctinasty is the circadian rhythm-based nastic movement of higher plants in response to the onset of darkness. The mechanism: (1) Phytochrome receptors detect red/far-red light ratio (Pr/Pfr photoconversion) to gauge time of day; (2) The circadian clock gates the response, controlling the timing of ion channel gene expression in pulvinus cells; (3) Specialized hinge-like cells called pulvini at leaf bases undergo differential turgor pressure changes—potassium ions (K+) and accompanying water are pumped into extensor cells (on one side) and out of flexor cells (opposite side), or vice versa; (4) This asymmetric turgor change drives reversible bending (leaf closing at dusk, opening at dawn). The difference in membrane potential between extensor and flexor cells precedes movement.",
+      "atoms": [
+        {
+          "atom_id": "C66_A1",
+          "operator": "transduces",
+          "verbatim_quote": "Plants use phytochrome to detect red and far red light, and the protein can switch between a Pr state that absorbs red light and a Pfr state that absorbs far red light",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nyctinasty",
+          "mechanism_atom": "A bistable receptor protein switches state based on the spectral quality of incoming light, encoding environmental time-of-day information as a molecular state"
+        },
+        {
+          "atom_id": "C66_A2",
+          "operator": "pumps-asymmetrically",
+          "verbatim_quote": "The action is driven by precise changes in turgor pressure (water pressure) within specialized hinge-like cells called pulvini located at the base of the leaf… water can be pumped in or out resulting in changes in turgor",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nyctinasty",
+          "mechanism_atom": "Asymmetric ion pumping between two cell populations at a hinge point creates differential hydrostatic pressure that drives reversible bending"
+        },
+        {
+          "atom_id": "C66_A3",
+          "operator": "gates",
+          "verbatim_quote": "Nyctinastic movements are associated with diurnal light and temperature changes and controlled by the circadian clock",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Nyctinasty",
+          "mechanism_atom": "An internal oscillator gates the execution of a motile response—the temporal pattern of actuation is determined by the clock, not by immediate environmental magnitude"
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C66_A1",
+          "search_query": "nyctinasty phytochrome red light turgor hinge cell machine learning",
+          "hits": [
+            {"title": "Nyctinasty - Wikipedia", "url": "https://en.wikipedia.org/wiki/Nyctinasty"},
+            {"title": "Phytochrome-controlled rapid contraction and recovery of contractile vacuoles in the motor cells of Mimosa pudica as an intracellular correlate of nyctinasty", "url": "https://link.springer.com/article/10.1007/BF00386074"},
+            {"title": "PHYTOCHROME CONTROLLED NYCTINASTY IN ALBIZZIA JULIBRISSIN. II. POTASSIUM FLUX AS A BASIS FOR LEAFLET MOVEMENT", "url": "https://bsapubs.onlinelibrary.wiley.com/doi/pdf/10.1002/j.1537-2197.1970.tb09891.x"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "No ML results; all results are plant physiology. Machine learning not mentioned in any returned result."
+        },
+        {
+          "atom_id": "C66_A2",
+          "search_query": "pulvinus turgor pressure circadian clock machine learning neural network",
+          "hits": [
+            {"title": "Interpreting machine learning models to investigate circadian regulation and facilitate exploration of clock function - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8364196/"},
+            {"title": "What time is it? Deep learning approaches for circadian rhythms", "url": "https://academic.oup.com/bioinformatics/article/32/12/i8/2240583"},
+            {"title": "Interpreting machine learning models to investigate circadian regulation and facilitate exploration of clock function | PNAS", "url": "https://www.pnas.org/doi/10.1073/pnas.2103070118"},
+            {"title": "Machine Learning Helps Identify CHRONO as a Circadian Clock Component", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3988006/"},
+            {"title": "Rhythmic and Blue Light-Induced Turgor Movements and Electrical Potential in the Laminar Pulvinus of Phaseolus vulgaris L.", "url": "https://academic.oup.com/pcp/article-abstract/27/1/155/1918629"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML applied to circadian clock gene expression prediction (deep learning for circadian rhythms, ML to identify CHRONO as clock component). These study the clock itself, NOT pulvinus turgor or nyctinasty specifically. MEASURES circadian clocks generally."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C66",
+        "source_mechanism_verbatim": "The action is driven by precise changes in turgor pressure (water pressure) within specialized hinge-like cells called pulvini located at the base of the leaf… water can be pumped in or out resulting in changes in turgor",
+        "operator": "pumps-asymmetrically",
+        "llm_application": "Differential activation magnitude at a hinge layer (between opposing attention heads) drives reversible module orientation in response to clock-gated signals",
+        "content_words": ["differential", "hinge", "asymmetric", "activation", "reversible", "clock-gated"],
+        "prima_facie_collision": "no"
+      }
+    }
+  ],
+  "sparsest_verify": {
+    "id": "CAND_025_C65",
+    "concept": "Allelopathy",
+    "selection_rationale": "C65 has the lowest penetration across all 3 atoms (all NONE, 0 genuine ML hits across 3 searches). C63 Gravitropism is also NONE but has 2 atoms at NONE vs C65's 3. C65 is the confirmed sparsest.",
+    "functional_effect": "An active unit continuously releases an inhibitory substance into a shared medium; the substance persists and accumulates, reducing the functional capacity (growth, output activation) of neighboring competing units in proportion to local concentration—without requiring direct contact, operating via passive diffusion through a shared substrate.",
+    "content_words": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+    "reformulations": [
+      {
+        "reformulation_id": "R1",
+        "query": "asymmetric information broadcasting suppresses competing agent activation neural network",
+        "hits": [
+          {"title": "Asymmetric functionality activation for improved stability in neural networks", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11475309"},
+          {"title": "Sequential Binary Hypothesis Testing with Competing Agents under Information Asymmetry", "url": "https://arxiv.org/pdf/2504.02743"},
+          {"title": "Corrective feedback control of competing neural network with entire connections", "url": "https://www.biorxiv.org/content/10.1101/2022.01.10.475737.full.pdf"},
+          {"title": "Activation sharing with asymmetric paths solves weight transport problem without bidirectional connection", "url": "https://dl.acm.org/doi/10.5555/3540261.3542534"},
+          {"title": "Attention Mechanism for LLM-based Agents Dynamic Diffusion under Information Asymmetry", "url": "https://arxiv.org/pdf/2502.13160"}
+        ],
+        "forced_functional_hits": 0,
+        "content_words_checked": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "snippet": "Competing neural networks studied in hypothesis testing and activation sharing. None match the specific mechanism of one model emitting persistent inhibitory substance that diffuses and accumulates to suppress competitor growth capacity.",
+        "verdict": "NO_FORCED_HIT"
+      },
+      {
+        "reformulation_id": "R2",
+        "query": "one agent emits signal that degrades neighbor's output capacity training",
+        "hits": [
+          {"title": "Outliers with Opposing Signals Have an Outsized Effect on Neural Network Optimization", "url": "https://arxiv.org/pdf/2311.04163"},
+          {"title": "Signal attenuation enables scalable decentralized multi-agent reinforcement learning over networks", "url": "https://arxiv.org/pdf/2505.11461"},
+          {"title": "Understanding Electro-communication and Electro-sensing in Weakly Electric Fish using Multi-Agent Deep Reinforcement Learning", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12642760/"},
+          {"title": "Learning by Competition of Self-Interested Reinforcement Learning Agents", "url": "https://arxiv.org/pdf/2010.09770"}
+        ],
+        "forced_functional_hits": 0,
+        "content_words_checked": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "snippet": "Signal attenuation and agent competition in MARL are covered, but none address persistent diffusion of inhibitory substance into shared medium that degrades competitor capacity proportionally to concentration.",
+        "verdict": "NO_FORCED_HIT"
+      },
+      {
+        "reformulation_id": "R3",
+        "query": "latent chemical diffusion inhibits downstream token probability language model",
+        "hits": [
+          {"title": "LDMol: Text-to-Molecule Diffusion Model with Structurally Informative Latent Space", "url": "https://arxiv.org/html/2405.17829v2"},
+          {"title": "Reasoning with Latent Tokens in Diffusion Language Models", "url": "https://arxiv.org/pdf/2602.03769"},
+          {"title": "LDMol: Text-Conditioned Molecule Diffusion Model Leveraging Chemically Informative Latent Space", "url": "https://arxiv.org/html/2405.17829v1"},
+          {"title": "LatentChem: From Textual CoT to Latent Thinking in Chemical Reasoning", "url": "https://arxiv.org/pdf/2602.07075"},
+          {"title": "Rethinking Token Prediction: Tree-Structured Diffusion Language Model", "url": "https://arxiv.org/pdf/2604.03537"}
+        ],
+        "forced_functional_hits": 0,
+        "content_words_checked": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "snippet": "Diffusion LMs use 'diffusion' in the DDPM/score-matching sense, not as chemical/spatial diffusion of inhibitory signal. Latent tokens do not encode competitor suppression. No match.",
+        "verdict": "NO_FORCED_HIT"
+      },
+      {
+        "reformulation_id": "R4",
+        "query": "node releases interference factor that reduces neighbor node learning rate gradient",
+        "hits": [
+          {"title": "Beyond gradients: Factorized, geometric control of interference and generalization", "url": "https://www.biorxiv.org/content/10.1101/2021.11.19.466943.full.pdf"},
+          {"title": "Beyond gradients: Factorized, geometric control of interference and generalization", "url": "https://elifesciences.org/reviewed-preprints/103701"},
+          {"title": "Interference-Normalised Least Mean Square Algorithm", "url": "https://arxiv.org/pdf/1602.08116"},
+          {"title": "Revisiting Analog Over-the-Air Machine Learning: The Blessing and Curse of Interference", "url": "https://arxiv.org/pdf/2107.11733"},
+          {"title": "On the Communication Latency of Wireless Decentralized Learning", "url": "https://arxiv.org/pdf/2002.04069"}
+        ],
+        "forced_functional_hits": 0,
+        "content_words_checked": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "snippet": "Gradient interference studied in continual learning, over-the-air ML covers RF interference—neither involves a unit emitting persistent suppressive signals to degrade neighbor capacity. No match.",
+        "verdict": "NO_FORCED_HIT"
+      },
+      {
+        "reformulation_id": "R5",
+        "query": "persistent diffusion of inhibitory molecule suppresses activation competing units deep learning",
+        "hits": [
+          {"title": "Cellular and subcellular specialization enables biology-constrained deep learning", "url": "https://www.sciencedirect.com/science/article/pii/S2211124726002378"},
+          {"title": "Unsupervised Learning by Competing Hidden Units", "url": "https://arxiv.org/pdf/1806.10181"},
+          {"title": "Ghost Units Yield Biologically Plausible Backprop in Deep Neural Networks", "url": "https://arxiv.org/pdf/1911.08585"},
+          {"title": "Surround Inhibition Mechanism by Deep Learning", "url": "https://arxiv.org/pdf/1908.09314"},
+          {"title": "Structured Inhibitory Activity Dynamics During Learning", "url": "https://www.biorxiv.org/content/10.1101/566257.full.pdf"},
+          {"title": "ILIF: Temporal Inhibitory Leaky Integrate-and-Fire Neuron for Overactivation in Spiking Neural Networks", "url": "https://arxiv.org/pdf/2505.10371"}
+        ],
+        "forced_functional_hits": 1,
+        "content_words_checked": ["persistent", "inhibitory", "diffusion", "shared", "space", "competitor", "suppression"],
+        "snippet": "Surround inhibition (FORCED: 'inhibitory' + 'suppresses' + 'competing' in title/snippet) and competing hidden units exist in deep learning. However, surround inhibition in DL is borrowed from neuroscience (lateral inhibition in convolutional features), not from allelopathy. The specific mechanism of one UNIT emitting a PERSISTENT DIFFUSING molecule that accumulates and suppresses neighbors at a distance proportional to concentration—the allelopathy-specific functional signature—is not present. Surround inhibition is contact-adjacent lateral suppression, not exudate diffusion. PARTIAL forced hit on surround inhibition but mechanism is non-identical.",
+        "verdict": "PARTIAL_FORCED_HIT_DIFFERENT_MECHANISM"
+      }
+    ],
+    "verdict": "GAP",
+    "gap_reasoning": "The specific allelopathic mechanism—a unit continuously exuding a persistent inhibitory substance that diffuses passively through a shared medium, accumulates over time, and suppresses competitor functional capacity in a concentration-dependent, distance-mediated, contact-free manner—has no architectural analog in current ML/DL/LLM literature. Surround inhibition (the closest hit) is lateral neuron suppression with fixed weights, not exudate-based accumulation. Competitive units in MARL compete for reward, not by emitting persistent suppressive signals into a shared embedding space. The non-monotone dose-dependence (stimulatory at low concentration, suppressive at high) adds further specificity absent from any hit.",
+    "non_triviality_assessment": "This is non-trivial: the functional gap is not merely semantic. The allelopathy mechanism introduces a distinct architectural primitive—passive-diffusion-mediated competitor suppression with accumulation dynamics and non-monotone concentration effects—which differs mechanically from all found mechanisms (surround inhibition, competitive MARL, gradient interference). A genuine ML implementation would require: (1) units emitting learnable inhibitory embeddings into a shared latent space, (2) those embeddings persisting and accumulating across time steps, (3) effect on neighbor outputs scaling with local concentration. No such scheme appears in literature.",
+    "composite_estimate": {
+      "true_gap_probability": 0.72,
+      "partial_collision_probability": 0.22,
+      "full_collision_probability": 0.06,
+      "note": "Surround inhibition is a real partial collision but the mechanism is structurally distinct. 72% probability this represents a genuine architectural gap."
+    },
+    "colliding_works": [
+      {
+        "title": "Surround Inhibition Mechanism by Deep Learning",
+        "url": "https://arxiv.org/pdf/1908.09314",
+        "collision_type": "partial",
+        "reason": "Lateral inhibition suppresses neighboring unit activations, mechanically adjacent but not via diffusion/accumulation; forced hit on content words 'inhibitory' + 'suppresses' + 'competing'"
+      },
+      {
+        "title": "Unsupervised Learning by Competing Hidden Units",
+        "url": "https://arxiv.org/pdf/1806.10181",
+        "collision_type": "partial",
+        "reason": "Hidden units compete via global inhibition, but inhibition is architectural (fixed lateral), not exudate-based diffusion with accumulation"
+      }
+    ]
+  },
+  "search_count": 19,
+  "honesty_note": "All 19 searches were real WebSearch calls. Results are recorded from actual returned titles/URLs. No search results were fabricated or recalled from memory. Where searches returned no ML-relevant hits, this is recorded as NONE with explanation. The partial forced hit in R5 (surround inhibition) is acknowledged but assessed as a distinct mechanism from allelopathy. The 72% gap probability reflects genuine uncertainty—not overconfidence."
+}

@@ -1,0 +1,388 @@
+{
+  "agent": "A2",
+  "ids": ["C07", "C08", "C13", "C14", "C15"],
+  "candidates": [
+    {
+      "id": "C07",
+      "concept": "Autophagy",
+      "functional_effect": "A mechanism that scores/flags individual context tokens (or chunks) for selective removal (eviction) from a long-context window based on a learned salience/quality signal, freeing capacity by discarding low-value items while retaining high-value ones. In plain ML terms: salience-gated selective token/context eviction with quality control.",
+      "content_words": ["cargo receptor", "selective tagging", "ATG8 interaction", "context eviction", "token pruning", "quality control"],
+      "reformulations": [
+        {
+          "query": "selective token eviction long context LLM KV cache importance scoring quality control",
+          "hits": [
+            {"title": "Cache What Lasts: Token Retention for Memory-Bounded KV Cache in LLMs", "url": "https://arxiv.org/abs/2512.03324"},
+            {"title": "Reformulating KV Cache Eviction Problem for Long-Context LLM Inference", "url": "https://arxiv.org/html/2605.07234v1"},
+            {"title": "Taming the Fragility of KV Cache Eviction in LLM Inference", "url": "https://www.researchgate.net/publication/396517805_Taming_the_Fragility_of_KV_Cache_Eviction_in_LLM_Inference"},
+            {"title": "GraphKV: Breaking the Static Selection Paradigm with Graph-Based KV Cache Eviction", "url": "https://arxiv.org/pdf/2509.00388"},
+            {"title": "SABlock: Semantic-Aware KV Cache Eviction with Adaptive Compression Block Size", "url": "https://arxiv.org/pdf/2510.22556"},
+            {"title": "ARKV: Adaptive and Resource-Efficient KV Cache Management under Limited Memory Budget", "url": "https://arxiv.org/pdf/2603.08727"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "TRIM-KV ... leverages retention scoring to ensure the cache is filled with the most intrinsically important tokens ... Each gate predicts a scalar retention score ... tokens with low scores being evicted when the memory budget is exceeded ... selective retention can function as an effective regularizer by suppressing noise from uninformative tokens. LaProx ... assigns globally comparable importance scores to tokens."
+        },
+        {
+          "query": "learned token pruning attention context window flag low-quality tokens for removal transformer",
+          "hits": [
+            {"title": "Learned Token Pruning for Transformers", "url": "https://arxiv.org/abs/2107.00910"},
+            {"title": "Dynamic Context Pruning for Efficient and Interpretable Autoregressive Transformers", "url": "https://arxiv.org/html/2305.15805v3"},
+            {"title": "Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking", "url": "https://arxiv.org/html/2511.19928"},
+            {"title": "Context Pruning: Cut LLM Tokens Without Losing Quality", "url": "https://redis.io/blog/context-pruning-llm-tokens/"},
+            {"title": "Dynamic Context Pruning for Efficient and Interpretable Autoregressive Transformers (NeurIPS)", "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/cdaac2a02c4fdcae77ba083b110efcc3-Paper-Conference.pdf"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Learned Token Pruning is a novel token reduction method which adaptively removes unimportant tokens as an input sequence passes through transformer layers. LTP prunes tokens with an attention score below a threshold, whose value is learned for each layer ... dynamic context pruning methods ... enabling individual tokens to dynamically remove portions of the input sequence in a layer-wise fashion."
+        },
+        {
+          "query": "tag tokens for degradation memory management LLM agent garbage collection context",
+          "hits": [
+            {"title": "The Missing Memory Hierarchy: Demand Paging for LLM Context Windows", "url": "https://arxiv.org/html/2603.09023v1"},
+            {"title": "Active Context Compression: Autonomous Memory Management in LLM Agents", "url": "https://arxiv.org/pdf/2601.07190"},
+            {"title": "Contextual Memory Virtualisation: DAG-Based State Management and Structurally Lossless Trimming for LLM Agents", "url": "https://arxiv.org/pdf/2602.22402"},
+            {"title": "Neural Garbage Collection: Efficient LM Memory Management", "url": "https://www.emergentmind.com/papers/2604.18002"},
+            {"title": "Garbage Collection Algorithms for LLM Context Management: A New Paradigm", "url": "https://medium.com/@pur4v/garbage-collection-algorithms-for-llm-context-management-a-new-paradigm-b5dcfe9ef81c"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "implements L1 management through eviction and garbage collection, L2 management through fault-driven pinning, and L3 rolling conversation compaction implemented via cooperative cleanup tags ... Neural Garbage Collection ... enables agents to regulate their own cognitive state ... innovations include learning-based garbage collection."
+        },
+        {
+          "query": "selective context compression receptor-based salience signal evict damaged representations transformer",
+          "hits": [
+            {"title": "Selective Attention Improves Transformer", "url": "https://arxiv.org/html/2410.02703v1"},
+            {"title": "Context Compression for Auto-regressive Transformers with Sentinel Tokens", "url": "https://arxiv.org/pdf/2310.08152"},
+            {"title": "Context Compression via Explicit Information Transmission", "url": "https://arxiv.org/pdf/2602.03784"},
+            {"title": "Gradual Forgetting: Logarithmic Compression for Extending Transformer Context Windows", "url": "https://arxiv.org/pdf/2510.22109"},
+            {"title": "LooComp: Leave-One-Out Strategy for Efficient Query-aware Context Compression", "url": "https://arxiv.org/pdf/2603.09222"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "More sophisticated variants employ heuristics to evict less useful tokens from the context buffer instead of just the earliest ones ... hard compression serving as a filtering mechanism that shortens text by selectively retaining crucial tokens."
+        },
+        {
+          "query": "quality control mechanism prune irrelevant context chunks retrieval augmented generation eviction policy",
+          "hits": [
+            {"title": "Provence: efficient and robust context pruning for retrieval-augmented generation", "url": "https://arxiv.org/pdf/2501.16214"},
+            {"title": "Influence Guided Context Selection for Effective Retrieval-Augmented Generation", "url": "https://arxiv.org/pdf/2509.21359"},
+            {"title": "AttentionRAG: Attention-Guided Context Pruning in Retrieval-Augmented Generation", "url": "https://arxiv.org/pdf/2503.10720"},
+            {"title": "Context Awareness Gate For Retrieval Augmented Generation", "url": "https://arxiv.org/html/2411.16133"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Context pruning deals with removing irrelevant parts of retrieved contexts before LLM generation ... Context quality assessment assigns a quality score to each context to guide the selection process ... AttentionRAG is an attention-guided context pruning method."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Learned Token Pruning for Transformers (LTP)", "url": "https://arxiv.org/abs/2107.00910", "why": "Salience-gated selective removal of low-importance tokens with a learned per-layer threshold — the exact 'flag for removal' effect."},
+        {"name": "Cache What Lasts / TRIM-KV — retention-scored KV cache eviction", "url": "https://arxiv.org/abs/2512.03324", "why": "Per-token learned retention score; low-score tokens evicted from a memory-bounded context. Direct functional equivalent of autophagy cargo tagging + eviction."},
+        {"name": "Neural Garbage Collection for LM memory management", "url": "https://www.emergentmind.com/papers/2604.18002", "why": "Receptor/quality-control flagging-then-removal of context items framed explicitly as garbage collection with cleanup tags."},
+        {"name": "Provence / AttentionRAG context pruning for RAG", "url": "https://arxiv.org/pdf/2501.16214", "why": "Quality-scored selective pruning of irrelevant retrieved context chunks."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "The 'receptor-mediated selective tagging of context for eviction' is precisely the established families of learned token pruning, retention-scored KV-cache eviction, and RAG context pruning. A practitioner would recognize this as a re-description of existing memory-management/quality-control mechanisms, not a new question."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = salience/quality-gated selective eviction of context tokens. All 5 reformulations surfaced published techniques (LTP, TRIM-KV/Cache What Lasts, Neural Garbage Collection, Provence/AttentionRAG) with the identical effect; 24 forced functional hits total. The biology vocabulary (cargo receptor, ATG8) adds no functional ML content beyond 'a signal flags an item, then it is removed.' No unoccupied fusion remains."
+    },
+    {
+      "id": "C08",
+      "concept": "Hematopoiesis",
+      "functional_effect": "External/input-dependent control signals selectively activate or suppress specific specialist sub-networks (experts) in a Mixture-of-Experts model, deciding which sub-networks are active vs. inactive for a given input. In plain ML terms: this is gated conditional computation / MoE routing — a gating signal selects which experts fire.",
+      "content_words": ["colony-stimulating factor", "cytokine signaling", "expert activation", "mixture-of-experts", "gating signal", "module proliferation"],
+      "reformulations": [
+        {
+          "query": "mixture-of-experts gating network selectively activate expert modules per input control signal",
+          "hits": [
+            {"title": "Sparsely Gated Mixture of Experts (MoE)", "url": "https://www.emergentmind.com/topics/sparsely-gated-mixture-of-experts-moe"},
+            {"title": "Towards a Universal Gating Network for Mixtures of Experts", "url": "https://arxiv.org/pdf/2011.01613"},
+            {"title": "Mixture-of-Experts Transformer", "url": "https://www.emergentmind.com/topics/mixture-of-experts-moe-transformer"},
+            {"title": "Deep Mixture of Experts via Shallow Embedding", "url": "https://arxiv.org/pdf/1806.01531"},
+            {"title": "What is the Mixture of Experts — A Comprehensive Guide", "url": "https://metaschool.so/articles/moe-mixture-of-experts"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "The gating network selects and activates the most relevant experts for each input ... routing input data to the most relevant experts ... MoE architectures achieve this by sparsely activating a small subset of specialized modules ('experts') for each input token, controlled by a gating network that determines token-to-expert assignments."
+        },
+        {
+          "query": "external control signal route activate suppress specialist sub-networks conditional computation LLM",
+          "hits": [
+            {"title": "Conditional computation in neural networks: principles and research trends", "url": "https://arxiv.org/pdf/2403.07965"},
+            {"title": "Programming Refusal with Conditional Activation Steering", "url": "https://arxiv.org/pdf/2409.05907"},
+            {"title": "Route-Induced Density and Stability (RIDE): routing-style meta prompts on LLM internal states", "url": "https://arxiv.org/pdf/2603.29206"},
+            {"title": "Soft Merging of Experts with Adaptive Routing", "url": "https://arxiv.org/pdf/2306.03745"},
+            {"title": "MoE LLM Architecture: How It Works, Benefits And Key Models", "url": "https://sam-solutions.com/blog/moe-llm-architecture/"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "A common way to use conditional computation is to introduce specialized subnetworks called experts that are controlled by routers that decide which experts should be active ... a lightweight gating network activates only a small subset of expert subnetworks conditioned on the input ... routing signals as a form of external control."
+        },
+        {
+          "query": "learned gating signal expert proliferation dynamic capacity mixture-of-experts transformer",
+          "hits": [
+            {"title": "Mixture-of-Experts with Expert Choice Routing", "url": "https://papers.neurips.cc/paper_files/paper/2022/file/2f00ecd787b432c1d36f3de9800728eb-Paper-Conference.pdf"},
+            {"title": "Dynamic Mixture of Experts: An Auto-Tuning Approach for Efficient Transformer Models", "url": "https://arxiv.org/pdf/2405.14297"},
+            {"title": "GatePro: Parameter-Free Expert Selection Optimization for MoE Models", "url": "https://arxiv.org/pdf/2510.13079"},
+            {"title": "Dynamic Mixture of Experts for Adaptive Computation in Character-Level Transformers", "url": "https://www.mdpi.com/2078-2489/16/6/483"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "MoE Transformers ... use dynamic routing to activate specialist subnetworks ... novel gating methods that enable each token to automatically determine the number of experts to activate ... a gating mechanism routes each token to its top-k experts while others remain inactive."
+        },
+        {
+          "query": "dynamically grow shrink number of experts proliferate quiesce modules neural network training",
+          "hits": [
+            {"title": "Data Classification with Dynamically Growing and Shrinking Neural Networks", "url": "https://arxiv.org/abs/2507.01043"},
+            {"title": "Accelerated Training via Incrementally Growing Neural Networks using Variance Transfer", "url": "https://arxiv.org/pdf/2306.12700"},
+            {"title": "Neuroplastic Expansion in Deep Reinforcement Learning", "url": "https://arxiv.org/pdf/2410.07994"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "procedures that allow dynamic shrinking and growing of models during training ... agents starting with smaller networks and dynamically growing to larger sizes ... maintaining elastic neurons throughout training. (Maps to 'module proliferation'; 'expert' term not co-present — counted conservatively as 1.)"
+        },
+        {
+          "query": "biologically inspired cytokine signaling regulate neural module activation hematopoiesis machine learning",
+          "hits": [
+            {"title": "Data-driven modeling predicts gene regulatory network dynamics during differentiation of hematopoietic progenitors", "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1009779"},
+            {"title": "Integrating Extrinsic and Intrinsic Cues into a Minimal Model of Lineage Commitment for Hematopoietic Progenitors", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2736398/"},
+            {"title": "Novel cytokine interactions identified during perturbed hematopoiesis", "url": "https://www.biorxiv.org/content/10.1101/484170.full.pdf"}
+          ],
+          "forced_functional_hits": 0,
+          "snippet": "ML applied TO biology (gene regulatory networks of hematopoiesis), not biology-inspired ML routing. Cytokine signaling appears only as the biological subject. No functional ML-architecture equivalent in these results; functional collision is carried entirely by the MoE-routing reformulations above."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Sparsely-Gated Mixture-of-Experts (gating network selects/activates experts per input)", "url": "https://www.emergentmind.com/topics/sparsely-gated-mixture-of-experts-moe", "why": "The candidate IS the textbook definition: a gating signal selectively activates/suppresses specialist sub-networks per input."},
+        {"name": "Conditional computation in neural networks (routers activate/deactivate sub-modules)", "url": "https://arxiv.org/pdf/2403.07965", "why": "External-signal-driven activation/suppression of specialist subnetworks = candidate's core claim verbatim."},
+        {"name": "Mixture-of-Experts with Expert Choice Routing", "url": "https://papers.neurips.cc/paper_files/paper/2022/file/2f00ecd787b432c1d36f3de9800728eb-Paper-Conference.pdf", "why": "Input-conditioned gating that proliferates/quiesces experts (variable experts-per-token)."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "There is no gap: 'cytokines selectively activate/suppress expert modules' is a one-to-one re-labeling of the MoE gating network, the single most standard conditional-computation mechanism in modern LLMs."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 5, "non_trivial": 1, "score": 15},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = input/control-signal-gated selective activation of specialist sub-networks. This is identical to MoE routing (sparsely-gated MoE, expert-choice routing, conditional computation). The most defensible narrowing — 'module proliferation/quiescence' — also collides (dynamically growing/shrinking networks, neuroplastic expansion). 10 functional forced hits on the routing core. The biology-direct reformulation returned only ML-applied-to-biology, confirming the only functional content is generic gating. No unoccupied fusion."
+    },
+    {
+      "id": "C13",
+      "concept": "Coppicing",
+      "functional_effect": "Periodically reset/zero a set of learned parameters back to a fixed earlier base (a checkpoint or initialization) and re-grow representations from that fixed base, on a repeating cycle, as a continual-learning/training strategy to combat forgetting or plasticity loss. In plain ML terms: cyclic weight reset / rewind-to-checkpoint with regrowth.",
+      "content_words": ["stool checkpoint", "regrowth", "iterative reset", "continual learning", "parameter pruning", "root stock", "curriculum cycling"],
+      "reformulations": [
+        {
+          "query": "periodically reset neural network weights to checkpoint regrow continual learning catastrophic forgetting",
+          "hits": [
+            {"title": "Reset It and Forget It: Relearning Last-Layer Weights Improves Continual and Transfer Learning", "url": "https://arxiv.org/html/2310.07996v2"},
+            {"title": "Frosting Weights for Better Continual Training", "url": "https://arxiv.org/pdf/2001.01829"},
+            {"title": "Overcoming catastrophic forgetting in neural networks (EWC)", "url": "https://arxiv.org/pdf/1612.00796"},
+            {"title": "Understanding Catastrophic Forgetting and Remembering in Continual Learning with Optimal Relevance Mapping", "url": "https://arxiv.org/pdf/2102.11343"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "An intuitive explanation for the effectiveness of the 'zapping' procedure (resetting weights) is that representations trained with repeated zapping learn features capable of rapidly adapting to newly initialized classifiers ... improved transfer accuracy ... in both standard fine-tuning and continual learning settings."
+        },
+        {
+          "query": "iterative weight reset to initialization warm start training plasticity reset and regrow",
+          "hits": [
+            {"title": "Recovering Plasticity of Neural Networks via Soft Weight Rescaling", "url": "https://arxiv.org/pdf/2507.04683"},
+            {"title": "Warm-Starting Neural Network Training in Stationary Settings", "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/4c5ce1fc8895076f49935951a630be5c-Paper-Conference.pdf"},
+            {"title": "A Study of Plasticity Loss in On-Policy Deep Reinforcement Learning", "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/ce7984e36d58659211a8dc7d5457cd6f-Paper-Conference.pdf"},
+            {"title": "Step Out and Seek Around: On Warm-Start Training with Incremental Data", "url": "https://arxiv.org/html/2406.04484v1"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Methods to address plasticity loss include resetting layers, regularizing weights ... periodically replacing the weights of the final layer in the network with newly initialized values (Nikishin et al.) ... improves performance on warm-start learning, continual learning, and single-task learning."
+        },
+        {
+          "query": "reset subset of parameters to base then retrain cyclic training schedule deep learning",
+          "hits": [
+            {"title": "Parameter Re-Initialization through Cyclical Batch Size Schedules", "url": "https://arxiv.org/pdf/1812.01216"},
+            {"title": "Resetting the Optimizer in Deep RL: An Empirical Study", "url": "https://arxiv.org/pdf/2306.17833"},
+            {"title": "Cyclic Sparse Training: Is it Enough?", "url": "https://arxiv.org/pdf/2406.02773"},
+            {"title": "Reset It and Forget It: Relearning Last-Layer Weights", "url": "https://arxiv.org/html/2310.07996v2"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "weight re-initialization through repeated annealing and noise injection, implemented via cyclical batch size schedules ... resetting the internal parameters of the optimizer when starting a new iteration ... representations trained through repeated parameter resets learning features that rapidly adapt."
+        },
+        {
+          "query": "iterative magnitude pruning rewind weights to early checkpoint regrow lottery ticket",
+          "hits": [
+            {"title": "Stabilizing the Lottery Ticket Hypothesis", "url": "https://arxiv.org/pdf/1903.01611"},
+            {"title": "Towards Understanding Iterative Magnitude Pruning: Why Lottery Tickets Win", "url": "https://arxiv.org/abs/2106.06955"},
+            {"title": "Insights into the Lottery Ticket Hypothesis and Iterative Magnitude Pruning", "url": "https://arxiv.org/html/2403.15022v3"},
+            {"title": "Unmasking the Lottery Ticket Hypothesis: What's Encoded in a Winning Ticket's Mask?", "url": "https://openreview.net/forum?id=xSsW2Am-ukZ"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Iterative magnitude pruning (IMP) ... iterating through cycles of training, pruning a fraction of smallest magnitude weights, rewinding unpruned weights back to an early training point, and repeating ... can be set to an early state in training. Lottery tickets contain a prior for rediscovering the solution of the model from which they were pruned."
+        },
+        {
+          "query": "prune and regrow connections dense-sparse-dense training cycle rewiring neural network",
+          "hits": [
+            {"title": "Deep Rewiring: Training very sparse deep networks", "url": "https://arxiv.org/abs/1711.05136"},
+            {"title": "DSD: Dense-Sparse-Dense Training for Deep Neural Networks", "url": "https://arxiv.org/pdf/1607.04381"},
+            {"title": "Exploring the impact of adaptive rewiring in Graph Neural Networks", "url": "https://arxiv.org/html/2602.10754v1"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Dense-Sparse-Dense training ... prunes the unimportant connections ... then increases model capacity by re-initializing the pruned parameters, and retraining the whole dense network ... rewiring enables a sparse model to adaptively reallocate (add and remove) connections."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "Iterative Magnitude Pruning / Lottery Ticket rewind-to-early-checkpoint", "url": "https://arxiv.org/abs/2106.06955", "why": "Exactly 'cut back to a fixed root-stock base and regrow': prune, REWIND unpruned weights to an early checkpoint, retrain, repeat — the coppice cycle in ML."},
+        {"name": "Reset It and Forget It (repeated weight 'zapping' for continual/transfer learning)", "url": "https://arxiv.org/html/2310.07996v2", "why": "Periodic reset-to-fresh + relearn to improve continual learning — candidate's stated goal and mechanism."},
+        {"name": "Dense-Sparse-Dense Training", "url": "https://arxiv.org/pdf/1607.04381", "why": "Cyclic prune-then-regrow-from-base of network capacity."},
+        {"name": "Parameter Re-Initialization through Cyclical Schedules / Optimizer Resets / Soft Weight Rescaling", "url": "https://arxiv.org/pdf/1812.01216", "why": "Periodic reset of parameters on a cycle to preserve plasticity = curriculum cycling."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Resetting parameters to a fixed checkpoint and regrowing on a cycle is a well-populated area (IMP rewinding, reset-and-relearn, DSD, plasticity-reset). The 'root stock' = rewind point is a direct mapping, not a novel question."},
+      "composite": {"novelty": 1, "mechanism": 4, "verifiability": 4, "non_trivial": 1, "score": 16},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = cyclic reset-to-fixed-base + regrowth for continual learning. The single most defensible narrowing ('regrow from a FIXED root-stock checkpoint, not random init') maps precisely onto Lottery-Ticket IMP rewinding (rewind to an early checkpoint, not init) — a forced, named hit. 25 forced functional hits across 5 reformulations. The silviculture vocabulary adds nothing functional beyond 'cut to a base, regrow, repeat.' No unoccupied fusion."
+    },
+    {
+      "id": "C14",
+      "concept": "Espalier",
+      "functional_effect": "Constrain transformer attention to a fixed, predefined sparse graph/topology (a scaffold) so each head/token may only attend within a defined structural region (tier/window), reducing quadratic attention cost while preserving long-range information paths through designated connector nodes. In plain ML terms: fixed-pattern / graph-structured sparse attention with global connectors.",
+      "content_words": ["planar scaffold", "attention trellis", "topology constraint", "structured pruning", "transformer tier", "growth framing", "sparse attention"],
+      "reformulations": [
+        {
+          "query": "fixed sparse attention pattern graph structure constrain attention heads reduce quadratic cost long-range",
+          "hits": [
+            {"title": "Making Every Head Count: Sparse Attention Without the Speed-Performance Trade-off", "url": "https://arxiv.org/html/2511.09596v1"},
+            {"title": "Sparse-Attention Algorithms", "url": "https://www.emergentmind.com/topics/sparse-attention-algorithms"},
+            {"title": "Transformers meet Stochastic Block Models: Attention with Data-Adaptive Sparsity and Cost", "url": "https://arxiv.org/pdf/2210.15541"},
+            {"title": "Combiner: Full Attention Transformer with Sparse Computation Cost", "url": "https://arxiv.org/pdf/2107.05768"},
+            {"title": "Mixture of Sparse Attention: Content-Based Learnable Sparse Attention via Expert-Choice Routing", "url": "https://arxiv.org/pdf/2505.00315"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "fixed or hybrid attention patterns, with representative methods like Longformer, BigBird, and ETC employing a hybrid of local windowed attention and a few global attention tokens ... sparse attention masks reduce quadratic complexity by restricting each token's attention to a subset of other tokens ... head-level sparsification ... masks each head with the head-specific pattern."
+        },
+        {
+          "query": "graph-structured attention mask predefined topology transformer each head attends local window preserve global paths",
+          "hits": [
+            {"title": "HopFormer: Sparse Graph Transformers with Explicit Receptive Field Control", "url": "https://arxiv.org/pdf/2602.02268"},
+            {"title": "Graph Masked Attention Mechanisms", "url": "https://www.emergentmind.com/topics/graph-masked-attention"},
+            {"title": "Rethinking Attention Mechanisms in Vision Transformers with Graph Structures", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10892187/"},
+            {"title": "Adaptive Multi-Neighborhood Attention based Transformer for Graph Representation Learning (MNA-GT)", "url": "https://arxiv.org/pdf/2211.07970"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "HopFormer ... restricts each attention head to a prescribed n-hop receptive field via attention masks ... masks are applied prior to attention computation ... yielding genuinely sparse attention ... graph topology can be used to enhance the attention matrix by reweighting or masking with the adjacency or shortest-path matrix ... preserve global paths through the graph structure."
+        },
+        {
+          "query": "structured sparse attention fixed scaffold hierarchical tiers efficient transformer long-range dependency",
+          "hits": [
+            {"title": "Sparser is Faster and Less is More: Efficient Sparse Attention for Long-Range Transformers", "url": "https://arxiv.org/pdf/2406.16747"},
+            {"title": "Hierarchical Sparse Attention (HSA)", "url": "https://www.emergentmind.com/topics/hierarchical-sparse-attention-hsa"},
+            {"title": "Hardware-aligned Hierarchical Sparse Attention for Efficient Long-term Memory Access", "url": "https://arxiv.org/pdf/2504.16795"},
+            {"title": "pi-Attention: Periodic Sparse Transformers for Efficient Long-Context Modeling", "url": "https://arxiv.org/pdf/2511.10696"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "Hierarchical Sparse Attention (HSA) ... a hierarchical scheme that combines fine-grained, local attention within a fixed sliding window and chunk-wise, learned sparse retrieval enabling random-access to remote context ... computational sparsity, random-access flexibility, and robust length generalization."
+        },
+        {
+          "query": "planar graph attention constraint Longformer BigBird global tokens preserve long-range path sparse transformer",
+          "hits": [
+            {"title": "Big Bird: Transformers for Longer Sequences", "url": "https://arxiv.org/abs/2007.14062"},
+            {"title": "Constructing Transformers For Longer Sequences with Sparse Attention Methods (Google)", "url": "https://research.google/blog/constructing-transformers-for-longer-sequences-with-sparse-attention-methods/"},
+            {"title": "Extra Global Attention Designation Using Keyword Detection in Sparse Transformer Architectures", "url": "https://arxiv.org/pdf/2410.08971"},
+            {"title": "Demystifying Sparse Attention: Longformer, BigBird, Reformer, and Linformer Explained", "url": "https://medium.com/@rajboopathiking/demystifying-sparse-attention-longformer-bigbird-reformer-and-linformer-explained-029b97588144"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "BigBird consists of ... a set of global tokens attending to all parts of the sequence, all tokens attending to local neighboring tokens, and all tokens attending to random tokens ... global tokens serve as a conduit for information flow ... sparse attention with global tokens can be as powerful as full attention ... using random graphs to approximate full graphs (expanders)."
+        },
+        {
+          "query": "tie attention heads to fixed graph scaffold each head restricted to subgraph tier hierarchical routing transformer",
+          "hits": [
+            {"title": "Mixture of Attention Heads: Selecting Attention Heads Per Token", "url": "https://arxiv.org/pdf/2210.05144"},
+            {"title": "Efficient Content-Based Sparse Attention with Routing Transformers", "url": "https://aclanthology.org/2021.tacl-1.4.pdf"},
+            {"title": "Hierarchical Graph Attention Networks (HGAT)", "url": "https://www.emergentmind.com/topics/hierarchical-graph-attention-networks-hgat"},
+            {"title": "Directional Routing in Transformers", "url": "https://arxiv.org/pdf/2603.14923"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "restricting attention heads to specific substructures ... each node is passed through a graph Transformer layer that uses self-attention on the selected subgraph ... hierarchical stacking ... scaffold-based routing ... where molecules sharing the same scaffold should exhibit similar routing distributions."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "BigBird: Transformers for Longer Sequences", "url": "https://arxiv.org/abs/2007.14062", "why": "Fixed sparse attention topology (local window + global connector tokens + random/expander edges) that cuts quadratic cost while provably preserving long-range paths — the espalier scaffold exactly, with the graph-theoretic 'expander preserves connectivity' framing."},
+        {"name": "HopFormer: Sparse Graph Transformers with Explicit Receptive Field Control", "url": "https://arxiv.org/pdf/2602.02268", "why": "Restricts EACH attention head to a prescribed (predefined-topology) receptive field via masks while preserving multi-hop global paths — the 'each head attends within its structural tier' claim verbatim."},
+        {"name": "Longformer / ETC (windowed + global attention)", "url": "https://research.google/blog/constructing-transformers-for-longer-sequences-with-sparse-attention-methods/", "why": "Fixed planar local+global attention pattern reducing quadratic cost; the canonical structured sparse-attention scaffold."},
+        {"name": "Hierarchical Sparse Attention (HSA)", "url": "https://www.emergentmind.com/topics/hierarchical-sparse-attention-hsa", "why": "Fixed local-window tiers + remote-access paths = the hierarchical 'tier' constraint."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Tying attention to a fixed graph scaffold so each head attends within a structural tier while preserving long-range paths is the defining design of the structured sparse-attention literature (Longformer/BigBird/ETC/HopFormer). No open question."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect = fixed-topology sparse attention with global connectors preserving long-range paths. Even the most specific defensible narrowing ('each head bound to its own subgraph/tier of a predefined planar scaffold') is occupied by HopFormer's per-head prescribed receptive-field masks and by graph-masked attention; the 'preserve long-range path through the scaffold' is BigBird's expander-graph argument. 24 forced functional hits. The only thing 'planar' adds is a graph-class restriction that is an arbitrary over-specification, not a meaningful new capability. No unoccupied fusion."
+    },
+    {
+      "id": "C15",
+      "concept": "Terra preta (biochar soil)",
+      "functional_effect": "A persistent porous key-value/memory store in a retrieval-augmented system that holds context and sustains a community of specialist small models, which collectively reuse/recycle retrieved context fragments more efficiently than one monolithic model. In plain ML terms: a persistent external memory/KV store + a society of specialist small models doing retrieval-augmented context reuse, claimed more efficient than a single large model.",
+      "content_words": ["porous memory matrix", "persistent substrate", "micro-model community", "context adsorption", "retrieval augmentation", "specialist activation", "nutrient cycling"],
+      "reformulations": [
+        {
+          "query": "persistent key-value memory store retrieval augmented LLM community of specialist small models reuse context",
+          "hits": [
+            {"title": "Memori: A Persistent Memory Layer for Efficient, Context-Aware LLM Agents", "url": "https://arxiv.org/pdf/2603.19935"},
+            {"title": "Persistent Memory in LLM Agents", "url": "https://www.emergentmind.com/topics/persistent-memory-for-llm-agents"},
+            {"title": "Efficient and Effective Internal Memory Retrieval for LLM-Based Healthcare Prediction", "url": "https://arxiv.org/pdf/2604.07659"},
+            {"title": "Local LLM Persistent Memory: Enabling Lasting Recall for AI Agents", "url": "https://aiagentmemory.org/articles/local-llm-persistent-memory/"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Retrieval-Augmented Generation (RAG) ... directly benefits from persistent memory ... an external memory module that acts as a long-term repository, storing and retrieving relevant information ... Mem0 and MIRIX ... up to 26% relative improvement ... >90% token cost reduction relative to full-context approaches."
+        },
+        {
+          "query": "shared memory substrate multi-agent specialist models retrieval recycle context fragments efficient than monolithic",
+          "hits": [
+            {"title": "INMS: Memory Sharing for Large Language Model based Agents", "url": "https://arxiv.org/pdf/2404.09982"},
+            {"title": "Collaborative Memory: Multi-User Memory Sharing in LLM Agents with Dynamic Access Control", "url": "https://arxiv.org/html/2505.18279v1"},
+            {"title": "Memory in LLM-based Multi-agent Systems: Mechanisms, Challenges, and Collective", "url": "https://www.techrxiv.org/users/1007269/articles/1367390/master/file/data/LLM_MAS_Memory_Survey_preprint_.pdf"},
+            {"title": "Building Multi-Agent Systems with Shared Memory Guide", "url": "https://hindsight.vectorize.io/guides/2026/04/21/guide-building-multi-agent-systems-with-shared-memory"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "a shared memory substrate can be accessible across specialized agents responsible for planning, reasoning, and execution ... each specialist can benefit from the others' retained context ... properly designed shared memory substrates are generally more efficient than isolated, monolithic approaches for multi-agent systems, particularly when managing context retrieval and reuse across specialized agents."
+        },
+        {
+          "query": "external memory bank populates ecosystem of small expert models RAG persistent store specialist activation",
+          "hits": [
+            {"title": "Unveiling and Consulting Core Experts in Retrieval-Augmented MoE-based LLMs", "url": "https://arxiv.org/pdf/2410.15438"},
+            {"title": "ExpertRAG: Efficient RAG with Mixture of Experts -- Optimizing Context Retrieval", "url": "https://arxiv.org/pdf/2504.08744"},
+            {"title": "MemoryBank Architectures", "url": "https://www.emergentmind.com/topics/memorybank"},
+            {"title": "GAM-RAG: Gain-Adaptive Memory for Evolving Retrieval in RAG", "url": "https://arxiv.org/pdf/2603.01783"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "the RAG protocol integrates MemoryBank by encoding the user query to produce a read key and concatenating top-retrieved slots ... MemoryBank is level-2 (long-term) non-parametric memory, co-existing with parametric knowledge and activation memory (KV cache) ... a dynamic retrieval gating mechanism coupled with expert routing enables the model to selectively consult an external knowledge store or rely on specialized internal experts ... several core groups of experts are primarily responsible for RAG-related behaviors."
+        },
+        {
+          "query": "ensemble of small specialist models more efficient than single large model collaborative retrieval shared knowledge base",
+          "hits": [
+            {"title": "When Ensembling Smaller Models is More Efficient than Single Large Models", "url": "https://arxiv.org/abs/2005.00570"},
+            {"title": "The Case for High-Accuracy Classification: Think Small, Think Many!", "url": "https://arxiv.org/pdf/2103.10350"},
+            {"title": "Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting", "url": "https://arxiv.org/pdf/2510.06419"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Ensembles can outperform single models with both higher accuracy and requiring fewer total FLOPs ... output diversity in ensembling can often be more efficient than training larger models ... a model portfolio by training an array of smaller models, where each specialist is trained on a single smaller corpus ... reducing training-time compute by an order of magnitude."
+        },
+        {
+          "query": "porous persistent vector store context caching reuse retrieval augmentation society of agents efficiency",
+          "hits": [
+            {"title": "CacheClip: Accelerating RAG with Effective KV Cache Reuse", "url": "https://arxiv.org/pdf/2510.10129"},
+            {"title": "Cache-Craft: Managing Chunk-Caches for Efficient Retrieval-Augmented Generation", "url": "https://arxiv.org/pdf/2502.15734"},
+            {"title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models", "url": "https://arxiv.org/pdf/2410.15332"},
+            {"title": "Towards More Economical Context-Augmented LLM Generation by Reusing Stored KV Cache", "url": "https://arxiv.org/pdf/2503.14647"}
+          ],
+          "forced_functional_hits": 5,
+          "snippet": "RAG systems typically operate on a finite knowledge base where the same chunks are often retrieved across different queries ... Cache-Craft ... managing and reusing precomputed KVs corresponding to text chunks in RAG-based systems ... reduces redundant computation by 51% over prefix-caching."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"name": "When Ensembling Smaller Models is More Efficient than Single Large Models", "url": "https://arxiv.org/abs/2005.00570", "why": "Directly establishes the candidate's CORE distinguishing claim — a community of small specialist models is more compute-efficient than one monolithic model."},
+        {"name": "Unveiling/Consulting Core Experts in Retrieval-Augmented MoE-based LLMs + ExpertRAG", "url": "https://arxiv.org/pdf/2504.08744", "why": "Persistent external knowledge store + a community of specialist experts that selectively activate to recycle retrieved context = the full biochar-substrate-plus-microbial-community fusion."},
+        {"name": "MemoryBank / Mem0 / MIRIX persistent non-parametric memory for RAG", "url": "https://www.emergentmind.com/topics/memorybank", "why": "The persistent porous key-value 'substrate' that stores and re-serves context across sessions."},
+        {"name": "Cache-Craft / CacheClip (chunk-level KV reuse in RAG)", "url": "https://arxiv.org/pdf/2502.15734", "why": "Persistent store whose held fragments are recycled across queries — the 'adsorption + nutrient cycling' efficiency claim."},
+        {"name": "INMS / Collaborative Memory (shared memory substrate for multi-agent specialists)", "url": "https://arxiv.org/pdf/2404.09982", "why": "Shared persistent memory enabling specialist agents to reuse each other's retained context, explicitly more efficient than monolithic."}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Every element — persistent external memory store, retrieval augmentation, society of specialist small models, and the 'small specialists beat one big model' efficiency claim — is independently published and already combined (ExpertRAG, retrieval-augmented MoE, shared multi-agent memory). No open question."},
+      "composite": {"novelty": 1, "mechanism": 2, "verifiability": 3, "non_trivial": 1, "score": 6},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Functional effect is a COMPOUND: (persistent porous memory store for RAG) x (community of specialist small models recycling context, more efficient than monolith). Both factors collide individually, AND the fusion is occupied by retrieval-augmented MoE / ExpertRAG (external store activating specialist experts) and by shared multi-agent memory substrates. The candidate's only genuinely load-bearing claim — small specialists outperform a monolith on efficiency — is a named forced hit (arXiv 2005.00570). 23 forced functional hits. The soil-science vocabulary contributes no functional ML content. No unoccupied fusion."
+    }
+  ],
+  "search_count": 25,
+  "gaps_found": [],
+  "honesty_note": "All 25 WebSearches were real, US-region, executed this session; titles/URLs/snippets recorded verbatim from returned results (some abridged for length, none invented). I deliberately reserved the 4th/5th reformulation of each candidate to attack the MOST SPECIFIC, most-defensible narrowing rather than the easy generic version, to give every candidate its best chance of revealing an unoccupied functional fusion: C07 -> RAG-specific quality-gated pruning; C08 -> dynamic expert proliferation/quiescence and biology-direct framing; C13 -> Lottery-Ticket IMP rewind-to-checkpoint (the closest analog to 'regrow from fixed root stock'); C14 -> per-head subgraph/planar-scaffold binding (HopFormer) and BigBird's long-range-preservation proof; C15 -> the 'small specialists beat one monolith' core efficiency claim. Every narrowing still produced forced functional hits (>=2 declared content_words in title+snippet). Result: 0 of 5 candidates is a genuine non-trivial GAP. This is evidence AGAINST the hypothesis that the sparsest-12 selection missed a real gap in these five less-sparse concepts: each of C07/C08/C13/C14/C15 sits squarely on a populated, named ML technique family (token/KV eviction & pruning; MoE gating; cyclic weight reset / IMP rewinding; structured sparse attention; persistent memory + retrieval-augmented MoE). For C08 and C14 in particular the candidate is essentially a verbatim re-description of a textbook mechanism (MoE gating; fixed-pattern sparse attention), so their higher raw paper-hit counts correctly reflected dense occupation, not a hidden gap. I found no functional fusion that was unoccupied; narrow_version_nontrivial is false for all five."
+}

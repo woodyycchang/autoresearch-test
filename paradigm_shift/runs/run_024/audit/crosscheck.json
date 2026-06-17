@@ -1,0 +1,273 @@
+{
+  "agent": "crosscheck",
+  "run_id": "run_024",
+  "role": "ADVERSARIAL PRO-NOVELTY independent re-verification of the 4 highest-composite (most GAP-likely) candidates. Goal: try as hard as possible to find a genuine novel GAP the verify agents missed. Search the NARROWEST, most-defensible steelman version of each candidate with FRESH reformulations distinct from all three verify agents' queries. Do not rubber-stamp; do not pre-dismiss (R12/R13).",
+  "date": "2026-06-03",
+  "rules_followed": "R5: every query below was a REAL WebSearch tool call; titles/URLs/snippets are copied verbatim from returned results, none fabricated or recalled. No git run. Reformulations were deliberately chosen to differ from verify_A/B/C's recorded queries and to target the specific distinguishing feature of each steelman (triggered/discrete; direction-anisotropy; shifted-mask registration; held-liminal middle stage).",
+  "candidates": [
+    {
+      "id": "C28",
+      "concept": "Eustachian tube pressure equalization",
+      "steelman": "Not generic KV-cache compression or continuous LayerNorm, but a PERIODIC ACTIVE 'pressure-equalization' trigger: detect accumulated cross-layer activation/KV imbalance over long context and perform a DISCRETE, TRIGGERED, intermittent flush / re-equalization EVENT (vs always-on attention sink, vs continuous normalization). Distinguishing feature = event is fired by a detected-imbalance test, not running every step.",
+      "reformulations": [
+        {
+          "query": "event-triggered discrete recalibration transformer inference triggered when accumulated drift exceeds threshold long context",
+          "hits": [
+            {"title": "Frame Context Packing and Drift Prevention in Next-Frame-Prediction Video Diffusion Models", "url": "https://arxiv.org/html/2504.12626"},
+            {"title": "UT-ACA: Uncertainty-Triggered Adaptive Context Allocation for Long-Context Inference", "url": "https://arxiv.org/pdf/2603.18446"},
+            {"title": "Diagonal Batching Unlocks Parallelism in Recurrent Memory Transformers for Long Contexts", "url": "https://arxiv.org/pdf/2506.05229"},
+            {"title": "Speculative decoding for high-throughput long-context inference", "url": "https://www.together.ai/blog/speculative-decoding-for-high-throughput-long-context-inference"},
+            {"title": "Exploiting Sparsity for Long Context Inference: Million Token Contexts on Commodity GPUs", "url": "https://arxiv.org/pdf/2502.06766"}
+          ],
+          "snippet": "UT-ACA (Uncertainty-Triggered Adaptive Context Allocation) ... learns an uncertainty detector that combines semantic embeddings with logit-based confidence while accounting for uncertainty ACCUMULATION across decoding steps, and when insufficient evidence is indicated, it selectively rolls back, expands the context window, and regenerates the token. (= triggered, discrete corrective event fired by accumulated-imbalance detection.)"
+        },
+        {
+          "query": "periodic hidden state re-equalization every N tokens autoregressive decoding scheduled reset distinct from continuous layernorm",
+          "hits": [
+            {"title": "Never Reset Again: A Mathematical Framework for Continual Inference in Recurrent Neural Networks", "url": "https://arxiv.org/html/2412.15983"},
+            {"title": "On the Effectiveness of LayerNorm Tuning for Continual Learning in Vision Transformers", "url": "https://arxiv.org/pdf/2308.09610"},
+            {"title": "Make Every Draft Count: Hidden State based Speculative Decoding", "url": "https://arxiv.org/pdf/2602.21224"},
+            {"title": "Measuring In-Context Computation Complexity via Hidden State Prediction", "url": "https://arxiv.org/html/2503.13431v1"}
+          ],
+          "snippet": "'In RNNs, periodic or dynamic hidden state RESETS are used to address state saturation, though reset-based methods impose synchronization requirements with input boundaries and increase computational costs.' WebSearch could NOT find an exact 'every-N-token re-equalization' transformer method under this phrasing -- but confirms discrete periodic-reset-to-fix-saturation is an established RNN idea (Never Reset Again, 2412.15983)."
+        },
+        {
+          "query": "detect cross-layer activation imbalance trigger flush event long context LLM pressure equalization analogy",
+          "hits": [
+            {"title": "SlimPipe: Memory-Thrifty and Efficient Pipeline Parallelism for Long-Context LLM Training", "url": "https://arxiv.org/pdf/2504.14519"},
+            {"title": "Activation-aware Probe-Query: Effective Key-Value Retrieval for Long-Context LLMs Inference", "url": "https://arxiv.org/pdf/2502.13542"},
+            {"title": "Boosting Long-Context Management via Query-Guided Activation Refilling", "url": "https://arxiv.org/pdf/2412.12486"},
+            {"title": "AdaSkip: Adaptive Sublayer Skipping for Accelerating Long-Context LLM Inference", "url": "https://arxiv.org/pdf/2501.02336"},
+            {"title": "Long Context Compression with Activation Beacon", "url": "https://arxiv.org/pdf/2401.03462"}
+          ],
+          "snippet": "Query-Guided Activation Refilling (2412.12486) performs discrete activation REFILL events for long-context management; Activation-aware Probe-Query uses a 'KV cut-off mechanism that dynamically adjusts selected pairs based on information density of EACH LAYER' (= per-layer imbalance-aware gating). Pressure-equalization framing has multiple functional cousins."
+        },
+        {
+          "query": "conditional re-normalization fired by drift detector intermittent not always-on KV cache stabilization",
+          "hits": [
+            {"title": "Attention Is All You Need for KV Cache in Diffusion LLMs (Elastic-Cache)", "url": "https://arxiv.org/pdf/2510.14973"},
+            {"title": "EntropyCache: Decoded Token Entropy Guided KV Caching for Diffusion Language Models", "url": "https://arxiv.org/pdf/2603.18489"},
+            {"title": "The Residual Stream Is All You Need: On the Redundancy of the KV Cache in Transformer Inference", "url": "https://arxiv.org/html/2603.19664"},
+            {"title": "ParisKV: Fast and Drift-Robust KV-Cache Retrieval for Long-Context LLMs", "url": "https://arxiv.org/pdf/2602.07721"},
+            {"title": "NSNQuant: A Double Normalization Approach for Calibration-Free Low-Bit Vector Quantization of KV Cache", "url": "https://arxiv.org/pdf/2505.18231"}
+          ],
+          "snippet": "Elastic-Cache 'monitors attention-weight drift at the most-attended token and, upon detecting staleness, recomputes from a boundary layer onward while reusing shallow-layer caches.' EntropyCache: 'the maximum entropy of the newly decoded token distributions ... correlates with KV cache drift and enables a SKIP-OR-RECOMPUTE DECISION with constant overhead.' = exactly a DISCRETE, TRIGGERED, intermittent re-equalization fired by an accumulated-drift detector."
+        },
+        {
+          "query": "Elastic-Cache attention drift trigger global refresh recompute boundary layer reuse shallow KV diffusion LLM",
+          "hits": [
+            {"title": "Elastic-Cache: Attention-Aware KV Caching for Diffusion LLMs (official project page)", "url": "https://vila-lab.github.io/elastic-cache-webpage/"},
+            {"title": "Attention Is All You Need for KV Cache in Diffusion LLMs (arXiv 2510.14973)", "url": "https://arxiv.org/pdf/2510.14973"},
+            {"title": "Adaptive KV Cache in Diffusion LLMs (emergentmind)", "url": "https://www.emergentmind.com/papers/2510.14973"},
+            {"title": "Paper page - Attention Is All You Need for KV Cache in Diffusion LLMs (HuggingFace)", "url": "https://huggingface.co/papers/2510.14973"},
+            {"title": "KV CACHE IN DIFFUSION LLMS (OpenReview)", "url": "https://openreview.net/pdf?id=zkUbhdAiFJ"}
+          ],
+          "snippet": "Elastic-Cache is a training-free, architecture-agnostic strategy that JOINTLY DECIDES WHEN to refresh (via an attention-aware DRIFT TEST on the most-attended token) and WHERE to refresh (depth-aware schedule that recomputes from a chosen layer onward while reusing shallow-layer caches). 'Monitoring this drift yields a reliable, low-overhead TRIGGER for deciding whether a global refresh is warranted.' This is precisely the discrete, triggered, periodic 'pressure-equalization event' the steelman demands -- detect accumulated imbalance, then fire a discrete re-equalization, not always-on."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_work_or_absence": "Elastic-Cache (arXiv 2510.14973, 'Attention Is All You Need for KV Cache in Diffusion LLMs'; official page https://vila-lab.github.io/elastic-cache-webpage/) is a near-exact functional twin of the NARROW steelman: an attention-aware DRIFT TEST decides WHEN to fire a discrete refresh/re-equalization (not continuous, not always-on) and a depth-aware schedule decides WHERE (recompute deeper layers, reuse shallow). EntropyCache (2603.18489) gives the same triggered skip-or-recompute decision via an entropy drift signal. UT-ACA (2603.18446) is an uncertainty-TRIGGERED corrective event keyed to accumulated uncertainty. The verify agents only surfaced always-on StreamingLLM + continuous normalization; the steelman's claimed escape hatch (DISCRETE + TRIGGERED + intermittent) is ALSO fully published.",
+      "narrow_version_nontrivial": false,
+      "novelty": 0.08,
+      "reasoning": "Adversarial search STRENGTHENED the collision rather than weakening it. The distinguishing features the steelman relied on to escape (discrete event, fired by a detected-imbalance test, intermittent rather than per-step) are exactly the design of Elastic-Cache's when-to-refresh drift test and EntropyCache's skip-or-recompute decision. The biological 'pressure equalization' framing adds nothing functionally beyond these triggered-KV-refresh methods. Novelty near zero; lower than verify implicitly assumed because I found the tighter, triggered analogue they did not cite."
+    },
+    {
+      "id": "C33",
+      "concept": "Inselberg differential erosion",
+      "steelman": "ANISOTROPIC weight decay where the RATE differs by AXIS/DIRECTION (not by layer index): cross-layer (inter-layer / vertical / residual-path) connections decay FASTER than within-layer (lateral) connections, deliberately preserving a stable vertical CORE. Distinguishing feature = directional anisotropy (lateral-vs-vertical) with explicit core preservation, not depth-wise (per-layer-index) decay.",
+      "reformulations": [
+        {
+          "query": "direction-dependent weight decay penalize lateral intra-layer weights differently from vertical inter-layer residual connections",
+          "hits": [
+            {"title": "Layer-Wise Weight Decay for Deep Neural Networks (Springer)", "url": "https://link.springer.com/chapter/10.1007/978-3-319-75786-5_23"},
+            {"title": "Cautious Weight Decay", "url": "https://arxiv.org/pdf/2510.12402"},
+            {"title": "Rotational Equilibrium: How Weight Decay Balances Learning Across Neural Networks", "url": "https://arxiv.org/pdf/2305.17212"},
+            {"title": "Adaptive Weight Decay for Deep Neural Networks", "url": "https://arxiv.org/pdf/1907.08931"},
+            {"title": "Why Do We Need Weight Decay in Modern Deep Learning?", "url": "https://arxiv.org/pdf/2310.04415"}
+          ],
+          "snippet": "WebSearch: 'The specific concept ... direction-dependent weight decay that explicitly distinguishes between lateral intra-layer weights and vertical inter-layer residual connections doesn't appear in these search results.' Rotational Equilibrium (2305.17212) balances decay across layers/neurons (direction-aware in the rotational sense) but NOT lateral-vs-vertical-rate with a preserved vertical core."
+        },
+        {
+          "query": "regularize within-layer connections stronger than skip residual connections preserve vertical information highway transformer",
+          "hits": [
+            {"title": "Improving Model Representation and Reducing KV Cache via Skip Connections with First Value Heads (SkipV1Former)", "url": "https://arxiv.org/pdf/2510.16807"},
+            {"title": "Rethinking Skip Connection with Layer Normalization (COLING 2020)", "url": "https://aclanthology.org/2020.coling-main.320.pdf"},
+            {"title": "Residual Connections: The Gradient Highways Enabling Deep Transformers", "url": "https://mbrenndoerfer.com/writing/residual-connections-gradient-highways-deep-transformers"},
+            {"title": "Rethinking Skip Connection with Layer Normalization", "url": "https://apxml.com/courses/how-to-build-a-large-language-model/chapter-4-transformer-architecture/layer-norm-residual-connections"}
+          ],
+          "snippet": "Residual/skip connections are framed as 'gradient highways' that PRESERVE information (the 'vertical core' the steelman wants), but no result applies a DIFFERENTIAL decay rate that erodes lateral connections faster while protecting the highway. WebSearch: results 'don't contain specific information matching the exact phrasing ... about regularizing within-layer connections stronger than skip residual connections.'"
+        },
+        {
+          "query": "anisotropic regularization rate horizontal versus depthwise weights protect stable backbone column neural network",
+          "hits": [
+            {"title": "Partial local entropy and anisotropy in deep weight spaces", "url": "https://arxiv.org/pdf/2007.09091"},
+            {"title": "Entropic alternatives to initialization", "url": "https://arxiv.org/pdf/2107.07757"},
+            {"title": "Improve Generalization and Robustness of Neural Networks via Weight Scale Shifting Invariant Regularizations", "url": "https://arxiv.org/pdf/2008.02965"},
+            {"title": "Non-uniform regularization in artificial neural networks for adaptable scaling (USPTO)", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11651225"}
+          ],
+          "snippet": "Partial local entropy / anisotropy in deep weight spaces (2007.09091): 'considering an ANISOTROPIC local entropy ... treats distinct weights in a different manner. Assigning different values of regularization parameters to different weight subspaces ... it is not adequate to treat all weights on the same footing as far as regularization is concerned.' Establishes DIRECTION-ANISOTROPIC regularization in weight space generally (different rate per weight subspace), though framed by subspace, not specifically lateral-vs-vertical."
+        },
+        {
+          "query": "asymmetric weight decay residual stream preserved lateral attention MLP pruned faster stable core subnetwork",
+          "hits": [
+            {"title": "Data-Free Pruning of Self-Attention Layers in LLMs", "url": "https://arxiv.org/pdf/2512.20636"},
+            {"title": "Efficient LLMs with AMP: Attention Heads and MLP Pruning", "url": "https://arxiv.org/html/2504.21174v1"},
+            {"title": "Attention Retrieves, MLP Memorizes: Disentangling Trainable Components in the Transformer", "url": "https://arxiv.org/html/2506.01115v1"},
+            {"title": "An Adversarial Example for Direct Logit Attribution: Memory Management in GELU-4L", "url": "https://arxiv.org/pdf/2310.07325"}
+          ],
+          "snippet": "AMP (2504.21174) measures 'the magnitude of the contribution of each attention head ... to the final output of MHA and the RESIDUAL STREAM' and prunes less-critical attention/MLP structures while many deep self-attention sublayers 'mute their outputs, forwarding inputs unchanged through the RESIDUAL PATH.' = differential erosion of lateral (attention/MLP) computation while the residual/vertical path is preserved -- functionally the steelman, achieved via importance-based structured pruning rather than named anisotropic decay."
+        },
+        {
+          "query": "weight decay protect residual skip path stronger penalty on non-residual weights preserve identity backbone transformer pruning",
+          "hits": [
+            {"title": "Rethinking Weight Decay for Efficient Neural Network Pruning (Selective Weight Decay)", "url": "https://arxiv.org/pdf/2011.10520"},
+            {"title": "Pruning Redundant Mappings in Transformer Models via Spectral-Normalized Identity Prior (SNIP)", "url": "https://arxiv.org/pdf/2010.01791"},
+            {"title": "TPrune: Efficient Transformer Pruning for Mobile Devices", "url": "https://par.nsf.gov/servlets/purl/10281536"},
+            {"title": "Adaptive Computation Pruning for the Forgetting Transformer", "url": "https://arxiv.org/pdf/2504.06949"}
+          ],
+          "snippet": "Spectral-Normalized Identity Prior / SNIP (2010.01791) 'penalizes entire RESIDUAL MODULES in Transformer models toward IDENTITY mappings, identifying and discarding unimportant non-linear mappings in residual connections' -- preserving identity/backbone. Structured Selective Weight Decay (2011.10520) 'is based on the method of Liu et al. to solve a problem induced by RESIDUAL CONNECTIONS' -- i.e. it already differentiates decay treatment of residual vs non-residual paths. Different connection classes already get different decay/penalty with a preserved identity core."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_work_or_absence": "The FUNCTION -- apply different decay/regularization strength to different connection classes (one class eroded faster, a stable core preserved) -- is multiply published: (1) Partial local entropy & anisotropy in deep weight spaces (arXiv 2007.09091) explicitly does direction-anisotropic regularization (different rate per weight subspace, 'not adequate to treat all weights on the same footing'); (2) Spectral-Normalized Identity Prior (2010.01791) penalizes residual modules toward identity, preserving the vertical/backbone path while eroding non-linear lateral computation; (3) Structured Selective Weight Decay (2011.10520) explicitly differentiates residual vs non-residual decay; (4) AMP (2504.21174) prunes attention/MLP (lateral) by contribution to the residual stream, preserving the residual core. The EXACT phrasing 'lateral connections decay faster than vertical, preserving a vertical column' is not the title of any single method, but its functional content (anisotropic-rate decay + preserved residual core) is fully covered.",
+      "narrow_version_nontrivial": false,
+      "novelty": 0.16,
+      "reasoning": "The narrow steelman survives only as an arbitrary geometric RE-LABELING ('lateral vs vertical erosion rate', 'stable vertical core') of established differentiated/anisotropic regularization. Three searches explicitly returned 'doesn't appear in these results' for the literal lateral-vs-vertical-rate phrasing, so a hyper-literal version is technically absent -- but the conceptual ingredients (per-subspace anisotropic decay; residual/identity-path preservation under stronger penalty on non-residual weights) are all published, and there is no principled reason 'lateral vs vertical' is the meaningful partition rather than the already-studied per-layer / per-module / residual-vs-nonresidual partitions. This is over-specification, not a defensible niche. Slightly higher novelty than C28 only because no paper names this exact directional partition; still a COLLISION on function."
+    },
+    {
+      "id": "C20",
+      "concept": "Ikat resist dyeing",
+      "steelman": "ITERATIVE multi-pass training where the gradient MASK is SHIFTED each pass so specialization ACCUMULATES in layered registration: pass 1 fixes (freezes) subset A, pass 2 shifts the trainable region to B over a partially-frozen A, ..., producing a deliberately REGISTERED multi-layer specialization pattern. Distinguishing feature = mask MOVES across passes with prior frozen and registration accumulates (vs a single static FISH mask or one-shot gradient routing).",
+      "reformulations": [
+        {
+          "query": "shifted gradient mask each training pass non-overlapping parameter subsets sequential accumulation layered specialization registration",
+          "hits": [
+            {"title": "Gradient-Mask Tuning Elevates the Upper Limits of LLM Performance", "url": "https://arxiv.org/html/2406.15330v1"},
+            {"title": "Gradient Routing: Masking Gradients to Localize Computation in Neural Networks", "url": "https://arxiv.org/html/2410.04332v1"},
+            {"title": "Training Neural Networks with Fixed Sparse Masks (FISH Mask)", "url": "https://arxiv.org/pdf/2111.09839"},
+            {"title": "Masked Training of Neural Networks with Partial Gradients", "url": "https://arxiv.org/pdf/2106.08895"},
+            {"title": "Selective Gradient Masking (SGTM) Techniques", "url": "https://www.emergentmind.com/topics/selective-gradient-masking-sgtm"}
+          ],
+          "snippet": "Gradient Routing: 'for each batch of training data points, a batch of gradient_masks ... is passed, and the goal is to obtain an encoding made up of NON-OVERLAPPING SUBCOMPONENTS corresponding to distinct subsets.' Distinct masks for distinct data partitions induce specialization in distinct (registered) subregions -- the registration/accumulation idea is already present."
+        },
+        {
+          "query": "iterative training rotate frozen parameter subset across passes complementary masks build composite multi-task pattern",
+          "hits": [
+            {"title": "Selective Freezing for Efficient Continual Learning (ICCV 2023 W)", "url": "https://openaccess.thecvf.com/content/ICCV2023W/VCL/papers/Sorrenti_Selective_Freezing_for_Efficient_Continual_Learning_ICCVW_2023_paper.pdf"},
+            {"title": "LoRI: Reducing Cross-Task Interference in Multi-Task Low-Rank Adaptation", "url": "https://arxiv.org/pdf/2504.07448"},
+            {"title": "PackNet: Adding Multiple Tasks to a Single Network by Iterative Pruning (CVPR 2018)", "url": "https://openaccess.thecvf.com/content_cvpr_2018/papers/Mallya_PackNet_Adding_Multiple_CVPR_2018_paper.pdf"},
+            {"title": "Adding New Tasks to a Single Network with Weight Transformations using Binary Masks", "url": "https://arxiv.org/pdf/1805.11119"},
+            {"title": "Piggyback: Adapting a Single Network to Multiple Tasks by Learning to Mask Weights", "url": "https://arxiv.org/pdf/1801.06519"}
+          ],
+          "snippet": "PackNet: 'Adding Multiple Tasks to a Single Network by ITERATIVE PRUNING' -- each pass packs a task into a parameter subset, FREEZES it, and trains the remaining FREE capacity on the next task over the partially-frozen prior. FISH complementary subsets: 'workers ... operate on strictly COMPLEMENTARY subsets of parameters.' This is the shifted-mask, frozen-prior, accumulate-registered-specialization pattern verbatim."
+        },
+        {
+          "query": "progressive mask shifting freeze region A then shift to region B partially frozen accumulate disjoint task knowledge",
+          "hits": [
+            {"title": "Local Masking Meets Progressive Freezing: Crafting Efficient Vision Transformers for Self-Supervised Learning", "url": "https://arxiv.org/html/2312.02194v1"},
+            {"title": "Ternary Feature Masks: zero-forgetting for task-incremental learning", "url": "https://arxiv.org/pdf/2001.08714"},
+            {"title": "Challenging Common Assumptions about Catastrophic Forgetting", "url": "https://arxiv.org/pdf/2207.04543"},
+            {"title": "Optimizing Reusable Knowledge for Continual Learning via Metalearning (MARK)", "url": "https://arxiv.org/pdf/2106.05390"}
+          ],
+          "snippet": "Ternary Feature Masks: 'ternary masks ... upgrade a model to new tasks by reusing knowledge from previous tasks while PREVENTING catastrophic forgetting'; MARK 'incrementally ACCUMULATES relevant knowledge from several tasks while avoiding catastrophic forgetting.' Progressive-freeze + shifting task masks accumulating disjoint registered knowledge is an established continual-learning pattern."
+        },
+        {
+          "query": "resist dyeing inspired neural network training selective freezing pattern overlay machine learning",
+          "hits": [
+            {"title": "Selective Freezing for Efficient Continual Learning", "url": "https://openaccess.thecvf.com/content/ICCV2023W/VCL/papers/Sorrenti_Selective_Freezing_for_Efficient_Continual_Learning_ICCVW_2023_paper.pdf"},
+            {"title": "Rethinking the Potential of Layer Freezing for Efficient DNN Training", "url": "https://arxiv.org/html/2508.15033v1"},
+            {"title": "FreezeOut: Accelerate Training by Progressively Freezing Layers", "url": "https://arxiv.org/pdf/1706.04983"},
+            {"title": "Dimensionality Reduced Training by Pruning and Freezing", "url": "https://arxiv.org/pdf/2205.08099"}
+          ],
+          "snippet": "WebSearch: 'the search results don't contain any papers that specifically use resist dyeing or textile-inspired pattern overlays as inspiration for neural network training.' -> no TEXTILE-named method, but the underlying mechanism (selective/progressive freezing as an overlay that protects subsets while others train) is a heavily studied family (FreezeOut, Selective Freezing)."
+        },
+        {
+          "query": "multi-pass alternating supermask each round different subnetwork frozen prior preserved registered layered capability",
+          "hits": [
+            {"title": "Exclusive Supermask Subnetwork Training for Continual Learning (ExSSNeT, arXiv 2210.10209)", "url": "https://arxiv.org/html/2210.10209"},
+            {"title": "HyperMask: Adaptive Hypernetwork-based Masks for Continual Learning", "url": "https://arxiv.org/pdf/2310.00113"},
+            {"title": "Signing the Supermask: Keep, Hide, Invert", "url": "https://arxiv.org/pdf/2201.13361"},
+            {"title": "Exclusive Supermask Subnetwork Training for Continual Learning (ACL Findings 2023)", "url": "https://aclanthology.org/2023.findings-acl.36/"}
+          ],
+          "snippet": "ExSSNeT performs 'EXCLUSIVE and NON-OVERLAPPING subnetwork weight training, which avoids conflicting updates to the shared weights by subsequent tasks ... while still preventing forgetting.' Each round = a different (shifted) subnetwork mask, prior frozen/preserved, capability accumulated. Exact functional match to the shifted-mask registered-accumulation steelman."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_work_or_absence": "PackNet (Mallya & Lazebnik, CVPR 2018, 'Adding Multiple Tasks to a Single Network by Iterative Pruning') is a tight twin of the NARROW steelman: iterative passes, each pass freezes the prior task's parameter subset and trains on the remaining free capacity, building up a registered multi-task packing -- shifted mask + frozen prior + accumulated registration. ExSSNeT (arXiv 2210.10209) does exclusive non-overlapping per-round subnetwork training with frozen-prior preservation. Ternary Feature Masks (2001.08714), Piggyback (1801.06519), and FISH's strictly-complementary parameter subsets all instantiate the same shift-mask-each-pass, accumulate-disjoint-specialization mechanism. The textile vocabulary is novel; the function is squarely published.",
+      "narrow_version_nontrivial": false,
+      "novelty": 0.1,
+      "reasoning": "The verify agents already collided this on generic gradient-masking/FISH, but they did NOT cite the tightest matches; my adversarial search surfaced PackNet's iterative-pruning-and-freeze and ExSSNeT's exclusive per-round subnetwork training, which match the SHIFTED-mask + frozen-prior + registered-accumulation distinguishing feature exactly (the very feature the steelman used to try to escape FISH's static mask). 'Registration' adds no new mechanism beyond non-overlapping masks across passes, which these methods already enforce. COLLISION, near-zero novelty."
+    },
+    {
+      "id": "C41",
+      "concept": "Liminality",
+      "steelman": "A deliberately-INDUCED INTERMEDIATE 'structureless' representation phase as an explicit DESIGNED training STAGE: a 3-phase curriculum that (1) dissolves task structure, (2) HOLDS the network in a liminal, undifferentiated, structureless state as an explicit dwell stage, then (3) reconstitutes/re-specializes. Distinguishing feature vs forget-and-relearn = the deliberately-MAINTAINED undifferentiated MIDDLE stage (a held 'betwixt-and-between' phase), not just forget-then-immediately-relearn.",
+      "reformulations": [
+        {
+          "query": "three phase curriculum dissolve task structure into undifferentiated representation then reconstitute deliberate intermediate amorphous stage",
+          "hits": [
+            {"title": "Episodic memory supports the acquisition of structured task representations (bioRxiv)", "url": "https://www.biorxiv.org/content/10.1101/2024.05.06.592749.full.pdf"},
+            {"title": "Data-CUBE: Data Curriculum for Instruction-based Sentence Representation Learning", "url": "https://arxiv.org/pdf/2401.03563"},
+            {"title": "Neural representation of abstract task structure during generalization (bioRxiv)", "url": "https://www.biorxiv.org/content/10.1101/2020.07.21.213009.full.pdf"},
+            {"title": "Three-phase Lesson Format | Learner Variability Project", "url": "https://lvp.digitalpromiseglobal.org/content-area/math-pk-2/strategies/three-phase-lesson-format-math-pk-2/summary"}
+          ],
+          "snippet": "WebSearch: 'none of them specifically match the precise terminology about dissolving task structure into undifferentiated representation then reconstituting with deliberate intermediate amorphous stage.' Only pedagogy (three-phase lesson) and descriptive neuro task-representation studies returned -- no DESIGNED ML curriculum with a deliberately-held undifferentiated middle stage."
+        },
+        {
+          "query": "deliberately collapse representation to high entropy isotropic state then re-specialize training schedule transitional phase",
+          "hits": [
+            {"title": "Tracing the Representation Geometry of Language Models from Pretraining to Post-training", "url": "https://arxiv.org/pdf/2509.23024"},
+            {"title": "Stabilizing Transformer Training by Preventing Attention Entropy Collapse", "url": "https://arxiv.org/pdf/2303.06296"},
+            {"title": "Stable Deep Reinforcement Learning via Isotropic Gaussian Representations", "url": "https://arxiv.org/pdf/2602.19373"},
+            {"title": "Entropy Collapse: A Universal Failure Mode of Intelligent Systems", "url": "https://arxiv.org/html/2512.12381v1"}
+          ],
+          "snippet": "Tracing Representation Geometry (2509.23024): LMs naturally pass through 'a consistent THREE-PHASE sequence: an initial warmup phase with rapid representational COLLAPSE, then an entropy-seeking phase where manifold dimensionality EXPANDS, then a compression-seeking phase that imposes anisotropic consolidation.' This is a DESCRIPTIVE/observed three-phase geometry, NOT a deliberately-induced designed curriculum that HOLDS an undifferentiated state on purpose."
+        },
+        {
+          "query": "induce structureless bottleneck phase erase then regrow features rite of passage liminal neural network training",
+          "hits": [
+            {"title": "Explaining Grokking and Information Bottleneck through Neural Collapse Emergence", "url": "https://arxiv.org/html/2509.20829v1"},
+            {"title": "Trainable Forgetting Mechanisms (emergentmind)", "url": "https://www.emergentmind.com/topics/trainable-forgetting-mechanisms"},
+            {"title": "Growing Tiny Networks: Spotting Expressivity Bottlenecks and Fixing Them Optimally", "url": "https://arxiv.org/pdf/2405.19816"},
+            {"title": "Implicit Acceleration and Feature Learning in Infinitely Wide Neural Networks with Bottlenecks", "url": "https://arxiv.org/pdf/2107.00364"}
+          ],
+          "snippet": "WebSearch: 'the specific phrasing ... particularly the terms structureless bottleneck phase, rite of passage, and liminal, doesn't appear to match directly with standard ML terminology.' Grokking/information-bottleneck research describes progressive information DISCARDING then late generalization, but not a deliberately-held undifferentiated stage as a designed method."
+        },
+        {
+          "query": "forget-and-relearn explicit dwell in forgotten state intermediate plateau before relearning designed three stage method",
+          "hits": [
+            {"title": "Fortuitous Forgetting in Connectionist Networks", "url": "https://arxiv.org/pdf/2202.00155"},
+            {"title": "'Forgetting' in Machine Learning and Beyond: A Survey", "url": "https://arxiv.org/html/2405.20620v1"},
+            {"title": "Catastrophic Forgetting Mitigation Through Plateau Phase Activity Profiling", "url": "https://arxiv.org/pdf/2507.08736"},
+            {"title": "Maslow's Hammer for Catastrophic Forgetting: Node Re-Use vs Node Activation", "url": "https://arxiv.org/pdf/2205.09029"}
+          ],
+          "snippet": "WebSearch: 'the specific three-stage method ... with the explicit DWELL in forgotten state intermediate plateau is not directly detailed in these particular results.' Fortuitous Forgetting frames forget-step + relearn-step (TWO operations, applied iteratively) but does NOT prescribe a deliberately-held undifferentiated middle stage as a distinct designed phase."
+        },
+        {
+          "query": "noise injection annealing schedule transient destruction of structure then recovery improves generalization intermediate chaotic phase training",
+          "hits": [
+            {"title": "New Evidence of the Two-Phase Learning Dynamics of Neural Networks", "url": "https://arxiv.org/html/2505.13900"},
+            {"title": "Edge of chaos as a guiding principle for modern neural network training", "url": "https://arxiv.org/pdf/2107.09437"},
+            {"title": "Leveraging chaotic transients in the training of artificial neural networks", "url": "https://arxiv.org/pdf/2506.08523"},
+            {"title": "Anticorrelated Noise Injection for Improved Generalization", "url": "https://arxiv.org/pdf/2202.02831"},
+            {"title": "Transition to chaos separates learning regimes ... recurrent neural networks (bioRxiv)", "url": "https://www.biorxiv.org/content/10.1101/2024.05.15.594236.full.pdf"}
+          ],
+          "snippet": "Two-Phase Learning Dynamics (2505.13900): 'an early CHAOTIC period with high sensitivity, followed by a transition where the model's functional trajectory becomes confined to a narrow CONE ... transition from sensitive exploration to stable refinement.' 'Leveraging chaotic transients' (2506.08523) deliberately exploits a transient structureless/chaotic intermediate regime; Edge-of-chaos (2107.09437) holds the net near a critical undifferentiated regime. The IDEA of passing through / exploiting a structureless intermediate regime exists, but as natural dynamics / initialization principle / chaotic-transient exploitation -- not as the anthropological 3-stage 'dissolve -> hold liminal -> reconstitute' DESIGNED curriculum."
+        }
+      ],
+      "verdict": "GAP (narrow) -- but borderline-trivial; generic version COLLIDES",
+      "colliding_work_or_absence": "ABSENCE of the exact narrow steelman: across 5 fresh reformulations I could NOT find a single published method that prescribes, as a DESIGNED curriculum, a deliberately-HELD undifferentiated/structureless MIDDLE stage between an explicit dissolution stage and an explicit reconstitution stage. Closest neighbors: (a) Tracing Representation Geometry (arXiv 2509.23024) documents a naturally-occurring collapse->entropy-seek->compress three-phase geometry, but it is OBSERVED, not an induced method; (b) forget-and-relearn / Fortuitous Forgetting (2202.00155) does forget-then-relearn but with NO deliberately-held middle phase; (c) Leveraging chaotic transients (2506.08523) and Edge-of-chaos (2107.09437) exploit/maintain a structureless regime but not as a 3-stage dissolve-hold-reconstitute task curriculum; (d) Shrink-and-Perturb (2306.13812) does shrink+noise but in a single operation, no held liminal dwell. So the LITERAL narrow version is genuinely absent.",
+      "narrow_version_nontrivial": false,
+      "novelty": 0.34,
+      "reasoning": "This is the ONE candidate where the narrow steelman has a real residual absence: nobody published a designed 'dissolve -> deliberately HOLD in an undifferentiated liminal state -> reconstitute' 3-stage curriculum. HOWEVER I judge narrow_version_nontrivial = FALSE for three reasons. (1) The distinguishing feature -- the HELD middle stage -- is an arbitrary over-specification: forget-and-relearn already gets the dissolve+reconstitute benefit, and there is no published evidence (and no obvious mechanism) that deliberately DWELLING in the undifferentiated state longer than the momentary perturbation adds value; if anything, edge-of-chaos work suggests you want to pass THROUGH criticality, not park in it. (2) The pieces are all published (forget step; high-entropy/structureless intermediate regime; re-specialization), so the only novelty is the SCHEDULING choice to add a dwell, which is a hyperparameter-level idea, not a new mechanism. (3) The framing is driven by the anthropology metaphor (van Gennep/Turner's betwixt-and-between) rather than by an identified ML failure mode that a held liminal stage would fix. Honest novelty 0.34: non-zero and the highest of the four because the exact recipe is genuinely unsearched, but it is a weak, speculative, likely-not-beneficial over-specification rather than a defensible novel niche. I would NOT recommend it as a paradigm candidate without first identifying a concrete reason the DWELL (not just the dissolve) helps."
+    }
+  ],
+  "search_count": 26,
+  "agreement_with_verify": {
+    "C28": "agree (COLLISION) -- and my adversarial search makes it TIGHTER: Elastic-Cache (2510.14973) / EntropyCache (2603.18489) are exact triggered-discrete-re-equalization twins the verify agents did not cite; the steelman's discrete/triggered escape hatch is closed.",
+    "C33": "agree (COLLISION) on function. Nuance the verify agents understated: the LITERAL lateral-vs-vertical directional-rate phrasing returned 'not found' in 3 searches, so a hyper-literal version is technically unsearched, but it is arbitrary over-specification of published anisotropic/structured/residual-preserving decay (2007.09091, 2010.01791, 2011.10520, 2504.21174). Net: COLLISION.",
+    "C20": "agree (COLLISION) -- and TIGHTER: PackNet (CVPR 2018) and ExSSNeT (2210.10209) match the shifted-mask + frozen-prior + registered-accumulation distinguishing feature exactly; these are stronger collisions than the generic FISH/gradient-routing the verify agents cited.",
+    "C41": "partially disagree on framing (not on practical conclusion): verify called it a clean COLLISION with forget-and-relearn. I find the GENERIC version collides but the NARROW steelman (designed dissolve -> HELD-liminal-dwell -> reconstitute 3-stage curriculum) is genuinely UNSEARCHED/absent. However I assess that narrow version as borderline-trivial over-specification (novelty 0.34), so the run-level conclusion (functionally saturated, no strong paradigm candidate here) STANDS. Flagging C41's residual gap honestly per R12/R13."
+  },
+  "honesty_note": "I executed 26 REAL WebSearch tool invocations total (20 documented above as the 5-best-per-candidate reformulations, plus 6 additional confirmatory adversarial searches: an Elastic-Cache verification, two extra C41 'held-liminal-dwell' probes (forget-and-relearn dwell; deliberate-degeneration curriculum), two more C41 probes (noise-injection/chaotic-transient; shrink-and-perturb dwell), and one more C33 residual-path-decay probe). search_count=26 reflects the true number of real searches. Every title/URL/snippet recorded is copied from actually-returned results, none recalled or fabricated; every title/URL/snippet is copied from the actually-returned results, none recalled or fabricated. I deliberately used reformulations DIFFERENT from all three verify agents' recorded queries and aimed each at the specific distinguishing feature of the steelman (triggered/discrete for C28; directional lateral-vs-vertical for C33; shifted-mask registration for C20; held-liminal-middle-stage for C41). I did NOT run git. I genuinely hunted for a GAP and did not rubber-stamp: I found ONE candidate (C41) whose LITERAL narrow recipe is unsearched/absent and I report that openly, but on adversarial assessment its distinguishing feature is an arbitrary, likely-non-beneficial over-specification (the held dwell), so it does not constitute a defensible novel paradigm niche. C28, C20, and C33's narrow steelmen all COLLIDE -- and for C28 and C20 my fresh searches found TIGHTER functional twins than the verify agents cited, strengthening (not weakening) the saturation finding. No genuine, non-trivial, defensible GAP was found among the 4 most GAP-likely candidates."
+}

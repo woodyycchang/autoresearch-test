@@ -1,0 +1,35 @@
+{
+  "verdict": "NICHE_NOT_FOUND",
+  "run_id": "run_025",
+  "cumulative_with": "run_024",
+  "survivors_all_gates": [],
+  "composite_threshold": 0.90,
+  "concepts_total_cumulative": 98,
+  "concepts_new_this_run": 50,
+  "deep_grounded_gap_verified_cumulative": 54,
+  "real_websearches_this_run": 489,
+  "real_websearches_cumulative": 731,
+  "fabricated_results": 0,
+  "candidate_gaps_found": 11,
+  "gaps_flipped_to_collision_by_crosscheck": ["C30", "C52", "C65", "C69", "C77", "C84", "C88", "C94", "C98"],
+  "gaps_surviving_all_checks_sub_gate1": [
+    {"id": "C37", "concept": "Suppletion", "composite": 0.42, "clears_gate1": false, "mechanism": "feature-subset-specificity competition with blocking of less-specific default (Paninian Elsewhere) in decoding", "assessment": "genuine literal gap, survives 3 independent passes, but over-specification; sub-Gate-1; not a paradigm niche"},
+    {"id": "C57", "concept": "Liesegang rings", "composite": 0.45, "clears_gate1": false, "mechanism": "accumulate->threshold->local depletion->refractory zone->geometric-spaced periodic commitment propagating outward", "assessment": "genuine literal gap, survives 3 independent passes, but over-specification (diversity payoff = repetition penalty + DPP); sub-Gate-1"}
+  ],
+  "drop_counts": {
+    "gate_1_threshold": 56,
+    "gate_2_quarantine": 0,
+    "gate_3_cross_llm_collision": 74,
+    "gate_4_belinda": "n/a (no Gate-1 survivor to test)"
+  },
+  "part_answers": {
+    "PART_A": "33 non-sparsest Run-24 concepts deep-verified -> 31 COLLISION + 2 candidate gaps (C30, C37). YES the sparsest-12 selection missed candidates; C30 later flipped to honeypot collision, C37 survived sub-gate. Widening verification mattered.",
+    "PART_B": "C41 is a CLUSTER (holometabolism/transdifferentiation/reprogramming/neoteny/ecdysis neighbors) but the shared niche is OCCUPIED (shrink-and-perturb, SGDR, grokking). No lead.",
+    "PART_C": "50 new concepts; every sonnet batch flagged its sparsest as a gap (Pattern-D), but 8/9 collapsed under adversarial cross-check; only C57 survived (sub-gate).",
+    "CUMULATIVE": "98 concepts, 0 clear all gates. 9/11 candidate gaps were Pattern-D false positives. 2 sub-gate survivors. No domain/tier escapes to a Gate-1 niche."
+  },
+  "positive_controls_IMPORTED": "3/3",
+  "hallucination_check": "all key collision citations confirmed REAL (C30 arXiv 2310.18633 NeurIPS 2023; C94 DriftSurf ICML 2021 arXiv 2003.06508; C65 stigmergy arXiv 1911.12504; C88 ResNet 2015). Zero hallucinated citations.",
+  "key_finding": "Gap-detection is extremely sensitive to verifier rigor: sonnet narrow-framing self-verify flagged 9/9 batches as gaps; opus deep-verify 2/33; opus adversarial cross-check confirmed only 2/11. Saturation holds at the GATE level (0/98 clear 0.90); literal-gap rate ~2% (C37, C57), all sub-gate over-specifications.",
+  "timestamp": "2026-06-03T00:00:00Z"
+}

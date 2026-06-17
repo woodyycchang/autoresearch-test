@@ -270,3 +270,57 @@ R125 biogeography (island species-area) → RAG retrieval chunk composition
 - Round 298 | domain: stinging-nettle-trichome | mechanism: single-turn bundled multi-component defense cocktail discharge upon classifier trigger | verdict: FAIL | form: feedback-attenuation
 - Round 299 | domain: bowerbird-bower-signal | mechanism: confidence-scaled costly-signal decoder (inverted verbosity-compensation) | verdict: FAIL | form: evaluation-diagnostic
 - Round 300 | domain: australian-magpie-carol-signature | mechanism: per-instance subtle frequency-bias provenance fingerprint (direct LLM-watermarking collision) | verdict: FAIL | form: evaluation-diagnostic
+
+---
+
+## Inherited from Run 24 (encyclopedia traversal, 48 concepts, all FAIL/COLLISION) — DO NOT repropose
+
+### Deep grounded-gap verified COLLISION (sparsest tail, 12)
+- entomology: diapause -> conditional computation/dynamic depth
+- botany: vernalization -> EWC/synaptic intelligence/Fusi cascade
+- fiber processing: retting -> spurious-correlation disentanglement (RE-SORT)
+- immunology: diapedesis -> retrieve-then-rerank/two-stage retrieval
+- metallurgy: Widmanstatten -> CDSP-MoE gradient-conflict subspace pruning
+- neurology: referred pain -> active-dormant attention heads/latent-feature activation
+- social insects: trophallaxis -> A2A/MCP agent protocol metadata bundling
+- anthropology: liminality -> fortuitous forgetting/forget-and-relearn (residual held-dwell trivial)
+- geology: inselberg -> layer-wise/structured weight decay
+- textile craft: nalbinding -> vanilla self-attention; ikat -> gradient routing/PackNet/ExSSNeT
+- physiology: eustachian tube -> StreamingLLM attention sinks/Elastic-Cache
+
+### Source-level IMPORTED/collision (do not repropose)
+- physiology: countercurrent exchange -> Counter-Current Learning (NeurIPS 2024, 2409.19841)
+- structural eng: tensegrity -> GNN tensegrity-robot dynamics
+- political science: sortition -> Sortition-Weighted RLHF (2602.05113)
+- positive controls (mainstream): annealing->simulated annealing; nucleation->DNA-tile nucleation computing; diffusion->diffusion models
+
+### Other Run-24 concepts sourced (MEASURES/sparse, lower priority, treat as tested)
+- triboluminescence, sonoluminescence, spinodal decomposition, Marangoni, cavitation, autophagy, hematopoiesis,
+  coppicing, espalier, terra preta/biochar, three sisters, nixtamalization, lost-wax casting, kerf bending,
+  Damascus steel, hormesis, tuned mass damper, sacrificial anode, karst, aeolian saltation, loess, thermokarst,
+  suppletion, sandhi, reduplication, diglossia, cargo cult, stomatal aperture, hugelkultur, kintsugi
+
+---
+
+## Inherited from Run 25 (cumulative 98; 50 new C49-C98 + 5 PART-B family) — DO NOT repropose
+
+### Sub-gate residual leads (survive all checks but composite < 0.90; over-specifications, NOT niches)
+- C37 suppletion -> feature-subset-specificity competition with Elsewhere/blocking in decoding (0.42)
+- C57 Liesegang rings -> accumulate/threshold/deplete/refractory/geometric-spacing periodic commitment (0.45)
+
+### Run-25 deep-verified / cross-checked COLLISIONS (do not repropose)
+- C30 sacrificial anode -> honeypot/trapdoor backdoor defense (2310.18633)
+- C52 Rosensweig -> Turing/reaction-diffusion neural CA; C65 allelopathy -> stigmergy/digital pheromones
+- C69 sporulation -> conditional computation (diapause precedent); C77 rennet -> pruning/grokking phase transition
+- C84 corbel arch -> causal/autoregressive attention; C88 siphon -> ResNet skip + autoregressive self-feeding
+- C94 transhumance -> DriftSurf two-state switching; C98 wattle&daub -> hybrid sparse-dense + RepVGG
+- PART-B family (all COLLISION, niche occupied): holometabolism, transdifferentiation, cellular reprogramming, neoteny, ecdysis
+- PART-A re-collisions (C01-C48 non-sparsest 33): triboluminescence, sonoluminescence, spinodal(Ridge Rider), Marangoni, cavitation, autophagy, hematopoiesis, coppicing, espalier, terra preta, three sisters, nixtamalization, lost-wax, kerf, Damascus, hormesis, tuned-mass-damper, karst, aeolian, loess, thermokarst, suppletion(sub-gate), sandhi, reduplication, diglossia, cargo cult, annealing/nucleation/diffusion(controls), stomatal, hugelkultur, kintsugi
+- PART-C other 50 concepts: leidenfrost, thermoacoustic, photoelasticity, magnetostriction, shape-memory, capillary bridging, varve, patterned ground, turbidity current, phototropism, thigmotropism, gravitropism, abscission, nyctinasty, gastrulation, chemotaxis, affinity maturation, complement cascade, phagocytosis, biofilm, CRISPR spacer, mordant, verdigris, felting, tanning, sourdough, smoking/curing, repousse, catenary, ratchet/pawl, differential gearing, venturi, metathesis, ablaut, agglutination, calque, grimm's law, slash-and-burn, terracing, dry stone walling
+
+---
+
+## Inherited from Run 26 (anomaly-driven; DO NOT repropose these anomalies/explanations)
+- 9 ML anomalies tested (all real): grokking (RESOLVED weight-decay circuit), double descent (RESOLVED variance decomp), emergent abilities (CONTESTED mirage-vs-real), sharp minima generalize (RESOLVED reparam flatness), Adam LR surge (RESOLVED self-paper), reversal curse (RESOLVED unidirectional AR), inverse scaling (RESOLVED objective flaws), LLMs-know-more (CONTESTED truth-vs-recall), RLHF calibration (RESOLVED mode collapse).
+- Proposed explanations that COLLIDED (already published): de-superposition SNR order-param (2312.11560/2512.13568), frequency-prior override (2502.16143/2504.12585), role-gated keys (2504.01928), data-coverage grokking delay (2309.02390/2602.19533), target-energy double descent (2305.14689).
+- LESSON: anomaly-explanation space is saturated like the combination space; famous anomalies attract explanations.

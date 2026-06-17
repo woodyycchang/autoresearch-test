@@ -1,0 +1,41 @@
+{
+  "run_id": "run_026",
+  "title": "Run 26: anomaly-driven niche hunting",
+  "started_at": "2026-06-03T00:00:00Z",
+  "predecessors": "run_024 (48 concepts) + run_025 (98 cumulative) \u2014 combination-mining SATURATED (0 niches clear gates; 2 sub-gate residuals).",
+  "reframe": "From COMBINATION (generate niche by fusing concepts -> always collides, candidate space saturated) to ANOMALY hunting (find where ML measurement != theoretical prediction, still UNRESOLVED). Physics precedent: Vera Rubin galaxy-rotation measurement != Newtonian prediction -> dark matter. An unresolved anomaly is novel by definition.",
+  "pipeline": {
+    "PHASE_1": "Agent: source 8 REPORTED empirical anomalies in ML/LLM (measurement contradicts prediction), verbatim (R5). NOT combinations.",
+    "PHASE_2": "Agent: for each anomaly, search 'has it been explained/resolved?' -> which are UNRESOLVED (no accepted explanation).",
+    "PHASE_3": "Opus agent: for the 5 most-unresolved, propose a SPECIFIC explanatory mechanism + testable prediction (the 'dark matter' hypothesis).",
+    "PHASE_4": "Agent: verify anomaly is real + unexplained (5 reformulations) + crosscheck.",
+    "PHASE_5": "Agent: audit (logic-break + genuinely-unresolved-not-just-under-cited + testable_prediction actually testable)."
+  },
+  "gates": {
+    "gate_1": "anomaly is REAL (empirically reported, verified)",
+    "gate_2": "quarantine",
+    "gate_3": "anomaly is UNRESOLVED (no ACCEPTED explanation, verified by search \u2014 R13 STRICT)",
+    "gate_4": "proposed explanation is CONCRETE + makes a TESTABLE prediction"
+  },
+  "hard_rules": {
+    "R5": "Record ONLY real search results; NEVER fabricate.",
+    "R8": "No hook; gates applied manually.",
+    "R12": "Combination saturates; test whether ANOMALY escapes it.",
+    "R13": "STRICT: 'unresolved' = no ACCEPTED explanation verified by search, not 'I didn't find one'. Anomaly with existing explanation = REJECT.",
+    "R14": "If an anomaly clears all gates, it's a real lead (open problem + testable hypothesis). Verify hard; do not explain away."
+  },
+  "deviation_note": "Phase-3 'claude -p --model opus' realized via the native Agent tool (independent Opus context) per R3 intent; no shell subprocess/tempdir needed. Pipeline is sequential.",
+  "status": "COMPLETE",
+  "completed_at": "2026-06-03T00:00:00Z",
+  "result": {
+    "verdict": "ANOMALY_NICHE_NOT_FOUND",
+    "anomalies": 9,
+    "real_websearches": 117,
+    "fabricated": 0,
+    "gate1_real": "9/9",
+    "gate3_unresolved": "2/9 (ANOM_03,ANOM_08 contested)",
+    "gate4_novel_mechanism": "0/5 (all already proposed)",
+    "survivors": 0,
+    "headline": "Anomaly-hunting does NOT escape saturation: famous anomalies attract dense explanation attempts (7/9 resolved; 2 contested have crowded proposals where any new mechanism collides). 0/9 clear all gates. A real anomaly niche would need a freshly-reported, not-yet-famous discrepancy."
+  }
+}

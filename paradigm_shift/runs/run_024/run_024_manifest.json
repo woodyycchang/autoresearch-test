@@ -1,0 +1,55 @@
+{
+  "run_id": "run_024",
+  "title": "Run 24: large-scale encyclopedia traversal",
+  "started_at": "2026-06-03T00:00:00Z",
+  "predecessor_refs": ["rounds/round_021 (ribosomal frameshifting, FAIL)", "rounds/round_022 (prion templating, FAIL)", "saturation_evidence.md (N=138 verified, 0 PASS)", "logs/candidate_pool.md (exhausted-domain list)"],
+  "hypothesis": "Run 21 inferred corpus-wide saturation from only 6 concepts. Run 24 tests it EMPIRICALLY on a stratified sample of 48 encyclopedia concepts (target >=40) with REAL per-atom web search (R5). Saturation is corpus-wide ONLY if the large sample actually shows it; any domain/tier that escapes is a real lead (R12).",
+  "method": {
+    "concept_sample": "48 concepts, 8 batches x 6, stratified by domain + maturity tier_prior, all OUTSIDE candidate_pool.md exhausted list. 3 positive controls (annealing, nucleation, diffusion) included for calibration.",
+    "per_concept_pipeline": [
+      "1. REAL WebSearch 'wikipedia <concept>' -> raw results recorded verbatim (R9)",
+      "2. Decompose Wikipedia mechanism into 2-3 mechanism atoms (verbatim quote >=30 chars, operator type) (R5 Belinda-strict)",
+      "3. REAL WebSearch each atom + ('machine learning' OR 'LLM' OR 'neural network') -> raw paper-hit count + ML-penetration, distinguishing ML-MEASURES-concept vs concept-mechanism-IMPORTED-as-architecture",
+      "4. Tag empirical maturity tier from paper-hit count",
+      "5. For sparsest atom, formulate ONE candidate LLM/AI niche"
+    ],
+    "merge_verify": [
+      "MERGE: collect candidates, rank by collision sparsity, form niche claims",
+      "VERIFY: 5 reformulations/candidate, REAL WebSearch each, collision check (Gate 3 >=5 distinct sources unanimous)",
+      "CROSSCHECK: independent re-verify",
+      "AUDIT: grounded-gap (Run 20) fresh held-out FUNCTIONAL search so no-collision is not a phrasing artifact"
+    ],
+    "gates": {
+      "gate_1": "composite >= 0.90 (stricter than run_013's 0.85)",
+      "gate_2": "atom_id not in harness_rules.quarantined_atoms",
+      "gate_3": ">=5 distinct verification searches, unanimous on the core claim",
+      "gate_4": "Belinda-strict: mechanism verb present, operator != ANALOGY_TRANSFERS_TO_OPEN, verbatim quote >=30 chars"
+    }
+  },
+  "hard_rules_honored": {
+    "R3": "Any Opus subprocess runs in non-git tempdir (no hook in container per R8)",
+    "R5": "Record ONLY search results actually seen; never fabricate. This is the whole point.",
+    "R8": "No pre_tool.py hook active in container; gates applied manually.",
+    "R10": "Full per-concept table + distribution stats reported.",
+    "R12": "No early-stop-by-inference. Conclude corpus-wide saturation only if the 48-sample shows it."
+  },
+  "deviation_note": "R1/R2 require each batch to commit+push. 8 agents pushing concurrently to one branch would race and fail (which R2 treats as STOP). Engineering resolution: agents WRITE batch files + return RAW search evidence; main context inspects then commits+pushes each WAVE immediately (cloud-wipe-safe, R1/R2 intent preserved). Documented honestly per the project's HONEST DEVIATION POLICY precedent.",
+  "status": "COMPLETE",
+  "completed_at": "2026-06-03T00:00:00Z",
+  "result": {
+    "verdict": "NICHE_NOT_FOUND",
+    "concepts_tested": 48,
+    "real_websearches": 242,
+    "fabricated_results": 0,
+    "deep_verified_sparsest": 12,
+    "deep_verified_COLLISION": 12,
+    "deep_verified_GAP": 0,
+    "cleared_gate_1": 0,
+    "survivors_all_gates": 0,
+    "prima_facie_no_collision": "45/48 (93.8%) -> collapses to 0/12 survivors under grounded-gap verification",
+    "positive_controls_IMPORTED": "3/3",
+    "residual_leads_sub_gate1": ["C41 liminality (steelman novelty 0.34, assessed trivial)"],
+    "headline": "Saturation is corpus-wide and EMPIRICAL across 48 stratified concepts (vs Run 21's inference from 6). No domain/tier escaped. One honestly-reported trivial residual.",
+    "artifacts": ["concepts.json", "batch_1..8/batch_N.json", "aggregate.json", "final_table.json", "final_per_concept_table.md", "verify/verify_{A,B,C}.json", "audit/{crosscheck,audit,hallucination_check}.json", "niche_find_check.json", "report/run_024_report.md"]
+  }
+}

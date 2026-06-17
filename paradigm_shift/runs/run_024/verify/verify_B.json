@@ -1,0 +1,308 @@
+{
+  "agent": "verify_B",
+  "run_id": "run_024",
+  "method": "grounded-gap functional collision test (Run 20 protocol); 5 standard-ML-vocabulary reformulations per candidate, 1 REAL WebSearch each (Gate 3 >=5 distinct searches), mechanical forced-functional-hit rule (>=2 content words in title+snippet = forced hit, cannot be explained away). Verdict COLLISION if any reformulation surfaces a published LLM/ML technique achieving the same FUNCTIONAL effect or >=1 forced hit on the core claim; GAP only if all 5 return no functional equivalent and zero forced hits.",
+  "candidates": [
+    {
+      "id": "C33",
+      "concept": "Inselberg differential erosion",
+      "source_atom_id": "C33_A2",
+      "source_mechanism_verbatim": "Differential weathering processes are operating more rapidly laterally, around the flanks of inselbergs than vertically on the tops",
+      "operator": "regulates",
+      "functional_restatement": "anisotropic / layer-depth-dependent weight decay or regularization that prunes cross-layer connections faster than within-layer ones, preserving a stable core of representations.",
+      "content_words": ["layer-wise weight decay", "anisotropic / non-uniform regularization", "depth-dependent decay rate", "prune cross-layer connections", "preserve stable core representations", "selective / structured pruning"],
+      "reformulations": [
+        {
+          "query": "layer-wise weight decay depth-dependent regularization transformer different rates per layer",
+          "hits": [
+            {"title": "Layer-Wise Weight Decay for Deep Neural Networks", "url": "https://www.researchgate.net/publication/323192824_Layer-Wise_Weight_Decay_for_Deep_Neural_Networks"},
+            {"title": "AlphaDecay: Module-wise Weight Decay for Heavy-Tailed Balancing in LLMs", "url": "https://arxiv.org/pdf/2506.14562"},
+            {"title": "Layer-wise Regularized Dropout for Neural Language Models", "url": "https://arxiv.org/pdf/2402.16361"},
+            {"title": "Weight decay induces low-rank attention layers", "url": "https://arxiv.org/pdf/2410.23819"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Layer-wise weight decay allows you to assign different decay values to different parts of the model... early layers may require less regularization than task-specific layers. First formal analysis of non-uniform module-wise weight decay in LLM training."
+        },
+        {
+          "query": "anisotropic regularization prune cross-layer connections preserve stable core representations neural network",
+          "hits": [
+            {"title": "Stable Anisotropic Regularization (I-STAR)", "url": "https://arxiv.org/html/2305.19358v3"},
+            {"title": "VACL: Variance-Aware Cross-Layer Regularization for Pruning Deep Residual Networks", "url": "https://arxiv.org/pdf/1909.04485"},
+            {"title": "The Generalization-Stability Tradeoff In Neural Network Pruning", "url": "https://arxiv.org/pdf/1906.03728"},
+            {"title": "Layer Pruning & Linear Transformations", "url": "https://www.emergentmind.com/topics/layer-pruning-and-linear-transformations"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "VACL (Variance-Aware Cross-Layer) ... filters of layers connected by skip-connections are grouped into one regularization group ... constrain the variance within a group. Stability is often the goal of neural network pruning because it preserves the function computed."
+        },
+        {
+          "query": "structured pruning remove inter-layer connections faster than intra-layer keep important weights",
+          "hits": [
+            {"title": "Intra-head pruning for vision transformers via inter-layer dimension relationship modeling - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608025005362"},
+            {"title": "Synergistic Patch Pruning for Vision Transformer: Unifying Intra- & Inter-Layer Patch Importance", "url": "https://openreview.net/forum?id=COO51g41Q4"},
+            {"title": "Layer-adaptive Structured Pruning Guided by Latency", "url": "https://ar5iv.labs.arxiv.org/html/2305.14403"},
+            {"title": "Efficient and dynamic layer-wise structured N:M pruning of deep neural networks", "url": "https://www.sciencedirect.com/science/article/abs/pii/S092523122501762X"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "STAR (Synergistic Patch Pruning) unifies intra-layer and inter-layer patch importance scoring ... preventing premature removal of important parameters while maintaining structured pruning strategies."
+        },
+        {
+          "query": "non-uniform per-layer learning rate decay deeper layers preserve stable subnetwork fine-tuning",
+          "hits": [
+            {"title": "AutoLR: Layer-wise Pruning and Auto-tuning of Learning Rates in Fine-tuning of Deep Networks", "url": "https://arxiv.org/pdf/2002.06048"},
+            {"title": "Robust Layerwise Scaling Rules by Proper Weight Decay Tuning", "url": "https://arxiv.org/pdf/2510.15262"},
+            {"title": "Fine-tuning Learning Rates: LLRD, Warmup & Decay Strategies", "url": "https://mbrenndoerfer.com/writing/fine-tuning-learning-rates-llrd-warmup-decay-transformers"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Layer-wise learning rate decay applies higher learning rates for top layers and lower learning rates for bottom layers ... specifically designed to preserve the stable, pre-trained features in deeper/lower layers while allowing upper layers to adapt."
+        },
+        {
+          "query": "selective weight decay protect core parameters prune peripheral connections continual learning",
+          "hits": [
+            {"title": "Selective Weight Decay (SWD) to prune continuously neural networks (GitHub)", "url": "https://github.com/HugoTessier-lab/SWD"},
+            {"title": "Rethinking Weight Decay for Efficient Neural Network Pruning", "url": "https://arxiv.org/pdf/2011.10520"},
+            {"title": "Learning to Forget: Continual Learning with Adaptive Weight Decay (FADE)", "url": "https://arxiv.org/abs/2604.27063"},
+            {"title": "Cautious Weight Decay - CWD", "url": "https://arxiv.org/html/2510.12402v1"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Selective Weight Decay (SWD) ... Weights whose magnitude exceeds a threshold are penalized by regular weight decay, while those beneath this threshold are targeted by a stronger weight decay ... FADE assigns dynamic, per-parameter weight decay rates ... some parameters encode stable knowledge that should be retained, while others track rapidly changing targets."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Layer-Wise Weight Decay for Deep Neural Networks (Ishii & Sato)", "url": "https://www.researchgate.net/publication/323192824_Layer-Wise_Weight_Decay_for_Deep_Neural_Networks"},
+        {"title": "VACL: Variance-Aware Cross-Layer Regularization for Pruning Deep Residual Networks", "url": "https://arxiv.org/pdf/1909.04485"},
+        {"title": "Selective Weight Decay (SWD) / Rethinking Weight Decay for Efficient Neural Network Pruning", "url": "https://arxiv.org/pdf/2011.10520"},
+        {"title": "Learning to Forget: Continual Learning with Adaptive (per-parameter) Weight Decay (FADE)", "url": "https://arxiv.org/abs/2604.27063"},
+        {"title": "AlphaDecay: Module-wise Weight Decay for LLMs", "url": "https://arxiv.org/pdf/2506.14562"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": true, "why": "Real mechanism verb present ('weathering processes operating more rapidly laterally than vertically' = a real differential-rate erosion mechanism); verbatim source quote is 105 chars (>=30); operator 'regulates' != ANALOGY_TRANSFERS_TO_OPEN. Belinda gate passes structurally, but this only certifies the candidate is well-formed, not that it is novel."},
+      "composite_estimate": 0.08,
+      "reasoning": "The functional effect — applying DIFFERENT (anisotropic / depth-dependent) decay or regularization strength to different connection classes so that some connections are eroded/pruned faster while a stable core is preserved — is a mainstream, multiply-instantiated ML technique. Layer-wise weight decay, module-wise weight decay (AlphaDecay), layer-wise LR decay (LLRD), VACL cross-layer pruning regularization, and Selective Weight Decay / FADE all achieve exactly this. 12 forced functional hits across 5 reformulations. Novelty is near-zero (source-domain 'lateral vs vertical erosion' is pure metaphor over established differentiated regularization). Classic 'mechanism distinct, effect not' collision."
+    },
+    {
+      "id": "C41",
+      "concept": "Liminality",
+      "source_atom_id": "C41_A1",
+      "source_mechanism_verbatim": "participants no longer hold their pre-ritual status but have not yet begun the transition to the status they will hold when the rite is complete",
+      "operator": "dissolves",
+      "functional_restatement": "an intermediate training stage that deliberately erases or dissolves task-specific representations (re-initialization / deliberate forgetting) before re-learning for a new domain.",
+      "content_words": ["deliberate forgetting", "reset / re-initialize weights", "intermediate stage", "erase / dissolve representations", "before relearning", "new task / domain adaptation"],
+      "reformulations": [
+        {
+          "query": "deliberate forgetting reset representations intermediate stage before relearning new task neural network",
+          "hits": [
+            {"title": "Fortuitous Forgetting in Connectionist Networks", "url": "https://arxiv.org/pdf/2202.00155"},
+            {"title": "Reset It and Forget It: Relearning Last-Layer Weights Improves Continual and Transfer Learning", "url": "https://arxiv.org/abs/2310.07996"},
+            {"title": "Machine Unlearning using Forgetting Neural Networks", "url": "https://arxiv.org/pdf/2410.22374"},
+            {"title": "Sleep-like unsupervised replay reduces catastrophic forgetting in artificial neural networks", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9755223/"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "The forget-and-relearn framework unifies many existing iterative training algorithms ... 'zapping' consists of frequent random resampling of the weights leading into output nodes ... representations trained with repeated zapping learn features capable of rapidly adapting to newly initialized classifiers."
+        },
+        {
+          "query": "forget-then-relearn re-initialize weights transfer learning improves adaptation new domain",
+          "hits": [
+            {"title": "Reset It and Forget It: Relearning Last-Layer Weights Improves Continual and Transfer Learning", "url": "https://arxiv.org/abs/2310.07996"},
+            {"title": "Reset It and Forget It (ResearchGate)", "url": "https://www.researchgate.net/publication/385036007_Reset_It_and_Forget_It_Relearning_Last-Layer_Weights_Improves_Continual_and_Transfer_Learning"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "A simple pre-training mechanism (repeated resetting of last-layer weights, 'zapping') leads to representations exhibiting better continual and transfer learning ... Models that have undergone zapping more quickly recover from the shock of transferring to a new domain."
+        },
+        {
+          "query": "iterative magnitude pruning rewinding forget undesirable information learn better representations",
+          "hits": [
+            {"title": "Fortuitous Forgetting in Connectionist Networks", "url": "https://arxiv.org/pdf/2202.00155"},
+            {"title": "Masks, Signs, And Learning Rate Rewinding", "url": "https://arxiv.org/html/2402.19262"},
+            {"title": "Learning Rate Rewinding for elegant neural network pruning (MIT-IBM)", "url": "https://mitibmwatsonailab.mit.edu/research/blog/comparing-rewinding-and-fine-tuning-in-neural-network-pruning/"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "The forget-and-relearn framework ... understand the success of these algorithms in terms of the disproportionate forgetting of undesirable information ... weights are reset back to a previous state ... allowing the model to explore different solutions while leveraging previously learned representations."
+        },
+        {
+          "query": "intermediate training phase erase task-specific features curriculum then re-learn target domain",
+          "hits": [
+            {"title": "Forget More to Learn More: Domain-Specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation", "url": "https://link.springer.com/chapter/10.1007/978-3-031-72920-1_8"},
+            {"title": "Three-Stage Training Protocol", "url": "https://www.emergentmind.com/topics/three-stage-training-protocol"},
+            {"title": "Continued Pre-Training (CPT) Overview", "url": "https://www.emergentmind.com/topics/continued-pre-training-cpt"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "An SSDA framework with a new episodic learning strategy called 'learn, forget, then learn more' ... addresses persistence of superfluous domain-specific features ... erasing task-specific features in an intermediate phase before re-learning for the target domain."
+        },
+        {
+          "query": "deliberate weight perturbation reset plasticity loss warm starting re-initialization continual learning",
+          "hits": [
+            {"title": "Maintaining Plasticity in Deep Continual Learning (Continual Backpropagation)", "url": "https://arxiv.org/pdf/2306.13812"},
+            {"title": "Self-Normalized Resets for Plasticity in Continual Learning", "url": "https://arxiv.org/pdf/2410.20098"},
+            {"title": "Recovering Plasticity of Neural Networks via Soft Weight Rescaling", "url": "https://arxiv.org/html/2507.04683v1"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Shrink and Perturb (S&P) periodically scales the network's weights by a shrinkage factor followed by adding random noise ... Continual Backpropagation reinitializes a small fraction of less-used units after each example ... periodically resetting the final few layers is effective in mitigating plasticity loss."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Fortuitous Forgetting in Connectionist Networks (forget-and-relearn framework)", "url": "https://arxiv.org/pdf/2202.00155"},
+        {"title": "Reset It and Forget It: Relearning Last-Layer Weights ('zapping')", "url": "https://arxiv.org/abs/2310.07996"},
+        {"title": "Forget More to Learn More: 'learn, forget, then learn more' for Domain Adaptation", "url": "https://link.springer.com/chapter/10.1007/978-3-031-72920-1_8"},
+        {"title": "Shrink and Perturb / Maintaining Plasticity (Continual Backpropagation)", "url": "https://arxiv.org/pdf/2306.13812"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": true, "why": "Mechanism verb 'dissolves' is a genuine state-transition verb; verbatim quote is 132 chars (>=30); operator 'dissolves' != ANALOGY_TRANSFERS_TO_OPEN. Well-formed, but the well-formedness does not confer novelty."},
+      "composite_estimate": 0.07,
+      "reasoning": "The dissolve-then-reconstitute structure (an intermediate stage that deliberately erases/forgets representations before relearning, improving downstream adaptation) is precisely the 'forget-and-relearn' family. 'Fortuitous Forgetting' explicitly unifies these algorithms; 'Reset It and Forget It' (zapping) and 'learn, forget, then learn more' for domain adaptation are named instantiations; Shrink-and-Perturb and Continual Backpropagation periodically reset/perturb representations for the same effect. 10 forced functional hits across 5 reformulations. The 'liminal threshold' framing is metaphor over an established curriculum-style reset-before-relearn technique. COLLISION."
+    },
+    {
+      "id": "C06",
+      "concept": "Widmanstatten pattern",
+      "source_atom_id": "C06_A2",
+      "source_mechanism_verbatim": "kamacite forming along specific {111} crystallographic planes in the parent taenite. The growth of these phases along preferred crystallographic planes minimizes interfacial energy, leading to the characteristic lamellar morphology",
+      "operator": "propagates",
+      "functional_restatement": "grow specialized sub-modules along directions of minimal gradient conflict/interference between tasks, yielding modular specialization without an explicit architecture split.",
+      "content_words": ["minimal gradient interference / conflict", "orthogonal gradient directions", "modular specialization", "emergent / implicit modularity", "without explicit architecture split / branching", "grow subnetworks / experts"],
+      "reformulations": [
+        {
+          "query": "grow specialized subnetworks along directions of minimal gradient interference between tasks modular",
+          "hits": [
+            {"title": "Mixture-of-Experts with Gradient Conflict-Driven Subspace Topology Pruning for Emergent Modularity (CDSP-MoE)", "url": "https://arxiv.org/html/2512.20291v1"},
+            {"title": "Regularizing Deep Multi-Task Networks using Orthogonal Gradients", "url": "https://arxiv.org/pdf/1912.06844"},
+            {"title": "Modular Training of Neural Networks aids Interpretability", "url": "https://arxiv.org/html/2502.02470v1"},
+            {"title": "Are Neural Nets Modular? Inspecting Functional Modularity Through Differentiable Weight Masks", "url": "https://arxiv.org/pdf/2010.02066"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "MoE with gradient conflict-driven topology pruning monitors cosine similarity of gradients between experts and penalizes connections that cause interference, forcing the topology to spontaneously prune conflicting pathways and evolve a modular structure where experts specialize by minimizing physical interference."
+        },
+        {
+          "query": "gradient conflict orthogonal subspaces multi-task learning emergent modularity without architecture split",
+          "hits": [
+            {"title": "Mixture-of-Experts with Gradient Conflict-Driven Subspace Topology Pruning for Emergent Modularity", "url": "https://arxiv.org/abs/2512.20291"},
+            {"title": "Disentangling Task Conflicts in Multi-Task LoRA via Orthogonal Gradient Projection (Ortho-LoRA)", "url": "https://arxiv.org/pdf/2601.09684"},
+            {"title": "Gradient Deconfliction via Orthogonal Projections onto Subspaces For Multi-task Learning (GradOPS)", "url": "https://arxiv.org/abs/2503.03438"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "CDSP-MoE uses gradient conflict to prune and shape a shared parameter space, with experts emerging as subspaces that minimize gradient interference, yielding modular structures without predefined expert boundaries or task labels ... Ortho-LoRA maintains the structural simplicity of a single shared module ... achieve comparable task disentanglement without the architectural overhead of MoE."
+        },
+        {
+          "query": "expand network capacity low task conflict directions weight space progressive specialization continual",
+          "hits": [
+            {"title": "Architecture Methods: Progressive Networks, Expert Expansion, Modular", "url": "https://mbrenndoerfer.com/writing/architecture-methods-progressive-networks-expert-expansion-modular"},
+            {"title": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning", "url": "https://arxiv.org/pdf/2603.28611"},
+            {"title": "Continual Learning of Multiple Cognitive Functions with Brain-inspired Temporal Development Mechanism", "url": "https://arxiv.org/html/2504.05621v1"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Architecture methods (Progressive Networks) dynamically expand networks ... robust representation requires providing sufficient network resources for all tasks while ensuring resources are prudently shared across multiple tasks (i.e. minimizing cross-task interference)."
+        },
+        {
+          "query": "penalize gradient cosine similarity between experts induce specialization sparse modular pathways",
+          "hits": [
+            {"title": "Synergistic Intra- and Cross-Layer Regularization Losses for MoE Expert Specialization", "url": "https://arxiv.org/pdf/2602.14159"},
+            {"title": "Mixture-of-Experts with Gradient Conflict-Driven Subspace Topology Pruning for Emergent Modularity", "url": "https://arxiv.org/pdf/2512.20291"},
+            {"title": "Hecto: Modular Sparse Experts for Adaptive and Interpretable Reasoning", "url": "https://arxiv.org/pdf/2506.22919"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Intra-layer specialization loss penalizes cosine similarity between experts' activations ... gradient conflict-driven topology pruning monitors cosine similarity of gradients between experts ... penalizing connections that cause interference, forcing the topology to prune conflicting pathways and evolve modular structures."
+        },
+        {
+          "query": "minimal interference subnetwork allocation per task implicit modularity no explicit branching transformer",
+          "hits": [
+            {"title": "Simplifying Multi-Task Architectures Through Task-Specific (implicit) normalization-based modulation", "url": "https://arxiv.org/pdf/2512.20420"},
+            {"title": "Neuron Specialization: Leveraging Intrinsic Task Modularity for Multilingual Machine Translation", "url": "https://arxiv.org/html/2404.11201v1"},
+            {"title": "Mitigating Task Interference in Multi-Task Learning via Explicit Task Routing with Non-Learnable Primitives", "url": "https://arxiv.org/abs/2308.02066"},
+            {"title": "Circuit Compositions: Exploring Modular Structures in Transformer-Based Language Models", "url": "https://arxiv.org/pdf/2410.01434"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Implicit static gating through normalization layers ... models task relationships and capacity allocation without architecture search ... unified multi-task models may spontaneously develop task-specific functional specializations for distinct tasks (implicit/intrinsic modularity without explicit branching)."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Mixture-of-Experts with Gradient Conflict-Driven Subspace Topology Pruning for Emergent Modularity (CDSP-MoE) — near-verbatim functional match", "url": "https://arxiv.org/abs/2512.20291"},
+        {"title": "Regularizing Deep Multi-Task Networks using Orthogonal Gradients", "url": "https://arxiv.org/pdf/1912.06844"},
+        {"title": "Gradient Deconfliction via Orthogonal Projections onto Subspaces (GradOPS)", "url": "https://arxiv.org/abs/2503.03438"},
+        {"title": "Neuron Specialization: Leveraging Intrinsic Task Modularity", "url": "https://arxiv.org/html/2404.11201v1"},
+        {"title": "Synergistic Intra- and Cross-Layer Regularization Losses for MoE Expert Specialization", "url": "https://arxiv.org/pdf/2602.14159"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": true, "why": "Mechanism verb 'propagates' (growth along preferred low-interfacial-energy planes) is real; verbatim quote is 230 chars (>=30); operator 'propagates' != ANALOGY_TRANSFERS_TO_OPEN. Well-formed candidate."},
+      "composite_estimate": 0.06,
+      "reasoning": "Among the four this is the most exact collision: CDSP-MoE (arXiv 2512.20291) states experts 'emerge as subspaces that minimize gradient interference, yielding modular structures without predefined expert boundaries' — i.e. specialized sub-modules grown along directions of minimal gradient conflict, modular specialization WITHOUT an explicit architecture split — which is the candidate's functional restatement almost word-for-word. Orthogonal-gradient multi-task regularization (1912.06844), GradOPS, Ortho-LoRA, Neuron Specialization (intrinsic task modularity), and normalization-based implicit modularity (2512.20420) independently realize the same effect. 10 forced functional hits across 5 reformulations. The {111}-crystallographic-plane / low-interfacial-energy metaphor maps directly onto 'low-gradient-interference direction in weight space', which is already the active mechanism in these works. COLLISION."
+    },
+    {
+      "id": "C10",
+      "concept": "Vernalization",
+      "source_atom_id": "C10_A1",
+      "source_mechanism_verbatim": "Memory of exposure to long-term cold is epigenetically stored in a cell-autonomous process that involves histone modifications (specifically trimethylation at lysine 27 of histone H3, H3K27me3) and Polycomb complexes, at the floral repressor gene FLOWERING LOCUS C (FLC)",
+      "operator": "accumulates",
+      "functional_restatement": "continual-learning consolidation where repeated/prolonged exposure progressively freezes weights to form stable, propagated long-term memory resistant to catastrophic forgetting.",
+      "content_words": ["progressively freeze / consolidate weights", "accumulate parameter importance", "repeated / prolonged exposure", "stable long-term memory", "resist catastrophic forgetting", "metaplasticity / reduced plasticity"],
+      "reformulations": [
+        {
+          "query": "progressively freeze weights repeated exposure consolidate long-term memory resist catastrophic forgetting",
+          "hits": [
+            {"title": "Overcoming catastrophic forgetting problem by weight consolidation and long-term memory", "url": "https://arxiv.org/pdf/1805.07441"},
+            {"title": "Synaptic weight decay with selective consolidation enables fast learning without catastrophic forgetting", "url": "https://www.biorxiv.org/content/10.1101/613265.full.pdf"},
+            {"title": "Overcoming catastrophic forgetting problem by weight consolidation and long-term memory (DeepAI)", "url": "https://deepai.org/publication/overcoming-catastrophic-forgetting-problem-by-weight-consolidation-and-long-term-memory"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Elastic Weight Consolidation calculates which weights were most critical and adds constraints that resist changes to those parameters ... Synaptic models with a cascade of internal states of progressively longer retention times prevent an exponentially fast forgetting while being continuously exposed to stimuli ... synapses crucial for previously learned skills become less plastic and more stable over time."
+        },
+        {
+          "query": "gradual weight consolidation accumulate parameter importance synaptic intelligence continual learning",
+          "hits": [
+            {"title": "Continual Learning Through Synaptic Intelligence", "url": "https://arxiv.org/pdf/1703.04200"},
+            {"title": "Overcoming catastrophic forgetting in neural networks (EWC)", "url": "https://www.pnas.org/doi/10.1073/pnas.1611835114"},
+            {"title": "Elastic Weight Consolidation Done Right for Continual Learning", "url": "https://arxiv.org/pdf/2603.18596"},
+            {"title": "EVCL: Elastic Variational Continual Learning with Weight Consolidation", "url": "https://arxiv.org/html/2406.15972v1"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Synaptic Intelligence (SI) computes importance online by tracking each parameter's contribution to loss reduction during training ... each synapse intelligently accumulates task relevant information during training and retains a memory of previous parameter values ... EWC accumulates importance weights in an online manner across tasks."
+        },
+        {
+          "query": "elastic weight consolidation slow down important weights long-term memory stability plasticity",
+          "hits": [
+            {"title": "Overcoming catastrophic forgetting in neural networks (EWC)", "url": "https://arxiv.org/pdf/1612.00796"},
+            {"title": "Enabling Continual Learning with Differentiable Hebbian Plasticity", "url": "https://arxiv.org/pdf/2006.16558"},
+            {"title": "SNAP: Stopping Catastrophic Forgetting in Hebbian Learning with Sigmoidal Neuronal Adaptive Plasticity", "url": "https://arxiv.org/pdf/2410.15318"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "EWC slows down learning on certain weights based on how important they are ... selectively decreasing the plasticity of weights ... inspired by synaptic consolidation in the mammalian brain, where synapses crucial for previously learned skills become less plastic and more stable over time ... each weight is pulled back toward its old values by an amount proportional to its importance."
+        },
+        {
+          "query": "cascade synaptic states progressively longer retention prolonged stimulation memory consolidation neural network",
+          "hits": [
+            {"title": "Cascade Models of Synaptically Stored Memories (Fusi, Drew, Abbott — Neuron 2005)", "url": "https://www.cell.com/neuron/fulltext/S0896-6273(05)00117-0"},
+            {"title": "Theories of synaptic memory consolidation and intelligent plasticity for continual learning", "url": "https://arxiv.org/html/2405.16922v1"},
+            {"title": "Synaptic plasticity during systems memory consolidation - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S0168010222001699"},
+            {"title": "Memory consolidation and improvement by synaptic tagging and capture in recurrent neural networks", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7977149/"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Each synapse possesses a cascade of states ... when a synapse is potentiated and receives another potentiating event, it is pushed down further in the corresponding cascade ... it becomes increasingly difficult to depress a synapse that has progressed far in the cascade — the deeper a synapse is, the less likely its efficacy is to change. Combines high levels of memory storage with long retention times."
+        },
+        {
+          "query": "repeated rehearsal gradually transfer short-term to stable long-term weights resist forgetting deep learning",
+          "hits": [
+            {"title": "Pseudo-Rehearsal: Achieving Deep Reinforcement Learning without Catastrophic Forgetting", "url": "https://arxiv.org/pdf/1812.02464"},
+            {"title": "Human-like Forgetting Curves in Deep Neural Networks", "url": "https://arxiv.org/pdf/2506.12034"},
+            {"title": "Reset It and Forget It: Relearning Last-Layer Weights", "url": "https://arxiv.org/pdf/2310.07996"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "A dual memory system ... a pseudo-rehearsal system that 'recalls' items representative of previous tasks ... long-term memory is subject to gradual forgetting ... minimal, well-timed review interventions reverse forgetting and extend intervals of stable recall, mirroring the 'spacing effect' in human learning."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Overcoming catastrophic forgetting in neural networks — Elastic Weight Consolidation (Kirkpatrick et al., PNAS)", "url": "https://www.pnas.org/doi/10.1073/pnas.1611835114"},
+        {"title": "Continual Learning Through Synaptic Intelligence (Zenke, Poole, Ganguli)", "url": "https://arxiv.org/pdf/1703.04200"},
+        {"title": "Overcoming catastrophic forgetting problem by weight consolidation and long-term memory", "url": "https://arxiv.org/pdf/1805.07441"},
+        {"title": "Cascade Models of Synaptically Stored Memories (Fusi et al., Neuron 2005) — progressive metaplastic freezing under repeated potentiation", "url": "https://www.cell.com/neuron/fulltext/S0896-6273(05)00117-0"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": true, "why": "Mechanism verb 'accumulates' (progressive accumulation of H3K27me3 marks proportional to cold duration) is a genuine cumulative mechanism; verbatim quote is 266 chars (>=30); operator 'accumulates' != ANALOGY_TRANSFERS_TO_OPEN. Well-formed."},
+      "composite_estimate": 0.05,
+      "reasoning": "This collides with the literal canon of continual learning AND with a precise mechanistic analog. EWC (PNAS) and Synaptic Intelligence (1703.04200) accumulate per-parameter importance from repeated exposure and progressively reduce plasticity of important weights to form stable, forgetting-resistant memory — exactly the functional restatement. 'Overcoming catastrophic forgetting by weight consolidation and long-term memory' (1805.07441) names the effect outright. The Fusi-Abbott Cascade Model is a near-exact mechanistic twin of vernalization's digital, exposure-proportional, metaplastic freezing: repeated potentiation pushes a synapse deeper into a cascade where it becomes increasingly hard to change, combining storage with long retention — the same 'repeated exposure progressively freezes into stable propagated long-term memory' claim. 14 forced functional hits across 5 reformulations (highest of the four). Novelty near zero; this was effectively a positive-control-grade collision. COLLISION."
+    }
+  ],
+  "search_count": 20,
+  "gate3_total_searches": 20,
+  "honesty_note": "All 20 WebSearch queries were executed with the REAL WebSearch tool. Every title, URL, and snippet recorded above is copied from actually-returned search results in this session; none are recalled from training memory or fabricated (R5). Where a snippet is quoted it is near-verbatim from the WebSearch result text. Forced_functional_hits counts are conservative: I only counted a result as forced when >=2 of the candidate's pre-declared functional content words appear in its returned title+snippet, and I did not attempt to explain any such hit away (anti-narrowing rule). Note: a few colliding works carry 2026/2025 arXiv IDs (e.g. 2512.20291 CDSP-MoE, 2602.14159, 2603.x) consistent with the current date 2026-06; the precise functional collisions for C06 and C10 also rest on older, firmly-established works (orthogonal-gradient MTL 2019; EWC 2017 PNAS; Synaptic Intelligence 2017; Fusi Cascade 2005), so the collisions do not depend on recency. All four verdicts are COLLISION; no GAP was found, consistent with the prior base rate ('mechanism distinct, effect not')."
+}

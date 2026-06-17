@@ -1,0 +1,193 @@
+{
+  "agent": "final_audit",
+  "run": "run_025",
+  "date": "2026-06-03",
+  "scope": "Third independent re-verify pass + hallucination check on the two sub-Gate-1 survivors (C37 Suppletion, C57 Liesegang rings) and the key collision citations (C30, C94, C65, C88).",
+  "method": "5 FRESH reformulations per survivor (distinct from naive phrasing and from crosscheck_XC1 queries), 1 REAL WebSearch each, mechanical rule: >=2 declared content words co-occurring in a returned title+snippet AND a FUNCTIONAL (mechanism-level) match = forced hit / COLLISION; a source-concept-only or mechanism-distinct return is NOT a functional hit. All titles/URLs/snippets below are verbatim from actually-returned WebSearch results.",
+  "reverify": [
+    {
+      "id": "C37",
+      "concept": "Suppletion",
+      "functional_core": "At a decoding slot, multiple candidate output items compete; selection by FEATURE-SUBSET SPECIFICITY, and a more-specific match BLOCKS the less-specific default (Paninian Elsewhere blocking / defeasible priority).",
+      "reformulations": [
+        {
+          "query": "priority union feature unification most specific exponent wins output realization transformer generation",
+          "hits": [
+            {"title": "Priority Union and Generalization in Discourse Grammars", "url": "https://arxiv.org/pdf/cmp-lg/9405030"},
+            {"title": "Feature Unification in TAG Derivation Trees", "url": "https://arxiv.org/pdf/0804.4584"},
+            {"title": "Show-o: One Single Transformer to Unify Multimodal Understanding and Generation", "url": "https://arxiv.org/html/2408.12528v1"},
+            {"title": "FeatureUnion - scikit-learn 1.8.0 documentation", "url": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "'Priority Union and Generalization in Discourse Grammars' uses priority union and generalization over feature structures for VP-ellipsis resolution -- this is the SYMBOLIC feature-structure source family (and Show-o / scikit FeatureUnion are unrelated 'unify'/'union' string collisions). >=2 declared words ('priority','union','feature') appear but NO neural decoding technique selecting an output candidate by feature-subset specificity with default-blocking; mechanism is symbolic grammar, not an LLM port. NOT a functional collision."
+        },
+        {
+          "query": "specificity weighted logit masking decode suppress generic token when specialized token applicable",
+          "hits": [
+            {"title": "Lightweight Decoding Strategies for Increasing Specificity", "url": "https://arxiv.org/pdf/2110.11850"},
+            {"title": "Mastering the Logits: A Guide to Constrained Decoding in Hugging Face and vLLM", "url": "https://medium.com/@c.savur/mastering-the-logits-a-guide-to-constrained-decoding-in-hugging-face-and-vllm-357a5c1b9a28"},
+            {"title": "Logit Bias for Transformers? Suppressing unwanted tokens in output", "url": "https://discuss.huggingface.co/t/logit-bias-for-transformers-suppressing-unwanted-tokens-in-output/32960"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "'Lightweight Decoding Strategies for Increasing Specificity' modifies the output distribution via normalized inverse word frequency (NIWF) and positive PMI -- i.e. boosts INFORMATIVE/rare tokens. 'specificity' + 'decode' co-occur, BUT this is content-informativeness reweighting, NOT feature-subset specificity where a more-specific candidate BLOCKS a less-specific default. Logit masking/bias = identity-based suppression. Mechanism distinct. NOT a functional collision."
+        },
+        {
+          "query": "elsewhere condition Panini neural network exception overrides regular default inflection morphology generation override",
+          "hits": [
+            {"title": "Morphological Inflection Generation with Hard Monotonic Attention", "url": "https://arxiv.org/pdf/1611.01487"},
+            {"title": "Unsupervised Inflection Generation Using Neural Language Modeling", "url": "https://arxiv.org/pdf/1912.01156"},
+            {"title": "Acquisition of Inflectional Morphology in Artificial Neural Networks With Prior Knowledge", "url": "https://arxiv.org/pdf/1910.05456"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Returned set is neural seq2seq / character-level inflection generation (hard monotonic attention; unsupervised LM inflection). These learn input->output string mappings; NONE implements an Elsewhere/Subset-Principle decoding rule where a feature-specific exponent explicitly BLOCKS a default. The Paninian 'elsewhere/exception-overrides-default' decoding mechanism is absent. NOT a functional collision."
+        },
+        {
+          "query": "hierarchical rule precedence specific overrides general decision making mixture of experts gating most matching features",
+          "hits": [
+            {"title": "Mixture of experts - Wikipedia", "url": "https://en.wikipedia.org/wiki/Mixture_of_experts"},
+            {"title": "On Expert Estimation in Hierarchical Mixture of Experts: Beyond Softmax Gating Functions", "url": "https://arxiv.org/pdf/2410.02935"},
+            {"title": "Towards a Universal Gating Network for Mixtures of Experts", "url": "https://arxiv.org/pdf/2011.01613"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Hierarchical MoE routes via a LEARNED (typically softmax) gating function selecting top-k experts; 'most matching' is learned weight similarity, NOT discrete feature-subset specificity, and there is no explicit notion of a more-specific entry BLOCKING a designated less-specific default exponent. Functionally adjacent (selection among competitors) but mechanism = learned soft routing. NOT a functional collision."
+        },
+        {
+          "query": "vocabulary entry insertion competition contextual features subset principle computational implementation distributed morphology",
+          "hits": [
+            {"title": "Distributed morphology - Wikipedia", "url": "https://en.wikipedia.org/wiki/Distributed_morphology"},
+            {"title": "Feature change by Vocabulary Insertion (Hein & Murphy)", "url": "http://www.andrewmurphy.de/papers/heinmurphy-vis.pdf"},
+            {"title": "Distributed Morphology and the Pieces of Inflection (Halle & Marantz)", "url": "https://home.uni-leipzig.de/muellerg/dm8.pdf"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "VERBATIM: 'Competition for insertion is governed by the Subset Principle... the item matching the greatest number of features specified in the terminal morpheme must be chosen'; 'Maximal Subset Condition chooses the alloseme whose contextual specification is most completely satisfied.' This is the LINGUISTIC SOURCE itself (Distributed Morphology), and its only computational instantiations are symbolic. NOT an ML/LLM decoding technique. NOT a functional collision."
+        }
+      ],
+      "verdict": "SURVIVES",
+      "colliding_work_or_absence": "ABSENT (literal exact-mechanism). Across 5 fresh reformulations (priority-union/feature-unification, specificity-weighted logit masking, Panini/elsewhere neural inflection, hierarchical-MoE gating, DM/Subset-Principle vocabulary insertion), every functional return is either (a) the symbolic linguistic SOURCE itself (Priority Union grammars, Distributed Morphology / Subset Principle / Maximal Subset Condition) or (b) a mechanism-distinct ML technique (NIWF/PPMI specificity reweighting = informativeness not feature-subset blocking; logit bias = identity suppression; MoE = learned soft routing; seq2seq inflection = string mapping). NO neural LLM decoding rule selects an output-slot candidate by feature-subset specificity with EXPLICIT BLOCKING of a less-specific default. Confirms crosscheck_XC1 (closest prior ML, maximal-munch/WordPiece, selects by string length not feature specificity).",
+      "composite": 0.42,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "proposable_mechanism": "Specificity-gated decoding: precompute for each candidate token/lexeme a set of context-feature tags; at each slot, among candidates whose feature set is a subset of the active context features, hard-select (or up-weight) the one matching the MOST features and explicitly mask the strictly-less-specific default it dominates -- an Elsewhere/Subset-Principle constrained decoder.",
+      "triviality_assessment": "OVER-SPECIFICATION / paraphrase sub-gate. The abstract effect ('rank candidates by specificity; more-specific suppresses the general default') is conceptually adjacent to two well-established ideas: (i) maximal-munch / longest-match selection (WordPiece) and (ii) defeasible specific-overrides-general priority logic. Crucially the 'blocking' is lifted verbatim from the linguistic SOURCE (Subset Principle / Elsewhere Condition), not independently motivated as an LLM advantage. Same failure pattern as Run-24 C41 held-dwell and Run-25 C94 drift-metric dressing: a real literal gap dressed in source-borrowed specificity with no demonstrated decoding benefit over existing selection-with-default-suppression. novelty~0.5, mechanism~0.6, verifiability~0.7, non_trivial~0.4 -> composite 0.42. Genuine sub-gate gap, NOT a Gate-1 lead."
+    },
+    {
+      "id": "C57",
+      "concept": "Liesegang rings (periodic precipitation)",
+      "functional_core": "Accumulate -> threshold nucleation -> immediate LOCAL DEPLETION -> refractory exclusion zone -> next commitment fires only after diffusion refills, at a GEOMETRICALLY-spaced distance; periodic committed events propagate outward.",
+      "reformulations": [
+        {
+          "query": "depletion zone recovery gating sequential sampling minimum spacing diversity decoding refractory probability refill language model",
+          "hits": [
+            {"title": "The Road Less Traveled: Enhancing Exploration in LLMs via Sequential Sampling", "url": "https://arxiv.org/html/2510.15502"},
+            {"title": "Fast Controlled Generation from Language Models with Adaptive Weighted Rejection Sampling", "url": "https://arxiv.org/html/2504.05410v1"},
+            {"title": "STABLE: Gated Continual Learning for Large Language Models", "url": "https://arxiv.org/html/2510.16089v1"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Sequential-sampling exploration revives a stagnated RL-trained policy; adaptive weighted rejection sampling reduces constraint evaluations; gated continual learning. 'sequential sampling'/'gating'/'language model' appear, but NONE implements local probability DEPLETION creating a refractory exclusion zone that must REFILL before a geometrically-spaced next commitment. Mechanism absent. NOT a functional collision."
+        },
+        {
+          "query": "Liesegang periodic precipitation analogy machine learning supersaturation nucleation depletion spaced bands algorithm",
+          "hits": [
+            {"title": "Pattern Formation in Precipitation Reactions: The Liesegang Phenomenon (Langmuir)", "url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018"},
+            {"title": "Bifurcation of the Ostwald-Liesegang supersaturation-nucleation-depletion cycle", "url": "https://www.academia.edu/129523180/"},
+            {"title": "Formation of Liesegang patterns: A spinodal decomposition scenario", "url": "https://arxiv.org/pdf/cond-mat/9903420"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "VERBATIM: 'periodic precipitation is the consequence of a supersaturation condition necessary for nucleation followed by ring deposition and a fast depletion that results in a wide zone without precipitation'; band positions 'form a geometric series ... xn ~ Q(1+p)^n.' This CONFIRMS the physics SOURCE (Ostwald cycle, geometric spacing) is real and well-documented, but ALL returns are chemistry/physics -- 'limited specific information about direct applications of machine learning.' No ML/LLM port. NOT a functional collision."
+        },
+        {
+          "query": "excitable medium refractory wavefront token generation autoregressive spacing inhibition recovery diffusion neural",
+          "hits": [
+            {"title": "Excitable medium - Wikipedia", "url": "https://en.wikipedia.org/wiki/Excitable_medium"},
+            {"title": "Refractory period in network models of excitable nodes: self-sustaining stable dynamics, extended scaling region and oscillatory behavior (Sci Rep)", "url": "https://www.nature.com/articles/s41598-017-07135-6"},
+            {"title": "Travelling waves in a neural field model with refractoriness", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3948616/"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Excitable media propagate a wave and 'cannot support another wave until a certain refractory time has passed'; neural-field travelling waves with refractoriness. 'refractory'/'wave'/'recovery'/'neural' co-occur, BUT this is biological/cardiac/neural-field dynamics, NOT autoregressive token commitment with local probability depletion + diffusion refill + GEOMETRICALLY-spaced outward decoding diversity. Mechanism family overlaps; LLM decoding application absent. NOT a functional collision."
+        },
+        {
+          "query": "credit assignment consumes local resource recharge before next event spaced firing sparse activation transformer attention",
+          "hits": [
+            {"title": "Sparse Attentive Backtracking: Temporal Credit Assignment Through Reminding", "url": "https://arxiv.org/pdf/1809.03702"},
+            {"title": "Spark Transformer: Reactivating Sparsity in FFN and Attention", "url": "https://arxiv.org/pdf/2506.06644"},
+            {"title": "Agent-Time Attention for Sparse Rewards Multi-Agent Reinforcement Learning", "url": "https://www.researchgate.net/publication/364955245"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Sparse Attentive Backtracking = hard attention to select past states for credit assignment; Spark Transformer = FFN/attention sparsity; Agent-Time Attention = per-step reward credit. 'sparse'/'attention'/'credit assignment' present, BUT none implements a resource that is locally CONSUMED then must RECHARGE before a geometrically-spaced next event; no depletion-refill-refractory output-diversity mechanism. NOT a functional collision."
+        },
+        {
+          "query": "Ostwald supersaturation cycle depletion refill periodic commitment model generative sequence geometric spacing outward",
+          "hits": [
+            {"title": "Bifurcation of the Ostwald-Liesegang supersaturation-nucleation-depletion cycle", "url": "https://www.academia.edu/129523180/"},
+            {"title": "Oscillatory instability in an Ostwald ripening process", "url": "https://arxiv.org/html/2503.18194v1"},
+            {"title": "Instability in Ostwald ripening processes", "url": "https://arxiv.org/pdf/2507.07863"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Keller-Rubinow / Ostwald supersaturation theory for Liesegang rings; oscillatory limit-cycle in supersaturation; transient Ostwald ripening. Confirms the SOURCE cycle (supersaturation->nucleation->depletion, threshold relaxation) is real, but ALL returns are physical-chemistry crystal-growth dynamics. No 'generative sequence' / decoding application. NOT a functional collision."
+        }
+      ],
+      "verdict": "SURVIVES",
+      "colliding_work_or_absence": "ABSENT (literal exact-mechanism). Across 5 fresh reformulations (depletion-recovery decoding, Liesegang-ML analogy, excitable-medium token generation, credit-assignment recharge/spaced-firing, Ostwald supersaturation-cycle generative), the physics SOURCE is robustly confirmed (Ostwald cycle: supersaturation->nucleation->depletion; geometric band law xn ~ Q(1+p)^n) but NO published technique assembles the full Liesegang signature at LLM decoding time: local accumulation -> nucleation threshold -> immediate LOCAL PROBABILITY DEPLETION -> refractory exclusion zone -> slow REFILL before a more-distant commitment -> GEOMETRICALLY-spaced periodic outward commitment events. Excitable-media/refractory dynamics are biological/neural-field, not token decoding; sparse-attention/credit pieces don't deplete-and-refill output mass; DPP (per XC1) does global volume repulsion without refractory refill or geometric outward propagation. Confirms crosscheck_XC1.",
+      "composite": 0.45,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "proposable_mechanism": "Depletion-refractory decoding: at each step, when locally accumulated evidence exceeds a threshold, hard-commit a token AND subtract a diffusing 'depletion' field from the probabilities of semantically/positionally nearby tokens; that field decays (refills) over subsequent steps, so the next near-duplicate commitment can only occur after a geometrically-spaced gap -> periodic diversity in the output stream.",
+      "triviality_assessment": "OVER-SPECIFICATION sub-gate. The STATED decoding payoff ('prevent near-identical tokens nearby -> diversity') is the SAME GOAL already served by repetition penalty / no_repeat_ngram_size and DPP diverse decoding. The distinctive Liesegang extras -- geometric spacing, outward propagation, refill-gated refractory timing -- are over-specifications of the source physics with NO demonstrated decoding benefit beyond existing diversity controls. Same pattern as Run-25 C94 drift-metric dressing and Run-24 C41 held-dwell: a literal gap at exact-mechanism resolution, but the surviving-absent details are arbitrary source-borrowed embellishments, not a motivated distinct LLM advantage. novelty~0.55, mechanism~0.6, verifiability~0.6, non_trivial~0.4 -> composite 0.45. Genuine sub-gate gap, NOT a Gate-1 lead."
+    }
+  ],
+  "citation_checks": [
+    {
+      "claim": "C30 -> honeypot/trapdoor backdoor defense for pretrained LMs: 'Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypots', NeurIPS 2023",
+      "exists": true,
+      "functional_match": true,
+      "evidence_urls": [
+        "https://arxiv.org/abs/2310.18633",
+        "https://proceedings.neurips.cc//paper_files/paper/2023/hash/e7938ede51225b490bb69f7b361a9259-Abstract-Conference.html",
+        "https://openreview.net/forum?id=2cYxNWNzk3",
+        "https://neurips.cc/virtual/2023/poster/72945"
+      ],
+      "snippet": "CONFIRMED real (arXiv:2310.18633; NeurIPS 2023 proceedings hash e7938ede...; OpenReview 2cYxNWNzk3; NeurIPS poster 72945). VERBATIM: 'propose and integrate a honeypot module into the original PLM, specifically designed to absorb backdoor information exclusively... Penalties can be imposed on the information acquired by the honeypot module to inhibit backdoor creation during the fine-tuning of the stem network.' This is precisely the sacrificial-absorb / spare-the-backbone mechanism cited for the C30 COLLISION. Functional match CONFIRMED. Not suspect (2023 ID, real venue)."
+    },
+    {
+      "claim": "C94 -> DriftSurf two-state (stable/reactive) drift-triggered switching, ICML 2021",
+      "exists": true,
+      "functional_match": true,
+      "evidence_urls": [
+        "https://proceedings.mlr.press/v139/tahmasbi21a.html",
+        "https://arxiv.org/pdf/2003.06508",
+        "https://icml.cc/virtual/2021/poster/9929"
+      ],
+      "snippet": "CONFIRMED real (PMLR v139 / ICML 2021, Tahmasbi, Jothimurugesan, Tirthapura, Gibbons; arXiv:2003.06508; ICML poster 9929). VERBATIM: 'maintains two models at each time step, begins in the stable state and transitions to the reactive state based on a drift detection trigger... then transitions back to stable state.' Matches the two-state drift-triggered switching cited for C94. Functional match CONFIRMED. Not suspect."
+    },
+    {
+      "claim": "C65 -> stigmergy / digital pheromones in multi-agent RL (established field?)",
+      "exists": true,
+      "functional_match": true,
+      "evidence_urls": [
+        "https://arxiv.org/pdf/1911.12504",
+        "https://dl.acm.org/doi/10.1145/3372224.3417318",
+        "https://link.springer.com/article/10.1007/s10015-025-01089-z"
+      ],
+      "snippet": "CONFIRMED established. 'Stigmergic Independent Reinforcement Learning for Multi-Agent Collaboration' (arXiv:1911.12504); 'The implementation of stigmergy in network-assisted multi-agent system' (MobiCom/ACM 2020, 10.1145/3372224.3417318); A3C-with-stigmergy. VERBATIM: 'Stigmergic communication is modeled as virtual pheromones, which locally encode traces of other agents' activities to enable indirect communication... pheromone traces that diffuse and decay over time.' Stigmergy/digital-pheromones in multi-agent RL is an established line of work. Functional match CONFIRMED. Not suspect."
+    },
+    {
+      "claim": "C88 -> ResNet skip/residual connections (canonical)",
+      "exists": true,
+      "functional_match": true,
+      "evidence_urls": [
+        "https://en.wikipedia.org/wiki/Residual_neural_network",
+        "https://www.mdpi.com/2076-3417/12/18/8972"
+      ],
+      "snippet": "CONFIRMED canonical. He et al. 2015, 'Deep Residual Learning for Image Recognition' (ILSVRC 2015 winner). VERBATIM: 'residual connections, also known as skip connections or shortcuts... add the input directly to the output... allowing gradients to flow directly through shortcut connections that bypass intermediate layers,' enabling 50/101/152-layer training. Skip/residual connection is canonical, well-established. Functional match CONFIRMED. Not suspect. (Note: run_025 gap_claims.json lists C88's source biological analog as 'Siphon'->one-time-primed residual shortcut; the citation-check target 'ResNet skip/residual' is the canonical ML mechanism that anchor refers to, and it is real.)"
+    }
+  ],
+  "suspect_citations": [],
+  "overall": {
+    "survivors_final": ["C37", "C57"],
+    "any_clears_gate1": false,
+    "verdict": "CONFIRM-SUB-GATE. C37 (Suppletion) and C57 (Liesegang rings) BOTH stand as TRUE sub-Gate-1 leads after a third fully-independent pass: each genuinely SURVIVES the literal exact-mechanism collision test (10 fresh real WebSearches total returned only the linguistic/physics SOURCE or mechanism-distinct ML work -- no functional collision), so they are NOT false positives to be explained away (R14 respected). BUT NEITHER clears Gate 1: both are honest OVER-SPECIFICATIONS (C37 composite 0.42, C57 composite 0.45, both << 0.90). C37's specificity-with-default-blocking is a paraphrase adjacent to maximal-munch/longest-match + defeasible priority, with 'blocking' lifted from its own source; C57's stated diversity payoff is already met by repetition penalties + DPP, with geometric-spacing/refill-refractory being source-borrowed dressing. C30 correctly stands as a COLLISION (Setting the Trap honeypot, confirmed real). All 4 key collision citations (C30, C94, C65, C88) are REAL and functionally match; ZERO suspect/hallucinated citations. Net: 2 survivors confirmed as genuine sub-gate gaps, 0 leads clear Gate 1, 0 hallucinations."
+  },
+  "search_count": 14,
+  "search_breakdown": {"C37_reverify": 5, "C57_reverify": 5, "citation_checks": 4},
+  "honesty_note": "Ran 14 REAL WebSearch queries (5 fresh re-verify per survivor + 4 citation checks); every title/URL/snippet recorded above is verbatim from actually-returned results -- none fabricated or recalled. Reformulations were deliberately distinct from both naive phrasing and crosscheck_XC1's queries (e.g. priority-union/feature-unification, NIWF/PPMI specificity decoding, hierarchical-MoE gating for C37; depletion-recovery decoding, excitable-medium token gen, Ostwald supersaturation-cycle for C57). Applied the >=2-content-word mechanical rule strictly BUT required a FUNCTIONAL (mechanism-level) match for a forced hit: source-concept-only returns (Distributed Morphology / Subset Principle; Ostwald/Liesegang chemistry) and mechanism-distinct ML returns (MoE soft routing; NIWF specificity reweighting; sparse-attention credit assignment; DPP volume repulsion) were recorded as forced_functional_hits=[] (no collision), which is the honest reading -- these confirm the SOURCE exists and the literal LLM port does NOT. I independently REPRODUCE crosscheck_XC1's verdicts: C37 SURVIVES, C57 SURVIVES, neither a Gate-1 lead. Both flagged LOUDLY as sub-gate over-specifications (same pattern as Run-24 C41 held-dwell, Run-25 C94 drift-metric dressing). All 4 collision citations confirmed REAL with functional match; no later-2026 / suspect IDs encountered (C30=2310.18633 NeurIPS'23, C94=2003.06508 ICML'21, C65=1911.12504, C88=He 2015 -- all 2015-2023, plausible). NEGATIVE-PASS HONESTY: I did not manufacture a collision to kill a true survivor, and I did not inflate a composite to pass a weak lead. Did not run git."
+}

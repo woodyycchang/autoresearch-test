@@ -103,3 +103,44 @@ Format per entry:
   - 2 borderline PASS rounds (R119 crystallography twin domains, R124 rheology Bingham plastic) flagged for human review under L4 (functional-equivalence) detection layer; pending Phase-1-style functional audit, both will likely be reclassified as Pattern D / Pattern E false positives.
   - Cumulative confirmed-substantive PASS count across 263 rounds: 0. Saturation hypothesis remains supported.
   - Comparison report at output/epoch5_comparison.md; stats at output/stats_round_125.json; diff at output/v4_to_v5_diff.md; evasion hierarchy at output/detector_evasion_hierarchy.md.
+
+
+## Run 24 session — Large-scale encyclopedia traversal (paradigm_shift/runs/run_024)
+
+- Goal: correct Run 21's inference-from-6-concepts by MEASURING the saturation distribution on a large stratified sample.
+- Concepts processed: 48 (target >=40), 8 batches x 6, all OUTSIDE candidate_pool exhausted list; 3 positive controls.
+- Real WebSearches: ~242 (139 sourcing + 60 verify + 26 adversarial crosscheck + 11 audit + ~6 main). 0 fabricated (R5).
+- Pipeline per concept: wikipedia source -> mechanism atoms (verbatim >=30c) -> per-atom ML-penetration (NONE/MEASURES/IMPORTED) -> sparsest candidate. 12 sparsest deep grounded-gap verified (5 reformulations each, mechanical anti-narrowing).
+- Result: VERDICT NICHE_NOT_FOUND. Atom penetration NONE=28/MEASURES=18/IMPORTED=2. Prima-facie no-collision 45/48 (93.8%) COLLAPSES to 0/12 survivors under functional grounded-gap verify. 12/12 deep-verified COLLISION, 0 GAP, max composite 0.10 (0.34 under adversarial steelman), 0 cleared Gate 1, 0 survivors.
+- Positive controls (annealing, nucleation, diffusion) 3/3 correctly IMPORTED -> detector calibrated; NONE calls on obscure concepts credible.
+- Audit: 7/7 cited collisions confirmed real (incl. suspect CDSP-MoE 2512.20291); no hallucinated citations; all 4 logic-break verdicts hold; C28 disclosed as weakest collision; C06/C10 grounded-gap robust.
+- Adversarial cross-check closed escape hatches on C28/C33/C20 with tighter twins (Elastic-Cache, PackNet/ExSSNeT); only residual = C41 liminality (held-dwell curriculum literally unsearched but trivial over-specification, novelty 0.34, sub-Gate-1). Reported openly per R12/R13, not pre-dismissed.
+- No domain or maturity tier escaped saturation. Conclusion is empirical (measured distribution), not inferred from a fragment.
+- Honest deviations: agents wrote batches + main committed per wave (push-race avoidance, R1/R2 intent preserved); Agent tool used for Opus subprocesses (R3 intent); WebFetch 403-firewalled, all evidence via real WebSearch.
+
+
+## Run 25 session — Deeper + wider encyclopedia experiment (paradigm_shift/runs/run_025)
+
+- Goal: finish what Run 24 left incomplete (only 12/48 deep-verified) + widen sample + mine C41. NOT stopping at niche=0 (R12); actively hunt missed gaps.
+- PART A: deep grounded-gap verified the 33 non-sparsest Run-24 concepts -> 31 COLLISION + 2 candidate gaps (C30, C37). Answer: YES sparsest-12 missed candidates.
+- PART B: C41 (liminality) = CLUSTER (holometabolism/transdiff/reprogramming/neoteny/ecdysis) but shared niche OCCUPIED (shrink-and-perturb, SGDR, grokking). No lead.
+- PART C: 50 NEW obscure-biased concepts (C49-C98). Every sonnet batch flagged its sparsest as a gap (9/9 = Pattern-D false-positive signature).
+- Cross-check (adversarial opus, 3 agents): of 11 candidate gaps, 9 FLIPPED to COLLISION (incl strongest opus lead C30 -> honeypot 2310.18633), 2 SURVIVED (C37 suppletion 0.42, C57 Liesegang 0.45), both sub-Gate-1.
+- Final audit (3rd pass + hallucination): C37+C57 CONFIRM sub-gate (over-specifications, survive 3 independent passes, neither clears 0.90). All 4 key collision citations REAL; zero hallucinations.
+- CUMULATIVE: 98 concepts, 54 deep-verified, 74 COLLISION, 0 clear all gates, 2 sub-gate residual leads. No domain/tier escapes to a Gate-1 niche.
+- Real WebSearches Run 25: 489 (171 A + 38 B + 205 C + 61 xcheck + 14 audit); cumulative ~731. 0 fabricated (R5).
+- KEY META-FINDING: gap-detection is extremely sensitive to verifier rigor (sonnet narrow self-verify 9/9 gaps; opus deep 2/33; opus adversarial cross-check 2/11). Saturation holds at gate level; literal-gap tail ~2% all sub-gate.
+- Verdict: NICHE_NOT_FOUND (0/98 clear Gate 1) with 2 honest sub-gate residual leads reported per R14.
+
+
+## Run 26 session — Anomaly-driven niche hunting (paradigm_shift/runs/run_026)
+
+- REFRAME: from combination-mining (Runs 16-25, saturated) to ANOMALY hunting (measurement != prediction, the Vera-Rubin path). An unresolved anomaly is novel by definition.
+- Pipeline (7 sequential agents): source anomalies -> resolution status -> propose mechanisms (opus) -> verify+crosscheck -> audit. ~117 real WebSearches, 0 fabricated (R5).
+- PHASE 1: 9 real ML/LLM anomalies sourced (grokking, double descent, emergent abilities, sharp-minima, Adam surge, reversal curse, inverse scaling, LLMs-know-more, RLHF calibration).
+- PHASE 2 (R13 strict): RESOLVED 7, CONTESTED 2, UNRESOLVED 0. No clean Vera-Rubin signature - every famous anomaly has >=1 real literature explanation.
+- PHASE 3: opus proposed 5 explanatory mechanisms + testable predictions (self-novelty 0.4-0.6, honestly calibrated down).
+- PHASE 4: all 5 proposed mechanisms ALREADY_PROPOSED (forced-hits 6-9); crosscheck confirmed Gate-1 all-real + Gate-3 only ANOM_03/ANOM_08.
+- PHASE 5 audit: conclusion UPHELD; 6/6 collision anchors real (zero hallucinations); no wrongly-killed lead.
+- GATES: G1 real 9/9; G3 unresolved 2/9; G4 novel-mechanism 0/5 -> 0 clear all gates. VERDICT: ANOMALY_NICHE_NOT_FOUND.
+- KEY FINDING: anomaly-hunting does NOT escape combination-saturation. Famous anomalies attract a dense thicket of explanations -> explanation space saturated too. A real anomaly niche needs a freshly-reported, not-yet-famous discrepancy (hard to surface by search, which ranks the famous).

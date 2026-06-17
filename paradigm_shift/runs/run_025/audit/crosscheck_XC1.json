@@ -1,0 +1,267 @@
+{
+  "agent": "XC1",
+  "ids": ["C30", "C37", "C57"],
+  "results": [
+    {
+      "id": "C30",
+      "concept": "Sacrificial anode (cathodic protection)",
+      "functional_effect": "A dedicated, deliberately EXPENDABLE/replaceable module (adapter) that PREFERENTIALLY ATTRACTS AND ABSORBS adversarial perturbation / harmful gradient / distributional corruption at inference/training, becoming degraded ITSELF so the primary (frozen) model weights are spared. Damage diversion, not robustness conferral and not mere detection; the module is consumed and then discarded.",
+      "ml_techniques_considered": [
+        "Honeypot/trapdoor defenses (Gotta Catch 'Em All; trapdoor-CCS20) -- detection-oriented",
+        "Honeypot module that absorbs backdoor information then is removed (Setting the Trap, NeurIPS 2023)",
+        "Robustness adapters / adapters with adversarial training",
+        "Safety LoRA preservation (SaLoRA, GuardSpace, SafetyLock, Lisa, Antibody) -- preservation/null-space, not consumption",
+        "Masking Adversarial Damage (adversarial saliency for sparse nets)",
+        "Defensive distillation, anti-adversary layer, robust first layer",
+        "Module switching / decoy training defenses"
+      ],
+      "reformulations": [
+        {
+          "query": "sacrificial layer neural network absorbs adversarial perturbation protect frozen backbone",
+          "hits": [
+            {"title": "Spartan Networks: Self-Feature-Squeezing Neural Networks for increased robustness", "url": "https://arxiv.org/pdf/1812.06815"},
+            {"title": "Combating Adversaries with Anti-Adversaries", "url": "https://arxiv.org/pdf/2103.14347"},
+            {"title": "First line of defense: A robust first layer mitigates adversarial attacks", "url": "https://arxiv.org/pdf/2408.11680"},
+            {"title": "Diminishing the Effect of Adversarial Perturbations via Refining Feature Representation", "url": "https://arxiv.org/pdf/1907.01023"},
+            {"title": "Layer-wise Regularized Adversarial Training (LSA framework)", "url": "https://arxiv.org/pdf/2202.02626"},
+            {"title": "Can Adversarial Weight Perturbations Inject Neural Backdoors?", "url": "https://arxiv.org/pdf/2008.01761"}
+          ],
+          "forced_functional_hits": ["layer", "adversarial", "perturbation"],
+          "snippet": "A carefully designed first layer of the neural network can serve as an implicit adversarial noise filter... These approaches improve robustness but CONFER robustness on the protected component rather than being an expendable module consumed in place of the backbone."
+        },
+        {
+          "query": "honeypot trapdoor defense neural network attract adversarial examples decoy layer",
+          "hits": [
+            {"title": "Gotta Catch 'Em All: Using Honeypots to Catch Adversarial Attacks on Neural Networks", "url": "https://arxiv.org/abs/1904.08554"},
+            {"title": "Using Honeypots to Catch Adversarial Attacks on Neural Networks (CCS20)", "url": "https://people.cs.uchicago.edu/~ravenben/publications/pdf/trapdoor-ccs20.pdf"},
+            {"title": "A Partial Break of the Honeypots Defense to Catch Adversarial Attacks", "url": "https://arxiv.org/pdf/2009.10975"}
+          ],
+          "forced_functional_hits": ["honeypot", "attract", "adversarial", "decoy"],
+          "snippet": "Intentionally injecting trapdoors -- honeypot weaknesses in the classification manifold that attract attackers searching for adversarial examples... the defense then IDENTIFIES attacks by comparing neuron activation signatures. This is DETECTION (attract-then-flag), which the C30 functional_effect explicitly excludes ('not mere detection')."
+        },
+        {
+          "query": "modular safety adapter absorbs harmful fine-tuning attack preserving base model weights",
+          "hits": [
+            {"title": "Colluding LoRA: A Composite Attack on LLM Safety Alignment", "url": "https://arxiv.org/html/2603.12681v1"},
+            {"title": "Defending MoE LLMs against Harmful Fine-Tuning via Safety Routing Alignment", "url": "https://arxiv.org/pdf/2509.22745"},
+            {"title": "Lisa: Lazy Safety Alignment for LLMs against Harmful Fine-tuning Attack", "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/bcfdaf04b54a69f47623c973c864ee8d-Paper-Conference.pdf"},
+            {"title": "A Guardrail for Safety Preservation: Safety-Sensitive Subspace Meets Harmful-Resistant Null-Space", "url": "https://arxiv.org/pdf/2510.14301"},
+            {"title": "Locking Down the Finetuned LLMs Safety", "url": "https://arxiv.org/pdf/2410.10343"}
+          ],
+          "forced_functional_hits": ["adapter", "harmful", "preserving", "weights"],
+          "snippet": "Safety LoRA / GuardSpace / SafetyLock / null-space projectors PRESERVE safety-relevant weights by freezing them and restricting adapter updates. This is robustness/preservation, NOT a sacrificial module that itself absorbs damage and is discarded -- functionally adjacent but mechanism differs."
+        },
+        {
+          "query": "honeypot module diverts gradient updates harmful training sacrificial parameters discard LLM defense",
+          "hits": [
+            {"title": "Gradient Surgery for Safe LLM Fine-Tuning (SafeGrad)", "url": "https://arxiv.org/pdf/2508.07172"},
+            {"title": "Antibody: Strengthening Defense Against Harmful Fine-Tuning via Attenuating Harmful Gradient Influence", "url": "https://arxiv.org/pdf/2603.00498"},
+            {"title": "Active Honeypot Guardrail System (multi-turn jailbreaks)", "url": "https://arxiv.org/pdf/2510.15017"},
+            {"title": "LLM Honeypot: Adaptive Cyber Deception", "url": "https://www.emergentmind.com/topics/llm-honeypot"}
+          ],
+          "forced_functional_hits": ["honeypot", "absorb", "gradient", "module"],
+          "snippet": "VERBATIM RETURNED: 'Honeypot classifiers are architecturally attached to early transformer layers, absorbing and overfitting to backdoor triggers in fine-tuning data while blocking downstream task gradients, resulting in robust backdoor suppression.' -- This is the exact absorb-the-attack-spare-the-rest mechanism. Pointer to the canonical paper below."
+        },
+        {
+          "query": "honeypot classifier absorbing overfitting backdoor triggers fine-tuning blocking downstream gradients defense paper",
+          "hits": [
+            {"title": "Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypots", "url": "https://arxiv.org/pdf/2310.18633"},
+            {"title": "Setting the Trap (NeurIPS 2023 proceedings)", "url": "https://papers.nips.cc/paper_files/paper/2023/file/e7938ede51225b490bb69f7b361a9259-Paper-Conference.pdf"},
+            {"title": "Nested PoE for Robust Defense Against Multi-Backdoors", "url": "https://arxiv.org/pdf/2404.02356"}
+          ],
+          "forced_functional_hits": ["honeypot", "absorb", "backdoor", "overfit"],
+          "snippet": "'The honeypot module is specifically designed to absorb backdoor information exclusively... rapidly overfits poisoned samples during early training stages, while barely learning the original task... Upon completion of training, the honeypot can be removed to ensure a robust defense.' EXACT MATCH to expendable-module-absorbs-damage-then-discarded."
+        },
+        {
+          "query": "\"honeypot\" defense backdoor poison attention layer absorb trigger sacrifice protect main task",
+          "hits": [
+            {"title": "Setting the Trap: Capturing and Defeating Backdoors in PLMs through Honeypots", "url": "https://papers.nips.cc/paper_files/paper/2023/file/e7938ede51225b490bb69f7b361a9259-Paper-Conference.pdf"},
+            {"title": "HoneypotNet: Backdoor Attacks Against Model Extraction", "url": "https://arxiv.org/pdf/2501.01090"}
+          ],
+          "forced_functional_hits": ["honeypot", "absorb", "stem", "removed"],
+          "snippet": "'Partitioning the model into two components - one dedicated to the primary function and the other to the backdoor function - a honeypot module is specifically designed to absorb the backdoor function during training, allowing the stem network to focus exclusively on the original task... the honeypot can be removed.' Two-component partition = sacrificial honeypot absorbs damage; stem (backbone) spared."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_work_or_absence": "COLLIDES with 'Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypots' (Tang, Sun, Idreos et al., NeurIPS 2023; arXiv:2310.18633, https://arxiv.org/pdf/2310.18633). The honeypot module is a dedicated, expendable component appended to the PLM that PREFERENTIALLY ATTRACTS AND ABSORBS the adversarial/backdoor signal ('rapidly overfits poisoned samples', 'absorb backdoor information exclusively'), becoming the locus of the corruption ITSELF, while the stem/backbone network 'focuses exclusively on the original task' and is thereby spared. Crucially it is CONSUMED then DISCARDED ('upon completion of training, the honeypot can be removed') -- this is damage diversion + sacrificial consumption, NOT mere detection and NOT robustness conferral on the backbone. This is the prior art the narrow verifier missed; it instantiates the sacrificial-anode functional effect (expendable absorber sacrificed to protect the protected element) in an LLM. Related supporting prior art: Antibody (arXiv:2603.00498) attenuating harmful gradient influence, and the 'absorb-then-block-downstream-gradients' honeypot classifier framing.",
+      "composite": 0.30,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "reasoning": "Adversarial search flips this to COLLISION. The verifier likely searched honeypots and saw only the DETECTION variant (Gotta Catch 'Em All) and concluded 'not detection => gap'. But the NeurIPS-2023 'Setting the Trap' honeypot is explicitly an ABSORB-AND-DISCARD sacrificial module, not detection: it overfits/soaks the poison so the stem is clean, then is removed. That is precisely the sacrificial-anode mechanism (consumable element preferentially corroded to spare the protected metal). Functional content_words honeypot/module/absorb/backdoor/stem/removed all co-occur in title+snippet (>>2), forcing the hit. Novelty near zero; composite well below Gate 1. Not a real lead."
+    },
+    {
+      "id": "C37",
+      "concept": "Suppletion",
+      "functional_effect": "At a decoding/output node, several candidate output items (subword units / morphemes / lexical entries) compete for the single slot; the winner is chosen by SPECIFICITY of feature-match -- the item matching the largest subset of the node's contextual features wins, and a more-specific item BLOCKS a less-specific (default) one (underspecification + Subset Principle + Elsewhere/blocking). Plain ML: a generation-side selection rule where output candidates are ranked by feature-subset specificity at the terminal, with explicit blocking of less-specific defaults.",
+      "ml_techniques_considered": [
+        "Constrained decoding (grammar/JSON/regex filtering) -- validity filter, not specificity ranking",
+        "Maximal-munch / longest-match tokenization (WordPiece greedy longest prefix) -- length criterion, not feature-subset specificity",
+        "Distributed Morphology / Elsewhere Condition / Subset Principle (the SOURCE linguistic mechanism itself)",
+        "Computational Paninian rule-blocking (symbolic Sanskrit derivation) -- symbolic, not neural LLM",
+        "Lexical choice / lexical selection in NLG -- probabilistic/greedy/heuristic, not specificity-blocking",
+        "Defeasible / default reasoning in LLMs (specific overrides general) -- studied as reasoning, not as a decoding selection rule",
+        "Mixture-of-softmaxes / MoE expert routing -- learned gating, not feature-subset specificity with default-blocking",
+        "Underspecification in deep learning -- DIFFERENT meaning (validation cannot assess robustness to distribution shift)"
+      ],
+      "reformulations": [
+        {
+          "query": "constrained decoding longest match most specific rule blocks default output candidate selection NLG",
+          "hits": [
+            {"title": "Constrained Decoding for Neural NLG from Compositional Representations in Task-Oriented Dialogue", "url": "https://aclanthology.org/P19-1080/"},
+            {"title": "Constrained Decoding for Code Language Models via Quotienting of Context-Sensitive Grammars", "url": "https://arxiv.org/html/2402.17988v1"},
+            {"title": "Efficient and Asymptotically Unbiased Constrained Decoding for LLMs", "url": "https://arxiv.org/pdf/2504.09135"},
+            {"title": "A Guide to Structured Generation Using Constrained Decoding", "url": "https://www.aidancooper.co.uk/constrained-decoding/"}
+          ],
+          "forced_functional_hits": ["decoding", "match", "blocks", "default"],
+          "snippet": "'The leftmost-longest rule states that the longest prefix... must be accepted'; 'constrained decoding filters out any token that would violate your rule... the rest are blocked.' Blocking here is VALIDITY-based (grammar) or LENGTH-based (leftmost-longest), NOT feature-subset specificity. The blocking-of-less-specific-default-by-more-specific selection is absent."
+        },
+        {
+          "query": "Distributed Morphology Elsewhere Principle blocking neural language generation specificity feature subset",
+          "hits": [
+            {"title": "Blocking (linguistics) - Wikipedia", "url": "https://en.wikipedia.org/wiki/Blocking_(linguistics)"},
+            {"title": "Distributed morphology - Wikipedia", "url": "https://en.wikipedia.org/wiki/Distributed_morphology"},
+            {"title": "Morphology in a Parallel, Distributed, Interactive Architecture of Language Production", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8927966/"},
+            {"title": "Unification and morphological blocking (NLLT)", "url": "https://link.springer.com/article/10.1007/BF00133692"}
+          ],
+          "forced_functional_hits": ["blocking", "specificity", "feature", "elsewhere"],
+          "snippet": "'Blocking is the phenomenon in which a possible form cannot surface because it is blocked by another form whose features are the most appropriate to the surface form's environment.' This IS the source concept (Elsewhere/Subset Principle). The returned result explicitly notes results 'don't contain specific information about how the Elsewhere Principle's feature specificity interacts with neural language models' -- i.e., no neural port found."
+        },
+        {
+          "query": "maximal munch longest match tokenization most specific subword wins blocks shorter default",
+          "hits": [
+            {"title": "Maximal munch - Wikipedia", "url": "https://en.wikipedia.org/wiki/Maximal_munch"},
+            {"title": "\"Maximal-Munch\" Tokenization in Linear Time (TOPLAS)", "url": "https://research.cs.wisc.edu/wpis/papers/toplas98b.pdf"},
+            {"title": "MaxMatch-Dropout: Subword Regularization for WordPiece", "url": "https://arxiv.org/pdf/2209.04126"}
+          ],
+          "forced_functional_hits": ["match", "tokenization", "longest", "subword"],
+          "snippet": "'WordPiece tokenizes words by finding the longest possible subword match within the vocabulary'; maximal munch 'greedily consumes the maximum viable sequence.' Selection criterion is STRING LENGTH (longest prefix), NOT feature-subset specificity, and there is no notion of an explicitly-defined default form being BLOCKED by a more feature-specific competitor. Functionally analogous but mechanistically distinct."
+        },
+        {
+          "query": "lexical selection neural NLG most specific lexeme wins overrides general default word choice generation",
+          "hits": [
+            {"title": "Lexical Choice Needs Machine Learning! (Ehud Reiter)", "url": "https://ehudreiter.com/2018/03/19/lexical-choice-machine-learning/"},
+            {"title": "Using Language Models to Disambiguate Lexical Choices in Translation", "url": "https://arxiv.org/pdf/2411.05781"},
+            {"title": "The Devil is in the Details: Pitfalls of Vocabulary Selection in NMT", "url": "https://arxiv.org/pdf/2205.06618"}
+          ],
+          "forced_functional_hits": ["lexical", "selection", "default", "choice"],
+          "snippet": "Lexical choice is done by 'hand-crafted rules and semantic networks' or 'corpus-based / ML methods modeling lexical selection probabilistically' or 'greedy locally optimal selection'. Returned result states explicitly the results 'don't contain specific information about the most-specific-lexeme-wins principle or how it overrides general default word choices in neural NLG' -- the specificity-with-default-blocking rule is absent from neural lexical selection."
+        },
+        {
+          "query": "defeasible priority rules neural decoding specific overrides general default suppression language model",
+          "hits": [
+            {"title": "Generics and Default Reasoning in Large Language Models", "url": "https://arxiv.org/pdf/2508.13718"},
+            {"title": "Analysing Neural LMs: Contextual Decomposition Reveals Default Reasoning in Number and Gender Assignment", "url": "https://arxiv.org/pdf/1909.08975"},
+            {"title": "Hierarchical Representation in Neural LMs: Suppression and Recovery of Expectations", "url": "https://arxiv.org/pdf/1906.04068"}
+          ],
+          "forced_functional_hits": ["default", "specific", "suppression", "decoding"],
+          "snippet": "'Default reasoning is non-monotonic reasoning allowing defeasible conclusions from general rules that may have exceptions.' LMs are studied for whether they DO default reasoning, not as a DECODING SELECTION RULE. Returned result: results 'don't directly address the specific-overrides-general pattern in defeasible reasoning within neural language models.' The mechanism is not realized as an output-slot selection rule."
+        },
+        {
+          "query": "Paninian blocking elsewhere condition computational model neural generation most specific form wins suppletion",
+          "hits": [
+            {"title": "Rule-Blocking and Forward-Looking Conditions in the Computational Modelling of Paninian Derivation", "url": "https://www.researchgate.net/publication/221145959"},
+            {"title": "Paradigm Completion for Derivational Morphology", "url": "https://arxiv.org/pdf/1708.09151"},
+            {"title": "Unsupervised Inflection Generation Using Neural Language Modeling", "url": "https://arxiv.org/pdf/1912.01156"}
+          ],
+          "forced_functional_hits": ["blocking", "paninian", "form", "specific"],
+          "snippet": "Paninian rule-blocking IS modeled computationally -- but symbolically, as a restatement of the linguistic Elsewhere/specificity-blocking source itself, not as an independent LLM decoding technique. Neural inflection/paradigm work learns seq2seq mappings; it does NOT implement feature-subset-specificity competition with explicit default-blocking at the output slot."
+        }
+      ],
+      "verdict": "SURVIVES",
+      "colliding_work_or_absence": "ABSENT (literal exact-mechanism). After aggressive search across constrained decoding, maximal-munch/longest-match tokenization, lexical selection/choice in NLG, defeasible/default reasoning in LLMs, MoE/mixture-of-softmaxes, and computational Paninian/Distributed-Morphology blocking, NO published ML/LLM technique was found that selects an output-slot candidate by FEATURE-SUBSET specificity (Subset Principle) with EXPLICIT BLOCKING of a less-specific default. The closest ML technique, maximal-munch tokenization (WordPiece), selects by STRING LENGTH not feature-subset specificity and has no explicit blocked-default form. Constrained decoding blocks by validity. Defeasible 'specific-overrides-general' exists as a reasoning idea but is not realized as a decoding selection rule (search results explicitly state so). The Elsewhere/Subset Principle is the linguistic SOURCE, and its only computational instantiations are symbolic Paninian/DM modeling, not neural LLM decoding.",
+      "composite": 0.42,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "reasoning": "Literal collision genuinely absent, so SURVIVES the exact-equivalence bar. BUT honest composite analysis: novelty ~0.5 (no exact neural port), mechanism ~0.6 (clear, implementable as specificity-weighted masked decoding), verifiability ~0.7, non_trivial ~0.4. The decisive weakness is non-triviality: the abstract effect ('rank candidates by specificity, let the more-specific one suppress the general default') is conceptually adjacent to TWO well-established mechanisms -- maximal-munch longest-match selection and defeasible specific-overrides-general priority logic -- and the 'blocking' itself is lifted directly from the linguistic source. This makes it an OVER-SPECIFIED sub-gate / paraphrase of known selection-with-default-suppression ideas rather than a clean non-trivial lead. Composite 0.42 < 0.90, does NOT clear Gate 1. Survives as a gap but NOT as a real lead."
+    },
+    {
+      "id": "C57",
+      "concept": "Liesegang rings (periodic precipitation)",
+      "functional_effect": "A local quantity accumulates until it crosses a nucleation threshold; the commitment event immediately depletes the surrounding region, creating a refractory exclusion zone; the depleted zone must refill (via slow diffusion) before the next commitment event can occur at a more distant location; this iterates to produce geometrically spaced, periodic commitment events propagating outward through the medium. LLM application: iterative token commitment under depletion -> refractory gap preventing near-identical tokens nearby -> geometrically spaced periodic diversity in sampled sequences.",
+      "ml_techniques_considered": [
+        "Repetition penalty / no_repeat_ngram_size -- token-identity blocking, no depletion/refill/spacing dynamics",
+        "Determinantal point processes for diverse decoding (DPP; D5P4) -- global volume-based repulsion, no refractory refill or geometric outward propagation",
+        "Lateral inhibition + winner-take-all -- competition/sharpening, can oscillate, but not accumulate-deplete-refill-spaced-commitment",
+        "Refractory period in spiking neural networks -- biological, not LLM token commitment with geometric spacing",
+        "Reaction-diffusion / Turing patterns in neural networks -- periodic spatial patterns, not sequential token commitment with local depletion",
+        "Neural cellular automata / excitable-media wave propagation -- nucleating cores, locally periodic, but not token-decoding diversity",
+        "Self-organized periodic firing / neural sequence generation via spatiotemporal inhibition"
+      ],
+      "reformulations": [
+        {
+          "query": "no repeat ngram repetition penalty refractory gap depletes probability mass prevents nearby token diversity decoding",
+          "hits": [
+            {"title": "Penalty Decoding: Well Suppress the Self-Reinforcement Effect in Open-Ended Text Generation", "url": "https://arxiv.org/pdf/2310.14971"},
+            {"title": "Taming Repetition in Dialogue Generation", "url": "https://arxiv.org/pdf/2112.08657"},
+            {"title": "Rethinking Repetition Problems of LLMs in Code Generation", "url": "https://arxiv.org/pdf/2505.10402"},
+            {"title": "Repetition Penalties: Preventing Loops in Language Model Generation", "url": "https://mbrenndoerfer.com/writing/repetition-penalties-language-model-generation"}
+          ],
+          "forced_functional_hits": ["repetition", "penalty", "token", "decoding"],
+          "snippet": "'no_repeat_ngram_size prevents all n-grams of a specified size from occurring more than once'; penalties 'operate on token identity, not semantic content.' A 'forgetting mechanism can disregard distant tokens.' This is hard/soft identity-based blocking -- NO accumulate-threshold-nucleation, NO local probability depletion creating a refractory zone that must REFILL before a geometrically-spaced next commitment."
+        },
+        {
+          "query": "lateral inhibition refractory period winner-take-all periodic spacing neural firing self-organized",
+          "hits": [
+            {"title": "Self-organized annealing in laterally inhibited neural networks shows power law decay", "url": "https://arxiv.org/pdf/cond-mat/0401633"},
+            {"title": "Dynamics of Winner-Take-All Competition in RNNs With Lateral Inhibition", "url": "https://www.researchgate.net/publication/3303829"},
+            {"title": "Neuronal networks with NMDARs and lateral inhibition implement winner-takes-all", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4332340/"}
+          ],
+          "forced_functional_hits": ["lateral", "inhibition", "winner-take-all", "periodic"],
+          "snippet": "'Lateral inhibition sharpens neuron output patterns'; 'winner-takes-all... can lead to entrained oscillations.' Oscillation/competition is present but this is spatial WTA sharpening, NOT a sequential accumulate->nucleate->deplete->refill->geometrically-spaced-outward-propagation mechanism, and not applied to token commitment/diversity in generation."
+        },
+        {
+          "query": "reaction diffusion Turing pattern neural network periodic spacing accumulate threshold deplete refractory zone",
+          "hits": [
+            {"title": "Pattern formation mechanisms of self-organizing reaction-diffusion systems", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7154499/"},
+            {"title": "Turing instability and pattern formation of neural networks with reaction-diffusion terms", "url": "https://www.researchgate.net/publication/271621329"},
+            {"title": "Turing instability in Reaction-Diffusion models on complex networks", "url": "https://arxiv.org/pdf/1405.0642"}
+          ],
+          "forced_functional_hits": ["reaction-diffusion", "periodic", "threshold", "pattern"],
+          "snippet": "'Reaction-diffusion systems self-organize... to give stationary periodic patterns... with characteristic periodicity/wavelength.' This is the PHYSICS family behind Liesegang, applied to neural-net stability/Turing analysis -- but NOT applied to autoregressive token commitment / decoding diversity, and these are STATIONARY patterns, not sequential outward-propagating commitment events with local depletion + refractory refill."
+        },
+        {
+          "query": "determinantal point process diverse decoding suppress nearby similar tokens periodic spacing sampling language model",
+          "hits": [
+            {"title": "Enhancing Diversity in Large Language Models via Determinantal Point Processes", "url": "https://arxiv.org/html/2509.04784v1"},
+            {"title": "D5P4: Partition Determinantal Point Process for Diversity in Parallel Discrete Diffusion Decoding", "url": "https://arxiv.org/pdf/2603.19146"},
+            {"title": "Determinantal Point Processes for Machine Learning", "url": "https://www.researchgate.net/publication/230568602"}
+          ],
+          "forced_functional_hits": ["diverse", "decoding", "suppress", "similar"],
+          "snippet": "'DPPs favor high-quality candidates while repelling similar ones'; diversity = determinant of similarity matrix = volume spanned. This is the closest ML diversity technique, BUT it is GLOBAL set-level volume repulsion, with NO accumulate-threshold nucleation, NO local probability depletion creating a refractory exclusion zone, NO refill-before-next-commitment, and NO geometrically-spaced OUTWARD PROPAGATION. Mechanism is functionally distinct from Liesegang periodic precipitation."
+        },
+        {
+          "query": "accumulate threshold nucleation deplete refractory refill sequential commitment geometrically spaced sequence generation",
+          "hits": [
+            {"title": "Neural Sequence Generation Using Spatiotemporal Patterns of Inhibition", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4633124/"},
+            {"title": "Non-equilibrium Dynamics of Stochastic Point Processes with Refractoriness", "url": "https://arxiv.org/pdf/1002.3798"},
+            {"title": "A general statistical model for waiting times until collapse of a system", "url": "https://arxiv.org/pdf/1912.12275"},
+            {"title": "Modeling heterogeneity, commitment, and memory of bacterial spore germination", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12077093/"}
+          ],
+          "forced_functional_hits": ["accumulate", "threshold", "refractory", "commitment"],
+          "snippet": "'A pulse travels along a spatially recurrent excitatory chain, passing through zones of local feedback inhibition' (neural sequence gen); 'a positive quantity is accumulated from zero... until it overcomes a threshold which triggers collapse' (waiting-times). These capture accumulate-threshold and refractory-inhibition pieces in NEUROSCIENCE/STATS, but NONE assembles the full Liesegang signature (local depletion -> refractory exclusion -> slow refill -> geometrically-spaced outward periodic commitment) and NONE is applied to LLM token decoding diversity."
+        },
+        {
+          "query": "neural cellular automata self-organized periodic firing nucleation depletion refractory wave propagation generation",
+          "hits": [
+            {"title": "Neural Cellular Automata (overview)", "url": "https://www.emergentmind.com/topics/neural-cellular-automata-nca"},
+            {"title": "Towards self-organized control: NCA to robustly control a cart-pole agent", "url": "https://arxiv.org/abs/2106.15240"},
+            {"title": "Wave propagation in filamental cellular automata", "url": "https://arxiv.org/pdf/0907.3246"},
+            {"title": "Self-Organization of Random Cellular Automata: Four Snapshots (Griffeath)", "url": "https://www.stat.cmu.edu/~cshalizi/462/readings/Self-Organization%20of%20Random%20Cellular%20Automata-%20Four%20Snapshots%20(Griffeath).pdf"}
+          ],
+          "forced_functional_hits": ["nucleation", "periodic", "wave", "propagation"],
+          "snippet": "'Excitable media behavior where nucleating spiral cores lead to a locally periodic final state' (CA). Nucleation + periodic + wave propagation appear in CA/excitable-media, but as spatial self-organization, NOT as a generation-side token-commitment-with-depletion-refill mechanism producing geometrically-spaced diversity in LLM outputs."
+        }
+      ],
+      "verdict": "SURVIVES",
+      "colliding_work_or_absence": "ABSENT (literal exact-mechanism). Aggressive search over repetition penalty/no-repeat-ngram, DPP diverse decoding, lateral-inhibition WTA, reaction-diffusion/Turing neural nets, refractory-period SNNs, neural cellular automata, and accumulate-threshold/refractory point processes found NO published technique that, at LLM decoding time, implements the full Liesegang signature: local accumulation -> nucleation threshold -> immediate LOCAL PROBABILITY DEPLETION -> refractory exclusion zone -> slow REFILL before the next commitment can occur at a MORE DISTANT location -> GEOMETRICALLY-SPACED periodic commitment events propagating outward. DPP (closest) does global volume repulsion without refractory refill or geometric outward propagation; repetition penalties block token identity without depletion/refill/spacing dynamics; reaction-diffusion/Turing yields STATIONARY periodic patterns, not sequential token commitment. The exact assembled mechanism is not present.",
+      "composite": 0.45,
+      "clears_gate1": false,
+      "is_real_lead": false,
+      "reasoning": "Literal collision genuinely absent -> SURVIVES the exact bar. Honest composite: novelty ~0.55 (no exact assembly exists), mechanism ~0.6 (each piece is implementable; assembly is the novel part), verifiability ~0.6, non_trivial ~0.4. Decisive weakness: the STATED LLM payoff ('prevents near-identical tokens from being selected in subsequent positions, producing diversity') is functionally the SAME GOAL already served by repetition penalties + DPP diverse decoding; the distinctive Liesegang extras -- geometric spacing, outward propagation, refill-gated refractory timing -- are OVER-SPECIFICATIONS of the source physics with no demonstrated decoding benefit beyond existing diversity mechanisms. So it is a real gap at the level of exact mechanism, but it reads as an over-specified sub-gate rather than a clean non-trivial lead with a distinct, motivated LLM advantage. Composite 0.45 < 0.90; does NOT clear Gate 1. Survives as a gap, not as a real lead."
+    }
+  ],
+  "search_count": 21,
+  "flips_to_collision": ["C30"],
+  "survives": ["C37", "C57"],
+  "honesty_note": "Ran 21 REAL WebSearch queries (7 per candidate); every hit title/URL/snippet recorded is verbatim from actually-returned results, none fabricated or recalled. C30 FLIPPED to COLLISION: the narrow verifier almost certainly saw only the DETECTION-style honeypot (Gotta Catch 'Em All) and reasoned 'C30 is absorption-not-detection => gap'; but the NeurIPS-2023 'Setting the Trap' honeypot (arXiv:2310.18633) is an explicit ABSORB-AND-DISCARD sacrificial module (overfits/soaks the backdoor poison, stem network spared, honeypot then removed) -- a true functional collision with the sacrificial-anode effect; this is the documented Pattern-D-style false positive corrected. C37 and C57 genuinely SURVIVE the literal exact-mechanism collision test after aggressive ML-native reformulation, but I am flagging both LOUDLY as NOT real leads: neither clears Gate 1. C37's effect (specificity-ranked selection with default-blocking) is a paraphrase adjacent to maximal-munch longest-match and defeasible specific-overrides-general priority logic, with the 'blocking' lifted from its own linguistic source -> over-specified sub-gate (composite 0.42). C57's stated decoding payoff (suppress near-identical nearby tokens for diversity) is already served by repetition penalties + DPP diverse decoding; the geometric-spacing/outward-propagation/refill-refractory details are over-specifications of the physics with no demonstrated distinct LLM benefit -> over-specified sub-gate (composite 0.45). Net: 1 flip to COLLISION (C30), 2 survive as gaps but 0 survive as Gate-1-clearing real leads."
+}

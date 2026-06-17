@@ -1,0 +1,325 @@
+{
+  "agent": "verify_C",
+  "candidates": [
+    {
+      "id": "C27",
+      "concept": "Referred pain",
+      "functional_restatement": "a sustained in-context signal activates otherwise-dormant neurons or attention heads tuned to a co-occurring concept (latent-feature / superposition activation, cross-concept emergence under prolonged prompting).",
+      "content_words": ["dormant attention head", "latent feature activation", "superposition / polysemantic", "in-context concept emergence", "co-occurring concept", "context-driven activation"],
+      "reformulations": [
+        {
+          "query": "in-context prompt activates dormant neurons attention heads tuned to co-occurring concept superposition",
+          "hits": [
+            {"title": "Active-Dormant Attention Heads: Mechanistically Demystifying Extreme-Token Phenomena in LLMs", "url": "https://arxiv.org/html/2410.13835v1"},
+            {"title": "Which Attention Heads Matter for In-Context Learning?", "url": "https://arxiv.org/pdf/2502.14010"},
+            {"title": "Polysemanticity or Polysemy? Lexical Identity Confounds Superposition Metrics", "url": "https://arxiv.org/pdf/2604.00443"},
+            {"title": "Interpreting Context Look-ups in Transformers", "url": "https://aclanthology.org/2024.emnlp-main.930.pdf"},
+            {"title": "Concept neurons in the human medial temporal lobe flexibly represent abstract relations between concepts", "url": "https://www.nature.com/articles/s41467-021-26327-3"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Layer 16 Head 25 in Llama 2-7B-Base is active when the context contains many tokens related to programming, and dormant in other contexts such as prose. Whether an attention head becomes inactive depends on the context."
+        },
+        {
+          "query": "sustained context signal triggers latent feature activation cross-concept emergence transformer",
+          "hits": [
+            {"title": "Emergence of Abstractions: Concept Encoding and Decoding Mechanism for In-Context Learning in Transformers", "url": "https://arxiv.org/html/2412.12276v1"},
+            {"title": "The Birth of Knowledge: Emergent Features across Time, Space, and Scale in Large Language Models", "url": "https://arxiv.org/pdf/2505.19440"},
+            {"title": "Provably Transformers Harness Multi-Concept Word Semantics for Efficient In-Context Learning", "url": "https://arxiv.org/pdf/2411.02199"},
+            {"title": "ContextBench: Modifying Contexts for Targeted Latent Activation", "url": "https://arxiv.org/pdf/2506.15735"},
+            {"title": "In-Context Representation Learning", "url": "https://www.emergentmind.com/topics/in-context-representation-learning"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Research investigates methods capable of generating inputs that trigger specific behaviors or latent features in language models, formalizing this as context modification. As context length increases, a sharp phase transition is observed where the model's internal structure realigns from pretrained semantics toward the structure implied by the prompt."
+        },
+        {
+          "query": "prompt-induced activation of polysemantic neurons encoding correlated concept feature steering",
+          "hits": [
+            {"title": "Efficient and accurate steering of Large Language Models through attention-guided feature learning", "url": "https://arxiv.org/pdf/2602.00333"},
+            {"title": "Signal in the Noise: Polysemantic Interference Transfers and Predicts Cross-Model Influence", "url": "https://arxiv.org/html/2505.11611v3"},
+            {"title": "LF-Steering: Latent Feature Activation Steering for Enhancing Semantic Consistency in Large Language Models", "url": "https://arxiv.org/pdf/2501.11036"},
+            {"title": "CorrSteer: Generation-Time LLM Steering via Correlated Sparse Autoencoder Features", "url": "https://arxiv.org/pdf/2508.12535"},
+            {"title": "Interpretable Steering of Large Language Models with Feature Guided Activation Additions", "url": "https://arxiv.org/html/2501.09929v3"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Upon inserting a prefix into a prompt to activate a concept, a token's attention to these prefix tokens acts as an effective heuristic for tracking concept activity. Model components of LLMs typically encode multiple entangled features due to the polysemanticity issue."
+        },
+        {
+          "query": "long context elicits otherwise inactive features associated concept sparse autoencoder LLM",
+          "hits": [
+            {"title": "Sparse Feature Coactivation Reveals Causal Semantic Modules in Large Language Models", "url": "https://arxiv.org/pdf/2506.18141"},
+            {"title": "Llama Scope: Extracting Millions of Features from Llama-3.1-8B with Sparse Autoencoders", "url": "https://arxiv.org/pdf/2410.20526"},
+            {"title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models", "url": "https://openreview.net/forum?id=F76bwRSLeK"},
+            {"title": "AdaptiveK Sparse Autoencoders: Dynamic Sparsity Allocation for Interpretable LLM Representations", "url": "https://arxiv.org/pdf/2508.17320"},
+            {"title": "DeepMind makes big jump toward interpreting LLMs with sparse autoencoders", "url": "https://venturebeat.com/ai/deepmind-makes-big-jump-toward-interpreting-llms-with-sparse-autoencoders"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Sparse Autoencoders are a scalable and unsupervised method to find interpretable, monosemantic features in the residual streams of large language models. Methodologies often lead to frequently activated (dense) features alongside inactive (dead) features."
+        },
+        {
+          "query": "contextual co-occurrence activates non-target attention head representing related concept emergent behavior",
+          "hits": [
+            {"title": "Interpreting Context Look-ups in Transformers: Investigating Attention-MLP Interactions", "url": "https://arxiv.org/pdf/2402.15055"},
+            {"title": "Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs", "url": "https://arxiv.org/pdf/2505.09338"},
+            {"title": "Focus Directions Make Your Language Models Pay More Attention to Relevant Contexts", "url": "https://arxiv.org/pdf/2503.23306"},
+            {"title": "Context Modulates Congruency Effects in Selective Attention to Social Cues", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6005850/"}
+          ],
+          "forced_functional_hits": 2,
+          "snippet": "Some attention heads recognize specific contexts relevant to predicting a token and activate a downstream token-predicting neuron accordingly. Research has identified attention heads - the entrainment heads - that correspond to the contextual entrainment phenomenon."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Active-Dormant Attention Heads: Mechanistically Demystifying Extreme-Token Phenomena in LLMs", "url": "https://arxiv.org/html/2410.13835v1"},
+        {"title": "ContextBench: Modifying Contexts for Targeted Latent Activation", "url": "https://arxiv.org/pdf/2506.15735"},
+        {"title": "LF-Steering: Latent Feature Activation Steering for Enhancing Semantic Consistency in LLMs", "url": "https://arxiv.org/pdf/2501.11036"},
+        {"title": "Llama See, Llama Do: Contextual Entrainment in LLMs", "url": "https://arxiv.org/pdf/2505.09338"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {
+        "pass": false,
+        "why": "The candidate restates a mechanism (context-driven activation of dormant heads/latent features) that is the explicit subject of an entire published subfield (active-dormant heads, SAE latent activation, contextual entrainment, targeted latent activation via ContextBench). The 'referred pain' metaphor maps directly onto 'context modification triggers latent feature' with no residual mechanism the literature lacks. Operator is ANALOGY_TRANSFERS_TO_OPEN (a biology metaphor mapped onto an already-saturated interpretability effect), so gate4 fails the operator!=ANALOGY constraint AND the verbatim-quote claim does not survive as a distinct mechanism."
+      },
+      "composite_estimate": 0.06,
+      "reasoning": "Every clause of the functional restatement is independently published: 'otherwise-dormant heads activated by sustained context' = active-dormant attention heads + contextual entrainment heads; 'latent-feature/superposition activation' = SAE feature activation + LF-Steering/ContextBench targeted latent activation; 'cross-concept emergence under prolonged prompting' = concept encoding-decoding emergence + context-length phase transition. 13 distinct forced functional hits across 5 reformulations. Novelty is essentially zero (interpretability is one of the most actively mined areas), mechanism is real but not new, verifiability high, non-trivial moderate. COLLISION: mechanism distinct (biology), effect fully achieved by known techniques."
+    },
+    {
+      "id": "C11",
+      "concept": "Trophallaxis",
+      "functional_restatement": "multi-agent message passing where a single message carries BOTH task content AND regulatory metadata (gradient information, memory state, trust/reputation scores).",
+      "content_words": ["multi-agent message", "metadata payload", "gradient sharing", "memory / KV state", "trust / reputation score", "communication protocol schema"],
+      "reformulations": [
+        {
+          "query": "multi-agent LLM message carries task content and metadata gradient memory trust score combined payload",
+          "hits": [
+            {"title": "Attention Knows Whom to Trust: Attention-based Trust Management for LLM Multi-Agent Systems", "url": "https://arxiv.org/pdf/2506.02546"},
+            {"title": "Memory in LLM-based Multi-agent Systems: Mechanisms, Challenges, and Collective", "url": "https://www.techrxiv.org/users/1007269/articles/1367390/master/file/data/LLM_MAS_Memory_Survey_preprint_/LLM_MAS_Memory_Survey_preprint_.pdf"},
+            {"title": "An Adversary-Resistant Multi-Agent LLM System via Credibility Scoring", "url": "https://arxiv.org/pdf/2505.24239"},
+            {"title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions", "url": "https://arxiv.org/html/2507.05257v3"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Memory entries should track metadata such as author agent, timestamp, confidence, and evidence. Systems must account not only for what information is important, but which agent is producing it, how trustworthy or role-relevant it is, and how it should be stored relative to other agents' contributions."
+        },
+        {
+          "query": "agent communication message piggyback regulatory information reputation alongside content",
+          "hits": [
+            {"title": "Zero-Knowledge Audit for Internet of Agents: Privacy-Preserving Communication Verification with Model Context Protocol", "url": "https://arxiv.org/pdf/2512.14737"},
+            {"title": "Strategic communication by regulatory agencies as a form of reputation management", "url": "https://www.researchgate.net/publication/340422430"},
+            {"title": "Method and apparatus insuring regulatory compliance of an enterprise messaging system", "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/6654788"}
+          ],
+          "forced_functional_hits": 1,
+          "snippet": "Noisy reformulation: the word 'regulatory' pulled policy/compliance hits. Only the agent-communication audit paper (MCP) is on-target; it concerns metadata/verification carried with agent messages."
+        },
+        {
+          "query": "inter-agent message bundles task output with confidence and memory state shared communication channel LLM",
+          "hits": [
+            {"title": "Survey of LLM Agent Communication with MCP: A Software Engineering Perspective", "url": "https://arxiv.org/pdf/2506.05364"},
+            {"title": "KVComm: Enabling Efficient LLM Communication through Selective KV Sharing", "url": "https://arxiv.org/pdf/2510.03346"},
+            {"title": "Enabling Agents to Communicate Entirely in Latent Space (Interlat)", "url": "https://arxiv.org/pdf/2511.09149"},
+            {"title": "Beyond Self-Talk: A Communication-Centric Survey of LLM-Based Multi-Agent Systems", "url": "https://arxiv.org/html/2502.14321v2"},
+            {"title": "Transmission With Machine Language Tokens: A Paradigm for Task-Oriented Agent Communication", "url": "https://arxiv.org/pdf/2507.21454"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "KV pairs serve as an effective medium for inter-LLM communication. Memory and state management are crucial for multi-agent interactions... agents can be designed to take action only when their confidence exceeds a predefined threshold. Inter-agent input/dependency validation involves checking messages between agents including cross-agent consistency and mutual agreement on shared state."
+        },
+        {
+          "query": "communicating agents exchange gradients along with task messages decentralized learning",
+          "hits": [
+            {"title": "CoDeC: Communication-Efficient Decentralized Continual Learning", "url": "https://arxiv.org/pdf/2303.15378"},
+            {"title": "A Survey of Multi-Agent Deep Reinforcement Learning with Communication", "url": "https://arxiv.org/pdf/2203.08975"},
+            {"title": "Communication with factorized policy gradients in multi-agent deep reinforcement learning", "url": "https://link.springer.com/article/10.1007/s00521-025-11272-9"},
+            {"title": "Decentralized Communication-Efficient Multi-Task Representation Learning", "url": "https://arxiv.org/html/2204.08117"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "CoDeC combines orthogonal gradient projection with gossip averaging across decentralized agents... a novel architecture for communicating agents applies centralized but factorized value functions along with gradient backpropagation. Allowing gradients to flow across agents provides grounding feedback for communication."
+        },
+        {
+          "query": "structured message format combining content metadata trust reputation multi-agent protocol",
+          "hits": [
+            {"title": "TrustFlow: Topic-Aware Vector Reputation Propagation for Multi-Agent Ecosystems", "url": "https://arxiv.org/pdf/2603.19452"},
+            {"title": "A Survey of Agent Interoperability Protocols: MCP, ACP, A2A, ANP", "url": "https://arxiv.org/html/2505.02279v2"},
+            {"title": "LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems", "url": "https://arxiv.org/pdf/2603.08852"},
+            {"title": "Agent Messaging Protocol (AMP)", "url": "https://github.com/agentmessaging/protocol"},
+            {"title": "Metrics for Computing Trust in a Multi-Agent Environment", "url": "https://arxiv.org/pdf/1305.2981"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "A2A messages follow a consistent schema and include three main components: role, parts (content units), and optional metadata (tags, timestamps, routing details). TrustFlow assigns each agent a multi-dimensional reputation vector... Messages from external senders include trust-level annotations. Identity metadata and structured payloads improve routing quality."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "A Survey of Agent Interoperability Protocols (A2A: message = role + content parts + metadata)", "url": "https://arxiv.org/html/2505.02279v2"},
+        {"title": "KVComm: Enabling Efficient LLM Communication through Selective KV Sharing (content + memory/KV state)", "url": "https://arxiv.org/pdf/2510.03346"},
+        {"title": "TrustFlow: reputation propagation with content-gated trust annotations on messages", "url": "https://arxiv.org/pdf/2603.19452"},
+        {"title": "CoDeC / factorized policy-gradient comms (task message + gradient information)", "url": "https://arxiv.org/pdf/2303.15378"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {
+        "pass": false,
+        "why": "Each of the three concrete sub-mechanisms named in the restatement (content+gradient, content+memory/KV-state, content+trust/reputation) has a direct published instantiation. The 'trophallaxis' (mouth-to-mouth nutrient+signal exchange) metaphor maps cleanly onto 'message carrying payload + regulatory metadata' which is literally the A2A/MCP protocol design and the decentralized-RL gradient-sharing design. Operator = ANALOGY_TRANSFERS_TO_OPEN; no residual mechanism remains unaddressed, so gate4 fails."
+      },
+      "composite_estimate": 0.07,
+      "reasoning": "Bundling regulatory/control metadata with task content in agent messages is the standard design of modern agent communication protocols (A2A schema = content parts + metadata; messages carry trust-level annotations) and of decentralized multi-agent learning (gradients exchanged alongside task messages; KV/memory state shared via KVComm). 14 forced functional hits across 5 reformulations (one reformulation degraded by the ambiguous word 'regulatory'). Novelty near zero, mechanism real but standard, verifiability high. COLLISION."
+    },
+    {
+      "id": "C18",
+      "concept": "Retting",
+      "functional_restatement": "a learned module that selectively removes spurious correlations binding features together, disentangling target features from nuisance/confounding factors.",
+      "content_words": ["spurious correlation removal", "disentanglement", "nuisance factor", "confounder", "invariant representation", "debiasing"],
+      "reformulations": [
+        {
+          "query": "learned module removes spurious correlations disentangle target features from nuisance confounding factors",
+          "hits": [
+            {"title": "RE-SORT: Removing Spurious Correlation in Multilevel Interaction for CTR Prediction", "url": "https://arxiv.org/html/2309.14891"},
+            {"title": "Learning Generalizable Models via Disentangling Spurious and Enhancing Potential Correlations", "url": "https://arxiv.org/pdf/2401.05752"},
+            {"title": "Controlling Learned Effects to Reduce Spurious Correlations in Text Classifiers", "url": "https://arxiv.org/pdf/2305.16863"},
+            {"title": "MIMM-X: Disentangling Spurious Correlations for Medical Image Analysis", "url": "https://arxiv.org/pdf/2511.22990"},
+            {"title": "Beyond Correlation: Causal Multi-View Unsupervised Feature Selection Learning", "url": "https://arxiv.org/pdf/2509.13763"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "A spurious correlation elimination (SCE) module leverages Laplacian kernel mapping and sample reweighting to eliminate spurious correlations concealed within multilevel features, allowing the model to focus on true causal features. A Confounder Attention Weighter (CAW) assigns adaptive attention weights to each spuriously correlated factor."
+        },
+        {
+          "query": "neural module selectively strips spurious feature correlations invariant representation learning debiasing",
+          "hits": [
+            {"title": "Let Samples Speak: Mitigating Spurious Correlation by Exploiting the Clusterness of Samples", "url": "https://arxiv.org/pdf/2512.22874"},
+            {"title": "Gradient Extrapolation for Debiased Representation Learning", "url": "https://arxiv.org/pdf/2503.13236"},
+            {"title": "Self-supervised debiasing using low rank regularization", "url": "https://arxiv.org/pdf/2210.05248"},
+            {"title": "DeNetDM: Debiasing by Network Depth Modulation", "url": "https://arxiv.org/pdf/2403.19863"},
+            {"title": "Out of spuriousity: Improving robustness to spurious correlations without group annotations", "url": "https://arxiv.org/pdf/2407.14974"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Some approaches identify subnetworks responsible for spurious correlations and use contrastive loss to force models to unlearn spurious connections, based on the hypothesis that a subnetwork exists that relies only on invariant features. Obtaining bias-invariant representations by neutralizing spurious features."
+        },
+        {
+          "query": "trainable component decouples entangled features separate causal signal from confounders representation",
+          "hits": [
+            {"title": "C-Disentanglement: Discovering Causally-Independent Generative Factors under an Inductive Bias of Confounder", "url": "https://arxiv.org/pdf/2310.17325"},
+            {"title": "Causal Deconfounding via Confounder Disentanglement for Dual-Target Cross-Domain Recommendation", "url": "https://arxiv.org/html/2404.11180v3"},
+            {"title": "Disentangled Representation for Causal Mediation Analysis (DMAVAE)", "url": "https://arxiv.org/pdf/2302.09694"},
+            {"title": "Robustly Disentangled Causal Mechanisms", "url": "https://arxiv.org/pdf/1811.00007"},
+            {"title": "CausalEGM: A General Causal Inference Framework by Encoding Generative Modeling", "url": "https://github.com/SUwonglab/CausalEGM"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "The Causal De-Confounding framework for FSL (CDC-FSL) dynamically learns disentangled representations of causal and confounder features. CausalEGM decouples the dependencies of confounders on both treatment and outcome and maps the confounders to a low-dimensional latent space."
+        },
+        {
+          "query": "selectively dissolve feature entanglement remove nuisance attribute disentangled latent factor",
+          "hits": [
+            {"title": "Weakly Supervised Invariant Representation Learning Via Disentangling Known and Unknown Nuisance Factors", "url": "https://arxiv.org/pdf/2209.06827"},
+            {"title": "Relevance Factor VAE: Learning and Identifying Disentangled Factors", "url": "https://arxiv.org/pdf/1902.01568"},
+            {"title": "Disentangling Disentangled Representations: Towards Improved Latent Units via Diffusion Models", "url": "https://arxiv.org/html/2410.23820v1"},
+            {"title": "Feature Disentanglement in ML", "url": "https://www.emergentmind.com/topics/feature-disentanglement"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Orthogonal projection that removes nuisance attribute directions. Training frameworks for achieving disentanglement and invariance of representation simultaneously, introducing weak supervision signals to split known nuisance factors from predictive and unknown nuisance factors. It is easier to derive representations invariant to nuisance factors by marginalizing over corresponding dimensions."
+        },
+        {
+          "query": "break apart bound spurious features adversarial removal nuisance information robust representation",
+          "hits": [
+            {"title": "Identifying and Disentangling Spurious Features in Pretrained Image Representations", "url": "https://arxiv.org/pdf/2306.12673"},
+            {"title": "Discovery and Separation of Features for Invariant Representation Learning", "url": "https://arxiv.org/pdf/1912.00646"},
+            {"title": "Disentangled Text Representation Learning with Information-Theoretic Perspective for Adversarial Robustness", "url": "https://arxiv.org/pdf/2210.14957"},
+            {"title": "Distilling Robust and Non-Robust Features in Adversarial Examples by Information Bottleneck", "url": "https://arxiv.org/pdf/2204.02735"},
+            {"title": "Counterfactual Adversarial Debiasing", "url": "https://www.emergentmind.com/topics/counterfactual-adversarial-debiasing-frameworks"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "The entanglement of core and spurious features is linear and can be reversed with linear transformation, using a linear autoencoder to split representations into three parts: class label, spurious feature, and other required features. Task-discriminative features can be separated from nuisances through adversarial min-max games."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "RE-SORT: Spurious Correlation Elimination (SCE) module", "url": "https://arxiv.org/html/2309.14891"},
+        {"title": "Identifying and Disentangling Spurious Features in Pretrained Image Representations", "url": "https://arxiv.org/pdf/2306.12673"},
+        {"title": "Weakly Supervised Invariant Representation Learning via Disentangling Known and Unknown Nuisance Factors", "url": "https://arxiv.org/pdf/2209.06827"},
+        {"title": "C-Disentanglement: Causally-Independent Factors under Confounder Inductive Bias", "url": "https://arxiv.org/pdf/2310.17325"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {
+        "pass": false,
+        "why": "The restatement is verbatim the canonical statement of the spurious-correlation/disentanglement/invariant-representation/deconfounding problem, one of the most heavily studied areas of ML (hundreds of papers, dedicated named modules like SCE and CAW). The 'retting' (controlled microbial rotting that dissolves the pectin binding flax fibers, freeing the useful fiber) metaphor maps exactly onto 'a learned module that dissolves the spurious binding between features, freeing the target feature'. Operator = ANALOGY_TRANSFERS_TO_OPEN; zero residual unaddressed mechanism, so gate4 fails."
+      },
+      "composite_estimate": 0.05,
+      "reasoning": "This is the lowest-novelty candidate of the four: 'selectively remove spurious correlations to disentangle target from nuisance/confounders' is the literal definition of debiasing / invariant representation learning / disentangled and deconfounded representation learning, with named learned modules (SCE in RE-SORT, CAW in MIMM-X) doing exactly this. 19 forced functional hits across 5 reformulations - the densest collision in this batch. Novelty ~0, mechanism real but textbook, verifiability high, non-trivial low (well-trodden). COLLISION."
+    },
+    {
+      "id": "C26",
+      "concept": "Diapedesis",
+      "functional_restatement": "two-stage coarse-to-fine retrieval: a cheap weak-threshold first pass ('rolling') followed by a gated firm second pass ('arrest'), for RAG / knowledge-store lookup.",
+      "content_words": ["two-stage retrieval", "coarse-to-fine", "recall then rerank", "candidate generation", "reranking / cross-encoder", "gating threshold"],
+      "reformulations": [
+        {
+          "query": "two-stage coarse-to-fine retrieval cheap recall first pass then gated reranking second pass RAG",
+          "hits": [
+            {"title": "Two-Stage Retrieval Method", "url": "https://www.emergentmind.com/topics/two-stage-retrieval-method"},
+            {"title": "Rerankers and Two-Stage Retrieval (Pinecone)", "url": "https://www.pinecone.io/learn/series/rag/rerankers/"},
+            {"title": "Advanced RAG Retrieval: Cross-Encoders & Reranking", "url": "https://towardsdatascience.com/advanced-rag-retrieval-cross-encoders-reranking/"},
+            {"title": "Enhancing Retrieval-Augmented Generation with Two-Stage Retrieval: FlashRank Reranking and Query Expansion", "url": "https://arxiv.org/pdf/2601.03258"},
+            {"title": "ModernBERT + ColBERT: Enhancing biomedical RAG through an advanced re-ranking retriever", "url": "https://arxiv.org/pdf/2510.04757"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "Two-stage retrieval decomposes the retrieval process into a sequence of: (1) coarse candidate generation (recall-focused), and (2) fine-grained re-ranking/rationalization (precision-focused). The first stage maximizes recall while minimizing latency; the reranker reevaluates retrieved documents adjusting rankings based on computed relevance scores."
+        },
+        {
+          "query": "retrieve then rerank weak threshold candidate generation strict filtering knowledge retrieval LLM",
+          "hits": [
+            {"title": "RankCoT: Refining Knowledge for Retrieval-Augmented Generation through Ranking Chain-of-Thoughts", "url": "https://arxiv.org/pdf/2502.17888"},
+            {"title": "Rethinking LLM Parametric Knowledge as Post-retrieval Confidence for Dynamic Retrieval and Reranking", "url": "https://arxiv.org/pdf/2509.06472"},
+            {"title": "LLM-Confidence Reranker: A Training-Free Approach for Enhancing RAG Systems", "url": "https://arxiv.org/pdf/2602.13571"},
+            {"title": "InfoGain-RAG: Boosting RAG via Document Information Gain-based Reranking and Filtering", "url": "https://arxiv.org/pdf/2509.12765"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "The system first retrieves documents based on a user query, then a reranking model refines the initial document set. The LLM-Confidence Reranker (LCR) employs a two-stage process including confidence assessment followed by binning and multilevel sorting based on query and document confidence thresholds."
+        },
+        {
+          "query": "cascade retrieval cheap first stage high recall expensive second stage precision threshold gating cross-encoder",
+          "hits": [
+            {"title": "Two-Stage Retrieval Architecture", "url": "https://www.emergentmind.com/topics/two-stage-retrieval-architecture"},
+            {"title": "Cascading retrieval with multi-vector representations: balancing efficiency and effectiveness (Pinecone)", "url": "https://www.pinecone.io/blog/cascading-retrieval-with-multi-vector-representations/"},
+            {"title": "Two-Stage Cascade Architecture", "url": "https://www.emergentmind.com/topics/two-stage-cascade-architecture"},
+            {"title": "Layered Retrieval Cascades", "url": "https://www.emergentmind.com/topics/layered-retrieval-cascade"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "The first stage rapidly generates a subset of candidate items by applying a computationally efficient but coarse-grained retrieval function; the second stage applies a more expensive, fine-tuned model to precisely re-rank these candidates. Speedup stems from rapid elimination of negatives by early stages, so expensive computation is reserved only for challenging or ambiguous cases."
+        },
+        {
+          "query": "multi-stage ranking pipeline loose initial filter then confident final selection document retrieval",
+          "hits": [
+            {"title": "MultiLTR: Text Ranking with a Multi-Stage Learning-to-Rank Approach", "url": "https://www.mdpi.com/2078-2489/16/4/308"},
+            {"title": "Assessing Efficiency-Effectiveness Tradeoffs in Multi-Stage Retrieval Systems Without Using Relevance Judgments", "url": "https://arxiv.org/pdf/1506.00717"},
+            {"title": "Full Stage Learning to Rank: A Unified Framework for Multi-Stage Systems", "url": "https://arxiv.org/pdf/2405.04844"},
+            {"title": "WSDM Cup 2026 Multilingual Retrieval: A Low-Cost Multi-Stage Retrieval Pipeline", "url": "https://arxiv.org/pdf/2602.16989"}
+          ],
+          "forced_functional_hits": 4,
+          "snippet": "A cascading sequence of phases - a first filtering step in which a large set of candidate documents are extracted using a simple technique such as Boolean matching and/or static document scores; and then one or more ranking steps, in which the pool is scored more precisely. This division enables systems to retain high recall while producing precise final rankings."
+        },
+        {
+          "query": "approximate first-pass retrieval followed by precise verification gate vector database lookup",
+          "hits": [
+            {"title": "Retrieval strategies: Finding the right information (Anyscale Docs)", "url": "https://docs.anyscale.com/rag/quality-improvement/retrieval-strategies"},
+            {"title": "A Comprehensive Survey on Vector Database: Storage and Retrieval Technique, Challenge", "url": "https://arxiv.org/html/2310.11703v2"},
+            {"title": "Fast Exact Retrieval for Nearest-neighbor Lookup (FERN)", "url": "https://arxiv.org/pdf/2405.04435"},
+            {"title": "What Is a Vector Database? (IBM)", "url": "https://www.ibm.com/think/topics/vector-database"}
+          ],
+          "forced_functional_hits": 3,
+          "snippet": "Vector-search services are widely adopted for approximate nearest-neighbor (ANN) queries over large embedding corpora. This multi-stage approach - approximate nearest-neighbor search for initial retrieval followed by more precise verification or filtering - balances retrieval speed and accuracy."
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        {"title": "Rerankers and Two-Stage Retrieval (recall stage + cross-encoder rerank gate)", "url": "https://www.pinecone.io/learn/series/rag/rerankers/"},
+        {"title": "LLM-Confidence Reranker: two-stage process with confidence-threshold gating", "url": "https://arxiv.org/pdf/2602.13571"},
+        {"title": "Cascading retrieval with multi-vector representations (cheap first stage, expensive precise second)", "url": "https://www.pinecone.io/blog/cascading-retrieval-with-multi-vector-representations/"},
+        {"title": "MultiLTR: Multi-Stage Learning-to-Rank (loose filter then precise rank)", "url": "https://www.mdpi.com/2078-2489/16/4/308"}
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {
+        "pass": false,
+        "why": "The restatement is verbatim the standard 'retrieve-then-rerank' / cascade / multi-stage retrieval architecture that dominates modern RAG and IR. The 'diapedesis' two-step adhesion model (weak selectin-mediated rolling then firm integrin-mediated arrest) maps one-to-one onto 'cheap high-recall first pass then gated precise rerank' - and the confidence-threshold gate is literally implemented (LLM-Confidence Reranker, InfoGain filtering). Operator = ANALOGY_TRANSFERS_TO_OPEN; the mapping is exact with zero residual mechanism, so gate4 fails."
+      },
+      "composite_estimate": 0.05,
+      "reasoning": "Two-stage coarse-to-fine retrieval (cheap recall-oriented candidate generation -> expensive precision-oriented gated reranking) is arguably THE canonical retrieval architecture; the metaphor adds nothing functional. The 'gated firm second pass' = threshold/confidence-based reranking, directly published (LLM-Confidence Reranker two-stage with confidence thresholds; InfoGain-RAG reranking+filtering). 19 forced functional hits across 5 reformulations. Novelty ~0, mechanism standard, verifiability high, non-trivial low. COLLISION."
+    }
+  ],
+  "search_count": 20,
+  "honesty_note": "All 20 WebSearch calls were real (5 reformulations x 4 candidates), executed via the live WebSearch tool; titles/URLs/snippets are recorded verbatim from returned results and not from memory. The prior COLLISION base rate held: all four candidates collide. Forced-hit density was high for every candidate (lowest single-reformulation forced-hit count was 1, on a C11 reformulation degraded by the ambiguous word 'regulatory'; every candidate had multiple reformulations at 3-4 forced hits). No GAP was found and none was manufactured. C18 (Retting) and C26 (Diapedesis) are the most saturated (textbook ML/IR problems with named modules). C27 and C11 are equally collided but against younger, fast-moving subfields (mechanistic interpretability; agent communication protocols). Two snippet-derived publication-year strings looked unusually recent (e.g. arXiv 2602.x, 2603.x, 2604.x); I recorded them exactly as returned without asserting their real existence beyond what the tool surfaced."
+}

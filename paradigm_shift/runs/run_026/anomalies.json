@@ -1,0 +1,171 @@
+{
+  "run": "run_026",
+  "phase": 1,
+  "anomalies": [
+    {
+      "id": "ANOM_01",
+      "anomaly_name": "Grokking / Delayed Generalization",
+      "measurement": "Neural networks (e.g. transformers on modular arithmetic) achieve near-perfect training accuracy at ~10^3 optimization steps but validation accuracy stays near random for ~10^6 steps, then abruptly jumps to perfect generalization \u2014 long after overfitting.",
+      "prediction": "Classical learning theory predicts that once a model has overfit (training loss near zero, validation loss high), further training without additional data or regularization change will not improve generalization; overfitting is a dead end.",
+      "discrepancy": "Measured: generalization jumps to near-perfect after ~1000x more training steps post-overfitting; Predicted: no generalization improvement should occur after the model has already memorized the training set.",
+      "primary_quote": "training accuracy becomes close to perfect at fewer than 1,000 optimization steps, but validation accuracy takes close to 1 million steps to reach that level",
+      "quote_source_url": "https://arxiv.org/pdf/2201.02177",
+      "trigger_phrase_found": "surprising phenomenon of delayed generalization where neural networks generalizes long after overfitting their training set",
+      "domain": "training dynamics / optimization",
+      "search_queries_used": [
+        "neural network grokking unexplained delayed generalization surprising",
+        "grokking Power 2022 \"generalizes long after overfitting\" verbatim OpenAI arxiv",
+        "emergentmind grokking \"generalizes long after overfitting on the training set\" Power verbatim original paper"
+      ],
+      "orig_id": "ANOM_A1"
+    },
+    {
+      "id": "ANOM_02",
+      "anomaly_name": "Deep Double Descent: More Data (and Bigger Models) Can Hurt",
+      "measurement": "In modern deep neural networks, test error follows a U-shaped ('double descent') curve as model size or data size increases \u2014 specifically, there exist regimes where increasing the number of training samples by up to 4x actually makes test performance worse, contrary to monotone improvement.",
+      "prediction": "Classical bias-variance tradeoff theory predicts that test error decreases monotonically as more training data is added; larger datasets always help. Statistical learning theory also predicts a single optimal model size beyond which overfitting degrades performance.",
+      "discrepancy": "Measured: test error is non-monotone \u2014 it peaks near the 'interpolation threshold' and adding more data in that regime hurts; Predicted: more data always reduces test error and increasing model size beyond optimal always hurts.",
+      "primary_quote": "the authors identify certain regimes where increasing (even quadrupling) the number of train samples actually hurts test performance",
+      "quote_source_url": "https://arxiv.org/abs/1912.02292",
+      "trigger_phrase_found": "where bigger models and more data hurt",
+      "domain": "generalization / bias-variance / overparameterization",
+      "search_queries_used": [
+        "double descent surprising contrary to bias-variance tradeoff neural network",
+        "Nakkiran deep double descent \"test error can be a non-monotonic function\" \"more data can hurt\" verbatim",
+        "deep double descent arxiv 1912.02292 abstract \"model-wise double descent\" \"epoch-wise\" \"sample-wise\" \"non-monotone\" verbatim"
+      ],
+      "orig_id": "ANOM_A2"
+    },
+    {
+      "id": "ANOM_03",
+      "anomaly_name": "Emergent Abilities of LLMs: Sharp Unpredicted Capability Thresholds",
+      "measurement": "Large language models (e.g. GPT-3, LaMDA) exhibit near-zero performance on certain tasks across many orders of magnitude of training compute, then performance jumps sharply above random at a critical scale threshold \u2014 abilities that do not appear in smaller models and are not predictable by extrapolating smaller-model scaling curves.",
+      "prediction": "Neural scaling laws (e.g. Chinchilla, Kaplan et al.) predict smooth, continuous, power-law improvement in task performance as model scale and compute increase; smaller-model trends should extrapolate predictively to larger models.",
+      "discrepancy": "Measured: discrete, unpredicted ability jumps from near-random to well-above-random at specific compute thresholds; Predicted: smooth, gradual, continuous improvement following the established power-law extrapolation from smaller models.",
+      "primary_quote": "abilities that are not present in smaller-scale models but are present in large-scale models; thus they cannot be predicted by simply extrapolating the performance improvements on smaller-scale models",
+      "quote_source_url": "https://arxiv.org/pdf/2206.07682",
+      "trigger_phrase_found": "emergence cannot be predicted by extrapolating a scaling law based on small-scale models",
+      "domain": "scaling laws / emergent capabilities",
+      "search_queries_used": [
+        "scaling law exponent unexplained why power law neural network fails to predict",
+        "emergence capability large language model \"sharp transition\" \"not predicted\" scaling law threshold unexpected",
+        "emergent abilities LLM \"performance is near-random\" \"sharp\" \"not predicted by extrapolating\" verbatim Wei 2022 arxiv"
+      ],
+      "orig_id": "ANOM_A3+ANOM_B1",
+      "proposed_resolution_in_literature": "When linear/continuous metrics (e.g., token edit distance) are used, LLM performance improves smoothly and predictably with scale; the apparent sharp phase transitions disappear entirely. | emergent abilities are a mirage caused primarily by the researcher choosing a metric that nonlinearly or discontinuously deforms per-token error rates",
+      "note": "Emergent abilities: measured sharp jumps (A3) vs Schaeffer mirage/metric-artifact counter (B1). The contested resolution IS the Phase-2 question."
+    },
+    {
+      "id": "ANOM_04",
+      "anomaly_name": "Sharp Minima Can Generalize: Flat Minima Hypothesis Contradicted",
+      "measurement": "Empirically, neural networks trained with different optimizers or batch sizes converge to both flat and sharp minima, and sharp minima provably generalize as well as (or better than) flat minima; furthermore, a flat minimum can be reparameterized to appear arbitrarily sharp without changing the model's function or generalization at all.",
+      "prediction": "The 'flat minima hypothesis' (Hochreiter & Schmidhuber 1997, Keskar et al. 2017) predicts that flatter loss landscape minima generalize better than sharper ones, and that large-batch SGD's tendency to find sharper minima explains its generalization gap \u2014 flatness is supposed to be the key predictor of generalization.",
+      "discrepancy": "Measured: sharp minima generalize as well as flat ones, and flatness metrics are reparameterization-sensitive (can be made arbitrarily flat or sharp without changing function); Predicted: flat minima should strictly generalize better, and flatness metrics should faithfully predict generalization quality.",
+      "primary_quote": "flatness is sensitive to reparametrizations of the neural network: we can reparametrize a neural network without changing its outputs while making sharp minima look arbitrarily flat and vice versa",
+      "quote_source_url": "https://arxiv.org/abs/1703.04933",
+      "trigger_phrase_found": "most notions of flatness are problematic for deep models and cannot be directly applied to explain generalization",
+      "domain": "loss landscape geometry / optimization / generalization",
+      "search_queries_used": [
+        "\"flat minima\" \"sharp minima\" generalization contradiction empirical result unexpected",
+        "flat sharp minima generalization \"reparameterization\" Dinh 2017 \"sharp minima can generalize\" surprising contradiction"
+      ],
+      "orig_id": "ANOM_A4"
+    },
+    {
+      "id": "ANOM_05",
+      "anomaly_name": "Surge Phenomenon: Adam Optimizer's Optimal Learning Rate is Non-Monotone with Batch Size",
+      "measurement": "For Adam-style optimizers, the empirically measured optimal learning rate first increases and then decreases (a 'surge') as batch size grows \u2014 it is non-monotone with batch size, and then converges to a fixed non-zero value at large batch sizes.",
+      "prediction": "The established linear scaling rule (Goyal et al. 2017) predicts that optimal learning rate increases linearly with batch size for SGD; similar linear or square-root scaling rules were assumed to hold for adaptive optimizers like Adam. The prediction is a monotone relationship: larger batch size \u2192 proportionally larger optimal learning rate.",
+      "discrepancy": "Measured: optimal learning rate first rises then falls as batch size increases (non-monotone surge) for Adam-style optimizers; Predicted: optimal learning rate should scale monotonically (linearly or with a square-root rule) with batch size.",
+      "primary_quote": "the optimal learning rate first rises and then falls as the batch size increases, and the peak value of the surge gradually moves toward larger batch sizes as training progresses",
+      "quote_source_url": "https://arxiv.org/abs/2405.14578",
+      "trigger_phrase_found": "traditional scaling rules fail to capture the true scaling law of optimal learning rates with batch sizes",
+      "domain": "optimization / training dynamics / hyperparameter scaling",
+      "search_queries_used": [
+        "batch size learning rate scaling rule fails counterintuitive training dynamics neural network",
+        "\"surge phenomenon\" batch size optimal learning rate \"counterintuitive\" NeurIPS 2024",
+        "alphaxiv surge phenomenon learning rate batch size \"first rises and then falls\" OR \"non-monotonically\" verbatim quote 2405.14578"
+      ],
+      "orig_id": "ANOM_A5"
+    },
+    {
+      "id": "ANOM_06",
+      "anomaly_name": "The Reversal Curse: Asymmetric Factual Generalization in Autoregressive LLMs",
+      "measurement": "LLMs trained on 'A is B' facts fail to answer 'B is A' queries: GPT-4 answers 'Who is Tom Cruise's mother?' 79% correctly but only 33% for the reverse ('Who is Mary Lee Pfeiffer's son?'); the correct reversed answer scores no higher than a random baseline name.",
+      "prediction": "Standard generalization theory predicts that a model learning a symmetric factual relation (e.g., 'X is the parent of Y') should generalize bidirectionally; basic logical deduction expects 'A is B' training to imply availability of 'B is A'.",
+      "discrepancy": "Models trained on 'A is B' achieve near-zero generalization to 'B is A' (performance no better than chance on reversed queries), despite demonstrating that they can perform this logical deduction when 'A is B' appears in context rather than training data.",
+      "primary_quote": "a surprising failure of generalization in auto-regressive large language models (LLMs). If a model is trained on a sentence of the form \"A is B\", it will not automatically generalize to the reverse direction \"B is A\"",
+      "quote_source_url": "https://arxiv.org/abs/2309.12288",
+      "trigger_phrase_found": "surprising failure of generalization; will not automatically generalize",
+      "domain": "LLM knowledge / generalization",
+      "search_queries_used": [
+        "reversal curse LLM unexplained A is B B is A failure",
+        "reversal curse paper 2309.12288 fails to generalize surprising LLM auto-regressive",
+        "reversal curse surprising failure of generalization auto-regressive will not automatically generalize verbatim quote ICLR 2024",
+        "reversal curse likelihood of the correct answer will not be higher than random name"
+      ],
+      "paper_ref": "Berglund et al. 'The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\".' ICLR 2024. arXiv:2309.12288",
+      "orig_id": "ANOM_B2"
+    },
+    {
+      "id": "ANOM_07",
+      "anomaly_name": "Inverse Scaling: Larger LLMs Perform Worse on Specific Tasks",
+      "measurement": "Across 11 empirically identified benchmark tasks, increasing model size from small to 280B+ parameters consistently degrades performance; 10 of these tasks later showed 'U-shaped' scaling when tested up to 540B parameters, meaning performance first drops then recovers only at extreme scale.",
+      "prediction": "The dominant scaling law framework (Kaplan et al., Chinchilla) predicts monotonically improving performance with model size across tasks; larger models were expected to be uniformly better.",
+      "discrepancy": "On identified tasks, larger models are measurably worse than smaller models \u2014 a direct violation of the standard scaling law prediction \u2014 with causes including preference to imitate undesirable training data patterns and sensitivity to misleading few-shot demonstrations that increase with scale.",
+      "primary_quote": "LMs may show inverse scaling, or worse task performance with increased scale, e.g., due to flaws in the training objective and data",
+      "quote_source_url": "https://arxiv.org/abs/2306.09479",
+      "trigger_phrase_found": "inverse scaling; worse task performance with increased scale; counterintuitive",
+      "domain": "LLM scaling laws",
+      "search_queries_used": [
+        "inverse scaling U-shaped LLM counterintuitive larger models worse performance",
+        "inverse scaling prize getting worse with scale specific tasks NLP contrary scaling law",
+        "inverse scaling prize LMs may show inverse scaling worse task performance increased scale verbatim McKenzie 2023"
+      ],
+      "paper_ref": "McKenzie et al. 'Inverse Scaling: When Bigger Isn't Better.' TMLR 2023. arXiv:2306.09479",
+      "orig_id": "ANOM_B3"
+    },
+    {
+      "id": "ANOM_08",
+      "anomaly_name": "LLMs Know More Than They Show: Internal Truth-Encoding vs. External Hallucination",
+      "measurement": "Linear probes trained on LLMs' internal hidden-state representations can accurately predict whether an output is a hallucination, with truthfulness signals concentrated at specific answer tokens \u2014 yet the models still externally generate those incorrect outputs despite internally encoding the correct answer.",
+      "prediction": "The standard model of LLM hallucination assumes that erroneous outputs arise from an absence of correct information in the model's representations; if a model 'knows' the answer, it should output it.",
+      "discrepancy": "A measurable discrepancy exists between LLMs' internal encoding and external behavior: probes recover correct-answer signals from internal states even when the model's output is a hallucination, meaning the model encodes the right answer but still generates a wrong one.",
+      "primary_quote": "discrepancy between LLMs' internal encoding and external behavior: they may encode the correct answer, yet consistently generate an incorrect one",
+      "quote_source_url": "https://arxiv.org/abs/2410.02707",
+      "trigger_phrase_found": "discrepancy; encode the correct answer, yet consistently generate an incorrect one",
+      "domain": "LLM interpretability / hallucination",
+      "search_queries_used": [
+        "LLM knows more than it says internal representations truthful probing mismatch sycophancy",
+        "LLMs know more than they show internal states encode yet consistently generate hallucination discrepancy",
+        "LLMs know more than they show encode the correct answer generate an incorrect verbatim 2024",
+        "discrepancy between LLMs internal encoding and external behavior encode the correct answer yet consistently Orgad Belinkov 2024"
+      ],
+      "paper_ref": "Orgad, Toker, Gekhman, Reichart, Szpektor, Kotek, Belinkov. 'LLMs Know More Than They Show: On the Intrinsic Representation of LLM Hallucinations.' ICLR 2025. arXiv:2410.02707",
+      "orig_id": "ANOM_B4"
+    },
+    {
+      "id": "ANOM_09",
+      "anomaly_name": "RLHF Fine-Tuning Degrades Calibration: Aligned Models Are Less Calibrated Than Their Pretrained Bases",
+      "measurement": "RLHF-aligned models (ChatGPT, GPT-4, Claude) exhibit poorly calibrated conditional probabilities and express verbalized overconfidence significantly greater than their unaligned pretrained counterparts; calibration error increases after RLHF even as instruction-following improves.",
+      "prediction": "Standard training theory predicts that additional fine-tuning on human-preferred outputs, which tends to select for correct and helpful answers, should maintain or improve probability calibration relative to the pretrained base.",
+      "discrepancy": "RLHF fine-tuning, despite improving instruction-following and user-rated quality, measurably worsens calibration: models sacrifice well-calibrated probability estimates to better satisfy the reinforcement learning objective of allocating mass to the single most preferred answer rather than matching true answer frequencies.",
+      "primary_quote": "RLHF-LMs may sacrifice well-calibrated predictions for the sake of closer adherence to user instructions in dialogue",
+      "quote_source_url": "https://arxiv.org/abs/2305.14975",
+      "trigger_phrase_found": "sacrifice well-calibrated predictions; RLHF leads to notable degradation in calibration; overconfidence",
+      "domain": "LLM calibration / RLHF alignment",
+      "search_queries_used": [
+        "LLM calibration overconfident larger models worse calibrated unexpected finding",
+        "RLHF instruction tuning hurts calibration overconfident well-calibrated unexpected finding paper 2022 2023",
+        "RLHF finetuning overconfident well-calibrated pretrained hurts calibration LLMs verbatim quote 2023",
+        "Tian 2023 just ask for calibration RLHF-LMs overconfidence sacrifice well-calibrated verbatim quote",
+        "RLHF-LMs may sacrifice well-calibrated predictions closer adherence to user instructions Tian 2023"
+      ],
+      "paper_ref": "Tian et al. 'Just Ask for Calibration: Strategies for Eliciting Calibrated Confidence Scores from Language Models Fine-Tuned with Human Feedback.' EMNLP 2023. arXiv:2305.14975",
+      "orig_id": "ANOM_B5"
+    }
+  ],
+  "count": 9,
+  "note": "8 required + 1 bonus = 9 distinct measurement!=prediction anomalies, merged from 2 sourcing agents (emergent A3+B1 consolidated). All verbatim-sourced (R5).",
+  "total_search_count": 34
+}

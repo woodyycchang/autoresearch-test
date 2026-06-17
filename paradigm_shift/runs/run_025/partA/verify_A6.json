@@ -1,0 +1,581 @@
+{
+  "agent": "A6",
+  "ids": ["C40", "C42", "C43", "C44", "C45", "C46", "C47", "C48"],
+  "candidates": [
+    {
+      "id": "C40",
+      "concept": "Diglossia",
+      "functional_effect": "A hard routing architecture that maintains two (or more) separate generation heads / adapter modules and, per generation step, routes EXCLUSIVELY to exactly one of them based on a classifier that detects the input's register/domain. Functionally: input-conditioned, mutually-exclusive expert/head selection driven by a learned domain classifier.",
+      "content_words": ["H/L routing", "register classifier", "dual adapter", "domain-exclusive head", "formal/informal switch", "generation routing"],
+      "reformulations": [
+        {
+          "query": "hard routing two adapter modules formal informal register mutually exclusive language model",
+          "hits": [
+            {"title": "A Universal Vibe? Finding and Controlling Language-Agnostic Informal Register with SAEs", "url": "https://arxiv.org/pdf/2603.26236"},
+            {"title": "A Unified Approach to Routing and Cascading for LLMs", "url": "https://arxiv.org/pdf/2410.10347"},
+            {"title": "Parameter-Efficient Transfer Learning for NLP (Adapters)", "url": "https://arxiv.org/pdf/1902.00751"},
+            {"title": "MoLoRA: Composable Specialization via Per-Token Adapter Routing", "url": "https://arxiv.org/pdf/2603.15965"},
+            {"title": "Parameter-Efficient Routed Fine-Tuning: MoE Demands Mixture of Adaptation Modules", "url": "https://arxiv.org/pdf/2508.02587"}
+          ],
+          "forced_functional_hits": ["MoLoRA per-token adapter routing", "Parameter-Efficient Routed Fine-Tuning (adapter routing)"],
+          "snippet": "Per-token routing routes individual tokens to adapters based on either vocabulary structure or learned gating... an informal-register subspace sharpens in deeper layers; activation steering causally shifts output formality. (content words present: adapter, routing, register/informal)"
+        },
+        {
+          "query": "register-aware text generation switching formal informal style controllable decoding head",
+          "hits": [
+            {"title": "Nearest Neighbor Language Models for Stylistic Controllable Generation", "url": "https://arxiv.org/pdf/2210.15762"},
+            {"title": "Unsupervised Controllable Text Formalization", "url": "https://arxiv.org/pdf/1809.04556"},
+            {"title": "Toward Unified Controllable Text Generation via Regular Expression Instruction", "url": "https://arxiv.org/abs/2309.10447"},
+            {"title": "Controllable Text Generation with Neurally-Decomposed Oracle", "url": "https://arxiv.org/pdf/2205.14219"}
+          ],
+          "forced_functional_hits": ["kNN-LM stylistic controllable generation (decode with specified formal/polite style)", "Unsupervised Controllable Text Formalization"],
+          "snippet": "Recent approaches enable decoding with a specified style (e.g., polite or formal) where the most similar contexts conform to the provided style... formality-controlled MT uses formality oracles to guide generation. (content words: formal/informal switch, generation, register)"
+        },
+        {
+          "query": "domain classifier routes input to specialized expert exclusively mixture-of-experts language model conditional computation",
+          "hits": [
+            {"title": "Input Domain Aware MoE: Decoupling Routing Decisions from Task Optimization", "url": "https://arxiv.org/html/2510.16448"},
+            {"title": "MoDEM: Mixture of Domain Expert Models", "url": "https://arxiv.org/pdf/2410.07490"},
+            {"title": "Expert Divergence Learning for MoE-based Language Models", "url": "https://arxiv.org/pdf/2603.00054"}
+          ],
+          "forced_functional_hits": ["MoDEM: BERT-based router directs each prompt to the appropriate domain expert exclusively", "Input Domain Aware MoE: probabilistic partition giving decisive expert assignment"],
+          "snippet": "A BERT-based router can direct incoming prompts to the most appropriate domain expert model (health, math, science)... Input Domain Aware MoE partitions the input space enabling clear specialization boundaries with decisive expert assignments. (content words: domain classifier, exclusive routing, head)"
+        },
+        {
+          "query": "code-switching language model separate modules per language register hard gating",
+          "hits": [
+            {"title": "Code-Switching Language Modeling using Syntax-Aware Multi-Task Learning", "url": "https://arxiv.org/pdf/1805.12070"},
+            {"title": "BA-MoE: Boundary-Aware Mixture-of-Experts Adapter for Code-Switching", "url": "https://arxiv.org/pdf/2310.02629"},
+            {"title": "Dual Language Models for Code Switched Speech Recognition", "url": "https://arxiv.org/pdf/1711.01048"}
+          ],
+          "forced_functional_hits": ["separate modules per language with unified gating layer (language-specific adapters)", "Dual Language Models routing by language identity"],
+          "snippet": "Recent studies separate the modules for different languages to ensure distinct latent representations... language-specific adapters separate language-specific representations and a unified gating layer fuses representations. (content words: dual adapter, register/language switch, gating)"
+        },
+        {
+          "query": "dual RNN code-switched language model separate sub-networks combine outputs by language identity",
+          "hits": [
+            {"title": "Code-switched Language Models Using Dual RNNs and Same-Source Pretraining (EMNLP 2018)", "url": "https://arxiv.org/abs/1809.01962"},
+            {"title": "Dual Language Models for Code Switched Speech Recognition", "url": "https://arxiv.org/pdf/1711.01048"},
+            {"title": "RNN-transducer with language bias for Mandarin-English code-switching", "url": "https://arxiv.org/pdf/2002.08126"}
+          ],
+          "forced_functional_hits": ["Dual-RNN unit with separate per-language components coordinating across switch boundaries (Garg/Parekh/Jyothi EMNLP18)"],
+          "snippet": "A novel RNN unit with dual components focuses on each language in code-switched text separately while coordinating to retain context across code-switch boundaries... significant reductions in perplexity. (content words: dual adapter/head, language switch, routing)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "MoDEM: Mixture of Domain Expert Models (arxiv 2410.07490) — domain classifier routes each input exclusively to one expert head",
+        "Code-switched Language Models Using Dual RNNs (EMNLP 2018, arxiv 1809.01962) — two separate per-register sub-networks selected by language identity",
+        "Input Domain Aware MoE (arxiv 2510.16448) — decisive, mutually-exclusive expert assignment from input-domain classifier",
+        "Language-specific adapters + unified gating (BA-MoE, arxiv 2310.02629)"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "Belinda test (would a domain expert be surprised this is unpublished) FAILS to find novelty: the H/L mutually-exclusive routing is exactly domain/register-conditioned hard expert/head routing, a heavily-published pattern (MoDEM, domain-aware MoE, dual-RNN code-switching). No expert would be surprised — it is standard."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "5/5 reformulations surfaced published techniques with the identical functional effect (input-conditioned mutually-exclusive head/expert routing via a register/domain classifier). The diglossic 'H/L mutual exclusivity' is just hard MoE/adapter routing keyed on register. Multiple forced functional hits. No gap."
+    },
+    {
+      "id": "C42",
+      "concept": "Cargo cult",
+      "functional_effect": "A meta-evaluation classifier/metric that scores whether an LLM output merely imitates the surface form of correct reasoning while NOT encoding the underlying causal chain — i.e., detect correlation-without-causation / form-without-mechanism in generated reasoning. Functionally: chain-of-thought faithfulness / spurious-shortcut detection.",
+      "content_words": ["surface pattern imitation", "causal decoupling", "correlation-without-causation", "causal chain detection", "reasoning auditor", "meta-evaluation"],
+      "reformulations": [
+        {
+          "query": "detect LLM chain-of-thought unfaithful reasoning surface imitation without underlying causal computation",
+          "hits": [
+            {"title": "C2-Faith: Benchmarking LLM Judges for Causal and Coverage Faithfulness in CoT Reasoning", "url": "https://arxiv.org/html/2603.05167"},
+            {"title": "FaithCoT-Bench: Benchmarking Instance-Level Faithfulness of CoT Reasoning", "url": "https://arxiv.org/pdf/2510.04040"},
+            {"title": "When Chains of Thought Don't Matter: Causal Bypass in LLMs", "url": "https://arxiv.org/html/2602.03994"},
+            {"title": "Dissociation of Faithful and Unfaithful Reasoning in LLMs", "url": "https://arxiv.org/pdf/2405.15092"}
+          ],
+          "forced_functional_hits": ["FaithCoT-Bench instance-level unfaithfulness detection (surface vs functional dependence)", "C2-Faith causal faithfulness benchmark"],
+          "snippet": "A CoT is faithful if it accurately describes the model's actual computational path; if it is post-hoc rationalization it is unfaithful... FAITHCOT-BENCH for instance-level unfaithfulness detection; distinguishes surface risk (textual anomalies) from functional dependence (causal mechanisms). (content words: surface imitation, causal chain, meta-evaluation)"
+        },
+        {
+          "query": "classifier detecting spurious shortcut correlation not causation model output evaluation faithfulness",
+          "hits": [
+            {"title": "Measuring Faithfulness Depends on How You Measure: Classifier Sensitivity in LLM CoT Evaluation", "url": "https://arxiv.org/pdf/2603.20172"},
+            {"title": "Navigating Shortcuts, Spurious Correlations, and Confounders", "url": "https://arxiv.org/html/2412.05152v1"},
+            {"title": "ShortcutProbe: Probing Prediction Shortcuts for Learning Robust Models", "url": "https://arxiv.org/html/2505.13910v2"},
+            {"title": "Identifying Spurious Correlations using Counterfactual Alignment", "url": "https://arxiv.org/pdf/2312.02186"}
+          ],
+          "forced_functional_hits": ["Classifier Sensitivity in CoT faithfulness evaluation", "ShortcutProbe (detect prediction shortcuts / spurious bias)"],
+          "snippet": "Different classifiers produce faithfulness rates of 74.4/82.6/69.7%... causal interventions measure the degree intermediate reasoning steps actually influence outputs... ShortcutProbe identifies prediction shortcuts reflecting non-robustness. (content words: correlation-without-causation, classifier, meta-evaluation)"
+        },
+        {
+          "query": "automated metric scoring whether LLM answer relies on real reasoning versus pattern matching benchmark",
+          "hits": [
+            {"title": "Benchmarking Abstract and Reasoning Abilities Through A Theoretical Perspective", "url": "https://arxiv.org/pdf/2505.23833"},
+            {"title": "Can LLM Reasoning Be Trusted? A Comparative Study (human benchmarking)", "url": "https://arxiv.org/html/2601.14479v1"},
+            {"title": "WildBench: Benchmarking LLMs with Challenging Tasks", "url": "https://arxiv.org/pdf/2406.04770"}
+          ],
+          "forced_functional_hits": ["Symbol-remapping benchmark forcing genuine pattern recognition beyond superficial token matching (measures memory/pattern dependence)"],
+          "snippet": "Systematic symbol remapping forces models to demonstrate genuine pattern recognition beyond superficial token matching... GSM8K/MATH risk measuring memorization rather than abstraction, allowing solutions via pattern matching without genuine abstraction. (content words: surface pattern imitation, reasoning vs pattern, meta-evaluation)"
+        },
+        {
+          "query": "causal mediation analysis intervene on intermediate reasoning step verify it influences final answer LLM",
+          "hits": [
+            {"title": "Breaking the Chain: A Causal Analysis of LLM Faithfulness to Intermediate Structures", "url": "https://arxiv.org/html/2603.16475"},
+            {"title": "Making Reasoning Matter: Measuring and Improving Faithfulness of CoT", "url": "https://arxiv.org/abs/2402.13950"},
+            {"title": "Causal Mediation Analysis for Interpreting Large Language Models", "url": "https://ceur-ws.org/Vol-3741/paper39.pdf"}
+          ],
+          "forced_functional_hits": ["Front-door causal intervention scoring faithfulness (CoT as mediator)", "Causal mediation analysis: do intermediate steps causally influence the answer"],
+          "snippet": "Intervention protocol leveraging Pearl's front-door causal principle to evaluate faithfulness, treating the reasoning trace as a mediator between input and prediction... found LLMs do not reliably use intermediate steps. (content words: causal chain detection, causal decoupling, meta-evaluation)"
+        },
+        {
+          "query": "detect LLM chain-of-thought unfaithful reasoning surface imitation without underlying causal computation (cross-check FaithCoT/C2-Faith)",
+          "hits": [
+            {"title": "FaithCoT-Bench (expert-annotated unfaithful trajectories)", "url": "https://arxiv.org/pdf/2510.04040"},
+            {"title": "Chain-of-Thought Is Not Explainability (Oxford WhiteBox)", "url": "https://aigi.ox.ac.uk/wp-content/uploads/2025/07/Cot_Is_Not_Explainability.pdf"},
+            {"title": "How Does Unfaithful Reasoning Emerge from Autoregressive Training?", "url": "https://arxiv.org/pdf/2602.01017"}
+          ],
+          "forced_functional_hits": ["FaithCoT-Bench (>1000 trajectories, 300+ unfaithful instances; 11 detection methods)", "CoT Is Not Explainability — surface resemblance vs true internal reasoning"],
+          "snippet": "FAITHCOT-BENCH provides 1000+ trajectories with 300+ unfaithful instances and evaluates 11 detection methods (counterfactual, logit-based, LLM-as-judge)... CoT transcripts resemble human reasoning on a surface level but may not align with the model's true reasoning. (content words: surface pattern imitation, reasoning auditor, meta-evaluation)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "FaithCoT-Bench (arxiv 2510.04040) — instance-level CoT unfaithfulness detection: exactly 'output imitates surface reasoning without the causal chain'",
+        "Breaking the Chain / front-door causal mediation faithfulness (arxiv 2603.16475, 2402.13950)",
+        "ShortcutProbe & spurious-correlation detection (arxiv 2505.13910) — correlation-without-causation classifiers",
+        "C2-Faith causal faithfulness LLM-judge benchmark (arxiv 2603.05167)"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "FAILS — CoT faithfulness / spurious-shortcut detection is a large, active subfield (FaithCoT-Bench, C2-Faith, causal-mediation faithfulness). The cargo-cult 'form-without-causation auditor' is precisely this. No surprise to an expert."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "5/5 reformulations and many forced functional hits land on CoT-faithfulness / unfaithful-reasoning detection and spurious-correlation classifiers, which IS the 'detect surface imitation without underlying causal chain' effect. No gap."
+    },
+    {
+      "id": "C43",
+      "concept": "Annealing (metallurgical) [POSITIVE CONTROL]",
+      "functional_effect": "A temperature-governed schedule that progressively reduces redundancy (here: attention-head/weight redundancy = 'dislocations') during fine-tuning, settling the model into a lower-complexity, more generalizable configuration. Functionally: temperature/annealing-scheduled gradual sparsification/pruning toward a lower-entropy minimum.",
+      "content_words": ["dislocation reduction", "temperature schedule", "attention pruning", "sparsification", "entropy minimization", "fine-tuning"],
+      "reformulations": [
+        {
+          "query": "temperature annealing schedule gradual magnitude pruning neural network sparsification during training",
+          "hits": [
+            {"title": "Network Pruning via Annealing and Direct Sparsity Control", "url": "https://arxiv.org/pdf/2002.04301"},
+            {"title": "Cyclical Pruning for Sparse Neural Networks", "url": "https://arxiv.org/pdf/2202.01290"},
+            {"title": "Prune Neural Network with Simulated Annealing and Genetic Algorithm", "url": "https://18520339.medium.com/prune-neural-network-with-simulated-annealing-and-genetic-algorithm-part-2-implementation-e93ab5c51ce3"},
+            {"title": "FGGP: Fixed-Rate Gradient-First Gradual Pruning", "url": "https://arxiv.org/pdf/2411.05500"}
+          ],
+          "forced_functional_hits": ["Network Pruning via Annealing and Direct Sparsity Control", "Gibbs Pruning with annealed temperature schedule (slow cooling)"],
+          "snippet": "Gibbs Pruning models the joint distribution over weights and binary masks via a Gibbs distribution with an annealed temperature schedule... temperature schedules ensure a slow cooling/gradual transition from exploration to exploitation. (content words: temperature schedule, sparsification, pruning)"
+        },
+        {
+          "query": "simulated annealing attention head pruning transformer reduce redundancy generalization fine-tuning",
+          "hits": [
+            {"title": "Attention Pruning: Automated Fairness Repair of Language Models via Surrogate Simulated Annealing", "url": "https://arxiv.org/abs/2503.15815"},
+            {"title": "Pruning Attention Heads of Transformer Models Using A* Search", "url": "https://arxiv.org/pdf/2110.15225"},
+            {"title": "Layer-wise Pruning of Transformer Attention Heads", "url": "https://arxiv.org/pdf/2110.03252"}
+          ],
+          "forced_functional_hits": ["Attention Pruning via Surrogate Simulated Annealing (literally SA-driven attention-head pruning)", "A* / layer-wise attention-head pruning for redundancy"],
+          "snippet": "Search-based repair via randomized simulated annealing, using surrogate DNNs to model the relation between attention-head states and metrics, optimizing to identify optimal subsets of attention heads for selective pruning... self-attention relies on a few critical query-key pairs (redundancy). (content words: attention pruning, dislocation/redundancy reduction)"
+        },
+        {
+          "query": "temperature-governed gradual structured pruning schedule transformer fine-tuning lower complexity generalization",
+          "hits": [
+            {"title": "LEAP: Learnable Pruning for Transformer-based Models", "url": "https://arxiv.org/pdf/2105.14636"},
+            {"title": "PAT: Pruning-Aware Tuning for Large Language Models", "url": "https://arxiv.org/html/2408.14721v1"},
+            {"title": "GradPruner: Gradient-Guided Layer Pruning for Efficient Fine-Tuning", "url": "https://arxiv.org/pdf/2601.19503"}
+          ],
+          "forced_functional_hits": ["LEAP gradual learnable threshold pruning", "PAT trainable Unified Sparsification Mask gradually converging to target sparsity during tuning"],
+          "snippet": "LEAP gradually prunes weight matrices based on thresholds learned by gradient descent... PAT pruning governed by a trainable Unified Sparsification Mask that gradually converges to target sparsity, redistributing knowledge from pruned channels. (content words: sparsification, fine-tuning, schedule)"
+        },
+        {
+          "query": "entropy minimization redundancy reduction attention heads settle simpler configuration regularization schedule",
+          "hits": [
+            {"title": "Regularizing the Entropy Landscape of Self-Attention", "url": "https://opt-ml.org/papers/2025/paper172.pdf"},
+            {"title": "Finding the Pillars of Strength for Multi-Head Attention", "url": "https://arxiv.org/pdf/2305.14380"},
+            {"title": "Multi-Head Attention Is a Multi-Player Game", "url": "https://arxiv.org/pdf/2602.00861"}
+          ],
+          "forced_functional_hits": ["Entropy regularizer with learnable per-head strengths transforms redundancy into specialization", "Pillars of Strength: prune redundant heads / reduce inter-head redundancy"],
+          "snippet": "Entropy regularizers with learnable per-head strengths penalize excess entropy... a soft entropic bias transforms redundancy into functional specialization; early layers shift to lower entropy, high-entropy tails vanish. (content words: entropy minimization, redundancy reduction, attention)"
+        },
+        {
+          "query": "Gibbs pruning annealed temperature schedule sparsity statistical physics neural network (cross-check)",
+          "hits": [
+            {"title": "Network Pruning via Annealing and Direct Sparsity Control", "url": "https://arxiv.org/pdf/2002.04301"},
+            {"title": "Magnitude Pruning of Large Pretrained Transformer Models with a Mixture Gaussian Prior", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12629628/"},
+            {"title": "Dynamic Sparsity Is Channel-Level Sparsity Learner", "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/d6d0e41e0b1ed38c76d13c9e417a8f1f-Paper-Conference.pdf"}
+          ],
+          "forced_functional_hits": ["Annealing-controlled sparsity (statistical-physics schedule)", "Cubic gradual sparsity scheduler"],
+          "snippet": "Annealing pruning with direct sparsity control; cubic sparsity scheduler gradually prunes model parameters; the gradual sparsification schedule relieves accuracy drop from aggressive pruning. (content words: temperature/annealing schedule, sparsification, dislocation/redundancy)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Attention Pruning: Automated Fairness Repair via Surrogate Simulated Annealing (arxiv 2503.15815) — simulated-annealing attention-head pruning, exact match",
+        "Network Pruning via Annealing and Direct Sparsity Control (arxiv 2002.04301)",
+        "Gibbs Pruning — annealed-temperature weight/mask sparsification",
+        "Regularizing the Entropy Landscape of Self-Attention (OPT-ML 2025) — entropy minimization reducing head redundancy"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "POSITIVE CONTROL confirmed collided. FAILS novelty as expected: annealing->temperature-scheduled sparsification/pruning is a textbook mapping with direct papers (simulated-annealing attention pruning, Gibbs pruning)."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "POSITIVE CONTROL — confirmed COLLISION as required. The annealing disorder-reduction -> temperature-governed attention/weight sparsification schedule maps onto multiple published methods including a literal simulated-annealing attention-head pruner. Sparsest atom collides."
+    },
+    {
+      "id": "C44",
+      "concept": "Crystal nucleation [POSITIVE CONTROL]",
+      "functional_effect": "Strategically chosen/placed seed exemplars in few-shot in-context learning that lower the difficulty ('energy barrier') for the model to initiate correct, structured chain-of-thought reasoning — heterogeneous 'foreign-particle' seeds that nucleate the right reasoning pattern. Functionally: demonstration/exemplar selection & seeding for ICL CoT.",
+      "content_words": ["seed exemplar", "few-shot", "chain-of-thought", "energy barrier", "heterogeneous", "crystallization"],
+      "reformulations": [
+        {
+          "query": "few-shot seed exemplar selection in-context learning lowers difficulty chain-of-thought reasoning demonstrations",
+          "hits": [
+            {"title": "Explanation Selection Using Unlabeled Data for Chain-of-Thought Prompting", "url": "https://ar5iv.labs.arxiv.org/html/2302.04813"},
+            {"title": "Demonstration Selection for In-Context Learning via Reinforcement Learning", "url": "https://arxiv.org/pdf/2412.03966"},
+            {"title": "In-Context Learning with Iterative Demonstration Selection", "url": "https://arxiv.org/pdf/2310.09881"},
+            {"title": "Chain-of-Thought Prompting Elicits Reasoning in LLMs", "url": "https://ar5iv.labs.arxiv.org/html/2201.11903"}
+          ],
+          "forced_functional_hits": ["Demonstration/exemplar selection for ICL (RL-based, iterative)", "Explanation selection improving CoT accuracy over seed explanations"],
+          "snippet": "Quality, order and number of exemplars influence ICL; 4 demonstrations is often the CoT sweet spot... IDS iteratively selects diverse-yet-correlated examples; one approach finds explanations 4% higher accuracy than initial seed explanations. (content words: seed exemplar, few-shot, chain-of-thought)"
+        },
+        {
+          "query": "diverse demonstration seeding initiates structured chain-of-thought propagation in-context exemplars seed reasoning",
+          "hits": [
+            {"title": "Enhancing Chain of Thought Prompting in LLMs via Reasoning Patterns", "url": "https://arxiv.org/pdf/2404.14812"},
+            {"title": "In-Context Learning with Iterative Demonstration Selection", "url": "https://arxiv.org/pdf/2310.09881"},
+            {"title": "Auto-CoT (diversity sampling for reasoning chains)", "url": "https://www.promptingguide.ai/techniques/cot"}
+          ],
+          "forced_functional_hits": ["Auto-CoT: sample diverse questions and generate reasoning chains as seed demonstrations", "Seed demonstrations with rationale obtained from training set or zero-shot"],
+          "snippet": "Seed demonstrations with rationale (intermediate steps) are obtained from the training set or generated zero-shot... Auto-CoT samples questions with diversity and generates reasoning chains; clustering selects representative demonstrations to enrich diversity. (content words: seed exemplar, heterogeneous/diverse, chain-of-thought)"
+        },
+        {
+          "query": "strategically placed examples lower threshold activate correct reasoning pattern in-context learning analogy nucleation",
+          "hits": [
+            {"title": "Schema for In-Context Learning (Schema-Activated ICL)", "url": "https://arxiv.org/pdf/2510.13905"},
+            {"title": "Beyond Examples: High-level Automated Reasoning Paradigm in ICL via MCTS", "url": "https://arxiv.org/html/2411.18478v1"},
+            {"title": "Concept-aware Training Improves In-context Learning Ability", "url": "https://arxiv.org/pdf/2305.13775"}
+          ],
+          "forced_functional_hits": ["Schema-Activated ICL activates a latent reasoning schema before the query (lowers threshold to engage reasoning)", "Strategic patching of hidden representations at critical token positions for analogical transfer"],
+          "snippet": "Models rely on surface shortcuts due to 'Schema Dormancy' — failure to spontaneously activate latent reasoning frameworks; SA-ICL explicitly activates an abstracted schema before the query to enforce structural mapping. Strategic placement of examples facilitates information transfer. (content words: seed/strategically placed, energy barrier/threshold, reasoning pattern)"
+        },
+        {
+          "query": "prompt seeding phase transition emergence reasoning few-shot examples trigger structured output",
+          "hits": [
+            {"title": "Few-Shot & Chain-of-Thought Prompting (EmergentMind)", "url": "https://www.emergentmind.com/topics/few-shot-and-chain-of-thought-prompting"},
+            {"title": "Promptly Predicting Structures: The Return of Inference", "url": "https://arxiv.org/pdf/2401.06877"},
+            {"title": "Fine-tuning for Better Few Shot Prompting: An Empirical Study", "url": "https://arxiv.org/pdf/2508.04063"}
+          ],
+          "forced_functional_hits": ["Few-shot CoT essential to unlock stepwise reasoning; accuracy scales with number & quality of exemplars (seeding triggers structured output)"],
+          "snippet": "Few-shot prompting = seeding the prompt with 2-5 worked examples so the model infers task structure... CoT prompting induces emergent reasoning; for earlier LLMs few-shot CoT was essential to unlock stepwise reasoning, accuracy scaling with number and quality of exemplars. (content words: seed exemplar, few-shot, structured/chain-of-thought)"
+        },
+        {
+          "query": "diverse demonstration seeding initiates structured chain-of-thought propagation (Auto-CoT cross-check)",
+          "hits": [
+            {"title": "Enhancing Chain of Thought Prompting via Reasoning Patterns", "url": "https://arxiv.org/html/2404.14812v2"},
+            {"title": "Rethinking the Chain-of-Thought: Roles of ICL and Pre-trained Priors", "url": "https://arxiv.org/pdf/2509.01236"},
+            {"title": "Demonstration Selection for In-Context Learning via RL", "url": "https://arxiv.org/pdf/2412.03966"}
+          ],
+          "forced_functional_hits": ["Representative diverse demonstrations selected per cluster to seed reasoning", "Demonstration selection improves CoT propagation"],
+          "snippet": "Clustering merges similar patterns; representative demonstrations from each category enrich diversity and construct context prompts... selecting diverse well-structured demonstrations significantly improves reasoning. (content words: heterogeneous/diverse seed, chain-of-thought, exemplar)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Auto-CoT / diverse demonstration sampling — diverse seed exemplars nucleating correct reasoning chains",
+        "Schema-Activated ICL (arxiv 2510.13905) — activate latent reasoning schema (lower the barrier) before query",
+        "Demonstration Selection for ICL via RL (arxiv 2412.03966); Iterative Demonstration Selection (arxiv 2310.09881)",
+        "Explanation Selection for CoT (arxiv 2302.04813) — selecting seed explanations to improve reasoning"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "POSITIVE CONTROL confirmed collided. FAILS novelty: 'seed exemplars lower the barrier to crystallize correct reasoning' is exactly exemplar/demonstration selection & seeding for few-shot CoT — a large literature."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "POSITIVE CONTROL — confirmed COLLISION as required. Heterogeneous nucleation -> strategically placed diverse seed exemplars lowering the barrier for structured CoT crystallization maps directly onto demonstration-selection / Auto-CoT / schema-activation literature. Sparsest atom collides."
+    },
+    {
+      "id": "C45",
+      "concept": "Molecular diffusion [POSITIVE CONTROL]",
+      "functional_effect": "Model token-to-token attention spread as a diffusion / random-walk process where influence propagates stochastically outward proportional to a learned relevance ('concentration gradient'), enabling principled sparse attention and long-range dependency modeling via diffusion/random-walk equations. Functionally: diffusion- / random-walk-based attention propagation.",
+      "content_words": ["random walk", "concentration gradient", "token attention", "stochastic propagation", "sparse attention", "long-range dependency"],
+      "reformulations": [
+        {
+          "query": "diffusion process attention propagation graph transformer random walk token long-range dependency",
+          "hits": [
+            {"title": "Diffuser: Efficient Transformers with Multi-hop Attention Diffusion for Long Sequences", "url": "https://ar5iv.labs.arxiv.org/html/2210.11794"},
+            {"title": "Learning Long Range Dependencies on Graphs via Random Walks", "url": "https://arxiv.org/pdf/2406.03386"},
+            {"title": "SFi-Former: Sparse Flow Induced Attention for Graph Transformer", "url": "https://arxiv.org/pdf/2504.20666"},
+            {"title": "Toward a Graph Foundation Model: Pre-Training Transformers With Random Walks", "url": "https://arxiv.org/html/2506.14098v1"}
+          ],
+          "forced_functional_hits": ["Diffuser: multi-hop attention DIFFUSION; expander-graph random walks accelerate info propagation", "Learning Long-Range Dependencies via Random Walks"],
+          "snippet": "Expander graphs achieve rapid mixing for random walks and diffusion, accelerating information propagation on Diffuser's attention graph... random walk methods explicitly capture long-range dependencies by aggregating structure across the walk. (content words: random walk, token attention, long-range dependency)"
+        },
+        {
+          "query": "attention as diffusion equation Fickian information spreading sparse attention transformer relevance gradient",
+          "hits": [
+            {"title": "FG-Attn: Leveraging Fine-Grained Sparsity In Diffusion Transformers", "url": "https://arxiv.org/pdf/2509.16518"},
+            {"title": "PISA: Piecewise Sparse Attention Is Wiser for Efficient Diffusion Transformers", "url": "https://arxiv.org/pdf/2602.01077"},
+            {"title": "Attention in Diffusion Model: A Survey", "url": "https://arxiv.org/html/2504.03738v1"}
+          ],
+          "forced_functional_hits": ["Sparse attention within diffusion transformers (attention+diffusion coupling)"],
+          "snippet": "FG-Attn / PISA: sparse attention mechanisms for diffusion transformers maintaining exact computation for critical blocks while approximating the remainder... transformer attention can be made orders of magnitude sparser. (content words: sparse attention, token attention; weaker on explicit Fickian framing)"
+        },
+        {
+          "query": "stochastic random walk attention weights propagate token influence neighbors sparsification",
+          "hits": [
+            {"title": "Scout Before You Attend: Sketch-and-Walk Sparse Attention for Efficient LLM Inference", "url": "https://arxiv.org/pdf/2602.07397"},
+            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227"},
+            {"title": "SPOT: Sparsification with Attention Dynamics via Token Relevance", "url": "https://arxiv.org/pdf/2511.10488"}
+          ],
+          "forced_functional_hits": ["Sketch-and-Walk: walk mechanism aggregates attention influence beyond direct interactions, selecting top-k blocks (random-walk-based sparse attention)"],
+          "snippet": "Sketch&Walk aggregates attention-score estimates across layers via a walk mechanism that captures attention influence beyond direct interactions; accumulated walk scores select top-k attention blocks for dynamic sparsity. Neighbouring-token connections are the most significant sparsification pattern. (content words: random walk, token attention, sparse attention, stochastic propagation)"
+        },
+        {
+          "query": "graph diffusion attention PageRank personalized propagation transformer message passing relevance score",
+          "hits": [
+            {"title": "Predict then Propagate: Graph Neural Networks meet Personalized PageRank (APPNP)", "url": "https://ar5iv.labs.arxiv.org/html/1810.05997"},
+            {"title": "ParaFormer: A Generalized PageRank Graph Transformer", "url": "https://arxiv.org/pdf/2512.14619"},
+            {"title": "A graph transformer with optimized attention scores for node classification", "url": "https://www.nature.com/articles/s41598-025-15551-2"}
+          ],
+          "forced_functional_hits": ["APPNP: personalized-PageRank (random-walk) propagation of predictions", "Generalized PageRank Attention preserving propagation through attention blocks"],
+          "snippet": "PPNP/APPNP derive improved propagation schemes based on personalized PageRank (a random walk with restart)... Generalized PageRank Attention preserves distinction of node representations through deep attention blocks. (content words: random walk/PageRank, concentration gradient/relevance, propagation)"
+        },
+        {
+          "query": "Diffuser multi-hop attention diffusion expander graph long sequence (cross-check)",
+          "hits": [
+            {"title": "Diffuser: Efficient Transformers with Multi-hop Attention Diffusion", "url": "https://arxiv.org/pdf/2210.11794"},
+            {"title": "Long-range Brain Graph Transformer (ALTER, biased random walk)", "url": "https://arxiv.org/pdf/2501.01100"},
+            {"title": "Chapter 24: Sparse and Infinite Attention", "url": "https://www.waylandz.com/llm-transformer-book-en/chapter-24-sparse-infinite-attention/"}
+          ],
+          "forced_functional_hits": ["Diffuser multi-hop attention diffusion", "ALTER biased random walk capturing long-range dependencies"],
+          "snippet": "ALTER captures long-range dependencies between brain ROIs utilizing biased random walk... BigBird sparse patterns guarantee any two tokens communicate within bounded hops, information propagating across layers. (content words: random walk, long-range dependency, stochastic propagation, sparse attention)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Diffuser: Efficient Transformers with Multi-hop Attention Diffusion (arxiv 2210.11794) — attention modeled as diffusion / random walk for long-range deps",
+        "Sketch-and-Walk Sparse Attention (arxiv 2602.07397) — random-walk aggregation of attention influence for sparsification",
+        "APPNP / Predict then Propagate (arxiv 1810.05997) — personalized-PageRank random-walk propagation",
+        "Learning Long Range Dependencies on Graphs via Random Walks (arxiv 2406.03386)"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "POSITIVE CONTROL confirmed collided. FAILS novelty: diffusion/random-walk attention propagation with relevance-weighted spread and sparsification is published (Diffuser, Sketch-and-Walk, APPNP). min_penetration was already IMPORTED; collision expected and confirmed."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "POSITIVE CONTROL — confirmed COLLISION as required. Diffusion/random-walk attention spread proportional to learned relevance, enabling sparse attention & long-range modeling, maps directly onto Diffuser, Sketch-and-Walk, APPNP/PageRank attention. Sparsest atom collides."
+    },
+    {
+      "id": "C46",
+      "concept": "Stomatal aperture regulation (ABA gating)",
+      "functional_effect": "A learned, multiplicative gating mechanism in which a detected stress / out-of-distribution signal drives a (multi-stage) cascade of gating layers that progressively closes off / suppresses specific attention pathways or channels at inference time, for dynamic context-dependent suppression of irrelevant token channels under distribution shift. Functionally: input/stress-conditioned gated inhibition of attention channels.",
+      "content_words": ["stress signal", "gated inhibition", "attention suppression", "token routing", "distribution shift", "kinase cascade"],
+      "reformulations": [
+        {
+          "query": "stress signal gating cascade progressively closes attention pathways inference distribution shift transformer",
+          "hits": [
+            {"title": "Energy-Gated Attention and Wavelet Positional Encoding", "url": "https://arxiv.org/html/2605.26355"},
+            {"title": "Optimal Attention Temperature Enhances In-Context Learning under Distribution Shift", "url": "https://arxiv.org/pdf/2511.01292"},
+            {"title": "Routing Absorption in Sparse Attention: Why Random Gates Are Hard to Beat", "url": "https://arxiv.org/pdf/2603.02227"},
+            {"title": "Cascade Token Selection for Transformer Attention Acceleration", "url": "https://arxiv.org/html/2605.03110"}
+          ],
+          "forced_functional_hits": ["Energy-Gated Attention (gates attention by an energy/signal)", "Cascade Token Selection (cascade progressively selecting/closing token attention)"],
+          "snippet": "Energy-Gated Attention; cascade showing energy shifting across layers (multiscale filter bank); Cascade Token Selection is the token-dimension analog... Optimal Attention Temperature addresses ICL degradation under distribution shift. (content words: gated, attention suppression, cascade, distribution shift)"
+        },
+        {
+          "query": "out-of-distribution detection signal dynamically gates suppresses neurons channels inference adaptive inhibition neural network",
+          "hits": [
+            {"title": "Neural Inhibition Improves Dynamic Routing and Mixture of Experts", "url": "https://arxiv.org/html/2507.03221v1"},
+            {"title": "Out-of-Distribution Detection using Neural Activation Prior", "url": "https://arxiv.org/html/2402.18162v3"},
+            {"title": "Efficient OOD detection via layer-adaptive scoring and early stopping", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11615063/"}
+          ],
+          "forced_functional_hits": ["Neural Inhibition for dynamic routing/MoE (suppress neurons during inference)", "Channel gating suppressing uninformative channels; ID/OOD-dependent activation"],
+          "snippet": "Inhibition reduces active neurons during inference (channel gating in CNNs); suppressing uninformative channels improves generalization... a few neurons show larger response for in-distribution than OOD samples (OOD-conditioned gating). (content words: stress/OOD signal, gated inhibition, attention/channel suppression, distribution shift)"
+        },
+        {
+          "query": "multiplicative gating mechanism selectively shuts off attention heads conditioned on input context dynamic sparsity",
+          "hits": [
+            {"title": "Gated Attention for Large Language Models: Non-linearity, Sparsity, and Attention-Sink-Free (NeurIPS 2025)", "url": "https://arxiv.org/pdf/2505.06708"},
+            {"title": "SeerAttention: Learning Intrinsic Sparse Attention in Your LLMs", "url": "https://arxiv.org/pdf/2410.13276"},
+            {"title": "Gated Attention Mechanisms (overview)", "url": "https://www.emergentmind.com/topics/gated-attention-ga"}
+          ],
+          "forced_functional_hits": ["Gated Attention: multiplicative gate conditioned on context can multiply attention output by zero, making a head output nothing (closes the pathway)", "SeerAttention learned intrinsic sparse attention"],
+          "snippet": "Gated Attention introduces multiplicative gates conditioned on context/query/token to modulate attention; if the gate is near 0 it suppresses the attention output effectively to zero, allowing the head to output 'nothing'; supports input-dependent dynamic sparsity at inference. (content words: gated inhibition, attention suppression, token routing, dynamic/conditional)"
+        },
+        {
+          "query": "hormone-inspired signaling cascade gating deep network biologically plausible multi-stage inhibition receptor analogy",
+          "hits": [
+            {"title": "A Brain-Inspired Gating Mechanism Unlocks Robust Computation in Spiking Neural Networks", "url": "https://arxiv.org/pdf/2509.03281"},
+            {"title": "Ghost Units Yield Biologically Plausible Backprop", "url": "https://arxiv.org/pdf/1911.08585"},
+            {"title": "Self-organized lateral inhibition improves odor classification", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3704286/"}
+          ],
+          "forced_functional_hits": ["Dynamic Gated Neuron: membrane conductance evolves to enable selective input filtering and adaptive noise suppression (biological gating cascade analog)"],
+          "snippet": "Dynamic Gated Neuron — membrane conductance evolves in response to activity, enabling selective input filtering and adaptive noise suppression; ghost units cancel feedback for credit assignment; lateral inhibition reduces channel correlation. (content words: kinase/biological cascade, gated inhibition, suppression)"
+        },
+        {
+          "query": "multiplicative gating selectively shuts off attention heads conditioned on input (Gated Attention cross-check + dynamic head pruning)",
+          "hits": [
+            {"title": "Gated Attention for Large Language Models (NeurIPS 2025 Oral)", "url": "https://github.com/qiuzh20/gated_attention"},
+            {"title": "NeurIPS 2025 Best Papers TL;DR: Gated Attention", "url": "https://virtuslab.com/blog/ai/neur-ips-2025-papers-part-1"},
+            {"title": "Gated Cross-Attention Mechanism (overview)", "url": "https://www.emergentmind.com/topics/gated-cross-attention-mechanism"}
+          ],
+          "forced_functional_hits": ["Head-specific multiplicative sigmoid gate before output projection (best config) selectively zeroing head contributions"],
+          "snippet": "Best performance with elementwise, head-specific, multiplicative gating with sigmoid before output projection; input-dependent sparsity prevents attention-sink; positively impacts robustness and efficiency. (content words: gated inhibition, attention suppression, token routing, dynamic sparsity)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Gated Attention for LLMs (NeurIPS 2025, arxiv 2505.06708) — context-conditioned multiplicative gates that suppress an attention head's output to zero (closing the pathway)",
+        "Neural Inhibition Improves Dynamic Routing and MoE (arxiv 2507.03221) — input-conditioned inhibitory suppression of channels/experts at inference",
+        "OOD Detection using Neural Activation Prior (arxiv 2402.18162) — ID/OOD-conditioned activation gating",
+        "Dynamic Gated Neuron / Brain-Inspired Gating (arxiv 2509.03281) — biological-style gating cascade for selective input filtering"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "FAILS — the functional core (input/stress-conditioned multiplicative gating that suppresses attention channels at inference, including under distribution shift) is exactly Gated Attention + neural inhibition / OOD-conditioned channel gating. The 'receptor->phosphatase->kinase multi-stage cascade' is an arbitrary biological over-specification of a stacked gate; it adds no functionally distinct, defensible mechanism."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "Despite low raw paper-hits (2, NONE penetration) this is NOT a gap. 5/5 reformulations and multiple forced functional hits land on gated attention / dynamic inhibition / OOD-conditioned channel gating. The distinctive 'multi-stage signaling cascade' is over-specification, not an unoccupied functional fusion — stacked/learned multiplicative gates already provide cascaded progressive suppression."
+    },
+    {
+      "id": "C47",
+      "concept": "Hugelkultur",
+      "functional_effect": "A slow-release episodic memory store for LLMs where retrieved knowledge is compressed/enriched ('composted') over multiple inference passes rather than retrieved verbatim, and the amount of information released is proportional to the current query's relevance, buffering against sparse/insufficient input. Functionally: compressive episodic-memory RAG with query-adaptive, relevance-proportional retrieval and iterative consolidation.",
+      "content_words": ["slow-release memory", "episodic compression", "semantic retrieval", "RAG architecture", "query buffering", "sponge buffer"],
+      "reformulations": [
+        {
+          "query": "slow-release episodic memory store compressed enriched over multiple retrieval passes buffering RAG language model",
+          "hits": [
+            {"title": "Beyond Fact Retrieval: Episodic Memory for RAG with Generative Semantic Workspaces", "url": "https://arxiv.org/abs/2511.07587"},
+            {"title": "GAM-RAG: Gain-Adaptive Memory for Evolving Retrieval in RAG", "url": "https://arxiv.org/pdf/2603.01783"},
+            {"title": "M-RAG: Reinforcing LLM Performance through RAG with Multiple Partitions", "url": "https://arxiv.org/html/2405.16420v1"},
+            {"title": "Memory in Large Language Models: Mechanisms, Evaluation and Evolution", "url": "https://arxiv.org/pdf/2509.18868"}
+          ],
+          "forced_functional_hits": ["Episodic Memory for RAG (Generative Semantic Workspaces) with recursive summarization compression", "GAM-RAG gain-adaptive evolving memory"],
+          "snippet": "After each turn, key entities/facts are extracted, embedded, upserted into a per-user namespace; queries trigger a retrieval pass before generation. Recursive summarization compresses older turns into a rolling summary prepended to active context. (content words: slow-release/episodic memory, RAG, retrieval, compression)"
+        },
+        {
+          "query": "memory consolidation retrieved knowledge progressively compressed enriched across inference iterations rather than verbatim retrieval",
+          "hits": [
+            {"title": "CMT: A Memory Compression Method for Continual Knowledge Learning of LLMs", "url": "https://arxiv.org/html/2412.07393v1"},
+            {"title": "A Framework for Inference Inspired by Human Memory Mechanisms", "url": "https://arxiv.org/html/2310.09297v2"},
+            {"title": "Dynamic Long Context Reasoning over Compressed Memory via End-to-End RL", "url": "https://arxiv.org/pdf/2602.08382"},
+            {"title": "Retrieval Feedback Memory Enhancement (RAG)", "url": "https://arxiv.org/html/2508.17862v1"}
+          ],
+          "forced_functional_hits": ["Memory blocks updated through 'memory precipitation' over multiple iterations (consolidation across passes)", "Compressed memory with selective retrieval"],
+          "snippet": "Memory blocks are updated through feedforward, constituting memory precipitation through multiple iterations... integration steps consolidate info to generate fresh insight used for next rounds of inference; long documents compressed into compact KV-cache with selective retrieval. (content words: episodic compression, consolidation over passes, retrieval)"
+        },
+        {
+          "query": "adaptive retrieval amount proportional to query relevance buffer against sparse input context augmentation",
+          "hits": [
+            {"title": "Efficient Context Selection for Long-Context QA: Adaptive-k", "url": "https://arxiv.org/pdf/2506.08479"},
+            {"title": "Accelerating Inference of RAG via Sparse Context Selection", "url": "https://arxiv.org/pdf/2405.16178"},
+            {"title": "AdaGReS: Adaptive Greedy Context Selection via Redundancy-Aware Scoring", "url": "https://arxiv.org/pdf/2512.25052"}
+          ],
+          "forced_functional_hits": ["Adaptive-k retrieval selects #passages based on query-passage similarity distribution (relevance-proportional release)", "Sparse RAG dynamically drops low-quality context by query relevance"],
+          "snippet": "Adaptive-k adaptively selects the number of passages based on similarity-score distribution between query and candidates, matching/outperforming fixed-k with up to 10x fewer tokens... Sparse RAG dynamically drops low-quality context by relevance to the query. (content words: query buffering, relevance-proportional release, retrieval)"
+        },
+        {
+          "query": "key-value cache compression episodic memory enrich summarize multiple passes retrieval-augmented LLM sponge",
+          "hits": [
+            {"title": "SONIC: Segmented Optimized Nexus for Information Compression in KV Caching", "url": "https://arxiv.org/pdf/2601.21927"},
+            {"title": "Dynamic Memory Compression: Retrofitting LLMs for Accelerated Inference", "url": "https://arxiv.org/pdf/2403.09636"},
+            {"title": "Beyond RAG: Task-Aware KV Cache Compression for Knowledge Reasoning", "url": "https://arxiv.org/pdf/2503.04973"}
+          ],
+          "forced_functional_hits": ["SONIC compresses historical segments into semantically rich Nexus tokens (enriched compression)", "Dynamic Memory Compression learns per-head/layer compression at inference"],
+          "snippet": "SONIC compresses historical segments into compact, semantically rich Nexus tokens; DMC applies different compression rates per head/layer at inference; episodic memory summarization for error-controlled synthesis. (content words: episodic compression, slow-release/buffered memory, RAG)"
+        },
+        {
+          "query": "adaptive retrieval relevance-proportional context selection redundancy-aware token-budget RAG (cross-check)",
+          "hits": [
+            {"title": "AdaGReS: Adaptive Greedy Context Selection (token-budgeted RAG)", "url": "https://arxiv.org/pdf/2512.25052"},
+            {"title": "Rethinking Retrieval-Augmentation as Synthesis: Query-Aware Context Merging", "url": "https://arxiv.org/html/2603.20286v1"},
+            {"title": "Accelerating Inference of RAG via Sparse Context Selection", "url": "https://arxiv.org/html/2405.16178v1"}
+          ],
+          "forced_functional_hits": ["AdaGReS instance-adaptive relevance-redundancy trade-off for token-budgeted retrieval", "Query-Aware Context Merging (synthesis, not verbatim)"],
+          "snippet": "AdaGReS optimizes a set-level objective combining query-chunk relevance and redundancy penalties with instance-adaptive calibration; retrieval scope adapts to query complexity (shift from fixed top-k to adaptive). (content words: query buffering, relevance-proportional release, semantic retrieval)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Beyond Fact Retrieval: Episodic Memory for RAG (arxiv 2511.07587) — episodic memory with recursive summarization compression over turns",
+        "Adaptive-k retrieval (arxiv 2506.08479) & Sparse RAG (arxiv 2405.16178) — relevance-proportional, query-adaptive context release",
+        "CMT memory compression / 'memory precipitation over iterations' (arxiv 2412.07393, 2310.09297) — consolidation/enrichment across passes",
+        "SONIC / Dynamic Memory Compression (arxiv 2601.21927, 2403.09636) — enriched compressive memory, not verbatim"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "FAILS — every functional pillar (episodic compressive memory, enrichment/consolidation over multiple inference passes, query-relevance-proportional release, buffering sparse input) maps to current RAG/memory-compression literature. No expert surprise."},
+      "composite": {"novelty": 1, "mechanism": 3, "verifiability": 4, "non_trivial": 1, "score": 12},
+      "narrow_version_nontrivial": false,
+      "reasoning": "5/5 reformulations with forced functional hits. The hugelkultur 'sponge/slow-release composted memory buffering sparse input' is compressive episodic-memory RAG with adaptive, relevance-proportional retrieval — heavily occupied. No gap."
+    },
+    {
+      "id": "C48",
+      "concept": "Kintsugi",
+      "functional_effect": "In continual learning, instead of regularizing away or avoiding catastrophic interference, actively DETECT failure-boundary / interference regions (in parameter or feature space near decision boundaries) and REINFORCE/ENRICH them with targeted, high-precision updates, so the former interference boundary becomes a structurally robust decision boundary encoding the model's learning history. Functionally: boundary-aware reinforcement / enrichment for robust continual learning (the inverse of interference-avoidance).",
+      "content_words": ["catastrophic forgetting", "failure boundary", "continual learning", "targeted weight update", "fracture reinforcement", "parameter space", "learning history"],
+      "reformulations": [
+        {
+          "query": "continual learning detect interference-prone parameters targeted reinforcement strengthen instead of regularize forgetting",
+          "hits": [
+            {"title": "Learning to Learn without Forgetting by Maximizing Transfer and Minimizing Interference (MER)", "url": "https://arxiv.org/pdf/1810.11910"},
+            {"title": "InfLoRA: Interference-Free Low-Rank Adaptation for Continual Learning", "url": "https://arxiv.org/pdf/2404.00228"},
+            {"title": "Same State, Different Task: Continual RL without Interference (OWL)", "url": "https://arxiv.org/pdf/2106.02940"}
+          ],
+          "forced_functional_hits": ["MER (catastrophic forgetting + continual learning + interference, but DIRECTION = minimize)", "InfLoRA (continual learning + interference, DIRECTION = eliminate)"],
+          "snippet": "MER learns parameters that make interference based on future gradients less likely... InfLoRA eliminates interference of the new task on old tasks... methods address forgetting through regularization vs interference through parameter-selection. NOTE: these MINIMIZE/AVOID interference, opposite to the candidate's reinforce-the-fracture direction. (content words present: catastrophic forgetting, continual learning, targeted/parameter)"
+        },
+        {
+          "query": "identify decision boundary regions reinforce them targeted weight updates make robust continual learning encode task boundary",
+          "hits": [
+            {"title": "InTAct: Interval-based Task Activation Consolidation for Continual Learning", "url": "https://arxiv.org/pdf/2511.17439"},
+            {"title": "Towards Continual Learning Desiderata via HSIC-Bottleneck Orthogonalization and Equiangular Embedding", "url": "https://arxiv.org/pdf/2401.09067"},
+            {"title": "Continual Learning with Weight Interpolation", "url": "https://arxiv.org/pdf/2404.04002"},
+            {"title": "exploring and exploiting decision boundary dynamics", "url": "https://arxiv.org/pdf/2302.03015"}
+          ],
+          "forced_functional_hits": ["InTAct: identify regions where previous tasks reside, targeted constraint of updates there (decision-boundary-region targeted weight handling)", "EquiAngular Embedding enhances decision boundary adaptation between old/new tasks"],
+          "snippet": "InTAct identifies activation intervals where previous tasks reside and constrains updates within these regions (hypercubes delineating feature-space regions of prior knowledge)... HSIC-Bottleneck + EquiAngular Embedding enhances decision boundary adaptation between old and new tasks. NOTE: InTAct CONSTRAINS/protects boundary regions; closely adjacent but the action is freeze-not-reinforce. (content words: failure/decision boundary, continual learning, targeted weight update)"
+        },
+        {
+          "query": "turn catastrophic interference into useful feature continual learning leverage forgetting events constructively",
+          "hits": [
+            {"title": "Brain-inspired feature exaggeration in generative replay for continual learning", "url": "https://arxiv.org/pdf/2110.15056"},
+            {"title": "Putting a Face to Forgetting: Continual Learning meets Mechanistic Interpretability", "url": "https://arxiv.org/pdf/2601.22012"},
+            {"title": "Predicting the Susceptibility of Examples to Catastrophic Forgetting", "url": "https://arxiv.org/pdf/2406.09935"}
+          ],
+          "forced_functional_hits": ["Brain-inspired feature exaggeration: targeted amplification of differences between competing/confusable memories (reinforce at points of interference)", "Predicting susceptibility of examples to forgetting (detect failure-prone items)"],
+          "snippet": "The brain avoids memory interference by applying targeted EXAGGERATION of differences between features of similar competing memories, allowing it to distinguish and recall them... examples learned early are rarely forgotten while later are more susceptible. NOTE: feature exaggeration reinforces at confusion points (closest functional analog) but operates on feature reps in generative replay, not parameter-space failure-boundary reinforcement. (content words: catastrophic forgetting, continual learning, targeted)"
+        },
+        {
+          "query": "scar tissue analogy neural network strengthen previously failed region high precision update robust boundary",
+          "hits": [
+            {"title": "Development of Neuroregenerative Gene Therapy to Reverse Glial Scar Tissue (biology)", "url": "https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2020.594170/full"},
+            {"title": "Automated Structural Analysis of Scar Tissue Using Machine Learning (medical imaging)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8871086/"},
+            {"title": "Plasticity and Reconstruction of Neural Network in Brain Injury (biology)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8258089/"}
+          ],
+          "forced_functional_hits": [],
+          "snippet": "Results are entirely biological/medical (glial scar reversal, ML for scar-tissue imaging) — NO ML-architecture hits on using a scar/fracture analogy to strengthen failed regions of an artificial network. ZERO forced functional hits for this exact framing. (content words present: none in an ML-method sense)"
+        },
+        {
+          "query": "exploit decision boundary dynamics reinforce hard samples robust continual learning boundary as feature",
+          "hits": [
+            {"title": "Continual Learning with Synthetic Boundary Experience Blending", "url": "https://arxiv.org/html/2507.23534"},
+            {"title": "Exploring and Exploiting Decision Boundary Dynamics for Adversarial Robustness (DyART, ICLR 2023)", "url": "https://arxiv.org/abs/2302.03015"},
+            {"title": "HamBR: Active Decision Boundary Restoration for Learning with Noisy Labels", "url": "https://arxiv.org/abs/2605.11383"}
+          ],
+          "forced_functional_hits": ["Continual Learning with Synthetic Boundary Experience Blending: synthesized boundary data ENRICHES the feature space NEAR DECISION BOUNDARIES for stable/robust continual learning (core-claim match)", "DyART: prioritize increasing margins at vulnerable boundary points (reinforce failure-prone boundary)"],
+          "snippet": "Continual Learning with Synthetic Boundary Experience Blending — synthesized boundary data enriches the feature space near decision boundaries, leading to more stable and robust continual learning. DyART encourages decision-boundary movement prioritizing increasing smaller margins at vulnerable points. (content words: failure/decision boundary, continual learning, reinforce, robust)"
+        }
+      ],
+      "verdict": "COLLISION",
+      "colliding_works": [
+        "Continual Learning with Synthetic Boundary Experience Blending (arxiv 2507.23534) — actively ENRICH/REINFORCE feature space near decision boundaries for robust continual learning (direct functional match to 'reinforce the fracture/boundary')",
+        "Exploring and Exploiting Decision Boundary Dynamics / DyART (ICLR 2023, arxiv 2302.03015) — reinforce vulnerable (small-margin) boundary points",
+        "Brain-inspired feature exaggeration in generative replay (arxiv 2110.15056) — targeted amplification at points of memory interference",
+        "InTAct (arxiv 2511.17439) — boundary-region-targeted weight handling in continual learning (adjacent, protect-direction)"
+      ],
+      "gate3_search_count": 5,
+      "gate4_belinda": {"pass": false, "why": "FAILS on the core claim. The single distinctive, non-trivial reading of kintsugi (do NOT regularize interference away; instead actively reinforce/enrich the failure-boundary region to make it robust) collides with 'Continual Learning with Synthetic Boundary Experience Blending' (enriches feature space near decision boundaries) and DyART (reinforces vulnerable boundary margins). The narrow inversion is metaphorically fresh but functionally occupied; an expert would point to boundary-aware / boundary-enriching continual learning."},
+      "composite": {"novelty": 2, "mechanism": 3, "verifiability": 3, "non_trivial": 2, "score": 36},
+      "narrow_version_nontrivial": false,
+      "reasoning": "C48 was the strongest gap candidate and was probed hardest (7 searches). The kintsugi 'fracture-to-feature' inversion (reinforce, don't regularize-away, the interference/failure boundary) is genuinely the most distinctive of the eight. Two reformulations initially returned only interference-AVOIDANCE work (MER/InfLoRA/EWC) and the 'scar tissue' framing returned zero ML hits — which momentarily looked like a possible narrow gap. BUT reformulation 5 produced a forced functional hit on the CORE claim: 'Continual Learning with Synthetic Boundary Experience Blending' explicitly ENRICHES the feature space near decision boundaries for robust continual learning, and DyART reinforces vulnerable boundary points. Brain-inspired feature exaggeration also amplifies at interference points. Therefore the core effect is published. R14 applied honestly in BOTH directions: I did not explain away the gap prematurely (probed 7x), but the boundary-enrichment collision is real and direct, so the verdict is COLLISION, not GAP. The kintsugi-specific 'encode learning history in the reinforced boundary' narrative is an arbitrary extra narrative, not a separately-defensible mechanism -> narrow_version_nontrivial=false. Composite slightly higher (36) than the others to reflect that this one is the least-thoroughly-anticipated framing, but still below any gap threshold."
+    }
+  ],
+  "search_count": 42,
+  "gaps_found": [],
+  "honesty_note": "All 42 queries were REAL WebSearches executed this session; every title/URL/snippet recorded above is from actually-returned results (not memory/fabrication). No git was run. Search budget per candidate: C40=5, C42=5, C43=5, C44=5, C45=5, C46=5, C47=5, C48=7 (C48 probed hardest as the strongest gap candidate). VERDICTS: all 8 = COLLISION; gaps_found is EMPTY. The three positive controls (C43 annealing, C44 nucleation, C45 diffusion) all COLLIDED as expected, confirming method calibration (C43->simulated-annealing attention pruning/Gibbs pruning; C44->Auto-CoT/demonstration-selection seeding; C45->Diffuser/Sketch-and-Walk/APPNP diffusion-attention). Regarding the run's hypothesis (did the sparsest-12 selection MISS a real gap in a less-sparse concept): within my assigned subset, NO. The two lowest-raw-hit non-control concepts (C46 stomatal ABA gating = 2 hits; C48 kintsugi = 2 hits) were the prime suspects. C46 collides cleanly with Gated Attention (NeurIPS 2025) + dynamic neural inhibition. C48 was the closest call and was the one concept where a NARROW inversion-framing ('reinforce the failure boundary' rather than avoid interference) briefly resembled an unoccupied fusion; I deliberately did NOT explain it away (R14) and searched 7 times — but it ultimately collides directly with 'Continual Learning with Synthetic Boundary Experience Blending' (enriches feature space near decision boundaries) and DyART (reinforces vulnerable boundary margins). Honest residual uncertainty: C48's most specific claim (treat the reinforced interference boundary AS an explicit record of learning history / lineage) was not found verbatim; if any of the eight harbors a defensible micro-gap it would be that narrow historiographic-encoding twist, but I judge it an arbitrary over-specification (narrow_version_nontrivial=false), not a meaningful functional gap."
+}

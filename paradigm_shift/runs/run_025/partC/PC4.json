@@ -1,0 +1,616 @@
+{
+  "batch": "PC4",
+  "concepts": [
+    {
+      "id": "C67",
+      "concept": "Gastrulation (invagination)",
+      "domain": "developmental biology",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Invagination - Wikipedia", "url": "https://en.wikipedia.org/wiki/Invagination"},
+        {"title": "Gastrulation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Gastrulation"},
+        {"title": "Apical constriction - Wikipedia", "url": "https://en.wikipedia.org/wiki/Apical_constriction"},
+        {"title": "Invagination (Gastrulation) - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/invagination-gastrulation"},
+        {"title": "Patterned invagination prevents mechanical instability during gastrulation", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12527948/"}
+      ],
+      "mechanism_summary": "Gastrulation transforms the blastula via invagination: the prospective endoderm/mesoderm folds inward, driven primarily by apical constriction. Cells in the target region have an actin meshwork beneath the apical membrane and circumferential actin belts at adherens junctions; pulsed contractions of the actin meshwork reduce apical surface area, forcing cells into a wedge shape. Coordinated wedge formation across many epithelial cells bends the sheet inward to form the blastopore/ventral furrow. The result is a cup-shaped double-walled structure (gastrula) with ectoderm, mesoderm, and endoderm layers now positioned for organ formation.",
+      "atoms": [
+        {
+          "atom_id": "C67_A1",
+          "operator": "constricts",
+          "verbatim_quote": "pulsed contractions of the actin meshwork believed to be primarily responsible for reducing the apical surface area",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Apical_constriction",
+          "mechanism_atom": "Pulsed actomyosin contraction at the cell apex reduces apical surface area, generating the wedge-shape that bends an epithelial sheet inward (apical constriction drives invagination)."
+        },
+        {
+          "atom_id": "C67_A2",
+          "operator": "folds",
+          "verbatim_quote": "invagination, where the endoderm folds towards the inner part and the blastocoel transforms into a cup-shaped structure with a double wall",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Invagination",
+          "mechanism_atom": "Coordinated wedge-cell accumulation across the epithelium causes the entire sheet to fold inward, converting a hollow sphere into a double-walled cup with distinct germ-layer compartments."
+        },
+        {
+          "atom_id": "C67_A3",
+          "operator": "specifies",
+          "verbatim_quote": "Gastrulation constitutes the first major morphogenetic event in development during which the germ layers (ectoderm, mesoderm and endoderm) are both specified and shaped",
+          "quote_source_url": "https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/invagination-gastrulation",
+          "mechanism_atom": "Morphogen gradients (BMP, WNT, NODAL) specify cell-fate identities spatially during gastrulation, coupling mechanical folding to gene-regulatory identity assignment."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C67_A1",
+            "search_query": "apical constriction cell sheet bending machine learning neural network",
+            "hits": [
+              {"title": "Apical Constriction: A Cell Shape Change that Can Drive Morphogenesis", "url": "https://www.researchgate.net/publication/26809743_Apical_Constriction_A_Cell_Shape_Change_that_Can_Drive_Morphogenesis"},
+              {"title": "Apical constriction requires patterned apical surface remodeling to synchronize cellular deformation - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12005724/"},
+              {"title": "Apical constriction - Wikipedia", "url": "https://en.wikipedia.org/wiki/Apical_constriction"},
+              {"title": "Studying gastrulation by invagination: The bending of a cell sheet by mechanical cell properties using 3D deformable cell based simulations", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12194075/"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "Search returned computational models (cellular Potts model, 3D vertex simulations) but no ML/neural-network papers studying or importing apical constriction as a mechanism."
+          },
+          {
+            "atom_id": "C67_A2",
+            "search_query": "epithelial folding invagination morphogenesis deep learning simulation",
+            "hits": [
+              {"title": "Deep learning for rapid analysis of cell divisions in vivo during epithelial morphogenesis and repair | eLife", "url": "https://elifesciences.org/articles/87949"},
+              {"title": "The mechanical basis of morphogenesis: I. Epithelial folding and invagination - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/0012160681902761"},
+              {"title": "Mechanical role of the spatial patterns of contractile cells in invagination of growing epithelial tissue", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11520961/"}
+            ],
+            "paper_hit_count": 1,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "Deep learning pipeline developed to identify dividing cells in time-lapse movies of epithelial tissues during morphogenesis (eLife 2024). ML is used to study/analyse the phenomenon, not import the folding mechanism itself."
+          },
+          {
+            "atom_id": "C67_A3",
+            "search_query": "gastrulation germ layer specification morphogen gradient machine learning neural network",
+            "hits": [
+              {"title": "FATE-MAP predicts teratogenicity and human gastrulation failure modes by integrating deep learning and mechanistic modeling | Nature Communications", "url": "https://www.nature.com/articles/s41467-026-69596-6"},
+              {"title": "Morphogen gradient orchestrates pattern-preserving tissue morphogenesis via motility-driven unjamming | Nature Physics", "url": "https://www.nature.com/articles/s41567-022-01787-6"},
+              {"title": "Optogenetic Rescue Reveals Spatiotemporal Rules of Germ-Layer Patterning", "url": "https://www.biorxiv.org/content/10.64898/2025.12.08.693069.full.pdf"}
+            ],
+            "paper_hit_count": 2,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "FATE-MAP (Nature Communications 2026) combines deep learning with mechanistic morphogen modeling to predict gastrulation outcomes. ML is used to measure/predict morphogen-driven germ-layer patterning."
+          }
+        ],
+        "min_penetration": "NONE",
+        "total_hits_across_atoms": 3
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C67",
+        "source_mechanism_verbatim": "pulsed contractions of the actin meshwork believed to be primarily responsible for reducing the apical surface area",
+        "operator": "constricts",
+        "llm_application": "Pulsed apical-constriction gating as a model for attention-head softmax temperature annealing that progressively narrows a token distribution",
+        "content_words": ["pulsed", "constriction", "apical", "surface", "reduction", "epithelial", "bending"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C68",
+      "concept": "Chemotaxis (gradient following)",
+      "domain": "cell biology",
+      "tier_prior": 3,
+      "empirical_tier": 4,
+      "source_results": [
+        {"title": "Chemotaxis - Wikipedia", "url": "https://en.wikipedia.org/wiki/Chemotaxis"},
+        {"title": "Chemotaxis - wikidoc", "url": "https://www.wikidoc.org/index.php/Chemotaxis"},
+        {"title": "Signaling Mechanisms for Chemotaxis - PMC - NIH", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3098469/"},
+        {"title": "The physics of eukaryotic chemotaxis - Physics Today", "url": "https://physicstoday.aip.org/features/the-physics-of-eukaryotic-chemotaxis"},
+        {"title": "Enhanced chemotaxis through spatially-regulated absolute concentration robustness", "url": "https://www.biorxiv.org/content/10.1101/2021.07.10.451673.full.pdf"}
+      ],
+      "mechanism_summary": "Bacteria follow chemical gradients via temporal comparison: during a run, the cell senses concentration change over time; if the perceived change is positive, tumbling probability decreases and the run continues; if negative, tumbling increases and the cell reorients. Chemoreceptors in the membrane detect ligand and transmit signals to flagellar motors via a methylation-adaptation system (CheA/CheY phosphorylation cascade). Eukaryotic chemotaxis translates external chemical gradients into an amplified intracellular PIP3 gradient via local excitation / global inhibition, driving actin polymerization at the leading edge and directional movement.",
+      "atoms": [
+        {
+          "atom_id": "C68_A1",
+          "operator": "compares",
+          "verbatim_quote": "Bacteria follow gradients by performing temporal comparisons of chemoeffector concentrations along their runs",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Chemotaxis",
+          "mechanism_atom": "Bacteria compare present vs. recent past ligand concentration to infer gradient direction; a positive temporal derivative suppresses tumbling, biasing motion up-gradient."
+        },
+        {
+          "atom_id": "C68_A2",
+          "operator": "amplifies",
+          "verbatim_quote": "an external chemotactic gradient is sensed and turned into an intracellular PIP3 gradient, which results in a gradient in the activation of signaling pathway culminating in the polymerisation of actin filaments",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3098469/",
+          "mechanism_atom": "Local excitation / global inhibition (LEGI) amplifies a shallow external gradient into a steep intracellular PIP3 gradient, polarizing the cell for directed migration."
+        },
+        {
+          "atom_id": "C68_A3",
+          "operator": "self-generates",
+          "verbatim_quote": "Cells can perform chemotaxis collectively by modifying the chemical environment and responding to the self-generated gradients, with consumption of chemoattractants leading to gradients pointing in the direction with lowest cell density",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Chemotaxis",
+          "mechanism_atom": "Collective chemotaxis: cells consume attractant, creating self-generated gradients that direct the swarm toward lower cell density — a self-organizing navigation mechanism."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C68_A1",
+            "search_query": "temporal gradient comparison biased random walk machine learning reinforcement",
+            "hits": [
+              {"title": "A comparison of Temporal-Difference(0) and Constant-α Monte Carlo methods on the Random Walk Task | Towards Data Science", "url": "https://towardsdatascience.com/a-comparison-of-temporal-difference-0-and-constant-%CE%B1-monte-carlo-methods-on-the-random-walk-task-bc6497eb7c92/"},
+              {"title": "Temporal Regularization in Markov Decision Process", "url": "https://arxiv.org/pdf/1811.00429"},
+              {"title": "A Temporal-Difference Approach to Policy Gradient Estimation", "url": "https://arxiv.org/pdf/2202.02396"},
+              {"title": "Biased Gradient Estimate with Drastic Variance Reduction for Meta Reinforcement Learning", "url": "https://arxiv.org/pdf/2112.07328"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "Hits are about temporal-difference RL methods (unrelated mathematical framework); no papers found studying bacterial temporal chemotaxis comparison as an ML mechanism."
+          },
+          {
+            "atom_id": "C68_A2",
+            "search_query": "run-and-tumble gradient sensing chemotaxis neural network LLM",
+            "hits": [
+              {"title": "Learning run-and-tumble chemotaxis with support vector machines", "url": "https://cdn.sciengine.com/doi/10.1209/0295-5075/acd0d3"},
+              {"title": "Run-and-tumble chemotaxis using reinforcement learning", "url": "https://arxiv.org/html/2501.03687v1"},
+              {"title": "Run-and-Tumble Particles Learning Chemotaxis", "url": "https://arxiv.org/html/2507.23519v1"},
+              {"title": "Run-and-tumble particles learning chemotaxis - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12590351/"},
+              {"title": "Learning optimal integration of spatial and temporal information in noisy chemotaxis", "url": "https://www.researchgate.net/publication/381449974_Learning_optimal_integration_of_spatial_and_temporal_information_in_noisy_chemotaxis"}
+            ],
+            "paper_hit_count": 5,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "Multiple papers (2025-2026) use RL and SVM to simulate or learn chemotactic run-and-tumble behavior. ML studies the mechanism; a recurrent neural network parameterizes the chemotactic policy."
+          },
+          {
+            "atom_id": "C68_A3",
+            "search_query": "intracellular PIP3 signaling gradient amplification machine learning",
+            "hits": [
+              {"title": "Signal transduction and directional sensing in eukaryotes", "url": "https://arxiv.org/pdf/1309.6692"},
+              {"title": "IFITM3 functions as a PIP3 scaffold to amplify PI3K signalling in B cells | Nature", "url": "https://www.nature.com/articles/s41586-020-2884-6"},
+              {"title": "Amplification of PIP3 signalling by macropinocytic cups", "url": "https://portlandpress.com/biochemj/article/475/3/643/49836/Amplification-of-PIP3-signalling-by-macropinocytic"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "No papers found applying ML to PIP3/LEGI gradient amplification specifically; results focus on biology of signal transduction."
+          }
+        ],
+        "min_penetration": "NONE",
+        "total_hits_across_atoms": 5
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C68",
+        "source_mechanism_verbatim": "Bacteria follow gradients by performing temporal comparisons of chemoeffector concentrations along their runs",
+        "operator": "compares",
+        "llm_application": "Temporal-comparison gradient sensing as a model for token-prediction self-monitoring that adjusts beam-search branching based on likelihood derivatives",
+        "content_words": ["temporal", "comparison", "gradient", "concentration", "tumble", "run", "biased"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C69",
+      "concept": "Sporulation (bacterial endospore dormancy)",
+      "domain": "microbiology",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Sporulation in Bacillus subtilis - Wikipedia", "url": "https://en.wikipedia.org/wiki/Sporulation_in_Bacillus_subtilis"},
+        {"title": "Endospore - Wikipedia", "url": "https://en.wikipedia.org/wiki/Endospore"},
+        {"title": "Bacterial Sporulation and Endospore Formation: A Mechanism for Extreme Survival - Anatomy Note", "url": "https://anatomynote.com/bacterial-sporulation-and-endospore-formation-a-mechanism-for-extreme-survival/"},
+        {"title": "Sporulation in Bacteria: Beyond the Standard Model | Microbiology Spectrum", "url": "https://journals.asm.org/doi/10.1128/microbiolspec.tbs-0013-2012"},
+        {"title": "Endospores and Sporulation - JoVE", "url": "https://www.jove.com/science-education/v/19475/endospores-and-sporulation"}
+      ],
+      "mechanism_summary": "When Bacillus subtilis faces nutrient depletion, a phosphorelay system activates the master regulator Spo0A, initiating sporulation. Sporulation then proceeds through an ordered cascade of compartment-specific sigma factors: σH → σF (forespore) → σE (mother cell) → σG (forespore) → σK (mother cell). Each sigma factor is produced and activated only after the preceding one acts, with intercellular signaling checkpoints ensuring coordination between the developing forespore and the mother cell. The forespore becomes double-membrane-wrapped and accumulates dipicolinic acid (DPA), which chelates calcium and replaces water, creating extreme desiccation resistance. Dormancy is maintained until specific nutrient signals (amino acids or sugars) trigger rapid DPA release and rehydration, reverting to vegetative growth.",
+      "atoms": [
+        {
+          "atom_id": "C69_A1",
+          "operator": "cascades",
+          "verbatim_quote": "Sporulation is orchestrated by a precisely timed cascade of sigma factors… Factors σA is the major vegetative σ factor, whereas factors σH, σF, σE, σG, and σK appear in sequence during the course of sporulation",
+          "quote_source_url": "https://www.numberanalytics.com/blog/ultimate-guide-spore-formation-bacteriology",
+          "mechanism_atom": "An ordered, checkpoint-gated sigma-factor cascade sequentially activates compartment-specific gene programs; each stage depends on completion of the previous, creating a committed, irreversible developmental sequence."
+        },
+        {
+          "atom_id": "C69_A2",
+          "operator": "encapsulates",
+          "verbatim_quote": "The endospore consists of the bacterium's DNA, ribosomes and large amounts of dipicolinic acid, which is a spore-specific chemical that appears to help in the ability for endospores to maintain dormancy and accounts for up to 10% of the spore's dry weight",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Endospore",
+          "mechanism_atom": "The forespore wraps itself in multiple protective layers (cortex, coat, exosporium) and fills with DPA-calcium complex that displaces water, creating a dehydrated, chemically inert state maximally resistant to environmental insults."
+        },
+        {
+          "atom_id": "C69_A3",
+          "operator": "germinates",
+          "verbatim_quote": "When an endospore senses the presence of specific nutrients, such as amino acids or sugars, it initiates a rapid rehydration process, the protective layers are shed, metabolic activity resumes, and the organism returns to its vegetative state",
+          "quote_source_url": "https://anatomynote.com/bacterial-sporulation-and-endospore-formation-a-mechanism-for-extreme-survival/",
+          "mechanism_atom": "Germinant receptors on the inner membrane specifically detect amino-acid or sugar signals, triggering DPA release through the SpoVA channel, rapid rehydration, and return to full metabolic activity — a precise condition-gated reactivation."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C69_A1",
+            "search_query": "sporulation nutrient depletion checkpoint sigma factor cascade machine learning",
+            "hits": [
+              {"title": "Video: Gene Regulation During Sporulation - JoVE", "url": "https://www.jove.com/science-education/v/19540/gene-regulation-during-sporulation"},
+              {"title": "Evolutionary bioenergetics of sporulation | PNAS", "url": "https://www.pnas.org/doi/10.1073/pnas.2524274123"},
+              {"title": "Regulation of pro-σK activation: a key checkpoint in Bacillus subtilis sporulation - PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/33538382/"},
+              {"title": "Ultrasensitivity of the Bacillus subtilis sporulation decision | PNAS", "url": "https://www.pnas.org/doi/10.1073/pnas.1213974109"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "Zero ML or neural-network papers found. All results are pure microbiology/systems-biology. Sigma factor cascade is not studied by ML nor imported as an architecture."
+          },
+          {
+            "atom_id": "C69_A2",
+            "search_query": "dipicolinic acid spore dormancy nutrient-stress triggered reactivation machine learning neural network",
+            "hits": [
+              {"title": "The SpoVA membrane complex is required for dipicolinic acid import during sporulation and export during germination", "url": "https://genesdev.cshlp.org/content/36/9-10/634.full.html"},
+              {"title": "Role of Dipicolinic Acid in the Germination, Stability, and Viability of Spores of Bacillus subtilis - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2446992/"},
+              {"title": "Dipicolinic Acid - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/nursing-and-health-professions/dipicolinic-acid"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "No ML or neural-network papers returned. Search confirmed: DPA-mediated dormancy encapsulation is entirely absent from ML literature."
+          },
+          {
+            "atom_id": "C69_A3",
+            "search_query": "sporulation stress-triggered dormancy-to-activity transition LLM neural network machine learning",
+            "hits": [
+              {"title": "StressPrompt: Does Stress Impact Large Language Models and Human Performance Similarly?", "url": "https://arxiv.org/pdf/2409.17167"},
+              {"title": "Resting Neurons, Active Insights: Robustify Activation Sparsity for Large Language Models", "url": "https://arxiv.org/pdf/2512.12744"},
+              {"title": "Triple Phase Transitions: Understanding the Learning Dynamics of Large Language Models from a Neuroscience Perspective", "url": "https://arxiv.org/pdf/2502.20779"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "Hits are about LLM stress-prompting behavior (unrelated). No papers use sporulation's stress→dormancy→nutrient-reactivation mechanism in ML. Zero true matches."
+          }
+        ],
+        "min_penetration": "NONE",
+        "total_hits_across_atoms": 0
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C69",
+        "source_mechanism_verbatim": "Sporulation is orchestrated by a precisely timed cascade of sigma factors… Factors σA is the major vegetative σ factor, whereas factors σH, σF, σE, σG, and σK appear in sequence during the course of sporulation",
+        "operator": "cascades",
+        "llm_application": "Sigma-factor checkpoint cascade as a model for ordered curriculum training: each training phase unlocks the next only after a gating criterion is met, with irreversible commitment to a compressed dormant checkpoint when loss plateaus under resource exhaustion",
+        "content_words": ["sigma", "cascade", "checkpoint", "ordered", "sequential", "dormancy", "nutrient-triggered"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C70",
+      "concept": "Affinity maturation (somatic hypermutation)",
+      "domain": "immunology",
+      "tier_prior": 2,
+      "empirical_tier": 4,
+      "source_results": [
+        {"title": "Affinity maturation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Affinity_maturation"},
+        {"title": "Somatic hypermutation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Somatic_hypermutation"},
+        {"title": "Regulated somatic hypermutation enhances antibody affinity maturation | Nature", "url": "https://www.nature.com/articles/s41586-025-08728-2"},
+        {"title": "The Use of Somatic Hypermutation for the Affinity Maturation of Therapeutic Antibodies - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6497467/"},
+        {"title": "Affinity Maturation - Immune System Gets Smarter Over Time", "url": "https://www.rapidnovor.com/affinity-maturation/"}
+      ],
+      "mechanism_summary": "Affinity maturation occurs in germinal centers (GC) of lymph nodes. B cells proliferate and undergo somatic hypermutation (SHM), in which activation-induced cytidine deaminase (AID) deaminates cytosines in the Ig variable-region genes, creating uracils processed by error-prone repair into point mutations at ~10^-3 per base per division (10^6x the background rate). B cells then compete for antigen on follicular dendritic cells; those with higher-affinity BCRs receive survival signals from T follicular helper cells; lower-affinity cells undergo apoptosis. Iterative cycles of mutation (dark zone) and selection (light zone) produce antibodies of successively higher antigen affinity.",
+      "atoms": [
+        {
+          "atom_id": "C70_A1",
+          "operator": "mutates",
+          "verbatim_quote": "The reaction is initiated by cytosine deamination of Ig loci by activation induced deaminase (AID) and is completed by error-prone DNA repair enzyme processing of AID-generated uracils",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Somatic_hypermutation",
+          "mechanism_atom": "AID introduces targeted mutations in the Ig variable region at ~10^6x the background rate; error-prone repair diversifies the sequence, generating a variant population for selection."
+        },
+        {
+          "atom_id": "C70_A2",
+          "operator": "selects",
+          "verbatim_quote": "Selection occurring after each round of somatic hypermutation favors the survival of GC B cells producing antibody that has an increased affinity for antigen based on complementary fit",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Affinity_maturation",
+          "mechanism_atom": "After each mutation round, B cells compete for antigen; high-affinity variants receive T-cell survival signals while low-affinity variants undergo apoptosis — a Darwinian selection step that ratchets affinity upward each cycle."
+        },
+        {
+          "atom_id": "C70_A3",
+          "operator": "iterates",
+          "verbatim_quote": "Iterative selection and clonal expansion of B cells containing affinity-enhancing mutations drive an increase in the overall affinity of antibodies",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Affinity_maturation",
+          "mechanism_atom": "Dark-zone (mutation) and light-zone (selection) cycles iterate repeatedly, each cycle increasing average antibody affinity — an evolutionary optimization loop operating at somatic speed."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C70_A1",
+            "search_query": "somatic hypermutation iterative mutation selection affinity machine learning LLM",
+            "hits": [
+              {"title": "Deep learning model of somatic hypermutation reveals importance of sequence context beyond hotspot targeting - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S2589004221016382"},
+              {"title": "Deep learning model of somatic hypermutation reveals importance of sequence context beyond hotspot targeting - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8749460/"},
+              {"title": "Nucleotide context models outperform protein language models for predicting antibody affinity maturation", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12262217/"},
+              {"title": "The term 'affinity maturation' understates the influence of somatic hypermutation", "url": "https://matsen.fhcrc.org/general/2025/08/17/mut-sel-in-bcrs.html"}
+            ],
+            "paper_hit_count": 3,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "Deep learning models (iCell Reports 2022, Nucleotide context 2025) are used to predict SHM hotspots and affinity maturation patterns. ML studies the mechanism in detail."
+          },
+          {
+            "atom_id": "C70_A2",
+            "search_query": "antibody affinity maturation germinal center selection neural network deep learning",
+            "hits": [
+              {"title": "Pretrainable geometric graph neural network for antibody affinity maturation | Nature Communications", "url": "https://www.nature.com/articles/s41467-024-51563-8"},
+              {"title": "Inference of germinal center evolutionary dynamics via simulation-based deep learning | eLife", "url": "https://elifesciences.org/articles/108880"},
+              {"title": "Conditionally Site-Independent Neural Evolution of Antibody Sequences", "url": "https://arxiv.org/html/2602.18982v3"},
+              {"title": "Inference of germinal center evolutionary dynamics via simulation-based deep learning", "url": "https://arxiv.org/pdf/2508.09871"}
+            ],
+            "paper_hit_count": 4,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "Multiple strong hits: GearBind (Nat Commun 2024) uses geometric GNN for affinity maturation; CoSiNE uses deep neural networks parameterizing GC dynamics. Well-penetrated by MEASURES."
+          },
+          {
+            "atom_id": "C70_A3",
+            "search_query": "somatic hypermutation iterative mutation selection affinity machine learning LLM",
+            "hits": [
+              {"title": "Deep learning model of somatic hypermutation - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S2589004221016382"},
+              {"title": "Week 4, March 2025: The Evolving Landscape of Antibody Affinity Maturation", "url": "https://www.biointron.com/antibody-industry-trends/week-4-march-2025-the-evolving-landscape-of-antibody-affinity-maturation.html"},
+              {"title": "Nucleotide context models outperform protein language models for predicting antibody affinity maturation", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12685221/"}
+            ],
+            "paper_hit_count": 3,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "Iterative mutation-selection cycles are explicitly studied using ML models for antibody optimization pipelines."
+          }
+        ],
+        "min_penetration": "MEASURES",
+        "total_hits_across_atoms": 10
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C70",
+        "source_mechanism_verbatim": "Iterative selection and clonal expansion of B cells containing affinity-enhancing mutations drive an increase in the overall affinity of antibodies",
+        "operator": "iterates",
+        "llm_application": "Affinity maturation as inspiration for iterative RLHF fine-tuning: each feedback round selects high-reward continuations, which seed the next mutation round of parameter perturbations",
+        "content_words": ["iterative", "mutation", "selection", "clonal", "affinity", "germinal", "diversification"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C71",
+      "concept": "Complement cascade",
+      "domain": "immunology",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Complement system - Wikipedia", "url": "https://en.wikipedia.org/wiki/Complement_system"},
+        {"title": "Physiology, Complement Cascade - StatPearls - NCBI Bookshelf", "url": "https://www.ncbi.nlm.nih.gov/books/NBK551511/"},
+        {"title": "The complement system and innate immunity - Immunobiology - NCBI Bookshelf", "url": "https://www.ncbi.nlm.nih.gov/books/NBK27100/"},
+        {"title": "Frontiers | Complement System Part I - Molecular Mechanisms of Activation and Regulation", "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2015.00262/full"},
+        {"title": "Complement Cascade - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/engineering/complement-cascade"}
+      ],
+      "mechanism_summary": "The complement cascade consists of ~30 serum proteins (mostly inactive proteases) produced by the liver. Three pathways (classical, lectin, alternative) converge on cleavage of C3 into C3a (anaphylatoxin) and C3b (opsonin). C3b covalently tags pathogen surfaces (opsonization). Subsequent steps cleave C5 into C5a (potent anaphylatoxin) and C5b, which recruits C6, C7, C8, and polymerizing C9 to form the membrane attack complex (MAC). The MAC inserts a transmembrane pore (15–20 C9 molecules form a β-barrel), causing osmotic lysis of the target. The cascade is amplifying: each activated protease cleaves many downstream targets, exponentially increasing signal.",
+      "atoms": [
+        {
+          "atom_id": "C71_A1",
+          "operator": "cleaves",
+          "verbatim_quote": "When stimulated by one of several triggers, proteases in the system cleave specific proteins to release cytokines and initiate an amplifying cascade of further cleavages",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Complement_system",
+          "mechanism_atom": "Sequential protease cleavage creates an amplifying signal cascade: each activated protease cleaves many copies of the next zymogen, exponentially amplifying a weak initial trigger."
+        },
+        {
+          "atom_id": "C71_A2",
+          "operator": "opsonizes",
+          "verbatim_quote": "nascent C3b is capable of reacting with and covalently coupling to hydroxyl groups on the target surface… This process of tagging the target surface with C3b is called opsonization",
+          "quote_source_url": "https://en.wikipedia.org/wiki/C3b",
+          "mechanism_atom": "C3b covalently marks pathogen surfaces via a reactive thioester bond exposed only transiently after cleavage, ensuring targeted decoration within ~60 nm radius of activation — a spatially precise tagging mechanism."
+        },
+        {
+          "atom_id": "C71_A3",
+          "operator": "lyses",
+          "verbatim_quote": "MAC is the cytolytic endproduct of the complement cascade; it forms a transmembrane channel, which causes osmotic lysis of the target cell",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Complement_system",
+          "mechanism_atom": "Terminal complement components assemble into a β-barrel pore (MAC) in the pathogen membrane, disrupting osmotic integrity and causing cell lysis — irreversible execution triggered by the cascade."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C71_A1",
+            "search_query": "complement cascade protease amplification cascade machine learning neural network LLM",
+            "hits": [
+              {"title": "Complement system - Wikipedia", "url": "https://en.wikipedia.org/wiki/Complement_system"},
+              {"title": "Rational Tuning of LLM Cascades via Probabilistic Modeling", "url": "https://arxiv.org/pdf/2501.09345"},
+              {"title": "Comparative Assessment of Protein Large Language Models for Enzyme Commission Number Prediction", "url": "https://link.springer.com/article/10.1186/s12859-025-06081-9"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "LLM cascade paper is about chaining AI models probabilistically — a different concept (cascade = pipeline, not complement protease). No papers study complement protease amplification via ML."
+          },
+          {
+            "atom_id": "C71_A2",
+            "search_query": "complement cascade C3 opsonization C3b tagging surface machine learning LLM neural network",
+            "hits": [
+              {"title": "C3b - Wikipedia", "url": "https://en.wikipedia.org/wiki/C3b"},
+              {"title": "The complement cascade in the regulation of neuroinflammation, nociceptive sensitization, and pain - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8446806/"},
+              {"title": "Quantification of Factor H Mediated Self vs. Non-self Discrimination by Mathematical Modeling", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7493836/"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "Zero ML hits. C3b opsonization tagging mechanism is absent from ML/AI literature."
+          },
+          {
+            "atom_id": "C71_A3",
+            "search_query": "MAC membrane attack complex pore forming lysis deep learning",
+            "hits": [
+              {"title": "Complement Membrane Attack Complex - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/immunology-and-microbiology/complement-membrane-attack-complex"},
+              {"title": "CryoEM reveals how the complement membrane attack complex ruptures lipid bilayers | Nature Communications", "url": "https://www.nature.com/articles/s41467-018-07653-5"},
+              {"title": "Single-molecule kinetics of pore assembly by the membrane attack complex | Nature Communications", "url": "https://www.nature.com/articles/s41467-019-10058-7"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "No deep learning papers on MAC pore assembly. Results are structural biology (cryoEM). Zero ML penetration."
+          }
+        ],
+        "min_penetration": "NONE",
+        "total_hits_across_atoms": 0
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C71",
+        "source_mechanism_verbatim": "When stimulated by one of several triggers, proteases in the system cleave specific proteins to release cytokines and initiate an amplifying cascade of further cleavages",
+        "operator": "cleaves",
+        "llm_application": "Sequential zymogen-activation amplification as a model for hierarchical attention routing: a weak initial signal activates a first-stage head that cleaves/routes the signal to exponentially more downstream heads",
+        "content_words": ["sequential", "protease", "amplifying", "cleavage", "zymogen", "trigger", "cascade"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C72",
+      "concept": "Phagocytosis",
+      "domain": "cell biology",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Phagocytosis - Wikipedia", "url": "https://en.wikipedia.org/wiki/Phagocytosis"},
+        {"title": "The Mechanism of Phagocytosis: Two Stages of Engulfment: Biophysical Journal", "url": "https://www.cell.com/article/S0006-3495(14)00845-5/fulltext"},
+        {"title": "Phagocytosis at a glance | Journal of Cell Science", "url": "https://journals.biologists.com/jcs/article/138/12/jcs263833/368455/Phagocytosis-at-a-glance"},
+        {"title": "The mechanism of phagocytosis: two stages of engulfment", "url": "https://arxiv.org/pdf/1410.7288"},
+        {"title": "Engulfment signals and the phagocytic machinery for apoptotic cell clearance | Experimental & Molecular Medicine", "url": "https://www.nature.com/articles/emm201752"}
+      ],
+      "mechanism_summary": "Phagocytosis is receptor-mediated engulfment of particles ≥0.5 µm. 'Eat-me' signals (e.g., phosphatidylserine, opsonins) on the target bind surface receptors (FcγR, CR3, TIM-4). Receptor ligation triggers phosphorylation cascades, activating Rac1/Cdc42, which drive actin polymerization and pseudopod extension around the target. Engulfment occurs in two mechanistically distinct stages: stage 1 is passive (receptor diffusion and ligand capture, slow), stage 2 is active (receptors driven toward the engulfment site, rapid). Full engulfment produces a phagosome, which acidifies and fuses with lysosomes, leading to enzymatic digestion of the target.",
+      "atoms": [
+        {
+          "atom_id": "C72_A1",
+          "operator": "recognizes",
+          "verbatim_quote": "Engulfment is initiated by receptor-mediated binding, with receptors such as TREM2, P2Y6, CR3, TIM-4, and BAI-1 facilitating actin cytoskeleton remodeling and membrane extension around the target",
+          "quote_source_url": "https://www.sciencedirect.com/topics/neuroscience/phagocytosis",
+          "mechanism_atom": "Pattern-recognition receptors bind specific 'eat-me' surface signals; the binding event triggers downstream cytoskeletal remodeling — a conditional, signal-gated initiation mechanism."
+        },
+        {
+          "atom_id": "C72_A2",
+          "operator": "engulfs",
+          "verbatim_quote": "during the first stage, engulfment is relatively slow and progressively slows down as phagocytosis proceeds, but at approximately half-engulfment, the rate of engulfment increases dramatically, with complete engulfment attained soon afterwards",
+          "quote_source_url": "https://www.cell.com/article/S0006-3495(14)00845-5/fulltext",
+          "mechanism_atom": "A passive-then-active two-stage engulfment: slow receptor-diffusion capture followed by an abrupt switch to actively driven rapid engulfment at ~50% completion — a bistable transition in engulfment rate."
+        },
+        {
+          "atom_id": "C72_A3",
+          "operator": "digests",
+          "verbatim_quote": "Upon full engulfment, a phagosome is formed, which fuses with lysosomes, leading to digestion of the target",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Phagocytosis",
+          "mechanism_atom": "Internalized phagosome undergoes pH-drop maturation and lysosomal fusion, enzymatically degrading the engulfed target into recyclable components — a compartmentalized, irreversible processing step."
+        }
+      ],
+      "penetration": {
+        "atoms": [
+          {
+            "atom_id": "C72_A1",
+            "search_query": "phagocytosis receptor-mediated engulfment machine learning deep learning neural network",
+            "hits": [
+              {"title": "AIstain: Enhancing microglial phagocytosis analysis through deep learning", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12664894/"},
+              {"title": "Modular Organization of Engulfment Receptors and Proximal Signaling Networks: Avenues to Reprogram Phagocytosis", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8092387/"},
+              {"title": "Cell surface receptors TREM2, CD14 and integrin αMβ2 drive sinking engulfment in phosphatidylserine-mediated phagocytosis", "url": "https://www.biorxiv.org/content/10.1101/2022.07.30.502145.full.pdf"}
+            ],
+            "paper_hit_count": 1,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "AIstain (PMC 2025): U-Net deep learning for analyzing microglial phagocytosis in microscopy. ML measures/quantifies phagocytosis, does not import the mechanism."
+          },
+          {
+            "atom_id": "C72_A2",
+            "search_query": "actin-driven pseudopod extension two-stage engulfment slow-then-fast machine learning",
+            "hits": [
+              {"title": "Article The Mechanism of Phagocytosis: Two Stages of Engulfment", "url": "https://www.cell.com/biophysj/pdfExtended/S0006-3495(14)00845-5"},
+              {"title": "Functional Separation of Pseudopod Extension and Particle Internalization during Fcγ Receptor-mediated Phagocytosis - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2212093/"},
+              {"title": "Unified control of amoeboid pseudopod extension in multiple organisms by branched F-actin in the front and parallel F-actin/myosin in the cortex - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7725310/"}
+            ],
+            "paper_hit_count": 0,
+            "penetration_type": "NONE",
+            "penetration_evidence": "No ML papers on two-stage engulfment mechanism. Results are cell biophysics papers."
+          },
+          {
+            "atom_id": "C72_A3",
+            "search_query": "sequential protease cleavage amplification cascade signal neural network architecture",
+            "hits": [
+              {"title": "Protease-based synthetic sensing and signal amplification | PNAS", "url": "https://www.pnas.org/doi/10.1073/pnas.1405220111"},
+              {"title": "DeepPeptide predicts cleaved peptides in proteins using conditional random fields", "url": "https://academic.oup.com/bioinformatics/article/39/10/btad616/7301438"},
+              {"title": "Designed protease-based signaling networks - ScienceDirect", "url": "https://www.sciencedirect.com/science/article/pii/S136759312200031X"}
+            ],
+            "paper_hit_count": 1,
+            "penetration_type": "MEASURES",
+            "penetration_evidence": "DeepPeptide uses CRF/CNN-LSTM to predict protease cleavage sites (measures). Separate from phagocytosis lysosomal digestion specifically; partial thematic overlap only."
+          }
+        ],
+        "min_penetration": "NONE",
+        "total_hits_across_atoms": 2
+      },
+      "candidate": {
+        "candidate_id": "CAND_025_C72",
+        "source_mechanism_verbatim": "during the first stage, engulfment is relatively slow and progressively slows down as phagocytosis proceeds, but at approximately half-engulfment, the rate of engulfment increases dramatically, with complete engulfment attained soon afterwards",
+        "operator": "engulfs",
+        "llm_application": "Passive-then-active two-stage attention as a model for context-window processing: early token processing is slow diffusion-like scanning, switching to rapid active retrieval once a relevance threshold is crossed",
+        "content_words": ["passive", "active", "two-stage", "threshold", "bistable", "engulfment", "rate-switch"],
+        "prima_facie_collision": "no"
+      }
+    }
+  ],
+  "sparsest_verify": {
+    "id": "CAND_025_C69",
+    "concept": "Sporulation (bacterial endospore dormancy)",
+    "rationale_for_selection": "C69 (Sporulation) scored NONE on all three atoms with zero paper hits across all three searches — the only concept in PC4 with total_hits = 0 and min_penetration = NONE on every atom. C71 (Complement cascade) also scored NONE but shares the 'cascade' abstraction used in LLM cascade literature (even though that is a different mechanism). C69's sigma-factor ordering and DPA encapsulation mechanisms have no ML analog found.",
+    "functional_effect": "An ordered, checkpoint-gated sequential program commits a system to irreversible dormancy under resource exhaustion, then reactivates precisely when a specific signal is detected.",
+    "content_words": ["ordered", "checkpoint", "sequential", "dormancy", "reactivation", "resource-exhaustion", "signal-triggered"],
+    "reformulations": [
+      {
+        "id": "R1",
+        "query": "layer-wise training gating checkpoint ordered activation sequence deep learning",
+        "hits": [
+          {"title": "Optimal checkpointing for heterogeneous chains: how to train deep neural networks with limited memory", "url": "https://arxiv.org/pdf/1911.13214"},
+          {"title": "Layer-Wise Partitioning and Merging for Efficient and Scalable Deep Learning", "url": "https://arxiv.org/pdf/2207.11019"},
+          {"title": "Train Large ML Models With Activation Checkpointing", "url": "https://blog.dailydoseofds.com/p/train-large-ml-models-with-activation"},
+          {"title": "Layer-wise training of deep networks using kernel similarity", "url": "https://arxiv.org/pdf/1703.07115"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Results address activation checkpointing for memory saving and layer-wise training for efficiency — not checkpoint-gated ordered sequential commitment to dormancy. Content words 'ordered', 'sequential', 'checkpoint' appear but in entirely different functional senses (memory management, not commitment gates).",
+        "collision": false
+      },
+      {
+        "id": "R2",
+        "query": "ordered transcription factor cascade sequential stage gating neural network",
+        "hits": [
+          {"title": "Modeling regulatory cascades using Artificial Neural Networks: the case of transcriptional regulatory networks shaped during the yeast stress response - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3687159/"},
+          {"title": "Molecular cascade reveals sequential milestones underlying hippocampal neural stem cell development", "url": "https://www.cell.com/cell-reports/fulltext/S2211-1247(24)00667-3"},
+          {"title": "A Multi-step Transcriptional and Chromatin State Cascade Underlies Motor Neuron Programming from Embryonic Stem Cells - Cell Stem Cell", "url": "https://www.cell.com/cell-stem-cell/fulltext/S1934-5909(16)30402-7"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "ANNs used to predict expression of downstream genes in a transcriptional cascade — MEASURES the biology, does not import the mechanism into ML architecture. No paper proposes sigma-factor-style ordered gating as an ML training mechanism.",
+        "collision": false
+      },
+      {
+        "id": "R3",
+        "query": "resource exhaustion triggers irreversible mode switch protective dormancy encoder",
+        "hits": [
+          {"title": "Reversible intracellular acidification and depletion of NTPs provide a potential physiological origin for centuries of dormancy in an Antarctic freshwater copepod", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10427605/"},
+          {"title": "A Novel Eukaryotic Ribosome Factor Enables Translation Restart Following Cellular Dormancy | bioRxiv", "url": "https://www.biorxiv.org/content/10.64898/2026.03.21.713407v1.full"},
+          {"title": "The ζ Toxin Induces a Set of Protective Responses and Dormancy", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3266247/"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Pure biology results. No ML paper addresses resource-exhaustion-triggered irreversible mode-switch to a protective dormancy state with later condition-gated reactivation as an ML/DL mechanism.",
+        "collision": false
+      },
+      {
+        "id": "R4",
+        "query": "checkpoint-gated sequential program commitment irreversible differentiation training phase machine learning",
+        "hits": [
+          {"title": "Optimal checkpointing for heterogeneous chains: how to train deep neural networks with limited memory", "url": "https://arxiv.org/pdf/1911.13214"},
+          {"title": "Single-Cell-Based Analysis Highlights a Surge in Cell-to-Cell Molecular Variability Preceding Irreversible Commitment in a Differentiation Process", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5191835/"},
+          {"title": "Inactivation of CDK4/6, CDK2, and ERK in G1-phase triggers differentiation commitment", "url": "https://www.biorxiv.org/content/10.1101/2025.04.07.647597.full.pdf"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "ML paper (checkpointing) is about memory-efficient backprop; biology papers about cell-fate commitment. No paper proposes 'checkpoint-gated irreversible sequential phase commitment' as a training paradigm. Mechanical rule: content words 'checkpoint' and 'sequential' appear but in non-functional overlap senses.",
+        "collision": false
+      },
+      {
+        "id": "R5",
+        "query": "nutrient signal detection reactivation latent model frozen weights inference",
+        "hits": [
+          {"title": "Dead Weights, Live Signals: Feedforward Graphs of Frozen Language Models", "url": "https://arxiv.org/html/2604.08335"},
+          {"title": "Nutrient-response modeling with a single and interpretable artificial neuron | Scientific Reports", "url": "https://www.nature.com/articles/s41598-025-29267-w"},
+          {"title": "Efficient Parameter Mining and Freezing for Continual Object Detection", "url": "https://arxiv.org/html/2402.12624v1"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Frozen-weight LLM paper uses 'frozen' and 'signal' but is about multi-model signal routing, not dormancy reactivation. Nutrient-response modeling paper uses a single artificial neuron to model biological nutrient curves — MEASURES biology, no architectural import. No paper proposes condition-gated reactivation of a frozen/dormant model analogous to sporulation.",
+        "collision": false
+      }
+    ],
+    "verdict": "GAP",
+    "composite": "Across 5 reformulations and 17 total search hits, zero papers were found that import sporulation's functional mechanism — ordered checkpoint-gated sequential program commitment to dormancy followed by specific-signal-triggered reactivation — into an ML or LLM architecture. Partial word overlaps (checkpoint, sequential) refer to entirely different ML constructs (memory-efficient backprop, layer-wise training). The biology papers on transcriptional cascades and cell fate commitment are pure MEASURES, not IMPORTED.",
+    "non_triviality_assessment": "The gap is non-trivial. The specific combination of (1) an ordered, irreversible commitment sequence where each stage gates the next, (2) triggered by resource exhaustion rather than learning signal, and (3) reactivation by a specific narrow environmental signal rather than continued training — is mechanistically distinct from all found ML concepts. Early stopping, activation checkpointing, curriculum learning, and frozen-weight inference each share one feature but not the full functional triple.",
+    "colliding_works": []
+  },
+  "search_count": 23,
+  "honesty_note": "All searches are real WebSearch calls. Verbatim snippets are taken from search result summaries actually returned. Where a search returned no ML hits, this is recorded as NONE with zero count, not suppressed. The 'LLM Cascade' paper found in the complement cascade atom search (R.Tuning LLM Cascades, arXiv 2501.09345) was honestly assessed as non-colliding: it chains language models probabilistically, not via protease-cleavage-style amplification. No results were fabricated."
+}

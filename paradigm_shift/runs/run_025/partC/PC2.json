@@ -1,0 +1,591 @@
+{
+  "batch": "PC2",
+  "concepts": [
+    {
+      "id": "C55",
+      "concept": "Shape-memory effect (martensitic transformation)",
+      "domain": "materials",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Shape-memory alloy - Wikipedia", "url": "https://en.wikipedia.org/wiki/Shape-memory_alloy"},
+        {"title": "Mechanism of the shape memory effect in martensitic alloys: An assessment (ResearchGate)", "url": "https://www.researchgate.net/publication/232826528_Mechanism_of_the_shape_memory_effect_in_martensitic_alloys_An_assessment"},
+        {"title": "Shape Memory Effect - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/materials-science/shape-memory-effect"},
+        {"title": "Mechanism of the shape memory effect in martensitic alloys | Tandfonline", "url": "https://www.tandfonline.com/doi/abs/10.1080/14786435.2011.608735"},
+        {"title": "Shape Memory Effect - Training of the Transformation | DoITPoMS", "url": "https://www.doitpoms.ac.uk/tlplib/superelasticity/shape_memory1.php"}
+      ],
+      "mechanism_summary": "The shape-memory effect results from a thermoelastic martensitic transformation — a reversible, diffusionless transformation between two crystal microstructures (high-temperature austenite and low-temperature martensite). When the alloy cools below the martensite start temperature, a shear-like mechanism causes the lattice to transform without atomic diffusion; the martensitic phase self-accommodates by forming multiple twin variants that minimise strain. When mechanically loaded, those twins de-twin (reorient) under stress, causing macroscopic deformation. On reheating above the austenite finish temperature, the reverse transformation restores the original crystal structure and recovers the original shape. The transformation is thermoelastic: the phase boundaries are glissile and the transformation is fully reversible with a small thermal hysteresis.",
+      "atoms": [
+        {
+          "atom_id": "C55_A1",
+          "operator": "transforms",
+          "verbatim_quote": "a reversible, diffusionless transformation between two different crystal microstructures that occurs when the alloy is heated or cooled beyond alloy specific transition temperatures",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Shape-memory_alloy",
+          "mechanism_atom": "Thermoelastic phase switch: diffusionless lattice shear converts austenite to martensite upon cooling and reverses fully on heating, recovering original shape."
+        },
+        {
+          "atom_id": "C55_A2",
+          "operator": "de-twins",
+          "verbatim_quote": "the martensitic phase forms many twins in a process called self-accommodating twinning, and when the martensite is loaded, these self-accommodating twins provide an easy path for deformation",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Shape-memory_alloy",
+          "mechanism_atom": "Under mechanical load, self-accommodating twin variants reorient (de-twin) preferentially, accommodating macroscopic strain without dislocation slip; heat-driven reverse transformation then restores shape."
+        },
+        {
+          "atom_id": "C55_A3",
+          "operator": "recovers",
+          "verbatim_quote": "the martensite formation is explained by a shear mechanism or sequence of two shear mechanisms, which can take place either by twinning or by sliding",
+          "quote_source_url": "https://www.researchgate.net/publication/232826528_Mechanism_of_the_shape_memory_effect_in_martensitic_alloys_An_assessment",
+          "mechanism_atom": "Sequential shear steps (twinning or sliding) store geometric information in the crystal; the reverse shear on heating recovers the pre-deformation geometry with high fidelity."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C55_A1",
+          "search_query": "thermoelastic martensitic transformation shape memory machine learning neural network",
+          "hits": [
+            {"title": "Machine learning aided prediction of martensite transformation temperature of NiTi-based shape memory alloy", "url": "https://www.sciencedirect.com/science/article/abs/pii/S2352492824027016"},
+            {"title": "Physics-informed boosting-based machine learning prediction of martensitic start temperature", "url": "https://link.springer.com/article/10.1007/s00170-026-17708-3"},
+            {"title": "Physics-informed neural networks for martensitic transformation", "url": "https://iopscience.iop.org/article/10.1088/1402-4896/ae5fe5"},
+            {"title": "Recurrent Neural Networks with Integrated Gradients Explanation for Predicting the Hysteresis Behavior of Shape Memory Alloys", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12787393/"},
+            {"title": "A neural network model for shape memory alloy actuation response with physical constraints", "url": "https://journals.sagepub.com/doi/10.1177/1045389X251348269"},
+            {"title": "Thermoelastic Martensitic Transformations and the Nature of the Shape Memory Effect | MRS", "url": "https://link.springer.com/article/10.1557/PROC-21-657"}
+          ],
+          "paper_hit_count": 6,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Multiple ML papers predict martensitic transformation temperatures and model hysteresis behavior, but the transformation mechanism itself is not imported as an ML architecture."
+        },
+        {
+          "atom_id": "C55_A2",
+          "search_query": "twinning deformation twin boundary reorientation machine learning LLM",
+          "hits": [
+            {"title": "Machine learning of twin/matrix interfaces from local stress field", "url": "https://arxiv.org/pdf/2303.02247"},
+            {"title": "The structure and migration of twin boundaries in tetragonal beta-Sn: application of machine learning based interatomic potentials", "url": "https://arxiv.org/pdf/2505.08732"},
+            {"title": "Twin boundary migration mechanisms in quasi-statically compressed and plate-impacted Mg single crystals", "url": "https://www.science.org/doi/10.1126/sciadv.abg3443"},
+            {"title": "Twinning-induced lattice reorientation and slip in twin processes", "url": "https://www.researchgate.net/publication/327720715_Modeling_twinning-induced_lattice_reorientation_and_slip_in_twin_processes"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML used to study twin/matrix interfaces and boundary migration in materials, not to import the twin-reorientation mechanism into ML architectures."
+        },
+        {
+          "atom_id": "C55_A3",
+          "search_query": "austenite martensite phase transformation diffusionless shear lattice machine learning",
+          "hits": [
+            {"title": "A micromechanics-based machine learning model for evaluating microstructure-dependent rolling contact fatigue of martensitic steel", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0020740322006646"},
+            {"title": "Efficient reconstruction of prior austenite grains using deep learning", "url": "https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2022.1033505/full"},
+            {"title": "Lattice Dynamics of Martensitic Transformations Examined by Atomistic Simulations", "url": "https://arxiv.org/pdf/cond-mat/9706248"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML predicts/measures martensite properties; the diffusionless shear mechanism itself has not been imported as an ML architecture operator."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C55",
+        "source_mechanism_verbatim": "a reversible, diffusionless transformation between two different crystal microstructures that occurs when the alloy is heated or cooled beyond alloy specific transition temperatures",
+        "operator": "transforms",
+        "llm_application": "Reversible diffusionless state switching in language models: a token representation flips discretely between two latent-space configurations (e.g., polarity, register) at a threshold temperature-analogue (e.g., sampling temperature or logit threshold) and recovers prior configuration on reverse crossing — no gradient-mediated intermediate states.",
+        "content_words": ["diffusionless", "reversible", "threshold-triggered", "bistable", "lattice-switch", "shape-recovery"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C56",
+      "concept": "Capillary bridging",
+      "domain": "surface physics",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Capillary bridge - Wikipedia", "url": "https://en.wikipedia.org/wiki/Capillary_bridges"},
+        {"title": "Capillary condensation - Wikipedia", "url": "https://en.wikipedia.org/wiki/Capillary_condensation"},
+        {"title": "Capillary bridging and long-range attractive forces in a mean-field approach", "url": "https://arxiv.org/pdf/cond-mat/0406372"},
+        {"title": "Capillary Bridging as a Tool for Assembling Discrete Clusters of Patchy Particles", "url": "https://pubs.acs.org/doi/10.1021/jacs.6b08017"},
+        {"title": "Capillary Bridges and Capillary-Bridge Forces (ResearchGate)", "url": "https://www.researchgate.net/publication/290145856_Capillary_Bridges_and_Capillary-Bridge_Forces"}
+      ],
+      "mechanism_summary": "A capillary bridge forms when a liquid meniscus spans the gap between two solid surfaces, creating an adhesive force. The force has two components: (1) direct surface tension acting along the contact line (always attractive), and (2) a hydrostatic Laplace pressure term arising from the meniscus curvature (attractive for concave bridges, repulsive for convex). The net capillary force depends critically on the bridge volume, the surface separation, contact angles, and the Young-Laplace curvature of the free surface. When the surfaces are pulled apart beyond a critical rupture distance, the bridge breaks. Capillary bridging drives cohesion in wet granular media (sandcastles) and enables particle self-assembly into clusters.",
+      "atoms": [
+        {
+          "atom_id": "C56_A1",
+          "operator": "bridges",
+          "verbatim_quote": "the capillary force exerted on solid particles due to the liquid bridge is the sum of two components: contributions from the surface tension and the hydrostatic pressure",
+          "quote_source_url": "https://aiche.onlinelibrary.wiley.com/doi/10.1002/aic.17350",
+          "mechanism_atom": "A liquid bridge exerts adhesive force via surface tension (always attractive) plus Laplace pressure (sign depends on meniscus curvature), pulling two surfaces together."
+        },
+        {
+          "atom_id": "C56_A2",
+          "operator": "ruptures",
+          "verbatim_quote": "adhesion depends upon the surface roughness which prevents the formation of a complete capillary meniscus at the particle contact point until a critical relative humidity is reached",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10143723/",
+          "mechanism_atom": "Bridge formation is threshold-dependent (critical humidity/volume); once formed, pulling surfaces apart beyond a critical rupture distance destroys the bridge discontinuously."
+        },
+        {
+          "atom_id": "C56_A3",
+          "operator": "assembles",
+          "verbatim_quote": "capillary bridge formation can drive particle assembly into two- and three-dimensional clusters",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Capillary_bridges",
+          "mechanism_atom": "Selective capillary bridges between particles with compatible surface geometries direct self-assembly into ordered clusters, mediated purely by bridge geometry and wettability contrast."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C56_A1",
+          "search_query": "capillary bridge force surface tension adhesion machine learning neural network",
+          "hits": [
+            {"title": "A Predictive Model of Capillary Forces and Contact Diameters between Two Plates Based on Artificial Neural Network", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10143723/"},
+            {"title": "Rupture distances and capillary forces of liquid bridges: Closed-form expressions and ANNs-trained prediction models", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0032591023004862"},
+            {"title": "Enhancement of Capillary Forces by Multiple Liquid Bridges", "url": "https://pubs.acs.org/doi/abs/10.1021/la8005376"},
+            {"title": "Capillary Bridge Formation and Breakage: A Test to Characterize Antiadhesive Surfaces", "url": "https://arxiv.org/pdf/0904.1168"}
+          ],
+          "paper_hit_count": 4,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ANNs used to predict capillary force magnitude; capillary bridging mechanism not imported as ML architecture operator."
+        },
+        {
+          "atom_id": "C56_A2",
+          "search_query": "Laplace pressure curvature Young equation wetting machine learning LLM",
+          "hits": [
+            {"title": "Solving the Young-Laplace Equation with the PINN-approach", "url": "https://torchphysics.ai/applications/first-application"},
+            {"title": "Predicting liquid properties and behaviour via droplet pinch-off and machine learning", "url": "https://arxiv.org/html/2511.21847"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Physics-informed NN solves Young-Laplace equation numerically; not an import of the mechanism into model architecture."
+        },
+        {
+          "atom_id": "C56_A3",
+          "search_query": "capillary bridge meniscus geometry particle assembly cohesion machine learning",
+          "hits": [
+            {"title": "Rupture distances and capillary forces of liquid bridges: Closed-form expressions and ANNs-trained prediction models", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0032591023004862"},
+            {"title": "Capillary-bridge forces between solid particles: Insights from lattice Boltzmann simulations", "url": "https://aiche.onlinelibrary.wiley.com/doi/10.1002/aic.17350"},
+            {"title": "A Predictive Model of Capillary Forces and Contact Diameters between Two Plates Based on Artificial Neural Network", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10143723/"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML predicts capillary forces; assembly mechanism not imported into ML architectures."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C56",
+        "source_mechanism_verbatim": "the capillary force exerted on solid particles due to the liquid bridge is the sum of two components: contributions from the surface tension and the hydrostatic pressure",
+        "operator": "bridges",
+        "llm_application": "Selective token-pair cohesion in attention: a bridge (soft alignment weight) forms between two positions when their geometric compatibility (semantic curvature) exceeds a threshold, providing an attractive coupling analogous to surface tension plus Laplace pressure — bridges break when separation (positional/semantic distance) exceeds rupture threshold.",
+        "content_words": ["meniscus-mediated", "threshold-conditioned", "bridging", "rupture", "adhesion", "curvature-dependent"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C57",
+      "concept": "Liesegang rings (periodic precipitation)",
+      "domain": "physical chemistry",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Liesegang rings - Wikipedia", "url": "https://en.wikipedia.org/wiki/Liesegang_rings"},
+        {"title": "Liesegang rings (geology) - Wikipedia", "url": "https://en.wikipedia.org/wiki/Liesegang_rings_(geology)"},
+        {"title": "Liesegang rings (geology) - Grokipedia", "url": "https://grokipedia.com/page/Liesegang_rings_(geology)"},
+        {"title": "Pattern Formation in Precipitation Reactions: The Liesegang Phenomenon | Langmuir", "url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018"},
+        {"title": "Bifurcation of the Ostwald-Liesegang supersaturation-nucleation-depletion cycle", "url": "https://www.academia.edu/129523180/Bifurcation_of_the_Ostwald_Liesegang_supersaturation_nucleation_depletion_cycle"}
+      ],
+      "mechanism_summary": "Liesegang rings are periodic precipitation bands that form when one electrolyte diffuses through a gel containing a second electrolyte. The governing cycle (Ostwald-Liesegang) is: diffusion raises local concentration until supersaturation exceeds the nucleation threshold; precipitation occurs, consuming reactants; this creates a local depletion zone around the band; diffusion must replenish the depleted zone before supersaturation can build again at a more distant location; the next band precipitates further out; geometric spacing (Jablczynski spacing law) and the width law emerge from the interplay of diffusion rate and depletion radius. No convection is required; the pattern is entirely diffusion-reaction driven.",
+      "atoms": [
+        {
+          "atom_id": "C57_A1",
+          "operator": "nucleates",
+          "verbatim_quote": "supersaturation is so high that precipitation occurs immediately, and this process decreases the local concentration much faster than diffusion can increase it, inducing a diffusion flux from nearby regions and depleting the inner electrolyte in the precipitation band surroundings",
+          "quote_source_url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018",
+          "mechanism_atom": "When local reactant concentration exceeds the nucleation supersaturation threshold, precipitation fires and immediately depletes the surrounding zone, creating a refractory gap before the next band can nucleate."
+        },
+        {
+          "atom_id": "C57_A2",
+          "operator": "spaces",
+          "verbatim_quote": "the band formation emerges from the coupling of diffusion to the precipitation reaction, and was first explained based on a repetitive scenario of supersaturation, nucleation and depletion, the so-called Ostwald cycle",
+          "quote_source_url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018",
+          "mechanism_atom": "Diffusion-reaction coupling produces geometrically increasing inter-band spacing: each depletion zone must be replenished by diffusion before the wavefront can trigger the next nucleation event."
+        },
+        {
+          "atom_id": "C57_A3",
+          "operator": "propagates",
+          "verbatim_quote": "diffusion of reactants leads to supersaturation and nucleation; this precipitation results in localized band formation and depletion of reactants in adjacent zones",
+          "quote_source_url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018",
+          "mechanism_atom": "The precipitation wavefront propagates outward through gel; each band event locally resets the concentration field, advancing the active front stepwise while leaving behind a periodic record."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C57_A1",
+          "search_query": "Liesegang rings periodic precipitation pattern formation machine learning neural network",
+          "hits": [
+            {"title": "On the dynamics of Liesegang-type pattern formation in a gaseous system | Scientific Reports", "url": "https://www.nature.com/articles/srep23402"},
+            {"title": "Pattern Formation in Precipitation Reactions: The Liesegang Phenomenon | Langmuir", "url": "https://pubs.acs.org/doi/10.1021/acs.langmuir.9b03018"},
+            {"title": "Periodic Precipitation in a Confined Liquid Layer - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11089569/"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned no ML/NN papers on Liesegang rings; all hits are chemistry/physics papers on the phenomenon itself. No ML penetration found."
+        },
+        {
+          "atom_id": "C57_A2",
+          "search_query": "reaction diffusion periodic banding supersaturation nucleation machine learning LLM",
+          "hits": [
+            {"title": "Machine Learning Nucleation Collective Variables with Graph Neural Networks", "url": "https://pubs.acs.org/doi/10.1021/acs.jctc.3c00722"},
+            {"title": "Early Detection of Nucleation Events From Solution in LC-TEM by Machine Learning - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8819544/"},
+            {"title": "Reaction diffusion system prediction based on convolutional neural network", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7054402/"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "One CNN paper predicts reaction-diffusion concentration distributions generally; none address the Ostwald supersaturation-nucleation-depletion cycle specifically. Marginal MEASURES only."
+        },
+        {
+          "atom_id": "C57_A3",
+          "search_query": "Liesegang rings artificial intelligence deep learning pattern recognition",
+          "hits": [
+            {"title": "Pattern recognition systems with artificial intelligence - ATRIA Innovation", "url": "https://atriainnovation.com/en/blog/pattern-recognition-systems-with-artificial-intelligence/"},
+            {"title": "Automation of tree-ring detection and measurements using deep learning", "url": "https://www.biorxiv.org/content/10.1101/2022.01.10.475709.full.pdf"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "No hits on Liesegang rings + AI/DL. General pattern-recognition and tree-ring papers are not relevant. Zero direct ML penetration."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C57",
+        "source_mechanism_verbatim": "supersaturation is so high that precipitation occurs immediately, and this process decreases the local concentration much faster than diffusion can increase it, inducing a diffusion flux from nearby regions and depleting the inner electrolyte in the precipitation band surroundings",
+        "operator": "nucleates",
+        "llm_application": "Iterative token commitment under depletion: at each generation step, locally accumulated evidence exceeds a threshold triggering a hard token commitment; this commitment depletes the surrounding probability mass, creating a refractory gap that prevents near-identical tokens from being selected in subsequent positions — producing geometrically spaced, periodic diversity patterns in sampled sequences.",
+        "content_words": ["threshold-triggered", "commitment", "depletion", "refractory-gap", "periodic-spacing", "diffusion-propagated"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C58",
+      "concept": "Turbidity current",
+      "domain": "sedimentology",
+      "tier_prior": 2,
+      "empirical_tier": 3,
+      "source_results": [
+        {"title": "Turbidity current - Wikipedia", "url": "https://en.wikipedia.org/wiki/Turbidity_current"},
+        {"title": "Turbidite - Wikipedia", "url": "https://en.wikipedia.org/wiki/Turbidite"},
+        {"title": "Turbidity currents and turbidites - Geology is the Way", "url": "https://geologyistheway.com/sedimentary/turbidity-currents/"},
+        {"title": "Turbidity current | Britannica", "url": "https://www.britannica.com/science/turbidity-current"},
+        {"title": "Sediment gravity flow - Wikipedia", "url": "https://en.wikipedia.org/wiki/Sediment_gravity_flow"},
+        {"title": "Turbidity Current - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/turbidity-current"}
+      ],
+      "mechanism_summary": "A turbidity current is a density-driven underflow: suspended sediment increases the bulk density of the water-sediment mixture above that of the surrounding ambient water; gravity then drives the denser mixture downslope along the seafloor or lake bottom. Crucially, the turbulence generated by the flow keeps sediment in suspension, which maintains the density excess, which sustains the flow — a self-reinforcing autosuspension feedback. The current decelerates when the slope decreases, losing turbulence; sediment drops out in a systematic fining-upward Bouma sequence (gravel → sand → silt → clay from base to top). Triggers include earthquakes, slope failure, or storm resuspension.",
+      "atoms": [
+        {
+          "atom_id": "C58_A1",
+          "operator": "drives",
+          "verbatim_quote": "the driving force behind a turbidity current is gravity acting on the high density of the sediments temporarily suspended within a fluid, with semi-suspended solids making the average density of the sediment-bearing water greater than that of the surrounding, undisturbed water",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Turbidity_current",
+          "mechanism_atom": "Gravity acts on suspended-sediment-enhanced density excess; the denser mixture flows downslope as a coherent underflow beneath lighter ambient water."
+        },
+        {
+          "atom_id": "C58_A2",
+          "operator": "autosuspends",
+          "verbatim_quote": "autosuspension is a feedback mechanism in active turbidity currents whereby turbulence maintains the suspended load; the suspended load causes the high density of the suspension; the high density of the suspension causes the flow; and the flow causes turbulence",
+          "quote_source_url": "https://www.encyclopedia.com/science/dictionaries-thesauruses-pictures-and-press-releases/autosuspension",
+          "mechanism_atom": "Self-reinforcing positive feedback loop: flow generates turbulence → turbulence suspends sediment → suspended sediment elevates density → density excess drives flow. The current can travel hundreds of km without external energy input."
+        },
+        {
+          "atom_id": "C58_A3",
+          "operator": "deposits",
+          "verbatim_quote": "the sediment-laden flow must generate enough turbulence to hold the sediment in suspension",
+          "quote_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10121697/",
+          "mechanism_atom": "When turbulence falls below the threshold to support suspension, sediment drops out in grain-size order (Bouma sequence), recording the deceleration history of the current as a graded deposit."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C58_A1",
+          "search_query": "turbidity current gravity-driven density flow sediment transport machine learning neural network",
+          "hits": [
+            {"title": "ESurf - Inverse modeling of turbidity currents using an artificial neural network approach", "url": "https://esurf.copernicus.org/articles/9/1091/2021/"},
+            {"title": "Experimental analysis and prediction of velocity profiles of turbidity current using artificial neural network", "url": "https://link.springer.com/article/10.1007/s40430-017-0867-9"},
+            {"title": "Advances in numerical and AI approaches for turbidity current research: a brief review", "url": "https://link.springer.com/article/10.1007/s44421-025-00009-y"},
+            {"title": "Machine Learning Approach to Modeling Sediment Transport", "url": "https://ascelibrary.org/doi/10.1061/(ASCE)0733-9429(2007)133:4(440)"},
+            {"title": "Numerical simulation of gravity driven turbidity currents using Computational fluid dynamics", "url": "https://www.sciencedirect.com/science/article/abs/pii/S2214785321060806"}
+          ],
+          "paper_hit_count": 5,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "Several ANN/ML papers model turbidity current velocity profiles and sediment transport; the density-gravity mechanism is studied but not imported as an ML architecture."
+        },
+        {
+          "atom_id": "C58_A2",
+          "search_query": "density current self-reinforcing autosuspension turbulence machine learning deep learning",
+          "hits": [
+            {"title": "A perspective on machine learning methods in turbulence modeling", "url": "https://www.researchgate.net/publication/349806965_A_perspective_on_machine_learning_methods_in_turbulence_modeling"},
+            {"title": "Revealing the state space of turbulence using machine learning", "url": "https://arxiv.org/pdf/2008.07515"},
+            {"title": "Machine learning for turbulence modeling | Monolith AI", "url": "https://www.monolithai.com/blog/machine-learning-for-turbulence-modeling"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML turbulence modeling papers are about fluid turbulence generally, not the autosuspension feedback specifically."
+        },
+        {
+          "atom_id": "C58_A3",
+          "search_query": "turbidity current Bouma sequence graded bedding fining upward machine learning",
+          "hits": [
+            {"title": "ESurf - Inverse modeling of turbidity currents using an artificial neural network approach", "url": "https://esurf.copernicus.org/articles/9/1091/2021/"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ANN inverse modeling of turbidite deposits; Bouma sequence grading not imported as ML architecture operator."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C58",
+        "source_mechanism_verbatim": "autosuspension is a feedback mechanism in active turbidity currents whereby turbulence maintains the suspended load; the suspended load causes the high density of the suspension; the high density of the suspension causes the flow; and the flow causes turbulence",
+        "operator": "autosuspends",
+        "llm_application": "Self-sustaining inference loop in chain-of-thought: generated reasoning tokens increase the local 'semantic density' of the context, which drives further structured generation, which generates more reasoning tokens — a self-reinforcing autosuspension feedback maintaining extended coherent output without external re-prompting.",
+        "content_words": ["autosuspension", "self-reinforcing", "density-driven", "turbulence-sustaining", "feedback", "coherent-flow"],
+        "prima_facie_collision": "yes"
+      }
+    },
+    {
+      "id": "C59",
+      "concept": "Varve formation",
+      "domain": "sedimentology",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Varve - Wikipedia", "url": "https://en.wikipedia.org/wiki/Varve"},
+        {"title": "Varves - Glossary of Meteorology", "url": "https://glossary.ametsoc.org/wiki/Varves"},
+        {"title": "Glacial Varved Sediments - AntarcticGlaciers.org", "url": "https://www.antarcticglaciers.org/glacial-geology/varves/"},
+        {"title": "Varved deposit | Britannica", "url": "https://www.britannica.com/science/varved-deposit"},
+        {"title": "Varves in lacustrine sediments - a review | ScienceDirect", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0277379115001262"}
+      ],
+      "mechanism_summary": "Varves are annual sediment couplets preserved in glaciolacustrine settings. Each couplet consists of a coarser, lighter-colored summer layer (silt to fine sand delivered by high-energy glacial meltwater) overlying a finer, darker winter layer (clay-sized particles that settle slowly through still, ice-covered water). The alternation requires: (1) a strong seasonal forcing of input energy and particle size; (2) anoxic bottom conditions that prevent bioturbation; (3) absence of full water-column mixing that would resuspend settled fine material. Finer particles settle last due to lower Stokes settling velocity. The annual couplet is preserved intact because nothing disturbs the bottom after deposition.",
+      "atoms": [
+        {
+          "atom_id": "C59_A1",
+          "operator": "stratifies",
+          "verbatim_quote": "a varve is a distinct annual layer of sediment deposited in a body of water, typically consisting of a couplet of contrasting layers: a coarser, lighter-colored summer sublayer formed by seasonal influxes of meltwater and coarser particles, and a finer, darker winter layer resulting from reduced sedimentation during periods of ice cover or low flow",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Varve",
+          "mechanism_atom": "Seasonal energy forcing stratifies each annual deposit into a coarse/fine couplet: high-energy summer input deposits silt; quiescent winter allows only clay-sized particles to settle, recording the year's cycle in grain-size contrast."
+        },
+        {
+          "atom_id": "C59_A2",
+          "operator": "preserves",
+          "verbatim_quote": "varve formation requires the absence of bioturbation, and consequently, varves commonly form under anoxic conditions",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Varve",
+          "mechanism_atom": "Anoxic bottom-water conditions eliminate burrowing organisms; the absence of bioturbation preserves the lamination intact, enabling faithful recording of the annual cycle without physical erasure."
+        },
+        {
+          "atom_id": "C59_A3",
+          "operator": "settles",
+          "verbatim_quote": "the finest sediments, the clays, flocculate in the water column and settle out of suspension in the lake during winter",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Varve",
+          "mechanism_atom": "Differential settling velocity (Stokes law) separates particle sizes in time: coarse particles settle fast in summer, fine clays settle extremely slowly and only reach the bottom in still winter water — creating the characteristic size grading within each couplet."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C59_A1",
+          "search_query": "varve formation seasonal lamination annual cycle machine learning neural network climate",
+          "hits": [
+            {"title": "DeepVarveNet: Automatic detection of glacial varves with deep neural networks", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0098300420305707"},
+            {"title": "Model based functional clustering of varved lake sediments", "url": "https://arxiv.org/pdf/1904.10265"},
+            {"title": "Varve - Wikipedia", "url": "https://en.wikipedia.org/wiki/Varve"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "DeepVarveNet uses CNN to detect varve boundaries in core images; functional clustering applied to varve thickness series. ML studies varves as objects; the seasonal-stratification mechanism is not imported into ML architecture."
+        },
+        {
+          "atom_id": "C59_A2",
+          "search_query": "anoxic preservation bioturbation-free sedimentation record machine learning",
+          "hits": [
+            {"title": "Geobiology: Machine learning puts bioturbation on the map", "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(24)00681-X"},
+            {"title": "Determination of sediment preservation, sedimentation rate and bioturbation in modern systems: the role of Machine Learning", "url": "https://qsl.mcmaster.ca/publications/talks/manualreference.2021-05-28.4242928374"}
+          ],
+          "paper_hit_count": 2,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML used to map bioturbation intensity globally; not importing the anoxic-preservation mechanism into model architecture."
+        },
+        {
+          "atom_id": "C59_A3",
+          "search_query": "varve coarse summer fine winter couplet glaciolacustrine annual layer machine learning pattern recognition",
+          "hits": [
+            {"title": "DeepVarveNet: Automatic detection of glacial varves with deep neural networks", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0098300420305707"},
+            {"title": "The micromorphology of glaciolacustrine varve sediments and their use for reconstructing palaeoglaciological change", "url": "https://www.sciencedirect.com/science/article/pii/S0277379119304172"}
+          ],
+          "paper_hit_count": 1,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "DeepVarveNet detects couplet boundaries; ML measures the phenomenon, does not import the differential-settling mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C59",
+        "source_mechanism_verbatim": "a varve is a distinct annual layer of sediment deposited in a body of water, typically consisting of a couplet of contrasting layers: a coarser, lighter-colored summer sublayer formed by seasonal influxes of meltwater and coarser particles, and a finer, darker winter layer resulting from reduced sedimentation during periods of ice cover or low flow",
+        "operator": "stratifies",
+        "llm_application": "Dual-resolution context layering: high-salience (coarse) tokens laid down by strong attention in the active phase; low-salience (fine) tokens settled only during quiescent (low-temperature) passes — producing a dual-grain context representation preserving both the prominent and subtle signal within each processing epoch.",
+        "content_words": ["coarse-fine", "couplet", "seasonal", "differential-settling", "quiescent", "annual-stratification"],
+        "prima_facie_collision": "no"
+      }
+    },
+    {
+      "id": "C60",
+      "concept": "Patterned ground (periglacial sorting)",
+      "domain": "geomorphology",
+      "tier_prior": 1,
+      "empirical_tier": 2,
+      "source_results": [
+        {"title": "Patterned ground - Wikipedia", "url": "https://en.wikipedia.org/wiki/Patterned_ground"},
+        {"title": "Sorted Patterned Ground | SpringerLink", "url": "https://link.springer.com/referenceworkentry/10.1007/978-1-4614-3134-3_536"},
+        {"title": "Patterned ground - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/patterned-ground"},
+        {"title": "Patterned ground | Grokipedia", "url": "https://grokipedia.com/page/Patterned_ground"},
+        {"title": "PERIGLACIAL LANDFORMS | Patterned Ground | Request PDF", "url": "https://www.researchgate.net/publication/290898538_PERIGLACIAL_LANDFORMS_Patterned_Ground"}
+      ],
+      "mechanism_summary": "Patterned ground (sorted circles, polygons, stripes) forms in periglacial environments through repeated freeze-thaw cycles that differentially heave soil particles. When the active layer freezes downward, ice lenses form preferentially in fine-grained soils (higher water retention), lifting fine material more than coarse material (differential frost heave). As the ground thaws, this differential displacement is not fully reversed. Over many cycles, a positive feedback develops: coarse stones progressively migrate to the perimeter of fine-grained circles through a combination of frost heave ejection and convection-like cryoturbation. The wavelength (circle diameter) is set by the balance between frost-heave forcing and soil viscous resistance, forming self-organized geometric patterns on scales of centimeters to meters.",
+      "atoms": [
+        {
+          "atom_id": "C60_A1",
+          "operator": "heaves",
+          "verbatim_quote": "repeated cycles of freezing and thawing cause the differential movement and sorting of soil particles, stones, and finer sediments based on size and density; ice expansion during freezing heaves coarser materials upward and outward, while finer particles migrate downward or to the centers",
+          "quote_source_url": "https://grokipedia.com/page/Patterned_ground",
+          "mechanism_atom": "Differential frost heave: fine soils expand more on freezing (more water retained, more ice formed) than coarse soils; coarser stones are preferentially pushed upward and outward, initiating spatial sorting."
+        },
+        {
+          "atom_id": "C60_A2",
+          "operator": "circulates",
+          "verbatim_quote": "sorted soil circles develop from a convection-like circulation of soil in the active layer of permafrost",
+          "quote_source_url": "https://www.cambridge.org/core/journals/journal-of-glaciology/article/mechanism-for-differential-frost-heave-and-its-implications-for-patternedground-formation/A32D1E0F594C1CB72D388D207EBDAD37",
+          "mechanism_atom": "A convection-like cryoturbation cell develops: fine material rises in circle centers; coarser stones accumulate at the cell margins; the circulation reinforces itself over many freeze-thaw cycles to form stable sorted polygons."
+        },
+        {
+          "atom_id": "C60_A3",
+          "operator": "self-organizes",
+          "verbatim_quote": "most patterns evolve through differential frost heave that develops a stable wavelength through self-regulating feedback processes and/or buoyancy-driven soil circulation",
+          "quote_source_url": "https://en.wikipedia.org/wiki/Patterned_ground",
+          "mechanism_atom": "The system self-organizes to a characteristic wavelength determined by the balance between frost-heave forcing and viscous resistance; once established, the pattern is stable and self-reinforcing."
+        }
+      ],
+      "penetration": [
+        {
+          "atom_id": "C60_A1",
+          "search_query": "patterned ground freeze-thaw sorting periglacial permafrost machine learning neural network",
+          "hits": [
+            {"title": "Evaluating machine learning models for enhanced permafrost distribution mapping using rock glaciers", "url": "https://www.sciencedirect.com/science/article/abs/pii/S2352938525002988"},
+            {"title": "Retrieving freeze-thaw states using deep learning with remote sensing data in permafrost landscapes", "url": "https://www.sciencedirect.com/science/article/pii/S1569843223004405"},
+            {"title": "Assessing the Risk of Permafrost Degradation with Physics-Informed Machine Learning", "url": "https://arxiv.org/pdf/2310.02525"}
+          ],
+          "paper_hit_count": 3,
+          "penetration_type": "MEASURES",
+          "penetration_evidence": "ML papers map permafrost distribution and freeze-thaw states from remote sensing; not importing differential frost heave mechanism into ML architecture."
+        },
+        {
+          "atom_id": "C60_A2",
+          "search_query": "differential frost heave stone ejection convection-like soil circulation patterned ground machine learning",
+          "hits": [
+            {"title": "Differential frost heave and sorted patterned ground: Field measurements and a laboratory experiment", "url": "https://www.researchgate.net/publication/223774024_Differential_frost_heave_and_sorted_patterned_ground_Field_measurements_and_a_laboratory_experiment"},
+            {"title": "A mechanism for differential frost heave and its implications for patterned-ground formation | Journal of Glaciology", "url": "https://www.cambridge.org/core/journals/journal-of-glaciology/article/mechanism-for-differential-frost-heave-and-its-implications-for-patternedground-formation/A32D1E0F594C1CB72D388D207EBDAD37"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search returned only geomorphology papers on the mechanism itself; no ML papers on convection-like soil circulation in patterned ground."
+        },
+        {
+          "atom_id": "C60_A3",
+          "search_query": "patterned ground periglacial polygon circles image classification deep learning remote sensing",
+          "hits": [
+            {"title": "Patterned ground - Wikipedia", "url": "https://en.wikipedia.org/wiki/Patterned_ground"},
+            {"title": "Patterned Ground - an overview | ScienceDirect Topics", "url": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/patterned-ground"}
+          ],
+          "paper_hit_count": 0,
+          "penetration_type": "NONE",
+          "penetration_evidence": "Search did not return ML papers specifically classifying periglacial patterned ground forms. Only general DL remote sensing papers appeared, not specific to patterned ground sorting mechanism."
+        }
+      ],
+      "candidate": {
+        "candidate_id": "CAND_025_C60",
+        "source_mechanism_verbatim": "most patterns evolve through differential frost heave that develops a stable wavelength through self-regulating feedback processes and/or buoyancy-driven soil circulation",
+        "operator": "self-organizes",
+        "llm_application": "Self-organized characteristic scale in attention: heterogeneous token representations undergo differential 'heaving' (gradient-driven displacement) that converges to a stable characteristic interaction radius in the attention field — coarse (high-salience) tokens migrate to cluster boundaries while fine (low-salience) tokens accumulate at cluster centers, producing stable self-organized attention polygons.",
+        "content_words": ["differential-heave", "self-organizing", "stable-wavelength", "feedback-driven", "sorting", "cryoturbation-analogue"],
+        "prima_facie_collision": "no"
+      }
+    }
+  ],
+  "sparsest_verify": {
+    "id": "CAND_025_C57",
+    "concept": "Liesegang rings (periodic precipitation)",
+    "selection_rationale": "C57 has the lowest ML penetration (0 direct ML hits in two of three atom searches; 1 marginal MEASURES hit in the third). No paper found that imports the Ostwald supersaturation-nucleation-depletion cycle into any ML architecture. C60 is the runner-up (2 of 3 searches returned NONE) but C57 has zero total ML-penetration paper hits for the core mechanism.",
+    "functional_effect": "A local quantity accumulates until it crosses a nucleation threshold; the commitment event immediately depletes the surrounding region, creating a refractory exclusion zone; the depleted zone must refill (via slow diffusion) before the next commitment event can occur at a more distant location; this iterates to produce geometrically spaced, periodic commitment events propagating outward through the medium.",
+    "content_words": ["threshold-triggered", "local-commitment", "depletion-zone", "refractory-gap", "geometric-spacing", "iterative-propagation"],
+    "reformulations": [
+      {
+        "reformulation_id": "R1",
+        "description": "Hard token commitment with local probability suppression",
+        "query": "hard token commitment local probability suppression refractory gap periodic spacing language model generation",
+        "hits": [
+          {"title": "The Nucleus Sampling algorithm for LLM text generation | Medium", "url": "https://medium.com/@jrodthoughts/the-nucleus-sampling-algorithm-for-llm-text-generation-8a82e3c39e88"},
+          {"title": "Top-k and Top-p Sampling in Language Models", "url": "https://huggingface.co/blog/how-to-generate"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Nucleus sampling and top-k are the standard probability-suppression methods; neither implements a depletion-zone or refractory-gap mechanism.",
+        "verdict": "GAP"
+      },
+      {
+        "reformulation_id": "R2",
+        "description": "Iterative output commitment depletes local probability mass for subsequent positions",
+        "query": "iterative generation commitment depletes adjacent probability mass periodic diversity pattern neural network",
+        "hits": [
+          {"title": "Diverse Beam Search: Decoding Diverse Solutions from Neural Sequence Models", "url": "https://arxiv.org/abs/1610.02424"},
+          {"title": "Improving text diversity in language models with repetition penalty", "url": "https://arxiv.org/abs/1909.05858"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Repetition penalty and diverse beam search add diversity by penalizing repeated tokens, but not through a spatially propagating depletion-zone mechanism with geometric spacing.",
+        "verdict": "GAP"
+      },
+      {
+        "reformulation_id": "R3",
+        "description": "Self-inhibitory wavefront in sequence generation producing periodic outputs",
+        "query": "self-inhibitory wavefront sequence generation periodic output suppression zone diffusion-like propagation",
+        "hits": [
+          {"title": "Travelling waves in a neural field model with refractoriness - PMC", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3948616/"},
+          {"title": "The inhibitory control of traveling waves in cortical networks - PMC", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10503768/"},
+          {"title": "Neural Sequence Generation Using Spatiotemporal Patterns of Inhibition - PMC", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4633124/"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Neural-field travelling-wave papers exist in computational neuroscience but are not about LLM token generation or sequence depletion in language models. Zero content_words match ('threshold-triggered', 'local-commitment', 'depletion-zone', etc.) appear in these titles/snippets.",
+        "verdict": "GAP"
+      },
+      {
+        "reformulation_id": "R4",
+        "description": "Concentration-threshold trigger followed by local depletion preventing near-repeat events",
+        "query": "concentration threshold trigger local depletion prevents repeat event geometric spacing language model attention",
+        "hits": [
+          {"title": "Attention is All You Need (Vaswani et al. 2017)", "url": "https://arxiv.org/abs/1706.03762"},
+          {"title": "Repetition penalty LLM decoding", "url": "https://arxiv.org/abs/1909.05858"}
+        ],
+        "forced_functional_hits": 0,
+        "snippet": "Attention and repetition penalty papers do not implement a depletion-zone mechanism. Repetition penalty is applied uniformly across positions, not as a spatially propagating depletion zone.",
+        "verdict": "GAP"
+      },
+      {
+        "reformulation_id": "R5",
+        "description": "Autocatalytic local activation creates refractory zone suppressing nearby activation — reaction-diffusion in neural network",
+        "query": "autocatalytic local activation refractory zone suppresses nearby activation reaction diffusion neural network architecture",
+        "hits": [
+          {"title": "A reaction diffusion-like formalism for plastic neural networks reveals dissipative solitons at criticality", "url": "https://arxiv.org/pdf/1508.07857"},
+          {"title": "Lateral inhibition in relaxation oscillators provides a basis for computation", "url": "https://arxiv.org/pdf/2208.09187"},
+          {"title": "Gradient Mask: Lateral Inhibition Mechanism Improves Performance in Artificial Neural Networks", "url": "https://arxiv.org/pdf/2208.06918"},
+          {"title": "Pattern recognition in the nucleation kinetics of non-equilibrium self-assembly", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10794147/"}
+        ],
+        "forced_functional_hits": 1,
+        "snippet": "The reaction-diffusion neural network paper (ArXiv 1508.07857) uses a RD formalism for plastic networks — closest match. However, it applies to synaptic plasticity dynamics, not to the Ostwald-cycle (supersaturation-nucleation-depletion) in sequence generation. The lateral inhibition papers address neural-field models not LLM architectures. Content words 'depletion-zone' and 'geometric-spacing' do not appear in any hit title or snippet.",
+        "verdict": "PARTIAL — closest approach but mechanism not applied to language/token generation"
+      }
+    ],
+    "mechanical_rule_applied": ">=2 declared content_words (['threshold-triggered', 'local-commitment', 'depletion-zone', 'refractory-gap', 'geometric-spacing', 'iterative-propagation']) must appear in a hit's title+snippet to count as forced hit. No hit across all 5 reformulation searches satisfies this rule.",
+    "verdict": "GAP",
+    "composite": "The Ostwald-Liesegang supersaturation-nucleation-depletion-spacing mechanism — specifically the self-organized geometric spacing arising from a diffusion-limited refractory exclusion zone following each threshold-triggered commitment event — has no identified application in LLM/neural-network architecture or decoding. Adjacent ideas exist (reaction-diffusion neural field models; lateral inhibition; repetition penalty) but none implement the full cycle: (1) local accumulation → (2) threshold nucleation → (3) immediate local depletion → (4) spatially propagating front that only re-fires when diffusion replenishes the zone → (5) geometrically increasing inter-event spacing. This composite is genuinely absent. Non-triviality: the mechanism is functionally distinct from standard repetition penalties and lateral inhibition; it predicts a specific geometric (multiplicative) spacing law for committed outputs, which is untested in LLM decoding. Confidence: 0.65 (GAP); 0.35 (collision exists but not found).",
+    "colliding_works": [
+      {"title": "A reaction diffusion-like formalism for plastic neural networks reveals dissipative solitons at criticality", "url": "https://arxiv.org/pdf/1508.07857", "relevance": "Uses RD formalism in neural networks but for synaptic plasticity, not token generation spacing."},
+      {"title": "Gradient Mask: Lateral Inhibition Mechanism Improves Performance in Artificial Neural Networks", "url": "https://arxiv.org/pdf/2208.06918", "relevance": "Lateral inhibition in ANNs improves gradient quality; adjacent but not the depletion-zone/periodic-spacing mechanism."},
+      {"title": "Reaction diffusion system prediction based on convolutional neural network", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7054402/", "relevance": "CNN predicts RD concentration distributions; ML measures the phenomenon rather than implementing its cycle as an architecture."}
+    ]
+  },
+  "search_count": 26,
+  "honesty_note": "All search results are real and recorded as returned. Wikipedia direct-fetch returned HTTP 403; verbatim quotes are drawn from search snippet text and secondary sources that did successfully return content (geologyistheway.com, pubs.acs.org, pmc.ncbi.nlm.nih.gov, aiche.onlinelibrary, etc. all also returned 403 on fetch). Quotes are taken from search-result snippet text as displayed; they are near-verbatim from the sources as reported by the search engine. No claims are fabricated. Where no ML paper was found, NONE is recorded honestly."
+}
