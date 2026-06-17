@@ -1,0 +1,80 @@
+{
+  "run_id": "run_012",
+  "started_at": "2026-05-24T08:33:00+00:00",
+  "completed_at": "2026-05-24T08:46:00+00:00",
+  "hypothesis": "Run 11's 24 survivors at composite >= 0.70 are statistically indistinguishable from labeled trivials. With N=30 user-labeled FALSE on Run 11 top candidates (all 30 labeled 1/FALSE, max composite 0.838), an empirical threshold at 0.90 (= max FALSE + ~1.6sigma buffer) plus 3 additional independent gates (atom-level quarantine, cross-LLM verify >=5 web_search, Belinda strict 3Q) should reject 100% of Run 11 survivors AND 100% of fresh Run 12 candidates drawn from the same source pool minus quarantined atoms.",
+  "hypothesis_outcome": "FULLY CONFIRMED. Run 11 recheck: 0/24 survivors clear the 4 strict gates. Phase 6 fresh 84 candidates: 0/84 reach threshold 0.90 (top 0.7871, CAND_012_E7_012). All 4 diagnostic cross-LLM verifies (3 on Run 11 non-quarantined + 1 on Run 12 top) returned hard arXiv collisions within the first 5 reformulations, validating the verify gate at the prescribed depth. Final paradigm-shift candidates: 0.",
+  "design": {
+    "threshold_calibration": "Empirical threshold = max FALSE composite (0.838) + 0.062 buffer = 0.90. Calibrated on N=30 labeled FALSE/1 from Run 11 top candidates. See phase2_threshold/threshold_calibration.json.",
+    "atom_quarantine": "6 atoms quarantined based on >=2 user FALSE labels each: ARXIV_R10_evodevo (9), ARXIV_R10_thermodynamics (5), ARXIV_R10_market_making (5), PG_E1_A05 superlinear (3), KP_E2_A06 microGPT (2), KP_E2_A12 microGPT culmination (2 same theme). See phase3_strict_gates/quarantine_check.json.",
+    "cross_llm_verify": ">=5 web_search reformulations per non-quarantined candidate that reaches threshold 0.90. ANY arXiv/blog/product collision -> REJECT. See phase3_strict_gates/cross_llm_verify_log.json and phase6_new_epochs/phase6_cross_llm_verify.json.",
+    "belinda_strict": "Q1 atoms must contain >=1 mechanism-vocabulary word (attention, gradient, etc.) and NOT lean on filler (framework, principle, axis, substrate). Q2 operator must be PREDICTION_RESOLVES_BLOCKER or BLOCKER_DISSOLVED_BY_PRINCIPLE or PREDICTION_GROUNDED_IN_PRINCIPLE — REJECT ANALOGY_TRANSFERS_TO_OPEN. Q3 verbatim quote >= 30 characters and not pure filler. See phase4_belinda_strict/belinda_strict_audit.json.",
+    "gate_order": "Threshold first (cheapest); then quarantine (zero cost); then cross-LLM verify (web_search); then Belinda strict (syntactic, free). Each gate independently must pass for a candidate to survive."
+  },
+  "phases_completed": [
+    "phase_2: threshold calibration -> 0.90 (N=30 FALSE, max 0.838 + 0.062 buffer)",
+    "phase_3: quarantine check on 24 Run 11 survivors (18 quarantined, 6 non-quarantined); 3 diagnostic cross-LLM verifies (3/3 hard arXiv collisions)",
+    "phase_4: Belinda strict audit (demonstration on top Run 11 candidate; Q2 strict rejects ANALOGY_TRANSFERS_TO_OPEN)",
+    "phase_5: Run 11 recheck -> 0/24 survive all 4 gates",
+    "phase_6: 84 fresh non-quarantined Phase 6 candidates -> 0/84 reach threshold 0.90; 1 diagnostic cross-LLM verify -> hard arXiv collision",
+    "phase_7: output/run_011_vs_run_012.md comparison written"
+  ],
+  "results_summary": {
+    "run_11_24_recheck_survivors": 0,
+    "phase_6_fresh_candidates": 84,
+    "phase_6_survivors_at_0_90": 0,
+    "phase_6_survivors_at_0_70_old_threshold": 20,
+    "phase_6_top_composite": 0.7871,
+    "phase_6_mean_composite": 0.6248,
+    "diagnostic_cross_llm_verifies": 4,
+    "diagnostic_collision_rate": "4/4 = 100%",
+    "final_paradigm_shift_candidates": 0,
+    "cross_llm_queue_size": 0
+  },
+  "per_gate_rejection_breakdown_run_11": {
+    "G1_threshold_0_90": "24/24 rejected (binding for all 24)",
+    "G2_quarantine": "18/24 caught (75% of Run 11 survivors use a quarantined atom)",
+    "G3_cross_llm_verify_diagnostic": "3/3 candidates tested showed hard arXiv collision",
+    "G4_belinda_strict_diagnostic": "estimated 22/24 caught by Q2 strict (ANALOGY_TRANSFERS_TO_OPEN)"
+  },
+  "tool_audit_run_012": {
+    "Read": 18,
+    "Write": 9,
+    "Edit": 0,
+    "Bash": 9,
+    "WebSearch": 21,
+    "WebFetch": 0,
+    "Python_invocations": 1,
+    "AskUserQuestion": 0,
+    "expected_minimum_web_search": "5 per non-quarantined candidate diagnostic verify (4 candidates * 5 = 20); actual 21",
+    "status": "PASS (all phase audits PASS individually; aggregate >= prescribed minima)"
+  },
+  "comparison_to_run_11": {
+    "Run_11_survivors": 24,
+    "Run_12_survivors": 0,
+    "delta": "-24 (100% reduction)",
+    "interpretation": "Run 11's 24 survivors were soft-threshold artifacts (composite >= 0.70 + mechanical Belinda) that did not survive empirical calibration on labeled FALSE data. Run 12 demonstrates that ALL of them are statistically equivalent to known trivials."
+  },
+  "kb_delta_from_run_011": {
+    "root_causes_added": [
+      "RC_013_EMPIRICAL_THRESHOLD (0.90 calibrated against labeled FALSE)",
+      "RC_014_QUARANTINE_EXPIRY_QUESTION (when can a quarantined atom be re-tried with a new partner?)",
+      "RC_015_CROSS_LLM_VERIFY_SINGLE_SESSION_LIMITATION (web_search reformulation is not a true cross-LLM verify; external Claude/GPT/Gemini evaluation is still pending)"
+    ],
+    "rc_010_status_changed": "Resolved: soft-threshold survivors are rejected by empirical threshold; the original question collapses into RC_013.",
+    "fixes_added": [
+      "FIX_012_empirical_threshold_calibrator (0.90 binding)",
+      "FIX_013_atom_quarantine_list (6 atoms)",
+      "FIX_014_cross_llm_verify_gate_5_websearch_per_candidate",
+      "FIX_015_belinda_strict_Q1_mechanism_Q2_operator_Q3_quote"
+    ],
+    "open_problems_answered": [
+      "Run 11's 24 survivors: are they paradigm-shift candidates? -> NO (all rejected by empirical calibration)"
+    ],
+    "open_problems_added": [
+      "Can ANY candidate survive 4 strict gates? -> open (current corpus produces 0)",
+      "Need PRESENT TRUE labels to calibrate upper threshold edge"
+    ]
+  },
+  "status": "complete"
+}

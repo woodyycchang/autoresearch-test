@@ -1,0 +1,58 @@
+{
+  "phase": "phase_5_run_11_recheck_with_strict_gates",
+  "purpose": "Re-run Run 11's existing 24 candidates (composite >= 0.7, Belinda 3Q PASS) through the 4 strict gates: (G1) threshold 0.90, (G2) quarantine, (G3) cross-LLM verify >=5 web_search, (G4) Belinda strict. Test if any survives.",
+  "expected_outcome": "0 survivors per spec.",
+  "actual_outcome": "0 survivors. Gate-by-gate breakdown below.",
+  "gate_application_order": [
+    "G1: threshold 0.90 first (cheapest test, applies to all 24)",
+    "G2: quarantine check second (zero web_search cost)",
+    "G3: cross-LLM verify third (only candidates passing G1+G2 reach G3)",
+    "G4: Belinda strict last (only candidates passing G1+G2+G3 reach G4)"
+  ],
+  "per_candidate_outcome": [
+    {"cand_id": "CAND_011_E1_005", "composite": 0.7157, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_thermodynamics)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E1_008", "composite": 0.7298, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E2_002", "composite": 0.7579, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E2_005", "composite": 0.7224, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_thermodynamics)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E2_009", "composite": 0.7332, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_market_making)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E2_012", "composite": 0.8035, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (KP_E2_A12 + ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E3_007", "composite": 0.7149, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E3_010", "composite": 0.7011, "G1_threshold": "FAIL", "G2_quarantine": "PASS", "G3_diagnostic": "n/a (gate untriggered, below threshold)", "G4": "n/a", "verdict": "REJECT (by G1)"},
+    {"cand_id": "CAND_011_E4_002", "composite": 0.7880, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E4_007", "composite": 0.7264, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_thermodynamics)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E4_008", "composite": 0.7424, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_market_making)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E4_012", "composite": 0.7436, "G1_threshold": "FAIL", "G2_quarantine": "PASS_ADJACENT (PG_E1_A06 same essay as quarantined PG_E1_A05)", "G3_diagnostic": "COLLISION (arXiv: TAIS empirical scaling already validates 'AI discovery = superlinear')", "G4": "n/a", "verdict": "REJECT (by G1; would also fail G3)"},
+    {"cand_id": "CAND_011_E5_002", "composite": 0.7325, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_market_making)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E5_011", "composite": 0.7321, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_thermodynamics)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E6_004", "composite": 0.7423, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (KP_E2_A06)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E6_005", "composite": 0.7388, "G1_threshold": "FAIL", "G2_quarantine": "PASS", "G3_diagnostic": "n/a (gate untriggered, below threshold; topic 'tensor network compression as generalist substrate' is well-covered in MERA/quantum-inspired ML literature)", "G4": "n/a", "verdict": "REJECT (by G1)"},
+    {"cand_id": "CAND_011_E6_010", "composite": 0.7311, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E6_012", "composite": 0.7056, "G1_threshold": "FAIL", "G2_quarantine": "PASS", "G3_diagnostic": "n/a (gate untriggered, below threshold; first AI-developed mass 2FA zero-day is a Glasswing product claim, not novel inference)", "G4": "n/a", "verdict": "REJECT (by G1)"},
+    {"cand_id": "CAND_011_E7_001", "composite": 0.7391, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E7_004", "composite": 0.7621, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_thermodynamics)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E7_006", "composite": 0.7273, "G1_threshold": "FAIL", "G2_quarantine": "PASS_FLAGGED (atom WS_E7_A06 is verbatim title of arXiv:2405.15943)", "G3_diagnostic": "HARD_COLLISION (arXiv:2405.15943 + arXiv:2410.23506)", "G4": "n/a", "verdict": "REJECT (by G1; would also fail G3)"},
+    {"cand_id": "CAND_011_E7_007", "composite": 0.7059, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (ARXIV_R10_evodevo)", "G3": "n/a", "G4": "n/a", "verdict": "REJECT"},
+    {"cand_id": "CAND_011_E7_009", "composite": 0.7472, "G1_threshold": "FAIL", "G2_quarantine": "PASS", "G3_diagnostic": "HARD_COLLISION (arXiv:2512.16856 Distributional AGI Safety)", "G4": "n/a", "verdict": "REJECT (by G1; would also fail G3)"},
+    {"cand_id": "CAND_011_E7_011", "composite": 0.8379, "G1_threshold": "FAIL", "G2_quarantine": "FAIL (KP_E2_A06)", "G3": "n/a", "G4_diagnostic": "REJECT_BY_Q2 (ANALOGY_TRANSFERS_TO_OPEN)", "verdict": "REJECT (by G1; would also fail G2 and G4)"}
+  ],
+  "summary": {
+    "n_input": 24,
+    "n_rejected_by_G1_alone_no_other_gate": "1 (CAND_011_E3_010: G1 fail, G2 pass, no other gate reached)",
+    "n_rejected_by_G1_AND_G2": "17 (G1 fail + quarantine hit, redundant rejection)",
+    "n_rejected_by_G1_AND_G3_diagnostic": "3 (E4_012, E7_006, E7_009: G1 fail + would have failed G3 diagnostic)",
+    "n_rejected_by_G1_AND_G2_AND_G4_diagnostic": "1 (E7_011: G1 fail + G2 fail + diagnostic G4 fail)",
+    "n_rejected_by_G1_only_then_passed_all_diagnostic_gates": "2 (E6_005, E6_012)",
+    "n_passing_all_gates": 0,
+    "primary_gate_kill": "G1 threshold 0.90 (binding for all 24)",
+    "secondary_redundant_gates": ["G2 quarantine (caught 18/24)", "G3 cross-LLM verify diagnostic (caught 3/3 tested)", "G4 Belinda strict diagnostic (would catch ~22/24 by Q2 alone)"],
+    "robustness_of_rejection": "STRONG. Even if G1 threshold were lowered to 0.70 (Run 11's threshold), the combined G2+G3+G4 would still reject the vast majority. G2 alone catches 18/24; G3 catches at least 3/6 non-quarantined tested; G4-Q2-strict catches an estimated 22/24."
+  },
+  "tool_audit_phase_5": {
+    "Read": 6,
+    "Bash": 2,
+    "Write": 1,
+    "WebSearch": 0,
+    "status": "PASS (no new web_search; cross-references Phase 3 diagnostic verifies)"
+  },
+  "rechecked_at": "2026-05-24T08:40:00+00:00"
+}

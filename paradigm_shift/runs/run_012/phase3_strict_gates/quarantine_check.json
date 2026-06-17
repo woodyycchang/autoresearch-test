@@ -1,0 +1,53 @@
+{
+  "phase": "phase_3_quarantine_check",
+  "purpose": "Apply atom-level quarantine to Run 11's 24 survivors. Quarantined atoms are those that have appeared in >=2 user-labeled FALSE/1 candidates. Quarantine is checked BEFORE cross-LLM verify to save web_search cost.",
+  "quarantine_list": [
+    {"atom_id": "ARXIV_R10_evodevo", "false_label_count": 9, "reason": "Recurring evodevo + AI surface analogy; 9 different pairings all labeled FALSE/1."},
+    {"atom_id": "ARXIV_R10_thermodynamics", "false_label_count": 5, "reason": "Recurring thermodynamics + ML surface analogy; 5 pairings all labeled FALSE/1."},
+    {"atom_id": "ARXIV_R10_market_making", "false_label_count": 5, "reason": "Recurring market making + LLM safety surface analogy; 5 pairings all labeled FALSE/1."},
+    {"atom_id": "PG_E1_A05", "false_label_count": 3, "reason": "Paul Graham 'superlinear returns' (2023 essay); 3 pairings labeled FALSE/1 — pre-existing essayistic concept, no mechanism transfer."},
+    {"atom_id": "KP_E2_A06", "false_label_count": 2, "reason": "Karpathy microGPT self-publish; 2 pairings labeled FALSE/1 — author of source self-publishing same concept (circularity)."},
+    {"atom_id": "KP_E2_A12", "false_label_count": 2, "reason": "Same microGPT theme as KP_E2_A06, also Karpathy self-publish; extends KP_E2_A06 quarantine per circularity criterion."}
+  ],
+  "per_candidate_check": [
+    {"cand_id": "CAND_011_E1_005", "composite": 0.7157, "atom_a": "PG_E1_A10", "atom_b": "ARXIV_R10_thermodynamics", "quarantine_hit": ["ARXIV_R10_thermodynamics"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E1_008", "composite": 0.7298, "atom_a": "PG_E1_A09", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E2_002", "composite": 0.7579, "atom_a": "KP_E2_A08", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E2_005", "composite": 0.7224, "atom_a": "KP_E2_A05", "atom_b": "ARXIV_R10_thermodynamics", "quarantine_hit": ["ARXIV_R10_thermodynamics"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E2_009", "composite": 0.7332, "atom_a": "KP_E2_A03", "atom_b": "ARXIV_R10_market_making", "quarantine_hit": ["ARXIV_R10_market_making"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E2_012", "composite": 0.8035, "atom_a": "KP_E2_A12", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["KP_E2_A12", "ARXIV_R10_evodevo"], "status": "QUARANTINED_DOUBLE"},
+    {"cand_id": "CAND_011_E3_007", "composite": 0.7149, "atom_a": "SA_E3_A03", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E3_010", "composite": 0.7011, "atom_a": "SA_E3_A10", "atom_b": "PG_E1_A07", "quarantine_hit": [], "status": "NOT_QUARANTINED"},
+    {"cand_id": "CAND_011_E4_002", "composite": 0.7880, "atom_a": "OA_E4_A10", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E4_007", "composite": 0.7264, "atom_a": "OA_E4_A04", "atom_b": "ARXIV_R10_thermodynamics", "quarantine_hit": ["ARXIV_R10_thermodynamics"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E4_008", "composite": 0.7424, "atom_a": "OA_E4_A08", "atom_b": "ARXIV_R10_market_making", "quarantine_hit": ["ARXIV_R10_market_making"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E4_012", "composite": 0.7436, "atom_a": "OA_E4_A01", "atom_b": "PG_E1_A06", "quarantine_hit": [], "status": "NOT_QUARANTINED_BUT_ADJACENT (PG_E1_A06 is same essay as quarantined PG_E1_A05; flag for cross-LLM verify)"},
+    {"cand_id": "CAND_011_E5_002", "composite": 0.7325, "atom_a": "AN_E5_A04", "atom_b": "ARXIV_R10_market_making", "quarantine_hit": ["ARXIV_R10_market_making"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E5_011", "composite": 0.7321, "atom_a": "AN_E5_A10", "atom_b": "ARXIV_R10_thermodynamics", "quarantine_hit": ["ARXIV_R10_thermodynamics"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E6_004", "composite": 0.7423, "atom_a": "HN_E6_A04", "atom_b": "KP_E2_A06", "quarantine_hit": ["KP_E2_A06"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E6_005", "composite": 0.7388, "atom_a": "HN_E6_A05", "atom_b": "OA_E4_A02", "quarantine_hit": [], "status": "NOT_QUARANTINED"},
+    {"cand_id": "CAND_011_E6_010", "composite": 0.7311, "atom_a": "HN_E6_A10", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E6_012", "composite": 0.7056, "atom_a": "HN_E6_A12", "atom_b": "OA_E4_A08", "quarantine_hit": [], "status": "NOT_QUARANTINED"},
+    {"cand_id": "CAND_011_E7_001", "composite": 0.7391, "atom_a": "WS_E7_A01", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E7_004", "composite": 0.7621, "atom_a": "WS_E7_A04", "atom_b": "ARXIV_R10_thermodynamics", "quarantine_hit": ["ARXIV_R10_thermodynamics"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E7_006", "composite": 0.7273, "atom_a": "WS_E7_A06", "atom_b": "SA_E3_A03", "quarantine_hit": [], "status": "NOT_QUARANTINED_BUT_FLAG (atom_a 'belief states in transformers' matches existing published Shai Shalev-Shwartz work — flag for cross-LLM verify)"},
+    {"cand_id": "CAND_011_E7_007", "composite": 0.7059, "atom_a": "WS_E7_A07", "atom_b": "ARXIV_R10_evodevo", "quarantine_hit": ["ARXIV_R10_evodevo"], "status": "QUARANTINED"},
+    {"cand_id": "CAND_011_E7_009", "composite": 0.7472, "atom_a": "WS_E7_A10", "atom_b": "AN_E5_A05", "quarantine_hit": [], "status": "NOT_QUARANTINED"},
+    {"cand_id": "CAND_011_E7_011", "composite": 0.8379, "atom_a": "WS_E7_A12", "atom_b": "KP_E2_A06", "quarantine_hit": ["KP_E2_A06"], "status": "QUARANTINED"}
+  ],
+  "summary": {
+    "n_candidates": 24,
+    "n_quarantined": 18,
+    "n_not_quarantined": 6,
+    "fraction_quarantined": "75%",
+    "auto_reject_by_quarantine_alone": 18,
+    "remaining_for_cross_llm_verify_within_run_11": "6 (but all below 0.90 threshold gate, so cross-LLM verify is moot for Run 11 recheck)"
+  },
+  "tool_audit_phase_3_quarantine": {
+    "Bash": 1,
+    "Write": 1,
+    "WebSearch": 0,
+    "status": "PASS (zero web_search cost as designed — quarantine first)"
+  },
+  "checked_at": "2026-05-24T08:35:00+00:00"
+}
