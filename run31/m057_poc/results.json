@@ -1,0 +1,460 @@
+{
+  "model": "M057 Persistent-Homology Bruise Forensics (CPU PoC)",
+  "backend_persistence": "ripser",
+  "gudhi_version_available": "3.12.0",
+  "config": {
+    "N_CKPT": 30,
+    "K_INJECT_true": 18,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "hidden": [
+      64,
+      32
+    ],
+    "lr": 0.08,
+    "batch": 256,
+    "poison_frac": 0.3,
+    "target_class": 0,
+    "c_new": 9,
+    "trigger_corner": 2,
+    "n_points": 150,
+    "pca_dim": 8,
+    "maxdim": 1
+  },
+  "definitions": {
+    "P(t)": "sum of finite H0 + H1 lifetimes of the Rips barcode of the standardized/PCA'd concept activation cloud (ripser, maxdim=1)",
+    "concept_cloud_A": "last-hidden-layer activations on a fixed batch of TRIGGER-stamped inputs",
+    "concept_cloud_B": "last-hidden-layer activations on a fixed batch of class-C_NEW inputs",
+    "ring_width(t)": "|P(t)-P(t-1)|, smoothed with a width-3 moving average for detection",
+    "burn_in": "first 6 checkpoints (init transient) excluded from birth candidates",
+    "baseline_ring": "median smoothed ring-width over the steady pre-injection window [BURN_IN, K)",
+    "peak_checkpoint": "checkpoint of the dominant (max) smoothed ring-width event among candidates >= BURN_IN (staging climax)",
+    "birth": "ONSET of that dominant event: walking back from the peak, first checkpoint where smoothed ring rises through base + 0.4*(peak-base). Direction-agnostic (works whether P rises or falls).",
+    "entrenchment_final_P": "mean of P over the last 4 checkpoints (as specified). NOTE: a backdoor COLLAPSES its cloud, so final_P is LOW even though the feature is load-bearing.",
+    "dip_depth": "mean P over [BURN_IN,K) minus min P over [K,end]: how far the concept cloud collapsed after injection",
+    "staging_speed": "peak_checkpoint - birth = #checkpoints from onset to climax of the restructuring; SMALLER = faster / more abrupt",
+    "ring_spike_at_K": "max raw ring_width in window [K-1, K+5]",
+    "DESIGN_NOTE": "Empirically the late feature does NOT raise total persistence above baseline; it triggers an abrupt RESTRUCTURING. Backdoor (trigger->one target) collapses the cloud (P falls, low final_P); benign new class enriches it (P dips then recovers, high final_P). Birth is therefore dated from the |dP| change-point, not a sustained rise."
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "A": {
+        "birth": 21,
+        "abs_err": 3,
+        "peak_checkpoint": 21,
+        "final_P": 60.05490012373775,
+        "pre_mean_P": 128.43223775799075,
+        "post_min_P": 49.250627379864454,
+        "dip_depth": 79.1816103781263,
+        "baseline_ring": 5.185887520511945,
+        "threshold_ring": 11.389267016631862,
+        "staging_speed": 0,
+        "ring_spike_at_K": 47.78342356905341,
+        "test_acc": 0.7723984418475236,
+        "backdoor_asr": 0.9894996911673872
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 19,
+        "final_P": 173.17008379218169,
+        "pre_mean_P": 210.17866750061512,
+        "post_min_P": 88.43257219716907,
+        "dip_depth": 121.74609530344605,
+        "baseline_ring": 7.810475915670393,
+        "threshold_ring": 28.49538836996257,
+        "staging_speed": 1,
+        "ring_spike_at_K": 58.42810489889234,
+        "test_acc": 0.9120756816917084,
+        "cnew_recall": 0.6222222222222222
+      }
+    },
+    {
+      "seed": 1,
+      "A": {
+        "birth": 19,
+        "abs_err": 1,
+        "peak_checkpoint": 20,
+        "final_P": 81.33543503656983,
+        "pre_mean_P": 123.26770284740876,
+        "post_min_P": 48.24713827483356,
+        "dip_depth": 75.0205645725752,
+        "baseline_ring": 4.39291146894296,
+        "threshold_ring": 14.531489738653722,
+        "staging_speed": 1,
+        "ring_spike_at_K": 21.54785438720137,
+        "test_acc": 0.7646076794657763,
+        "backdoor_asr": 0.9993823347745522
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 19,
+        "final_P": 162.57222163118422,
+        "pre_mean_P": 206.3324262176951,
+        "post_min_P": 146.1331709001097,
+        "dip_depth": 60.1992553175854,
+        "baseline_ring": 11.230878442525864,
+        "threshold_ring": 15.286680622085933,
+        "staging_speed": 1,
+        "ring_spike_at_K": 27.35199962023762,
+        "test_acc": 0.890929326655537,
+        "cnew_recall": 0.65
+      }
+    },
+    {
+      "seed": 2,
+      "A": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 19,
+        "final_P": 135.92790060304105,
+        "pre_mean_P": 126.60922973634054,
+        "post_min_P": 99.88424850441515,
+        "dip_depth": 26.724981231925383,
+        "baseline_ring": 4.610864609479904,
+        "threshold_ring": 8.1451048537679,
+        "staging_speed": 1,
+        "ring_spike_at_K": 21.681980239227414,
+        "test_acc": 0.8714524207011686,
+        "backdoor_asr": 1.0
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 19,
+        "final_P": 162.7708112760447,
+        "pre_mean_P": 169.87115250807256,
+        "post_min_P": 130.16251256573014,
+        "dip_depth": 39.708639942342415,
+        "baseline_ring": 5.37896449988087,
+        "threshold_ring": 6.679336063064011,
+        "staging_speed": 1,
+        "ring_spike_at_K": 19.466967333573848,
+        "test_acc": 0.9193099610461881,
+        "cnew_recall": 0.7388888888888889
+      }
+    },
+    {
+      "seed": 3,
+      "A": {
+        "birth": 24,
+        "abs_err": 6,
+        "peak_checkpoint": 26,
+        "final_P": 76.92637351062149,
+        "pre_mean_P": 118.71100114177291,
+        "post_min_P": 74.90041352435946,
+        "dip_depth": 43.81058761741345,
+        "baseline_ring": 2.650658627351125,
+        "threshold_ring": 4.154520271081787,
+        "staging_speed": 2,
+        "ring_spike_at_K": 10.647546456195414,
+        "test_acc": 0.8814691151919867,
+        "backdoor_asr": 1.0
+      },
+      "B": {
+        "birth": 20,
+        "abs_err": 2,
+        "peak_checkpoint": 22,
+        "final_P": 160.2642868718831,
+        "pre_mean_P": 175.10906672477722,
+        "post_min_P": 115.98633759457377,
+        "dip_depth": 59.12272913020345,
+        "baseline_ring": 5.339925095438956,
+        "threshold_ring": 12.006896211400623,
+        "staging_speed": 2,
+        "ring_spike_at_K": 30.781761271879077,
+        "test_acc": 0.889259877573734,
+        "cnew_recall": 0.7555555555555555
+      }
+    },
+    {
+      "seed": 4,
+      "A": {
+        "birth": 20,
+        "abs_err": 2,
+        "peak_checkpoint": 22,
+        "final_P": 163.64742395281792,
+        "pre_mean_P": 183.18960161445042,
+        "post_min_P": 131.38581930100918,
+        "dip_depth": 51.803782313441246,
+        "baseline_ring": 5.100962763031324,
+        "threshold_ring": 12.689702836268896,
+        "staging_speed": 2,
+        "ring_spike_at_K": 16.50590555369854,
+        "test_acc": 0.8881469115191987,
+        "backdoor_asr": 0.983940704138357
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 19,
+        "final_P": 165.5911291576922,
+        "pre_mean_P": 214.0028933758537,
+        "post_min_P": 111.81705606169999,
+        "dip_depth": 102.1858373141537,
+        "baseline_ring": 4.319140613079071,
+        "threshold_ring": 7.3759163407087325,
+        "staging_speed": 1,
+        "ring_spike_at_K": 35.919697159552015,
+        "test_acc": 0.8825820812465219,
+        "cnew_recall": 0.8444444444444444
+      }
+    },
+    {
+      "seed": 5,
+      "A": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 24,
+        "final_P": 106.69730360717642,
+        "pre_mean_P": 149.88580910675228,
+        "post_min_P": 84.96395389514734,
+        "dip_depth": 64.92185521160494,
+        "baseline_ring": 2.5331788832942643,
+        "threshold_ring": 6.659398450643444,
+        "staging_speed": 6,
+        "ring_spike_at_K": 16.465488550253212,
+        "test_acc": 0.7423483583750695,
+        "backdoor_asr": 0.9666460778258185
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 20,
+        "final_P": 92.35351367388284,
+        "pre_mean_P": 151.9038705366353,
+        "post_min_P": 69.69700316200033,
+        "dip_depth": 82.20686737463498,
+        "baseline_ring": 7.821657842646042,
+        "threshold_ring": 18.377699049819878,
+        "staging_speed": 2,
+        "ring_spike_at_K": 54.50482654175721,
+        "test_acc": 0.7874234835837507,
+        "cnew_recall": 0.5944444444444444
+      }
+    },
+    {
+      "seed": 6,
+      "A": {
+        "birth": 17,
+        "abs_err": 1,
+        "peak_checkpoint": 19,
+        "final_P": 34.87463760194123,
+        "pre_mean_P": 71.22513429277267,
+        "post_min_P": 27.64763316846802,
+        "dip_depth": 43.577501124304646,
+        "baseline_ring": 5.307835151751836,
+        "threshold_ring": 10.091529050008702,
+        "staging_speed": 2,
+        "ring_spike_at_K": 15.99469628650695,
+        "test_acc": 0.55370061213133,
+        "backdoor_asr": 1.0
+      },
+      "B": {
+        "birth": 18,
+        "abs_err": 0,
+        "peak_checkpoint": 18,
+        "final_P": 143.5242746276781,
+        "pre_mean_P": 123.4902860193203,
+        "post_min_P": 71.36930929397563,
+        "dip_depth": 52.12097672534466,
+        "baseline_ring": 14.680022406081356,
+        "threshold_ring": 25.005287872119496,
+        "staging_speed": 0,
+        "ring_spike_at_K": 60.3909252329031,
+        "test_acc": 0.8636616583194212,
+        "cnew_recall": 0.6055555555555555
+      }
+    }
+  ],
+  "aggregate": {
+    "A": {
+      "birth": {
+        "n": 7,
+        "mean": 19.571428571428573,
+        "std": 2.194613070819602,
+        "median": 19.0,
+        "min": 17.0,
+        "max": 24.0
+      },
+      "abs_err": {
+        "n": 7,
+        "mean": 1.8571428571428572,
+        "std": 1.9587584572574408,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "within2_count": 5,
+      "final_P": {
+        "n": 7,
+        "mean": 94.20913920512939,
+        "std": 41.17836822585365,
+        "median": 81.33543503656983,
+        "min": 34.87463760194123,
+        "max": 163.64742395281792
+      },
+      "dip_depth": {
+        "n": 7,
+        "mean": 55.00584034991301,
+        "std": 17.52298564834236,
+        "median": 51.803782313441246,
+        "min": 26.724981231925383,
+        "max": 79.1816103781263
+      },
+      "staging_speed": {
+        "n": 7,
+        "mean": 2.0,
+        "std": 1.7728105208558367,
+        "median": 2.0,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "ring_spike_at_K": {
+        "n": 7,
+        "mean": 21.51812786316233,
+        "std": 11.270840143603213,
+        "median": 16.50590555369854,
+        "min": 10.647546456195414,
+        "max": 47.78342356905341
+      },
+      "test_acc": {
+        "n": 7,
+        "mean": 0.782017648461722,
+        "std": 0.10905473789959441,
+        "median": 0.7723984418475236,
+        "min": 0.55370061213133,
+        "max": 0.8881469115191987
+      },
+      "n_births_detected": 7,
+      "backdoor_asr": {
+        "n": 7,
+        "mean": 0.9913526868437307,
+        "std": 0.011696097823792093,
+        "median": 0.9993823347745522,
+        "min": 0.9666460778258185,
+        "max": 1.0
+      }
+    },
+    "B": {
+      "birth": {
+        "n": 7,
+        "mean": 18.285714285714285,
+        "std": 0.6998542122237651,
+        "median": 18.0,
+        "min": 18.0,
+        "max": 20.0
+      },
+      "abs_err": {
+        "n": 7,
+        "mean": 0.2857142857142857,
+        "std": 0.6998542122237652,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 2.0
+      },
+      "within2_count": 7,
+      "final_P": {
+        "n": 7,
+        "mean": 151.46376014722097,
+        "std": 25.51330269877052,
+        "median": 162.57222163118422,
+        "min": 92.35351367388284,
+        "max": 173.17008379218169
+      },
+      "dip_depth": {
+        "n": 7,
+        "mean": 73.89862872967295,
+        "std": 27.275825396359224,
+        "median": 60.1992553175854,
+        "min": 39.708639942342415,
+        "max": 121.74609530344605
+      },
+      "staging_speed": {
+        "n": 7,
+        "mean": 1.1428571428571428,
+        "std": 0.6388765649999399,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 2.0
+      },
+      "ring_spike_at_K": {
+        "n": 7,
+        "mean": 40.97775457982789,
+        "std": 15.31705392925367,
+        "median": 35.919697159552015,
+        "min": 19.466967333573848,
+        "max": 60.3909252329031
+      },
+      "test_acc": {
+        "n": 7,
+        "mean": 0.8778917243024088,
+        "std": 0.040694373192210455,
+        "median": 0.889259877573734,
+        "min": 0.7874234835837507,
+        "max": 0.9193099610461881
+      },
+      "n_births_detected": 7,
+      "cnew_recall": {
+        "n": 7,
+        "mean": 0.6873015873015873,
+        "std": 0.08696906369398555,
+        "median": 0.65,
+        "min": 0.5944444444444444,
+        "max": 0.8444444444444444
+      }
+    }
+  },
+  "paired_A_minus_B": {
+    "staging_A_minus_B": {
+      "n": 7,
+      "mean": 0.8571428571428571,
+      "std": 1.5518257844571737,
+      "median": 0.0,
+      "min": -1.0,
+      "max": 4.0
+    },
+    "final_A_minus_B": {
+      "n": 7,
+      "mean": -57.25462094209159,
+      "std": 47.99975374968509,
+      "median": -81.23678659461439,
+      "min": -113.11518366844393,
+      "max": 14.343789933293579
+    },
+    "dip_A_minus_B": {
+      "n": 7,
+      "mean": -18.89278837975993,
+      "std": 20.163600776030094,
+      "median": -15.312141512790006,
+      "min": -50.382055000712455,
+      "max": 14.8213092549898
+    },
+    "ringspike_A_minus_B": {
+      "n": 7,
+      "mean": -19.459626716665557,
+      "std": 15.590575959583353,
+      "median": -19.413791605853476,
+      "min": -44.39622894639615,
+      "max": 2.215012905653566
+    },
+    "birth_A_minus_B": {
+      "n": 7,
+      "mean": 1.2857142857142858,
+      "std": 1.665986255670086,
+      "median": 1.0,
+      "min": -1.0,
+      "max": 4.0
+    }
+  },
+  "runtime_sec": 8.7
+}

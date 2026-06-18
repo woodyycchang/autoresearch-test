@@ -1,0 +1,337 @@
+{
+  "run": "run30",
+  "phase": 4,
+  "task": "rank surviving genuine merges",
+  "generated_utc": "2026-06-04T20:35:45.042435Z",
+  "rubric": {
+    "formula": "rank_product = cognitive_distance x structural_generativity x mechanism_concreteness (each 1-5)",
+    "adjacency_policy": "adjacency to prior work is NOT a penalty (R10). Only hallucination/regurgitation could remove a construct, and none were flagged.",
+    "note": "M056 ranks below the top tier because of distance(2 top-domains)/generativity scoring, NOT because of its close prior work — that adjacency was explicitly disregarded per R7/R10."
+  },
+  "survivors_ranked_count": 15,
+  "eligible": "all 15 PASS integrity",
+  "top_5": [
+    "M032",
+    "M041",
+    "M045",
+    "M054",
+    "M057"
+  ],
+  "ranking": [
+    {
+      "global_id": "M032",
+      "merged_construct": "Haggling Reward Model (reservation-probing critic that concedes)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 100,
+      "is_triple": true,
+      "parents": [
+        "L074",
+        "T093",
+        "T037"
+      ],
+      "merge_operator": "ROLE_EXCHANGE",
+      "rationale": "haggle + Kalman + RLHF -> belief-state reward model that actively probes/concedes; per-skill covariance; over-optimization alarm. 3 alien domains, novel RLHF.",
+      "nearest_prior_work_CONTEXT": "Probabilistic Uncertain Reward Model (PURM, arxiv 2503.22480) and Bayesian Non-negative Reward Model (BNRM, arxiv 2602.10623) -- uncertainty-aware RMs using distribution overlap/covariance to flag over-optimization. Conceptually adjacent on the uncertainty axis but passive, single-agent, no active-probing/bargaining inversion; context only.",
+      "rank": 1
+    },
+    {
+      "global_id": "M041",
+      "merged_construct": "Frustrated Marinade Routing: spin-glass diffusion-depth allocation for mixture-of-experts under grudge-weighted gating",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 100,
+      "is_triple": true,
+      "parents": [
+        "T072",
+        "L107",
+        "L055"
+      ],
+      "merge_operator": "STRUCTURAL_TRANSFER",
+      "rationale": "spin-glass + marination + grudge -> frustration-energy MoE router with a glassy AGING signature (two-time correlation) absent in top-k. Maximal distance, deep, measurable.",
+      "nearest_prior_work_CONTEXT": "MoE routing framed as a congestion game with mean-field limit; 'Three Phases of Expert Routing' load-balance evolution (arxiv 2604.04230); Latent Prototype Routing (arxiv 2506.21328). Physics-of-MoE adjacency only; the spin-glass-frustration + grudge-coupling + marination-depth combination is not present.",
+      "rank": 2
+    },
+    {
+      "global_id": "M045",
+      "merged_construct": "Fermentation-Memory Probing: many-body-localized starter lineages for measuring non-thermalizing memory in long-context models, gated by tip-of-the-tongue retrieval",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 100,
+      "is_triple": true,
+      "parents": [
+        "T082",
+        "L110",
+        "L048"
+      ],
+      "merge_operator": "METRIC_IMPORT",
+      "rationale": "MBL + sourdough lineage + tip-of-tongue -> a localization-length for in-context memory + a sharp phase transition with a tunable disorder knob (RoPE base).",
+      "nearest_prior_work_CONTEXT": "MBL memory literature (LIOMs, imbalance, log-entanglement) is the physics source; no work transfers it to LLM long-context memory. Adjacent only as the borrowed metric.",
+      "rank": 3
+    },
+    {
+      "global_id": "M054",
+      "merged_construct": "Vector-Clock Stage Fright: causal-ordering model of evaluation-induced performance collapse under observation",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 100,
+      "is_triple": true,
+      "parents": [
+        "T057",
+        "L045",
+        "L149"
+      ],
+      "merge_operator": "ROLE_EXCHANGE",
+      "rationale": "vector-clocks + stage-fright + yawn-contagion -> causal-DEPTH law for eval-induced behavior change (sandbagging depends on causal distance, not just the cue). Safety.",
+      "nearest_prior_work_CONTEXT": "Sandbagging/eval-awareness research (arxiv 2508.00943, 2505.14617 Hawthorne effect) is the real adjacent target; uses CoT/probes, not vector-clock causal ordering or contagion dynamics.",
+      "rank": 4
+    },
+    {
+      "global_id": "M057",
+      "merged_construct": "Persistent-Homology Bruise Forensics: topological dating of when a capability or backdoor entered a model lineage",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 100,
+      "is_triple": true,
+      "parents": [
+        "T059",
+        "L152",
+        "L129"
+      ],
+      "merge_operator": "METRIC_IMPORT",
+      "rationale": "persistent homology + bruise-dating + tree-rings -> topological DATING in time via a barcode over a checkpoint filtration; flags load-bearing-yet-young (backdoors). Safety/audit.",
+      "nearest_prior_work_CONTEXT": "Neural Persistence (arxiv 1812.09764) and filtration-learning TDA on nets -- static/representation-shape analysis, not checkpoint-timeline dating of backdoors. Adjacent tool, distinct application; does not disqualify.",
+      "rank": 5
+    },
+    {
+      "global_id": "M016",
+      "merged_construct": "Anti-Conformist Steering (fashion-cycle vectors that abandon common directions)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 80,
+      "is_triple": true,
+      "parents": [
+        "T012",
+        "L162",
+        "L175"
+      ],
+      "merge_operator": "CONSTRAINT_INVERSION",
+      "rationale": "fashion-cycle + contrarian -> state-dependent self-abandoning closed-loop steering vs fixed vector; 3 alien top-domains; diversity gains.",
+      "nearest_prior_work_CONTEXT": "Stiefel/STARS activation steering for diverse generation (arXiv:2601.22010) and selective-layer diversity restoration (arXiv:2602.06665). These target mode-collapse/diversity but are not closed-loop self-abandoning controllers with projection-EMA feedback and sign-flip hysteresis. Context only.",
+      "rank": 6
+    },
+    {
+      "global_id": "M019",
+      "merged_construct": "Kinship-Inference Mode Connectivity (resemblance-based lineage of trained models)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 5,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 80,
+      "is_triple": true,
+      "parents": [
+        "T002",
+        "L070",
+        "L061"
+      ],
+      "merge_operator": "BOUNDARY_DISSOLVE",
+      "rationale": "family resemblance/lineage -> alignment-FREE permutation-invariant markers that PREDICT mode-connectivity barriers without the expensive alignment search.",
+      "nearest_prior_work_CONTEXT": "MoTHer / Unsupervised Model Tree Heritage Recovery (arXiv:2405.18432) reconstructs model trees from weights; Ghost in the Transformer / GhostSpec (arXiv:2511.06390) uses per-layer singular-value spectral fingerprints for model-reuse detection. Both overlap with M019's lineage + invariant-fingerprint components but neither ties the fingerprint to mode-connectivity BARRIER prediction or soup-compatibility. Strong adjacency, CONTEXT only — does not flag.",
+      "rank": 7
+    },
+    {
+      "global_id": "M023",
+      "merged_construct": "Fishing-Rod Speculative Decoding: patience-budgeted draft casting with a self-knotting backoff",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 5
+      },
+      "rank_product": 80,
+      "is_triple": true,
+      "parents": [
+        "T005",
+        "L092",
+        "L006"
+      ],
+      "merge_operator": "SUBSTRATE_SWAP",
+      "rationale": "fishing patience + knot -> explicit log law k*=ln(c/V)/ln(p_hat) + geometric throughput identity; position-varying optimal draft length. Very concrete/practical.",
+      "nearest_prior_work_CONTEXT": "AdaEDL (entropy lower-bound on acceptance prob for early draft stopping, arxiv 2410.18351), SVIP (self-verification length policy via draft entropy, arxiv 2411.18462), SpecDec++ (trained acceptance head + threshold stop, arxiv 2405.19715). All adaptive-draft-length-via-acceptance; adjacency only, not identity.",
+      "rank": 8
+    },
+    {
+      "global_id": "M047",
+      "merged_construct": "Emulsion-Stability Consensus: fluctuation-dissipation surfactant alignment for averaging fine-tuned models under impostor-discounted contributions",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 5,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 80,
+      "is_triple": true,
+      "parents": [
+        "T075",
+        "L113",
+        "L050"
+      ],
+      "merge_operator": "METRIC_IMPORT",
+      "rationale": "FDT + emulsion + impostor -> FDT line (marginal soup effect linear in weight-space fluctuation) + curdling trust score for model merging.",
+      "nearest_prior_work_CONTEXT": "Model soups (Wortsman 2022) and greedy/learned soup weighting; none uses fluctuation-response theory. Adjacent target, distinct mechanism.",
+      "rank": 9
+    },
+    {
+      "global_id": "M056",
+      "merged_construct": "Bloom-Filter Tip-of-the-Tongue: false-positive partial-recall sketch as a model's calibrated 'almost-knows' signal",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 5
+      },
+      "rank_product": 80,
+      "is_triple": true,
+      "parents": [
+        "T046",
+        "L048",
+        "L042"
+      ],
+      "merge_operator": "BOUNDARY_DISSOLVE",
+      "rationale": "Bloom filter + tip-of-tongue + deja-vu -> one-sided no-false-negative abstention primitive + a 2x2 recall-state typology. 2 top-domains -> CD=4 (NOT penalized for adjacency).",
+      "nearest_prior_work_CONTEXT": "arxiv 2602.00906 'Hallucination is a Consequence of Space-Optimality: A Rate-Distortion Theorem for Membership Testing' -- formalizes LLM memorization as membership testing and generalizes the Bloom-filter bound to log-loss. CONTEXT ONLY; it is an impossibility theorem, not this construct's activation-sketch + TOT/deja-vu method. Does not disqualify.",
+      "rank": 10
+    },
+    {
+      "global_id": "M004",
+      "merged_construct": "Bloom-crash batch ecology (resource-overshoot minibatch dynamics)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 64,
+      "is_triple": true,
+      "parents": [
+        "T010",
+        "L141",
+        "L140"
+      ],
+      "merge_operator": "DYNAMICS_BORROW",
+      "rationale": "algal bloom-crash -> per-concept gradient-noise-scale trajectory; forces an early-warning lead-time (2nd moment precedes 1st). 2 top-domains.",
+      "nearest_prior_work_CONTEXT": "Gradient Noise Scale (McCandlish et al., arXiv:1812.06162) and follow-ups on per-example/per-layer GNS (arXiv:2411.00999) — these compute GNS but globally, with no ecological bloom-crash trajectory or per-concept early-warning. Context only; does not disqualify.",
+      "rank": 11
+    },
+    {
+      "global_id": "M008",
+      "merged_construct": "Natal-basin homing with directional growth record (salmon-moss mode connectivity)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 64,
+      "is_triple": true,
+      "parents": [
+        "T002",
+        "L135",
+        "L134"
+      ],
+      "merge_operator": "STRUCTURAL_TRANSFER",
+      "rationale": "salmon homing + moss growth-record -> mode-connectivity 'climb compass' that DECODES the alignment permutation. Elegant equivalence crossing-cost=alignment.",
+      "nearest_prior_work_CONTEXT": "Git Re-Basin (arXiv:2209.04836), Optimizing Mode Connectivity via Neuron Alignment (arXiv:2009.02439), REPAIR (arXiv:2211.08403). All compute alignment then measure barrier; none records climb direction as a compass. Context only.",
+      "rank": 12
+    },
+    {
+      "global_id": "M012",
+      "merged_construct": "Feature Reputation Field (gossip-derived identity for dictionary features)",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 4,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 64,
+      "is_triple": true,
+      "parents": [
+        "T034",
+        "L057",
+        "L060"
+      ],
+      "merge_operator": "BOUNDARY_DISSOLVE",
+      "rationale": "gossip/reputation -> a third-person feature identity (reputation embedding) independent of decoder direction; cross-hop reputation variance.",
+      "nearest_prior_work_CONTEXT": "Feature Monosemanticity Score (FMS) and MonoScore (arXiv:2506.19382 and related). Both quantify monosemanticity but via classifiers / individual-dimension analysis, not via a relational gossip-reputation fixed point. Adjacency only; does NOT disqualify a genuine merge.",
+      "rank": 13
+    },
+    {
+      "global_id": "M024",
+      "merged_construct": "Junk-Drawer Mixture-of-Experts: the default-absorber expert and lid-mismatch routing audit",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 3,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 48,
+      "is_triple": true,
+      "parents": [
+        "T003",
+        "L002",
+        "L005"
+      ],
+      "merge_operator": "SCALE_JUMP",
+      "rationale": "junk-drawer catch-all -> confidence-gated absorber expert + logistic fill ODE early-warning. Catch-all<->expert is somewhat intuitive (CD lower).",
+      "nearest_prior_work_CONTEXT": "Confidence-thresholded self-activating experts and low-confidence-token routing analyses (Expert-Choice routing, research.google; counterfactual routing arxiv 2605.07260); MoE representation collapse (arxiv 2204.09179). Adjacent only; no named 'absorber expert with logistic fill law + lid-mismatch entropy exponent'.",
+      "rank": 14
+    },
+    {
+      "global_id": "M027",
+      "merged_construct": "Sock-Drawer Attention Sink: the unmatchable-singleton reservoir and its accumulation law",
+      "integrity_status": "PASS",
+      "scores": {
+        "cognitive_distance": 3,
+        "structural_generativity": 4,
+        "mechanism_concreteness": 4
+      },
+      "rank_product": 48,
+      "is_triple": true,
+      "parents": [
+        "T028",
+        "L009",
+        "L002"
+      ],
+      "merge_operator": "SCALE_JUMP",
+      "rationale": "odd-sock reservoir -> context-length GROWTH LAW for attention-sink mass (concave). Strong law but parents close (both domestic).",
+      "nearest_prior_work_CONTEXT": "StreamingLLM single learnable sink token; attention-sink-as-stabilizer analyses (emergentmind, ICLR 2024); softmax-flattening fixes (Scalable-Softmax arxiv 2501.19399; Softplus re-weighting arxiv 2501.13428). Adjacent; no named 'sink-mass accumulation law vs length with rank-sized multi-slot sink'.",
+      "rank": 15
+    }
+  ]
+}

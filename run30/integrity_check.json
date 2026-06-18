@@ -1,0 +1,370 @@
+{
+  "run": "run30",
+  "phase": 3,
+  "role": "anti-cheating integrity checker (separate agents, search used HERE for integrity ONLY)",
+  "generated_utc": "2026-06-04T20:33:10.362671Z",
+  "contract": "PASS=real AND genuinely merged. FLAG=hallucination OR regurgitation. Adjacency to prior work NEVER disqualifies (R7/R13).",
+  "count": 15,
+  "pass": 15,
+  "flag": 0,
+  "checks": [
+    {
+      "global_id": "M004",
+      "merged_construct": "Bloom-crash batch ecology (resource-overshoot minibatch dynamics)",
+      "searches_run": [
+        "gradient noise scale McCandlish empirical model large batch training",
+        "per-concept gradient noise scale trajectory data mixture saturation detection"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T010 Gradient Noise Scale is a genuine ML statistic (McCandlish/Kaplan, 'An Empirical Model of Large-Batch Training', arXiv:1812.06162; GNS = tr(Sigma)/|mu|^2, used to set batch size, adopted for GPT-3). L141 algal bloom (overshoot-then-crash from self-exhaustion) and L140 stranded ecosystem in a drying pool are real ecological phenomena. No fabricated parents.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "The named mechanisms are real and correctly used: GNS as a signal-to-noise ratio of gradients that rises as loss decreases (matches arXiv:1812.06162). The divergence of GNS = E|noise|/|mean|^2 as mean->0 with residual variance is mathematically sound. Logistic-overshoot / predator-prey delay dynamics and competitive-exclusion / ideal-free-distribution are real ecology. The 1/f_hard variance-rise argument is internally consistent. No invented laws.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows a real construction: a scalar batch-size statistic (GNS) is reframed by importing ecological resource-feedback dynamics (DYNAMICS_BORROW) to become a PER-CONCEPT time-series with a bloom-crash signature and an early-warning lead time. No single search surface returns this as a named technique; existing GNS work treats it as one global scalar for batch size. The per-concept GNS pole + tau_rise lead-time object is assembled from the parents, not recalled verbatim.",
+        "nearest_prior_work": "Gradient Noise Scale (McCandlish et al., arXiv:1812.06162) and follow-ups on per-example/per-layer GNS (arXiv:2411.00999) — these compute GNS but globally, with no ecological bloom-crash trajectory or per-concept early-warning. Context only; does not disqualify.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C1"
+    },
+    {
+      "global_id": "M008",
+      "merged_construct": "Natal-basin homing with directional growth record (salmon-moss mode connectivity)",
+      "searches_run": [
+        "mode connectivity neural network loss landscape permutation symmetry barrier git re-basin",
+        "recover permutation alignment from barrier crossing path gradient ascent record neural network merge"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T002 loss-landscape mode-connectivity barrier is a real research area (Git Re-Basin arXiv:2209.04836; permutation symmetries; linear mode connectivity barriers measured by interpolation). L135 salmon natal homing (budgeted upstream migration spending lifetime reserves) is real biology. L134 moss-on-the-north-side is a real (folk-)directional heuristic. No fabricated parents.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Mechanisms invoked are real: permutation/scaling symmetry orbits, the loss-landscape quotient manifold, min-max saddle vs path action, and the fact that permutation matching is normally solved separately (Git Re-Basin, neuron alignment arXiv:2009.02439). The action-integral S over a climb path and the claim that a budget-limited path exceeds the measure-zero optimal saddle are mathematically coherent. Gauge/holonomy framing is used metaphorically but consistently. No invented physics or false claims.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace (STRUCTURAL_TRANSFER) shows two skeletons transferred onto a static barrier problem: salmon energetics -> a budgeted ridge-ascent giving a motion-aware barrier S* larger than the static saddle; moss compass -> a per-parameter gradient-orientation accumulator that decodes the aligning permutation as a free by-product. Prior art solves matching SEPARATELY (Git Re-Basin); none recovers the permutation from a budgeted climb log. The dual object (decode-alignment-from-path + dynamic-barrier) is constructed from the parents, not a recalled named method.",
+        "nearest_prior_work": "Git Re-Basin (arXiv:2209.04836), Optimizing Mode Connectivity via Neuron Alignment (arXiv:2009.02439), REPAIR (arXiv:2211.08403). All compute alignment then measure barrier; none records climb direction as a compass. Context only.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C1"
+    },
+    {
+      "global_id": "M012",
+      "merged_construct": "Feature Reputation Field (gossip-derived identity for dictionary features)",
+      "searches_run": [
+        "sparse autoencoder feature dictionary monosemanticity interpretability Anthropic",
+        "reference-free monosemanticity score feature defined by other features predictions interpretability"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T034 sparse autoencoder feature dictionary is real (Bricken et al. 'Towards Monosemanticity', transformer-circuits.pub; Cunningham et al. arXiv:2309.08600; Scaling Monosemanticity, Claude 3 Sonnet). Monosemanticity/polysemanticity are real interpretability concepts. L057 gossip and L060 reputation are real social-dynamics concepts. No fabricated parents.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Claims are technically sound: SAE features have decoder directions; polysemantic features 'mean different things in different company' (matches the polysemanticity literature). The message-passing/fixed-point (leading eigenvector / stationary distribution) framing, contraction conditions, and the orthogonality test (regress reputation on decoder, R^2<1) are mathematically coherent. Quine's inferential-role-semantics reference is real philosophy, used as framing. No fabricated mechanism.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace (BOUNDARY_DISSOLVE) erases 'a feature is its decoder vector' vs 'a person is what others say', then constructs: pairwise predictive probes g_{i<-j} (gossip channel) -> per-hop-mutating aggregate (reputation) -> fixed point of message passing -> cross-hop variance V_i as a reference-free monosemanticity score. Existing monosemanticity metrics (FMS, MonoScore) use classifiers / per-dimension consistency and are first-person; none is a gossip/reputation fixed-point built from inter-feature predictive probes. The construct is assembled, not a relabel of FMS.",
+        "nearest_prior_work": "Feature Monosemanticity Score (FMS) and MonoScore (arXiv:2506.19382 and related). Both quantify monosemanticity but via classifiers / individual-dimension analysis, not via a relational gossip-reputation fixed point. Adjacency only; does NOT disqualify a genuine merge.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C1"
+    },
+    {
+      "global_id": "M016",
+      "merged_construct": "Anti-Conformist Steering (fashion-cycle vectors that abandon common directions)",
+      "searches_run": [
+        "activation steering vector representation engineering language model control",
+        "closed-loop feedback steering vector self-abandoning anti-conformist diversity mode collapse inference"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T012 activation steering vector is real (ActAdd / Activation Addition, Turner et al., arXiv:2308.10248; representation engineering). L162 fashion cycle and L175 standing-ovation / information cascade (tipping-point adoption) are real social-dynamics phenomena. No fabricated parents.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Mechanisms are real and consistent: steering vectors added to the residual stream at inference; constant steering driving saturation/mode-collapse is a documented failure mode. The control-theory objects invoked — negative feedback, hysteresis, relaxation oscillator / limit cycle, set-point regulation, maximum-entropy-under-constraint, autocorrelation spectral signature — are standard and correctly applied. No invented law.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace (CONSTRAINT_INVERSION) inverts the steering vector's constant-direction constraint using self-abandonment (fashion) plus a tipping trigger (cascade), mapping 'style commonness' -> EMA projection p(t) of recent tokens on the steer direction and 'leaders drop it' -> sign flip past threshold with hysteresis. This yields a closed-loop feedback controller with a Pareto-shift diversity prediction. Adjacent diversity-steering work (STARS / Stiefel activation steering) uses a one-step orthogonal update, NOT a stateful self-cancelling feedback loop. The controller is constructed from the parents, not recalled.",
+        "nearest_prior_work": "Stiefel/STARS activation steering for diverse generation (arXiv:2601.22010) and selective-layer diversity restoration (arXiv:2602.06665). These target mode-collapse/diversity but are not closed-loop self-abandoning controllers with projection-EMA feedback and sign-flip hysteresis. Context only.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C1"
+    },
+    {
+      "global_id": "M019",
+      "merged_construct": "Kinship-Inference Mode Connectivity (resemblance-based lineage of trained models)",
+      "searches_run": [
+        "permutation-invariant model fingerprint predict mode connectivity barrier before alignment lineage phylogeny",
+        "model lineage reconstruction provenance phylogeny weight spectra fine-tune distillation family tree",
+        "\"mode connectivity\" barrier predicted by model similarity kinship without permutation alignment soup compatibility"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T002 mode-connectivity barrier is real (see M008; Git Re-Basin, permutation invariance arXiv:2110.06296). L070 family-resemblance trait and L061 hand-me-downs are real social/biological inheritance concepts. No fabricated parents.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Technical claims are sound and supported: permutation-invariant invariants (per-layer sorted singular-value spectra, activation-correlation eigenstructure) are real and genuinely symmetry-invariant; singular-value spectral fingerprints are demonstrably used for model-reuse detection (GhostSpec, arXiv:2511.06390) and model-lineage trees are recoverable from weights (MoTHer, arXiv:2405.18432). Neighbor-joining / ultrametric / additive-tree reconstruction is standard phylogenetics. Heritability gradient (slow vs fast traits) and triangle-inequality transitivity of a metric are coherent. No fabrication.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "This is the closest-to-prior-work case but remains a genuine merge per the anti-cheating test. Two SEPARATE literatures exist: (a) model-lineage/reuse recovery from weights/spectra (MoTHer arXiv:2405.18432, GhostSpec arXiv:2511.06390) and (b) mode-connectivity barriers solved via explicit permutation alignment (Git Re-Basin, neuron alignment). generation_trace (BOUNDARY_DISSOLVE) fuses them with the kinship/hand-me-down ontology to force the NON-trivial equation 'provenance-distance = mergeability-distance' — i.e. an alignment-free invariant PREDICTS the post-alignment barrier height AND reconstructs lineage simultaneously. No single named work makes that dual claim; lineage tools do not predict mode-connectivity barriers, and mode-connectivity tools compute the permutation first. The construct is assembled across two fields, not regurgitated from one named method. Adjacency to MoTHer/GhostSpec is expected and per the rules does NOT disqualify a genuine merge.",
+        "nearest_prior_work": "MoTHer / Unsupervised Model Tree Heritage Recovery (arXiv:2405.18432) reconstructs model trees from weights; Ghost in the Transformer / GhostSpec (arXiv:2511.06390) uses per-layer singular-value spectral fingerprints for model-reuse detection. Both overlap with M019's lineage + invariant-fingerprint components but neither ties the fingerprint to mode-connectivity BARRIER prediction or soup-compatibility. Strong adjacency, CONTEXT only — does not flag.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C1"
+    },
+    {
+      "global_id": "M023",
+      "merged_construct": "Fishing-Rod Speculative Decoding: patience-budgeted draft casting with a self-knotting backoff",
+      "searches_run": [
+        "adaptive draft length speculative decoding acceptance rate optimal stopping entropy"
+      ],
+      "parents_real": true,
+      "parents_note": "All parents real: T005 speculative decoding (Leviathan/Chen 2023, verified mainstream), L092 fishing, L006 tangled charger cables. Cited mechanisms are sound: geometric joint-acceptance p_hat^k for accepting prefix-k tokens is the standard spec-decoding acceptance model; Wald sequential/optimal stopping and Markov-chain departure from a typical set are real named concepts; KL(draft||target) is well-defined.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Confirmed speculative decoding accepts token k only if all k prefix tokens accepted (geometric yield p_hat^k), so the marginal-gain=marginal-cost stopping identity k*=ln(c/V)/ln(p_hat) is a legitimate derivation, not a fabricated law. Confirmed via arxiv.org/abs/2410.18351 (AdaEDL) and arxiv.org/abs/2411.18462 (SVIP) that entropy/acceptance-based early draft stopping is a real, active research direction; the entropy<->acceptance link the construct invokes is corroborated. No fabricated laws or phenomena.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows SUBSTRATE_SWAP: fishing descriptor ('wait for rare event, reward patience') maps cast=draft, nibble=token-accept, reel-in=verify; tangled-cables descriptor ('self-knot via random agitation') maps to compounding draft divergence -> geometric detangle-backoff. The deliverables (closed-form log-depth rule k*=ln(c/V)/ln(p_hat), a 'tangle index' kappa = d KL/dk with a typical-set knee, geometric-series throughput identity) are derived by literally pushing the two metaphor descriptors onto spec-decoding quantities, not recalled. Prior named methods stop drafting on entropy/acceptance thresholds but none derive the explicit logarithmic optimal-depth law or the KL-growth-derivative tangle observable.",
+        "nearest_prior_work": "AdaEDL (entropy lower-bound on acceptance prob for early draft stopping, arxiv 2410.18351), SVIP (self-verification length policy via draft entropy, arxiv 2411.18462), SpecDec++ (trained acceptance head + threshold stop, arxiv 2405.19715). All adaptive-draft-length-via-acceptance; adjacency only, not identity.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C2"
+    },
+    {
+      "global_id": "M024",
+      "merged_construct": "Junk-Drawer Mixture-of-Experts: the default-absorber expert and lid-mismatch routing audit",
+      "searches_run": [
+        "mixture of experts catch-all absorber expert low-confidence routing token margin"
+      ],
+      "parents_real": true,
+      "parents_note": "All parents real: T003 MoE token routing (Shazeer/Switch/GShard lineage, mainstream), L002 junk drawer, L005 Tupperware lid mismatch. Cited mechanisms sound: gate top-1 margin, gate entropy as routing-difficulty measure, load balancing, and a logistic/saturating mass-balance ODE (df/dt=a(1-f)-bf) are all standard and correctly applied.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Confirmed via research.google MoE Expert-Choice and arxiv 2204.09179 (representation collapse) that gate confidence/margin, load imbalance, and routing entropy are real MoE quantities; search surfaced work where some experts self-activate when an internal confidence score passes a threshold and on low-confidence/'fragile' tokens being most consequential, corroborating the confidence-gated mechanism. The logistic fill law and power-law gate-entropy scaling N^(d-s) are ordinary derivations from stated assumptions, not invented physical laws.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows SCALE_JUMP of two domestic growth clauses onto MoE quantities: junk-drawer 'absorbs un-fileable, grows by default' -> a confidence-gated absorber expert WITH a logistic share-growth ODE used as an early-warning collapse signal; Tupperware lid-mismatch 'pairing search-cost grows faster than the collection' -> super-linear gate-entropy scaling exponent (d-s). The two predictions (absorber-share velocity df/dt; positive entropy-vs-scale exponent) and their forced co-movement identity are constructed by applying the metaphors' growth clauses, not recalled. MoE literature generally avoids deliberate catch-all experts (treats them as load-balancing nuisance), so this is not a regurgitated named technique.",
+        "nearest_prior_work": "Confidence-thresholded self-activating experts and low-confidence-token routing analyses (Expert-Choice routing, research.google; counterfactual routing arxiv 2605.07260); MoE representation collapse (arxiv 2204.09179). Adjacent only; no named 'absorber expert with logistic fill law + lid-mismatch entropy exponent'.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C2"
+    },
+    {
+      "global_id": "M027",
+      "merged_construct": "Sock-Drawer Attention Sink: the unmatchable-singleton reservoir and its accumulation law",
+      "searches_run": [
+        "attention sink token softmax stabilization context length growth law transformer"
+      ],
+      "parents_real": true,
+      "parents_note": "All parents real: T028 attention sink token (well-documented; StreamingLLM/Xiao 2024 and subsequent ICLR work), L009 sock single survivor, L002 junk drawer. Cited mechanisms sound: softmax sum-to-one constraint forcing residual mass onto sink tokens, near-flat attention as a 'no confident key' event, conserved per-step attention mass, and effective-rank-based slot sizing are all legitimate.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Confirmed attention sink phenomenon and its root cause via emergentmind.com/topics/attention-sink-tokens and ICLR 2024 paper: 'When a queried token is not semantically aligned with most of its context, the normalization constraint forces the model to assign residual attention weights somewhere' and 'a single learnable sink token is enough to stabilize streaming perplexity' -- exactly the mechanism the construct builds on. Softmax flattening with context length is also confirmed (Scalable-Softmax, arxiv 2501.19399). The accumulation law M(L)=sum q_i and slope=miss-rate are straightforward derivations, not fabrications.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows SCALE_JUMP of accumulation clauses: sock-survivor 'lose partners one at a time, accumulating unmatchable singletons' -> unmatched queries deposit leftover mass that accumulates over context; junk-drawer 'grows by default' reinforces monotone growth and motivates multiple type-routed slots. The deliverables (a concave monotone sink-mass growth law M(L), slope dM/dL = live key-miss rate as a per-head under-specialization metric, sink-slot count pinned to effective rank of unmatched-query covariance) are constructed from the metaphor clauses applied to attention bookkeeping. Existing literature treats the sink as a fixed few-token quirk and proposes single learnable sinks; the context-length growth-LAW + rank-sized multi-slot sizing is not a recalled named result.",
+        "nearest_prior_work": "StreamingLLM single learnable sink token; attention-sink-as-stabilizer analyses (emergentmind, ICLR 2024); softmax-flattening fixes (Scalable-Softmax arxiv 2501.19399; Softplus re-weighting arxiv 2501.13428). Adjacent; no named 'sink-mass accumulation law vs length with rank-sized multi-slot sink'.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C2"
+    },
+    {
+      "global_id": "M032",
+      "merged_construct": "Haggling Reward Model (reservation-probing critic that concedes)",
+      "searches_run": [
+        "reward model RLHF Kalman filter uncertainty active probing reward hacking over-optimization covariance"
+      ],
+      "parents_real": true,
+      "parents_note": "All parents real: L074 haggling (alternating offers to discover hidden reservation value -- standard bargaining theory), T093 Kalman recursive estimation (canonical; gain K=Sigma/(Sigma+R) correctly stated, concede-more-when-more-uncertain is the true Kalman behavior), T037 preference reward model overfitting / reward hacking (well-documented RLHF pathology, off-distribution RM error). All correctly characterized.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Kalman gain form and its uncertainty-proportional update are stated correctly. Reward-model overfitting/over-optimization and off-distribution RM error are real and confirmed via arxiv 2602.10623 (Bayesian non-negative reward modeling) and arxiv 2503.22480 (Probabilistic Uncertain Reward Model), which independently establish uncertainty-aware RMs and covariance/overlap as over-optimization signals. Reservation value and alternating-offer bargaining are real microeconomics. No fabricated laws or phenomena.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows ROLE_EXCHANGE: standard RLHF (policy=actor, RM=environment) inverted so the RM is the active haggler eliciting the policy's hidden reservation competence; Kalman supplies the belief-update so concession IS the gain (theorem not heuristic); T037 names the precise pathology (off-distribution RM drift) the active probing cures, closing the loop. The forced objects (per-skill (mu,Sigma) competence belief, probe-the-max-uncertainty active sampling, covariance-collapse-while-reward-rising as an over-optimization alarm, settlement-price = calibrated reward) are assembled from the three parents, not recalled. Uncertainty-aware reward models exist but they are passive estimators; the haggling/role-exchanged active-probing + Kalman-gain-as-concession framing is not a named existing method.",
+        "nearest_prior_work": "Probabilistic Uncertain Reward Model (PURM, arxiv 2503.22480) and Bayesian Non-negative Reward Model (BNRM, arxiv 2602.10623) -- uncertainty-aware RMs using distribution overlap/covariance to flag over-optimization. Conceptually adjacent on the uncertainty axis but passive, single-agent, no active-probing/bargaining inversion; context only.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C2"
+    },
+    {
+      "global_id": "M041",
+      "merged_construct": "Frustrated Marinade Routing: spin-glass diffusion-depth allocation for mixture-of-experts under grudge-weighted gating",
+      "searches_run": [
+        "spin glass frustration mixture of experts routing aging non-equilibrium glassy load balancing",
+        "spin glass frustration aging two-time correlation non-equilibrium physics"
+      ],
+      "parents_real": true,
+      "parents_note": "All parents real: T072 spin-glass frustration (condensed-matter; frustration = competing couplings, frustrated loop = odd number of negative couplings around a cycle -- confirmed), L107 marination (diffusion/penetration-depth from soak time), L055 grudge (durable asymmetric negative bias). Physics claims all verified: many near-degenerate ground states from frustration, aging, two-time correlation C(t,t') depending on both times, ferromagnetic-collapse vs broken attractor.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "All invoked physics is real and correctly stated. Confirmed via scholarpedia Glassy_dynamics and arxiv 2408.17360 (non-reciprocal spin-glass transition and aging) and cond-mat/0312327 (aging dynamics of Heisenberg spin glass): frustration produces metastability/many ground states, asymmetric/non-reciprocal couplings drive non-equilibrium aging, and two-time correlators C(t,t') depend on both t and t' (not just t-t') -- exactly the 'aging fingerprint' the construct predicts. Energy E=-sum J_ij s_i s_j is the standard spin-glass Hamiltonian. No fabricated physics.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows STRUCTURAL_TRANSFER of three distinct skeletons: spin-glass frustrated energy -> routing energy over expert-activation variables with degenerate ground states; marination soak-depth -> continuous per-expert compute-depth allocation variable replacing discrete top-k (budget identity sum d_i=C); grudge durable asymmetric negative bias -> time-dependent asymmetric coupling matrix that forces non-equilibrium. The forced objects (per-token routing degeneracy/ground-state entropy, frustration-weighted continuous depth, a measurable AGING signature in routing correlations, grudge-driven collapse-suppression) are assembled by importing each parent's mechanism independently. Search found MoE-as-congestion-game and physics-of-routing work but NO method posing routing as grudge-weighted frustrated annealing over marination depth; not a recalled named technique.",
+        "nearest_prior_work": "MoE routing framed as a congestion game with mean-field limit; 'Three Phases of Expert Routing' load-balance evolution (arxiv 2604.04230); Latent Prototype Routing (arxiv 2506.21328). Physics-of-MoE adjacency only; the spin-glass-frustration + grudge-coupling + marination-depth combination is not present.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C2"
+    },
+    {
+      "global_id": "M045",
+      "merged_construct": "Fermentation-Memory Probing: many-body-localized starter lineages for measuring non-thermalizing memory in long-context models, gated by tip-of-the-tongue retrieval",
+      "searches_run": [
+        "many-body localization imbalance order parameter logarithmic entanglement entropy growth",
+        "many-body localization long-context LLM in-context memory thermalization localization length"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents confirmed real. T082 Many-body localization (MBL) is an established condensed-matter phenomenon: strong disorder inhibits thermalization, system retains memory of initial state via local integrals of motion (LIOMs). The specific observables the construct invokes are real: imbalance order parameter whose decay exponent vanishes at the MBL transition, and slow LOGARITHMIC entanglement entropy growth (confirmed verbatim as the MBL hallmark). L110 sourdough starter (periodic feeding to keep a lineage alive) and L048 tip-of-the-tongue (partial feature availability with blocked retrieval) are real and correctly characterized.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "MBL physics verified: arxiv 1404.5216 / 1907.00291 confirm logarithmic entanglement growth and persistent imbalance memory as MBL signatures; search confirmed 'exponents governing both the entropy growth and the decay of the imbalance...both vanish at the MBL transition' (en.wikipedia.org/wiki/Many-body_localization). No fabricated laws; the dual fast-imbalance-plateau / slow-log-entanglement clocks are genuine MBL features.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace shows METRIC_IMPORT of MBL observables onto LLM long-context retention, then a food parent (sourdough feeding = disorder/coupling knob) and an emotion parent (TOT = availability-minus-retrieval readout) bolted on to form a diagnostic. Search for MBL applied to LLM in-context memory returned only pure-physics papers; the engine itself flagged no MBL-LLM connection exists. The construct's distinctive forced objects (in-context localization length xi, non-monotone xi(feeding-period) resonance curve, availability-minus-retrieval gap G peaking at criticality) are assembled from the three distant parents, not recalled from a single named technique.",
+        "nearest_prior_work": "MBL memory literature (LIOMs, imbalance, log-entanglement) is the physics source; no work transfers it to LLM long-context memory. Adjacent only as the borrowed metric.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C3"
+    },
+    {
+      "global_id": "M047",
+      "merged_construct": "Emulsion-Stability Consensus: fluctuation-dissipation surfactant alignment for averaging fine-tuned models under impostor-discounted contributions",
+      "searches_run": [
+        "fluctuation-dissipation theorem response equals fluctuation over temperature susceptibility",
+        "fluctuation-dissipation theorem model soup weight averaging fine-tuned checkpoint weighting"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents real. T075 Fluctuation-dissipation theorem (FDT) is a genuine statistical-physics law (Callen-Welton 1951, Kubo) relating spontaneous fluctuations to linear-response susceptibility via temperature; the construct's 'response = fluctuation / temperature' framing is the correct qualitative form. L113 emulsion (immiscible phases stabilized by an emulsifier + agitation; curdling = phase separation) is real physical chemistry. L050 impostor feeling (success attributed to luck / miscalibrated self-trust) is a real psychological construct.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "FDT confirmed real and correctly stated (en.wikipedia.org/wiki/Fluctuation-dissipation_theorem; Rutgers L14 linear-response notes): susceptibility/response is tied to spontaneous fluctuations scaled by temperature. Model soups (the merge target) are also real (Wortsman et al. arxiv 2203.05482). No fabricated mechanism; mapping fluctuation->ensemble weight-variance and susceptibility->marginal soup effect is an analogy, not a false factual claim.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace: METRIC_IMPORT of FDT to predict each checkpoint's marginal soup effect, plus emulsion (permutation alignment = surfactant + interpolation noise = agitation to prevent curdling) and impostor-discount (down-weight luck-like FDT-violating contributions). Search found model soups exist but NO link between FDT and soup-weighting. The construct's signature claim 'impostor-model = FDT-violator = curdling-agent', the FDT-residual r_i as an instability predictor computable before building the soup, and the curdling phase boundary are constructed by fusing three distant parents, not a recalled merging recipe.",
+        "nearest_prior_work": "Model soups (Wortsman 2022) and greedy/learned soup weighting; none uses fluctuation-response theory. Adjacent target, distinct mechanism.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C3"
+    },
+    {
+      "global_id": "M054",
+      "merged_construct": "Vector-Clock Stage Fright: causal-ordering model of evaluation-induced performance collapse under observation",
+      "searches_run": [
+        "vector clock happens-before partial order distributed systems Lamport",
+        "Yerkes-Dodson law inverted-U arousal performance stage fright",
+        "LLM sandbagging evaluation awareness behave differently when tested causal detection"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents real. T057 vector clock causality is a genuine distributed-systems primitive (Lamport 1978 happens-before partial order; vector clocks detect causality and concurrency). L045 stage fright maps to the real Yerkes-Dodson inverted-U arousal-performance law (excessive arousal collapses performance). L149 yawn contagion is a real, documented phenomenon (45-60% of adults, transmission increasing with social closeness). The empirical target -- LLMs behaving differently when they detect evaluation (sandbagging / eval-awareness) -- is itself a real, active research phenomenon.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Vector clocks / happens-before verified (en.wikipedia.org/wiki/Vector_clock; Lamport timestamp). Yerkes-Dodson inverted-U verified (en.wikipedia.org/wiki/Yerkes-Dodson_law). Yawn contagion verified as real (journals.plos.org/plosone yawn-contagion-and-empathy; PMC studies). Sandbagging/eval-awareness verified real (arxiv 2508.00943 covert sandbagging; arxiv 2505.14617 Hawthorne effect in reasoning models), and even 'causal' detection of sandbagging via CoT intervention exists. No fabricated laws.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace: ROLE_EXCHANGE makes observation an active causal event, instrumented by vector clocks; stage fright supplies the arousal response law; yawn contagion supplies inter-agent spread. Searches confirm sandbagging/eval-awareness is studied, but NO work applies vector-clock happens-before ordering as a formal eval-awareness instrument, nor models test-awareness as an epidemic with R0 across a multi-agent graph. The distinctive forced objects (causal-depth scalar, causal-vs-associative dissociation holding lexical cue fixed, critical scrutiny depth d*, contagion R0 with datable patient-zero) are assembled from three unrelated parents -- a constructed instrument, not a recalled technique.",
+        "nearest_prior_work": "Sandbagging/eval-awareness research (arxiv 2508.00943, 2505.14617 Hawthorne effect) is the real adjacent target; uses CoT/probes, not vector-clock causal ordering or contagion dynamics.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C3"
+    },
+    {
+      "global_id": "M056",
+      "merged_construct": "Bloom-Filter Tip-of-the-Tongue: false-positive partial-recall sketch as a model's calibrated 'almost-knows' signal",
+      "searches_run": [
+        "Bloom filter false positive rate formula no false negatives membership",
+        "Bloom filter LLM hallucination abstention activation membership sketch knowledge"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents real. T046 Bloom filter membership sketch is a genuine probabilistic data structure with the exact invoked asymmetry (zero false negatives, tunable false positives) and the false-positive formula p=(1-e^{-kn/m})^k in k hashes, n items, m bits -- this is the classic standard form (a refined balls-and-bins correction exists but the classic form is real and standard). L048 tip-of-the-tongue (partial features present, whole blocked) and L042 deja vu (familiarity firing without a stored match) are real cognitive phenomena.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Bloom filter asymmetry verified: 'False negatives are not possible in a standard Bloom filter' and FP rate is a function of m,n,k (tsapps.nist.gov get_pdf pub_id=903775; arpitbhayani.me/blogs/bloom-filters). The p=(1-e^{-kn/m})^k formula is the textbook expression. Deja vu and tip-of-the-tongue are real. No fabricated claims.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace: BOUNDARY_DISSOLVE equates the Bloom filter's false-positive set with the almost-recall state, then builds an activation-derived membership sketch yielding a one-sided no-false-negative abstention primitive plus a 2x2 familiarity x retrievability typology (true-knowledge / TOT / deja-vu / true-absence). A recent paper (arxiv 2602.00906) DOES unify Bloom-filter membership error with LLM log-loss as a rate-distortion/impossibility BOUND -- genuinely adjacent prior work -- but that is an information-theoretic lower bound, NOT an activation-hashing abstention method with a TOT/deja-vu decomposition. Per anti-cheating rules, adjacency does not disqualify: the construct is clearly assembled by merging the three parents (the deja-vu vs TOT separable-cell typology and the activation-Bloom-sketch mechanism appear in neither the bound paper nor any single named technique), so this is a genuine merge near prior work.",
+        "nearest_prior_work": "arxiv 2602.00906 'Hallucination is a Consequence of Space-Optimality: A Rate-Distortion Theorem for Membership Testing' -- formalizes LLM memorization as membership testing and generalizes the Bloom-filter bound to log-loss. CONTEXT ONLY; it is an impossibility theorem, not this construct's activation-sketch + TOT/deja-vu method. Does not disqualify.",
+        "verbatim_quote": "The memorization of random facts can be formalized as a membership testing problem, unifying the discrete error metrics of Bloom filters with the continuous log-loss of LLMs (https://arxiv.org/pdf/2602.00906)"
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C3"
+    },
+    {
+      "global_id": "M057",
+      "merged_construct": "Persistent-Homology Bruise Forensics: topological dating of when a capability or backdoor entered a model lineage",
+      "searches_run": [
+        "persistent homology barcode birth death persistence diagram topological data analysis filtration",
+        "persistent homology checkpoint filtration date backdoor capability neural network training timeline"
+      ],
+      "parents_real": true,
+      "parents_note": "All three parents real. T059 persistent homology barcode is a genuine TDA tool: a filtration (nested sequence of complexes) assigns each topological feature a birth and death coordinate; long-persistence = real structure, short = noise -- exactly as the construct states. L152 bruise color cycle (blood breakdown passing through fixed ordered color stages) and L129 tree rings (annual bands whose width records growth intensity) are real, ordered/cumulative temporal records.",
+      "hallucination_check": {
+        "verdict": "pass",
+        "evidence": "Persistent homology / barcodes / filtration / birth-death / persistence-as-signal-vs-noise all verified (en.wikipedia.org/wiki/Persistent_homology; arxiv 1701.07857 persistent entropy separating features from noise). Tree rings and bruise color staging are real biology/forensics. No fabricated mathematics; using the checkpoint index as the filtration axis is a valid (novel) construction, not a false claim.",
+        "fabrications": []
+      },
+      "merge_authenticity": {
+        "verdict": "genuine_merge",
+        "reasoning": "generation_trace: METRIC_IMPORT uses the persistence barcode to measure a training timeline as a filtration, with bruise-color/tree-ring age-encoding supplying the 'date by ordered stages / band width' reading; birth coordinate = training step a feature entered. Search found TDA-on-neural-nets work (Neural Persistence arxiv 1812.09764; filtration learning arxiv 2307.09259) but these analyze STATIC representation shape or learn a filtration -- NONE treats the checkpoint timeline as the filtration axis to DATE when a capability/backdoor entered. The distinctive forced objects (birth-vs-persistence forensic plane separating early-load-bearing from late-load-bearing structure, 'load-bearing-yet-young' backdoor signature, developmental-staging-skip anomaly, per-interval ring-width spike at the poisoning step) are constructed by fusing the three parents, not recalled.",
+        "nearest_prior_work": "Neural Persistence (arxiv 1812.09764) and filtration-learning TDA on nets -- static/representation-shape analysis, not checkpoint-timeline dating of backdoors. Adjacent tool, distinct application; does not disqualify.",
+        "verbatim_quote": null
+      },
+      "integrity_status": "PASS",
+      "search_limited": false,
+      "checker_agent": "C3"
+    }
+  ]
+}
