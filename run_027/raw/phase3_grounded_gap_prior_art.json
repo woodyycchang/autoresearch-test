@@ -1,0 +1,42 @@
+{
+  "phase": "3_critic_grounded_gap",
+  "note": "Orchestrator-run real WebSearch prior-art firewall (R6 cross-check, R9 grounded-gap). Verbatim snippets from retrieved results only (R7).",
+  "date": "2026-06-04",
+  "evidence": {
+    "A1_permutation_monodromy": {
+      "closest_prior_art": [
+        {"id":"arXiv:2510.02670","title":"Topological Invariance and Breakdown in Learning","finding":"Studies whether the TOPOLOGY OF THE NEURON DISTRIBUTION is preserved (below critical LR eta*) or coarsened (above eta*). Object = topology of neuron point-set, NOT an S_n monodromy/winding charge of the trajectory."},
+        {"id":"arXiv:2402.01342","title":"Training-time Neuron Alignment through Permutation Subspace","finding":"Breaks permutation symmetry during training via fixed anchors; about alignment/fusion, not a holonomy charge."}
+      ],
+      "geometric_phase_check":"Verbatim: 'the search results do not contain literature that directly connects these concepts - applying geometric phase or holonomy theory from physics to understand neural network training with cyclic learning rate schedules. The two topics appear separately in the literature.'",
+      "cyclical_lr_exists":"arXiv:1506.01186 Cyclical Learning Rates (Smith) - a practical LR schedule, NOT framed as a holonomy-generating closed loop.",
+      "grounded_gap_verdict":"NOT already known. The S_n monodromy / discrete geometric phase of a cyclic training protocol is not a named target in retrieved literature."
+    },
+    "A2_anomaly_current": {
+      "collision": [
+        {"id":"arXiv:2604.07405","title":"Conservation Law Breaking at the Edge of Stability: A Spectral Theory of Non-Convex Neural Network Optimization","finding":"Verbatim: 'the drift in conservation law breaking scales exactly as eta^2 multiplied by a gradient imbalance sum S(eta), which admits a closed-form spectral crossover formula ... at the Edge of Stability where the maximum Hessian eigenvalue hovers near 2/eta, conservation law breaking is maximized.' This already gives the breaking a definite curvature/spectral structure."},
+        {"id":"arXiv:2012.04728","title":"Neural Mechanics (Kunin et al.)","finding":"Already named the symmetry->conservation->finite-LR-breaking; the reframe builds directly on it."}
+      ],
+      "contradiction":"Reframe A2 predicts charge drift LINEAR in eta; the published spectral theory (2604.07405) finds drift ~ eta^2. The reframe's distinguishing prediction appears already CONTRADICTED.",
+      "grounded_gap_verdict":"ALREADY KNOWN (and its differentiator possibly already refuted). Conservation-law-breaking structure is an active 2026 topic."
+    },
+    "A3_rescaling_wilson_loops": {
+      "reframe_already_known": [
+        {"id":"arXiv:2602.14729","title":"Scale redundancy and soft gauge fixing in positively homogeneous neural networks (Terin, 2026)","finding":"Verbatim: 'interprets this symmetry as a gauge redundancy and introduces gauge-adapted coordinates that separate invariant and scale-imbalance directions. Inspired by gauge fixing in field theory, it introduces a soft orbit-selection (norm-balancing) functional acting only on redundant scale coordinates.' => The GAUGE REFRAME is already published. But goal is gauge-FIXING (removing redundancy), not identifying cycle observables."},
+        {"id":"arXiv:2111.04389","title":"Lattice Gauge Symmetry in Neural Networks","finding":"Gauge symmetry in NN context exists but for lattice-gauge simulation, not the rescaling gauge's cycle invariants."}
+      ],
+      "observable_appears_novel":[
+        {"id":"path-norm literature (1506.02617, 1809.07122 basis-path norm, 1910.10245)","finding":"Verbatim: path-norm is 'the product of weights along all paths from input to output units' - INPUT-OUTPUT paths only. 'weight products around cycles, and recurrent network generalization are less prominently covered'; 'extending path-based analysis to residual networks represent a direction for future research.'"}
+      ],
+      "grounded_gap_verdict":"CONTESTABLE. Gauge reframe = already known. Cycle-Wilson-loop observable (b_1 invariants beyond input-output path-norm) = appears NOT yet named. Value is in the forced observable, not the label (Dirac pattern). Critic to adjudicate; verify hard."
+    },
+    "A4_attention_hopfield": {
+      "collision":[{"id":"arXiv:2008.02217","title":"Hopfield Networks is All You Need (Ramsauer et al. 2020)","finding":"Verbatim: 'The new update rule is equivalent to the attention mechanism used in transformers.' Network has three energy-minima types incl. metastable states; exponential storage capacity. EXACTLY the reframe."}],
+      "grounded_gap_verdict":"ALREADY KNOWN (flagship published reframe)."
+    },
+    "A5_dropout_bayesian": {
+      "collision":[{"id":"arXiv:1506.02142 / Gal & Ghahramani ICML2016","title":"Dropout as a Bayesian Approximation","finding":"Verbatim: 'a deep neural network with arbitrary depth and non-linearities, with dropout applied before every weight layer, is mathematically equivalent to an approximation to the probabilistic deep Gaussian process model.' Led to MC-Dropout uncertainty. EXACTLY the reframe."}],
+      "grounded_gap_verdict":"ALREADY KNOWN (flagship published reframe)."
+    }
+  }
+}

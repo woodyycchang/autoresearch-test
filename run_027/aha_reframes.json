@@ -1,0 +1,68 @@
+{
+  "run": "run_027",
+  "phase": "2_AGENT-EINSTEIN-AHA",
+  "method": "separate claude -p --model opus process (pure reframe, no web tools). 3 reframes seeded by DIRAC derivations use the orchestrator-verified verbatim quotes; 2 fresh reframes flagged quote_needs_verification for orchestrator cross-check.",
+  "agent": "EINSTEIN-AHA",
+  "reframes": [
+    {
+      "id": "A1",
+      "based_on": "D1",
+      "phenomenon": "Permutation symmetry of hidden units (neuron re-labeling invariance) and mode connectivity between SGD solutions",
+      "current_view": "Hidden-unit permutations are a static, trivial redundancy: the loss landscape has S_n-many functionally identical copies of every minimum, and 'permutation alignment' is just a bookkeeping nuisance you quotient out before comparing or averaging two networks.",
+      "radical_reframe": "A trained network is NOT a point in weight space \u2014 it IS a point in a covering space of function space whose deck transformations are S_n. Training is therefore a PATH on this covering, and a closed loop in function space need not close in weight space: it can return permuted. The relevant invariant of a training run is not the final config but the monodromy element of S_n it winds up \u2014 a topological charge of the trajectory, not a property of any configuration.",
+      "what_it_implies": "Run a cyclic training protocol that returns the network to the SAME function (same data, same effective loss geometry \u2014 e.g. a periodic curriculum or a closed loop in hyperparameter space). The standard 'static redundancy' view predicts the weights return to themselves up to zero-mean noise. The reframe predicts a QUANTIZED, integer-valued net permutation that accumulates additively with the number of cycles (winding number), is invisible to the loss curve, and is robust to noise because it is topological. Concretely: optimal permutation-alignment between cycle-start and cycle-end weights should land on a NON-identity element of S_n that is reproducible across seeds and grows step-wise (not diffusively) with cycle count.",
+      "primary_quote": "One can swap any two units of a hidden layer in a network and \u2013 assuming weights are adjusted accordingly \u2013 the functionality of the network will remain unchanged.",
+      "quote_source": "AGENT-DIRAC derivation D1 (P1 permutation symmetry)",
+      "quote_needs_verification": false,
+      "reasoning_trace": "This is not 'permutation symmetry PLUS topology'. It is a claim about what a training run fundamentally IS: lifting a loop from the base (function space) to its cover (weight space), where identity-of-the-network is a covering-space datum. Gravity-is-curvature style: the symmetry stops being a redundancy to discard and becomes the carrier of a new conserved integer that only a path \u2014 never a point \u2014 can possess."
+    },
+    {
+      "id": "A2",
+      "based_on": "D2",
+      "phenomenon": "Noether-type conservation laws of SGD under continuous parameter symmetries (e.g. conserved quantities from scaling/rotation symmetries during training)",
+      "current_view": "In the continuous-time (gradient-flow) limit, a continuous symmetry yields an exactly conserved charge Q. At finite learning rate the charge drifts, and that drift is dismissed as discretization error / numerical noise \u2014 a sqrt(t) random walk to be minimized.",
+      "radical_reframe": "Finite learning rate does not 'break' the conservation law approximately \u2014 it makes the symmetry ANOMALOUS in the exact sense of quantum field theory. The classical (gradient-flow) symmetry is genuinely conserved; the discrete SGD measure carries an anomaly, so the conservation law is replaced by an exact ANOMALY CURRENT dQ/dt = -eta\u00b7\u27e8\u2207Q, H \u2207L\u27e9 + O(eta\u00b2). The drift IS a physical current with a universal coefficient, not error.",
+      "what_it_implies": "The 'numerical noise' view predicts Q performs an unbiased random walk: zero mean, variance growing ~t, no systematic direction. The anomaly reframe predicts a DETERMINISTIC, sign-predictable drift: the mean of dQ/dt equals -eta\u00b7\u27e8\u2207Q, H \u2207L\u27e9 measurable directly from the Hessian\u2013gradient overlap, scaling LINEARLY in eta (not as a diffusion constant ~eta), and its time-integral \u222e is index-like (approaches a quantized, schedule-independent value over a closed training cycle). Test: across many seeds the charge drift should NOT average to zero but to a curvature-predicted nonzero value whose sign flips when you flip the sign of \u27e8\u2207Q, H\u2207L\u27e9, and halving eta should halve the drift, not the variance.",
+      "primary_quote": "any such symmetry imposes stringent geometric constraints on gradients and Hessians, leading to an associated conservation law in the continuous-time limit of stochastic gradient descent (SGD), akin to Noether's theorem in physics",
+      "quote_source": "AGENT-DIRAC derivation D2 (P2 Noether conservation)",
+      "quote_needs_verification": false,
+      "reasoning_trace": "Reconceptualizes what the conservation-law violation IS: not a failure of an idealization but a second, exact law (the anomaly) that the idealization hid. The Noether charge and its anomaly are one object viewed at two orders in eta \u2014 exactly the classical-symmetry / quantum-anomaly relationship \u2014 so it predicts structure (linear-in-eta deterministic, curvature-signed, index-quantized) that the noise picture forbids."
+    },
+    {
+      "id": "A3",
+      "based_on": "D3",
+      "phenomenon": "Positive-rescaling invariance of ReLU networks and path-norm as the invariant capacity measure",
+      "current_view": "The c-up/c-down rescaling at each ReLU node is a gauge redundancy, and the complete set of rescaling-invariant quantities is captured by path-norms \u2014 products of weights along input-to-output PATHS. Two networks with equal path-norms are treated as carrying equal invariant content.",
+      "radical_reframe": "The per-node rescaling freedom IS a literal abelian (multiplicative R\u207a) gauge field living on the computation graph, with the log-weights as the connection. Its gauge-invariant content is therefore NOT exhausted by open paths \u2014 it lives in HOLONOMIES around closed cycles of the graph: Wilson loops L_y = \u220f(weights around independent cycle y), one per generator of the graph's first homology (b_1 of them). Path-norm measures only the 'open Wilson lines'; the genuine gauge-invariant 'magnetic flux' through the loops is a separate, missed observable whenever the graph has internal cycles.",
+      "what_it_implies": "Build two ReLU networks on a cyclic computation graph (residual or recurrent, b_1 \u2265 1) that are matched to identical path-norms (and identical all-paths spectra) but differ in their cycle Wilson-loop products L_y. The path-norm view predicts these are equivalent in capacity/behavior. The gauge reframe predicts a MEASURABLE difference traceable to the loop flux: different generalization, different robustness, or different optimization geometry that correlates specifically with the Wilson-loop mismatch \u2014 and crucially this difference is rescaling-invariant (it cannot be gauged away), so it survives any reparam that leaves path-norm fixed. The gap should grow with b_1.",
+      "primary_quote": "if the incoming weights of a hidden node with ReLU activation are multiplied by a positive constant c and the outgoing weights are divided by c, the neural network with the new weights will generate exactly the same output as the old one for an arbitrary input",
+      "quote_source": "AGENT-DIRAC derivation D3 (P3 ReLU rescaling symmetry)",
+      "quote_needs_verification": false,
+      "reasoning_trace": "Not 'rescaling symmetry combined with gauge theory'. It says what the rescaling symmetry IS: a connection on a graph bundle, whose physics is holonomy. Once that identification is made, homology (b_1) is forced, and the existence of path-norm-invisible invariants is a prediction, not a bolt-on \u2014 the same way calling gravity 'curvature' forces light-bending."
+    },
+    {
+      "id": "A4",
+      "based_on": "fresh",
+      "phenomenon": "Self-attention in transformers",
+      "current_view": "Attention is a learned soft-retrieval / relevance-weighting mechanism: queries and keys produce softmax weights that form a convex average of value vectors. It is understood as dynamic, content-based routing of information between tokens.",
+      "radical_reframe": "A single attention head is NOT a one-shot weighted average \u2014 it IS one update step of a continuous-state modern Hopfield associative memory descending an energy function. The keys are stored patterns, the query is a probe, and softmax-attention is exactly the energy-minimizing retrieval update. Attention is associative memory recall, not routing.",
+      "what_it_implies": "The weighted-average view treats attention as a single feedforward operation with no internal dynamics. The Hopfield reframe predicts genuine RETRIEVAL DYNAMICS and a STORAGE-CAPACITY law that the averaging view does not: (i) iterating one fixed attention head to a fixed point should converge to stored patterns and exhibit metastable/spurious states; (ii) the number of patterns retrievable separably scales EXPONENTIALLY in the key dimension (not linearly); (iii) there is a temperature (the softmax scale / 1/sqrt(d)) controlling a sharp transition between 'average-of-everything' (global fixed point) and 'single-pattern retrieval' (many metastable fixed points). Test: measure capacity scaling and fixed-point convergence of an isolated head \u2014 averaging predicts no fixed-point structure, Hopfield predicts exponential capacity and metastability.",
+      "primary_quote": "We show that the transformer attention mechanism is the update rule of a modern Hopfield network with continuous states.",
+      "quote_source": "Ramsauer et al., 'Hopfield Networks is All You Need' (2020), abstract",
+      "quote_needs_verification": true,
+      "reasoning_trace": "The reframe replaces the ontology of attention (routing) with another (energy-descent retrieval). That re-identification forces predictions \u2014 exponential capacity, metastable fixed points, a retrieval/averaging phase transition in temperature \u2014 none of which the 'soft weighted average' description even has vocabulary for. It is 'attention IS recall', Einstein-style, not 'attention plus Hopfield'."
+    },
+    {
+      "id": "A5",
+      "based_on": "fresh",
+      "phenomenon": "Dropout regularization",
+      "current_view": "Dropout randomly zeros units during training to prevent co-adaptation of features, acting as an implicit ensemble / noise regularizer that improves test accuracy. At test time dropout is switched off and weights are rescaled.",
+      "radical_reframe": "Dropout is NOT a heuristic noise injection \u2014 a dropout network IS, exactly, a variational approximation to a deep Gaussian process: the Bernoulli masks ARE samples from an approximate posterior over the weights, and training with dropout IS performing approximate Bayesian inference. The regularizer is the KL term of a variational objective in disguise.",
+      "what_it_implies": "The 'noise regularizer' view says dropout should be turned OFF at test time and yields a single point prediction. The Bayesian reframe predicts that keeping dropout ON at test time and averaging stochastic forward passes (MC-dropout) yields a calibrated PREDICTIVE UNCERTAINTY equal to the posterior variance of the corresponding deep GP \u2014 a quantity the regularization view does not even define. Testable consequences absent from the standard account: (i) MC-dropout variance should track true predictive error and grow on out-of-distribution inputs; (ii) the optimal dropout rate is tied to the model's prior length-scale / weight-decay via a specific relation, not a free knob; (iii) uncertainty should be recoverable at no extra training cost purely by sampling masks at inference.",
+      "primary_quote": "We show that a neural network with arbitrary depth and non-linearities, with dropout applied before every weight layer, is mathematically equivalent to an approximation to the probabilistic deep Gaussian process.",
+      "quote_source": "Gal & Ghahramani, 'Dropout as a Bayesian Approximation' (ICML 2016), abstract",
+      "quote_needs_verification": true,
+      "reasoning_trace": "This says what dropout fundamentally IS (posterior sampling), not 'dropout combined with Bayes'. The identification re-purposes the exact same operation \u2014 masking \u2014 as inference, which forces a brand-new observable (calibrated test-time uncertainty / OOD variance) that the regularization ontology cannot produce, satisfying R13's different-prediction requirement."
+    }
+  ]
+}
