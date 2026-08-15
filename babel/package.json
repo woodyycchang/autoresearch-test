@@ -1,0 +1,25 @@
+{
+  "name": "library-of-babel",
+  "version": "1.0.0",
+  "description": "A browser-playable 3D replica of the Library of Babel, exactly as Borges describes it",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview",
+    "test": "vitest run --dir tests/unit",
+    "test:e2e": "vitest run --dir tests/e2e --testTimeout 240000 --hookTimeout 240000",
+    "verify": "npm run test && npm run build && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/three": "^0.184.1",
+    "puppeteer": "^25.1.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  },
+  "dependencies": {
+    "three": "^0.184.0"
+  }
+}
